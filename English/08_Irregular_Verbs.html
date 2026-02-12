@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irregular Verbs — Қалыпты емес етістіктер</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 2rem;
+            color: #1a1a2e;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+        .wrap { max-width: 900px; margin: 0 auto; }
+        .back { margin-bottom: 1rem; }
+        .back a { color: #3498db; text-decoration: none; }
+        .back a:hover { text-decoration: underline; }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 12px;
+            font-size: 1.75rem;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 2rem;
+            font-size: 1.25rem;
+            border-left: 4px solid #3498db;
+            padding-left: 12px;
+        }
+        .kk { color: #555; font-size: 0.95em; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,.08);
+        }
+        th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #3498db; color: #fff; font-weight: 600; }
+        tr:hover { background: #f5f9fc; }
+        tr:last-child td { border-bottom: none; }
+        .num { width: 40px; text-align: center; color: #888; }
+        .search-wrap { margin: 1rem 0; }
+        .search-wrap input {
+            padding: 10px 16px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p class="back"><a href="index.html">← English тақырыптарына оралу</a></p>
+
+        <h1>Irregular Verbs</h1>
+        <p class="kk">Қалыпты емес етістіктер — Past Simple және Past Participle формалары -ed жұрнағымен жасалмайды. Бұл етістіктерді жаттау керек.</p>
+
+        <div class="search-wrap">
+            <input type="text" id="search" placeholder="Іздеу (мысалы: go, went, gone)..." oninput="filterTable()">
+        </div>
+
+        <h2>Барлық irregular verbs тізімі</h2>
+        <table id="verbTable">
+            <thead>
+                <tr>
+                    <th class="num">№</th>
+                    <th>Infinitive</th>
+                    <th>Past Simple</th>
+                    <th>Past Participle</th>
+                    <th>Қазақша</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="num">1</td><td>arise</td><td>arose</td><td>arisen</td><td>туу, пайда болу</td></tr>
+                <tr><td class="num">2</td><td>awake</td><td>awoke</td><td>awoken</td><td>ояну</td></tr>
+                <tr><td class="num">3</td><td>be</td><td>was/were</td><td>been</td><td>болу</td></tr>
+                <tr><td class="num">4</td><td>bear</td><td>bore</td><td>born/borne</td><td>көтеру, туу</td></tr>
+                <tr><td class="num">5</td><td>beat</td><td>beat</td><td>beaten</td><td>ұру, жеңу</td></tr>
+                <tr><td class="num">6</td><td>become</td><td>became</td><td>become</td><td>болу, айналу</td></tr>
+                <tr><td class="num">7</td><td>begin</td><td>began</td><td>begun</td><td>бастау</td></tr>
+                <tr><td class="num">8</td><td>bend</td><td>bent</td><td>bent</td><td>иілу, бүгу</td></tr>
+                <tr><td class="num">9</td><td>bet</td><td>bet</td><td>bet</td><td>бақа түсіру</td></tr>
+                <tr><td class="num">10</td><td>bind</td><td>bound</td><td>bound</td><td>байлау, тігу</td></tr>
+                <tr><td class="num">11</td><td>bite</td><td>bit</td><td>bitten</td><td>тістеу, шағу</td></tr>
+                <tr><td class="num">12</td><td>bleed</td><td>bled</td><td>bled</td><td>қан кету</td></tr>
+                <tr><td class="num">13</td><td>blow</td><td>blew</td><td>blown</td><td>соғу, үрлеу</td></tr>
+                <tr><td class="num">14</td><td>break</td><td>broke</td><td>broken</td><td>сындыру, бүзу</td></tr>
+                <tr><td class="num">15</td><td>breed</td><td>bred</td><td>bred</td><td>өсіру, ұрпақ</td></tr>
+                <tr><td class="num">16</td><td>bring</td><td>brought</td><td>brought</td><td>әкелу, апару</td></tr>
+                <tr><td class="num">17</td><td>broadcast</td><td>broadcast</td><td>broadcast</td><td>хабар тарату</td></tr>
+                <tr><td class="num">18</td><td>build</td><td>built</td><td>built</td><td>құру, салу</td></tr>
+                <tr><td class="num">19</td><td>burn</td><td>burnt/burned</td><td>burnt/burned</td><td>жағу, күю</td></tr>
+                <tr><td class="num">20</td><td>burst</td><td>burst</td><td>burst</td><td>жарылу, атқылау</td></tr>
+                <tr><td class="num">21</td><td>buy</td><td>bought</td><td>bought</td><td>сатып алу</td></tr>
+                <tr><td class="num">22</td><td>can</td><td>could</td><td>—</td><td>ала алу, білу</td></tr>
+                <tr><td class="num">23</td><td>cast</td><td>cast</td><td>cast</td><td>лақтыру, тастау</td></tr>
+                <tr><td class="num">24</td><td>catch</td><td>caught</td><td>caught</td><td>ұстау, қармау</td></tr>
+                <tr><td class="num">25</td><td>choose</td><td>chose</td><td>chosen</td><td>таңдау</td></tr>
+                <tr><td class="num">26</td><td>cling</td><td>clung</td><td>clung</td><td>жабысып тұру</td></tr>
+                <tr><td class="num">27</td><td>come</td><td>came</td><td>come</td><td>келу</td></tr>
+                <tr><td class="num">28</td><td>cost</td><td>cost</td><td>cost</td><td>тұру (құны)</td></tr>
+                <tr><td class="num">29</td><td>creep</td><td>crept</td><td>crept</td><td>жорғалау, сырғанау</td></tr>
+                <tr><td class="num">30</td><td>cut</td><td>cut</td><td>cut</td><td>кесу, қию</td></tr>
+                <tr><td class="num">31</td><td>deal</td><td>dealt</td><td>dealt</td><td>өңдеу, сату</td></tr>
+                <tr><td class="num">32</td><td>dig</td><td>dug</td><td>dug</td><td>қазу</td></tr>
+                <tr><td class="num">33</td><td>do</td><td>did</td><td>done</td><td>істеу, жасау</td></tr>
+                <tr><td class="num">34</td><td>draw</td><td>drew</td><td>drawn</td><td>сузу, тарту</td></tr>
+                <tr><td class="num">35</td><td>dream</td><td>dreamt/dreamed</td><td>dreamt/dreamed</td><td>армандау</td></tr>
+                <tr><td class="num">36</td><td>drink</td><td>drank</td><td>drunk</td><td>ішу</td></tr>
+                <tr><td class="num">37</td><td>drive</td><td>drove</td><td>driven</td><td>жүргізу</td></tr>
+                <tr><td class="num">38</td><td>eat</td><td>ate</td><td>eaten</td><td>жеу</td></tr>
+                <tr><td class="num">39</td><td>fall</td><td>fell</td><td>fallen</td><td>құлау, түсу</td></tr>
+                <tr><td class="num">40</td><td>feed</td><td>fed</td><td>fed</td><td>тамақтандыру</td></tr>
+                <tr><td class="num">41</td><td>feel</td><td>felt</td><td>felt</td><td>сезу, сезіну</td></tr>
+                <tr><td class="num">42</td><td>fight</td><td>fought</td><td>fought</td><td>соғысу, күресу</td></tr>
+                <tr><td class="num">43</td><td>find</td><td>found</td><td>found</td><td>табу</td></tr>
+                <tr><td class="num">44</td><td>fly</td><td>flew</td><td>flown</td><td>ұшу</td></tr>
+                <tr><td class="num">45</td><td>forbid</td><td>forbade</td><td>forbidden</td><td>тігу, тыйу</td></tr>
+                <tr><td class="num">46</td><td>forget</td><td>forgot</td><td>forgotten</td><td>ұмыту</td></tr>
+                <tr><td class="num">47</td><td>forgive</td><td>forgave</td><td>forgiven</td><td>кешіру</td></tr>
+                <tr><td class="num">48</td><td>freeze</td><td>froze</td><td>frozen</td><td>қату, мұздау</td></tr>
+                <tr><td class="num">49</td><td>get</td><td>got</td><td>got/gotten</td><td>алу, болу</td></tr>
+                <tr><td class="num">50</td><td>give</td><td>gave</td><td>given</td><td>беру</td></tr>
+                <tr><td class="num">51</td><td>go</td><td>went</td><td>gone</td><td>кету, бару</td></tr>
+                <tr><td class="num">52</td><td>grow</td><td>grew</td><td>grown</td><td>өсу, өсіру</td></tr>
+                <tr><td class="num">53</td><td>hang</td><td>hung</td><td>hung</td><td>ілу, ілу</td></tr>
+                <tr><td class="num">54</td><td>have</td><td>had</td><td>had</td><td>ие болу, бар болу</td></tr>
+                <tr><td class="num">55</td><td>hear</td><td>heard</td><td>heard</td><td>есту</td></tr>
+                <tr><td class="num">56</td><td>hide</td><td>hid</td><td>hidden</td><td>жасыру</td></tr>
+                <tr><td class="num">57</td><td>hit</td><td>hit</td><td>hit</td><td>соғу, тию</td></tr>
+                <tr><td class="num">58</td><td>hold</td><td>held</td><td>held</td><td>ұстау, ұстау</td></tr>
+                <tr><td class="num">59</td><td>hurt</td><td>hurt</td><td>hurt</td><td>жарақаттау, ауырту</td></tr>
+                <tr><td class="num">60</td><td>keep</td><td>kept</td><td>kept</td><td>сақтау, ұстау</td></tr>
+                <tr><td class="num">61</td><td>kneel</td><td>knelt</td><td>knelt</td><td>тізе бүгу</td></tr>
+                <tr><td class="num">62</td><td>know</td><td>knew</td><td>known</td><td>білу</td></tr>
+                <tr><td class="num">63</td><td>lay</td><td>laid</td><td>laid</td><td>қою, жатқызу</td></tr>
+                <tr><td class="num">64</td><td>lead</td><td>led</td><td>led</td><td>жетектеу, басшылық ету</td></tr>
+                <tr><td class="num">65</td><td>learn</td><td>learnt/learned</td><td>learnt/learned</td><td>үйрену</td></tr>
+                <tr><td class="num">66</td><td>leave</td><td>left</td><td>left</td><td>кету, қалдыру</td></tr>
+                <tr><td class="num">67</td><td>lend</td><td>lent</td><td>lent</td><td>беру (ұзақ мерзімге)</td></tr>
+                <tr><td class="num">68</td><td>let</td><td>let</td><td>let</td><td>рұқсат ету, жіберу</td></tr>
+                <tr><td class="num">69</td><td>lie</td><td>lay</td><td>lain</td><td>жату (қияда)</td></tr>
+                <tr><td class="num">70</td><td>light</td><td>lit/lighted</td><td>lit/lighted</td><td>жағу, жарықтандыру</td></tr>
+                <tr><td class="num">71</td><td>lose</td><td>lost</td><td>lost</td><td>жоғалту</td></tr>
+                <tr><td class="num">72</td><td>make</td><td>made</td><td>made</td><td>жасау, ету</td></tr>
+                <tr><td class="num">73</td><td>mean</td><td>meant</td><td>meant</td><td>мағынасы болу, демек</td></tr>
+                <tr><td class="num">74</td><td>meet</td><td>met</td><td>met</td><td>кездесу, танысу</td></tr>
+                <tr><td class="num">75</td><td>pay</td><td>paid</td><td>paid</td><td>төлеу</td></tr>
+                <tr><td class="num">76</td><td>put</td><td>put</td><td>put</td><td>қою, салу</td></tr>
+                <tr><td class="num">77</td><td>quit</td><td>quit</td><td>quit</td><td>тастау, қою</td></tr>
+                <tr><td class="num">78</td><td>read</td><td>read</td><td>read</td><td>оқу</td></tr>
+                <tr><td class="num">79</td><td>ride</td><td>rode</td><td>ridden</td><td>міну, жүру</td></tr>
+                <tr><td class="num">80</td><td>ring</td><td>rang</td><td>rung</td><td>шыңғылау, қоңырау</td></tr>
+                <tr><td class="num">81</td><td>rise</td><td>rose</td><td>risen</td><td>көтерілу, шығу</td></tr>
+                <tr><td class="num">82</td><td>run</td><td>ran</td><td>run</td><td>жүгіру, ағу</td></tr>
+                <tr><td class="num">83</td><td>say</td><td>said</td><td>said</td><td>айту</td></tr>
+                <tr><td class="num">84</td><td>see</td><td>saw</td><td>seen</td><td>көру</td></tr>
+                <tr><td class="num">85</td><td>seek</td><td>sought</td><td>sought</td><td>іздеу, табуға тырысу</td></tr>
+                <tr><td class="num">86</td><td>sell</td><td>sold</td><td>sold</td><td>сату</td></tr>
+                <tr><td class="num">87</td><td>send</td><td>sent</td><td>sent</td><td>жіберу</td></tr>
+                <tr><td class="num">88</td><td>set</td><td>set</td><td>set</td><td>қою, орнату</td></tr>
+                <tr><td class="num">89</td><td>sew</td><td>sewed</td><td>sewn/sewed</td><td>тігу</td></tr>
+                <tr><td class="num">90</td><td>shake</td><td>shook</td><td>shaken</td><td>сілкіну, дірілдеу</td></tr>
+                <tr><td class="num">91</td><td>shine</td><td>shone</td><td>shone</td><td>жарық беру, жарқырау</td></tr>
+                <tr><td class="num">92</td><td>shoot</td><td>shot</td><td>shot</td><td>ату, ату</td></tr>
+                <tr><td class="num">93</td><td>show</td><td>showed</td><td>shown/showed</td><td>көрсету</td></tr>
+                <tr><td class="num">94</td><td>shut</td><td>shut</td><td>shut</td><td>жабу</td></tr>
+                <tr><td class="num">95</td><td>sing</td><td>sang</td><td>sung</td><td>ән айту</td></tr>
+                <tr><td class="num">96</td><td>sink</td><td>sank</td><td>sunk</td><td>батыру, бату</td></tr>
+                <tr><td class="num">97</td><td>sit</td><td>sat</td><td>sat</td><td>отыру</td></tr>
+                <tr><td class="num">98</td><td>sleep</td><td>slept</td><td>slept</td><td>ұйқылау</td></tr>
+                <tr><td class="num">99</td><td>slide</td><td>slid</td><td>slid</td><td>сырғанау</td></tr>
+                <tr><td class="num">100</td><td>speak</td><td>spoke</td><td>spoken</td><td>сөйлеу</td></tr>
+                <tr><td class="num">101</td><td>spend</td><td>spent</td><td>spent</td><td>жұмсау, өткізу</td></tr>
+                <tr><td class="num">102</td><td>spill</td><td>spilt/spilled</td><td>spilt/spilled</td><td>төгу, құю</td></tr>
+                <tr><td class="num">103</td><td>spin</td><td>spun</td><td>spun</td><td>айналу, айналдыру</td></tr>
+                <tr><td class="num">104</td><td>spread</td><td>spread</td><td>spread</td><td>тарату, жайылу</td></tr>
+                <tr><td class="num">105</td><td>stand</td><td>stood</td><td>stood</td><td>тұру</td></tr>
+                <tr><td class="num">106</td><td>steal</td><td>stole</td><td>stolen</td><td>ұрлау</td></tr>
+                <tr><td class="num">107</td><td>stick</td><td>stuck</td><td>stuck</td><td>жабысып тұру, қою</td></tr>
+                <tr><td class="num">108</td><td>sting</td><td>stung</td><td>stung</td><td>шағу (ари)</td></tr>
+                <tr><td class="num">109</td><td>stink</td><td>stank/stunk</td><td>stunk</td><td>шыбыңдау</td></tr>
+                <tr><td class="num">110</td><td>strike</td><td>struck</td><td>struck/stricken</td><td>соғу, соққы</td></tr>
+                <tr><td class="num">111</td><td>swear</td><td>swore</td><td>sworn</td><td>ант ішу</td></tr>
+                <tr><td class="num">112</td><td>sweep</td><td>swept</td><td>swept</td><td>сыпыру</td></tr>
+                <tr><td class="num">113</td><td>swim</td><td>swam</td><td>swum</td><td>жүзу</td></tr>
+                <tr><td class="num">114</td><td>swing</td><td>swung</td><td>swung</td><td>тербелу, айналдыру</td></tr>
+                <tr><td class="num">115</td><td>take</td><td>took</td><td>taken</td><td>алу, әкелу</td></tr>
+                <tr><td class="num">116</td><td>teach</td><td>taught</td><td>taught</td><td>оқыту</td></tr>
+                <tr><td class="num">117</td><td>tear</td><td>tore</td><td>torn</td><td>жырту</td></tr>
+                <tr><td class="num">118</td><td>tell</td><td>told</td><td>told</td><td>айту, хабарлау</td></tr>
+                <tr><td class="num">119</td><td>think</td><td>thought</td><td>thought</td><td>ойлау, санау</td></tr>
+                <tr><td class="num">120</td><td>throw</td><td>threw</td><td>thrown</td><td>лақтыру</td></tr>
+                <tr><td class="num">121</td><td>understand</td><td>understood</td><td>understood</td><td>түсіну</td></tr>
+                <tr><td class="num">122</td><td>wake</td><td>woke</td><td>woken</td><td>ояну</td></tr>
+                <tr><td class="num">123</td><td>wear</td><td>wore</td><td>worn</td><td>киеу</td></tr>
+                <tr><td class="num">124</td><td>weep</td><td>wept</td><td>wept</td><td>жылау</td></tr>
+                <tr><td class="num">125</td><td>win</td><td>won</td><td>won</td><td>жеңу</td></tr>
+                <tr><td class="num">126</td><td>wind</td><td>wound</td><td>wound</td><td>орау, бұру</td></tr>
+                <tr><td class="num">127</td><td>write</td><td>wrote</td><td>written</td><td>жазу</td></tr>
+            </tbody>
+        </table>
+
+        <p class="kk" style="margin-top: 1.5rem;">Барлығы: 127 қалыпты емес етістік. Кейбір етістіктер (мысалы burn, dream, learn) британдық және американдық ағылшында екі түрде қолданылады: burnt/burned, dreamt/dreamed, learnt/learned.</p>
+    </div>
+
+    <script>
+        function filterTable() {
+            const input = document.getElementById('search');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('verbTable');
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let found = false;
+                for (let j = 1; j < cells.length; j++) {
+                    if (cells[j].textContent.toLowerCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = found ? '' : 'none';
+            }
+        }
+    </script>
+</body>
+</html>

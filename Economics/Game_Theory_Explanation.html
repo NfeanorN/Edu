@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Theory — Теория игр</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #16a085; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #16a085; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #e8f8f5; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #e8f8f5; border-left: 4px solid #16a085; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .game-table { font-family: monospace; text-align: center; }
+        .game-table td { padding: 15px; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #16a085; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Game Theory — Теория игр</h1>
+
+    <h2>What is Game Theory? / Что такое теория игр?</h2>
+    <p><strong>English:</strong> Studies strategic interdependence — how one player's choice affects others' outcomes. Used for oligopoly, auctions, negotiations.</p>
+    <p><strong>Русский:</strong> Изучает стратегическую взаимозависимость — как выбор одного игрока влияет на результат других.</p>
+
+    <h3>Key Terms / Ключевые термины</h3>
+    <table>
+        <tr><th>Term / Термин</th><th>Meaning / Значение</th></tr>
+        <tr><td>Players</td><td>Decision-makers / Игроки</td></tr>
+        <tr><td>Strategies</td><td>Possible actions / Стратегии</td></tr>
+        <tr><td>Payoffs</td><td>Outcomes for each combination / Выигрыши</td></tr>
+        <tr><td>Nash Equilibrium</td><td>No player wants to change strategy given others' choices / Никто не хочет менять стратегию</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Prisoner's Dilemma / Дилемма заключённого</h2>
+    <p>Classic example: two prisoners. Each can Cooperate (stay silent) or Defect (confess). Dominant strategy = Defect for both, but (Cooperate, Cooperate) would be better for both.</p>
+    <p>Два заключённых. Каждый может молчать или признаться. Доминирующая стратегия — признаться обоим, но обоим выгоднее молчать.</p>
+
+    <div class="graph-box">
+        <pre>              Player 2
+            Cooperate  Defect
+         +----------+----------+
+Cooperate|  -1,-1   | -3, 0   |
+Player 1 +----------+----------+
+Defect   |  0,-3    | -2,-2   |  ← Nash equilibrium
+         +----------+----------+
+
+Payoffs: (Player 1, Player 2). Lower = better (years in prison).
+Nash: (Defect, Defect) — but (Cooperate, Cooperate) Pareto-better.</pre>
+    </div>
+
+    <hr>
+
+    <h2>Applications in Oligopoly / Применение в олигополии</h2>
+    <p><strong>Price competition:</strong> If firms compete on price, each has incentive to undercut → low profits. Collusion could raise profits but is unstable (incentive to cheat).</p>
+    <p><strong>Ценовая конкуренция:</strong> Каждая фирма хочет снизить цену → низкая прибыль. Сговор повысил бы прибыль, но нестабилен.</p>
+
+    <div class="graph-box">
+        <pre>              Firm B
+            High P   Low P
+         +----------+----------+
+High P   | 10,10    |  2,12    |
+Firm A   +----------+----------+
+Low P    | 12, 2    |  4, 4    |  ← Nash
+         +----------+----------+</pre>
+    </div>
+
+    <hr>
+
+    <h2>Nash Equilibrium — Summary / Равновесие Нэша</h2>
+    <div class="formula-box">
+        <p>Nash equilibrium: Each player chooses best response to others' strategies. No unilateral incentive to deviate.</p>
+        <p>Равновесие Нэша: Каждый выбирает лучший ответ на стратегии других. Нет стимула односторонне отклониться.</p>
+    </div>
+</body>
+</html>
