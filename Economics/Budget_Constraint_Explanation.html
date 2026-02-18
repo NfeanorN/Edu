@@ -129,6 +129,10 @@
             margin: 20px 0;
             border-radius: 4px;
         }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .budget-line { stroke: #e74c3c; stroke-width: 2.5; fill: none; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
         @media print {
             body {
                 padding: 20px;
@@ -214,22 +218,15 @@
     <p><strong>What can you buy? / Что вы можете купить?</strong></p>
 
     <div class="graph-box">
-        <pre>Oranges (Q₂)
-  |
-25| *
-  |   *
-  |     *
-  |       *
-  |         *
-  |           *
-  |             *
-  |               *
-  |                 *
-  |                   *
- 0+----+----+----+----+----+----+----+----+----+----+ Apples (Q₁)
-  0   10   20   30   40   50
-
-Budget Line: 2×Q₁ + 4×Q₂ = 100</pre>
+        <svg class="svg-graph" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+            <line class="axis" x1="50" y1="200" x2="300" y2="200"/>
+            <path class="budget-line" d="M 50 20 L 310 200"/>
+            <text x="28" y="18">Q₂</text>
+            <text x="305" y="212">Q₁</text>
+            <text x="170" y="115" font-size="11">2Q₁+4Q₂=100</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Бюджетная линия: 2×Q₁ + 4×Q₂ = 100. Пересечения: (50, 0) и (0, 25).</p>
     </div>
 
     <p><strong>Key points on the line / Ключевые точки на линии:</strong></p>

@@ -24,6 +24,12 @@
         pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
         .back { margin-bottom: 20px; }
         .back a { color: #9b59b6; text-decoration: none; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .mc { stroke: #9b59b6; stroke-width: 2.5; fill: none; }
+        .svg-graph .atc { stroke: #2980b9; stroke-width: 2; fill: none; }
+        .svg-graph .avc { stroke: #27ae60; stroke-width: 2; fill: none; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
     </style>
 </head>
 <body>
@@ -130,24 +136,23 @@
     <p>MC crosses <strong>ATC at the minimum of ATC</strong> (point A). MC crosses <strong>AVC at the minimum of AVC</strong> (point B). To the left of the minimum, MC &lt; average → average falls; to the right, MC &gt; average → average rises.</p>
     <p>MC пересекает ATC в минимуме ATC (точка A) и AVC в минимуме AVC (точка B).</p>
     <div class="graph-box">
-        <pre>Cost
-  |
-  |          MC
-  |         /\
-  |        /  \
-  |       /    \_____ ATC
-  |      /     /   \___  A (min ATC): MC = ATC
-  |     /     /  \    \___
-  |    /     /    \_____ AVC
-  |   /     /   B (min AVC): MC = AVC
-  |  /     /
-  | /_____/
-  |  AFC (downward, not shown to scale)
-  |
-  0+----+----+----+----+----+ Q
-          B   A
-       (min   (min
-        AVC)   ATC)</pre>
+        <svg class="svg-graph" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="220"/>
+            <line class="axis" x1="50" y1="220" x2="340" y2="220"/>
+            <path class="mc" d="M 50 180 L 120 100 L 220 60 L 340 120"/>
+            <path class="atc" d="M 50 200 L 120 140 L 220 100 L 340 160"/>
+            <path class="avc" d="M 50 190 L 120 125 L 220 85 L 340 140"/>
+            <circle cx="120" cy="125" r="3" fill="#27ae60"/>
+            <circle cx="220" cy="100" r="3" fill="#2980b9"/>
+            <text x="28" y="18">€</text>
+            <text x="338" y="232">Q</text>
+            <text x="255" y="75">MC</text>
+            <text x="255" y="115">ATC</text>
+            <text x="255" y="155">AVC</text>
+            <text x="118" y="142" font-size="11">B</text>
+            <text x="218" y="117" font-size="11">A</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">A — min ATC (MC = ATC). B — min AVC (MC = AVC).</p>
     </div>
 
     <h3>Numerical example: Q, TC, MC, ATC / Числовой пример</h3>
@@ -170,19 +175,18 @@
     <h2>Short Run Cost Curves / Кривые издержек в краткосрочном периоде</h2>
 
     <div class="graph-box">
-        <pre>Cost
-  |
-  |        MC
-  |       /\
-  |      /  \
-  |     /    \___ ATC
-  |    /     /  \___
-  |   /     /      \___ AVC
-  |  /     /
-  | /_____/
-  |
-  0+----+----+----+----+ Q
-       AFC (always falling / всегда падает)</pre>
+        <svg class="svg-graph" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+            <line class="axis" x1="50" y1="200" x2="340" y2="200"/>
+            <path class="mc" d="M 50 170 L 110 95 L 200 55 L 340 110"/>
+            <path class="atc" d="M 50 190 L 110 130 L 200 95 L 340 150"/>
+            <path class="avc" d="M 50 180 L 110 120 L 200 82 L 340 135"/>
+            <text x="28" y="18">€</text>
+            <text x="338" y="212">Q</text>
+            <text x="260" y="70">MC</text>
+            <text x="260" y="108">ATC</text>
+            <text x="260" y="142">AVC</text>
+        </svg>
     </div>
 
     <p><strong>Key relationships:</strong></p>
@@ -218,5 +222,138 @@
     <h2>Relationship: MP and MC / Связь MP и MC</h2>
     <p>When MP rises → MC falls. When MP falls → MC rises. MC is inversely related to MP.</p>
     <p>Когда MP растёт → MC падает. Когда MP падает → MC растёт.</p>
+
+    <hr>
+
+    <h2>Total Cost, Variable Cost, Fixed Cost: Separate Graphs / TC, VC, FC: отдельные графики</h2>
+
+    <h3>Graph: TC, VC, FC curves / Графики TC, VC, FC</h3>
+    <p><strong>Fixed Cost (FC)</strong> is constant — a horizontal line. <strong>Variable Cost (VC)</strong> starts at zero and rises (often at an increasing rate due to diminishing returns). <strong>Total Cost (TC)</strong> = FC + VC, so TC is VC shifted up by FC.</p>
+    <p><strong>Постоянные издержки (FC)</strong> — горизонтальная линия. <strong>Переменные (VC)</strong> начинаются с нуля и растут. <strong>Общие (TC)</strong> = FC + VC.</p>
+    <div class="graph-box">
+        <pre>Cost ($)
+  |
+  |                    TC = FC + VC
+  |                   /
+  |                  /
+  |                 /  VC (variable cost)
+  |                /  /
+  |               /  /
+  |              /  /
+  |             /  /
+  |____________/__/  FC (fixed cost, horizontal)
+  |            |
+  |            |
+  0+----+----+----+----+----+ Q</pre>
+    </div>
+    <p><strong>Key:</strong> FC is the vertical distance between TC and VC. VC starts at 0; TC starts at FC (when Q=0, TC = FC).</p>
+    <p><strong>Важно:</strong> FC — вертикальное расстояние между TC и VC. При Q=0: TC = FC, VC = 0.</p>
+
+    <h3>Graph: AFC always falls / AFC всегда падает</h3>
+    <p><strong>Average Fixed Cost (AFC) = FC / Q</strong>. Since FC is constant, AFC falls as Q increases — fixed cost is spread over more units. AFC is a rectangular hyperbola (always decreasing, never reaches zero).</p>
+    <p><strong>AFC = FC / Q</strong>. Поскольку FC постоянна, AFC всегда падает с ростом Q — постоянные издержки распределяются на больше единиц.</p>
+    <div class="graph-box">
+        <pre>Cost per unit ($)
+  |
+  |  AFC (always falling / всегда падает)
+  |   \
+  |    \
+  |     \___
+  |        \___
+  |           \___
+  |              \___
+  |                 \___
+  |
+  0+----+----+----+----+----+ Q</pre>
+    </div>
+
+    <hr>
+
+    <h2>Production Function: Total Product, Average Product, Marginal Product / Производственная функция: TP, AP, MP</h2>
+
+    <h3>Total Product (TP) / Совокупный продукт</h3>
+    <p><strong>Total Product</strong> = total output Q as a function of variable input (e.g., labor L). TP curve shows how output changes as we add more labor (holding fixed inputs constant).</p>
+    <p><strong>Совокупный продукт (TP)</strong> — общий выпуск Q как функция переменного фактора (труда L).</p>
+
+    <h3>Average Product (AP) and Marginal Product (MP) / Средний и предельный продукт</h3>
+    <p><strong>AP = TP / L</strong> (average output per worker). <strong>MP = ΔTP / ΔL</strong> (extra output from one more worker).</p>
+    <p><strong>AP = TP / L</strong> (средний продукт на рабочего). <strong>MP = ΔTP / ΔL</strong> (дополнительный продукт от ещё одного рабочего).</p>
+
+    <div class="graph-box">
+        <pre>Output (Q)          MP, AP
+  |                    |
+  |      TP            |    MP
+  |     /              |   /\
+  |    /               |  /  \
+  |   /                | /    \___  (diminishing returns)
+  |  /                 |/          (убывающая отдача)
+  | /                  |
+  |/                   |      AP
+  |                    |     /
+  |                    |    /
+  |                    |   /
+  |                    |  /
+  |                    | /
+  0+----+----+---- L   0+----+----+---- L
+         ↑                    ↑
+    inflection point    MP crosses AP
+    (MP max)            at max AP</pre>
+    </div>
+
+    <p><strong>Key relationships:</strong></p>
+    <ul>
+        <li>When <strong>MP > AP</strong>, adding one more worker pulls the average up → <strong>AP is rising</strong>.</li>
+        <li>When <strong>MP < AP</strong>, adding one more worker pulls the average down → <strong>AP is falling</strong>.</li>
+        <li>Therefore <strong>MP crosses AP at the maximum of AP</strong>.</li>
+        <li>MP reaches its maximum before AP reaches its maximum (inflection point of TP).</li>
+    </ul>
+    <p>Когда MP > AP, средний продукт растёт. Когда MP < AP, средний продукт падает. <strong>MP пересекает AP в максимуме AP</strong>.</p>
+
+    <h3>Three stages of production / Три стадии производства</h3>
+    <table>
+        <tr><th>Stage / Стадия</th><th>Condition / Условие</th><th>Description / Описание</th></tr>
+        <tr><td>Stage I</td><td>MP > AP, AP rising</td><td>Increasing returns / Возрастающая отдача</td></tr>
+        <tr><td>Stage II</td><td>MP < AP, but MP > 0</td><td>Diminishing returns / Убывающая отдача (экономически рациональная зона)</td></tr>
+        <tr><td>Stage III</td><td>MP < 0</td><td>Negative returns / Отрицательная отдача (неэффективно)</td></tr>
+    </table>
+    <p><strong>Rational production zone:</strong> Stage II (where MP > 0 but MP < AP). Firms operate here because in Stage III, MP is negative — adding more labor reduces total output.</p>
+    <p><strong>Рациональная зона:</strong> Стадия II (MP > 0, но MP < AP). В Стадии III MP отрицателен — добавление труда снижает выпуск.</p>
+
+    <hr>
+
+    <h2>Complete Short Run Cost Curves: All Together / Полные кривые краткосрочных издержек</h2>
+    <div class="graph-box">
+        <pre>Cost per unit ($)
+  |
+  |        MC
+  |       /\
+  |      /  \
+  |     /    \_____ ATC
+  |    /     /   \___
+  |   /     /  \    \___ AVC
+  |  /     /   B (min AVC)
+  | /     /  A (min ATC)
+  |/_____/   /
+  |     /   /
+  |    /   /  AFC (always falling)
+  |   /   /
+  |  /   /
+  | /   /
+  |/   /
+  |
+  0+----+----+----+----+----+ Q
+      B   A
+   (min  (min
+    AVC)  ATC)</pre>
+    </div>
+    <p><strong>Summary of relationships:</strong></p>
+    <ul>
+        <li>MC crosses ATC at min ATC (point A)</li>
+        <li>MC crosses AVC at min AVC (point B)</li>
+        <li>AFC = ATC - AVC (vertical distance)</li>
+        <li>AFC always falls; AVC and ATC are U-shaped</li>
+        <li>MC is U-shaped (often falls then rises)</li>
+    </ul>
+    <p><strong>Итог:</strong> MC пересекает ATC и AVC в их минимумах. AFC всегда падает. AVC и ATC U-образные.</p>
 </body>
 </html>

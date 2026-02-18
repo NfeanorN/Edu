@@ -97,6 +97,38 @@ $color-accent-blue: #3498db;
     padding: 20px;
     margin: 20px 0;
 
+    .graph-svg-wrap {
+      max-width: 100%;
+      margin: 1rem 0;
+
+      svg {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+      .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+      .demand { stroke: #27ae60; stroke-width: 2.5; fill: none; }
+      .supply { stroke: #2980b9; stroke-width: 2.5; fill: none; }
+      .cs-area { fill: rgba(39, 174, 96, 0.25); stroke: #27ae60; stroke-width: 1; }
+      .ps-area { fill: rgba(41, 128, 185, 0.25); stroke: #2980b9; stroke-width: 1; }
+      .eq-line { stroke: #e74c3c; stroke-width: 1; stroke-dasharray: 5,4; }
+      .supply { stroke: #e67e22; stroke-width: 2.5; fill: none; }
+      .mc { stroke: #2980b9; stroke-width: 2.5; fill: none; }
+      .mr { stroke: #e74c3c; stroke-width: 2; fill: none; stroke-dasharray: 4,3; }
+      .dwl-area { fill: rgba(231, 76, 60, 0.2); stroke: #e74c3c; stroke-width: 1; }
+      .atc { stroke: #2980b9; stroke-width: 2; fill: none; }
+      .avc { stroke: #27ae60; stroke-width: 2; fill: none; }
+      .ppf { stroke: #27ae60; stroke-width: 2.5; fill: none; }
+      .budget-line { stroke: #e74c3c; stroke-width: 2.5; fill: none; }
+      .is-curve { stroke: #e74c3c; stroke-width: 2.5; fill: none; }
+      .lm-curve { stroke: #3498db; stroke-width: 2.5; fill: none; }
+      .endowment { stroke: #27ae60; stroke-width: 2; fill: none; stroke-dasharray: 5,4; }
+      text { font-family: inherit; font-size: 14px; fill: #2c3e50; }
+      .label-cs { fill: #1e8449; font-weight: 600; }
+      .label-ps { fill: #1a5276; font-weight: 600; }
+    }
+
     pre {
       margin: 0;
       background: transparent;

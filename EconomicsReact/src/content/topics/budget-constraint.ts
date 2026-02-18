@@ -1,5 +1,14 @@
 import type { TopicContent } from '../../components/TopicContent'
 
+const BUDGET_LINE_SVG = `<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+  <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+  <line class="axis" x1="50" y1="200" x2="300" y2="200"/>
+  <path class="budget-line" d="M 50 20 L 310 200"/>
+  <text x="28" y="18">Q₂</text>
+  <text x="305" y="212">Q₁</text>
+  <text x="170" y="115" font-size="11">Budget line</text>
+</svg>`
+
 export const budgetConstraint: TopicContent = [
   { type: 'h2', en: 'What is Budget Constraint?', ru: 'Что такое бюджетное ограничение?' },
   { type: 'p', en: 'Budget Constraint shows all the different combinations of goods you can buy with your money. Income = (Price₁ × Q₁) + (Price₂ × Q₂).', ru: 'Бюджетное ограничение показывает все комбинации товаров, которые вы можете купить. Доход = P₁×Q₁ + P₂×Q₂.' },
@@ -20,17 +29,7 @@ export const budgetConstraint: TopicContent = [
     { en: 'All income on food: M/Pf = 100/10 = 10 lb/wk — point L (0, 10)', ru: 'Весь доход на еду: 10 фунтов/нед. — точка L' },
   ]},
   { type: 'p', en: 'The budget line B joins K and L. Any bundle on the line (e.g. E = (12, 4)) exhausts income. Point D = (5, 4) is below the line — income not fully spent.', ru: 'Бюджетная линия B соединяет K и L. Точка E = (12, 4) на линии; D = (5, 4) под линией.' },
-  { type: 'graph', ascii: `Food (lb/wk)
-  |
-10| L = M/Pf
-  | \\
-  |   \\  B (budget line)
-  |     \\  E (12, 4)
-  |       \\
-  |  D (5,4)  \\
-  |             \\
- 0+----+----+----+----+ Shelter
-  0    5   10   15   20  K = M/Ps` },
+  { type: 'graph', ascii: 'Budget line', svg: BUDGET_LINE_SVG },
   { type: 'formula', lines: ['Budget constraint = set of all bundles that exactly exhaust income at given prices. Also called the budget line.', 'Slope = -Ps/Pf = -5/10 = -1/2. |Slope| = opportunity cost of one more unit of shelter (units of food given up).'] },
   { type: 'hr' },
   { type: 'h2', en: 'How the Budget Line Changes', ru: 'Как меняется бюджетная линия' },

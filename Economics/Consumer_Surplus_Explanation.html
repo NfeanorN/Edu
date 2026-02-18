@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Surplus — Излишек потребителя</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #27ae60; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #27ae60; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #27ae60 0%, #219a52 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #e8f8f0; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #e8f8f0; border-left: 4px solid #27ae60; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #27ae60; text-decoration: none; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1.5rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .demand { stroke: #27ae60; stroke-width: 2.5; fill: none; }
+        .svg-graph .supply { stroke: #2980b9; stroke-width: 2.5; fill: none; }
+        .svg-graph .cs-area { fill: rgba(39, 174, 96, 0.25); stroke: #27ae60; stroke-width: 1; }
+        .svg-graph .ps-area { fill: rgba(41, 128, 185, 0.25); stroke: #2980b9; stroke-width: 1; }
+        .svg-graph .eq-line { stroke: #e74c3c; stroke-width: 1; stroke-dasharray: 5,4; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; fill: #2c3e50; }
+        .svg-graph .label-cs { fill: #1e8449; font-weight: 600; }
+        .svg-graph .label-ps { fill: #1a5276; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Consumer Surplus — Излишек потребителя</h1>
+
+    <h2>Definition / Определение</h2>
+    <p><strong>Consumer surplus (CS)</strong> is the difference between what consumers are <strong>willing to pay</strong> for a good (their maximum willingness to pay, or reservation price) and what they <strong>actually pay</strong> (the market price). It measures the net benefit to consumers from participating in the market.</p>
+    <p><strong>Излишек потребителя (CS)</strong> — разница между тем, что потребители <strong>готовы заплатить</strong> за товар (максимальная готовность платить), и тем, что они <strong>фактически платят</strong> (рыночная цена). Это выигрыш потребителей от обмена.</p>
+
+    <div class="formula-box">
+        <p><strong>Consumer surplus = Willingness to pay − Price paid</strong></p>
+        <p>For the market: CS = area below the demand curve and above the price line (up to the quantity sold).</p>
+        <p><em>Излишек потребителя = Готовность платить − Уплаченная цена. На графике: площадь под кривой спроса и выше линии цены.</em></p>
+    </div>
+
+    <hr>
+
+    <h2>Graph / График</h2>
+    <p>The <strong>demand curve</strong> shows willingness to pay for each unit. At market price <strong>P*</strong>, quantity <strong>Q*</strong> is sold. Consumers who would have paid more than P* for earlier units gain a surplus: they pay only P*, so the difference is their surplus. <strong>Consumer surplus</strong> is the shaded triangle (or area) between the demand curve, the price line, and the vertical axis.</p>
+    <p>Кривая спроса отражает готовность платить. При цене P* продаётся Q* единиц. Потребители, готовые платить больше P*, получают выигрыш — платят только P*. <strong>Излишек потребителя</strong> — площадь под кривой спроса и выше линии цены.</p>
+
+    <div class="graph-box">
+        <p style="margin-top:0; font-weight:600;">Consumer surplus (CS) — зелёная область. Producer surplus (PS) — синяя область.</p>
+        <svg class="svg-graph" viewBox="0 0 380 280" xmlns="http://www.w3.org/2000/svg">
+            <!-- axes -->
+            <line class="axis" x1="50" y1="20" x2="50" y2="240"/>
+            <line class="axis" x1="50" y1="240" x2="360" y2="240"/>
+            <!-- P* horizontal line -->
+            <line class="eq-line" x1="50" y1="130" x2="200" y2="130"/>
+            <line class="eq-line" x1="200" y1="130" x2="200" y2="240"/>
+            <!-- CS area: polygon under D, above P*=130 -->
+            <path class="cs-area" d="M 50 55 L 200 130 L 200 240 L 50 240 Z"/>
+            <!-- Demand D: from top-left to equilibrium -->
+            <path class="demand" d="M 50 55 Q 120 90 200 130 L 360 200"/>
+            <!-- PS area: polygon above S, below P* -->
+            <path class="ps-area" d="M 50 240 L 50 215 L 200 130 L 200 240 Z"/>
+            <!-- Supply S: from bottom to equilibrium -->
+            <path class="supply" d="M 50 215 L 200 130 L 360 45"/>
+            <!-- Redraw axes on top -->
+            <line class="axis" x1="50" y1="20" x2="50" y2="240"/>
+            <line class="axis" x1="50" y1="240" x2="360" y2="240"/>
+            <!-- Labels -->
+            <text x="28" y="135" text-anchor="middle">P*</text>
+            <text x="205" y="255" text-anchor="middle">Q*</text>
+            <text x="30" y="18" text-anchor="middle">P</text>
+            <text x="358" y="255" text-anchor="middle">Q</text>
+            <text x="115" y="95" class="label-cs">CS</text>
+            <text x="115" y="185" class="label-ps">PS</text>
+            <text x="280" y="115">D</text>
+            <text x="280" y="175">S</text>
+            <circle cx="200" cy="130" r="4" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+        </svg>
+        <p style="margin-bottom:0; font-size:0.95em;"><strong>CS</strong> = площадь под кривой спроса D и выше цены P*. <strong>PS</strong> = площадь выше кривой предложения S и ниже P*. Красная точка — равновесие (P*, Q*).</p>
+    </div>
+
+    <p><strong>CS = (1/2) × (max price − P*) × Q*</strong> when demand is linear (triangle area). In general, CS is the area under the demand curve from 0 to Q*, minus total expenditure P* × Q*.</p>
+    <p>При линейном спросе CS = площадь треугольника. В общем случае — интеграл под кривой спроса от 0 до Q* минус расходы P*×Q*.</p>
+
+    <hr>
+
+    <h2>Willingness to Pay / Готовность платить</h2>
+    <p>The <strong>demand curve</strong> can be interpreted as showing the <strong>marginal willingness to pay</strong> for each unit: the height of the demand curve at quantity Q is the maximum price someone would pay for the Q-th unit. So the area under the demand curve from 0 to Q* is total willingness to pay for Q* units. Subtracting what they actually pay (P* × Q*) gives consumer surplus.</p>
+    <p>Кривая спроса — <strong>предельная готовность платить</strong> за каждую единицу. Площадь под D от 0 до Q* — общая готовность платить; минус расходы P*×Q* = излишек потребителя.</p>
+
+    <hr>
+
+    <h2>What Changes Consumer Surplus? / Что меняет излишек потребителя?</h2>
+    <table>
+        <tr><th>Change / Изменение</th><th>Effect on CS / Влияние на CS</th></tr>
+        <tr><td>Price falls / Цена падает</td><td>CS increases / CS растёт</td></tr>
+        <tr><td>Price rises / Цена растёт</td><td>CS decreases / CS падает</td></tr>
+        <tr><td>Demand shifts right / Спрос вправо</td><td>CS typically increases (more value at same or higher Q) / CS обычно растёт</td></tr>
+        <tr><td>Demand shifts left / Спрос влево</td><td>CS typically decreases / CS обычно падает</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Producer Surplus and Total Surplus / Излишек производителя и общее благосостояние</h2>
+    <p><strong>Producer surplus (PS)</strong> = area above the supply curve and below the price line (up to Q*). It is the difference between what producers receive (P*) and their minimum willingness to accept (marginal cost).</p>
+    <p><strong>Излишек производителя (PS)</strong> — площадь выше кривой предложения и ниже линии цены. Разница между выручкой и предельными издержками.</p>
+
+    <div class="graph-box">
+        <p style="margin-top:0; font-weight:600;">Общее благосостояние: CS + PS</p>
+        <svg class="svg-graph" viewBox="0 0 380 280" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="240"/>
+            <line class="axis" x1="50" y1="240" x2="360" y2="240"/>
+            <line class="eq-line" x1="50" y1="130" x2="200" y2="130"/>
+            <line class="eq-line" x1="200" y1="130" x2="200" y2="240"/>
+            <path class="cs-area" d="M 50 55 L 200 130 L 200 240 L 50 240 Z"/>
+            <path class="demand" d="M 50 55 Q 120 90 200 130 L 360 200"/>
+            <path class="ps-area" d="M 50 240 L 50 215 L 200 130 L 200 240 Z"/>
+            <path class="supply" d="M 50 215 L 200 130 L 360 45"/>
+            <line class="axis" x1="50" y1="20" x2="50" y2="240"/>
+            <line class="axis" x1="50" y1="240" x2="360" y2="240"/>
+            <text x="28" y="135">P*</text>
+            <text x="205" y="255">Q*</text>
+            <text x="30" y="18">P</text>
+            <text x="358" y="255">Q</text>
+            <text x="115" y="95" class="label-cs">CS</text>
+            <text x="115" y="185" class="label-ps">PS</text>
+            <text x="280" y="115">D</text>
+            <text x="280" y="175">S</text>
+            <circle cx="200" cy="130" r="4" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+        </svg>
+    </div>
+
+    <p><strong>Total surplus (TS) = CS + PS</strong>. In a competitive market with no externalities, equilibrium (where D and S intersect) <strong>maximizes total surplus</strong> — allocative efficiency. Any quantity other than Q* would reduce TS (e.g. deadweight loss under monopoly or tax).</p>
+    <p><strong>Общее благосостояние (TS) = CS + PS</strong>. В равновесии конкурентного рынка TS максимально (аллокативная эффективность). Монополия или налог уменьшают TS (потери DWL).</p>
+
+    <p>See also: <a href="Demand_Explanation.html">Demand</a>, <a href="Supply_Explanation.html">Supply</a>, <a href="Market_Power_Explanation.html">Market Power</a> (deadweight loss).</p>
+</body>
+</html>

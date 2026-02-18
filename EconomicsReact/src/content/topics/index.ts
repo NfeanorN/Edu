@@ -1,11 +1,15 @@
 import type { TopicContent } from '../../components/TopicContent'
 import { budgetConstraint } from './budget-constraint'
+import { intertemporalBudgetConstraint } from './intertemporal-budget-constraint'
+import { opportunityCost } from './opportunity-cost'
 import { ppf } from './ppf'
 import { demand } from './demand'
+import { consumerSurplus } from './consumer-surplus'
 import { supply } from './supply'
 import { rationalChoice } from './rational-choice'
 import { elasticities } from './elasticities'
 import { productionCostShortRun } from './production-cost-short-run'
+import { productionFunction } from './production-function'
 import { costLongRun } from './cost-long-run'
 import { marketPower } from './market-power'
 import { gameTheory } from './game-theory'
@@ -21,12 +25,16 @@ import { openEconomy } from './open-economy'
 
 const map: Record<string, TopicContent> = {
   'budget-constraint': budgetConstraint,
+  'intertemporal-budget-constraint': intertemporalBudgetConstraint,
+  'opportunity-cost': opportunityCost,
   'ppf': ppf,
   'demand': demand,
+  'consumer-surplus': consumerSurplus,
   'supply': supply,
   'rational-choice': rationalChoice,
   'elasticities': elasticities,
   'production-cost-short-run': productionCostShortRun,
+  'production-function': productionFunction,
   'cost-long-run': costLongRun,
   'market-power': marketPower,
   'game-theory': gameTheory,

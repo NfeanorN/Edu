@@ -1,5 +1,21 @@
 import type { TopicContent } from '../../components/TopicContent'
 
+const PPF_SVG = `<svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
+  <line class="axis" x1="50" y1="20" x2="50" y2="220"/>
+  <line class="axis" x1="50" y1="220" x2="340" y2="220"/>
+  <path class="ppf" d="M 50 50 Q 120 120 200 180 T 340 210"/>
+  <circle cx="80" cy="90" r="4" fill="#e74c3c"/>
+  <circle cx="140" cy="145" r="4" fill="#27ae60"/>
+  <circle cx="220" cy="185" r="4" fill="#27ae60"/>
+  <circle cx="300" cy="205" r="4" fill="#95a5a6" opacity="0.8"/>
+  <text x="75" y="82">A</text>
+  <text x="135" y="137">B</text>
+  <text x="215" y="177">C</text>
+  <text x="308" y="198">D</text>
+  <text x="28" y="18">B</text>
+  <text x="338" y="232">A</text>
+</svg>`
+
 export const ppf: TopicContent = [
   { type: 'h2', en: 'What is PPF?', ru: 'Что такое КПВ?' },
   { type: 'p', en: 'English: The PPF shows the maximum combinations of two goods an economy can produce with its limited resources and technology. It illustrates scarcity and trade-offs.', ru: 'КПВ показывает максимальные комбинации двух товаров, которые экономика может произвести при ограниченных ресурсах и технологиях.' },
@@ -15,17 +31,7 @@ export const ppf: TopicContent = [
     { en: 'X-axis: Quantity of Good A (e.g., guns)', ru: 'Ось X: Количество товара А' },
     { en: 'Y-axis: Quantity of Good B (e.g., butter)', ru: 'Ось Y: Количество товара В' },
   ]},
-  { type: 'graph', ascii: `Good B (Butter) / Товар В (Масло)
-  |
-  |  *  A (Inefficient)
-  |    \\
-  |      *  B (Efficient)
-  |        \\
-  |          *  C (Efficient)
-  |            \\
-  |              *  D (Unattainable)
-  |                \\
- 0+----+----+----+----+----+ Good A (Guns)` },
+  { type: 'graph', ascii: 'PPF curve', svg: PPF_SVG },
   { type: 'table', headers: ['Point / Точка', 'Meaning / Значение'], rows: [
     ['On the curve (B, C)', 'Efficient — using all resources'],
     ['Inside (A)', 'Inefficient — unemployment or waste'],

@@ -1,5 +1,29 @@
 import type { TopicContent } from '../../components/TopicContent'
 
+const SUPPLY_CURVE_SVG = `<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+  <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+  <line class="axis" x1="50" y1="200" x2="300" y2="200"/>
+  <path class="supply" d="M 70 180 L 150 120 L 230 60"/>
+  <text x="250" y="75">S</text>
+  <text x="28" y="18">P</text>
+  <text x="305" y="212">Q</text>
+</svg>`
+
+const SUPPLY_DEMAND_EQUIL_SVG = `<svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+  <line class="axis" x1="50" y1="20" x2="50" y2="240"/>
+  <line class="axis" x1="50" y1="240" x2="360" y2="240"/>
+  <path class="supply" d="M 50 80 L 200 130 L 350 180"/>
+  <path class="demand" d="M 50 180 L 200 130 L 350 80"/>
+  <circle cx="200" cy="130" r="5" fill="#e74c3c" stroke="#c0392b"/>
+  <text x="28" y="18">P</text>
+  <text x="358" y="255">Q</text>
+  <text x="215" y="120" fill="#e74c3c" font-weight="600">E</text>
+  <text x="280" y="95">S</text>
+  <text x="280" y="165">D</text>
+  <text x="200" y="255">Q*</text>
+  <text x="28" y="132">P*</text>
+</svg>`
+
 export const supply: TopicContent = [
   { type: 'h2', en: 'What is Supply?', ru: 'Что такое предложение?' },
   { type: 'p', en: 'Supply is how much producers are willing and able to sell at different prices. It shows the relationship between price and quantity supplied.', ru: 'Предложение — сколько производители готовы продать при разных ценах.' },
@@ -7,15 +31,7 @@ export const supply: TopicContent = [
   { type: 'h2', en: 'The Supply Curve', ru: 'Кривая предложения' },
   { type: 'h3', en: 'Law of Supply', ru: 'Закон предложения' },
   { type: 'p', en: 'When price goes UP, quantity supplied goes UP. When price goes DOWN, quantity supplied goes DOWN. The supply curve is upward-sloping.', ru: 'Цена растёт — объём предложения растёт. Цена падает — объём предложения падает. Кривая предложения восходящая.' },
-  { type: 'graph', ascii: `Price (P)
-  |
- 6|                    *  S
-  |                  /
- 4|                *
-  |              /
- 2|            *
-  |          /
- 0+----+----+----+----+ Quantity (Q)` },
+  { type: 'graph', ascii: 'Supply curve S', svg: SUPPLY_CURVE_SVG },
   { type: 'hr' },
   { type: 'h2', en: 'Two Types of Changes', ru: 'Два типа изменений' },
   { type: 'h4', en: '1. Movement ALONG the curve', ru: 'Движение ВДОЛЬ кривой' },
@@ -54,14 +70,5 @@ export const supply: TopicContent = [
   { type: 'hr' },
   { type: 'h2', en: 'Supply and Demand Together', ru: 'Спрос и предложение вместе' },
   { type: 'p', en: 'Market equilibrium: where demand and supply curves intersect. Quantity demanded = quantity supplied at the equilibrium price.', ru: 'Равновесие рынка — пересечение кривых спроса и предложения.' },
-  { type: 'graph', ascii: `Price (P)
-  |
-  |      S
-  |    /   \\
-  |  /   E   \\   E = equilibrium
-  | /   *   \\   D = demand, S = supply
-  |/___/ \\___\\
-  |  D
- 0+----+----+----+ Quantity (Q)
-           Q*` },
+  { type: 'graph', ascii: 'Equilibrium E = D ∩ S', svg: SUPPLY_DEMAND_EQUIL_SVG },
 ]

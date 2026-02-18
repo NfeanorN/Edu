@@ -5,7 +5,7 @@ export type ContentBlock =
   | { type: 'p'; en: string; ru?: string }
   | { type: 'ul'; items: Array<{ en: string; ru?: string }> }
   | { type: 'table'; headers: string[]; rows: string[][] }
-  | { type: 'graph'; ascii: string }
+  | { type: 'graph'; ascii: string; svg?: string }
   | { type: 'formula'; lines: string[] }
   | { type: 'hr' }
 

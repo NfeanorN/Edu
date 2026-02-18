@@ -18,6 +18,20 @@ export const TOPICS: Topic[] = [
     section: 'micro',
   },
   {
+    slug: 'intertemporal-budget-constraint',
+    file: 'Intertemporal_Budget_Constraint_Explanation.html',
+    title: 'Intertemporal Budget Constraint — Межвременное бюджетное ограничение',
+    desc: 'Two periods, saving/borrowing, interest rate, present value. Два периода, сбережения/займы, процентная ставка.',
+    section: 'micro',
+  },
+  {
+    slug: 'opportunity-cost',
+    file: 'Opportunity_Cost_Explanation.html',
+    title: 'Opportunity Cost — Альтернативная стоимость',
+    desc: 'Definition, examples, PPF slope, budget line slope. Определение, примеры, наклон КПВ и бюджетной линии.',
+    section: 'micro',
+  },
+  {
     slug: 'ppf',
     file: 'PPF_Explanation.html',
     title: 'Production Possibilities Frontier (PPF) — КПВ',
@@ -29,6 +43,13 @@ export const TOPICS: Topic[] = [
     file: 'Demand_Explanation.html',
     title: 'Demand — Спрос',
     desc: 'Demand curve, law of demand, factors that shift demand. 8 факторов сдвига.',
+    section: 'micro',
+  },
+  {
+    slug: 'consumer-surplus',
+    file: 'Consumer_Surplus_Explanation.html',
+    title: 'Consumer Surplus — Излишек потребителя',
+    desc: 'Willingness to pay, CS area, producer surplus, total surplus.',
     section: 'micro',
   },
   {
@@ -57,6 +78,13 @@ export const TOPICS: Topic[] = [
     file: 'Production_Cost_Short_Run_Explanation.html',
     title: 'Production & Cost (Short Run) — Производство и издержки (краткосрочный период)',
     desc: 'Total, marginal, average cost. Fixed vs variable inputs.',
+    section: 'micro',
+  },
+  {
+    slug: 'production-function',
+    file: 'Production_Function_Explanation.html',
+    title: 'Production Function — Производственная функция',
+    desc: 'Q = F(L,K), TP, AP, MP, law of diminishing returns. Связь с MC.',
     section: 'micro',
   },
   {

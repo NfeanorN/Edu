@@ -25,6 +25,10 @@
         pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
         .back { margin-bottom: 20px; }
         .back a { color: #27ae60; text-decoration: none; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .ppf { stroke: #27ae60; stroke-width: 2.5; fill: none; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
     </style>
 </head>
 <body>
@@ -52,20 +56,22 @@
     </ul>
 
     <div class="graph-box">
-        <pre>Good B (Butter) / Товар В (Масло)
-  |
-  |  *  A (Inefficient / Неэффективно)
-  |    \
-  |      *  B (Efficient / Эффективно)
-  |        \
-  |          *  C (Efficient / Эффективно)
-  |            \
-  |              *  D (Unattainable / Недостижимо)
-  |                \
-  |                  *  PPF curve
-  |
- 0+----+----+----+----+----+----+----+ Good A (Guns) / Товар А
-       0    1    2    3    4    5</pre>
+        <svg class="svg-graph" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="220"/>
+            <line class="axis" x1="50" y1="220" x2="340" y2="220"/>
+            <path class="ppf" d="M 50 50 Q 120 120 200 180 T 340 210"/>
+            <circle cx="80" cy="90" r="4" fill="#e74c3c"/>
+            <circle cx="140" cy="145" r="4" fill="#27ae60"/>
+            <circle cx="220" cy="185" r="4" fill="#27ae60"/>
+            <circle cx="300" cy="205" r="4" fill="#95a5a6" opacity="0.8"/>
+            <text x="75" y="82">A</text>
+            <text x="135" y="137">B</text>
+            <text x="215" y="177">C</text>
+            <text x="308" y="198">D</text>
+            <text x="28" y="18">B</text>
+            <text x="338" y="232">A</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">A — неэффективно, B и C — на КПВ (эффективно), D — недостижимо.</p>
     </div>
 
     <table>

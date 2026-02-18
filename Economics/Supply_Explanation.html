@@ -25,6 +25,11 @@
         pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
         .back { margin-bottom: 20px; }
         .back a { color: #e67e22; text-decoration: none; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .supply { stroke: #e67e22; stroke-width: 2.5; fill: none; }
+        .svg-graph .demand { stroke: #27ae60; stroke-width: 2.5; fill: none; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; fill: #2c3e50; }
     </style>
 </head>
 <body>
@@ -54,16 +59,15 @@
     <p>Получается <strong>восходящая кривая</strong>. Более высокая цена стимулирует производить больше.</p>
 
     <div class="graph-box">
-        <pre>Price (P)
-  |
- 6|                    *  S (supply)
-  |                  /
- 4|                *
-  |              /
- 2|            *
-  |          /
- 0+----+----+----+----+----+ Quantity (Q)
-     50   100  150  200</pre>
+        <svg class="svg-graph" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+            <line class="axis" x1="50" y1="200" x2="300" y2="200"/>
+            <path class="supply" d="M 70 180 L 150 120 L 230 60"/>
+            <text x="250" y="75">S</text>
+            <text x="28" y="18">P</text>
+            <text x="305" y="212">Q</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Кривая предложения S — восходящая: рост цены P → рост объёма Q.</p>
     </div>
 
     <hr>
@@ -82,15 +86,17 @@
     <p><strong>Сдвиг ВПРАВО</strong> — больше предложения при каждой цене. <strong>Сдвиг ВЛЕВО</strong> — меньше предложения.</p>
 
     <div class="graph-box">
-        <pre>Price (P)
-  |
-  |  S₁     S₀   (S₀ → S₁ = increase in supply)
-  |    \\   /
-  |      \\ /
-  |       *
-  |        \\
-  |         \\
- 0+----+----+----+----+ Quantity (Q)</pre>
+        <svg class="svg-graph" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+            <line class="axis" x1="50" y1="200" x2="300" y2="200"/>
+            <path class="supply" d="M 90 180 L 170 120 L 250 60" opacity="0.7"/>
+            <text x="268" y="75" opacity="0.7">S₀</text>
+            <path class="supply" d="M 50 160 L 130 100 L 210 40"/>
+            <text x="228" y="55">S₁</text>
+            <text x="28" y="18">P</text>
+            <text x="305" y="212">Q</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Сдвиг S₀ → S₁ вправо: больше предложения при каждой цене.</p>
     </div>
 
     <hr>
@@ -165,16 +171,21 @@
     <p>Market <strong>equilibrium</strong> is where the demand curve and supply curve intersect: quantity demanded = quantity supplied at the equilibrium price.</p>
     <p><strong>Равновесие</strong> рынка — точка пересечения кривых спроса и предложения: объём спроса = объём предложения при равновесной цене.</p>
     <div class="graph-box">
-        <pre>Price (P)
-  |
-  |      S
-  |    /   \\
-  |  /   E   \\   E = equilibrium
-  | /   *   \\   D = demand, S = supply
-  |/___/ \\___\\
-  |  D
- 0+----+----+----+----+ Quantity (Q)
-           Q*</pre>
+        <svg class="svg-graph" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="240"/>
+            <line class="axis" x1="50" y1="240" x2="360" y2="240"/>
+            <path class="supply" d="M 50 80 L 200 130 L 350 180"/>
+            <path class="demand" d="M 50 180 L 200 130 L 350 80"/>
+            <circle cx="200" cy="130" r="5" fill="#e74c3c" stroke="#c0392b"/>
+            <text x="28" y="18">P</text>
+            <text x="358" y="255">Q</text>
+            <text x="215" y="120" fill="#e74c3c" font-weight="600">E</text>
+            <text x="280" y="95">S</text>
+            <text x="280" y="165">D</text>
+            <text x="200" y="255">Q*</text>
+            <text x="28" y="132">P*</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">E — равновесие (пересечение D и S). P* — равновесная цена, Q* — равновесный объём.</p>
     </div>
 </body>
 </html>

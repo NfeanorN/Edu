@@ -71,7 +71,11 @@ function renderBlock(block: ContentBlock, index: number): JSX.Element | null {
     case 'graph':
       return (
         <div key={index} className="graph-box">
-          <pre>{block.ascii}</pre>
+          {block.svg != null ? (
+            <div className="graph-svg-wrap" dangerouslySetInnerHTML={{ __html: block.svg }} />
+          ) : (
+            <pre>{block.ascii}</pre>
+          )}
         </div>
       )
     case 'formula':
