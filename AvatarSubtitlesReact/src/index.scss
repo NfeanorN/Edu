@@ -1,0 +1,29 @@
+$color-text: #e8e6e3;
+$color-link: #ffb347;
+$color-bg: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: $color-text;
+  background: $color-bg;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

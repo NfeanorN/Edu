@@ -1,0 +1,72 @@
+$color-title: #ffb347;
+$color-accent: #ff8c00;
+$color-desc: #b0b0b0;
+
+.home.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.home {
+  h1 {
+    color: $color-title;
+    border-bottom: 4px solid $color-accent;
+    padding-bottom: 12px;
+    font-size: 1.8rem;
+  }
+
+  .sub {
+    color: $color-desc;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    color: $color-title;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .episodes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .episode-link {
+    display: block;
+    padding: 0.9rem 1.2rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    text-decoration: none;
+    color: #e8e6e3;
+    border: 1px solid rgba(255, 140, 0, 0.3);
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+
+    &:hover {
+      border-color: $color-accent;
+      background: rgba(255, 140, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(255, 140, 0, 0.2);
+      text-decoration: none;
+    }
+
+    .title {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .desc {
+      color: $color-desc;
+      font-size: 0.85rem;
+      margin-top: 4px;
+      display: block;
+    }
+  }
+}
