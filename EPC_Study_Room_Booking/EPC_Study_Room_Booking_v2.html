@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EPC — Booking a Study Room for Game Night</title>
+  <style>
+    @page { size: A3 landscape; margin: 8mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Helvetica, Arial, sans-serif; background: #fff; }
+    .page { width: 1587px; margin: 0 auto; padding: 12px 16px 0; page-break-inside: avoid; }
+    h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; text-align: center; }
+    .subtitle { text-align: center; font-size: 12px; color: #555; margin-bottom: 8px; }
+    svg.diagram { display: block; margin: 0 auto; width: 100%; height: auto; max-height: 900px; }
+    .edge-label { font-size: 9px; fill: #333; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Event-Process Chain (EPC)</h1>
+    <p class="subtitle">Exercise 0: Booking a study room for game night</p>
+
+    <svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560">
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#333"/>
+        </marker>
+      </defs>
+
+      <polygon points="70,250 155,280 70,310 0,280" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2"/>
+      <text x="70" y="276" text-anchor="middle" font-size="8.5" font-weight="600">Club plans</text>
+      <text x="70" y="288" text-anchor="middle" font-size="8.5" font-weight="600">game night</text>
+
+      <line x1="155" y1="280" x2="178" y2="280" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <rect x="180" y="258" width="130" height="44" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="245" y="276" text-anchor="middle" font-size="8.5">Send booking request</text>
+      <text x="245" y="290" text-anchor="middle" font-size="8.5">to campus office</text>
+
+      <line x1="310" y1="280" x2="338" y2="280" stroke="#333" stroke-width="1.5"/>
+      <line x1="338" y1="280" x2="338" y2="130" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <rect x="273" y="108" width="130" height="44" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="338" y="126" text-anchor="middle" font-size="8.5">Check room availability</text>
+
+      <line x1="403" y1="130" x2="432" y2="130" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <circle cx="452" cy="130" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="452" y="135" text-anchor="middle" font-size="11" font-weight="bold">⊕</text>
+
+      <line x1="452" y1="117" x2="452" y2="68" stroke="#333" stroke-width="1.5"/>
+      <line x1="452" y1="68" x2="245" y2="68" stroke="#333" stroke-width="1.5"/>
+      <line x1="245" y1="68" x2="245" y2="258" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <text x="348" y="62" class="edge-label">no</text>
+
+      <rect x="178" y="46" width="134" height="36" rx="8" fill="#ffe0b2" stroke="#e65100" stroke-width="2"/>
+      <text x="245" y="68" text-anchor="middle" font-size="8.5">Choose another date</text>
+
+      <line x1="465" y1="130" x2="505" y2="130" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <text x="482" y="124" class="edge-label">yes</text>
+
+      <polygon points="545,130 618,148 545,166 472,148" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="545" y="150" text-anchor="middle" font-size="8.5">Room available</text>
+
+      <line x1="618" y1="148" x2="652" y2="148" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <rect x="654" y="126" width="120" height="44" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="714" y="150" text-anchor="middle" font-size="8.5">Reserve room</text>
+
+      <line x1="774" y1="148" x2="810" y2="148" stroke="#333" stroke-width="1.5"/>
+      <line x1="810" y1="148" x2="810" y2="268" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <polygon points="810,270 885,288 810,306 735,288" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="810" y="292" text-anchor="middle" font-size="8.5">Room reserved</text>
+
+      <line x1="885" y1="288" x2="918" y2="288" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <circle cx="938" cy="288" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="938" y="293" text-anchor="middle" font-size="10" font-weight="bold">O</text>
+
+      <line x1="938" y1="275" x2="938" y2="228" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="868" y="200" width="140" height="26" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="938" y="217" text-anchor="middle" font-size="8.5">Arrange snacks</text>
+
+      <line x1="951" y1="288" x2="1005" y2="288" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="1007" y="274" width="110" height="28" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="1062" y="292" text-anchor="middle" font-size="8.5">Arrange chairs</text>
+
+      <line x1="938" y1="301" x2="938" y2="348" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="868" y="350" width="140" height="28" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="938" y="362" text-anchor="middle" font-size="8.5">Arrange snacks</text>
+      <text x="938" y="374" text-anchor="middle" font-size="8.5">and chairs</text>
+
+      <line x1="1062" y1="302" x2="1062" y2="460" stroke="#333" stroke-width="1.5"/>
+      <line x1="938" y1="378" x2="938" y2="460" stroke="#333" stroke-width="1.5"/>
+      <line x1="938" y1="226" x2="938" y2="460" stroke="#333" stroke-width="1.5"/>
+      <line x1="714" y1="170" x2="714" y2="460" stroke="#333" stroke-width="1.5"/>
+
+      <circle cx="800" cy="476" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="800" y="481" text-anchor="middle" font-size="13" font-weight="bold">&amp;</text>
+
+      <line x1="787" y1="476" x2="600" y2="476" stroke="#333" stroke-width="1.5"/>
+      <line x1="600" y1="476" x2="600" y2="148" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="530" y="168" width="140" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="600" y="186" text-anchor="middle" font-size="8.5">Prepare access code</text>
+
+      <line x1="813" y1="476" x2="990" y2="476" stroke="#333" stroke-width="1.5"/>
+      <line x1="990" y1="476" x2="990" y2="302" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+      <rect x="920" y="248" width="140" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="990" y="266" text-anchor="middle" font-size="8.5">Prepare participant list</text>
+
+      <line x1="800" y1="489" x2="800" y2="508" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <circle cx="800" cy="524" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="800" y="529" text-anchor="middle" font-size="13" font-weight="bold">&amp;</text>
+
+      <line x1="813" y1="524" x2="1060" y2="524" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <polygon points="1100,524 1170,542 1100,560 1030,542" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="1100" y="542" text-anchor="middle" font-size="8.5">Code and list ready</text>
+
+      <line x1="1170" y1="542" x2="1188" y2="542" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <rect x="1190" y="520" width="110" height="44" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="1245" y="544" text-anchor="middle" font-size="8.5">Confirm event</text>
+
+      <line x1="1300" y1="542" x2="1318" y2="542" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <polygon points="1350,524 1390,542 1350,560 1310,542" fill="#ffcdd2" stroke="#c62828" stroke-width="2"/>
+      <text x="1350" y="540" text-anchor="middle" font-size="8.5" font-weight="600">Event confirmed</text>
+    </svg>
+  </div>
+</body>
+</html>

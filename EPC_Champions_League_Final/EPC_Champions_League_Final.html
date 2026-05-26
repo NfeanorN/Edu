@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EPC — Organizing the Champions League Final</title>
+  <style>
+    @page { size: A3 landscape; margin: 8mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+    }
+    .page {
+      width: 1587px;
+      margin: 0 auto;
+      padding: 12px 16px 0;
+      page-break-after: avoid;
+      page-break-inside: avoid;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 4px;
+      text-align: center;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    svg.diagram { display: block; margin: 0 auto; width: 100%; height: auto; max-height: 900px; }
+    .note {
+      font-size: 10px;
+      fill: #444;
+      font-style: italic;
+    }
+    .edge-label {
+      font-size: 9px;
+      fill: #333;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Event-Process Chain (EPC)</h1>
+    <p class="subtitle">Process: Organizing the Champions League Final</p>
+
+    <svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 980">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#333"/>
+        </marker>
+      </defs>
+
+      <!-- ========== COLUMN 1: Initiation ========== -->
+      <!-- E1 Start -->
+      <polygon points="120,40 220,70 120,100 20,70" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2"/>
+      <text x="120" y="68" text-anchor="middle" font-size="9" font-weight="600">UEFA confirms</text>
+      <text x="120" y="80" text-anchor="middle" font-size="9" font-weight="600">stadium selection</text>
+
+      <line x1="120" y1="100" x2="120" y2="118" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- F1 -->
+      <rect x="35" y="120" width="170" height="44" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="120" y="140" text-anchor="middle" font-size="9.5">Open event planning file</text>
+      <text x="120" y="154" text-anchor="middle" font-size="8.5" fill="#444">(create / activate dossier)</text>
+
+      <line x1="120" y1="164" x2="120" y2="182" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- AND-split 1 -->
+      <circle cx="120" cy="198" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="120" y="203" text-anchor="middle" font-size="14" font-weight="bold">&amp;</text>
+
+      <!-- Branch left: stadium -->
+      <line x1="106" y1="198" x2="60" y2="198" stroke="#333" stroke-width="1.5"/>
+      <line x1="60" y1="198" x2="60" y2="228" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="0" y="230" width="120" height="58" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="60" y="250" text-anchor="middle" font-size="8.5">Contact stadium</text>
+      <text x="60" y="262" text-anchor="middle" font-size="8.5">management</text>
+      <text x="60" y="276" text-anchor="middle" font-size="7.5" fill="#444">Verify technical conditions,</text>
+      <text x="60" y="286" text-anchor="middle" font-size="7.5" fill="#444">spaces &amp; local constraints</text>
+
+      <!-- Branch right: authorities -->
+      <line x1="134" y1="198" x2="180" y2="198" stroke="#333" stroke-width="1.5"/>
+      <line x1="180" y1="198" x2="180" y2="228" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="120" y="230" width="120" height="58" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="180" y="250" text-anchor="middle" font-size="8.5">Coordinate with city</text>
+      <text x="180" y="262" text-anchor="middle" font-size="8.5">authorities, police &amp;</text>
+      <text x="180" y="274" text-anchor="middle" font-size="8.5">transport operators</text>
+      <text x="180" y="286" text-anchor="middle" font-size="7.5" fill="#444">Security, mobility, crowds</text>
+
+      <!-- merge to AND-join 1 -->
+      <line x1="60" y1="288" x2="60" y2="318" stroke="#333" stroke-width="1.5"/>
+      <line x1="180" y1="288" x2="180" y2="318" stroke="#333" stroke-width="1.5"/>
+      <line x1="60" y1="318" x2="120" y2="318" stroke="#333" stroke-width="1.5"/>
+      <line x1="180" y1="318" x2="120" y2="318" stroke="#333" stroke-width="1.5"/>
+      <line x1="120" y1="318" x2="120" y2="332" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="120" cy="348" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="120" y="353" text-anchor="middle" font-size="14" font-weight="bold">&amp;</text>
+      <text x="120" y="372" text-anchor="middle" font-size="8" class="note">Initial feasibility check complete</text>
+
+      <line x1="120" y1="362" x2="120" y2="388" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- E2 -->
+      <polygon points="120,390 195,418 120,446 45,418" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="120" y="416" text-anchor="middle" font-size="8.5">Feasibility confirmed</text>
+
+      <line x1="120" y1="446" x2="120" y2="468" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- F2 Event plan -->
+      <rect x="10" y="470" width="220" height="72" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="120" y="490" text-anchor="middle" font-size="9" font-weight="600">Prepare event plan</text>
+      <text x="120" y="504" text-anchor="middle" font-size="7.5" fill="#444">Match-day schedule, access routes, staff,</text>
+      <text x="120" y="516" text-anchor="middle" font-size="7.5" fill="#444">media &amp; hospitality zones, emergency</text>
+      <text x="120" y="528" text-anchor="middle" font-size="7.5" fill="#444">procedures, crowd-control layout</text>
+
+      <line x1="230" y1="506" x2="280" y2="506" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- ========== COLUMN 2: Modifications XOR ========== -->
+      <polygon points="360,478 435,506 360,534 285,506" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="360" y="504" text-anchor="middle" font-size="8.5">Event plan ready</text>
+
+      <line x1="360" y1="534" x2="360" y2="552" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="360" cy="568" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="360" y="573" text-anchor="middle" font-size="12" font-weight="bold">⊕</text>
+      <text x="360" y="592" text-anchor="middle" font-size="8">Temporary stadium</text>
+      <text x="360" y="602" text-anchor="middle" font-size="8">modifications required?</text>
+
+      <!-- Yes branch -->
+      <line x1="346" y1="568" x2="300" y2="568" stroke="#333" stroke-width="1.5"/>
+      <line x1="300" y1="568" x2="300" y2="620" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="318" y="562" class="edge-label">yes</text>
+
+      <rect x="230" y="622" width="140" height="44" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="300" y="642" text-anchor="middle" font-size="8.5">Request technical approval</text>
+      <text x="300" y="656" text-anchor="middle" font-size="8" fill="#444">before installation</text>
+
+      <line x1="300" y1="666" x2="300" y2="700" stroke="#333" stroke-width="1.5"/>
+      <line x1="300" y1="700" x2="360" y2="700" stroke="#333" stroke-width="1.5"/>
+      <line x1="360" y1="700" x2="360" y2="718" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- No branch -->
+      <line x1="374" y1="568" x2="420" y2="568" stroke="#333" stroke-width="1.5"/>
+      <line x1="420" y1="568" x2="420" y2="700" stroke="#333" stroke-width="1.5"/>
+      <line x1="420" y1="700" x2="360" y2="700" stroke="#333" stroke-width="1.5"/>
+      <text x="400" y="562" class="edge-label">no</text>
+
+      <circle cx="360" cy="734" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="360" y="739" text-anchor="middle" font-size="12" font-weight="bold">⊕</text>
+
+      <line x1="360" y1="748" x2="360" y2="768" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="360,770 448,798 360,826 272,798" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="360" y="796" text-anchor="middle" font-size="8.5">Approved / no mods needed</text>
+
+      <line x1="448" y1="798" x2="520" y2="798" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- ========== COLUMN 3: Suppliers & Ticketing (parallel AND) ========== -->
+      <circle cx="560" cy="798" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="560" y="803" text-anchor="middle" font-size="14" font-weight="bold">&amp;</text>
+
+      <!-- Upper: suppliers -->
+      <line x1="560" y1="784" x2="560" y2="720" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="470" y="640" width="180" height="76" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="560" y="660" text-anchor="middle" font-size="9" font-weight="600">Contract suppliers</text>
+      <text x="560" y="674" text-anchor="middle" font-size="7.5" fill="#444">Catering, signage, cleaning, medical,</text>
+      <text x="560" y="686" text-anchor="middle" font-size="7.5" fill="#444">broadcasting (parallel preparation)</text>
+      <text x="560" y="700" text-anchor="middle" font-size="7.5" fill="#444">Stewarding after police approve layout</text>
+
+      <!-- Lower: ticketing -->
+      <line x1="574" y1="798" x2="640" y2="798" stroke="#333" stroke-width="1.5"/>
+      <line x1="640" y1="798" x2="640" y2="860" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="550" y="862" width="180" height="58" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="640" y="882" text-anchor="middle" font-size="8.5">Coordinate with ticketing team</text>
+      <text x="640" y="896" text-anchor="middle" font-size="7.5" fill="#444">Define entry gates &amp; fan segregation</text>
+      <text x="640" y="910" text-anchor="middle" font-size="7.5" fill="#444">(managed separately)</text>
+
+      <!-- Steward sub-function annotation -->
+      <rect x="470" y="560" width="180" height="48" rx="8" fill="#e1f5fe" stroke="#0277bd" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="560" y="580" text-anchor="middle" font-size="8">Finalize steward deployment</text>
+      <text x="560" y="594" text-anchor="middle" font-size="7" fill="#444">(after police approve crowd-control)</text>
+      <line x1="560" y1="608" x2="560" y2="640" stroke="#0277bd" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow)"/>
+
+      <line x1="180" y1="259" x2="470" y2="259" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="470" y1="259" x2="470" y2="584" stroke="#999" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <text x="325" y="252" font-size="7" fill="#666">police coordination → steward approval</text>
+
+      <!-- merge suppliers + ticketing -->
+      <line x1="560" y1="640" x2="500" y2="600" stroke="#333" stroke-width="1.5"/>
+      <line x1="640" y1="920" x2="640" y2="940" stroke="#333" stroke-width="1.5"/>
+      <line x1="640" y1="940" x2="760" y2="940" stroke="#333" stroke-width="1.5"/>
+      <line x1="560" y1="716" x2="560" y2="940" stroke="#333" stroke-width="1.5"/>
+      <line x1="560" y1="940" x2="760" y2="940" stroke="#333" stroke-width="1.5"/>
+      <line x1="760" y1="940" x2="760" y2="920" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="760" cy="906" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="760" y="911" text-anchor="middle" font-size="14" font-weight="bold">&amp;</text>
+
+      <!-- ========== COLUMN 4: Fan zones XOR loop ========== -->
+      <line x1="760" y1="892" x2="760" y2="820" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="760" cy="804" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="760" y="809" text-anchor="middle" font-size="12" font-weight="bold">⊕</text>
+      <text x="760" y="778" text-anchor="middle" font-size="8">Both clubs accept</text>
+      <text x="760" y="788" text-anchor="middle" font-size="8">proposed fan zones?</text>
+
+      <!-- yes -->
+      <line x1="774" y1="804" x2="830" y2="804" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="792" y="798" class="edge-label">yes</text>
+
+      <rect x="832" y="782" width="130" height="44" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="897" y="802" text-anchor="middle" font-size="8.5">Confirm access plan</text>
+      <text x="897" y="816" text-anchor="middle" font-size="8" fill="#444">(gates &amp; segregation)</text>
+
+      <line x1="962" y1="804" x2="1000" y2="804" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- no: revise loop -->
+      <line x1="746" y1="804" x2="700" y2="804" stroke="#333" stroke-width="1.5"/>
+      <line x1="700" y1="804" x2="700" y2="750" stroke="#333" stroke-width="1.5"/>
+      <line x1="700" y1="750" x2="640" y2="750" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="708" y="798" class="edge-label">no</text>
+
+      <rect x="520" y="728" width="120" height="44" rx="8" fill="#ffe0b2" stroke="#e65100" stroke-width="2"/>
+      <text x="580" y="748" text-anchor="middle" font-size="8.5">Revise fan zone</text>
+      <text x="580" y="762" text-anchor="middle" font-size="8.5">allocation &amp; resubmit</text>
+
+      <line x1="640" y1="750" x2="760" y2="750" stroke="#333" stroke-width="1.5"/>
+      <line x1="760" y1="750" x2="760" y2="790" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- ========== COLUMN 5: Final days & contingency ========== -->
+      <polygon points="1040,786 1115,804 1040,822 965,804" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="1040" y="802" text-anchor="middle" font-size="8.5">Access plan confirmed</text>
+
+      <line x1="1040" y1="822" x2="1040" y2="848" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="940" y="850" width="200" height="62" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="1040" y="870" text-anchor="middle" font-size="9" font-weight="600">Final pre-match preparation</text>
+      <text x="1040" y="884" text-anchor="middle" font-size="7.5" fill="#444">Inspect venue, test communications,</text>
+      <text x="1040" y="896" text-anchor="middle" font-size="7.5" fill="#444">brief all operational teams</text>
+
+      <line x1="1140" y1="881" x2="1180" y2="881" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="1196" cy="881" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="1196" y="886" text-anchor="middle" font-size="12" font-weight="bold">⊕</text>
+      <text x="1196" y="858" text-anchor="middle" font-size="8">Critical issue</text>
+      <text x="1196" y="868" text-anchor="middle" font-size="8">unresolved?</text>
+
+      <!-- yes contingency -->
+      <line x1="1196" y1="867" x2="1196" y2="800" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="1208" y="838" class="edge-label">yes</text>
+
+      <rect x="1126" y="748" width="140" height="48" rx="8" fill="#ffcdd2" stroke="#c62828" stroke-width="2"/>
+      <text x="1196" y="768" text-anchor="middle" font-size="8.5">Activate contingency plan</text>
+      <text x="1196" y="782" text-anchor="middle" font-size="7.5" fill="#444">Resolve critical issues</text>
+
+      <line x1="1266" y1="772" x2="1310" y2="772" stroke="#333" stroke-width="1.5"/>
+      <line x1="1310" y1="772" x2="1310" y2="700" stroke="#333" stroke-width="1.5"/>
+      <line x1="1310" y1="700" x2="1360" y2="700" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- no handover -->
+      <line x1="1210" y1="881" x2="1280" y2="881" stroke="#333" stroke-width="1.5"/>
+      <line x1="1280" y1="881" x2="1280" y2="700" stroke="#333" stroke-width="1.5"/>
+      <line x1="1280" y1="700" x2="1360" y2="700" stroke="#333" stroke-width="1.5"/>
+      <text x="1235" y="875" class="edge-label">no</text>
+
+      <circle cx="1390" cy="700" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="1390" y="705" text-anchor="middle" font-size="12" font-weight="bold">⊕</text>
+
+      <line x1="1404" y1="700" x2="1440" y2="700" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="1340" y="618" width="160" height="58" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="1420" y="638" text-anchor="middle" font-size="8.5">Hand over stadium for</text>
+      <text x="1420" y="652" text-anchor="middle" font-size="8.5">match-day operations</text>
+      <text x="1420" y="666" text-anchor="middle" font-size="7.5" fill="#444">(operational control transfer)</text>
+
+      <line x1="1420" y1="618" x2="1420" y2="560" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="1420,538 1495,556 1420,574 1345,556" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="1420" y="554" text-anchor="middle" font-size="8.5">Match completed</text>
+
+      <line x1="1420" y1="538" x2="1420" y2="500" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="1335" y="448" width="170" height="48" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="1420" y="468" text-anchor="middle" font-size="8.5">Complete final report</text>
+      <text x="1420" y="482" text-anchor="middle" font-size="8" fill="#444">(post-event documentation)</text>
+
+      <line x1="1420" y1="448" x2="1420" y2="410" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="1420,382 1505,400 1420,418 1335,400" fill="#ffcdd2" stroke="#c62828" stroke-width="2"/>
+      <text x="1420" y="396" text-anchor="middle" font-size="9" font-weight="600">Final report completed</text>
+      <text x="1420" y="408" text-anchor="middle" font-size="8">(process end)</text>
+
+    </svg>
+  </div>
+</body>
+</html>

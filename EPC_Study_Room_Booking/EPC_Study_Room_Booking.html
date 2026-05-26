@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EPC — Booking a Study Room for Game Night</title>
+  <style>
+    @page { size: A3 landscape; margin: 8mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Helvetica, Arial, sans-serif; background: #fff; color: #1a1a1a; }
+    .page { width: 1587px; margin: 0 auto; padding: 12px 16px 0; page-break-after: avoid; page-break-inside: avoid; }
+    h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; text-align: center; }
+    .subtitle { text-align: center; font-size: 12px; color: #555; margin-bottom: 8px; }
+    svg.diagram { display: block; margin: 0 auto; width: 100%; height: auto; max-height: 920px; }
+    .edge-label { font-size: 9px; fill: #333; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Event-Process Chain (EPC)</h1>
+    <p class="subtitle">Exercise 0: Booking a study room for game night</p>
+
+    <svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 960">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#333"/>
+        </marker>
+      </defs>
+
+      <!-- E1 -->
+      <polygon points="500,20 600,50 500,80 400,50" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2"/>
+      <text x="500" y="48" text-anchor="middle" font-size="9" font-weight="600">Club plans board game night</text>
+      <text x="500" y="60" text-anchor="middle" font-size="9" font-weight="600">and needs a study room</text>
+      <line x1="500" y1="80" x2="500" y2="98" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- F1 -->
+      <rect x="360" y="100" width="280" height="38" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="500" y="124" text-anchor="middle" font-size="9.5">Send booking request to campus office</text>
+      <line x1="500" y1="138" x2="500" y2="156" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- F2 -->
+      <rect x="360" y="158" width="280" height="38" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="500" y="182" text-anchor="middle" font-size="9.5">Check if requested room is available</text>
+      <line x1="500" y1="196" x2="500" y2="214" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- XOR -->
+      <circle cx="500" cy="230" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="500" y="235" text-anchor="middle" font-size="12" font-weight="bold">⊕</text>
+      <text x="500" y="258" text-anchor="middle" font-size="8.5">Room available?</text>
+
+      <!-- no -->
+      <line x1="486" y1="230" x2="220" y2="230" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="350" y="224" class="edge-label">no</text>
+      <rect x="100" y="210" width="200" height="40" rx="8" fill="#ffe0b2" stroke="#e65100" stroke-width="2"/>
+      <text x="200" y="235" text-anchor="middle" font-size="9">Club chooses another date</text>
+      <line x1="200" y1="210" x2="200" y2="177" stroke="#333" stroke-width="1.5"/>
+      <line x1="200" y1="177" x2="360" y2="177" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- yes -->
+      <line x1="500" y1="244" x2="500" y2="278" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="512" y="268" class="edge-label">yes</text>
+      <polygon points="500,280 575,300 500,320 425,300" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="500" y="302" text-anchor="middle" font-size="8.5">Room is available</text>
+      <line x1="500" y1="320" x2="500" y2="338" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- F3 reserve -->
+      <rect x="360" y="340" width="280" height="36" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="500" y="363" text-anchor="middle" font-size="9.5">Office reserves the room</text>
+      <line x1="500" y1="376" x2="500" y2="394" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="500,396 575,416 500,436 425,416" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="500" y="418" text-anchor="middle" font-size="8.5">Room reserved</text>
+      <line x1="500" y1="436" x2="500" y2="454" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- OR setup -->
+      <circle cx="500" cy="470" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="500" y="475" text-anchor="middle" font-size="11" font-weight="bold">O</text>
+      <text x="500" y="498" text-anchor="middle" font-size="8">Setup needed?</text>
+
+      <line x1="486" y1="470" x2="150" y2="470" stroke="#333" stroke-width="1.5"/>
+      <line x1="150" y1="470" x2="150" y2="520" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="60" y="522" width="180" height="34" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="150" y="543" text-anchor="middle" font-size="8.5">Arrange snacks</text>
+
+      <line x1="500" y1="484" x2="500" y2="520" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="410" y="522" width="180" height="34" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="500" y="543" text-anchor="middle" font-size="8.5">Arrange extra chairs</text>
+
+      <line x1="514" y1="470" x2="850" y2="470" stroke="#333" stroke-width="1.5"/>
+      <line x1="850" y1="470" x2="850" y2="520" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="760" y="522" width="180" height="34" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="850" y="536" text-anchor="middle" font-size="8.5">Arrange snacks</text>
+      <text x="850" y="548" text-anchor="middle" font-size="8.5">and extra chairs</text>
+
+      <line x1="150" y1="556" x2="150" y2="590" stroke="#333" stroke-width="1.5"/>
+      <line x1="850" y1="556" x2="850" y2="590" stroke="#333" stroke-width="1.5"/>
+      <line x1="150" y1="590" x2="500" y2="590" stroke="#333" stroke-width="1.5"/>
+      <line x1="850" y1="590" x2="500" y2="590" stroke="#333" stroke-width="1.5"/>
+      <line x1="500" y1="556" x2="500" y2="590" stroke="#333" stroke-width="1.5"/>
+
+      <circle cx="500" cy="606" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="500" y="611" text-anchor="middle" font-size="11" font-weight="bold">O</text>
+      <line x1="500" y1="620" x2="500" y2="638" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- AND parallel -->
+      <circle cx="500" cy="654" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="500" y="659" text-anchor="middle" font-size="14" font-weight="bold">&amp;</text>
+
+      <line x1="486" y1="654" x2="280" y2="654" stroke="#333" stroke-width="1.5"/>
+      <line x1="280" y1="654" x2="280" y2="690" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="170" y="692" width="220" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="280" y="710" text-anchor="middle" font-size="8.5">Office prepares</text>
+      <text x="280" y="722" text-anchor="middle" font-size="8.5">access code</text>
+
+      <line x1="514" y1="654" x2="720" y2="654" stroke="#333" stroke-width="1.5"/>
+      <line x1="720" y1="654" x2="720" y2="690" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="610" y="692" width="220" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="720" y="710" text-anchor="middle" font-size="8.5">Club prepares</text>
+      <text x="720" y="722" text-anchor="middle" font-size="8.5">participant list</text>
+
+      <line x1="280" y1="732" x2="280" y2="762" stroke="#333" stroke-width="1.5"/>
+      <line x1="720" y1="732" x2="720" y2="762" stroke="#333" stroke-width="1.5"/>
+      <line x1="280" y1="762" x2="500" y2="762" stroke="#333" stroke-width="1.5"/>
+      <line x1="720" y1="762" x2="500" y2="762" stroke="#333" stroke-width="1.5"/>
+      <line x1="500" y1="762" x2="500" y2="778" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="500" cy="794" r="14" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="500" y="799" text-anchor="middle" font-size="14" font-weight="bold">&amp;</text>
+      <line x1="500" y1="808" x2="500" y2="824" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="500,826 575,846 500,866 425,846" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="500" y="848" text-anchor="middle" font-size="8.5">Access code and list ready</text>
+      <line x1="500" y1="866" x2="500" y2="884" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="360" y="886" width="280" height="36" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="500" y="909" text-anchor="middle" font-size="9.5">Office confirms the event</text>
+      <line x1="500" y1="922" x2="500" y2="932" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="500,934 585,952 500,970 415,952" fill="#ffcdd2" stroke="#c62828" stroke-width="2"/>
+      <text x="500" y="952" text-anchor="middle" font-size="9" font-weight="600">Event confirmed</text>
+      <text x="500" y="964" text-anchor="middle" font-size="8">(process end)</text>
+    </svg>
+  </div>
+</body>
+</html>

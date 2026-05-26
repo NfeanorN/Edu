@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Innovation — Экзамен (14 MCQ)</title>
+  <link rel="stylesheet" href="quiz-style.css" />
+  <style>
+    h1 { border-bottom-color: #2980b9; }
+    .back a, .q-num, #results { border-color: #2980b9; }
+    .back a { color: #2980b9; }
+    .btn-primary { background: #2980b9; }
+    .btn-primary:hover { background: #1f6dad; }
+    .hint { background: #e7f5fd; border-left-color: #2980b9; }
+    #results { border-color: #2980b9; }
+    #results h2 { color: #2980b9; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← К списку тестов HR</a></p>
+    <h1>Digital Innovation — Экзамен</h1>
+    <p class="sub">14 вопросов с экзамена Digital Innovation CFU 6. Русский + английский. Правильные ответы проверены по содержанию курса, не по пометкам на бланке.</p>
+    <p class="hint">Ответьте на все вопросы и нажмите «Проверить ответы».</p>
+
+    <form id="quiz-form"></form>
+    <div class="actions">
+      <button type="submit" form="quiz-form" class="btn btn-primary" id="submit-btn">Проверить ответы</button>
+      <button type="button" class="btn btn-secondary" id="reset-btn">Сбросить</button>
+    </div>
+    <section id="results" hidden>
+      <h2>Результаты</h2>
+      <p id="score"></p>
+      <ul id="results-list"></ul>
+    </section>
+  </div>
+
+  <script src="quiz-common.js"></script>
+  <script>
+    const opt = (id, ru, en) => ({ id, ru, en });
+    const Q = (id, ru, en, options, correct) => ({ id, ru, en, options, correct });
+
+    initQuiz({
+      storageKey: "hr-di-exam",
+      questions: [
+        Q("d1", "ИИ сейчас находится на стадии:", "Currently, Artificial Intelligence is at the stage of:",
+          [opt("a","AGI (общий интеллект)","Artificial General Intelligence"),
+           opt("b","ANI (узкий интеллект)","Artificial Narrow Intelligence"),
+           opt("c","ASI (сверхинтеллект)","Artificial Super Intelligence"),
+           opt("d","ANI (естественный)","Artificial Natural Intelligence"),
+           opt("e","Ни один из других","None of the other answers is correct")], "b"),
+        Q("d2", "ИИ (Artificial Intelligence) — это:", "AI (Artificial Intelligence) is:",
+          [opt("a","Дисруптивная технология с ноября 2022 и ChatGPT","Disruptive technology that emerged in November 2022 with ChatGPT"),
+           opt("b","Распознаёт паттерны только если разработчик постоянно проверяет","Recognizes patterns and self-learns only if developer constantly checks"),
+           opt("c","Никогда не будет развиваться дальше","Never going to evolve further"),
+           opt("d","Устройство, воспринимающее среду и действующее для достижения цели","Any device that perceives its environment and takes actions that maximize its chance of success at some goal"),
+           opt("e","Ни один из других","None of the other answers is correct")], "d"),
+        Q("d3", "По Dooley (1997), сложная адаптивная организация лучше для среды:", "According to Dooley (1997), complex adaptive organization is best suited for:",
+          [opt("a","Турбулентной с низкой численностью и разнообразием акторов","Turbulent, low actor numerosity and low actor diversity"),
+           opt("b","С редкими технологическими изменениями","One with infrequent technological changes"),
+           opt("c","Стабильной и предсказуемой","Stable and predictable"),
+           opt("d","Стабильной и анализируемой","A stable and analyzable environment"),
+           opt("e","Ни один из перечисленных (турбулентная с высоким разнообразием)","None of the other answers is correct")], "e"),
+        Q("d4", "Решение проблем клиентов — ключевая активность в модели:", "Solving customer problems is a key activity in the:",
+          [opt("a","Value network","Value network business model"),
+           opt("b","Value shop","Value shop business model"),
+           opt("c","Value chain","Value chain business model"),
+           opt("d","Value co-creation","Value co-creation business model"),
+           opt("e","Ни один из других","None of the other answers is correct")], "b"),
+        Q("d5", "Блокчейн — это:", "A Blockchain is:",
+          [opt("a","Неразрывно связан с Bitcoin","Based on Bitcoin — the two are not divisible"),
+           opt("b","Независимые несвязанные блоки","Built on independent blocks not related among themselves"),
+           opt("c","Реестр фактов, реплицированный на нескольких компьютерах P2P","A ledger of facts replicated across several computers in a peer-to-peer structure"),
+           opt("d","Менее устойчив при росте числа узлов","Less robust when the number of nodes increases"),
+           opt("e","Ни один из других","None of the other answers is correct")], "c"),
+        Q("d6", "По Rogers (1983), диффузия инноваций:", "According to Rogers (1983), innovation diffusion:",
+          [opt("a","Особый вид коммуникации","Is a special kind of communication"),
+           opt("b","Автономное решение на основе полезности и простоты (TAM)","Individuals decide based on perceived usefulness and ease of use"),
+           opt("c","Социально определена, характеристики инновации не важны","Is socially determined with negligible influence of innovation characteristics"),
+           opt("d","Быстрее в сетях со structural equivalence","Spreads faster in networks with structural equivalence"),
+           opt("e","Ни один из других","None of the other answers is correct")], "a"),
+        Q("d7", "Исследование Dell'Acqua et al. (2023):", "The study of Dell'Acqua et al. (2023) suggests that:",
+          [opt("a","Навыки разработки ПО всегда повышают результат с ИИ","Software engineering skills always associated with higher performance with AI"),
+           opt("b","Навыки разработки повышают результат только для задач в пределах «границы возможностей ИИ»","Software engineering skills associated with higher performance only for tasks within the AI capabilities frontier"),
+           opt("c","Prompt engineering всегда повышает результат","Prompt engineering skills always associated with higher performance"),
+           opt("d","Доменные навыки станут ещё важнее, т.к. ИИ их не воспроизводит","Domain skills will become increasingly relevant as AI cannot reproduce them"),
+           opt("e","Ни один из других","None of the other answers is correct")], "b"),
+        Q("d8", "В double diamond design framework:", "In Design Thinking, within the double diamond framework:",
+          [opt("a","Конвергенция — первый этап для согласования проблемы","Convergence is the first stage to align stakeholders on the problem"),
+           opt("b","Дивергенция — первый этап для идей решений","Divergence occurs first to identify potential solutions"),
+           opt("c","Конвергенция — первый и третий этап","Convergence occurs as both first and third stage"),
+           opt("d","Дивергенция — первый и третий этап (проблема и решения)","Divergence is the first and third step, exploring problem and solutions"),
+           opt("e","Ни один из других","None of the other answers is correct")], "d"),
+        Q("d9", "Value Network (модель конфигурации ценности):", "Considering Value Configuration Models, the Value Network:",
+          [opt("a","Исследует проблемы клиентов и предлагает решения","Aims to investigate customer problems to propose solutions"),
+           opt("b","Способствует связям между клиентами; нужна широкая база и безопасный поток","Main aim is to facilitate relationships among customers; broad user base and safe connection flow"),
+           opt("c","Любой digital-бизнес — это Value Network","Every digital business is a Network Value model"),
+           opt("d","«Решение проблем» в ядре модели","Has problem solving as the core of its model"),
+           opt("e","Ни один из других","None of the other answers is correct")], "b"),
+        Q("d10", "Нормы системы (Rogers) — это:", "In Rogers's theory, system's norms refer to:",
+          [opt("a","Юридически принятое поведение","Legally accepted behavior guiding members"),
+           opt("b","Степень влияния на отношения других","Degree to which an individual can influence others' attitudes"),
+           opt("c","Структура связей и численность акторов","Patterned arrangements such as density and numerosity"),
+           opt("d","Допустимое поведение-стандарт, не обязательное юридически","Tolerable behavior as a standard, although not legally binding"),
+           opt("e","Ни один из других","None of the other answers is correct")], "d"),
+        Q("d11", "Интернет основан на протоколе:", "The Internet is based on which communication protocol?",
+          [opt("a","WWW","The World Wide Web protocol"),
+           opt("b","SHA256","The SHA256 protocol"),
+           opt("c","TCP/IP","The TCP/IP protocol"),
+           opt("d","Множество протоколов из-за SEO","Many protocols because of SEO algorithms"),
+           opt("e","Ни один из других","None of the other answers is correct")], "c"),
+        Q("d12", "Что НЕ является преимуществом облачных вычислений?", "Which is NOT an advantage of cloud computing?",
+          [opt("a","Мгновенная масштабируемость","Instant scalability"),
+           opt("b","Оплата по использованию","Pay per use"),
+           opt("c","Меньше начальных инвестиций в железо","Lower initial investment in hardware"),
+           opt("d","Низкая зависимость от провайдера","Low dependence on the service provider"),
+           opt("e","Ни один из других","None of the other answers is correct")], "d"),
+        Q("d13", "Биткоины:", "Bitcoins are:",
+          [opt("a","Инфляционные при ограниченном предложении","Inflationary by design in limited supply"),
+           opt("b","Основаны на децентрализованной системе","Based on a decentralized system"),
+           opt("c","Неограниченное предложение","Unlimited in supply"),
+           opt("d","Криптовалюта, обеспеченная золотом ООН","Cryptocurrency backed in gold by the UN"),
+           opt("e","Ни один из других","None of the other answers is correct")], "b"),
+        Q("d14", "Onlife описывает:", "Onlife describes:",
+          [opt("a","Взаимодействие реального мира и соцсетей угрожает приватности","Interactions between real world and social media endanger privacy"),
+           opt("b","Реальный и цифровой мир нельзя разделить","Interactions between real and digital world exist so the two cannot be divided"),
+           opt("c","Будущее только в VR","Future where life solely exists in digital world through VR"),
+           opt("d","Бизнес-модель продажи цифровых объектов в VR","Business model for selling digital objects in virtual environments"),
+           opt("e","Ни один из предыдущих","None of the previous answers is correct")], "b"),
+      ],
+    });
+  </script>
+</body>
+</html>
