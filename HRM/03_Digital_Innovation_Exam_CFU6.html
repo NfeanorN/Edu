@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Innovation — Экзамен CFU 6</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #7b4397; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #7b4397;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #7b4397;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 1.15rem;
+      color: #7b4397;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #7b4397; margin-bottom: 0.35rem; }
+    .q-ru { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .q-en { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #f3f0f7; }
+  .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-ru { font-size: 0.95rem; }
+    .opt-en { font-size: 0.82rem; color: #777; }
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .open-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .open-block textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-top: 0.5rem;
+      padding: 0.65rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .sample {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: #f8f5fc;
+      border-radius: 8px;
+      border-left: 3px solid #7b4397;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
+    table.matrix {
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0 auto;
+    }
+    table.matrix th, table.matrix td {
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      text-align: center;
+    }
+    table.matrix th { background: #7b4397; color: #fff; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #7b4397;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #6a3784; }
+    button.secondary {
+      background: #fff;
+      color: #7b4397;
+      border: 2px solid #7b4397;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #7b4397;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← К тестам HRM</a></p>
+    <h1>Digital Innovation — Экзамен CFU 6</h1>
+    <p class="sub">Digital Innovation Exam CFU 6 — 14 MCQ + SNA / 14 MCQ + SNA</p>
+    <div class="rules">Экзамен DI: +1 / −0,2 за MCQ (1–20). SNA-расчёты проверяются по эталону.</div>
+    <form id="test-form">
+      <div id="questions"></div>
+      
+    <div class="section-title">SNA — матрица смежности (9 узлов A–I)</div>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr>
+        <tr><th>A</th><td>—</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><th>B</th><td>3</td><td>—</td><td>1</td><td>3</td><td>1</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><th>C</th><td>1</td><td>1</td><td>—</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><th>D</th><td>0</td><td>3</td><td>0</td><td>—</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><th>E</th><td>0</td><td>1</td><td>0</td><td>0</td><td>—</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><th>F</th><td>0</td><td>4</td><td>0</td><td>0</td><td>0</td><td>—</td><td>3</td><td>0</td><td>0</td></tr>
+        <tr><th>G</th><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>3</td><td>—</td><td>1</td><td>0</td></tr>
+        <tr><th>H</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>—</td><td>1</td></tr>
+        <tr><th>I</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>—</td></tr>
+      </table>
+    </div>
+    
+      <div class="actions">
+        <button type="submit">Проверить ответы</button>
+        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = {"correct": 1, "wrong": -0.2, "max": 19};
+    const QUESTIONS = [{"num": 1, "id": "q1", "en": "Currently, Artificial Intelligence is at the stage of:", "ru": "ИИ сейчас находится на стадии:", "options": [{"id": "a", "en": "Artificial General Intelligence", "ru": "AGI (общий интеллект)"}, {"id": "b", "en": "Artificial Narrow Intelligence", "ru": "ANI (узкий интеллект)"}, {"id": "c", "en": "Artificial Super Intelligence", "ru": "ASI (сверхинтеллект)"}, {"id": "d", "en": "Artificial Natural Intelligence", "ru": "ANI (естественный)"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 2, "id": "q2", "en": "AI (Artificial Intelligence) is:", "ru": "ИИ (Artificial Intelligence) — это:", "options": [{"id": "a", "en": "Disruptive technology that emerged in November 2022 with ChatGPT", "ru": "Дисruptивная технология с ноября 2022 и ChatGPT"}, {"id": "b", "en": "Recognizes patterns and self-learns only if developer constantly checks", "ru": "Распознаёт паттерны только если разработчик постоянно проверяет"}, {"id": "c", "en": "Never going to evolve further", "ru": "Никогда не будет развиваться дальше"}, {"id": "d", "en": "Any device that perceives its environment and takes actions to maximize success at some goal", "ru": "Устройство, воспринимающее среду и действующее для достижения цели"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": "Digital Innovation — MCQ"}, {"num": 3, "id": "q3", "en": "According to Dooley (1997), complex adaptive organization is best suited for:", "ru": "По Dooley (1997), сложная адаптивная организация лучше для среды:", "options": [{"id": "a", "en": "Turbulent, low actor numerosity and low actor diversity", "ru": "Турбулентной с низкой численностью и разнообразием акторов"}, {"id": "b", "en": "One with infrequent technological changes", "ru": "С редкими технологическими изменениями"}, {"id": "c", "en": "Stable and predictable", "ru": "Стабильной и предсказуемой"}, {"id": "d", "en": "A stable and analyzable environment", "ru": "Стабильной и анализируемой"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "e", "section": "Digital Innovation — MCQ"}, {"num": 4, "id": "q4", "en": "Solving customer problems is a key activity in the:", "ru": "Решение проблем клиентов — ключевая активность в модели:", "options": [{"id": "a", "en": "Value network business model", "ru": "Value network"}, {"id": "b", "en": "Value shop business model", "ru": "Value shop"}, {"id": "c", "en": "Value chain business model", "ru": "Value chain"}, {"id": "d", "en": "Value co-creation business model", "ru": "Value co-creation"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 5, "id": "q5", "en": "A Blockchain is:", "ru": "Блокчейн — это:", "options": [{"id": "a", "en": "Based on Bitcoin — the two are not divisible", "ru": "Неразрывно связан с Bitcoin"}, {"id": "b", "en": "Built on independent blocks not related among themselves", "ru": "Независимые несвязанные блоки"}, {"id": "c", "en": "A ledger of facts replicated across several computers in a peer-to-peer structure", "ru": "Реестр фактов, реплицированный на нескольких компьютерах P2P"}, {"id": "d", "en": "Less robust when the number of nodes increases", "ru": "Менее устойчив при росте числа узлов"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "c", "section": "Digital Innovation — MCQ"}, {"num": 6, "id": "q6", "en": "According to Rogers (1983), innovation diffusion:", "ru": "По Rogers (1983), диффузия инноваций:", "options": [{"id": "a", "en": "Is a special kind of communication", "ru": "Особый вид коммуникации"}, {"id": "b", "en": "Individuals decide based on perceived usefulness and ease of use", "ru": "Автономное решение на основе полезности и простоты (TAM)"}, {"id": "c", "en": "Is socially determined with negligible influence of innovation characteristics", "ru": "Социально определена, характеристики инновации не важны"}, {"id": "d", "en": "Spreads faster in networks with structural equivalence", "ru": "Быстрее в сетях со structural equivalence"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "a", "section": "Digital Innovation — MCQ"}, {"num": 7, "id": "q7", "en": "The study of Dell'Acqua et al. (2023) suggests that:", "ru": "Исследование Dell'Acqua et al. (2023):", "options": [{"id": "a", "en": "Software engineering skills always associated with higher performance with AI", "ru": "Навыки разработки ПО всегда повышают результат с ИИ"}, {"id": "b", "en": "Software engineering skills associated with higher performance only for tasks within the AI capabilities frontier", "ru": "Навыки разработки повышают результат только для задач в пределах «границы возможностей ИИ»"}, {"id": "c", "en": "Prompt engineering always associated with higher performance", "ru": "Prompt engineering всегда повышает результат"}, {"id": "d", "en": "Domain skills will become increasingly relevant as AI cannot reproduce them", "ru": "Доменные навыки станут ещё важнее, т.к. ИИ их не воспроизводит"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 8, "id": "q8", "en": "In Design Thinking, within the double diamond framework:", "ru": "В double diamond design framework:", "options": [{"id": "a", "en": "Convergence is the first stage to align stakeholders on the problem", "ru": "Конвергенция — первый этап для согласования проблемы"}, {"id": "b", "en": "Divergence occurs first to identify potential solutions", "ru": "Дивергенция — первый этап для идей решений"}, {"id": "c", "en": "Convergence occurs as both first and third stage", "ru": "Конвергенция — первый и третий этап"}, {"id": "d", "en": "Divergence is the first and third step, exploring problem and solutions", "ru": "Дивергенция — первый и третий этап (проблема и решения)"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": "Digital Innovation — MCQ"}, {"num": 9, "id": "q9", "en": "Considering Value Configuration Models, the Value Network:", "ru": "Value Network (модель конфигурации ценности):", "options": [{"id": "a", "en": "Aims to investigate customer problems to propose solutions", "ru": "Исследует проблемы клиентов и предлагает решения"}, {"id": "b", "en": "Facilitates relationships among customers; broad user base and safe connection flow", "ru": "Способствует связям между клиентами; нужна широкая база и безопасный поток"}, {"id": "c", "en": "Every digital business is a Network Value model", "ru": "Любой digital-бизнес — это Value Network"}, {"id": "d", "en": "Has problem solving as the core of its model", "ru": "«Решение проблем» в ядре модели"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 10, "id": "q10", "en": "In Rogers's theory, system's norms refer to:", "ru": "Нормы системы (Rogers) — это:", "options": [{"id": "a", "en": "Legally accepted behavior guiding members", "ru": "Юридически принятое поведение"}, {"id": "b", "en": "Degree to which an individual can influence others' attitudes", "ru": "Степень влияния на отношения других"}, {"id": "c", "en": "Patterned arrangements such as density and numerosity", "ru": "Структура связей и численность акторов"}, {"id": "d", "en": "Tolerable behavior as a standard, although not legally binding", "ru": "Допустимое поведение-стандарт, не обязательное юридически"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": "Digital Innovation — MCQ"}, {"num": 11, "id": "q11", "en": "The Internet is based on which communication protocol?", "ru": "Интернет основан на протоколе:", "options": [{"id": "a", "en": "The World Wide Web protocol", "ru": "WWW"}, {"id": "b", "en": "The SHA256 protocol", "ru": "SHA256"}, {"id": "c", "en": "The TCP/IP protocol", "ru": "TCP/IP"}, {"id": "d", "en": "Many protocols because of SEO algorithms", "ru": "Множество протоколов из-за SEO"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "c", "section": "Digital Innovation — MCQ"}, {"num": 12, "id": "q12", "en": "Which is NOT an advantage of cloud computing?", "ru": "Что НЕ является преимуществом облачных вычислений?", "options": [{"id": "a", "en": "Instant scalability", "ru": "Мгновенная масштабируемость"}, {"id": "b", "en": "Pay per use", "ru": "Оплата по использованию"}, {"id": "c", "en": "Lower initial investment in hardware", "ru": "Меньше начальных инвестиций в железо"}, {"id": "d", "en": "Low dependence on the service provider", "ru": "Низкая зависимость от провайдера"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": "Digital Innovation — MCQ"}, {"num": 13, "id": "q13", "en": "Bitcoins are:", "ru": "Биткоины:", "options": [{"id": "a", "en": "Inflationary by design in limited supply", "ru": "Инфляционные при ограниченном предложении"}, {"id": "b", "en": "Based on a decentralized system", "ru": "Основаны на децентрализованной системе"}, {"id": "c", "en": "Unlimited in supply", "ru": "Неограниченное предложение"}, {"id": "d", "en": "Cryptocurrency backed in gold by the UN", "ru": "Криптовалюта, обеспеченная золотом ООН"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 14, "id": "q14", "en": "Onlife describes:", "ru": "Onlife описывает:", "options": [{"id": "a", "en": "Interactions between real world and social media endanger privacy", "ru": "Взаимодействие реального мира и соцсетей угрожает приватности"}, {"id": "b", "en": "Real and digital world cannot be divided", "ru": "Реальный и цифровой мир нельзя разделить"}, {"id": "c", "en": "Future where life solely exists in digital world through VR", "ru": "Будущее только в VR"}, {"id": "d", "en": "Business model for selling digital objects in VR", "ru": "Бизнес-модель продажи цифровых объектов в VR"}, {"id": "e", "en": "None of the previous answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 16, "id": "sna16", "en": "What type of matrix is it?", "ru": "Какой тип матрицы представлен?", "options": [{"id": "a", "en": "One-mode, directed, weighted", "ru": "One-mode, directed, weighted"}, {"id": "b", "en": "One-mode, undirected, unweighted", "ru": "One-mode, undirected, unweighted"}, {"id": "c", "en": "One-mode, directed, unweighted", "ru": "One-mode, directed, unweighted"}, {"id": "d", "en": "Two-modes, undirected, weighted", "ru": "Two-modes, undirected, weighted"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "SNA — MCQ"}, {"num": 17, "id": "sna17", "en": "Emax is:", "ru": "Emax равен:", "options": [{"id": "a", "en": "72", "ru": "72"}, {"id": "b", "en": "36", "ru": "36"}, {"id": "c", "en": "81", "ru": "81"}, {"id": "d", "en": "56", "ru": "56"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "a", "section": "SNA — MCQ"}, {"num": 18, "id": "sna18", "en": "The network diameter is:", "ru": "Диаметр сети:", "options": [{"id": "a", "en": "3", "ru": "3"}, {"id": "b", "en": "4", "ru": "4"}, {"id": "c", "en": "5", "ru": "5"}, {"id": "d", "en": "6", "ru": "6"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "c", "section": "SNA — MCQ"}, {"num": 19, "id": "sna19", "en": "The network density is:", "ru": "Плотность сети (density):", "options": [{"id": "a", "en": "0.28", "ru": "0,28"}, {"id": "b", "en": "0.31", "ru": "0,31"}, {"id": "c", "en": "0.33", "ru": "0,33"}, {"id": "d", "en": "0.17", "ru": "0,17"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "SNA — MCQ"}, {"num": 20, "id": "sna20", "en": "Considering the values of Betweenness Centrality:", "ru": "Учитывая значения Betweenness Centrality:", "options": [{"id": "a", "en": "I has a higher value than G", "ru": "I имеет большее значение, чем G"}, {"id": "b", "en": "G has a higher value than F", "ru": "G имеет большее значение, чем F"}, {"id": "c", "en": "A has a higher value than D", "ru": "A имеет большее значение, чем D"}, {"id": "d", "en": "A has a higher value than B", "ru": "A имеет большее значение, чем B"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "SNA — MCQ"}];
+    const OPEN_ITEMS = [];
+    const SNA_ITEMS = [{"ru": "Узлы с наибольшей и наименьшей closeness centrality (укажите узлы и значения).", "en": "Node/s with the highest and lowest Closeness (nodes and values).", "expected": "B и G — 0.57; I — 0.31", "accept": ["b and g 0.57 i 0.31", "b g 0.57 i 0.31", "b & g 0.57 i 0.31"]}, {"ru": "Betweenness centrality узлов H, B, E и I.", "en": "Betweenness of H, B, E and I.", "expected": "H=7; B=13.5; E=3; I=0", "accept": ["h 7 b 13.5 e 3 i 0", "h=7 b=13.5 e=3 i=0"]}, {"ru": "Расстояние D(A,H) и D(D,H).", "en": "Distance between A and H, and between D and H.", "expected": "D(A,H)=4; D(D,H)=2", "accept": ["d(a,h)=4 d(d,h)=2", "a-h 4 d-h 2"]}, {"ru": "Если H — изолированный узел, какова плотность нового графа?", "en": "If H were an isolated node, what would be the density of the new graph?", "expected": "0.25", "accept": ["0,25", "density 0.25", "network density 0.25"]}];
+
+    const form = document.getElementById('test-form');
+    const container = document.getElementById('questions');
+    const resultsBox = document.getElementById('results');
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      let currentSection = '';
+      QUESTIONS.forEach((q) => {
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = q.section;
+          container.appendChild(h);
+        }
+        const card = document.createElement('div');
+        card.className = 'q';
+        card.dataset.id = q.id;
+        card.innerHTML = `
+          <div class="q-num">Вопрос ${q.num}</div>
+          <div class="q-ru">${q.ru}</div>
+          <div class="q-en">${q.en}</div>
+          <div class="opts">
+            ${q.options.map(o => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span>
+                  <div class="opt-ru"><strong>${o.id.toUpperCase()})</strong> ${o.ru}</div>
+                  <div class="opt-en">${o.en}</div>
+                </span>
+              </label>`).join('')}
+          </div>
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderOpen() {
+      if (!OPEN_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'Открытые вопросы';
+      container.appendChild(h);
+      OPEN_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-num">${item.title_ru}</div>
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <textarea name="open_${idx}" placeholder="Ваш ответ..."></textarea>
+          <div class="sample" hidden></div>`;
+        block.querySelector('.sample').textContent = item.sample_ru;
+        container.appendChild(block);
+      });
+    }
+
+    function renderSna() {
+      if (!SNA_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'SNA — расчёты';
+      container.appendChild(h);
+      SNA_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <div class="feedback" hidden></div>`;
+        block.dataset.expected = item.expected;
+        block.dataset.accept = JSON.stringify(item.accept || []);
+        container.appendChild(block);
+      });
+    }
+
+    function normalize(val) {
+      return String(val || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    function checkSnaAnswer(expected, accept, user) {
+      const n = normalize(user);
+      if (!n) return null;
+      const variants = [expected, ...(accept || [])].map(normalize);
+      return variants.some(v => n === v || n.includes(v) || v.includes(n));
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const warnEl = document.getElementById('warn-text');
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        card.classList.remove('unanswered', 'correct', 'wrong');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = true;
+        fb.textContent = '';
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          lbl.classList.remove('result-opt');
+          lbl.style.background = '';
+          lbl.querySelector('input').disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove('visible');
+        warnEl.hidden = false;
+        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        const first = container.querySelector('.q.unanswered');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      warnEl.hidden = true;
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        const fb = card.querySelector('.feedback');
+        fb.hidden = false;
+        card.classList.remove('unanswered', 'correct', 'wrong');
+
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          return;
+        }
+
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add('correct');
+          fb.className = 'feedback ok';
+          fb.textContent = '✓ Верно';
+        } else {
+          wrong++;
+          card.classList.add('wrong');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+        }
+
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          const inp = lbl.querySelector('input');
+          lbl.classList.add('result-opt');
+          if (inp.value === q.correct) lbl.style.background = '#e8f8ef';
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = '#fdecea';
+          inp.disabled = true;
+        });
+      });
+
+      container.querySelectorAll('.open-block .sample').forEach(el => { el.hidden = false; });
+
+      container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
+        const block = fb.closest('.open-block');
+        if (!block.dataset.expected) return;
+        const inp = block.querySelector('input');
+        const ok = checkSnaAnswer(block.dataset.expected, JSON.parse(block.dataset.accept || '[]'), inp.value);
+        fb.hidden = false;
+        if (ok === null) {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        } else if (ok) {
+          fb.className = 'feedback ok';
+          fb.textContent = '✓ Верно';
+        } else {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        }
+      });
+
+      const total = QUESTIONS.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
+
+      document.getElementById('score-text').textContent =
+        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+      document.getElementById('score-detail').textContent =
+        SCORING.correct !== 1 || SCORING.wrong !== 0
+          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
+          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+
+      resultsBox.classList.add('visible');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      form.reset();
+      resultsBox.classList.remove('visible');
+      document.getElementById('warn-text').hidden = true;
+      renderQuestions();
+      renderOpen();
+      renderSna();
+      
+    });
+
+    renderQuestions();
+    renderOpen();
+    renderSna();
+    
+  </script>
+</body>
+</html>

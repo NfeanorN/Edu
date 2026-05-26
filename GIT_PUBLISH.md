@@ -46,32 +46,25 @@ git push -u origin main
 ### Один раз в настройках репозитория
 
 1. GitHub → репозиторий **Edu** → **Settings** → **Pages**
-2. **Build and deployment** → **Source**: выберите **GitHub Actions**
-3. Если репозиторий **private**, нужен GitHub Pro — иначе сделайте репозиторий **public** (на free-плане Pages для private repo не работает → deploy падает с **404**)
-4. После включения Pages перезапустите workflow: **Actions** → **Deploy GitHub Pages** → **Run workflow**
+2. **Build and deployment** → **Source**: **Deploy from a branch**
+3. **Branch**: `gh-pages` → папка **`/ (root)`** → Save
+4. Репозиторий должен быть **Public** (на free-плане Pages для private repo не работает)
 
-### Ошибка «Creating Pages deployment failed» / 404
-
-Обычно одна из причин:
-
-| Причина | Решение |
-|--------|---------|
-| Pages не включён | Settings → Pages → Source → **GitHub Actions** |
-| Репозиторий private (free) | Сделать repo **Public** или GitHub Pro |
-| Первый деплой до включения Pages | Включить Pages, затем **Re-run all jobs** |
-
-### Запасной вариант (ветка gh-pages)
-
-Если Actions-деплой не поднимается:
-
-1. **Actions** → **Deploy GitHub Pages (gh-pages branch)** → **Run workflow**
-2. Settings → Pages → Source → **Deploy from a branch** → ветка **gh-pages**, папка **/ (root)**
+После push в `main` workflow создаёт/обновляет ветку `gh-pages` автоматически.
 
 ### URL сайта
 
 ```
 https://NfeanorN.github.io/Edu/
 ```
+
+### Если workflow упал
+
+| Ошибка | Решение |
+|--------|---------|
+| `configure-pages` / `Get Pages site failed` | Старый workflow — обнови код и push; теперь деплой идёт в ветку `gh-pages`, без GitHub Actions Pages API |
+| Сайт 404 после успешного deploy | В Settings → Pages выбери ветку **gh-pages**, не **main** |
+| Repo private | Сделай **Public** или GitHub Pro |
 
 ### Локальная проверка сборки
 

@@ -458,10 +458,11 @@ INDEX = """<!doctype html>
   <div class="wrap">
     <h1>Human Resource Management</h1>
     <p class="sub">Управление персоналом — интерактивные тесты с проверкой ответов и переводом на русский</p>
+    <p class="sub" style="font-size:0.92rem;margin-top:-0.75rem">Источник экзамена: <strong>Exam HR _DI (1).pdf</strong> — вопросы 1–15 (HRM) и 1–14 + SNA (DI)</p>
     <ul class="topics">
-      <li><a href="01_HRM_Practice_Test.html"><span class="title">01 — HRM Practice Test</span><span class="desc">27 вопросов с вариантами + открытые вопросы и кейс Kendall Toy (по PDF HRM)</span></a></li>
-      <li><a href="02_HRM_Exam_CFU6.html"><span class="title">02 — HRM Exam CFU 6</span><span class="desc">15 MCQ + открытый вопрос по Herzberg (экзамен HR)</span></a></li>
-      <li><a href="03_Digital_Innovation_Exam_CFU6.html"><span class="title">03 — Digital Innovation Exam CFU 6</span><span class="desc">14 MCQ по DI + SNA-задание + 5 MCQ по сети (экзамен HR/DI)</span></a></li>
+      <li><a href="01_HRM_Practice_Test.html"><span class="title">01 — HRM Practice Test</span><span class="desc">27 MCQ + открытые вопросы и кейс Kendall Toy (PDF: HRM (2).pdf)</span></a></li>
+      <li><a href="02_HRM_Exam_CFU6.html"><span class="title">02 — HRM Exam CFU 6</span><span class="desc">15 MCQ + открытый вопрос Herzberg ← <strong>Exam HR _DI</strong>, стр. 1–3</span></a></li>
+      <li><a href="03_Digital_Innovation_Exam_CFU6.html"><span class="title">03 — Digital Innovation Exam CFU 6</span><span class="desc">14 MCQ + SNA (матрица, расчёты, MCQ 16–20) ← <strong>Exam HR _DI</strong>, стр. 4–7</span></a></li>
     </ul>
   </div>
 </body>
