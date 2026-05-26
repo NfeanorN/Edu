@@ -47,7 +47,25 @@ git push -u origin main
 
 1. GitHub → репозиторий **Edu** → **Settings** → **Pages**
 2. **Build and deployment** → **Source**: выберите **GitHub Actions**
-3. Если репозиторий **private**, нужен GitHub Pro (или сделайте репозиторий public для бесплатного Pages)
+3. Если репозиторий **private**, нужен GitHub Pro — иначе сделайте репозиторий **public** (на free-плане Pages для private repo не работает → deploy падает с **404**)
+4. После включения Pages перезапустите workflow: **Actions** → **Deploy GitHub Pages** → **Run workflow**
+
+### Ошибка «Creating Pages deployment failed» / 404
+
+Обычно одна из причин:
+
+| Причина | Решение |
+|--------|---------|
+| Pages не включён | Settings → Pages → Source → **GitHub Actions** |
+| Репозиторий private (free) | Сделать repo **Public** или GitHub Pro |
+| Первый деплой до включения Pages | Включить Pages, затем **Re-run all jobs** |
+
+### Запасной вариант (ветка gh-pages)
+
+Если Actions-деплой не поднимается:
+
+1. **Actions** → **Deploy GitHub Pages (gh-pages branch)** → **Run workflow**
+2. Settings → Pages → Source → **Deploy from a branch** → ветка **gh-pages**, папка **/ (root)**
 
 ### URL сайта
 
