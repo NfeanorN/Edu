@@ -38,3 +38,29 @@ git push -u origin main
 ---
 
 После этого проект будет в вашем GitHub как **приватный** репозиторий.
+
+## GitHub Pages (автодеплой)
+
+При каждом push в ветку `main` workflow `.github/workflows/deploy-pages.yml` собирает сайт и публикует его на GitHub Pages.
+
+### Один раз в настройках репозитория
+
+1. GitHub → репозиторий **Edu** → **Settings** → **Pages**
+2. **Build and deployment** → **Source**: выберите **GitHub Actions**
+3. Если репозиторий **private**, нужен GitHub Pro (или сделайте репозиторий public для бесплатного Pages)
+
+### URL сайта
+
+```
+https://NfeanorN.github.io/Edu/
+```
+
+### Локальная проверка сборки
+
+```bash
+cd EconomicsReact && npm ci && npm run build -- --base=/Edu/EconomicsReact/
+cd ../AvatarSubtitlesReact && npm ci && npm run build -- --base=/Edu/AvatarSubtitlesReact/
+cd .. && REPO_NAME=Edu node scripts/build-site.mjs
+```
+
+Папка `site/` — готовый артефакт для Pages (в git не коммитится).

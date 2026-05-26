@@ -20,6 +20,7 @@ desktop.ini
 # Build / cache
 dist/
 build/
+site/
 .cache/
 *.log
 npm-debug.log*
