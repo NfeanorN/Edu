@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Constraint (Бюджетное ограничение) - Simple Explanation</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 40px;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #e74c3c;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        h4 {
+            color: #666;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        p {
+            margin: 15px 0;
+            text-align: justify;
+        }
+        strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', 'Consolas', monospace;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 2px solid #e0e0e0;
+            margin: 20px 0;
+            font-family: 'Courier New', 'Consolas', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 25px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #ffeaea;
+        }
+        hr {
+            border: none;
+            border-top: 3px solid #ecf0f1;
+            margin: 40px 0;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        .graph-box {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .formula-box {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .budget-line { stroke: #e74c3c; stroke-width: 2.5; fill: none; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
+        @media print {
+            body {
+                padding: 20px;
+            }
+            h1 {
+                page-break-after: avoid;
+            }
+            h2, h3 {
+                page-break-after: avoid;
+            }
+            table {
+                page-break-inside: avoid;
+            }
+            pre {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Budget Constraint (Бюджетное ограничение) - Simple Explanation / Простое объяснение</h1>
+
+    <h2>English / Английский</h2>
+
+    <h3>What is Budget Constraint? / Что такое бюджетное ограничение?</h3>
+
+    <p><strong>Budget Constraint</strong> shows all the different combinations of goods you can buy with your money. It's like a shopping list that shows what you can afford with your income.</p>
+
+    <p><strong>Бюджетное ограничение</strong> показывает все различные комбинации товаров, которые вы можете купить на свои деньги. Это как список покупок, который показывает, что вы можете себе позволить на свой доход.</p>
+
+    <p><strong>Simple idea:</strong> You have limited money. You can spend it on different things. The budget constraint shows all possible ways to spend it.</p>
+
+    <p><strong>Простая идея:</strong> У вас ограниченное количество денег. Вы можете потратить их на разные вещи. Бюджетное ограничение показывает все возможные способы их потратить.</p>
+
+    <hr>
+
+    <h2>The Budget Line / Бюджетная линия</h2>
+
+    <h3>Basic Concept / Основная концепция</h3>
+
+    <p>When we have two goods (like apples and oranges), we can draw a <strong>budget line</strong> on a graph:</p>
+    <ul>
+        <li><strong>X-axis (horizontal)</strong>: Quantity of Good 1 (e.g., apples)</li>
+        <li><strong>Y-axis (vertical)</strong>: Quantity of Good 2 (e.g., oranges)</li>
+    </ul>
+
+    <p>Когда у нас есть два товара (например, яблоки и апельсины), мы можем нарисовать <strong>бюджетную линию</strong> на графике:</p>
+    <ul>
+        <li><strong>Ось X (горизонтальная)</strong>: Количество товара 1 (например, яблоки)</li>
+        <li><strong>Ось Y (вертикальная)</strong>: Количество товара 2 (например, апельсины)</li>
+    </ul>
+
+    <h3>The Formula / Формула</h3>
+
+    <div class="formula-box">
+        <p><strong>Income = (Price of Good 1 × Quantity of Good 1) + (Price of Good 2 × Quantity of Good 2)</strong></p>
+        <p><strong>Доход = (Цена товара 1 × Количество товара 1) + (Цена товара 2 × Количество товара 2)</strong></p>
+    </div>
+
+    <p><strong>Or in symbols:</strong> I = P₁ × Q₁ + P₂ × Q₂</p>
+    <p><strong>Или символами:</strong> I = P₁ × Q₁ + P₂ × Q₂</p>
+
+    <p>Where / Где:</p>
+    <ul>
+        <li>I = Income (your total money) / Доход (ваши общие деньги)</li>
+        <li>P₁ = Price of Good 1 / Цена товара 1</li>
+        <li>Q₁ = Quantity of Good 1 / Количество товара 1</li>
+        <li>P₂ = Price of Good 2 / Цена товара 2</li>
+        <li>Q₂ = Quantity of Good 2 / Количество товара 2</li>
+    </ul>
+
+    <hr>
+
+    <h2>Example Budget Line / Пример бюджетной линии</h2>
+
+    <p><strong>Let's say / Допустим:</strong></p>
+    <ul>
+        <li>You have $100 (Income) / У вас есть $100 (Доход)</li>
+        <li>Apples cost $2 each / Яблоки стоят $2 каждое</li>
+        <li>Oranges cost $4 each / Апельсины стоят $4 каждый</li>
+    </ul>
+
+    <p><strong>What can you buy? / Что вы можете купить?</strong></p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+            <line class="axis" x1="50" y1="200" x2="300" y2="200"/>
+            <path class="budget-line" d="M 50 20 L 310 200"/>
+            <text x="28" y="18">Q₂</text>
+            <text x="305" y="212">Q₁</text>
+            <text x="170" y="115" font-size="11">2Q₁+4Q₂=100</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Бюджетная линия: 2×Q₁ + 4×Q₂ = 100. Пересечения: (50, 0) и (0, 25).</p>
+    </div>
+
+    <p><strong>Key points on the line / Ключевые точки на линии:</strong></p>
+    <ul>
+        <li>If you buy only apples: 100 ÷ 2 = <strong>50 apples, 0 oranges</strong></li>
+        <li>If you buy only oranges: 100 ÷ 4 = <strong>25 oranges, 0 apples</strong></li>
+        <li>If you buy 20 apples: (100 - 2×20) ÷ 4 = <strong>15 oranges</strong></li>
+    </ul>
+
+    <p><strong>Ключевые точки на линии:</strong></p>
+    <ul>
+        <li>Если вы покупаете только яблоки: 100 ÷ 2 = <strong>50 яблок, 0 апельсинов</strong></li>
+        <li>Если вы покупаете только апельсины: 100 ÷ 4 = <strong>25 апельсинов, 0 яблок</strong></li>
+        <li>Если вы покупаете 20 яблок: (100 - 2×20) ÷ 4 = <strong>15 апельсинов</strong></li>
+    </ul>
+
+    <hr>
+
+    <h2>Example from the textbook: Shelter and Food / Пример из учебника: жильё и еда</h2>
+
+    <p><strong>Scenario / Условия:</strong> Income M = $100/wk, spent entirely on shelter and food. Price of shelter P<sub>s</sub> = $5/sq yd; price of food P<sub>f</sub> = $10/lb.</p>
+    <p><strong>Сценарий:</strong> Доход M = $100/нед., тратится только на жильё и еду. Цена жилья P<sub>s</sub> = $5/кв.м; цена еды P<sub>f</sub> = $10/фунт.</p>
+
+    <h3>Bundles / Наборы товаров</h3>
+    <p>A <strong>bundle</strong> is a specific combination of goods. Example: Bundle A = (5 sq yd shelter, 7 lb food); Bundle B = (3 sq yd shelter, 8 lb food).</p>
+    <p><strong>Набор</strong> — конкретная комбинация товаров. Например: набор A = (5 кв.м жилья, 7 фунтов еды); набор B = (3 кв.м жилья, 8 фунтов еды).</p>
+
+    <h3>Maximum quantities / Максимальные количества</h3>
+    <ul>
+        <li>If all income on shelter: M/P<sub>s</sub> = ($100) ÷ ($5/sq yd) = <strong>20 sq yd/wk</strong> — bundle (20, 0), point <strong>K</strong> on the graph.</li>
+        <li>If all income on food: M/P<sub>f</sub> = ($100) ÷ ($10/lb) = <strong>10 lb/wk</strong> — bundle (0, 10), point <strong>L</strong> on the graph.</li>
+    </ul>
+    <p>Любая комбинация на прямой, соединяющей K и L, также доступна (тратится весь доход). Например (12, 4) — точка <strong>E</strong> на линии. Точка <strong>D</strong> = (5, 4) лежит под линией — доход не исчерпан.</p>
+
+    <div class="graph-box">
+        <pre>Food (lb/wk) / Еда
+  |
+10| L = M/Pf  ← max food (макс. еда)
+  | \
+  |   \
+  |     \  B = budget line (бюджетная линия)
+  |       \
+  |         \  E (12, 4) — on line (на линии)
+  |           \
+  |             \
+  |  D (5, 4) ← below line (под линией)
+  |               \
+  |                 \
+ 0+----+----+----+----+----+----+ Shelter (sq yd/wk) / Жильё
+  0    5   10   15   20
+                    K = M/Ps (макс. жильё)</pre>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>Budget constraint</strong> (budget line): the set of all bundles that exactly exhaust the consumer's income at given prices.</p>
+        <p><strong>Бюджетное ограничение</strong> (бюджетная линия): множество всех наборов, которые полностью исчерпывают доход потребителя при данных ценах.</p>
+    </div>
+
+    <h3>Slope / Наклон</h3>
+    <p><strong>Slope = −(P<sub>s</sub>/P<sub>f</sub>) = −($5/$10) = −1/2.</strong> The absolute value of the slope is the <strong>opportunity cost of one more unit of shelter</strong> — how many units of food must be given up to get one more unit of shelter at market prices.</p>
+    <p><strong>Наклон = −(P<sub>s</sub>/P<sub>f</sub>) = −1/2.</strong> Модуль наклона — <strong>альтернативная стоимость одной дополнительной единицы жилья</strong>: сколько единиц еды нужно отказаться, чтобы купить одну единицу жилья.</p>
+
+    <hr>
+
+    <h2>Understanding the Budget Line / Понимание бюджетной линии</h2>
+
+    <h3>1. Points ON the line / Точки НА линии</h3>
+    <p>These are combinations where you spend <strong>ALL your money</strong>. You use every dollar.</p>
+    <p>Это комбинации, где вы тратите <strong>ВСЕ свои деньги</strong>. Вы используете каждый доллар.</p>
+
+    <h3>2. Points BELOW the line / Точки ПОД линией</h3>
+    <p>These are combinations where you spend <strong>LESS than your income</strong>. You have money left over.</p>
+    <p>Это комбинации, где вы тратите <strong>МЕНЬШЕ вашего дохода</strong>. У вас остаются деньги.</p>
+
+    <h3>3. Points ABOVE the line / Точки НАД линией</h3>
+    <p>These are combinations you <strong>CANNOT afford</strong>. They cost more than your income.</p>
+    <p>Это комбинации, которые вы <strong>НЕ МОЖЕТЕ позволить</strong>. Они стоят больше, чем ваш доход.</p>
+
+    <div class="graph-box">
+        <pre>Oranges (Q₂)
+  |
+25| *  ← Cannot afford (недоступно)
+  |   \
+  |     \  ← Budget Line (бюджетная линия)
+  |       \
+  |         \
+  |           \
+  |             \
+  |               \
+  |                 \
+  |                   \
+  |                     \
+  |                       \
+ 0+----+----+----+----+----+----+----+----+----+----+ Apples (Q₁)
+  0   10   20   30   40   50
+        ↑
+    Can afford (доступно)</pre>
+    </div>
+
+    <hr>
+
+    <h2>Slope of the Budget Line / Наклон бюджетной линии</h2>
+
+    <h3>What is the slope? / Что такое наклон?</h3>
+
+    <p>The slope shows the <strong>opportunity cost</strong> - how much of one good you must give up to get one more unit of the other good.</p>
+
+    <p>Наклон показывает <strong>альтернативную стоимость</strong> - сколько одного товара вы должны отказаться, чтобы получить еще одну единицу другого товара.</p>
+
+    <div class="formula-box">
+        <p><strong>Slope = - (Price of Good 1) / (Price of Good 2)</strong></p>
+        <p><strong>Наклон = - (Цена товара 1) / (Цена товара 2)</strong></p>
+    </div>
+
+    <p><strong>In our example:</strong> Slope = -2/4 = -0.5</p>
+    <p><strong>В нашем примере:</strong> Наклон = -2/4 = -0.5</p>
+
+    <p>This means: To get 1 more apple, you must give up 0.5 oranges (or to get 1 more orange, you must give up 2 apples).</p>
+
+    <p>Это означает: Чтобы получить еще 1 яблоко, вы должны отказаться от 0.5 апельсина (или чтобы получить еще 1 апельсин, вы должны отказаться от 2 яблок).</p>
+
+    <hr>
+
+    <h2>How the Budget Line Changes / Как меняется бюджетная линия</h2>
+
+    <h3>Type 1: Parallel Shift (Income Changes) / Тип 1: Параллельный сдвиг (Изменение дохода)</h3>
+
+    <h4>Income Increases / Доход растет</h4>
+
+    <p>When your income goes UP, you can buy MORE of both goods. The line shifts OUT (away from origin).</p>
+
+    <p>Когда ваш доход РАСТЕТ, вы можете купить БОЛЬШЕ обоих товаров. Линия сдвигается ВНЕШНЕ (от начала координат).</p>
+
+    <div class="graph-box">
+        <pre>Oranges (Q₂)
+  |
+30|     *  ← New line (I = $120)
+  |   *   *
+  | *       *
+25| *         *  ← Old line (I = $100)
+  |   *       *
+  |     *     *
+  |       *   *
+  |         * *
+ 0+----+----+----+----+----+----+----+----+----+----+ Apples (Q₁)
+  0   10   20   30   40   50   60</pre>
+    </div>
+
+    <p><strong>Example / Пример:</strong></p>
+    <ul>
+        <li>Old income: $100 → Can buy 50 apples OR 25 oranges</li>
+        <li>New income: $120 → Can buy 60 apples OR 30 oranges</li>
+        <li>The line shifts outward, but slope stays the same (prices didn't change)</li>
+    </ul>
+
+    <p><strong>Пример:</strong></p>
+    <ul>
+        <li>Старый доход: $100 → Можно купить 50 яблок ИЛИ 25 апельсинов</li>
+        <li>Новый доход: $120 → Можно купить 60 яблок ИЛИ 30 апельсинов</li>
+        <li>Линия сдвигается наружу, но наклон остается тем же (цены не изменились)</li>
+    </ul>
+
+    <h4>Income Decreases / Доход падает</h4>
+
+    <p>When your income goes DOWN, you can buy LESS of both goods. The line shifts IN (toward origin).</p>
+
+    <p>Когда ваш доход ПАДАЕТ, вы можете купить МЕНЬШЕ обоих товаров. Линия сдвигается ВНУТРЬ (к началу координат).</p>
+
+    <div class="graph-box">
+        <pre>Oranges (Q₂)
+  |
+25| *         *  ← Old line (I = $100)
+  |   *       *
+  |     *     *
+20|       *   *  ← New line (I = $80)
+  |         * *
+  |           *
+  |             *
+ 0+----+----+----+----+----+----+----+----+----+----+ Apples (Q₁)
+  0   10   20   30   40   50</pre>
+    </div>
+
+    <hr>
+
+    <h3>Type 2: Rotation (Price Changes) / Тип 2: Поворот (Изменение цены)</h3>
+
+    <h4>Price of Good 1 Changes / Цена товара 1 меняется</h4>
+
+    <p>When the price of one good changes, the line <strong>rotates</strong> around the intercept of the other good.</p>
+
+    <p>Когда цена одного товара меняется, линия <strong>поворачивается</strong> вокруг точки пересечения другого товара.</p>
+
+    <p><strong>Price of apples INCREASES / Цена яблок РАСТЕТ:</strong></p>
+    <ul>
+        <li>Old: Apples = $2 → Can buy 50 apples</li>
+        <li>New: Apples = $4 → Can buy only 25 apples</li>
+        <li>The line rotates INWARD around the orange intercept</li>
+    </ul>
+
+    <p><strong>Цена яблок РАСТЕТ:</strong></p>
+    <ul>
+        <li>Старое: Яблоки = $2 → Можно купить 50 яблок</li>
+        <li>Новое: Яблоки = $4 → Можно купить только 25 яблок</li>
+        <li>Линия поворачивается ВНУТРЬ вокруг точки пересечения апельсинов</li>
+    </ul>
+
+    <div class="graph-box">
+        <pre>Oranges (Q₂)
+  |
+25| *  ← Old line (apples = $2)
+  |   \
+  |     \  ← New line (apples = $4)
+  |       \
+  |         \
+  |           \
+  |             \
+  |               \
+  |                 \
+  |                   \
+  |                     \
+ 0+----+----+----+----+----+----+----+----+----+----+ Apples (Q₁)
+  0   10   20   25   30   40   50</pre>
+    </div>
+
+    <p><strong>Price of apples DECREASES / Цена яблок ПАДАЕТ:</strong></p>
+    <ul>
+        <li>Old: Apples = $2 → Can buy 50 apples</li>
+        <li>New: Apples = $1 → Can buy 100 apples</li>
+        <li>The line rotates OUTWARD around the orange intercept</li>
+    </ul>
+
+    <p><strong>Цена яблок ПАДАЕТ:</strong></p>
+    <ul>
+        <li>Старое: Яблоки = $2 → Можно купить 50 яблок</li>
+        <li>Новое: Яблоки = $1 → Можно купить 100 яблок</li>
+        <li>Линия поворачивается ВНЕШНЕ вокруг точки пересечения апельсинов</li>
+    </ul>
+
+    <div class="graph-box">
+        <pre>Oranges (Q₂)
+  |
+25| *         *  ← New line (apples = $1)
+  |   *       *
+  |     *     *
+  |       *   *
+  |         * *  ← Old line (apples = $2)
+  |           *
+  |             *
+  |               *
+  |                 *
+  |                   *
+ 0+----+----+----+----+----+----+----+----+----+----+ Apples (Q₁)
+  0   10   20   30   40   50   60   70   80   90  100</pre>
+    </div>
+
+    <hr>
+
+    <h3>Type 3: Both Prices Change Proportionally / Тип 3: Обе цены меняются пропорционально</h3>
+
+    <p>If both prices change by the SAME percentage, it's like your income changed. The line shifts parallel.</p>
+
+    <p>Если обе цены меняются на ОДИНАКОВЫЙ процент, это как будто изменился ваш доход. Линия сдвигается параллельно.</p>
+
+    <p><strong>Example / Пример:</strong></p>
+    <ul>
+        <li>Both prices DOUBLE (×2) → It's like your income HALVED (÷2)</li>
+        <li>Line shifts INWARD (same slope, closer to origin)</li>
+    </ul>
+
+    <p><strong>Пример:</strong></p>
+    <ul>
+        <li>Обе цены УДВАИВАЮТСЯ (×2) → Это как будто ваш доход УМЕНЬШИЛСЯ ВДВОЕ (÷2)</li>
+        <li>Линия сдвигается ВНУТРЬ (тот же наклон, ближе к началу координат)</li>
+    </ul>
+
+    <hr>
+
+    <h2>Summary Table / Сводная таблица</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Change / Изменение</th>
+                <th>Effect on Budget Line / Влияние на бюджетную линию</th>
+                <th>Slope Changes? / Наклон меняется?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Income increases / Доход растет</td>
+                <td>Shifts OUTWARD / Сдвигается ВНЕШНЕ</td>
+                <td>No / Нет</td>
+            </tr>
+            <tr>
+                <td>Income decreases / Доход падает</td>
+                <td>Shifts INWARD / Сдвигается ВНУТРЬ</td>
+                <td>No / Нет</td>
+            </tr>
+            <tr>
+                <td>Price of Good 1 increases / Цена товара 1 растет</td>
+                <td>Rotates INWARD around Good 2 intercept / Поворачивается ВНУТРЬ вокруг точки пересечения товара 2</td>
+                <td>Yes / Да</td>
+            </tr>
+            <tr>
+                <td>Price of Good 1 decreases / Цена товара 1 падает</td>
+                <td>Rotates OUTWARD around Good 2 intercept / Поворачивается ВНЕШНЕ вокруг точки пересечения товара 2</td>
+                <td>Yes / Да</td>
+            </tr>
+            <tr>
+                <td>Price of Good 2 increases / Цена товара 2 растет</td>
+                <td>Rotates INWARD around Good 1 intercept / Поворачивается ВНУТРЬ вокруг точки пересечения товара 1</td>
+                <td>Yes / Да</td>
+            </tr>
+            <tr>
+                <td>Price of Good 2 decreases / Цена товара 2 падает</td>
+                <td>Rotates OUTWARD around Good 1 intercept / Поворачивается ВНЕШНЕ вокруг точки пересечения товара 1</td>
+                <td>Yes / Да</td>
+            </tr>
+            <tr>
+                <td>Both prices increase proportionally / Обе цены растут пропорционально</td>
+                <td>Shifts INWARD (parallel) / Сдвигается ВНУТРЬ (параллельно)</td>
+                <td>No / Нет</td>
+            </tr>
+            <tr>
+                <td>Both prices decrease proportionally / Обе цены падают пропорционально</td>
+                <td>Shifts OUTWARD (parallel) / Сдвигается ВНЕШНЕ (параллельно)</td>
+                <td>No / Нет</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Key Takeaways / Главные выводы</h2>
+
+    <h3>English / Английский</h3>
+    <ol>
+        <li><strong>Budget Constraint</strong> = all combinations of goods you can afford with your income</li>
+        <li>The <strong>budget line</strong> shows the maximum you can buy (spending all your money)</li>
+        <li><strong>Points on the line</strong> = spending all income</li>
+        <li><strong>Points below the line</strong> = spending less than income (saving money)</li>
+        <li><strong>Points above the line</strong> = unaffordable (costs more than income)</li>
+        <li><strong>Slope</strong> = opportunity cost (trade-off between goods)</li>
+        <li><strong>Income changes</strong> = parallel shift (same slope)</li>
+        <li><strong>Price changes</strong> = rotation (slope changes)</li>
+    </ol>
+
+    <h3>Русский / Russian</h3>
+    <ol>
+        <li><strong>Бюджетное ограничение</strong> = все комбинации товаров, которые вы можете позволить на свой доход</li>
+        <li><strong>Бюджетная линия</strong> показывает максимум, который вы можете купить (потратив все свои деньги)</li>
+        <li><strong>Точки на линии</strong> = трата всего дохода</li>
+        <li><strong>Точки под линией</strong> = трата меньше дохода (экономия денег)</li>
+        <li><strong>Точки над линией</strong> = недоступно (стоит больше, чем доход)</li>
+        <li><strong>Наклон</strong> = альтернативная стоимость (компромисс между товарами)</li>
+        <li><strong>Изменение дохода</strong> = параллельный сдвиг (тот же наклон)</li>
+        <li><strong>Изменение цены</strong> = поворот (наклон меняется)</li>
+    </ol>
+
+    <hr>
+
+    <h2>Real-World Example / Пример из реальной жизни</h2>
+
+    <p><strong>Scenario / Сценарий:</strong> You have $200 per week. You can spend it on:</p>
+    <ul>
+        <li>Movies: $10 per ticket</li>
+        <li>Restaurant meals: $20 per meal</li>
+    </ul>
+
+    <p><strong>Сценарий:</strong> У вас есть $200 в неделю. Вы можете потратить их на:</p>
+    <ul>
+        <li>Кино: $10 за билет</li>
+        <li>Еда в ресторане: $20 за обед</li>
+    </ul>
+
+    <p><strong>Your budget line / Ваша бюджетная линия:</strong></p>
+    <ul>
+        <li>Maximum movies: 200 ÷ 10 = 20 movies (if you buy no meals)</li>
+        <li>Maximum meals: 200 ÷ 20 = 10 meals (if you buy no movies)</li>
+        <li>If you buy 5 movies: (200 - 5×10) ÷ 20 = 7.5 meals</li>
+    </ul>
+
+    <p><strong>Ваша бюджетная линия:</strong></p>
+    <ul>
+        <li>Максимум кино: 200 ÷ 10 = 20 фильмов (если не покупаете обеды)</li>
+        <li>Максимум обедов: 200 ÷ 20 = 10 обедов (если не покупаете билеты)</li>
+        <li>Если покупаете 5 билетов: (200 - 5×10) ÷ 20 = 7.5 обедов</li>
+    </ul>
+
+    <p><strong>What happens if / Что происходит, если:</strong></p>
+    <ul>
+        <li>Your income increases to $300? → Line shifts OUT (you can buy more of both)</li>
+        <li>Movie tickets become $15? → Line rotates INWARD around meals intercept</li>
+        <li>Both prices double? → Line shifts IN (like income halved)</li>
+    </ul>
+
+    <p><strong>Что происходит, если:</strong></p>
+    <ul>
+        <li>Ваш доход растет до $300? → Линия сдвигается ВНЕШНЕ (вы можете купить больше обоих)</li>
+        <li>Билеты в кино становятся $15? → Линия поворачивается ВНУТРЬ вокруг точки пересечения обедов</li>
+        <li>Обе цены удваиваются? → Линия сдвигается ВНУТРЬ (как будто доход уменьшился вдвое)</li>
+    </ul>
+
+</body>
+</html>

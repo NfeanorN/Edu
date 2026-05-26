@@ -1,0 +1,1 @@
+const o=[{season:1,episode:5,slug:"s01e05",title:"The King of Omashu",desc:"Full English transcript · hover for translation"}];function t(e,n){return o.find(s=>s.season===e&&s.episode===n)}export{o as E,t as g};

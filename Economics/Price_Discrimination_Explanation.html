@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Discrimination — Ценовая дискриминация</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #e67e22; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #e67e22; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #fef5e7; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #fef5e7; border-left: 4px solid #e67e22; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #e67e22; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Price Discrimination — Ценовая дискриминация</h1>
+
+    <h2>What is Price Discrimination? / Что такое ценовая дискриминация?</h2>
+    <p><strong>English:</strong> Charging different prices to different customers for the same good, based on willingness to pay. Requires market power and ability to segment customers.</p>
+    <p><strong>Русский:</strong> Установление разных цен разным покупателям за один товар в зависимости от готовности платить.</p>
+
+    <hr>
+
+    <h2>Mark-up and Elasticity / Наценка и эластичность</h2>
+    <div class="formula-box">
+        <p><strong>(P - MC) / P = 1 / |ε|</strong></p>
+        <p>Higher elasticity (more elastic demand) → lower mark-up. Lower elasticity → higher mark-up.</p>
+    </div>
+
+    <hr>
+
+    <h2>Three Degrees of Price Discrimination / Три степени ценовой дискриминации</h2>
+
+    <table>
+        <tr><th>Degree / Степень</th><th>Description / Описание</th><th>Examples / Примеры</th></tr>
+        <tr><td><strong>First</strong></td><td>Charge each customer their max willingness to pay (perfect discrimination)</td><td>Auctions, negotiation</td></tr>
+        <tr><td><strong>Second</strong></td><td>Different prices for different quantities (quantity discounts, versioning)</td><td>Bulk discounts, software tiers</td></tr>
+        <tr><td><strong>Third</strong></td><td>Different prices for different market segments (age, location, etc.)</td><td>Student discounts, regional pricing</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>First Degree (Perfect) / Первая степень (совершенная)</h2>
+    <p>Firm captures all consumer surplus. Each unit sold at buyer's reservation price.</p>
+    <p>Фирма забирает весь излишек потребителя.</p>
+
+    <div class="graph-box">
+        <pre>P
+  |  D
+  |   \
+  | P1 *  (customer 1 pays P1)
+  |     \
+  | P2   *  (customer 2 pays P2)
+  |       \
+  |  MC ____\___________
+  |
+  0+----+----+----+----+ Q</pre>
+    </div>
+
+    <hr>
+
+    <h2>Third Degree / Третья степень</h2>
+    <p>Segment markets by elasticity. Charge higher price to less elastic segment (e.g., business travelers vs leisure).</p>
+    <p>Сегменты по эластичности. Выше цена — менее эластичному сегменту.</p>
+
+    <div class="graph-box">
+        <pre>Market A (inelastic)    Market B (elastic)
+P                      P
+  |  \                   |  \
+  |   \ P_A (high)       |   \ P_B (low)
+  |    \                 |    \
+  |_____\___ MC          |_____\___ MC
+  +----+ Q               +----+ Q</pre>
+    </div>
+</body>
+</html>

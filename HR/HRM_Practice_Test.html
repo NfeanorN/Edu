@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HRM — Практический тест / Practice Test</title>
+  <link rel="stylesheet" href="quiz-style.css" />
+</head>
+<body>
+<div class="wrap">
+    <p class="back"><a href="index.html">← К списку тестов HR</a></p>
+    <h1>HRM — Практический тест</h1>
+    <p class="sub">27 вопросов из материала HRM (управление персоналом). Каждый вопрос — на русском, ниже английский оригинал.</p>
+    <p class="hint">Ответьте на все вопросы и нажмите «Проверить ответы». Результат покажет, что верно и что нет.</p>
+
+    <form id="quiz-form"></form>
+
+    <div class="actions">
+      <button type="submit" form="quiz-form" class="btn btn-primary" id="submit-btn">Проверить ответы</button>
+      <button type="button" class="btn btn-secondary" id="reset-btn">Сбросить</button>
+    </div>
+
+    <section id="results" hidden>
+      <h2>Результаты</h2>
+      <p id="score"></p>
+      <ul id="results-list"></ul>
+    </section>
+  </div>
+
+  <script src="quiz-common.js"></script>
+  <script>
+    const opt = (id, ru, en) => ({ id, ru, en });
+    const Q = (id, ru, en, options, correct) => ({ id, ru, en, options, correct });
+
+    initQuiz({
+      storageKey: "hr-hrm-practice",
+      questions: [
+        Q("p1q1",
+          "Связь HRM со стратегическим менеджментом:",
+          "HRM's relation to strategic management:",
+          [
+            opt("a", "Инвестиции в HRM — плохая трата выручки", "Shows that an investment in HRM is not good expenditure of revenues"),
+            opt("b", "Стратегический менеджмент не занимается навыками сотрудников, в отличие от HRM", "Strategic management does not concern itself with employees' skills, knowledge, and abilities as does HRM"),
+            opt("c", "Значительно выросла за последние 10 лет", "Has grown substantially in the past 10 years"),
+            opt("d", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("e", "80% руководителей считают, что связь сегодня слабее, чем раньше", "Is viewed by 80% of executives as less close today than in the past"),
+          ], "c"),
+        Q("p1q2",
+          "Управление «человеческим капиталом» означает:",
+          "Managing 'human capital' refers to:",
+          [
+            opt("a", "Комбинацию и сумму всех остальных ответов", "The combination and sum of all the other answers"),
+            opt("b", "Подбор лучших талантов", "Recruiting the best talent available"),
+            opt("c", "Использование текущих знаний", "Utilizing current knowledge"),
+            opt("d", "Разработку политик для согласования целей сотрудников и организации", "Design policies and systems to align individual goals with the organization's ones"),
+            opt("e", "Предоставление развивающих заданий", "Providing development assignments"),
+          ], "a"),
+        Q("p1q3",
+          "Шаги оценки потребностей (needs assessment) включают всё, КРОМЕ:",
+          "The steps in conducting a needs assessment include all of the except:",
+          [
+            opt("a", "Анализ задач (task analysis)", "Task analysis"),
+            opt("b", "Анализ персонала (person analysis)", "Person analysis"),
+            opt("c", "Организационный анализ", "Organizational analysis"),
+            opt("d", "Ни один из других ответов не верен", "None of the other answer is correct"),
+            opt("e", "Все перечисленное — часть needs assessment", "All of the above are part of the needs assessment"),
+          ], "d"),
+        Q("p1q4",
+          "Рекрутинг:",
+          "Considering Recruiting:",
+          [
+            opt("a", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("b", "Это не только отбор кандидатов, но и передача нужного имиджа на рынок труда", "It is not only to select the appropriate candidates, but also to send the desired information to the job market"),
+            opt("c", "Не связан со стратегическими решениями организации", "It is disconnected from the organizational strategic choices"),
+            opt("d", "Его единственная цель — снизить затраты на найм", "It's only target is to reduce the hiring costs"),
+            opt("e", "Односторонний канал связи (от кандидата к компании)", "It is a mono-directional communication channel"),
+          ], "b"),
+        Q("p1q5",
+          "Методы отбора:",
+          "Considering the selection methods:",
+          [
+            opt("a", "Тесты личности безошибочно определяют тип личности", "Personality tests identify, without possible mistake, the specific personality type of the candidate"),
+            opt("b", "Лучше проводить интервью только одним рекрутером", "In face to face interviews it is always better to have only one recruiter"),
+            opt("c", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("d", "Поведенческое интервью — один из лучших предикторов будущей эффективности", "Behavioral interviewing is one the best predictors of future performance"),
+            opt("e", "Групповые симуляции полезны только для творческих должностей", "Group simulations are useful only for creative positions"),
+          ], "d"),
+        Q("p1q6",
+          "Talent Management (управление талантами):",
+          "Talent Management:",
+          [
+            opt("a", "Основано главным образом на психологических характеристиках", "Is mainly based on the psychological characteristics of potential employees"),
+            opt("b", "Было важнее в 80-х, чем сегодня", "Was more important in the 80's than today"),
+            opt("c", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("d", "Сфокусировано только на отборе талантливых сотрудников", "Is only focused on selecting talented employees"),
+            opt("e", "Не связано со стратегическими решениями организации", "Is disconnected from the strategic choices of the organization"),
+          ], "c"),
+        Q("p1q7",
+          "Метод критических инцидентов:",
+          "The critical incident method:",
+          [
+            opt("a", "Разногласие между работодателем и работником", "Refers to a disagreement between an employer and employee"),
+            opt("b", "Определяет критические рабочие задачи", "Identifies critical job tasks"),
+            opt("c", "Обращается к сотрудникам для выявления критических задач в повседневной работе", "Refers directly to employees to determine which tasks are the most critical in their day to day interaction"),
+            opt("d", "Расследование отделом безопасности", "Is an investigation by the safety department"),
+            opt("e", "Ни один из других ответов не верен", "None of the other answers is correct"),
+          ], "b"),
+        Q("p1q8",
+          "Анализ работы (job analysis):",
+          "Job analysis:",
+          [
+            opt("a", "Подробно описывает KSAO, необходимые для выполнения работы", "Outlines in detail the specific knowledge, skills, abilities and other attributes required"),
+            opt("b", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("c", "Систематический сбор информации обо всех параметрах должности", "It is the systematic process of collecting information about all of the parameters of a job"),
+            opt("d", "Можно проводить только через интервью", "Can be performed only via interviews"),
+            opt("e", "Письменное описание задач, обязанностей и ответственности", "Is a written statement about the overall tasks, duties and responsibilities of a job"),
+          ], "c"),
+        Q("p1q9",
+          "Организационный список видов деятельности с описанием и инструкциями называется:",
+          "The organization-specific list of activities, their description and how to are called:",
+          [
+            opt("a", "Task inventory (инвентарь задач)", "Task inventory"),
+            opt("b", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("c", "Job specification (спецификация должности)", "Job specification"),
+            opt("d", "Task diary (дневник задач)", "Task diary"),
+            opt("e", "Job Analysis", "Job Analysis"),
+          ], "a"),
+        Q("p1q10",
+          "Описание должности (job description):",
+          "Job description:",
+          [
+            opt("a", "Письменное описание задач, обязанностей и ответственности должности", "Is a written statement about the overall tasks, duties and responsibilities of a job"),
+            opt("b", "Систематический сбор информации о параметрах работы", "It is the systematic process of collecting information about all of the parameters of a job"),
+            opt("c", "Можно проводить только через опросы и наблюдение", "Can be performed only via surveys and direct observation"),
+            opt("d", "Подробно описывает KSAO работника", "Outlines in detail the specific knowledge, skills, abilities and other attributes required"),
+            opt("e", "Ни один из других ответов не верен", "None of the other answers is correct"),
+          ], "a"),
+        Q("p1q11",
+          "Интервью по оценке эффективности (appraisal interview):",
+          "Which statement best describes an appraisal interview:",
+          [
+            opt("a", "Охватывает мало тем", "They cover few topics during these interviews"),
+            opt("b", "Даёт менеджеру возможность обсудить результаты и зоны роста", "Gives a manager the opportunity to discuss a subordinate's performance record and to explore areas of possible improvement and growth"),
+            opt("c", "Сфокусировано на недостатках сотрудника и менеджера", "It is focused on shortcomings of the employees and of the manager"),
+            opt("d", "Устанавливает одностороннюю коммуникацию", "It establishes a one-way communication"),
+            opt("e", "Ни один из других ответов не верен", "None of the other answers is correct"),
+          ], "b"),
+        Q("p1q12",
+          "MBO (управление по целям):",
+          "MBOs (managing by objectives):",
+          [
+            opt("a", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("b", "Впервые предложено Питером Друкером", "Was proposed for the first time by Peter Drucker"),
+            opt("c", "Цели устанавливаются по взаимному согласию сотрудника и менеджера", "Goals are set by mutual agreement of employees and manager"),
+            opt("d", "Цикл начинается с линейных сотрудников и заканчивается топ-менеджментом", "Is a cycle that starts with line employees and ends with top management"),
+            opt("e", "Обычно не связаны с целями организации", "They are usually not linked with the objective of the organization"),
+          ], "b"),
+        Q("p1q13",
+          "Оценка коллегами (peer appraisals):",
+          "Peer appraisals:",
+          [
+            opt("a", "Менеджеры не учитывают их из-за низкой надёжности", "Managers tend not to account them in the appraisal process due to their poor reliability"),
+            opt("b", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("c", "Из-за дружбы часто содержат предвзятую информацию", "Due to friendship and out of office relationship, they often contain biased and unfair information"),
+            opt("d", "Обычно отличаются от оценки руководителя, т.к. коллеги видят другие стороны работы", "Usually differ to some degree from ratings by a superior, since peers often see different dimensions of performance"),
+            opt("e", "Считаются менее валидными, чем оценки руководителя", "Are believed to be less valid than appraisals by superiors"),
+          ], "d"),
+        Q("p1q14",
+          "Теория ограниченной рациональности (bounded rationality):",
+          "According to bounded rationality theory:",
+          [
+            opt("a", "Мы объективно выбираем лучшую альтернативу", "When making a decision, we are able to objectively evaluate and select the best alternatives"),
+            opt("b", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("c", "Несмотря на ограничения, мы выбираем лучший вариант", "Even though we encounter different constraints, we are able to pick the best choice"),
+            opt("d", "Мы полностью декомпозируем проблему и находим корневую причину", "As individuals and managers we are able to understand and decompose a problem in all its parts"),
+            opt("e", "Мы всегда принимаем лучшее решение из возможных", "As individuals and groups we are always able to make the best decisions among the possible ones"),
+          ], "b"),
+        Q("p2q1",
+          "Переосмысление и перепроектирование бизнес-процессов для улучшения cost/quality/speed — это:",
+          "Rethinking and redesigning business processes to achieve improvements in cost, quality, service, and speed, refers to:",
+          [
+            opt("a", "Downsizing (сокращение штата)", "Downsizing"),
+            opt("b", "Reengineering (реинжиниринг)", "Reengineering"),
+            opt("c", "Outsourcing (аутсорсинг)", "Outsourcing"),
+            opt("d", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("e", "Employee leasing", "Employee leasing"),
+          ], "b"),
+        Q("p2q2",
+          "Какое утверждение о культурных изменениях верно?",
+          "Which of these statements about cultural change is true?",
+          [
+            opt("a", "Убеждения и ценности почти не влияют на поведение на работе", "Attitudes, believes, values and customs have little or no effect on their behavior on the job"),
+            opt("b", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("c", "HR-политики не нужно менять из-за культурных изменений", "HR policies and procedures do not need adjustments due to cultural change"),
+            opt("d", "Культуры почти не меняются сотнями лет", "Cultures change very little, they maintain the same exact values constantly for hundreds of years"),
+            opt("e", "HRM стало менее сложным, чем когда сотрудники думали только о выживании", "HRM has become less complex than when employees were concerned primarily with economic survival"),
+          ], "b"),
+        Q("p2q3",
+          "Какое утверждение об изменениях верно?",
+          "Which of the following statements about change is true?",
+          [
+            opt("a", "Успешные изменения редко происходят сами собой и легко", "Success change rarely occurs naturally or easily"),
+            opt("b", "Изменения временны и почти не влияют на текущие процессы", "Change is temporary and will have little or no effect on how things are currently being done"),
+            opt("c", "Коммуникация почти не влияет на успех изменений", "Communication has little or no effect on how successful change can be implemented"),
+            opt("d", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("e", "Проекты изменений редко проваливаются из-за людей", "Change projects rarely fail because of people"),
+          ], "a"),
+        Q("p2q4",
+          "Talent Inventory (инвентарь навыков и менеджмента):",
+          "The so called Talent Inventory (skill and management inventories):",
+          [
+            opt("a", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("b", "Устаревший способ ведения HRM", "Represent an outdated way of performing HRM"),
+            opt("c", "Мнения руководителей о будущих потребностях в персонале", "Represents the opinions of supervisors, managers and experts about the organization's future employment needs"),
+            opt("d", "Часть процесса выявления, развития и отслеживания ключевых сотрудников", "Are part of the process of identifying, developing and tracking key individuals for the organization"),
+            opt("e", "Количественный метод прогноза спроса на рабочую силу", "Is a quantitative approach to forecasting labor demand"),
+          ], "d"),
+        Q("p2q5",
+          "Главный недостаток flextime:",
+          "The major disadvantage of flextime is:",
+          [
+            opt("a", "Сотрудники перегружены фиксированным числом часов", "Employees feel overwhelmed by having to work a fixed amount of hours per week"),
+            opt("b", "Сотрудники не хотят менять график", "Employees might not be willing to adjust their work schedule"),
+            opt("c", "Подходит не для всех типов работ", "It can't be suitable for all types of jobs"),
+            opt("d", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("e", "Увеличивает время запуска и остановки производства", "It increases startup and shutdown time"),
+          ], "c"),
+        Q("p2q6",
+          "Самый важный шаг при принятии решения об отборе:",
+          "The most critical step in reaching a selection decision is:",
+          [
+            opt("a", "Учёт нерелевантной информации о кандидатах", "The consideration of irrelevant information about applicants"),
+            opt("b", "Результат интервью с менеджером подразделения", "The result of the interview with the manager in the respective unit"),
+            opt("c", "Измерение того, что сотрудник может сделать, а не что он сделает", "Measuring what an employee can do, not what he/she will do"),
+            opt("d", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("e", "Решение принять или отклонить кандидата", "The decision to accept or reject an applicant"),
+          ], "c"),
+        Q("p2q7",
+          "Human Resource Planning (планирование персонала):",
+          "Human Resource Planning:",
+          [
+            opt("a", "Основная цель и сфера деятельности организации", "The basic purpose of the organizations as well as its scope of operations"),
+            opt("b", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("c", "Позволяет понять потребности организации", "Allows the organization to thoroughly understand what are the needs of the organization"),
+            opt("d", "Процедуры для долгосрочных целей и стратегий", "Involves a set of procedures for making decisions about the organization's long term goals and strategies"),
+            opt("e", "Процесс прогнозирования и обеспечения движения людей внутрь, внутри и из организации", "Is the process of anticipating and making provision for the movement of people into, within, and out of an organization"),
+          ], "e"),
+        Q("p2q8",
+          "Фокус на ключевых компетенциях привёл компании к:",
+          "Focusing on core competencies has led companies to:",
+          [
+            opt("a", "Аутсорсингу собственных сотрудников", "Outsource their own employees"),
+            opt("b", "Снижению производительности", "Have lower employee productivity"),
+            opt("c", "Ни один из других ответов не верен", "None of the other answer is correct"),
+            opt("d", "Найму только через временные агентства", "Hire only through temporary staffing services"),
+            opt("e", "Значительному росту HR-бюджетов", "Increase HR budgets considerably"),
+          ], "c"),
+        Q("p2q9",
+          "Ключевая ценность организации (core value):",
+          "The organization core value is:",
+          [
+            opt("a", "Долгосрочное видение того, чем станет организация", "The long term perspective on what the organization will become"),
+            opt("b", "Чёткое описание того, как выполняются действия в организации", "A clear statement, indicating how activities are performed within the organization"),
+            opt("c", "Набор устойчивых убеждений и принципов, движущих организацию", "The set of enduring beliefs and principles moving the organization as a whole"),
+            opt("d", "Основная цель организации и причина её существования", "The basic purpose of the organization as well as its scope of operations and reason to be"),
+            opt("e", "Ни один из других ответов не верен", "None of the other answer is correct"),
+          ], "c"),
+        Q("p2q10",
+          "Основные источники информации для job analysis:",
+          "The main sources of information for a job analysis:",
+          [
+            opt("a", "Анкеты всех сотрудников", "Are questionnaires filled in by all employees"),
+            opt("b", "Прямое наблюдение и дневники сотрудников", "Are direct observation and diaries of employees"),
+            opt("c", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("d", "Интервью с людьми, ежедневно выполняющими задачи", "Interviews with people performing tasks on a daily basis"),
+            opt("e", "Все перечисленные техники", "Are all the techniques mentioned in the options"),
+          ], "e"),
+        Q("p2q11",
+          "Поведенческое моделирование (behavioral modelling):",
+          "Behavioral modelling:",
+          [
+            opt("a", "Имеет низкую эффективность", "Shows low level of effectiveness"),
+            opt("b", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("c", "Не требует одобрения менеджеров или коллег", "Does not require the approval of managers or peers"),
+            opt("d", "Формирует поведение через демонстрацию и репетицию", "Is a way to shape employees' behavior by showing them how they should behave and making them rehearse those behaviors"),
+            opt("e", "Формирует поведение через ежедневные указания", "Is a way to shape employees's behavior by telling them how they should behave on a daily basis"),
+          ], "d"),
+        Q("p2q12",
+          "Максимальная свобода кандидата в определении хода беседы — у:",
+          "The maximum amount of freedom for the applicant in determining the course of the discussion is the:",
+          [
+            opt("a", "Недирективного интервью (non-directive interview)", "Non-directive interview"),
+            opt("b", "Интервью с описанием поведения (behavioral description interview)", "Behavioral description interview"),
+            opt("c", "Панельного интервью (panel interview)", "Panel interview"),
+            opt("d", "Директивного интервью (directive interview)", "Directive interview"),
+            opt("e", "Ни один из других ответов не верен", "None of the other answers is correct"),
+          ], "a"),
+        Q("p2q13",
+          "Главное при внедрении программы обучения:",
+          "A major consideration in implementing training needs is:",
+          [
+            opt("a", "Методы обучения при реализации программы", "The instructional methods in implementing a training program"),
+            opt("b", "Игнорировать технологии и полагаться только на тренеров", "To ignore technological advantages in training and rely on the skills of trainers"),
+            opt("c", "Ни один из других ответов не верен", "None of the other answers is correct"),
+            opt("d", "Ограниченный набор методов для всех уровней", "A limited variety of methods is available for training employees at all levels"),
+            opt("e", "Только если материал фактологический", "If the material is factual, with no emphasis on behavioral component"),
+          ], "a"),
+      ],
+    });
+  </script>
+</body>
+</html>

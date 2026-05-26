@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edu — учебные материалы</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 2rem 1rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #3498db;
+      padding-bottom: 12px;
+      font-size: 1.85rem;
+    }
+    .sub { color: #555; margin-bottom: 1.5rem; }
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #3498db;
+      margin: 1.75rem 0 0.65rem;
+    }
+    .topics { list-style: none; padding: 0; margin: 0; }
+    .topics li { margin: 0.5rem 0; }
+    .topics a {
+      display: block;
+      padding: 0.9rem 1.15rem;
+      background: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #2c3e50;
+      border: 1px solid #e0e6ed;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .topics a:hover {
+      border-color: #3498db;
+      box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
+    }
+    .title { font-weight: 600; display: block; }
+    .desc { color: #666; font-size: 0.88rem; margin-top: 4px; display: block; }
+    .note {
+      margin-top: 2rem;
+      padding: 12px 16px;
+      background: #eef6fc;
+      border-left: 4px solid #3498db;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Edu</h1>
+    <p class="sub">Учебные материалы: English, Economics, HR, Avatar и др.</p>
+
+    <div class="section-title">Языки и гуманитарные</div>
+    <ul class="topics">
+      <li><a href="English/index.html"><span class="title">English</span><span class="desc">Грамматика, лексика, lyrics, reading</span></a></li>
+    </ul>
+
+    <div class="section-title">Экономика</div>
+    <ul class="topics">
+      <li><a href="Economics/index.html"><span class="title">Economics (HTML)</span><span class="desc">Темы с объяснениями и графиками</span></a></li>
+      <li><a href="EconomicsReact/index.html"><span class="title">Economics React</span><span class="desc">Интерактивная версия на React</span></a></li>
+    </ul>
+
+    <div class="section-title">HR / HRM</div>
+    <ul class="topics">
+      <li><a href="HRM/index.html"><span class="title">HRM — все тесты</span><span class="desc">Practice test, Exam HR _DI (HRM 15 MCQ + DI 14 MCQ + SNA), RU + EN</span></a></li>
+    </ul>
+
+    <div class="section-title">Другое</div>
+    <ul class="topics">
+      <li><a href="Avatar/index.html"><span class="title">Avatar</span><span class="desc">Субтитры и эпизоды</span></a></li>
+      <li><a href="AvatarSubtitlesReact/index.html"><span class="title">Avatar Subtitles React</span><span class="desc">React-версия субтитров</span></a></li>
+      <li><a href="CV/index.html"><span class="title">CV</span><span class="desc">Резюме</span></a></li>
+      <li><a href="EPC_Study_Room_Booking/EPC_Study_Room_Booking_v2.html"><span class="title">EPC Study Room Booking</span><span class="desc">Диаграмма процесса</span></a></li>
+      <li><a href="EPC_Champions_League_Final/EPC_Champions_League_Final.html"><span class="title">EPC Champions League Final</span><span class="desc">Диаграмма процесса</span></a></li>
+    </ul>
+
+    <p class="note">Сайт публикуется через GitHub Actions при push в ветку <code>main</code>.</p>
+  </div>
+</body>
+</html>

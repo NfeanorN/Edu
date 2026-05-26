@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HRM — Практический тест</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #7b4397; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #7b4397;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #7b4397;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 1.15rem;
+      color: #7b4397;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #7b4397; margin-bottom: 0.35rem; }
+    .q-ru { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .q-en { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #f3f0f7; }
+  .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-ru { font-size: 0.95rem; }
+    .opt-en { font-size: 0.82rem; color: #777; }
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .open-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .open-block textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-top: 0.5rem;
+      padding: 0.65rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .sample {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: #f8f5fc;
+      border-radius: 8px;
+      border-left: 3px solid #7b4397;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
+    table.matrix {
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0 auto;
+    }
+    table.matrix th, table.matrix td {
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      text-align: center;
+    }
+    table.matrix th { background: #7b4397; color: #fff; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #7b4397;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #6a3784; }
+    button.secondary {
+      background: #fff;
+      color: #7b4397;
+      border: 2px solid #7b4397;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #7b4397;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← К тестам HRM</a></p>
+    <h1>HRM — Практический тест</h1>
+    <p class="sub">HRM Practice Test — 27 MCQ + open questions / 27 вопросов + открытые</p>
+    <div class="rules">Практический тест: простой подсчёт верных ответов. Открытые вопросы — эталон показывается после проверки.</div>
+    <form id="test-form">
+      <div id="questions"></div>
+      
+      <div class="actions">
+        <button type="submit">Проверить ответы</button>
+        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = {"correct": 1, "wrong": 0, "max": null};
+    const QUESTIONS = [{"num": 1, "id": "q1", "en": "HRM's relation to strategic management:", "ru": "Связь HRM со стратегическим менеджментом:", "options": [{"id": "a", "en": "Shows that an investment in HRM is not good expenditure of revenues", "ru": "Показывает, что инвестиции в HRM — неэффективные расходы"}, {"id": "b", "en": "Strategic management does not concern itself with employees' skills, knowledge, and abilities as HRM does", "ru": "Стратегический менеджмент не занимается навыками и знаниями сотрудников, в отличие от HRM"}, {"id": "c", "en": "Has grown substantially in the past 10 years", "ru": "Значительно усилилась за последние 10 лет"}, {"id": "d", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "e", "en": "Is viewed by 80% of executives as less close today than in the past", "ru": "80% топ-менеджеров считают, что связь стала слабее"}], "correct": "c", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 2, "id": "q2", "en": "Managing 'human capital' refers to:", "ru": "Управление «человеческим капиталом» включает:", "options": [{"id": "a", "en": "The combination and sum of all the other answers", "ru": "Комбинацию и совокупность всех перечисленных элементов"}, {"id": "b", "en": "Recruiting the best talent available", "ru": "Подбор лучших талантов"}, {"id": "c", "en": "Utilizing current knowledge", "ru": "Использование текущих знаний"}, {"id": "d", "en": "Design policies and systems to align individual goals with the organization's ones", "ru": "Разработку политик для согласования целей сотрудников и организации"}, {"id": "e", "en": "Providing development assignments", "ru": "Предоставление заданий для развития"}], "correct": "a", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 3, "id": "q3", "en": "The steps in conducting a needs assessment include all of the following EXCEPT:", "ru": "Этапы оценки потребностей в обучении включают всё, КРОМЕ:", "options": [{"id": "a", "en": "Task analysis", "ru": "Анализ задач"}, {"id": "b", "en": "Person analysis", "ru": "Анализ персонала"}, {"id": "c", "en": "Organizational analysis", "ru": "Организационный анализ"}, {"id": "d", "en": "None of the other answer is correct", "ru": "Ни один из других ответов не верен"}, {"id": "e", "en": "All of the above are part of the needs assessment", "ru": "Все перечисленное входит в оценку потребностей"}], "correct": "e", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 4, "id": "q4", "en": "Considering Recruiting:", "ru": "Что верно о рекрутинге:", "options": [{"id": "a", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "b", "en": "It is not only to select appropriate candidates, but also to send the desired information to the job market", "ru": "Это не только отбор кандидатов, но и передача нужного имиджа на рынок труда"}, {"id": "c", "en": "It is disconnected from the organizational strategic choices", "ru": "Не связан со стратегическими решениями организации"}, {"id": "d", "en": "Its only target is to reduce hiring costs", "ru": "Его единственная цель — снизить затраты на найм"}, {"id": "e", "en": "It is a mono-directional communication channel (from candidate towards the company)", "ru": "Это односторонний канал (от кандидата к компании)"}], "correct": "b", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 5, "id": "q5", "en": "Considering the selection methods:", "ru": "О методах отбора:", "options": [{"id": "a", "en": "Personality tests identify, without possible mistake, the specific personality type of the candidate", "ru": "Личностные тесты безошибочно определяют тип личности"}, {"id": "b", "en": "In face-to-face interviews it is always better to have only one recruiter", "ru": "В интервью всегда лучше один интервьюер"}, {"id": "c", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "d", "en": "Behavioral interviewing is one of the best predictors of future performance", "ru": "Поведенческое интервью — один из лучших предикторов будущей эффективности"}, {"id": "e", "en": "Group simulations are useful only for creative positions", "ru": "Групповые симуляции полезны только для творческих должностей"}], "correct": "d", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 6, "id": "q6", "en": "Talent Management:", "ru": "Talent Management (управление талантами):", "options": [{"id": "a", "en": "Is mainly based on the psychological characteristics of potential employees", "ru": "Основано главным образом на психологических характеристиках"}, {"id": "b", "en": "Was more important in the 80's than today", "ru": "Было важнее в 80-х, чем сегодня"}, {"id": "c", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "d", "en": "Is only focused on selecting talented employees", "ru": "Сосредоточено только на отборе талантов"}, {"id": "e", "en": "Is disconnected from the strategic choices of the organization", "ru": "Не связано со стратегическими решениями организации"}], "correct": "c", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 7, "id": "q7", "en": "The critical incident method:", "ru": "Метод критических инцидентов:", "options": [{"id": "a", "en": "Refers to a disagreement between an employer and employee", "ru": "Описывает конфликт между работодателем и работником"}, {"id": "b", "en": "Identifies critical job tasks", "ru": "Выявляет критически важные рабочие задачи"}, {"id": "c", "en": "Refers directly to employees to determine which tasks are most critical in day-to-day interaction", "ru": "Напрямую опрашивает сотрудников о важнейших задачах"}, {"id": "d", "en": "Is an investigation by the safety department", "ru": "Расследование отдела безопасности"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 8, "id": "q8", "en": "Job analysis:", "ru": "Анализ работы (job analysis):", "options": [{"id": "a", "en": "Outlines in detail the specific knowledge, skills, abilities required of the person performing the job", "ru": "Подробно описывает KSA, необходимые для выполнения работы"}, {"id": "b", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "c", "en": "Is the systematic process of collecting information about all of the parameters of a job", "ru": "Систематический сбор информации обо всех параметрах должности"}, {"id": "d", "en": "Can be performed only via interviews", "ru": "Можно проводить только через интервью"}, {"id": "e", "en": "Is a written statement about the overall tasks, duties and responsibilities of a job", "ru": "Письменное описание задач, обязанностей и ответственности"}], "correct": "c", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 9, "id": "q9", "en": "The organization-specific list of activities, their description and how-to are called:", "ru": "Организационный перечень видов деятельности с описанием и инструкциями называется:", "options": [{"id": "a", "en": "Task inventory", "ru": "Task inventory (инвентаризация задач)"}, {"id": "b", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "c", "en": "Job specification", "ru": "Job specification (спецификация должности)"}, {"id": "d", "en": "Task diary", "ru": "Task diary (дневник задач)"}, {"id": "e", "en": "Job Analysis", "ru": "Job Analysis"}], "correct": "a", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 10, "id": "q10", "en": "Job description:", "ru": "Должностная инструкция (job description):", "options": [{"id": "a", "en": "Is a written statement about the overall tasks, duties and responsibilities of a job", "ru": "Письменное описание задач, обязанностей и ответственности должности"}, {"id": "b", "en": "Is the systematic process of collecting information about all parameters of a job", "ru": "Систематический процесс сбора информации о должности"}, {"id": "c", "en": "Can be performed only via surveys and direct observation", "ru": "Проводится только через опросы и наблюдение"}, {"id": "d", "en": "Outlines in detail the KSA required of the person performing the job", "ru": "Подробно описывает KSA исполнителя"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "a", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 11, "id": "q11", "en": "Which statement best describes an appraisal interview?", "ru": "Какое утверждение лучше описывает appraisal interview?", "options": [{"id": "a", "en": "They cover few topics during these interviews", "ru": "На интервью обсуждают мало тем"}, {"id": "b", "en": "An appraisal interview gives a manager the opportunity to discuss a subordinate's performance and explore areas of improvement and growth", "ru": "Даёт менеджеру возможность обсудить результаты подчинённого и зоны роста"}, {"id": "c", "en": "It is focused on shortcomings of employees and the manager", "ru": "Сосредоточено на недостатках сотрудника и менеджера"}, {"id": "d", "en": "It establishes a one-way communication", "ru": "Строится как односторонняя коммуникация"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 12, "id": "q12", "en": "MBOs (Managing by Objectives):", "ru": "MBO (управление по целям):", "options": [{"id": "a", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "b", "en": "Was proposed for the first time by Peter Drucker", "ru": "Впервые предложено Питером Дrucker"}, {"id": "c", "en": "Goals are set by mutual agreement of employees and manager", "ru": "Цели устанавливаются по взаимному согласию сотрудника и менеджера"}, {"id": "d", "en": "Is a cycle that starts with line employees and ends with top management", "ru": "Цикл начинается с линейных сотрудников и заканчивается топ-менеджментом"}, {"id": "e", "en": "They are usually not linked with the objective of the organization", "ru": "Обычно не связаны с целями организации"}], "correct": "c", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 13, "id": "q13", "en": "Peer appraisals:", "ru": "Оценка коллегами (peer appraisals):", "options": [{"id": "a", "en": "Managers tend not to account them due to poor reliability", "ru": "Менеджеры не используют их из-за низкой надёжности"}, {"id": "b", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "c", "en": "Due to friendship they often contain biased information", "ru": "Из-за дружбы часто содержат предватые оценки"}, {"id": "d", "en": "Usually differ to some degree from ratings by a superior, since peers see different dimensions of performance", "ru": "Обычно отличаются от оценки начальника, т.к. видят другие аспекты работы"}, {"id": "e", "en": "Are believed to be less valid than appraisals by superiors", "ru": "Считаются менее валидными, чем оценки руководителя"}], "correct": "d", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 14, "id": "q14", "en": "According to bounded rationality theory:", "ru": "Согласно теории ограниченной рациональности:", "options": [{"id": "a", "en": "When making a decision, we are able to objectively evaluate and select the best alternatives", "ru": "Мы можем объективно выбрать лучшую альтернативу"}, {"id": "b", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "c", "en": "Even with constraints we are able to pick the best choice", "ru": "Даже с ограничениями мы выбираем лучший вариант"}, {"id": "d", "en": "As individuals we can understand and decompose a problem in all its parts", "ru": "Мы можем полностью декомпозировать проблему"}, {"id": "e", "en": "As individuals and groups we are always able to make the best decisions", "ru": "Мы всегда принимаем оптимальные решения"}], "correct": "b", "section": "Часть 1 — Стратегический HRM и подбор персонала"}, {"num": 15, "id": "q15", "en": "Rethinking and redesigning business processes to achieve improvements in cost, quality, service, and speed refers to:", "ru": "Переосмысление и перепроектирование бизнес-процессов для улучшения стоимости, качества, сервиса и скорости — это:", "options": [{"id": "a", "en": "Downsizing", "ru": "Сокращение штата (downsizing)"}, {"id": "b", "en": "Reengineering", "ru": "Реинжиниринг (reengineering)"}, {"id": "c", "en": "Outsourcing", "ru": "Аутсорсинг"}, {"id": "d", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "e", "en": "Employee leasing", "ru": "Аренда персонала"}], "correct": "b", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 16, "id": "q16", "en": "Which of these statements about cultural change is true?", "ru": "Какое утверждение об изменении культуры верно?", "options": [{"id": "a", "en": "Attitudes, beliefs, values and customs have little or no effect on behavior on the job", "ru": "Установки и ценности почти не влияют на поведение на работе"}, {"id": "b", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "c", "en": "HR policies do not need adjustments due to cultural change", "ru": "HR-политики не нужно менять из-за культуры"}, {"id": "d", "en": "Cultures change very little and maintain the same values for hundreds of years", "ru": "Культуры почти не меняются сотнями лет"}, {"id": "e", "en": "HRM has become less complex than when employees were concerned primarily with economic survival", "ru": "HRM стало проще, чем в эпоху экономического выживания"}], "correct": "b", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 17, "id": "q17", "en": "Which of the following statements about change is true?", "ru": "Какое утверждение об изменениях верно?", "options": [{"id": "a", "en": "Successful change rarely occurs naturally or easily", "ru": "Успешные изменения редко происходят сами собой и легко"}, {"id": "b", "en": "Change is temporary and will have little effect on how things are done", "ru": "Изменения временны и почти не влияют на работу"}, {"id": "c", "en": "Communication has little effect on successful change implementation", "ru": "Коммуникация почти не влияет на успех изменений"}, {"id": "d", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "e", "en": "Change projects rarely fail because of people", "ru": "Проекты изменений редко проваливаются из-за людей"}], "correct": "a", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 18, "id": "q18", "en": "The so-called Talent Inventory (skill and management inventories):", "ru": "Talent Inventory (инвентаризация навыков и кадрового резерва):", "options": [{"id": "a", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "b", "en": "Represents an outdated way of performing HRM", "ru": "Устаревший способ ведения HRM"}, {"id": "c", "en": "Represents opinions of supervisors about future employment needs", "ru": "Мнения руководителей о будущих потребностях"}, {"id": "d", "en": "Is part of identifying, developing and tracking key individuals for the organization", "ru": "Часть процесса выявления, развития и отслеживания ключевых сотрудников"}, {"id": "e", "en": "Is a quantitative approach to forecasting labor demand", "ru": "Количественный метод прогноза спроса на труд"}], "correct": "d", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 19, "id": "q19", "en": "The major disadvantage of flextime is:", "ru": "Главный недостаток гибкого графика (flextime):", "options": [{"id": "a", "en": "Employees feel overwhelmed by fixed hours per week", "ru": "Сотрудники перегружены фиксированными часами"}, {"id": "b", "en": "Employees might not adjust their schedule", "ru": "Сотрудники не готовы менять расписание"}, {"id": "c", "en": "It can't be suitable for all types of jobs", "ru": "Подходит не для всех видов работ"}, {"id": "d", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "e", "en": "It increases startup and close-down time", "ru": "Увеличивает время запуска и закрытия"}], "correct": "c", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 20, "id": "q20", "en": "The most critical step in reaching a selection decision is:", "ru": "Самый критичный шаг при принятии решения об отборе:", "options": [{"id": "a", "en": "The consideration of irrelevant information about applicants", "ru": "Учёт нерелевантной информации о кандидатах"}, {"id": "b", "en": "The result of the interview with the manager in the respective unit", "ru": "Результат интервью с менеджером подразделения"}, {"id": "c", "en": "Measuring what an employee can do, not what he/she will do", "ru": "Измерение того, что сотрудник может, а не будет делать"}, {"id": "d", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "e", "en": "The decision to accept or reject an applicant", "ru": "Решение принять или отклонить кандидата"}], "correct": "e", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 21, "id": "q21", "en": "Human Resource Planning:", "ru": "Кадровое планирование (Human Resource Planning):", "options": [{"id": "a", "en": "The basic purpose of the organization and scope of operations", "ru": "Базовая цель и сфера деятельности организации"}, {"id": "b", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "c", "en": "Allows the organization to understand what are the needs of the organization", "ru": "Позволяет понять потребности организации"}, {"id": "d", "en": "Involves procedures for long-term goals and strategies", "ru": "Процедуры для долгосрочных целей и стратегий"}, {"id": "e", "en": "Is the process of anticipating and making provision for the movement of people into, within, and out of an organization", "ru": "Процесс прогнозирования и обеспечения движения людей внутрь, внутри и из организации"}], "correct": "e", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 22, "id": "q22", "en": "Focusing on core competencies has led companies to:", "ru": "Фокус на ключевых компетенциях привёл компании к:", "options": [{"id": "a", "en": "Outsource their own employees", "ru": "Аутсорсингу собственных сотрудников"}, {"id": "b", "en": "Have lower employee productivity", "ru": "Снижению продуктивности"}, {"id": "c", "en": "None of the other answer is correct", "ru": "Ни один из других ответов не верен"}, {"id": "d", "en": "Hire only through temporary staffing services", "ru": "Найму только через temp-агентства"}, {"id": "e", "en": "Increase HR budgets considerably", "ru": "Значительному росту HR-бюджетов"}], "correct": "c", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 23, "id": "q23", "en": "The organization core value is:", "ru": "Ключевая ценность организации (core value):", "options": [{"id": "a", "en": "The long term perspective on what the organization will become", "ru": "Долгосрочное видение того, чем станет организация"}, {"id": "b", "en": "A clear statement indicating how activities are performed within the organization", "ru": "Чёткое описание того, как выполняются действия в организации"}, {"id": "c", "en": "The set of enduring beliefs and principles moving the organization as a whole", "ru": "Набор устойчивых убеждений и принципов, движущих организацию"}, {"id": "d", "en": "The basic purpose of the organization and scope of operations and reason to be", "ru": "Основная цель организации и причина её существования"}, {"id": "e", "en": "None of the other answer is correct", "ru": "Ни один из других ответов не верен"}], "correct": "c", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 24, "id": "q24", "en": "The main sources of information for a job analysis:", "ru": "Основные источники информации для job analysis:", "options": [{"id": "a", "en": "Are questionnaires filled in by all employees", "ru": "Анкеты всех сотрудников"}, {"id": "b", "en": "Are direct observation and diaries of employees", "ru": "Прямое наблюдение и дневники сотрудников"}, {"id": "c", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "d", "en": "Interviews with people performing tasks on a daily basis", "ru": "Интервью с людьми, ежедневно выполняющими задачи"}, {"id": "e", "en": "Are all the techniques mentioned in the options", "ru": "Все перечисленные техники"}], "correct": "e", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 25, "id": "q25", "en": "Behavioral modelling:", "ru": "Поведенческое моделирование (behavioral modelling):", "options": [{"id": "a", "en": "Shows low level of effectiveness", "ru": "Имеет низкую эффективность"}, {"id": "b", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "c", "en": "Does not require the approval of managers or peers", "ru": "Не требует одобрения менеджеров или коллег"}, {"id": "d", "en": "Is a way to shape employees' behavior by showing them how they should behave and making them rehearse those behaviors", "ru": "Формирует поведение через демонстрацию и репетицию"}, {"id": "e", "en": "Is a way to shape employees' behavior by telling them how they should behave on a daily basis", "ru": "Формирует поведение через ежедневные указания"}], "correct": "d", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 26, "id": "q26", "en": "The maximum amount of freedom for the applicant in determining the course of the discussion is the:", "ru": "Максимальная свобода кандидата в определении хода беседы — у:", "options": [{"id": "a", "en": "Non-directive interview", "ru": "Недирективного интервью (non-directive interview)"}, {"id": "b", "en": "Behavioral description interview", "ru": "Интервью с описанием поведения"}, {"id": "c", "en": "Panel interview", "ru": "Панельного интервью"}, {"id": "d", "en": "Directive interview", "ru": "Директивного интервью"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "a", "section": "Часть 2 — Организационные изменения и обучение"}, {"num": 27, "id": "q27", "en": "A major consideration in implementing training needs is:", "ru": "Главное при внедрении программы обучения:", "options": [{"id": "a", "en": "The instructional methods in implementing a training program", "ru": "Методы обучения при реализации программы"}, {"id": "b", "en": "To ignore technological advantages in training and rely on the skills of trainers", "ru": "Игнорировать технологии и полагаться только на тренеров"}, {"id": "c", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}, {"id": "d", "en": "A limited variety of methods is available for training employees at all levels", "ru": "Ограниченный набор методов для всех уровней"}, {"id": "e", "en": "If the material is factual, with no emphasis on behavioral component", "ru": "Только если материал фактологический"}], "correct": "a", "section": "Часть 2 — Организационные изменения и обучение"}];
+    const OPEN_ITEMS = [{"title_ru": "Открытый вопрос 1", "ru": "Опишите компоненты и характеристики job design и job analysis.", "en": "Describe the components and characteristics of job design and job analysis.", "sample_ru": "Job design (Hackman–Oldham): 1) разнообразие навыков, 2) целостность задачи, 3) значимость задачи, 4) автономия, 5) обратная связь.\n\nJob analysis: название должности, краткое описание, обязанности, KSAO, образование и опыт, физические требования, условия труда, оборудование, связи с другими, стандарты performance."}, {"title_ru": "Открытый вопрос 2", "ru": "Определите кривую заработной платы (wage/salary curve) и опишите её структуру. Какие типы кривых возможны и как их интерпретировать?", "en": "Define the wage/salary curve and describe its structure. Which kinds can you face and how can you interpret them?", "sample_ru": "Wage curve показывает связь относительной ценности должностей и уровня оплаты; строится при job evaluation для справедливой компенсации. Может сравнивать зарплаты компании с рынком. Типы: линейная, ступенчатая, freehand curve при несоответствии рынку."}, {"title_ru": "Открытый вопрос 3", "ru": "Что такое enterprise incentive plan? Приведите примеры (profit sharing, stock options и др.), опишите различия и где они применимы.", "en": "What is an enterprise incentive plan? Provide examples describing their differences and which setting they fit best.", "sample_ru": "Enterprise incentive plans — все сотрудники организации участвуют в выплатах на основе успеха организации (обычно год+). Примеры: profit sharing, stock options, ESOP. Отличаются от индивидуальных/групповых масштабом и горизонтом."}, {"title_ru": "Открытый вопрос 4", "ru": "Вы HR-менеджер растущей малой фирмы. Как внедрить performance appraisal и на каких целях системы сфокусироваться?", "en": "You are the HR manager of a small growing firm. How would you implement performance appraisal and on which goals would you focus?", "sample_ru": "SMART-цели → выбор метода (MBO, рейтинги, 360°) → обучение менеджеров → непрерывная обратная связь → документирование → прозрачность без bias. Цели: развитие, согласование с организацией, обратная связь, справедливость."}, {"title_ru": "Кейс Kendall Toy — вопрос 1", "ru": "Почему повышение зарплаты не улучшило productivity?", "en": "Why did the salary increase not improve productivity?", "sample_ru": "Проблема в дизайне работы (скучная специализация на конвейере), а не в оплате. По Herzberg зарплата — гигиенический фактор, не мотиватор при отсутствии содержания работы."}, {"title_ru": "Кейс Kendall Toy — вопрос 2", "ru": "Какие другие подходы может попробовать Kendall для повышения productivity и commitment?", "en": "What other approaches might Kendall try to improve productivity and worker commitment?", "sample_ru": "Job enrichment/rotation/enlargement, участие сотрудников в улучшениях, команды, обратная связь, пересмотр организации труда."}, {"title_ru": "Кейс Kendall Toy — вопрос 3", "ru": "Что бы вы рекомендовали? Отличаются ли рекомендации для стратегии low cost vs highest quality?", "en": "Which would you recommend? Do recommendations differ for low cost vs highest quality strategy?", "sample_ru": "Обогащение работы + вовлечённость. Low cost — умеренное enrichment + эффективность процессов. Highest quality — сильнее enrichment, обучение, стандарты качества."}];
+    const SNA_ITEMS = [];
+
+    const form = document.getElementById('test-form');
+    const container = document.getElementById('questions');
+    const resultsBox = document.getElementById('results');
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      let currentSection = '';
+      QUESTIONS.forEach((q) => {
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = q.section;
+          container.appendChild(h);
+        }
+        const card = document.createElement('div');
+        card.className = 'q';
+        card.dataset.id = q.id;
+        card.innerHTML = `
+          <div class="q-num">Вопрос ${q.num}</div>
+          <div class="q-ru">${q.ru}</div>
+          <div class="q-en">${q.en}</div>
+          <div class="opts">
+            ${q.options.map(o => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span>
+                  <div class="opt-ru"><strong>${o.id.toUpperCase()})</strong> ${o.ru}</div>
+                  <div class="opt-en">${o.en}</div>
+                </span>
+              </label>`).join('')}
+          </div>
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderOpen() {
+      if (!OPEN_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'Открытые вопросы';
+      container.appendChild(h);
+      OPEN_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-num">${item.title_ru}</div>
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <textarea name="open_${idx}" placeholder="Ваш ответ..."></textarea>
+          <div class="sample" hidden></div>`;
+        block.querySelector('.sample').textContent = item.sample_ru;
+        container.appendChild(block);
+      });
+    }
+
+    function renderSna() {
+      if (!SNA_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'SNA — расчёты';
+      container.appendChild(h);
+      SNA_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <div class="feedback" hidden></div>`;
+        block.dataset.expected = item.expected;
+        block.dataset.accept = JSON.stringify(item.accept || []);
+        container.appendChild(block);
+      });
+    }
+
+    function normalize(val) {
+      return String(val || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    function checkSnaAnswer(expected, accept, user) {
+      const n = normalize(user);
+      if (!n) return null;
+      const variants = [expected, ...(accept || [])].map(normalize);
+      return variants.some(v => n === v || n.includes(v) || v.includes(n));
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const warnEl = document.getElementById('warn-text');
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        card.classList.remove('unanswered', 'correct', 'wrong');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = true;
+        fb.textContent = '';
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          lbl.classList.remove('result-opt');
+          lbl.style.background = '';
+          lbl.querySelector('input').disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove('visible');
+        warnEl.hidden = false;
+        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        const first = container.querySelector('.q.unanswered');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      warnEl.hidden = true;
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        const fb = card.querySelector('.feedback');
+        fb.hidden = false;
+        card.classList.remove('unanswered', 'correct', 'wrong');
+
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          return;
+        }
+
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add('correct');
+          fb.className = 'feedback ok';
+          fb.textContent = '✓ Верно';
+        } else {
+          wrong++;
+          card.classList.add('wrong');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+        }
+
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          const inp = lbl.querySelector('input');
+          lbl.classList.add('result-opt');
+          if (inp.value === q.correct) lbl.style.background = '#e8f8ef';
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = '#fdecea';
+          inp.disabled = true;
+        });
+      });
+
+      container.querySelectorAll('.open-block .sample').forEach(el => { el.hidden = false; });
+
+      container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
+        const block = fb.closest('.open-block');
+        if (!block.dataset.expected) return;
+        const inp = block.querySelector('input');
+        const ok = checkSnaAnswer(block.dataset.expected, JSON.parse(block.dataset.accept || '[]'), inp.value);
+        fb.hidden = false;
+        if (ok === null) {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        } else if (ok) {
+          fb.className = 'feedback ok';
+          fb.textContent = '✓ Верно';
+        } else {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        }
+      });
+
+      const total = QUESTIONS.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
+
+      document.getElementById('score-text').textContent =
+        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+      document.getElementById('score-detail').textContent =
+        SCORING.correct !== 1 || SCORING.wrong !== 0
+          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
+          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+
+      resultsBox.classList.add('visible');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      form.reset();
+      resultsBox.classList.remove('visible');
+      document.getElementById('warn-text').hidden = true;
+      renderQuestions();
+      renderOpen();
+      renderSna();
+      
+    });
+
+    renderQuestions();
+    renderOpen();
+    renderSna();
+    
+  </script>
+</body>
+</html>

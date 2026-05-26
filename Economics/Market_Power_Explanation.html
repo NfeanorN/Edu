@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Power & Pricing — Рыночная власть и ценообразование</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #e74c3c; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #e74c3c; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #ffeaea; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #ffeaea; border-left: 4px solid #e74c3c; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #e74c3c; text-decoration: none; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .demand { stroke: #27ae60; stroke-width: 2.5; fill: none; }
+        .svg-graph .supply, .svg-graph .mc { stroke: #2980b9; stroke-width: 2.5; fill: none; }
+        .svg-graph .mr { stroke: #e74c3c; stroke-width: 2; fill: none; stroke-dasharray: 4,3; }
+        .svg-graph .dwl-area { fill: rgba(231, 76, 60, 0.2); stroke: #e74c3c; stroke-width: 1; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Market Power & Pricing — Рыночная власть и ценообразование</h1>
+
+    <h2>Market Structures / Типы рыночных структур</h2>
+    <table>
+        <tr><th>Structure / Структура</th><th>Firms / Фирмы</th><th>Product / Продукт</th><th>Entry / Вход</th></tr>
+        <tr><td>Perfect competition</td><td>Many</td><td>Identical</td><td>Free</td></tr>
+        <tr><td>Monopoly</td><td>One</td><td>Unique</td><td>Blocked</td></tr>
+        <tr><td>Oligopoly</td><td>Few</td><td>Similar/differentiated</td><td>Difficult</td></tr>
+        <tr><td>Monopolistic competition</td><td>Many</td><td>Differentiated</td><td>Free</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Perfect Competition / Совершенная конкуренция</h2>
+    <p><strong>Perfect competition</strong> is a market structure where many firms sell an identical product, there is free entry and exit, and each firm is a <strong>price taker</strong> — it cannot influence the market price.</p>
+    <p><strong>Совершенная конкуренция</strong> — много фирм, одинаковый товар, свободный вход и выход, каждая фирма — <strong>price taker</strong> (не может влиять на цену).</p>
+
+    <h3>Assumptions / Условия</h3>
+    <ul>
+        <li><strong>Many buyers and sellers</strong> — no single participant can affect price.</li>
+        <li><strong>Homogeneous product</strong> — goods are identical (no branding, no differentiation).</li>
+        <li><strong>Free entry and exit</strong> — no barriers; firms can enter or leave the market.</li>
+        <li><strong>Perfect information</strong> — everyone knows prices and quality.</li>
+        <li><strong>Price taker</strong> — each firm faces a horizontal demand curve at the market price P.</li>
+    </ul>
+    <p><em>Много покупателей и продавцов; однородный продукт; свободный вход и выход; полная информация; фирма принимает цену как данную.</em></p>
+
+    <h3>Demand for the firm / Спрос для фирмы</h3>
+    <p>The <strong>market demand</strong> is downward-sloping. But the <strong>individual firm’s demand</strong> is <strong>perfectly elastic (horizontal)</strong> at the market price P — the firm can sell any quantity at P, but if it raises price it sells nothing.</p>
+    <p>Рыночный спрос нисходящий. Спрос для отдельной фирмы — <strong>горизонтальная линия</strong> на уровне рыночной цены P.</p>
+
+    <div class="graph-box">
+        <pre>Market / Рынок                    Single firm / Одна фирма
+  P                              P
+  |   S                           |
+  |   \                           |  P* ___________ D = MR (horizontal)
+  |    \   P*                     |     |
+  |     \   *                     |     |  firm is price taker
+  |      \ / \  D                 |     |
+  |       *   \                   |     |
+  |      / \   \                  |     |
+  0+----+---+---+---- Q           0+----+---+---+---- q
+         Q*                              q* (firm's output)</pre>
+    </div>
+
+    <h3>Profit maximization / Максимизация прибыли</h3>
+    <p>Rule is the same as for any firm: <strong>MR = MC</strong>. In perfect competition, <strong>P = MR</strong> (each extra unit sold adds P to revenue). So:</p>
+    <p>Правило: <strong>MR = MC</strong>. При совершенной конкуренции <strong>P = MR</strong> (каждая дополнительная единица даёт выручку P). Поэтому:</p>
+    <div class="formula-box">
+        <p><strong>P = MR = MC</strong> at the profit-maximizing output.</p>
+        <p>Фирма выбирает q* где P = MC (так как P = MR).</p>
+    </div>
+
+    <div class="graph-box">
+        <pre>P, Cost
+  |
+  |     MC
+  |    /
+  |   /  * P = MC  ← profit-max output q*
+  |  /  /|
+  | /  / |
+  |/  /  |  ATC
+  |  /   |   \
+  *--+----+----\___  profit (if P > ATC) or loss (if P < ATC)
+  |  P   q*   \
+  |  |         \
+  |__|__________\_________________ D = MR = P
+  |
+  0+----+----+----+----+ q</pre>
+    </div>
+
+    <h3>Short run vs long run / Краткосрочный и долгосрочный период</h3>
+    <ul>
+        <li><strong>Short run:</strong> Firm can make profit (P > ATC), zero profit (P = ATC), or loss (P < ATC). It still produces if P ≥ AVC (covers variable costs).</li>
+        <li><strong>Long run:</strong> Free entry and exit. If profit &gt; 0 → new firms enter → supply increases → P falls until profit = 0. If loss → firms exit → supply falls → P rises. <strong>Long-run equilibrium:</strong> P = MC = min ATC, <strong>zero economic profit</strong>.</li>
+    </ul>
+    <p><em>Краткосрочно: возможна прибыль или убыток. Долгосрочно: вход и выход выравнивают прибыль; в равновесии P = MC = min ATC, экономическая прибыль = 0.</em></p>
+
+    <h3>Supply curve / Кривая предложения</h3>
+    <p>The firm’s supply curve (short run) is the <strong>MC curve above AVC</strong>. Below min AVC, the firm shuts down (produces zero). Market supply = horizontal sum of all firms’ supply curves.</p>
+    <p>Предложение фирмы (краткосрочное) — участок <strong>MC выше AVC</strong>. Ниже min AVC фирма закрывается. Рыночное предложение — сумма предложений всех фирм.</p>
+
+    <div class="graph-box">
+        <pre>P
+  |
+  |     MC (firm's supply above AVC)
+  |    /
+  |   /  shutdown if P < min AVC
+  |  /  /
+  | /  /
+  |/  /  AVC
+  |  /
+  | /
+  |/
+  0+----+----+----+ q</pre>
+    </div>
+
+    <h3>Efficiency / Эффективность</h3>
+    <p>In long-run equilibrium, <strong>P = MC</strong> — the price reflects marginal cost, and output is at the level where willingness to pay equals marginal cost. <strong>No deadweight loss</strong> — total surplus is maximized. Perfect competition is the benchmark for allocative efficiency.</p>
+    <p>В долгосрочном равновесии <strong>P = MC</strong>, объём выпуска эффективен. <strong>Нет потерь общества (DWL)</strong> — совершенная конкуренция служит эталоном аллокативной эффективности.</p>
+
+    <hr>
+
+    <h2>Monopoly / Монополия</h2>
+    <p><strong>Profit maximization:</strong> MR = MC (same rule as competition, but firm faces downward-sloping demand).</p>
+    <p><strong>Максимизация прибыли:</strong> MR = MC. Фирма — price maker, спрос нисходящий.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="220"/>
+            <line class="axis" x1="50" y1="220" x2="340" y2="220"/>
+            <path class="demand" d="M 50 45 L 180 120 L 340 195"/>
+            <path class="mr" d="M 50 90 L 180 120 L 340 150"/>
+            <path class="mc" d="M 50 180 L 180 120 L 340 60"/>
+            <line x1="50" y1="120" x2="180" y2="120" stroke="#e74c3c" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="180" y1="120" x2="180" y2="220" stroke="#e74c3c" stroke-width="1" stroke-dasharray="4,3"/>
+            <circle cx="180" cy="120" r="4" fill="#e74c3c"/>
+            <text x="28" y="124">Pm</text>
+            <text x="185" y="232">Qm</text>
+            <text x="28" y="18">P</text>
+            <text x="338" y="232">Q</text>
+            <text x="260" y="55">D</text>
+            <text x="260" y="135">MR</text>
+            <text x="260" y="175">MC</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Монополия: MR = MC → Qm, цена Pm. D — спрос, MR — предельная выручка, MC — предельные издержки.</p>
+    </div>
+
+    <p><strong>Key:</strong> P > MC (deadweight loss). Monopoly produces less and charges more than competitive market.</p>
+    <p><strong>Ключевое:</strong> P > MC (потери общественного благосостояния). Монополия производит меньше и берёт больше.</p>
+
+    <h3>Monopoly Deadweight Loss / Потери общества от монополии (DWL)</h3>
+    <p><strong>Deadweight loss (DWL)</strong> is the loss of total surplus (consumer + producer) compared to a perfectly competitive outcome. Monopoly sets P > MC and produces Q<sub>m</sub> &lt; Q<sub>c</sub> (competitive quantity). The units between Q<sub>m</sub> and Q<sub>c</sub> are not produced even though consumers’ willingness to pay exceeds MC — so society loses that surplus.</p>
+    <p><strong>Потери общественного благосостояния (DWL)</strong> — это сокращение общего благосостояния (излишек потребителя + производителя) по сравнению с совершенной конкуренцией. Монополия производит меньше (Q<sub>m</sub> &lt; Q<sub>c</sub>); единицы между Q<sub>m</sub> и Q<sub>c</sub> не выпускаются, хотя готовность платить превышает MC — общество теряет этот излишек.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="240"/>
+            <line class="axis" x1="50" y1="240" x2="360" y2="240"/>
+            <path class="mc" d="M 50 220 L 140 203 L 260 180 L 360 140"/>
+            <path class="demand" d="M 50 50 L 140 106 L 260 180 L 360 220"/>
+            <path class="dwl-area" d="M 140 106 L 140 203 L 260 180 Z"/>
+            <line x1="50" y1="106" x2="140" y2="106" stroke="#e74c3c" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="140" y1="106" x2="140" y2="240" stroke="#e74c3c" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="50" y1="180" x2="260" y2="180" stroke="#27ae60" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="260" y1="180" x2="260" y2="240" stroke="#27ae60" stroke-width="1" stroke-dasharray="4,3"/>
+            <circle cx="140" cy="106" r="4" fill="#e74c3c"/>
+            <circle cx="260" cy="180" r="4" fill="#27ae60"/>
+            <text x="28" y="110">Pm</text>
+            <text x="28" y="184">Pc</text>
+            <text x="145" y="252">Qm</text>
+            <text x="265" y="252">Qc</text>
+            <text x="28" y="18">P</text>
+            <text x="358" y="255">Q</text>
+            <text x="195" y="158" fill="#e74c3c" font-weight="600">DWL</text>
+            <text x="310" y="75">D</text>
+            <text x="310" y="155">MC</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">DWL — треугольник между D и MC от Qm до Qc. Конкуренция: Pc, Qc. Монополия: Pm &gt; Pc, Qm &lt; Qc.</p>
+    </div>
+
+    <ul>
+        <li><strong>Competitive outcome:</strong> P = MC, quantity Q<sub>c</sub>. Total surplus is maximized.</li>
+        <li><strong>Monopoly outcome:</strong> P<sub>m</sub> &gt; MC, quantity Q<sub>m</sub>. Part of consumer surplus is transferred to the monopolist (higher price); another part is lost (DWL) because output is restricted.</li>
+        <li><strong>DWL</strong> = triangle between demand curve and MC curve from Q<sub>m</sub> to Q<sub>c</sub>. No one gets this surplus — it is pure loss to society.</li>
+    </ul>
+    <p><em>Совершенная конкуренция: P = MC, Q<sub>c</sub>, благосостояние максимум. Монополия: P<sub>m</sub>, Q<sub>m</sub>; часть излишка переходит к монополисту, часть теряется (DWL — треугольник между D и MC от Q<sub>m</sub> до Q<sub>c</sub>).</em></p>
+
+    <hr>
+
+    <h2>Oligopoly / Олигополия</h2>
+    <p>Few firms. Each firm's decision affects others. <strong>Strategic interdependence</strong> — need game theory.</p>
+    <p>Несколько фирм. Решение одной влияет на других. <strong>Стратегическая взаимозависимость</strong> — теория игр.</p>
+
+    <hr>
+
+    <h2>Mark-up Pricing / Наценка</h2>
+    <div class="formula-box">
+        <p><strong>(P - MC) / P = 1 / |ε|</strong></p>
+        <p>Mark-up = inverse of price elasticity of demand</p>
+        <p>Наценка = обратная ценовой эластичности спроса</p>
+    </div>
+    <p>More elastic demand → smaller mark-up. Less elastic → larger mark-up.</p>
+</body>
+</html>

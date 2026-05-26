@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Function — Производственная функция</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #9b59b6; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #9b59b6; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #f5eef8; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #f5eef8; border-left: 4px solid #9b59b6; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #9b59b6; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Production Function — Производственная функция</h1>
+
+    <h2>What is a Production Function? / Что такое производственная функция?</h2>
+    <p>A <strong>production function</strong> shows the maximum output (Q) that can be produced from given amounts of inputs (e.g. labour L, capital K) with a given technology. It describes the technical relationship between inputs and output.</p>
+    <p><strong>Производственная функция</strong> показывает максимальный выпуск (Q), который можно получить при заданных объёмах факторов производства (труд L, капитал K) и данной технологии. Это техническая связь «ресурсы → продукция».</p>
+
+    <div class="formula-box">
+        <p><strong>Q = F(L, K, …)</strong></p>
+        <p>Q = output (quantity) / выпуск</p>
+        <p>L = labour / труд</p>
+        <p>K = capital / капитал</p>
+        <p>F = technology / технология</p>
+    </div>
+
+    <p><strong>Example:</strong> With 2 workers and 1 machine → 10 units per day. With 4 workers and 1 machine → 18 units per day. Here K is fixed (short run); only L changes.</p>
+    <p><em>Пример: 2 работника + 1 станок → 10 ед. в день. 4 работника + 1 станок → 18 ед. Капитал фиксирован (краткосрочный период), меняется только труд.</em></p>
+
+    <hr>
+
+    <h2>Total Product (TP), Average Product (AP), Marginal Product (MP) / Совокупный, средний и предельный продукт</h2>
+
+    <table>
+        <tr><th>Term / Понятие</th><th>Formula / Формула</th><th>Meaning / Значение</th></tr>
+        <tr><td>Total Product (TP)</td><td>Q = F(L, K)</td><td>Total output / Совокупный выпуск</td></tr>
+        <tr><td>Average Product (AP)</td><td>AP = Q / L</td><td>Output per unit of labour / Выпуск на единицу труда</td></tr>
+        <tr><td>Marginal Product (MP)</td><td>MP = ΔQ / ΔL</td><td>Extra output from one more unit of labour / Дополнительный выпуск от ещё одной единицы труда</td></tr>
+    </table>
+
+    <p><strong>MP</strong> answers: “If we add one more worker, how much does output increase?” <strong>AP</strong> answers: “On average, how much does each worker produce?”</p>
+    <p><strong>MP</strong> — прирост выпуска от ещё одного работника. <strong>AP</strong> — средний выпуск на одного работника.</p>
+
+    <hr>
+
+    <h2>Graphs: TP, AP, and MP / Графики TP, AP и MP</h2>
+
+    <h3>Total Product (TP) / Совокупный продукт</h3>
+    <p>TP curve shows how total output Q changes as we add more of the variable input (e.g. labour L), holding other inputs fixed. It typically rises, then may flatten or even fall if too much labour is added (negative MP).</p>
+    <p>Кривая TP показывает, как общий выпуск Q меняется с ростом переменного фактора (труда L) при фиксированном капитале.</p>
+
+    <div class="graph-box">
+        <pre>Output (Q)
+  |
+  |      TP (total product)
+  |     /
+  |    /
+  |   /    inflection point (MP max)
+  |  /    /
+  | /    /
+  |/    /
+  |    /
+  |   /  (diminishing, then negative MP)
+  |  /
+  | /
+  |
+  0+----+----+----+----+----+ L (labour)</pre>
+    </div>
+
+    <h3>Average Product (AP) and Marginal Product (MP) / Средний и предельный продукт</h3>
+    <p>When <strong>MP > AP</strong>, the average is pulled up → AP rises. When <strong>MP < AP</strong>, the average is pulled down → AP falls. So <strong>MP crosses AP at the maximum of AP</strong>. MP reaches its maximum at the inflection point of the TP curve (before AP reaches its max).</p>
+    <p>Когда MP > AP, средний продукт растёт. Когда MP < AP, средний продукт падает. <strong>MP пересекает AP в максимуме AP</strong>.</p>
+
+    <div class="graph-box">
+        <pre>MP, AP
+  |
+  |    MP
+  |   /\
+  |  /  \
+  | /    \___  (diminishing returns / убывающая отдача)
+  |/          \
+  |            \___
+  |      AP      \
+  |     /         \
+  |    /           \
+  |   /
+  |  /
+  | /
+  |
+  0+----+----+----+----+----+ L
+         ↑         ↑
+      MP max   MP = AP (max AP)</pre>
+    </div>
+
+    <hr>
+
+    <h2>Law of Diminishing Returns / Закон убывающей отдачи</h2>
+    <p>If one input (e.g. labour) is increased while at least one other input (e.g. capital) is <strong>fixed</strong>, the <strong>marginal product</strong> of the variable input will eventually <strong>decrease</strong>. Adding more and more workers to a fixed amount of machinery yields smaller and smaller increases in output.</p>
+    <p><strong>Закон убывающей отдачи:</strong> При увеличении одного фактора (труд) при неизменном другом (капитал) предельный продукт переменного фактора в итоге <strong>убывает</strong>.</p>
+
+    <div class="graph-box">
+        <pre>MP
+  |
+  |   increasing marginal returns  |  diminishing marginal returns
+  |   (возрастающая отдача)        |  (убывающая отдача)
+  |   /\                           |
+  |  /  \                          |
+  | /    \_________________________|
+  |/
+  0+----+----+----+----+----+ L</pre>
+    </div>
+
+    <hr>
+
+    <h2>Three Stages of Production / Три стадии производства</h2>
+    <table>
+        <tr><th>Stage / Стадия</th><th>Condition / Условие</th><th>Description / Описание</th></tr>
+        <tr><td>Stage I</td><td>MP > AP, AP rising</td><td>Increasing returns; underuse of fixed input / Возрастающая отдача</td></tr>
+        <tr><td>Stage II</td><td>MP < AP, MP > 0</td><td>Diminishing returns; <strong>rational zone</strong> / Убывающая отдача, рациональная зона</td></tr>
+        <tr><td>Stage III</td><td>MP < 0</td><td>Negative returns; too much variable input / Отрицательная отдача, неэффективно</td></tr>
+    </table>
+    <p>Firms typically operate in <strong>Stage II</strong>: adding more labour still increases total output (MP > 0) but each extra worker adds less than the average (MP < AP). In Stage III, adding labour <em>reduces</em> total output (MP < 0), so it is irrational to produce there.</p>
+    <p><strong>Рациональная зона</strong> — Стадия II. В Стадии III предельный продукт отрицателен — добавление труда снижает выпуск.</p>
+
+    <hr>
+
+    <h2>Link to Costs: MP and Marginal Cost (MC) / Связь с издержками: MP и MC</h2>
+    <p>When <strong>MP rises</strong>, producing one more unit of output requires less extra labour (and other variable inputs) → <strong>MC falls</strong>. When <strong>MP falls</strong> (diminishing returns), each extra unit of output requires more variable input → <strong>MC rises</strong>. So <strong>MC is inversely related to MP</strong>.</p>
+    <p>Когда MP растёт → MC падает. Когда MP падает (убывающая отдача) → MC растёт. <strong>MC обратно связан с MP</strong>.</p>
+
+    <div class="graph-box">
+        <pre>MP (labour)                    MC (cost)
+  |    /\                        |        /
+  |   /  \                       |       /
+  |  /    \___                   |      /
+  | /                           |     /
+  |/                            |____/
+  0+----+----+----+ L            0+----+----+----+ Q
+  When MP rises → MC falls. When MP falls → MC rises.</pre>
+    </div>
+
+    <p>See also: <a href="Production_Cost_Short_Run_Explanation.html">Production & Cost (Short Run)</a> for TC, VC, MC, ATC, AVC and full cost curves.</p>
+    <p><em>См. также: Производство и издержки (краткосрочный период) — TC, VC, MC, ATC, AVC.</em></p>
+</body>
+</html>

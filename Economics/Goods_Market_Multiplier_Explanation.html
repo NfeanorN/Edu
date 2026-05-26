@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goods Market & Multiplier — Рынок товаров и мультипликатор</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #3498db; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #e8f4f8; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #e8f4fc; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Goods Market & Multiplier — Рынок товаров и мультипликатор</h1>
+
+    <h2>Equilibrium in Goods Market / Равновесие на рынке товаров</h2>
+    <p><strong>English:</strong> Equilibrium when planned spending (demand) = output (supply). Y = Z (planned aggregate demand).</p>
+    <p><strong>Русский:</strong> Равновесие, когда планируемые расходы = выпуск. Y = Z.</p>
+
+    <h3>Components of Demand / Компоненты спроса</h3>
+    <div class="formula-box">
+        <p><strong>Z = C + I + G + X - M</strong></p>
+        <p>C = Consumption, I = Investment, G = Gov't spending, X = Exports, M = Imports</p>
+        <p>В закрытой экономике: Z = C + I + G</p>
+    </div>
+
+    <hr>
+
+    <h2>Consumption Function / Функция потребления</h2>
+    <div class="formula-box">
+        <p><strong>C = c₀ + c₁Y</strong></p>
+        <p>c₀ = autonomous consumption (when Y=0)</p>
+        <p>c₁ = marginal propensity to consume (MPC) — fraction of extra income spent (0 < c₁ < 1)</p>
+    </div>
+
+    <div class="graph-box">
+        <pre>C
+  |
+  |        / C = c₀ + c₁Y
+  |       /
+  |      /
+  |     /
+  | c₀ *
+  |
+  0+----+----+----+----+ Y
+    45° line: Y = Z</pre>
+    </div>
+
+    <hr>
+
+    <h2>The Multiplier / Мультипликатор</h2>
+    <p>An increase in autonomous spending (G, I, or c₀) leads to a LARGER increase in equilibrium Y. Why? More spending → more income → more consumption → more income...</p>
+
+    <div class="formula-box">
+        <p><strong>Multiplier = 1 / (1 - c₁) = 1 / (1 - MPC)</strong></p>
+        <p>If MPC = 0.8, multiplier = 5. ΔG = 10 → ΔY = 50</p>
+    </div>
+
+    <div class="graph-box">
+        <pre>Z
+  |       Z' (after ΔG)
+  |      /
+  |     /  * New equilibrium
+  |    /
+  |   /  * Old equilibrium
+  |  /  Z
+  | /
+  |
+  0+----+----+----+----+ Y
+       Y₀  Y₁
+       ↑   ↑
+    ΔY = multiplier × ΔG</pre>
+    </div>
+
+    <hr>
+
+    <h2>Paradox of Thrift / Парадокс бережливости</h2>
+    <p>If everyone saves more (c₁ falls), aggregate demand falls → Y falls → savings may not increase. In recession, more saving can worsen the downturn.</p>
+    <p>Если все сберегают больше → совокупный спрос падает → ВВП падает.</p>
+</body>
+</html>

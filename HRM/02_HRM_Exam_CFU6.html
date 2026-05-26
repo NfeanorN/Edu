@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HRM — Экзамен CFU 6</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #7b4397; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #7b4397;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #7b4397;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 1.15rem;
+      color: #7b4397;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #7b4397; margin-bottom: 0.35rem; }
+    .q-ru { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .q-en { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #f3f0f7; }
+  .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-ru { font-size: 0.95rem; }
+    .opt-en { font-size: 0.82rem; color: #777; }
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .open-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .open-block textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-top: 0.5rem;
+      padding: 0.65rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .sample {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: #f8f5fc;
+      border-radius: 8px;
+      border-left: 3px solid #7b4397;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
+    table.matrix {
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0 auto;
+    }
+    table.matrix th, table.matrix td {
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      text-align: center;
+    }
+    table.matrix th { background: #7b4397; color: #fff; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #7b4397;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #6a3784; }
+    button.secondary {
+      background: #fff;
+      color: #7b4397;
+      border: 2px solid #7b4397;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #7b4397;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← К тестам HRM</a></p>
+    <h1>HRM — Экзамен CFU 6</h1>
+    <p class="sub">HRM Exam CFU 6 — 15 MCQ + Herzberg / 15 вопросов + открытый</p>
+    <div class="rules">Экзамен: +1 за верный, −0,2 за неверный, 0 за пропуск. Максимум 15 баллов.</div>
+    <form id="test-form">
+      <div id="questions"></div>
+      
+      <div class="actions">
+        <button type="submit">Проверить ответы</button>
+        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = {"correct": 1, "wrong": -0.2, "max": 15};
+    const QUESTIONS = [{"num": 1, "id": "q1", "en": "A fundamental rule of EPC is that:", "ru": "Основное правило EPC: событие (event)…", "options": [{"id": "a", "en": "Connectors are only of the OR and XOR kind", "ru": "Соединители только OR и XOR"}, {"id": "b", "en": "Functions must be directly connected to other functions", "ru": "Функции должны быть напрямую связаны друг с другом"}, {"id": "c", "en": "Connectors can split a process but cannot make it converge again", "ru": "Соединитель может разделить процесс, но не свести ветви снова"}, {"id": "d", "en": "An event cannot be directly connected to another event", "ru": "Событие не может быть напрямую связано с другим событием"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": null}, {"num": 2, "id": "q2", "en": "The critical incident method:", "ru": "Метод критических инцидентов:", "options": [{"id": "a", "en": "Identifies critical job tasks", "ru": "Определяет критические рабочие задачи"}, {"id": "b", "en": "Is an investigation conducted by the safety department", "ru": "Расследование отдела безопасности"}, {"id": "c", "en": "Refers to disagreement between an employer and an employee", "ru": "Разногласие работодателя и работника"}, {"id": "d", "en": "Refers directly to employees to determine critical tasks", "ru": "Обращение к сотрудникам для выявления критических задач"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "a", "section": null}, {"num": 3, "id": "q3", "en": "Which of the following relationships is true?", "ru": "Какое утверждение о job analysis верно?", "options": [{"id": "a", "en": "Job analysis is a product of job description and specification", "ru": "Job analysis — продукт description и specification"}, {"id": "b", "en": "Job description and job specification are two products of job analysis", "ru": "Job description и job specification — продукты job analysis"}, {"id": "c", "en": "Job specification and job analysis are two products of job description", "ru": "Job specification и job analysis — продукты job description"}, {"id": "d", "en": "Job description is a product of job specification and job analysis", "ru": "Job description — продукт specification и job analysis"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": null}, {"num": 4, "id": "q4", "en": "Job description:", "ru": "Описание должности (job description):", "options": [{"id": "a", "en": "Must include career progression opportunities — legal requirement", "ru": "Должно включать карьерный рост (юридическое требование)"}, {"id": "b", "en": "A comprehensive list of duties, responsibilities, reporting relationships, work conditions, and supervisory responsibilities", "ru": "Полный список обязанностей, отчётности, условий труда и надзора"}, {"id": "c", "en": "Is the basis from which job analysis is implemented", "ru": "Основа, с которой начинается job analysis"}, {"id": "d", "en": "Is a list of human requirements such as education and skills", "ru": "Список требований к человеку: образование и навыки"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": null}, {"num": 5, "id": "q5", "en": "Customer pays cash or credit card — which EPC connector?", "ru": "Клиент платит наличными или картой. Какой коннектор EPC?", "options": [{"id": "a", "en": "XOR", "ru": "XOR"}, {"id": "b", "en": "The options OR and AND are both right", "ru": "OR и AND оба подходят"}, {"id": "c", "en": "AND", "ru": "AND"}, {"id": "d", "en": "OR", "ru": "OR"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "a", "section": null}, {"num": 6, "id": "q6", "en": "Employee engagement is:", "ru": "Вовлечённость сотрудников (employee engagement):", "options": [{"id": "a", "en": "Frequency of collaboration with peers to accomplish a task", "ru": "Частота совместной работы с коллегами"}, {"id": "b", "en": "The level of psychological involvement felt by an employee at work", "ru": "Уровень психологической вовлечённости на работе"}, {"id": "c", "en": "Only affected by the numerosity of tasks", "ru": "Зависит только от числа задач"}, {"id": "d", "en": "A specific procedure for recruiting within selection", "ru": "Процедура рекрутинга в отборе"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": null}, {"num": 7, "id": "q7", "en": "Strategic HRM postulates that:", "ru": "Стратегический HRM постулирует, что:", "options": [{"id": "a", "en": "HRM policies should only focus on short-term projections", "ru": "HRM только на краткосрочные прогнозы"}, {"id": "b", "en": "HRM should always be directed to improve creativity and flexibility", "ru": "HRM всегда направлено на креативность и гибкость"}, {"id": "c", "en": "Critical HRM policies must always be designed by top management", "ru": "Критические HR-политики всегда разрабатывает топ-менеджмент"}, {"id": "d", "en": "HRM policies should produce competencies and behaviors the company needs for its strategic aims", "ru": "HRM должно формировать компетенции и поведение для стратегических целей"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": null}, {"num": 8, "id": "q8", "en": "Job enlargement, job rotation and job enrichment are:", "ru": "Расширение, ротация и обогащение работы — это:", "options": [{"id": "a", "en": "Three strategies to redesign specialized jobs to make them more stimulating", "ru": "Три стратегии сделать специализированную работу более стимулирующей"}, {"id": "b", "en": "Same strategies but they reduce morale and should be avoided", "ru": "Те же стратегии, но они снижают моральный дух"}, {"id": "c", "en": "Strategies to increase specialization on a single task", "ru": "Стратегии повысить специализацию на одной задаче"}, {"id": "d", "en": "Only applicable to jobs in highly creative industries", "ru": "Применимы только в творческих отраслях"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "a", "section": null}, {"num": 9, "id": "q9", "en": "Within recruiting, trend analysis is:", "ru": "Trend analysis в рекрутинге:", "options": [{"id": "a", "en": "Company records showing present performance of inside candidates", "ru": "Записи о текущей эффективности внутренних кандидатов"}, {"id": "b", "en": "Forecast the demand of labor of a specific industry based on past employment needs", "ru": "Прогноз спроса на труд в отрасли по прошлым потребностям"}, {"id": "c", "en": "Complete picture of employment needs considering changing skill needs", "ru": "Полная картина потребностей с учётом навыков"}, {"id": "d", "en": "Technique to forecast labor supply for the organization", "ru": "Прогноз предложения труда организации"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": null}, {"num": 10, "id": "q10", "en": "HR managers are usually:", "ru": "HR-менеджеры обычно:", "options": [{"id": "a", "en": "Staff managers with authority to issue orders", "ru": "Линейные менеджеры с правом отдавать приказы"}, {"id": "b", "en": "Line managers with right to advise", "ru": "Линейные менеджеры с правом советовать"}, {"id": "c", "en": "Staff managers with the right to advise other managers or employees", "ru": "Функциональные (staff) менеджеры с правом советовать"}, {"id": "d", "en": "Line managers who only advise", "ru": "Линейные менеджеры, которые только советуют"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "c", "section": null}, {"num": 11, "id": "q11", "en": "Talent management is NOT concerned with:", "ru": "Talent management НЕ занимается:", "options": [{"id": "a", "en": "Recruiting employees", "ru": "Рекрутингом"}, {"id": "b", "en": "Compensating employees", "ru": "Компенсацией"}, {"id": "c", "en": "Developing employees by training programs", "ru": "Развитием через обучение"}, {"id": "d", "en": "Managing employees", "ru": "Управлением сотрудниками"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "e", "section": null}, {"num": 12, "id": "q12", "en": "Work-sampling in employee selection:", "ru": "Work-sampling при отборе:", "options": [{"id": "a", "en": "May generate a perception of privacy intrusion", "ru": "Может восприниматься как вторжение в личную жизнь"}, {"id": "b", "en": "Requires job candidates to perform samples of the job's tasks", "ru": "Кандидаты выполняют образцы рабочих задач"}, {"id": "c", "en": "Most valid test providing comprehensive picture", "ru": "Самый валидный тест обо всём кандидате"}, {"id": "d", "en": "Bad predictor, easy to fake", "ru": "Плохой предиктор, легко подделать"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": null}, {"num": 13, "id": "q13", "en": "Candidate order error occurs when:", "ru": "Ошибка порядка кандидатов (candidate order error):", "options": [{"id": "a", "en": "Order favors last candidates as interviewers are fatigued", "ru": "Порядок в пользу последних (усталость интервьюеров)"}, {"id": "b", "en": "Evaluation is biased by exceptionally good or poor candidates interviewed prior", "ru": "Оценка искажается из-за очень хороших/плохих кандидатов до этого"}, {"id": "c", "en": "Order is not determined using weighted random sampling", "ru": "Порядок не определён взвешенной случайной выборкой"}, {"id": "d", "en": "Order biases outcomes in favor of first interviewed candidates", "ru": "Порядок в пользу первых (свежие интервьюеры)"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": null}, {"num": 14, "id": "q14", "en": "When applicants are provided realistic job previews:", "ru": "Реалистичный предварительный обзор работы (realistic job preview):", "options": [{"id": "a", "en": "They are unlikely to pass the selection test", "ru": "Маловероятно пройдут отбор"}, {"id": "b", "en": "More likely to turn down offers, but employers have less turnover", "ru": "Чаще откажутся от оффера, но текучесть ниже"}, {"id": "c", "en": "Company reputation may be negatively affected", "ru": "Репутация компании пострадает"}, {"id": "d", "en": "Always more satisfied and likely to accept the job offer", "ru": "Всегда более довольны и примут оффер"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": null}, {"num": 15, "id": "q15", "en": "What is Gig-work?", "ru": "Что такое Gig-work?", "options": [{"id": "a", "en": "Contracting out HRM tasks that provide negligible value", "ru": "Аутсорсинг HR-задач с малым value"}, {"id": "b", "en": "On-demand work with fixed hours and autonomous location choice", "ru": "Работа по требованию с фиксированными часами и выбором локации"}, {"id": "c", "en": "Increasing use of digital data measured in gigabytes for HR", "ru": "Использование цифровых данных в гигабайтах для HR"}, {"id": "d", "en": "Hybrid work model balancing out-of-office advantages", "ru": "Гибридная модель работы вне офиса"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "c", "section": null}];
+    const OPEN_ITEMS = [{"title_ru": "Открытый вопрос — Herzberg", "ru": "i) Объясните, как факторы Herzberg влияют на мотивацию. ii) Классифицируйте: эргономичная мебель, медстраховка от компании, карьерный рост по результатам.", "en": "Explain how Herzberg's factors influence motivation. Classify: ergonomic furniture, health insurance, performance-related advancement.", "sample_ru": "Гигиенические факторы (зарплата, условия, страховка) убирают неудовлетворённость, но не мотивируют. Мотиваторы (достижения, признание, рост) дают удовлетворение и мотивацию.\n• Эргономичная мебель — гигиенический фактор (условия труда).\n• Медстраховка — гигиенический фактор (безопасность).\n• Карьерный рост по результатам — мотиватор (признание, рост)."}];
+    const SNA_ITEMS = [];
+
+    const form = document.getElementById('test-form');
+    const container = document.getElementById('questions');
+    const resultsBox = document.getElementById('results');
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      let currentSection = '';
+      QUESTIONS.forEach((q) => {
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = q.section;
+          container.appendChild(h);
+        }
+        const card = document.createElement('div');
+        card.className = 'q';
+        card.dataset.id = q.id;
+        card.innerHTML = `
+          <div class="q-num">Вопрос ${q.num}</div>
+          <div class="q-ru">${q.ru}</div>
+          <div class="q-en">${q.en}</div>
+          <div class="opts">
+            ${q.options.map(o => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span>
+                  <div class="opt-ru"><strong>${o.id.toUpperCase()})</strong> ${o.ru}</div>
+                  <div class="opt-en">${o.en}</div>
+                </span>
+              </label>`).join('')}
+          </div>
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderOpen() {
+      if (!OPEN_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'Открытые вопросы';
+      container.appendChild(h);
+      OPEN_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-num">${item.title_ru}</div>
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <textarea name="open_${idx}" placeholder="Ваш ответ..."></textarea>
+          <div class="sample" hidden></div>`;
+        block.querySelector('.sample').textContent = item.sample_ru;
+        container.appendChild(block);
+      });
+    }
+
+    function renderSna() {
+      if (!SNA_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'SNA — расчёты';
+      container.appendChild(h);
+      SNA_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <div class="feedback" hidden></div>`;
+        block.dataset.expected = item.expected;
+        block.dataset.accept = JSON.stringify(item.accept || []);
+        container.appendChild(block);
+      });
+    }
+
+    function normalize(val) {
+      return String(val || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    function checkSnaAnswer(expected, accept, user) {
+      const n = normalize(user);
+      if (!n) return null;
+      const variants = [expected, ...(accept || [])].map(normalize);
+      return variants.some(v => n === v || n.includes(v) || v.includes(n));
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const warnEl = document.getElementById('warn-text');
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        card.classList.remove('unanswered', 'correct', 'wrong');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = true;
+        fb.textContent = '';
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          lbl.classList.remove('result-opt');
+          lbl.style.background = '';
+          lbl.querySelector('input').disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove('visible');
+        warnEl.hidden = false;
+        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        const first = container.querySelector('.q.unanswered');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      warnEl.hidden = true;
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        const fb = card.querySelector('.feedback');
+        fb.hidden = false;
+        card.classList.remove('unanswered', 'correct', 'wrong');
+
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          return;
+        }
+
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add('correct');
+          fb.className = 'feedback ok';
+          fb.textContent = '✓ Верно';
+        } else {
+          wrong++;
+          card.classList.add('wrong');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+        }
+
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          const inp = lbl.querySelector('input');
+          lbl.classList.add('result-opt');
+          if (inp.value === q.correct) lbl.style.background = '#e8f8ef';
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = '#fdecea';
+          inp.disabled = true;
+        });
+      });
+
+      container.querySelectorAll('.open-block .sample').forEach(el => { el.hidden = false; });
+
+      container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
+        const block = fb.closest('.open-block');
+        if (!block.dataset.expected) return;
+        const inp = block.querySelector('input');
+        const ok = checkSnaAnswer(block.dataset.expected, JSON.parse(block.dataset.accept || '[]'), inp.value);
+        fb.hidden = false;
+        if (ok === null) {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        } else if (ok) {
+          fb.className = 'feedback ok';
+          fb.textContent = '✓ Верно';
+        } else {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        }
+      });
+
+      const total = QUESTIONS.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
+
+      document.getElementById('score-text').textContent =
+        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+      document.getElementById('score-detail').textContent =
+        SCORING.correct !== 1 || SCORING.wrong !== 0
+          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
+          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+
+      resultsBox.classList.add('visible');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      form.reset();
+      resultsBox.classList.remove('visible');
+      document.getElementById('warn-text').hidden = true;
+      renderQuestions();
+      renderOpen();
+      renderSna();
+      
+    });
+
+    renderQuestions();
+    renderOpen();
+    renderSna();
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "cv-pdf",
+  "private": true,
+  "description": "Generate CV PDF from HTML",
+  "scripts": {
+    "pdf": "node make-pdf.js"
+  },
+  "devDependencies": {
+    "puppeteer": "^21.0.0"
+  }
+}

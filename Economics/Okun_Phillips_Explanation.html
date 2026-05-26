@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okun's Law & Phillips Curve — Закон Оукена и кривая Филлипса</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #e74c3c; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #e74c3c; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #ffeaea; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #ffeaea; border-left: 4px solid #e74c3c; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #e74c3c; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Okun's Law & Phillips Curve — Закон Оукена и кривая Филлипса</h1>
+
+    <h2>Okun's Law / Закон Оукена</h2>
+    <p><strong>English:</strong> Empirical relationship between GDP growth and unemployment. When GDP grows above potential, unemployment falls.</p>
+    <p><strong>Русский:</strong> Связь между ростом ВВП и безработицей. Рост ВВП выше потенциального → безработица падает.</p>
+
+    <div class="formula-box">
+        <p><strong>% change in unemployment = -0.5 × (GDP growth - 3%)</strong> (approx, US)</p>
+        <p>Roughly: 1% higher GDP growth → 0.5% lower unemployment</p>
+    </div>
+
+    <div class="graph-box">
+        <pre>Unemployment
+  |
+  | \
+  |  \  Okun: negative slope
+  |   \  (GDP↑ → u↓)
+  |    \
+  |
+  0+----+----+----+----+ GDP growth</pre>
+    </div>
+
+    <hr>
+
+    <h2>Phillips Curve / Кривая Филлипса</h2>
+    <p><strong>Original:</strong> Trade-off between inflation and unemployment. Low u → high π. High u → low π.</p>
+    <p><strong>Оригинал:</strong> Компромисс между инфляцией и безработицей.</p>
+
+    <div class="graph-box">
+        <pre>Inflation (π)
+  |
+  |    \
+  |     \  Phillips Curve
+  |      \  (short-run)
+  |       \
+  |        \
+  |
+  0+----+----+----+----+ Unemployment (u)</pre>
+    </div>
+
+    <p><strong>Expectations-augmented:</strong> π = πᵉ - α(u - uₙ). When u > uₙ (natural rate), π < πᵉ. When u < uₙ, π > πᵉ.</p>
+    <p><strong>С учётом ожиданий:</strong> Долгосрочно нет устойчивого компромисса — кривая вертикальна при u = uₙ.</p>
+
+    <div class="graph-box">
+        <pre>π
+  |
+  |  LRPC (long-run, vertical at uₙ)
+  |  |
+  |  |  SRPC (short-run)
+  |  | /
+  |  |/
+  |
+  0+----+----+----+ u
+       uₙ</pre>
+    </div>
+</body>
+</html>

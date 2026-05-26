@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HRM — Экзамен (15 MCQ)</title>
+  <link rel="stylesheet" href="quiz-style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← К списку тестов HR</a></p>
+    <h1>HRM — Экзамен</h1>
+    <p class="sub">15 вопросов с экзамена Human Resource Management CFU 6. Русский + английский. Правильные ответы проверены по содержанию курса, не по пометкам на бланке.</p>
+    <p class="hint">Ответьте на все вопросы и нажмите «Проверить ответы».</p>
+
+    <form id="quiz-form"></form>
+    <div class="actions">
+      <button type="submit" form="quiz-form" class="btn btn-primary" id="submit-btn">Проверить ответы</button>
+      <button type="button" class="btn btn-secondary" id="reset-btn">Сбросить</button>
+    </div>
+    <section id="results" hidden>
+      <h2>Результаты</h2>
+      <p id="score"></p>
+      <ul id="results-list"></ul>
+    </section>
+  </div>
+
+  <script src="quiz-common.js"></script>
+  <script>
+    const opt = (id, ru, en) => ({ id, ru, en });
+    const Q = (id, ru, en, options, correct) => ({ id, ru, en, options, correct });
+
+    initQuiz({
+      storageKey: "hr-hrm-exam",
+      questions: [
+        Q("e1", "Основное правило EPC: событие (event)…", "A fundamental rule of EPC is that:",
+          [opt("a","Соединители только OR и XOR","Connectors are only of the OR and XOR kind"),
+           opt("b","Функции должны быть напрямую связаны друг с другом","Functions must be directly connected to other functions"),
+           opt("c","Соединитель может разделить процесс, но не свести ветви снова","Connectors can split a process but cannot make it converge again"),
+           opt("d","Событие не может быть напрямую связано с другим событием","An event cannot be directly connected to another event"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "d"),
+        Q("e2", "Метод критических инцидентов:", "The critical incident method:",
+          [opt("a","Определяет критические рабочие задачи","Identifies critical job tasks"),
+           opt("b","Расследование отдела безопасности","Is an investigation conducted by the safety department"),
+           opt("c","Разногласие работодателя и работника","Refers to disagreement between employer and employee"),
+           opt("d","Обращение к сотрудникам для выявления критических задач","Refers directly to employees to determine critical tasks"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "a"),
+        Q("e3", "Какое утверждение о job analysis верно?", "Which of the following relationships is true?",
+          [opt("a","Job analysis — продукт description и specification","Job analysis is a product of job description and specification"),
+           opt("b","Job description и job specification — продукты job analysis","Job description and job specification are two products of job analysis"),
+           opt("c","Job specification и job analysis — продукты job description","Job specification and job analysis are two products of job description"),
+           opt("d","Job description — продукт specification и job analysis","Job description is a product of job specification and job analysis"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "b"),
+        Q("e4", "Описание должности (job description):", "Job description:",
+          [opt("a","Должно включать карьерный рост (юридическое требование)","Must include career progression opportunities — legal requirement"),
+           opt("b","Полный список обязанностей, отчётности, условий труда и надзора","A comprehensive list of duties, responsibilities, reporting relationships, work conditions, and supervisory responsibilities"),
+           opt("c","Основа, с которой начинается job analysis","Is the basis from which job analysis is implemented"),
+           opt("d","Список требований к человеку: образование и навыки","Is a list of human requirements such as education and skills"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "b"),
+        Q("e5", "Клиент платит наличными или картой. Какой коннектор EPC?", "Customer pays cash or credit card — which EPC connector?",
+          [opt("a","XOR","XOR"),
+           opt("b","OR и AND оба подходят","The options OR and AND are both right"),
+           opt("c","AND","AND"),
+           opt("d","OR","OR"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "a"),
+        Q("e6", "Вовлечённость сотрудников (employee engagement):", "Employee engagement is:",
+          [opt("a","Частота совместной работы с коллегами","Frequency of collaboration with peers to accomplish a task"),
+           opt("b","Уровень психологической вовлечённости на работе","The level of psychological involvement felt by an employee at work"),
+           opt("c","Зависит только от числа задач","Only affected by the numerosity of tasks"),
+           opt("d","Процедура рекрутинга в отборе","A specific procedure for recruiting within selection"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "b"),
+        Q("e7", "Стратегический HRM постулирует, что:", "Strategic HRM postulates that:",
+          [opt("a","HRM только на краткосрочные прогнозы","HRM policies should only focus on short-term projections"),
+           opt("b","HRM всегда направлено на креативность и гибкость","HRM should always be directed to improve creativity and flexibility"),
+           opt("c","Критические HR-политики всегда разрабатывает топ-менеджмент","Critical HRM policies must always be designed by top management"),
+           opt("d","HRM должно формировать компетенции и поведение для стратегических целей","HRM policies should produce competencies and behaviors the company needs for its strategic aims"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "d"),
+        Q("e8", "Расширение, ротация и обогащение работы — это:", "Job enlargement, job rotation and job enrichment are:",
+          [opt("a","Три стратегии сделать специализированную работу более стимулирующей","Three strategies to redesign specialized jobs to make them more stimulating"),
+           opt("b","Те же стратегии, но они снижают моральный дух","Same strategies but they reduce morale and should be avoided"),
+           opt("c","Стратегии повысить специализацию на одной задаче","Strategies to increase specialization on a single task"),
+           opt("d","Применимы только в творческих отраслях","Only applicable to jobs in highly creative industries"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "a"),
+        Q("e9", "Trend analysis в рекрутинге:", "Within recruiting, trend analysis is:",
+          [opt("a","Записи о текущей эффективности внутренних кандидатов","Company records showing present performance of inside candidates"),
+           opt("b","Прогноз спроса на труд в отрасли по прошлым потребностям","Forecast the demand of labor of a specific industry based on past employment needs"),
+           opt("c","Полная картина потребностей с учётом навыков","Provides a complete picture considering changing skill needs"),
+           opt("d","Прогноз предложения труда организации","Technique to forecast labor supply for the organization"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "b"),
+        Q("e10", "HR-менеджеры обычно:", "HR managers are usually:",
+          [opt("a","Линейные менеджеры с правом отдавать приказы","Staff managers with authority to issue orders"),
+           opt("b","Линейные менеджеры с правом советовать","Line managers with right to advise"),
+           opt("c","Функциональные (staff) менеджеры с правом советовать","Staff managers with the right to advise other managers or employees"),
+           opt("d","Линейные менеджеры, которые только советуют","Line managers who only advise"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "c"),
+        Q("e11", "Talent management НЕ занимается:", "Talent management is NOT concerned with:",
+          [opt("a","Рекрутингом","Recruiting employees"),
+           opt("b","Компенсацией","Compensating employees"),
+           opt("c","Развитием через обучение","Developing employees by training programs"),
+           opt("d","Управлением сотрудниками","Managing employees"),
+           opt("e","Ни один из других — всё перечисленное входит в TM","None of the other answers is correct")], "e"),
+        Q("e12", "Work-sampling при отборе:", "Work-sampling in employee selection:",
+          [opt("a","Может восприниматься как вторжение в личную жизнь","May generate a perception of privacy intrusion"),
+           opt("b","Кандидаты выполняют образцы рабочих задач","Requires job candidates to perform samples of the job's tasks"),
+           opt("c","Самый валидный тест обо всём кандидате","Most valid test providing comprehensive picture"),
+           opt("d","Плохой предиктор, легко подделать","Bad predictor as employees can fake it"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "b"),
+        Q("e13", "Ошибка порядка кандидатов (candidate order error):", "Candidate order error occurs when:",
+          [opt("a","Порядок влияет в пользу последних (усталость интервьюеров)","Order favors last candidates as interviewers are fatigued"),
+           opt("b","Оценка искажается из-за очень хороших/плохих кандидатов до этого","Evaluation is biased by exceptionally good or poor candidates interviewed prior"),
+           opt("c","Порядок не определён взвешенной случайной выборкой","Order is not determined using weighted random sampling"),
+           opt("d","Порядок в пользу первых (свежие интервьюеры)","Order biases outcomes in favor of first interviewed candidates"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "b"),
+        Q("e14", "Реалистичный предварительный обзор работы (realistic job preview):", "When applicants are provided realistic job previews:",
+          [opt("a","Маловероятно пройдут отбор","They are unlikely to pass the selection test"),
+           opt("b","Чаще откажутся от оффера, но текучесть ниже","More likely to turn down offers, but employers have less turnover"),
+           opt("c","Репутация компании пострадает","Company reputation may be negatively affected"),
+           opt("d","Всегда более довольны и примут оффер","Always more satisfied and likely to accept the job offer"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "b"),
+        Q("e15", "Что такое Gig-work?", "What is Gig-work?",
+          [opt("a","Аутсорсинг HR-задач с малым value","Contracting out HRM tasks that provide negligible value"),
+           opt("b","Работа по требованию с фиксированными часами и выбором локации","On-demand work with fixed hours but autonomous location choice"),
+           opt("c","Использование цифровых данных в гигабайтах для HR","Increasing use of digital data measured in gigabytes for HR"),
+           opt("d","Гибридная модель работы вне офиса","Hybrid work model balancing out-of-office advantages"),
+           opt("e","Ни один из других ответов","None of the other answers is correct")], "e"),
+      ],
+    });
+  </script>
+</body>
+</html>

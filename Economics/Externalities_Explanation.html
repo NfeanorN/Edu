@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Externalities — Внешние эффекты</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #8e44ad; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #8e44ad; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #8e44ad 0%, #6c3483 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #f5eef8; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #f5eef8; border-left: 4px solid #8e44ad; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #8e44ad; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Externalities — Внешние эффекты</h1>
+
+    <h2>What is an Externality? / Что такое внешний эффект?</h2>
+    <p><strong>English:</strong> A cost or benefit that affects a third party not involved in the transaction. Market fails to account for social cost/benefit.</p>
+    <p><strong>Русский:</strong> Издержки или выгоды для третьей стороны, не участвующей в сделке. Рынок не учитывает общественные издержки/выгоды.</p>
+
+    <table>
+        <tr><th>Type / Тип</th><th>Meaning / Значение</th><th>Example / Пример</th></tr>
+        <tr><td>Negative externality</td><td>Cost imposed on others</td><td>Pollution from factory</td></tr>
+        <tr><td>Positive externality</td><td>Benefit to others</td><td>Vaccination, education</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Negative Externality / Отрицательный внешний эффект</h2>
+    <p>Private cost < Social cost. Market produces TOO MUCH. Solution: tax (Pigouvian tax) to internalize the externality.</p>
+    <p>Частные издержки < Общественные. Рынок производит СЛИШКОМ МНОГО. Решение: налог.</p>
+
+    <div class="graph-box">
+        <pre>P
+  |
+  |  MSC (Social cost)
+  |   \
+  |    \  * P_social  ← Optimal (tax brings here)
+  |     \  |
+  |      \ | MPC (Private cost)
+  |       \|  \
+  |        *---*--- D
+  |        |   |
+  |     Q_opt  Q_market  (market produces too much)
+  |
+  0+----+----+----+----+ Q</pre>
+    </div>
+
+    <p><strong>Pigouvian tax</strong> = size of externality per unit. Shifts MPC up to MSC.</p>
+    <p><strong>Налог Пигу</strong> = величина внешнего эффекта на единицу.</p>
+
+    <hr>
+
+    <h2>Positive Externality / Положительный внешний эффект</h2>
+    <p>Private benefit < Social benefit. Market produces TOO LITTLE. Solution: subsidy.</p>
+    <p>Частная выгода < Общественная. Рынок производит СЛИШКОМ МАЛО. Решение: субсидия.</p>
+
+    <div class="graph-box">
+        <pre>P
+  |
+  |  MSB (Social benefit)
+  |   /
+  |  /  * P_opt  ← Subsidy raises Q
+  | /   |
+  |/    | S (MC)
+  |     |
+  |  *--*--- D (Private benefit)
+  |  |
+  |  Q_market  Q_opt
+  |
+  0+----+----+----+----+ Q</pre>
+    </div>
+
+    <hr>
+
+    <h2>Government Intervention / Вмешательство государства</h2>
+    <table>
+        <tr><th>Tool / Инструмент</th><th>Use / Применение</th></tr>
+        <tr><td>Tax</td><td>Negative externality — reduce quantity</td></tr>
+        <tr><td>Subsidy</td><td>Positive externality — increase quantity</td></tr>
+        <tr><td>Regulation</td><td>Limit pollution, mandate standards</td></tr>
+    </table>
+</body>
+</html>

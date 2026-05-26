@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <script>
+    (function () {
+      var base = "/Edu";
+      var path = location.pathname;
+      var apps = ["EconomicsReact", "AvatarSubtitlesReact"];
+      for (var i = 0; i < apps.length; i++) {
+        var prefix = base + "/" + apps[i] + "/";
+        if (path.indexOf(prefix) === 0 || path === base + "/" + apps[i]) {
+          location.replace(prefix + "index.html" + location.search + location.hash);
+          return;
+        }
+      }
+      location.replace(base + "/");
+    })();
+  </script>
+</head>
+<body></body>
+</html>

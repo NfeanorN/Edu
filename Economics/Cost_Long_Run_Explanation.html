@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Functions (Long Run) — Издержки в долгосрочном периоде</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #9b59b6; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #9b59b6; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #f5eef8; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #f5eef8; border-left: 4px solid #9b59b6; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #9b59b6; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Cost Functions (Long Run) — Издержки в долгосрочном периоде</h1>
+
+    <h2>Long Run / Долгосрочный период</h2>
+    <p><strong>English:</strong> In the long run, ALL inputs are variable. The firm can change plant size, technology, etc.</p>
+    <p><strong>Русский:</strong> В долгосрочном периоде ВСЕ факторы переменные. Фирма может менять размер завода, технологию.</p>
+
+    <hr>
+
+    <h2>Returns to Scale / Отдача от масштаба</h2>
+    <p>What happens to output when ALL inputs are increased by the same proportion?</p>
+    <p>Что происходит с выпуском, когда ВСЕ факторы растут в одной пропорции?</p>
+
+    <table>
+        <tr><th>Type / Тип</th><th>Condition / Условие</th><th>Example / Пример</th></tr>
+        <tr><td>Increasing / Возрастающая</td><td>Output increases MORE than inputs (e.g., 2× inputs → 2.5× output)</td><td>Specialization benefits / Специализация</td></tr>
+        <tr><td>Constant / Постоянная</td><td>Output increases SAME as inputs (2× inputs → 2× output)</td><td>Many industries / Многие отрасли</td></tr>
+        <tr><td>Decreasing / Убывающая</td><td>Output increases LESS than inputs (2× inputs → 1.5× output)</td><td>Coordination costs / Издержки координации</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Long Run Average Cost (LRAC) / Долгосрочные средние издержки</h2>
+    <p>LRAC = the envelope of all short-run ATC curves. Each point = minimum cost for that output level with optimal plant size.</p>
+    <p>LRAC = огибающая краткосрочных ATC. Каждая точка = минимум издержек при оптимальном размере завода.</p>
+
+    <div class="graph-box">
+        <pre>Cost
+  |
+  |  ATC₁  ATC₂  ATC₃  ATC₄
+  |   \    / \   /  \  /
+  |    \  /   \ /    \/
+  |     \/     *____/___ LRAC (envelope)
+  |      \    /
+  |       \__/
+  |
+  0+----+----+----+----+----+ Q
+         MES (minimum efficient scale)</pre>
+    </div>
+
+    <hr>
+
+    <h2>Economies and Diseconomies of Scale / Эффект масштаба</h2>
+    <table>
+        <tr><th>Term / Термин</th><th>Meaning / Значение</th></tr>
+        <tr><td>Economies of scale</td><td>LRAC falls as output increases / LRAC падает при росте Q</td></tr>
+        <tr><td>Constant returns</td><td>LRAC flat / LRAC горизонтальна</td></tr>
+        <tr><td>Diseconomies of scale</td><td>LRAC rises as output increases / LRAC растёт при росте Q</td></tr>
+    </table>
+
+    <p><strong>Sources of economies of scale:</strong> Bulk buying, specialization, spreading fixed costs, R&amp;D.</p>
+    <p><strong>Источники эффекта масштаба:</strong> Оптовые закупки, специализация, распределение постоянных издержек.</p>
+
+    <hr>
+
+    <h2>Industry Structure / Структура отрасли</h2>
+    <p>Shape of LRAC affects market structure:</p>
+    <ul>
+        <li><strong>U-shaped with large MES</strong> → Few large firms (oligopoly) / Немного крупных фирм</li>
+        <li><strong>Flat LRAC over wide range</strong> → Many firms (competitive) / Много фирм</li>
+    </ul>
+
+    <hr>
+
+    <h2>Long Run Average Cost (LRAC): Detailed Graph / LRAC: детальный график</h2>
+    <p>The <strong>LRAC curve</strong> is the envelope of all possible short-run ATC curves. Each point on LRAC represents the minimum average cost achievable at that output level, assuming the firm chooses the optimal plant size.</p>
+    <p><strong>LRAC</strong> — огибающая всех возможных краткосрочных ATC. Каждая точка LRAC — минимум средних издержек при оптимальном размере завода.</p>
+
+    <div class="graph-box">
+        <pre>Cost per unit ($)
+  |
+  |  ATC₁ (small plant)    ATC₂ (medium)    ATC₃ (large)
+  |   \                    / \              / \
+  |    \                  /   \            /   \
+  |     \                /     \          /     \
+  |      \              /       \        /       \
+  |       \            /         \      /         \
+  |        \          /           \    /           \
+  |         \        /             \  /             \
+  |          \      /               \/               \
+  |           \    /                 *_______________ LRAC (envelope)
+  |            \  /                 /
+  |             \/                 /
+  |              \                /
+  |               \______________/
+  |
+  0+----+----+----+----+----+----+----+----+----+ Q
+              ↑              ↑
+            MES          Optimal plant sizes</pre>
+    </div>
+
+    <p><strong>Key points:</strong></p>
+    <ul>
+        <li>Each <strong>ATC curve</strong> represents a different plant size (fixed input level).</li>
+        <li>The <strong>LRAC curve</strong> touches each ATC at its minimum point (or at the point where that plant size is optimal).</li>
+        <li>To the left of the tangency: LRAC < ATC (firm should expand plant).</li>
+        <li>To the right of the tangency: LRAC < ATC (firm should contract plant).</li>
+        <li>At the tangency: LRAC = ATC (optimal plant size for that output).</li>
+    </ul>
+    <p><strong>Важно:</strong> Каждая ATC — свой размер завода. LRAC касается ATC в точке, где этот размер оптимален. Слева от касания: LRAC < ATC (нужно расширяться). Справа: LRAC < ATC (нужно сокращаться).</p>
+
+    <h3>Minimum Efficient Scale (MES) / Минимальный эффективный масштаб</h3>
+    <p><strong>MES</strong> is the smallest output level at which LRAC reaches its minimum. Below MES, the firm has not fully exploited economies of scale. Above MES, diseconomies may set in (if LRAC rises).</p>
+    <p><strong>MES</strong> — минимальный объём выпуска, при котором LRAC достигает минимума. Ниже MES фирма не использует весь эффект масштаба.</p>
+
+    <hr>
+
+    <h2>Long Run Total Cost (LRTC) and Long Run Marginal Cost (LRMC) / LRTC и LRMC</h2>
+
+    <h3>Long Run Total Cost (LRTC) / Долгосрочные общие издержки</h3>
+    <p><strong>LRTC</strong> = minimum total cost to produce each output level when all inputs are variable. LRTC = LRAC × Q. The LRTC curve shows how total cost changes in the long run.</p>
+    <p><strong>LRTC</strong> — минимальные общие издержки при каждом объёме выпуска, когда все факторы переменные. LRTC = LRAC × Q.</p>
+
+    <div class="graph-box">
+        <pre>Total Cost ($)
+  |
+  |                    LRTC
+  |                   /
+  |                  /
+  |                 /
+  |                /
+  |               /
+  |              /
+  |             /
+  |            /
+  |           /
+  |          /
+  |         /
+  |        /
+  |       /
+  |      /
+  |     /
+  |    /
+  |   /
+  |  /
+  | /
+  |/
+  0+----+----+----+----+----+----+ Q</pre>
+    </div>
+    <p><strong>Shape:</strong> LRTC typically rises at a decreasing rate (economies of scale), then at an increasing rate (diseconomies). The slope of LRTC = LRMC.</p>
+    <p><strong>Форма:</strong> LRTC сначала растёт медленнее (эффект масштаба), затем быстрее (антиэффект). Наклон LRTC = LRMC.</p>
+
+    <h3>Long Run Marginal Cost (LRMC) / Долгосрочные предельные издержки</h3>
+    <p><strong>LRMC = ΔLRTC / ΔQ</strong> = slope of LRTC. LRMC shows the extra cost of producing one more unit when the firm can adjust all inputs optimally.</p>
+    <p><strong>LRMC = ΔLRTC / ΔQ</strong> = наклон LRTC. LRMC — дополнительные издержки на ещё одну единицу при оптимальной корректировке всех факторов.</p>
+
+    <div class="graph-box">
+        <pre>Cost per unit ($)
+  |
+  |                    LRMC
+  |                   /
+  |                  /
+  |                 /
+  |                /
+  |               /
+  |              /
+  |             /
+  |            /
+  |           /
+  |          /
+  |         /
+  |        /
+  |       /
+  |      /
+  |     /
+  |    /
+  |   /
+  |  /
+  | /
+  |/_________________ LRAC
+  |
+  0+----+----+----+----+----+----+ Q
+              ↑
+            MES
+      (LRMC = LRAC)</pre>
+    </div>
+
+    <p><strong>Relationship: LRMC and LRAC</strong></p>
+    <ul>
+        <li>When <strong>LRMC < LRAC</strong>, LRAC is falling (economies of scale).</li>
+        <li>When <strong>LRMC > LRAC</strong>, LRAC is rising (diseconomies of scale).</li>
+        <li><strong>LRMC crosses LRAC at the minimum of LRAC</strong> (at MES).</li>
+    </ul>
+    <p>Когда LRMC < LRAC, LRAC падает (эффект масштаба). Когда LRMC > LRAC, LRAC растёт. <strong>LRMC пересекает LRAC в минимуме LRAC</strong> (в точке MES).</p>
+
+    <hr>
+
+    <h2>Complete Long Run Cost Curves / Полные долгосрочные кривые издержек</h2>
+    <div class="graph-box">
+        <pre>Cost per unit ($)
+  |
+  |                    LRMC
+  |                   /
+  |                  /
+  |                 /
+  |                /
+  |               /
+  |              /
+  |             /
+  |            /
+  |           /
+  |          /
+  |         /
+  |        /
+  |       /
+  |      /
+  |     /
+  |    /
+  |   /
+  |  /
+  | /
+  |/_________________ LRAC (U-shaped)
+  |
+  0+----+----+----+----+----+----+ Q
+              ↑
+            MES
+      (min LRAC, LRMC = LRAC)</pre>
+    </div>
+
+    <p><strong>Summary:</strong></p>
+    <ul>
+        <li><strong>LRAC</strong> is U-shaped: falls (economies of scale), then rises (diseconomies).</li>
+        <li><strong>LRMC</strong> crosses LRAC at the minimum of LRAC (MES).</li>
+        <li>Below MES: LRMC < LRAC (economies of scale).</li>
+        <li>Above MES: LRMC > LRAC (diseconomies of scale).</li>
+        <li>At MES: LRMC = LRAC (constant returns to scale).</li>
+    </ul>
+    <p><strong>Итог:</strong> LRAC U-образная. LRMC пересекает LRAC в минимуме (MES). Ниже MES — эффект масштаба; выше — антиэффект.</p>
+
+    <hr>
+
+    <h2>Sources of Economies and Diseconomies of Scale / Источники эффекта и антиэффекта масштаба</h2>
+
+    <h3>Economies of Scale (LRAC falling) / Эффект масштаба</h3>
+    <ul>
+        <li><strong>Specialization:</strong> Workers can specialize in specific tasks → higher productivity.</li>
+        <li><strong>Bulk buying:</strong> Large firms get discounts on inputs.</li>
+        <li><strong>Spreading fixed costs:</strong> R&D, advertising, overhead spread over more units.</li>
+        <li><strong>Technology:</strong> Large-scale production may allow use of more efficient technology.</li>
+        <li><strong>Financial:</strong> Easier access to capital, lower interest rates.</li>
+    </ul>
+    <p><em>Специализация, оптовые закупки, распределение постоянных издержек, технологии, финансирование.</em></p>
+
+    <h3>Diseconomies of Scale (LRAC rising) / Антиэффект масштаба</h3>
+    <ul>
+        <li><strong>Coordination problems:</strong> Harder to manage large organizations.</li>
+        <li><strong>Communication:</strong> Information may be lost or distorted in large hierarchies.</li>
+        <li><strong>Bureaucracy:</strong> Red tape slows decision-making.</li>
+        <li><strong>Motivation:</strong> Workers may feel less connected to the firm's goals.</li>
+    </ul>
+    <p><em>Проблемы координации, коммуникации, бюрократия, мотивация.</em></p>
+
+    <hr>
+
+    <h2>Short Run vs Long Run: Comparison / Сравнение краткосрочного и долгосрочного периодов</h2>
+    <table>
+        <tr><th>Aspect / Аспект</th><th>Short Run / Краткосрочный</th><th>Long Run / Долгосрочный</th></tr>
+        <tr><td>Inputs / Факторы</td><td>At least one fixed / Хотя бы один фиксирован</td><td>All variable / Все переменные</td></tr>
+        <tr><td>Cost curves / Кривые издержек</td><td>ATC, AVC, AFC, MC</td><td>LRAC, LRMC</td></tr>
+        <tr><td>Shape / Форма</td><td>ATC U-shaped; AFC always falls</td><td>LRAC U-shaped (envelope)</td></tr>
+        <tr><td>Fixed costs / Постоянные издержки</td><td>Yes (FC exists) / Есть</td><td>No (all variable) / Нет</td></tr>
+        <tr><td>Plant size / Размер завода</td><td>Fixed / Фиксирован</td><td>Variable / Переменный</td></tr>
+        <tr><td>Decision / Решение</td><td>How much to produce / Сколько производить</td><td>What size plant + how much / Какой размер + сколько</td></tr>
+    </table>
+</body>
+</html>

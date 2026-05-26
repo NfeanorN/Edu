@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunity Cost — Альтернативная стоимость</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #16a085; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #16a085; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #16a085 0%, #138d75 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #e8f8f5; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #e8f8f5; border-left: 4px solid #16a085; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #16a085; text-decoration: none; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .ppf { stroke: #16a085; stroke-width: 2.5; fill: none; }
+        .svg-graph .budget-line { stroke: #e74c3c; stroke-width: 2.5; fill: none; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Opportunity Cost — Альтернативная стоимость</h1>
+
+    <h2>Definition / Определение</h2>
+    <p><strong>Opportunity cost</strong> is the value of the <strong>best alternative</strong> that you give up when you make a choice. It's what you could have done or received instead, but didn't because you chose something else.</p>
+    <p><strong>Альтернативная стоимость</strong> (издержки упущенной выгоды) — это ценность <strong>наилучшего альтернативного варианта</strong>, от которого вы отказываетесь при выборе. Это то, что вы могли бы получить, но не получили из-за своего выбора.</p>
+
+    <div class="formula-box">
+        <p><strong>Opportunity cost = Value of the best forgone alternative</strong></p>
+        <p>Альтернативная стоимость = Ценность наилучшей упущенной альтернативы</p>
+    </div>
+
+    <p><strong>Key point:</strong> Opportunity cost is NOT the same as the money you spend (that's an explicit cost). It's what you <em>could have done</em> with that money, time, or resources instead.</p>
+    <p><strong>Важно:</strong> Альтернативная стоимость — это НЕ деньги, которые вы потратили (это явные издержки). Это то, что вы <em>могли бы сделать</em> с этими деньгами, временем или ресурсами вместо этого.</p>
+
+    <hr>
+
+    <h2>Examples / Примеры</h2>
+
+    <table>
+        <tr><th>Choice / Выбор</th><th>Opportunity Cost / Альтернативная стоимость</th></tr>
+        <tr><td>Study at university for 4 years / Учиться в университете 4 года</td><td>Salary and work experience you could have earned during those 4 years / Зарплата и опыт работы за эти 4 года</td></tr>
+        <tr><td>Buy a phone for 500 € / Купить телефон за 500 €</td><td>Other goods/services you could have bought with 500 € / Другие товары/услуги на эти 500 €</td></tr>
+        <tr><td>Spend 2 hours watching TV / Провести 2 часа за просмотром ТВ</td><td>What you could have done in those 2 hours (study, work, exercise) / Что можно было сделать за эти 2 часа</td></tr>
+        <tr><td>Government spends budget on military / Государство тратит бюджет на армию</td><td>Schools, hospitals, roads that could have been built with that money / Школы, больницы, дороги на эти деньги</td></tr>
+        <tr><td>Produce 1 more unit of Good A / Произвести ещё 1 единицу товара А</td><td>Units of Good B you must give up (on PPF) / Единицы товара В, от которых отказываетесь (на КПВ)</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Opportunity Cost in Microeconomics / Альтернативная стоимость в микроэкономике</h2>
+
+    <h3>1. Budget Constraint / Бюджетное ограничение</h3>
+    <p>On the budget line, the <strong>slope</strong> represents the opportunity cost of one good in terms of the other.</p>
+    <p>На бюджетной линии <strong>наклон</strong> показывает альтернативную стоимость одного товара в единицах другого.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+            <line class="axis" x1="50" y1="200" x2="300" y2="200"/>
+            <path class="budget-line" d="M 50 20 L 310 200"/>
+            <text x="28" y="18">Q₂</text>
+            <text x="305" y="212">Q₁</text>
+            <text x="180" y="115" font-size="11">Slope = -P₁/P₂</text>
+            <text x="180" y="130" font-size="11">= opportunity cost</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Наклон = −P₁/P₂. Абсолютное значение наклона — альтернативная стоимость одной единицы товара 1 в единицах товара 2.</p>
+    </div>
+
+    <p><strong>Example:</strong> If P₁ = 2€ and P₂ = 4€, then slope = −2/4 = −1/2. The opportunity cost of 1 unit of Good 1 is <strong>0.5 units of Good 2</strong> (you give up half a unit of Good 2 to get one more unit of Good 1).</p>
+    <p><em>Пример: P₁ = 2€, P₂ = 4€ → наклон = −1/2. Альтернативная стоимость 1 единицы товара 1 = 0.5 единицы товара 2.</em></p>
+
+    <h3>2. Production Possibilities Frontier (PPF) / Кривая производственных возможностей (КПВ)</h3>
+    <p>The <strong>slope of the PPF</strong> at any point shows the opportunity cost of producing one more unit of the good on the X-axis in terms of the good on the Y-axis.</p>
+    <p><strong>Наклон КПВ</strong> в любой точке показывает альтернативную стоимость производства ещё одной единицы товара по оси X в единицах товара по оси Y.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="220"/>
+            <line class="axis" x1="50" y1="220" x2="340" y2="220"/>
+            <path class="ppf" d="M 50 50 Q 120 120 200 180 T 340 210"/>
+            <text x="28" y="18">Good B</text>
+            <text x="338" y="232">Good A</text>
+            <text x="195" y="145" font-size="11">Slope = opportunity cost</text>
+            <text x="195" y="160" font-size="11">of Good A in terms of B</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Наклон КПВ (по модулю) = альтернативная стоимость товара А в единицах товара В. Вогнутая форма означает растущие альтернативные издержки.</p>
+    </div>
+
+    <p><strong>Concave PPF:</strong> As you produce more of Good A, the opportunity cost increases (you give up increasingly more of Good B). This reflects <strong>increasing opportunity cost</strong> due to specialization and diminishing returns.</p>
+    <p><em>Вогнутая КПВ: при росте производства товара А альтернативная стоимость растёт (отказываетесь от всё большего количества товара В). Это отражает растущие альтернативные издержки.</em></p>
+
+    <hr>
+
+    <h2>Opportunity Cost vs Explicit Cost / Альтернативная стоимость vs Явные издержки</h2>
+
+    <table>
+        <tr><th>Type / Тип</th><th>Definition / Определение</th><th>Example / Пример</th></tr>
+        <tr><td><strong>Explicit cost</strong> / Явные издержки</td><td>Money actually paid out / Деньги, которые реально потрачены</td><td>Tuition fee 5000€ / Плата за обучение 5000€</td></tr>
+        <tr><td><strong>Opportunity cost</strong> / Альтернативная стоимость</td><td>Value of best alternative forgone / Ценность наилучшей упущенной альтернативы</td><td>Salary you could have earned instead / Зарплата, которую могли бы получить</td></tr>
+    </table>
+
+    <p><strong>Total cost = Explicit cost + Opportunity cost</strong> (for economic decisions).</p>
+    <p><strong>Общие издержки = Явные издержки + Альтернативная стоимость</strong> (для экономических решений).</p>
+
+    <hr>
+
+    <h2>Why Opportunity Cost Matters / Почему важна альтернативная стоимость</h2>
+
+    <ul>
+        <li><strong>Rational decision-making:</strong> Compare benefits of a choice with its opportunity cost, not just explicit costs.</li>
+        <li><strong>Resource allocation:</strong> Understanding opportunity cost helps allocate scarce resources efficiently.</li>
+        <li><strong>Trade-offs:</strong> Every choice involves a trade-off — opportunity cost makes this explicit.</li>
+        <li><strong>Economic efficiency:</strong> Resources should be used where opportunity cost is lowest relative to benefit.</li>
+    </ul>
+    <p><em>Рациональные решения: сравнивайте выгоды с альтернативной стоимостью. Распределение ресурсов: понимание альтернативной стоимости помогает эффективно распределять ограниченные ресурсы. Компромиссы: каждый выбор включает компромисс.</em></p>
+
+    <p>See also: <a href="PPF_Explanation.html">PPF</a> (opportunity cost on PPF), <a href="Budget_Constraint_Explanation.html">Budget Constraint</a> (opportunity cost on budget line).</p>
+</body>
+</html>

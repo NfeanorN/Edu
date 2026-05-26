@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unemployment & Inflation — Безработица и инфляция</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #e67e22; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #e67e22; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #fef5e7; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #fef5e7; border-left: 4px solid #e67e22; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #e67e22; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Unemployment & Inflation — Безработица и инфляция</h1>
+
+    <h2>Types of Unemployment / Типы безработицы</h2>
+    <table>
+        <tr><th>Type / Тип</th><th>Definition / Определение</th></tr>
+        <tr><td>Frictional</td><td>Between jobs, searching / Между работами, поиск</td></tr>
+        <tr><td>Structural</td><td>Skills mismatch, industry decline / Несоответствие навыков</td></tr>
+        <tr><td>Cyclical</td><td>Due to recession, low demand / Из-за спада</td></tr>
+    </table>
+
+    <div class="formula-box">
+        <p><strong>Unemployment rate = (Unemployed / Labor Force) × 100</strong></p>
+        <p>Natural rate (uₙ) = frictional + structural (no cyclical)</p>
+    </div>
+
+    <hr>
+
+    <h2>Measuring Inflation / Измерение инфляции</h2>
+
+    <h3>CPI (Consumer Price Index) / ИПЦ</h3>
+    <p>Measures cost of fixed basket of consumer goods. Base year = 100.</p>
+
+    <h3>GDP Deflator / Дефлятор ВВП</h3>
+    <p>Measures prices of all goods in GDP. GDP Deflator = (Nominal GDP / Real GDP) × 100.</p>
+
+    <div class="formula-box">
+        <p><strong>Inflation = [(P₂ - P₁) / P₁] × 100</strong></p>
+    </div>
+
+    <div class="graph-box">
+        <pre>π (inflation)
+  |
+  |    *  *  *  High inflation period
+  |   /
+  |  /
+  | *  *  *  *  Normal
+  |
+  0+----+----+----+----+ Time</pre>
+    </div>
+
+    <hr>
+
+    <h2>Cost of Living / Стоимость жизни</h2>
+    <p>CPI is used to adjust wages, pensions (indexation). Real wage = Nominal wage / CPI.</p>
+    <p>ИПЦ используется для индексации зарплат и пенсий.</p>
+
+    <hr>
+
+    <h2>Business Cycle Position / Фаза делового цикла</h2>
+    <div class="graph-box">
+        <pre>Output
+  |      Peak / Пик
+  |     /\
+  |    /  \
+  |   /    \    Expansion / Расширение
+  |  /      \  /
+  | /        \/
+  |/   Trough / Дно  Recession / Спад
+  |
+  0+----+----+----+----+ Time</pre>
+    </div>
+</body>
+</html>

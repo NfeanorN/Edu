@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intertemporal Budget Constraint — Межвременное бюджетное ограничение</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #e74c3c; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #e74c3c; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #ffeaea; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #ffeaea; border-left: 4px solid #e74c3c; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #e74c3c; text-decoration: none; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .budget-line { stroke: #e74c3c; stroke-width: 2.5; fill: none; }
+        .svg-graph .endowment { stroke: #27ae60; stroke-width: 2; fill: none; stroke-dasharray: 5,4; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+
+    <h1>Intertemporal Budget Constraint — Межвременное бюджетное ограничение</h1>
+
+    <h2>What is Intertemporal Budget Constraint? / Что такое межвременное бюджетное ограничение?</h2>
+    <p>The <strong>intertemporal budget constraint</strong> extends the budget constraint to choices across <strong>time periods</strong> (e.g., today vs tomorrow, period 1 vs period 2). It shows how a consumer can allocate consumption between periods, taking into account <strong>interest rates</strong> and the ability to <strong>save</strong> or <strong>borrow</strong>.</p>
+    <p><strong>Межвременное бюджетное ограничение</strong> расширяет обычное бюджетное ограничение на выбор между <strong>временными периодами</strong> (сегодня vs завтра, период 1 vs период 2). Показывает, как потребитель может распределить потребление между периодами с учётом <strong>процентной ставки</strong> и возможности <strong>сберегать</strong> или <strong>занимать</strong>.</p>
+
+    <hr>
+
+    <h2>Two-Period Model / Модель двух периодов</h2>
+    <p>We consider two periods:</p>
+    <ul>
+        <li><strong>Period 1</strong> (today / сегодня): income Y₁, consumption C₁</li>
+        <li><strong>Period 2</strong> (tomorrow / завтра): income Y₂, consumption C₂</li>
+        <li><strong>Interest rate</strong> r (the rate at which you can save or borrow / ставка, по которой можно сберегать или занимать)</li>
+    </ul>
+    <p>Рассматриваем два периода: период 1 (сегодня) и период 2 (завтра), с доходами Y₁, Y₂ и потреблением C₁, C₂ при процентной ставке r.</p>
+
+    <hr>
+
+    <h2>Saving and Borrowing / Сбережения и заимствование</h2>
+    <p>If <strong>C₁ < Y₁</strong>, you <strong>save</strong> S = Y₁ − C₁. In period 2, you have Y₂ plus your savings with interest: Y₂ + S(1 + r) = Y₂ + (Y₁ − C₁)(1 + r).</p>
+    <p>Если <strong>C₁ < Y₁</strong>, вы <strong>сберегаете</strong> S = Y₁ − C₁. В периоде 2 у вас Y₂ плюс сбережения с процентами: Y₂ + S(1 + r).</p>
+
+    <p>If <strong>C₁ > Y₁</strong>, you <strong>borrow</strong> B = C₁ − Y₁. In period 2, you must repay Y₂ − B(1 + r) = Y₂ − (C₁ − Y₁)(1 + r) for consumption.</p>
+    <p>Если <strong>C₁ > Y₁</strong>, вы <strong>занимаете</strong> B = C₁ − Y₁. В периоде 2 вы должны вернуть B(1 + r), поэтому потребление C₂ = Y₂ − B(1 + r).</p>
+
+    <hr>
+
+    <h2>The Intertemporal Budget Constraint / Межвременное бюджетное ограничение</h2>
+    <p>The constraint states that the <strong>present value</strong> of consumption equals the <strong>present value</strong> of income:</p>
+    <p>Ограничение: <strong>приведённая стоимость</strong> потребления равна <strong>приведённой стоимости</strong> дохода:</p>
+
+    <div class="formula-box">
+        <p><strong>C₁ + C₂/(1 + r) = Y₁ + Y₂/(1 + r)</strong></p>
+        <p>Present value of consumption = Present value of income</p>
+        <p>Приведённая стоимость потребления = Приведённая стоимость дохода</p>
+    </div>
+
+    <p><strong>Present value (PV)</strong> converts future amounts to today's value. C₂/(1 + r) is the present value of period 2 consumption: if you want to consume C₂ in period 2, you need to save C₂/(1 + r) in period 1.</p>
+    <p><strong>Приведённая стоимость (PV)</strong> переводит будущие суммы в сегодняшнюю стоимость. C₂/(1 + r) — приведённая стоимость потребления периода 2.</p>
+
+    <h3>Alternative form / Альтернативная форма</h3>
+    <p>Rearranging: <strong>C₂ = Y₂ + (Y₁ − C₁)(1 + r)</strong></p>
+    <p>This says: period 2 consumption = period 2 income + (period 1 savings) × (1 + interest rate).</p>
+    <p>Перегруппировка: <strong>C₂ = Y₂ + (Y₁ − C₁)(1 + r)</strong>. Потребление периода 2 = доход периода 2 + (сбережения периода 1) × (1 + ставка).</p>
+
+    <hr>
+
+    <h2>The Intertemporal Budget Line / Межвременная бюджетная линия</h2>
+    <p>On a graph with <strong>C₁</strong> on the horizontal axis and <strong>C₂</strong> on the vertical axis, the budget line shows all combinations (C₁, C₂) that satisfy the constraint.</p>
+    <p>На графике с <strong>C₁</strong> по оси X и <strong>C₂</strong> по оси Y бюджетная линия показывает все комбинации (C₁, C₂), удовлетворяющие ограничению.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 380 280" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="260"/>
+            <line class="axis" x1="50" y1="260" x2="360" y2="260"/>
+            <path class="budget-line" d="M 50 60 L 350 240"/>
+            <line class="endowment" x1="200" y1="60" x2="200" y2="150"/>
+            <line class="endowment" x1="200" y1="150" x2="50" y2="150"/>
+            <circle cx="200" cy="150" r="5" fill="#27ae60" stroke="#1e8449"/>
+            <text x="28" y="18">C₂</text>
+            <text x="358" y="272">C₁</text>
+            <text x="210" y="145" fill="#27ae60" font-weight="600">E</text>
+            <text x="210" y="75">Y₂</text>
+            <text x="28" y="155">Y₁</text>
+            <text x="300" y="200" font-size="11">Slope = -(1+r)</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Бюджетная линия: наклон = −(1 + r). Точка E = (Y₁, Y₂) — endowment point (точка наделённости).</p>
+    </div>
+
+    <h3>Intercepts / Пересечения</h3>
+    <ul>
+        <li><strong>Horizontal intercept:</strong> If C₂ = 0, then C₁ = Y₁ + Y₂/(1 + r). Maximum period 1 consumption (spend all income today).</li>
+        <li><strong>Vertical intercept:</strong> If C₁ = 0, then C₂ = Y₂ + Y₁(1 + r). Maximum period 2 consumption (save all period 1 income).</li>
+    </ul>
+    <p><em>Горизонтальное пересечение: C₁ = Y₁ + Y₂/(1 + r) (максимальное потребление периода 1). Вертикальное: C₂ = Y₂ + Y₁(1 + r) (максимальное потребление периода 2).</em></p>
+
+    <h3>Slope / Наклон</h3>
+    <p>The slope of the budget line is <strong>−(1 + r)</strong>. This represents the <strong>opportunity cost</strong> of period 1 consumption in terms of period 2 consumption: consuming 1 more unit in period 1 means giving up (1 + r) units in period 2.</p>
+    <p>Наклон бюджетной линии = <strong>−(1 + r)</strong>. Это альтернативная стоимость потребления периода 1 в единицах потребления периода 2: потребление ещё одной единицы в периоде 1 означает отказ от (1 + r) единиц в периоде 2.</p>
+
+    <hr>
+
+    <h2>Endowment Point / Точка наделённости</h2>
+    <p>The <strong>endowment point</strong> E = (Y₁, Y₂) is the consumption bundle if you neither save nor borrow (consume exactly your income in each period). It lies on the budget line.</p>
+    <p><strong>Точка наделённости</strong> E = (Y₁, Y₂) — комбинация потребления без сбережений и займов (потребляете ровно свой доход в каждом периоде). Лежит на бюджетной линии.</p>
+
+    <ul>
+        <li><strong>Above E:</strong> C₂ > Y₂, C₁ < Y₁ → you save in period 1, consume more in period 2.</li>
+        <li><strong>Below E:</strong> C₂ < Y₂, C₁ > Y₁ → you borrow in period 1, consume less in period 2 (repay debt).</li>
+        <li><strong>At E:</strong> C₁ = Y₁, C₂ = Y₂ → no saving or borrowing.</li>
+    </ul>
+    <p><em>Выше E: сберегаете в периоде 1. Ниже E: занимаете в периоде 1. На E: без сбережений и займов.</em></p>
+
+    <hr>
+
+    <h2>Example / Пример</h2>
+    <p><strong>Given:</strong> Y₁ = 100€, Y₂ = 50€, r = 0.1 (10%)</p>
+    <p><strong>Дано:</strong> Y₁ = 100€, Y₂ = 50€, r = 0.1 (10%)</p>
+
+    <div class="formula-box">
+        <p><strong>Budget constraint:</strong> C₁ + C₂/(1.1) = 100 + 50/(1.1) = 100 + 45.45 = 145.45€</p>
+        <p><strong>Бюджетное ограничение:</strong> C₁ + C₂/1.1 = 145.45€</p>
+    </div>
+
+    <table>
+        <tr><th>Choice / Выбор</th><th>C₁</th><th>C₂</th><th>Interpretation / Интерпретация</th></tr>
+        <tr><td>Maximum C₁</td><td>145.45</td><td>0</td><td>Spend all PV today / Потратить всю PV сегодня</td></tr>
+        <tr><td>Endowment E</td><td>100</td><td>50</td><td>No saving/borrowing / Без сбережений/займов</td></tr>
+        <tr><td>Save 20</td><td>80</td><td>72</td><td>C₁ = 80, save 20 → C₂ = 50 + 20×1.1 = 72</td></tr>
+        <tr><td>Borrow 20</td><td>120</td><td>28</td><td>C₁ = 120, borrow 20 → C₂ = 50 − 20×1.1 = 28</td></tr>
+        <tr><td>Maximum C₂</td><td>0</td><td>160</td><td>Save all Y₁ → C₂ = 50 + 100×1.1 = 160</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>What Changes the Budget Line? / Что меняет бюджетную линию?</h2>
+    <table>
+        <tr><th>Change / Изменение</th><th>Effect / Эффект</th></tr>
+        <tr><td>Interest rate r increases / Ставка r растёт</td><td>Line rotates around E, steeper slope / Линия поворачивается вокруг E, наклон круче</td></tr>
+        <tr><td>Interest rate r decreases / Ставка r падает</td><td>Line rotates around E, flatter slope / Линия поворачивается вокруг E, наклон положе</td></tr>
+        <tr><td>Y₁ increases / Y₁ растёт</td><td>Line shifts outward (parallel shift) / Линия сдвигается наружу</td></tr>
+        <tr><td>Y₂ increases / Y₂ растёт</td><td>Line shifts outward (parallel shift) / Линия сдвигается наружу</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Link to Consumption Function / Связь с функцией потребления</h2>
+    <p>In macroeconomics, the intertemporal budget constraint underlies the <strong>consumption function</strong> C = C(Y, Y<sup>e</sup>, wealth, r), where consumption depends on current income, expected future income, wealth, and the interest rate.</p>
+    <p>В макроэкономике межвременное бюджетное ограничение лежит в основе <strong>функции потребления</strong> C = C(Y, Y<sup>e</sup>, богатство, r), где потребление зависит от текущего дохода, ожидаемого будущего дохода, богатства и процентной ставки.</p>
+
+    <p>See also: <a href="Budget_Constraint_Explanation.html">Budget Constraint</a> (static case), <a href="Goods_Market_Multiplier_Explanation.html">Goods Market & Multiplier</a> (consumption function).</p>
+</body>
+</html>

@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frank — Microeconomics &amp; Behavior — Study Guide — RU + EN</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.75; margin: 0; padding: 30px 15px; color: #222; background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%); }
+        .wrap { max-width: 920px; margin: 0 auto; background: #fff; padding: 35px 45px; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        h1 { color: #1a3a5c; border-bottom: 4px solid #5b8def; padding-bottom: 14px; font-size: 1.95em; margin-top: 0; }
+        h2 { color: #1a3a5c; margin-top: 55px; font-size: 1.5em; border-left: 5px solid #5b8def; padding-left: 14px; padding-top: 4px; padding-bottom: 4px; background: linear-gradient(90deg, #eef3ff 0%, transparent 100%); }
+        h3 { color: #2c3e50; margin-top: 28px; font-size: 1.15em; }
+        h4 { color: #444; margin-top: 18px; font-size: 1.02em; font-weight: 600; }
+        p { margin: 12px 0; }
+        strong { color: #1a3a5c; font-weight: 600; }
+        em.en-term { color: #3a6cdc; font-style: italic; font-weight: 500; }
+        ul, ol { margin: 10px 0; padding-left: 26px; }
+        li { margin: 8px 0; }
+        table { border-collapse: collapse; width: 100%; margin: 18px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.95em; }
+        th, td { border: 1px solid #e0e6ed; padding: 9px 12px; text-align: left; vertical-align: top; }
+        th { background: linear-gradient(135deg, #5b8def 0%, #3a6cdc 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        hr { border: none; border-top: 2px solid #ecf0f1; margin: 26px 0; }
+        .formula-box { background: #eef3ff; border-left: 4px solid #5b8def; padding: 14px 18px; margin: 16px 0; border-radius: 6px; font-size: 1.05em; font-family: 'Cambria', 'Georgia', serif; }
+        .example-box { background: #fff8e7; border-left: 4px solid #f0b429; padding: 14px 18px; margin: 16px 0; border-radius: 6px; }
+        .example-box h4 { margin-top: 0; color: #8a6d1f; }
+        .key-box { background: #e8f8f0; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 16px 0; border-radius: 6px; }
+        .warn-box { background: #fdecea; border-left: 4px solid #e74c3c; padding: 12px 18px; margin: 16px 0; border-radius: 6px; }
+        .story-box { background: #f4ecfe; border-left: 4px solid #8e44ad; padding: 14px 18px; margin: 16px 0; border-radius: 6px; }
+        .story-box::before { content: "💭 Представь… "; font-weight: 600; color: #6c3a8f; }
+        .why-box { background: #e7f5fd; border-left: 4px solid #3498db; padding: 12px 18px; margin: 16px 0; border-radius: 6px; }
+        .why-box::before { content: "🤔 Почему так? "; font-weight: 600; color: #1b5d8a; display: block; margin-bottom: 4px; }
+        .ru-summary { background: #f8f9fb; border: 1px dashed #999; padding: 12px 18px; margin: 16px 0; border-radius: 6px; font-size: 0.93em; color: #444; }
+        .ru-summary::before { content: "🇷🇺 Кратко по-русски: "; font-weight: 600; color: #1a3a5c; }
+        .en-p { margin: 4px 0 14px 0; padding: 8px 12px 8px 14px; background: #f5f9ff; border-left: 3px solid #5b8def; border-radius: 0 6px 6px 0; font-size: 0.93em; color: #3d4f66; line-height: 1.65; }
+        .en-p::before { content: "EN: "; font-weight: 700; color: #3a6cdc; }
+        li.en-p { margin-left: 18px; list-style: none; }
+        code { background: #f1f3f6; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.92em; }
+        .back { margin-bottom: 16px; }
+        .back a { color: #5b8def; text-decoration: none; font-weight: 500; }
+        .lang-switch { display: inline-block; margin-left: 14px; padding: 4px 12px; background: #5b8def; color: white !important; border-radius: 6px; font-size: 0.9em; }
+        .lang-switch:hover { background: #3a6cdc; }
+        .toc { background: #f8f9fb; border: 1px solid #e0e6ed; border-radius: 10px; padding: 16px 22px; margin: 20px 0 30px; }
+        .toc ol { columns: 2; column-gap: 24px; margin: 0; padding-left: 22px; font-size: 0.95em; }
+        .toc li { margin: 3px 0; break-inside: avoid; }
+        .toc a { color: #1a3a5c; text-decoration: none; }
+        .toc a:hover { text-decoration: underline; color: #3a6cdc; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; background: #fff; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .demand { stroke: #27ae60; stroke-width: 2.5; fill: none; }
+        .svg-graph .supply { stroke: #e67e22; stroke-width: 2.5; fill: none; }
+        .svg-graph .mc { stroke: #2980b9; stroke-width: 2.5; fill: none; }
+        .svg-graph .mr { stroke: #e74c3c; stroke-width: 2; stroke-dasharray: 5,4; fill: none; }
+        .svg-graph .ac { stroke: #8e44ad; stroke-width: 2; fill: none; stroke-dasharray: 3,3; }
+        .svg-graph .avc { stroke: #16a085; stroke-width: 2; fill: none; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #2c3e50; }
+        .svg-graph .pt { fill: #e74c3c; stroke: #c0392b; stroke-width: 1.5; }
+        .ch-tag { display: inline-block; background: #5b8def; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7em; font-weight: 600; margin-left: 8px; vertical-align: middle; }
+        .calc { background: #fffdf6; border-left: 3px solid #f0b429; padding: 8px 14px; margin: 8px 0 8px 18px; font-family: 'Cambria', 'Georgia', serif; font-size: 1.02em; }
+        .figure-box { background: #fafbfc; border: 1px solid #d0d7de; border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
+        .figure-box .fig-label { display: block; font-weight: 700; color: #c0392b; font-size: 0.88em; letter-spacing: 0.02em; margin-bottom: 6px; }
+        .figure-box .fig-caption { font-size: 0.92em; color: #444; margin: 0; }
+        .book-quote { background: #fff8e1; border: 2px solid #ff9800; border-radius: 6px; padding: 12px 18px; margin: 16px 0; }
+        .book-quote p { margin: 0; font-style: italic; color: #5d4037; }
+        .book-quote::before { content: "📙 Frank (оранжевый блок): "; display: block; font-weight: 700; font-style: normal; color: #e65100; font-size: 0.9em; margin-bottom: 6px; }
+        .quick-box { background: #f0f4ff; border: 1px solid #c5d4f5; border-radius: 8px; padding: 10px 16px; margin: 12px 0 20px; font-size: 0.95em; }
+        .quick-box strong { color: #1a3a5c; }
+        .quick-box ul { margin: 6px 0 0; }
+        @media (max-width: 700px) { .toc ol { columns: 1; } }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <p class="back"><a href="index.html">← К списку тем</a> <a href="Frank_Study_Guide_EN.html" class="lang-switch">🇬🇧 English-only</a></p>
+
+    <h1>Frank — Microeconomics &amp; Behavior<br>
+        <span style="font-size:0.55em;color:#666;font-weight:400">Русский + English — оба языка сразу</span></h1>
+
+    <p>Каждый абзац: <strong>сначала русский</strong>, сразу под ним — <strong>английский</strong> (метка <code>EN:</code>). Термины Frank — курсивом.</p>
+
+    <div class="toc">
+        <strong>Содержание</strong>
+        <ol>
+            <li>Кривые спроса и предложения</li>
+            <li>Равновесная цена и объём</li>
+            <li>Как рынок приходит в равновесие</li>
+            <li>Что сдвигает спрос и предложение</li>
+            <li>Алгебра: решение через уравнения</li>
+            <li>Якорение (эвристика)</li>
+            <li>Общий, предельный, средний продукт</li>
+            <li>Издержки в коротком периоде</li>
+            <li>Средние и предельные издержки</li>
+            <li>Издержки в долгом периоде</li>
+            <li>Оптимальная комбинация ресурсов</li>
+            <li>Долгие издержки и структура отрасли</li>
+            <li>Как фирма максимизирует прибыль</li>
+            <li>Когда фирме лучше закрыться</li>
+            <li>Долгосрочное предложение отрасли</li>
+            <li>Что такое монополия</li>
+            <li>Пять источников монополии</li>
+            <li>Предельный доход (MR)</li>
+            <li>Олигополия</li>
+        </ol>
+    </div>
+
+    <!-- =========================================================== -->
+    <h2 id="sd-curves">1. Кривые спроса и предложения <span class="ch-tag">Ch. 2, p. 24</span></h2>
+    <h3>What is this all about?</h3>
+    <p>Представьте себе любой рынок — скажем, рынок омаров в небольшом прибрежном городке. Здесь встречаются две стороны рынка:</p>
+<p class="en-p">Picture any market — say, the lobster market in a small coastal town. Two sides of the market meet there:</p>
+    <ul>
+        <li>Покупатели — у них есть желания и кошелек. Они смотрят на цену и решают, сколько купить.</li>
+<li class="en-p"><strong>Buyers</strong> — they have wishes and a wallet. They look at the price and decide how much to buy.</li>
+        <li>Продавцы — у них есть товар. Они смотрят на цену и решают, сколько произвести и выставить на продажу.</li>
+<li class="en-p"><strong>Sellers</strong> — they have the product. They look at the price and decide how much to produce and put up for sale.</li>
+    </ul>
+    <p>Экономист хочет описать поведение каждой стороны. Для этого он рисует на одном графике две кривые:</p>
+<p class="en-p">An economist wants to describe the <strong>behaviour of each side</strong>. To do that, he draws two curves on one graph:</p>
+
+    <h4>The demand curve (D)</h4>
+    <p>Это «карта поведения покупателей»: она показывает, сколько покупатели хотят купить по каждой возможной цене.</p>
+<p class="en-p">This is a "behaviour map of buyers": it shows <strong>how much buyers want to buy at every possible price</strong>.</p>
+    <p>Логика проста: более низкая цена → покупатели хотят большего. Когда лобстер стоит 20 долларов, его покупают только богатые люди. Когда оно стоит 4 доллара, его покупают все, даже студенты на ужин. Таким образом, кривая D наклоняется вправо — это закон спроса.</p>
+<p class="en-p">The logic is simple: <strong>lower price → buyers want more</strong>. When a lobster costs $20, only wealthy people buy. When it costs $4, everyone buys, even students for dinner. So the D curve slopes <strong>down to the right</strong> — this is the <strong>law of demand</strong>.</p>
+
+    <h4>The supply curve (S)</h4>
+    <p>Это «карта поведения продавцов»: сколько они хотят продать по каждой цене.</p>
+<p class="en-p">This is the "behaviour map of sellers": <strong>how much they want to sell at every price</strong>.</p>
+    <p>Логика обратная: более высокая цена → продавцы хотят большего. При цене в 4 доллара никто не захочет просыпаться в 4 утра и уходить. За 20 долларов каждый рыбак выходит в море, даже сосед со старой лодкой. Таким образом, S наклоняется вправо — закон предложения.</p>
+<p class="en-p">The logic is the opposite: <strong>higher price → sellers want more</strong>. At $4 nobody wants to wake up at 4 a.m. and sail out. At $20 every fisherman is out at sea, even the neighbor with the old boat. So S slopes <strong>up to the right</strong> — the <strong>law of supply</strong>.</p>
+
+    <div class="story-box">Для покупателя цена - боль (отказ от денег). Более высокая цена = больше боли → покупайте меньше.<br>
+        <br>
+                Для продавца цена – это вознаграждение (получение денег). Более высокая награда = больше усилий → продавайте больше.<br>
+        <br>
+                Вот почему одна кривая имеет наклон вниз, а другая – вверх.<br><br>
+        
+        For a buyer, the price is <strong>pain</strong> (giving up money). Higher price = more pain → buy less.<br>
+        For a seller, the price is a <strong>reward</strong> (receiving money). Higher reward = more effort → sell more.<br>
+        That's why one curve slopes down and the other slopes up.
+    </div>
+
+    <h3>How to read the graph</h3>
+    <ul>
+        <li>Вертикальная ось: цена P ($/шт.).</li>
+<li class="en-p">Vertical axis: <strong>price P</strong> ($/unit).</li>
+        <li>Горизонтальная ось: количество Q (шт./день, шт./месяц и т. д.).</li>
+<li class="en-p">Horizontal axis: <strong>quantity Q</strong> (units/day, units/month, etc.).</li>
+    </ul>
+    <p>⚠️ В математике ось Y обычно показывает значение функции. В экономике все наоборот: P находится на Y, но на самом деле это не «функция Q». Это всего лишь традиция 19 века. Не ищите логику — просто помните ее.</p>
+<p class="en-p">⚠️ In math, the Y-axis usually shows the function value. In economics it's the opposite: P is on Y but it isn't really "a function of Q". This is just a tradition from the 19th century. Don't look for logic — just remember it.</p>
+
+    <h3>Textbook example (Figure 2.1, the lobster market in Hyannis, Mass.)</h3>
+    <p>В один летний день Фрэнк посещает рынок омаров в маленьком городке Хайаннис (Массачусетс). Из графика спроса (часть рисунка 2.1):</p>
+<p class="en-p">Frank takes the lobster market in the small town of Hyannis (Massachusetts) on one summer day. From the demand schedule (part of Figure 2.1):</p>
+
+    <table>
+        <tr><th>Price P ($/lobster)</th><th>Quantity demanded Q<sub>D</sub> (thousands per day)</th></tr>
+        <tr><td>20</td><td>1</td></tr>
+        <tr><td>16</td><td>2</td></tr>
+        <tr><td>12</td><td>3</td></tr>
+        <tr><td>8</td><td>4</td></tr>
+        <tr><td>4</td><td>5</td></tr>
+    </table>
+
+    <p>Прочтите это так: «если бы цена составляла 20 долларов, покупатели брали бы только 1 000 омаров в день; если бы она упала до 8 долларов, они брали бы 4 000». Это закон спроса в цифрах.</p>
+<p class="en-p">Read it like this: "if the price were $20, buyers would take only 1 000 lobsters per day; if it dropped to $8, they would take 4 000." That's the law of demand in numbers.</p>
+
+    <div>
+        <svg class="svg-graph" viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="210"/>
+            <line class="axis" x1="50" y1="210" x2="360" y2="210"/>
+            <line class="demand" x1="70" y1="40" x2="320" y2="190"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="55" x2="100" y2="55"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="100" y1="55" x2="100" y2="210"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="160" x2="250" y2="160"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="250" y1="160" x2="250" y2="210"/>
+            <text x="22" y="22">P ($/lobster)</text>
+            <text x="305" y="225">Q (thousands)</text>
+            <text x="25" y="59">20</text>
+            <text x="25" y="164">8</text>
+            <text x="97" y="225">1</text>
+            <text x="247" y="225">4</text>
+            <text x="328" y="195">D</text>
+        </svg>
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="equilibrium">2. Равновесная цена и объём <span class="ch-tag">Ch. 2, p. 27</span></h2>
+    <h3>What is equilibrium?</h3>
+    <p>Когда мы помещаем D и S на один и тот же график, они пересекаются в одной точке. Эта точка является равновесием.</p>
+<p class="en-p">When we put D and S on the same chart, they <strong>cross at one point</strong>. This point is the <strong>equilibrium</strong>.</p>
+    <p>Что в нем такого особенного? В этот момент:</p>
+<p class="en-p">What is so special about it? At this point:</p>
+    <ul>
+        <li>Сколько хотят покупатели = сколько продавцы хотят продать.</li>
+<li class="en-p">How much buyers want = how much sellers want to sell.</li>
+        <li>Никто не уходит с пустыми руками (дефицита нет).</li>
+<li class="en-p">Nobody leaves empty-handed (no shortage).</li>
+        <li>Никто не уходит с непроданным товаром (нет излишков).</li>
+<li class="en-p">Nobody leaves with unsold goods (no surplus).</li>
+        <li>Нет никакого давления на изменение цены.</li>
+<li class="en-p">There's no pressure on the price to change.</li>
+    </ul>
+    <p>Цена здесь — это равновесная цена P*, количество — равновесное количество Q*. Звездочка «*» просто означает «равновесное значение».</p>
+<p class="en-p">The price here is the <strong>equilibrium price</strong> P*, the quantity is the <strong>equilibrium quantity</strong> Q*. The star "*" simply means "equilibrium value".</p>
+
+    <div class="formula-box">
+        <strong>Equilibrium condition:</strong> <code>Q<sub>D</sub>(P*) = Q<sub>S</sub>(P*)</code><br>
+        Quantity demanded at P* equals quantity supplied at the same P*.
+    </div>
+
+    <div class="example-box">
+        <h4>Textbook example (lobster market)</h4>
+        <p>На рисунке 2.5 учебника D и S для омаров пересекаются в точке:</p>
+<p class="en-p">In Figure 2.5 of the textbook, D and S for lobsters cross at:</p>
+        <ul>
+            <li>P* = 8 долларов за лобстера</li>
+<li class="en-p"><strong>P* = $8 per lobster</strong></li>
+            <li>Q* = 4 тысячи омаров в день</li>
+<li class="en-p"><strong>Q* = 4 thousand lobsters per day</strong></li>
+        </ul>
+        <p>Это означает: при цене $8 покупатели хотят ровно 4 000 лобстеров в день, а продавцы хотят продать ровно 4 000. Все довольны — ни очереди, ни одного непроданного лобстера на причале.</p>
+<p class="en-p">This means: at $8, buyers want exactly 4 000 lobsters per day, and sellers want to sell exactly 4 000. Everyone is satisfied — no queue, no unsold lobsters left on the dock.</p>
+    </div>
+
+    <div>
+        <svg class="svg-graph" viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="210"/>
+            <line class="axis" x1="50" y1="210" x2="360" y2="210"/>
+            <line class="demand" x1="70" y1="40" x2="340" y2="200"/>
+            <line class="supply" x1="60" y1="200" x2="340" y2="40"/>
+            <circle class="pt" cx="200" cy="120" r="5"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="120" x2="200" y2="120"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="200" y1="120" x2="200" y2="210"/>
+            <text x="22" y="22">P</text>
+            <text x="355" y="225">Q</text>
+            <text x="20" y="124">P* = 8</text>
+            <text x="180" y="225">Q* = 4</text>
+            <text x="345" y="195">D</text>
+            <text x="345" y="45">S</text>
+            <text x="208" y="115" fill="#e74c3c" font-weight="600">E</text>
+        </svg>
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="adjustment">3. Как рынок приходит в равновесие <span class="ch-tag">Ch. 2, p. 28</span></h2>
+    <h3>What if the price is "wrong"?</h3>
+    <p>Предположим, что цена каким-то образом не равна P*. Что происходит? Ключевой момент Франка: цена движется к равновесию сама по себе, без необходимости государственного вмешательства. Это идея о том, что рынки «саморегулируются».</p>
+<p class="en-p">Suppose the price is somehow <strong>not</strong> equal to P*. What happens? Frank's key point: the price moves toward equilibrium <strong>by itself</strong>, with no need for government intervention. This is the idea that markets "self-regulate."</p>
+
+    <h3>Case 1: Price above equilibrium (P &gt; P*) — surplus</h3>
+    <p>Предположим, кто-то объявил на рынке омаров цену в 12 долларов (при этом P* = 8 долларов).</p>
+<p class="en-p">Suppose someone posted a price of <strong>$12</strong> in the lobster market (while P* = $8).</p>
+    <ul>
+        <li>Покупатели смотрят на 12 долларов: «слишком дорого». Им нужно всего ~3 тысячи лобстеров.</li>
+<li class="en-p">Buyers look at $12: "too expensive." They want only ~<strong>3 thousand</strong> lobsters.</li>
+        <li>Продавцы смотрят на $12: «отлично, очень выгодно». Хотят продать ~5 тысяч.</li>
+<li class="en-p">Sellers look at $12: "great, very profitable." They want to sell ~<strong>5 thousand</strong>.</li>
+        <li>Результат: продавцы приносят 5 000, покупатели берут всего 3 000.</li>
+<li class="en-p">Result: sellers bring 5 000, buyers take only 3 000.</li>
+        <li>В результате на причале остаются 2 000 непроданных омаров. Они начнут гнить.</li>
+<li class="en-p">That leaves <strong>2 000 unsold lobsters</strong> on the dock. They'll start to rot.</li>
+    </ul>
+    <p>Это называется избыточным предложением (профицитом).</p>
+<p class="en-p">This is called <strong>excess supply</strong> (a surplus).</p>
+    <p>Что произойдет дальше? Продавцы понимают: «либо снизим цену, либо потеряем товар». Кто-то начинает кричать «лобстеры за 11 долларов!» — к нему идут покупатели. Остальные следуют. Цена снижается, пока не достигнет 8 долларов (P*). В этот момент излишки исчезают.</p>
+<p class="en-p">What happens next? Sellers realise: "we either cut the price, or lose the product." One starts shouting "lobsters for $11!" — buyers go to him. Others follow. <strong>The price drifts down</strong> until it reaches $8 (P*). At that point the surplus disappears.</p>
+
+    <h3>Case 2: Price below equilibrium (P &lt; P*) — shortage</h3>
+    <p>Теперь представьте, что цена составляет 4 доллара.</p>
+<p class="en-p">Now imagine the price is $4.</p>
+    <ul>
+        <li>Покупатели: «4 доллара — почти бесплатно!» Они хотят ~ 5 тысяч .</li>
+<li class="en-p">Buyers: "$4 — almost free!" They want ~<strong>5 thousand</strong>.</li>
+        <li>Продавцы: «Ради 4 долларов не стоит просыпаться». Они приносят всего ~2 тысячи.</li>
+<li class="en-p">Sellers: "$4 isn't worth waking up for." They bring only ~<strong>2 thousand</strong>.</li>
+        <li>На рынке 5 000 голодных покупателей и всего 2 000 омаров.</li>
+<li class="en-p">The market has 5 000 hungry buyers and only 2 000 lobsters.</li>
+    </ul>
+    <p>Это дефицит (избыточный спрос).</p>
+<p class="en-p">This is a <strong>shortage</strong> (excess demand).</p>
+    <p>Что дальше? Покупатели начинают предлагать больше: «Возьми 5 долларов, а мне дай один!» Цена растет, пока не достигнет 8 долларов. Тогда дефицит исчезает.</p>
+<p class="en-p">What next? Buyers start offering more: "take $5, just give me one!" The price drifts up until it reaches $8. Then the shortage disappears.</p>
+
+    <div class="key-box">Основная идея — «невидимая рука»: рыночные силы автоматически подталкивают цену к равновесию. Никто не несет ответственности — каждый действует в своих интересах, а излишки и нехватки позаботятся сами о себе. Франк представляет это в гл. 1 (Адам Смит) и применяет его здесь.<br><br>
+        
+        <strong>The big idea — the "invisible hand":</strong> market forces automatically push the price toward equilibrium. Nobody is in charge — each person just acts in their own interest, and the surpluses and shortages take care of themselves. Frank introduces this in Ch. 1 (Adam Smith) and applies it here.
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="determinants">4. Что сдвигает спрос и предложение <span class="ch-tag">Ch. 2, p. 36</span></h2>
+    <h3>The single most important point: "movement along" vs. "shift"</h3>
+    <p>Именно здесь 80% студентов и путаются. Давайте пройдемся по нему очень внимательно.</p>
+<p class="en-p">This is where 80% of students get confused. Let's walk through it very carefully.</p>
+
+    <div class="warn-box">
+        There are <strong>two completely different situations</strong>:
+        <ol>
+            <li>Движение ВДОЛЬ кривой — остаемся на одной кривой и скользим от одной точки к другой.</li>
+<li class="en-p"><strong>Movement ALONG the curve</strong> — we stay on the same curve and slide from one point to another.</li>
+            <li>Сдвиг кривой — вся кривая перемещается в новое место.</li>
+<li class="en-p"><strong>Shift of the curve</strong> — the entire curve moves to a new location.</li>
+        </ol>
+        These are <strong>not the same thing</strong>. The rule is:<br><br>
+        ✅ <strong>A change in the good's own price</strong> → movement along the curve.<br>
+        ✅ <strong>A change in anything else</strong> → shift of the curve.
+    </div>
+
+    <h3>Why this rule?</h3>
+    <p>Кривая спроса, по сути, представляет собой график, в котором все остальное остается постоянным. Когда мы рисуем D, мы молча предполагаем: «доходы находятся на каком-то уровне, цена на бензин на каком-то уровне, сейчас лето и т. д.».</p>
+<p class="en-p">A demand curve is essentially a "<strong>holding-everything-else-constant</strong>" graph. When we draw D, we silently assume: "incomes are some level, the price of gasoline is some level, it's summer, etc."</p>
+    <p>Если изменится только собственная цена товара, мы скользим по этой кривой (которая уже показывает соотношение Q–P).</p>
+<p class="en-p">If only the good's own price changes, we slide along that curve (which already shows the Q–P relationship).</p>
+    <p>Но если что-то из этих фоновых факторов изменится (доход, погода, цена на газ), у нас появится другая кривая, нарисованная рядом со старой.</p>
+<p class="en-p">But if one of those background things changes (income, weather, the price of gas), we now have a <strong>different curve</strong>, drawn alongside the old one.</p>
+
+    <h3>What shifts the demand curve D</h3>
+    <p>Фрэнк перечисляет основные факторы:</p>
+<p class="en-p">Frank lists the main factors:</p>
+    <table>
+        <tr><th>Factor</th><th>Change</th><th>Direction of shift</th><th>Example</th></tr>
+        <tr><td>Tastes</td><td>Lobster becomes trendy</td><td>D shifts right</td><td>Celebrity posts a recipe</td></tr>
+        <tr><td>Income — normal good</td><td>Incomes rise</td><td>D shifts right</td><td>Bigger paychecks → more restaurant meals</td></tr>
+        <tr><td>Income — inferior good</td><td>Incomes rise</td><td>D shifts left</td><td>Richer people buy less instant noodles</td></tr>
+        <tr><td>Price of a substitute</td><td>Crabs become more expensive</td><td>D for lobsters shifts right</td><td>Crabs and lobsters can substitute</td></tr>
+        <tr><td>Price of a complement</td><td>Butter becomes more expensive</td><td>D for lobsters shifts left</td><td>Lobsters often eaten with butter</td></tr>
+        <tr><td>Expectations</td><td>People expect a price rise tomorrow</td><td>D today shifts right</td><td>"Better buy now while it's cheap"</td></tr>
+        <tr><td>Population</td><td>More people in town</td><td>D shifts right</td><td>Tourist season</td></tr>
+    </table>
+
+    <h3>What shifts the supply curve S (textbook Figure 2.9)</h3>
+    <p>Рисунок 2.9 представляет собой знаменитую «сетку из 8 панелей» в книге. Фрэнк показывает восемь различных причин, по которым S может измениться:</p>
+<p class="en-p">Figure 2.9 is the famous "8-panel grid" in the book. Frank shows eight different reasons why S can shift:</p>
+
+    <table>
+        <tr><th>Factor</th><th>Change</th><th>Direction of shift</th><th>Why</th></tr>
+        <tr><td>Technology</td><td>Improved</td><td>S shifts right</td><td>Cheaper to make the same amount, or more for the same money</td></tr>
+        <tr><td>Wages</td><td>Higher</td><td>S shifts left</td><td>Labour got pricier → producing is less profitable</td></tr>
+        <tr><td>Interest rates</td><td>Lower</td><td>S shifts right</td><td>Borrowing for equipment is cheaper → costs fall</td></tr>
+        <tr><td>Raw materials</td><td>Pricier</td><td>S shifts left</td><td>Input costs went up</td></tr>
+        <tr><td>Number of firms</td><td>New sellers enter</td><td>S shifts right</td><td>More sellers → larger total supply at each price</td></tr>
+        <tr><td>Price expectations</td><td>Expect higher prices later</td><td>S today shifts left</td><td>"I'll hold output and sell at a higher price later"</td></tr>
+        <tr><td>Good weather</td><td>Warm, no storms</td><td>S shifts right</td><td>Better harvest / better catch</td></tr>
+        <tr><td>Bad weather</td><td>Storm, drought</td><td>S shifts left</td><td>Harvest fails / boats stay in port</td></tr>
+    </table>
+
+    <div class="figure-box">
+        <span class="fig-label">FIGURE 2.9 — Factors That Shift Supply</span>
+        <p>В учебнике: сетка из 8 панелей — каждая панель показывает смещение S при изменении одного фактора (технологии, заработная плата, процентные ставки, сырье, количество фирм, ожидания, хорошая/плохая погода). Сдвиг влево = меньше предложения; сдвиг вправо = больше.</p>
+<p class="en-p">In the textbook: an 8-panel grid — each panel shows S shifting when one factor changes (technology, wages, interest rates, raw materials, number of firms, expectations, good/bad weather). Shift left = less supply; shift right = more.</p>
+    </div>
+
+    <div class="book-quote"><p>Технологии, цены на ресурсы, количество фирм, ожидания относительно будущих цен и погода — все это влияет на положение графика поставок данного продукта.</p>
+<p class="en-p">Technology, input prices, the number of firms, expectations about future prices, and the weather all affect the position of the supply schedule for a given product.</p></div>
+
+    <div>
+        <svg class="svg-graph" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+            <text x="200" y="16" text-anchor="middle" font-size="11" font-weight="600">Supply shifts (Figure 2.9)</text>
+            <line class="axis" x1="50" y1="30" x2="50" y2="190"/>
+            <line class="axis" x1="50" y1="190" x2="195" y2="190"/>
+            <line class="axis" x1="215" y1="30" x2="215" y2="190"/>
+            <line class="axis" x1="215" y1="190" x2="360" y2="190"/>
+            <path class="supply" d="M 70 170 L 150 110" opacity="0.55"/>
+            <text x="155" y="105" opacity="0.55" font-size="10">S₀</text>
+            <path class="supply" d="M 55 150 L 135 90"/>
+            <text x="140" y="85" font-size="10">S₁ →</text>
+            <text x="95" y="205" font-size="10">Right: better tech, lower rates</text>
+            <path class="supply" d="M 235 170 L 315 110" opacity="0.55"/>
+            <text x="320" y="105" opacity="0.55" font-size="10">S₀</text>
+            <path class="supply" d="M 250 150 L 330 90"/>
+            <text x="335" y="85" font-size="10">← S₁</text>
+            <text x="260" y="205" font-size="10">Left: higher wages, storm</text>
+            <text x="28" y="38">P</text>
+            <text x="353" y="205">Q</text>
+        </svg>
+    </div>
+
+    <h3>Practice — telling movement from a shift</h3>
+
+    <div class="example-box">
+        <h4>Quick quiz: what happens to the demand curve for lobsters?</h4>
+        <ol>
+            <li>Цена омаров упала с 12 до 8 долларов. → Изменилась собственная цена товара → движение по D, а не сдвиг. Мы просто скользим из точки А в точку Б по одной и той же кривой.</li>
+<li class="en-p"><strong>The price of lobsters fell from $12 to $8.</strong><br>
+            → The good's <em>own price</em> changed → <strong>movement along D</strong>, not a shift. We just slide from point A to point B on the same curve.</li>
+            <li>Доходы туристов выросли. → Это не цена омаров, это другой фактор → D смещается вправо. Мы получаем новую кривую D₁.</li>
+<li class="en-p"><strong>Tourists' incomes rose.</strong><br>
+            → That's <em>not</em> the price of lobsters, it's another factor → <strong>D shifts right</strong>. We get a new curve D₁.</li>
+            <li>Крабы (заменитель) подорожали. → Опять же, не цена самих лобстеров → D смещается вправо (люди переходят с крабов на лобстеров).</li>
+<li class="en-p"><strong>Crabs (a substitute) became more expensive.</strong><br>
+            → Again, not the price of lobsters themselves → <strong>D shifts right</strong> (people switch from crabs to lobsters).</li>
+            <li>Цена на омаров выросла из-за шторма. → Произошли две вещи. Шторм сместил Ю влево. В результате цена выросла. По D мы движемся (выше цена → меньше спроса), но само D не смещается.</li>
+<li class="en-p"><strong>The price of lobsters rose because of a storm.</strong><br>
+            → Two things happened. The storm shifted <strong>S to the left</strong>. The price rose as a <em>consequence</em>. Along D we move (higher price → less demanded), but D itself does not shift.</li>
+        </ol>
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="algebra">5. Алгебра: решение через уравнения <span class="ch-tag">Ch. 2, p. 40</span></h2>
+    <h3>Why do we need algebra?</h3>
+    <p>На графике мы можем увидеть равновесие глазами. Но если задача гласит: «Найдите равновесие, когда спрос определяется следующим уравнением», мы должны решить ее алгебраически. В разделе Франка «Алгебра спроса и предложения» показан стандартный метод.</p>
+<p class="en-p">On a graph we can spot the equilibrium with our eyes. But if a problem says "find the equilibrium when demand is given by the following equation," we must solve it algebraically. Frank's section "The Algebra of Supply and Demand" shows the standard technique.</p>
+
+    <h3>The equations</h3>
+    <p>Самый простой случай линейный:</p>
+<p class="en-p">The simplest case is <strong>linear</strong>:</p>
+    <div class="formula-box">
+        Demand: <code>P = a − b · Q<sub>D</sub></code> &nbsp; <span style="color:#666">(with a, b &gt; 0)</span><br>
+        Supply: <code>P = c + d · Q<sub>S</sub></code> &nbsp; <span style="color:#666">(with c, d &gt; 0)</span>
+    </div>
+    <p>Здесь a, b, c, d — конкретные числа в задаче. Минус перед b означает, что D имеет наклон вниз. Плюс перед d означает, что S имеет наклон вверх.</p>
+<p class="en-p">Here a, b, c, d are concrete numbers in the problem. The minus before b reflects that D slopes down. The plus before d reflects that S slopes up.</p>
+
+    <h3>How to solve — step by step</h3>
+    <p>Идея проста: в состоянии равновесия Q D = Q S и P то же самое. Таким образом, мы можем приравнять два выражения для P и решить их.</p>
+<p class="en-p">The idea is simple: at equilibrium Q<sub>D</sub> = Q<sub>S</sub> and P is the same. So we can <strong>set the two expressions for P equal</strong> and solve.</p>
+
+    <ol>
+        <li>Запишите оба уравнения для P.</li>
+<li class="en-p">Write down both equations for P.</li>
+        <li>Приравняем их: a − b·Q = c + d·Q .</li>
+<li class="en-p">Set them equal: <code>a − b·Q = c + d·Q</code>.</li>
+        <li>Переместите все Q члены в одну сторону, все константы в другую: a − c = (b + d)·Q .</li>
+<li class="en-p">Move all Q terms to one side, all constants to the other: <code>a − c = (b + d)·Q</code>.</li>
+        <li>Решите для Q*: Q* = (a − c) / (b + d) .</li>
+<li class="en-p">Solve for Q*: <code>Q* = (a − c) / (b + d)</code>.</li>
+        <li>Подставьте Q* обратно в любое уравнение, чтобы получить P*.</li>
+<li class="en-p">Plug Q* back into either equation to get P*.</li>
+    </ol>
+
+    <div class="example-box">
+        <h4>Worked example (textbook style, Ch. 2)</h4>
+        <p>Данный:</p>
+<p class="en-p">Given:</p>
+        <ul>
+            <li>Спрос: P = 20 − 4Q</li>
+<li class="en-p">Demand: <code>P = 20 − 4Q</code></li>
+            <li>Предложение: P = 2 + Q</li>
+<li class="en-p">Supply: <code>P = 2 + Q</code></li>
+        </ul>
+
+        <p>Шаг 1. Установите их равными:</p>
+<p class="en-p"><strong>Step 1.</strong> Set them equal:</p>
+        <div class="calc">20 − 4Q = 2 + Q</div>
+
+        <p>Шаг 2. Переместите Q вправо, цифры влево:</p>
+<p class="en-p"><strong>Step 2.</strong> Move Q's to the right, numbers to the left:</p>
+        <div class="calc">20 − 2 = Q + 4Q<br>
+        18 = 5Q</div>
+
+        <p>Шаг 3. Разделите обе части на 5:</p>
+<p class="en-p"><strong>Step 3.</strong> Divide both sides by 5:</p>
+        <div class="calc">Q* = 18 / 5 = <strong>3.6</strong></div>
+
+        <p>Шаг 4. Подставьте Q* = 3,6 в уравнение предложения (это проще):</p>
+<p class="en-p"><strong>Step 4.</strong> Plug Q* = 3.6 into the supply equation (it's the easier one):</p>
+        <div class="calc">P* = 2 + 3.6 = <strong>5.6</strong></div>
+
+        <p>Проверять. Подставим в уравнение спроса:</p>
+<p class="en-p"><strong>Check.</strong> Plug into the demand equation:</p>
+        <div class="calc">P = 20 − 4·3.6 = 20 − 14.4 = 5.6 ✓</div>
+
+        <p>Ответ: P* = 5,6, Q* = 3,6.</p>
+<p class="en-p"><strong>Answer:</strong> P* = <strong>5.6</strong>, Q* = <strong>3.6</strong>.</p>
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="anchoring">6. Якорение (эвристика) <span class="ch-tag">Ch. 7, p. 226</span></h2>
+    <h3>What is this?</h3>
+    <p>До сих пор мы предполагали, что люди рациональны: они знают все факты, тщательно рассчитывают и не делают глупых ошибок. Глава 7 «Фрэнка» разрушает эту картину. Реальные люди мыслят эвристикой (быстрыми умственными сокращениями) и в результате совершают систематические ошибки.</p>
+<p class="en-p">Up to now we assumed people are <strong>rational</strong>: they know all the facts, calculate carefully, and don't make foolish mistakes. Chapter 7 of Frank breaks that picture. Real people think with <strong>heuristics</strong> (fast mental shortcuts), and as a result they make systematic mistakes.</p>
+    <p>Одной из таких эвристик является «привязка и корректировка». Его описали психологи Тверски и Канеман в 1970-х годах.</p>
+<p class="en-p">One such heuristic is <strong>"anchoring and adjustment"</strong>. It was described by psychologists <strong>Tversky and Kahneman</strong> in the 1970s.</p>
+
+    <h3>How anchoring works</h3>
+    <p>Когда человеку нужно подсчитать какое-то число (которое он на самом деле не знает), он обычно:</p>
+<p class="en-p">When a person has to estimate some number (one they don't really know), they typically:</p>
+    <ol>
+        <li>Выберите стартовый номер — «якорь». Часто это число случайное или исходит из самого вопроса.</li>
+<li class="en-p"><strong>Pick a starting number</strong> — the "anchor". Often this number is random or comes from the question itself.</li>
+        <li>Настройте якорь в сторону правильного ответа.</li>
+<li class="en-p"><strong>Adjust</strong> the anchor toward the right answer.</li>
+        <li>Но они слишком мало подстраиваются — застревают возле якоря.</li>
+<li class="en-p">But they <strong>adjust too little</strong> — they get stuck near the anchor.</li>
+    </ol>
+    <p>Результат: окончательный ответ зависит от якоря, даже если якорь не имеет никакого отношения к вопросу.</p>
+<p class="en-p">The result: <strong>the final answer depends on the anchor</strong>, even if the anchor has nothing to do with the question.</p>
+
+    <div class="example-box">
+        <h4>The textbook's main example — the wheel of fortune</h4>
+        <p>Тверски и Канеман провели такой эксперимент:</p>
+<p class="en-p">Tversky and Kahneman ran this experiment:</p>
+        <ol>
+            <li>Студент наблюдал за рулеткой с числами от 0 до 100. Колесо вращалось и останавливалось на каком-то «случайном» числе. На самом деле колесо было сфальсифицировано: половина участников всегда видела 10, другая половина — 65.</li>
+<li class="en-p">A student watched a roulette wheel with numbers from 0 to 100. The wheel was spun and stopped on some "random" number. In reality the wheel was rigged: half of the participants always saw <strong>10</strong>, the other half saw <strong>65</strong>.</li>
+            <li>Сразу после этого студента спросили: «Какой процент стран в ООН являются африканскими?» (правильный ответ – около 25%).</li>
+<li class="en-p">Right after that the student was asked: <em>"What percentage of countries in the UN are African?"</em> (the correct answer is around 25%).</li>
+            <li>Сначала их спросили, была ли их оценка выше или ниже номера колеса.</li>
+<li class="en-p">First they were asked whether their estimate was higher or lower than the wheel's number.</li>
+            <li>Затем у них спросили их собственный номер.</li>
+<li class="en-p">Then they were asked for their own number.</li>
+        </ol>
+        <p>Результаты:</p>
+<p class="en-p"><strong>Results:</strong></p>
+        <ul>
+            <li>Показанных 10 → средний ответ ≈ 25%.</li>
+<li class="en-p">Those shown <strong>10</strong> → average answer ≈ <strong>25%</strong>.</li>
+            <li>Показанных 65 → средний ответ ≈ 45%.</li>
+<li class="en-p">Those shown <strong>65</strong> → average answer ≈ <strong>45%</strong>.</li>
+        </ul>
+        <p>Это огромный разрыв (20 пунктов!) — и номер колеса не имеет никакого отношения к ООН. Студенты «прилипли» к якорю.</p>
+<p class="en-p">That's a huge gap (20 points!) — and the wheel's number has <strong>nothing</strong> to do with the UN. Students "stuck" to the anchor.</p>
+    </div>
+
+    <div class="why-box">Наш мозг ленив. Чтобы оценить, «какая часть стран ООН является африканскими», вам нужно вспомнить географию, политику и посчитать. Это сложно. Легче взять любое число, которое сейчас у вас в голове (даже случайное), и немного подтолкнуть его к тому, что кажется правильным. Это подталкивание закрепляет.<br><br>
+        
+        Our brain is lazy. To estimate "what fraction of UN countries are African", you'd need to recall geography, politics, and count. That's hard. It's easier to grab <strong>any</strong> number currently in your head (even a random one) and nudge it a bit toward what feels right. That nudging is anchoring.
+    </div>
+
+    <h3>Why this matters for economics</h3>
+    <p>Якорение объясняет многие явления реального мира:</p>
+<p class="en-p">Anchoring explains many real-world phenomena:</p>
+    <ul>
+        <li>Цены «было $X, теперь $Y»: первоначальный $X заставляет вас думать, что $Y — это отличная сделка, даже если реальная стоимость намного ниже.</li>
+<li class="en-p"><strong>"Was $X, now $Y" prices:</strong> the original $X anchors you to thinking $Y is a great deal, even if the real value is much lower.</li>
+        <li>Первое предложение в переговорах: тот, кто говорит первым, ставит якорь.</li>
+<li class="en-p"><strong>The first offer in a negotiation:</strong> whoever speaks first sets the anchor.</li>
+        <li>Меню ресторана: чрезвычайно дорогое блюдо наверху делает все остальное доступным.</li>
+<li class="en-p"><strong>Restaurant menus:</strong> an extremely expensive dish at the top makes everything else look affordable.</li>
+    </ul>
+
+    <p>Привязка — это часть ограниченной рациональности — основная тема главы 7: реальные люди не совсем рациональны.</p>
+<p class="en-p">Anchoring is part of <strong>bounded rationality</strong> — the main theme of Chapter 7: real people are not perfectly rational.</p>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="tp-mp-ap">7. Общий, предельный, средний продукт <span class="ch-tag">Ch. 8, p. 241</span></h2>
+    <h3>Why do we need this?</h3>
+    <p>До сих пор мы говорили о покупателях и продавцах. Теперь давайте заглянем внутрь фирмы: как она на самом деле производит продукцию? Какие входы он использует?</p>
+<p class="en-p">So far we've talked about buyers and sellers. Now let's look <strong>inside the firm</strong>: how does it actually produce the product? What inputs does it use?</p>
+    <p>В главе 8 Фрэнк делает простейшее предположение: у фирмы есть два ресурса — труд L (рабочие) и капитал К (машины, пространство).</p>
+<p class="en-p">In Chapter 8 Frank makes <strong>the simplest assumption</strong>: the firm has two inputs — <strong>labour L</strong> (workers) and <strong>capital K</strong> (machines, space).</p>
+    <p>В краткосрочном периоде K фиксирован: вы не сможете построить новую фабрику за день или два. Но вы можете варьировать L — нанять больше работников или уволить некоторых. Итак, K фиксирован, L — переменен.</p>
+<p class="en-p">In the <strong>short run</strong>, K is fixed: you can't build a new factory in a day or two. But you can vary L — hire more workers or fire some. So K is fixed, L is variable.</p>
+
+    <h3>The three "products"</h3>
+    <p>Фрэнк определяет три концепции, описывающие, как изменяется выпуск при добавлении работников:</p>
+<p class="en-p">Frank defines three concepts to describe how output changes as we add workers:</p>
+
+    <h4>1. Total product TP</h4>
+    <p>Это просто количество единиц продукции, которое фирма производит при данном количестве рабочих L. Также обозначается как Q (выпуск).</p>
+<p class="en-p">It's just <strong>how many units the firm produces</strong> at a given number of workers L. Also written as Q (output).</p>
+    <div class="formula-box">TP = Q = f(L, K̄)</div>
+    <p>Черта над буквой K напоминает нам, что K фиксирован.</p>
+<p class="en-p">The bar over K reminds us that K is fixed.</p>
+
+    <h4>2. Marginal product of labour MP<sub>L</sub></h4>
+    <p>Это дополнительная продукция, произведенная еще одним работником. «Маргинальный» = «следующий».</p>
+<p class="en-p">It's the <strong>extra output produced by one more worker</strong>. "Marginal" = "the next one".</p>
+    <div class="formula-box">MP<sub>L</sub> = ΔQ / ΔL</div>
+    <p>Прочтите это так: «На сколько вырастет Q, когда L вырастет на 1?» Если 5 рабочих производят 50 деталей, а 6 рабочих — 56, то MP L 6-го рабочего = 56 − 50 = 6 деталей.</p>
+<p class="en-p">Read it as: "by how much does Q grow when L grows by 1?" If 5 workers make 50 parts and 6 workers make 56, then MP<sub>L</sub> of the 6th worker = 56 − 50 = 6 parts.</p>
+
+    <h4>3. Average product of labour AP<sub>L</sub></h4>
+    <p>Это то, сколько единиц продукции в среднем производит каждый рабочий.</p>
+<p class="en-p">It's <strong>how many units of output, on average, each worker produces</strong>.</p>
+    <div class="formula-box">AP<sub>L</sub> = Q / L</div>
+    <p>Если 6 рабочих производят 56 деталей, AP L = 56/6 ≈ 9,3 детали на одного рабочего.</p>
+<p class="en-p">If 6 workers make 56 parts, AP<sub>L</sub> = 56 / 6 ≈ 9.3 parts per worker.</p>
+
+    <h3>Law of diminishing returns</h3>
+    <p>Это основной закон Главы 8:</p>
+<p class="en-p">This is the <strong>main law of Chapter 8</strong>:</p>
+    <div class="key-box">Если вы продолжаете добавлять больше переменных затрат (рабочих) к фиксированному количеству других ресурсов (машин, цехов), рано или поздно предельный продукт начнет падать.<br><br>
+        
+        If you keep adding more of a variable input (workers) to a <strong>fixed</strong> amount of another input (the machine, the shop floor), sooner or later the <strong>marginal product will start to fall</strong>.
+    </div>
+
+    <div class="story-box">
+        You have one small kitchen and you keep hiring cooks.
+        <ul>
+            <li>1 повар — готовит 10 блюд/час. МП = 10.</li>
+<li class="en-p">1 cook — makes 10 dishes/hour. MP = 10.</li>
+            <li>2 повара — 25 блюд/час (один отбивной, другой жарит). МП 2-го = 15. 🚀</li>
+<li class="en-p">2 cooks — 25 dishes/hour (one chops, one fries). MP of the 2nd = 15. 🚀</li>
+            <li>3 повара — 35 блюд/час. МП 3-го = 10.</li>
+<li class="en-p">3 cooks — 35 dishes/hour. MP of the 3rd = 10.</li>
+            <li>4 повара — 40 блюд/час. MP 4-го = 5. Они начинают натыкаться друг на друга.</li>
+<li class="en-p">4 cooks — 40 dishes/hour. MP of the 4th = 5. They start bumping into each other.</li>
+            <li>5 поваров — 41 блюдо/час. МП 5-го числа = 1. На кухне тесно.</li>
+<li class="en-p">5 cooks — 41 dishes/hour. MP of the 5th = 1. The kitchen is crowded.</li>
+            <li>6 поваров — 38 блюд/час. МП 6-го = −3! Кто-то уронил горшок.</li>
+<li class="en-p">6 cooks — 38 dishes/hour. MP of the 6th = −3! Someone dropped a pot.</li>
+        </ul>
+        That's diminishing returns: the kitchen (K) is small, the workers (L) too many.
+    </div>
+
+    <h3>The relationship between MP and AP — exam-favorite rule</h3>
+    <p>У этих кривых есть прекрасное свойство, очень часто проверяемое:</p>
+<p class="en-p">These curves have a beautiful property, very often tested:</p>
+    <ul>
+        <li>Хотя MP &gt; AP → AP растет.</li>
+<li class="en-p">While <strong>MP &gt; AP</strong> → AP is <strong>rising</strong>.</li>
+        <li>Когда MP &lt; AP → AP падает.</li>
+<li class="en-p">When <strong>MP &lt; AP</strong> → AP is <strong>falling</strong>.</li>
+        <li>Следовательно, MP пересекает AP точно в максимуме AP.</li>
+<li class="en-p">Therefore MP crosses AP <strong>exactly at the maximum of AP</strong>.</li>
+    </ul>
+
+    <div class="why-box">
+        It's the same logic as the class average. Suppose the average grade is 7. A new student joins:
+        <ul>
+            <li>Если их рейтинг (МП) выше 7 → средний показатель увеличивается.</li>
+<li class="en-p">If their grade (MP) is above 7 → the average goes up.</li>
+            <li>Если ниже 7 → среднее значение снижается.</li>
+<li class="en-p">If below 7 → the average goes down.</li>
+            <li>Если ровно 7 → среднее значение остается неизменным (на своем пике).</li>
+<li class="en-p">If exactly 7 → the average stays put (at its peak).</li>
+        </ul>
+        The new student is the marginal product. The class is the average product. Simple arithmetic.
+    </div>
+
+    <p>Еще одно полезное свойство:</p>
+<p class="en-p">Another useful property:</p>
+    <ul>
+        <li>TP достигает своего пика при MP = 0. Логично: если следующий рабочий ничего не добавляет (MP = 0), TP перестает расти. Если они мешаются (MP<0), ТП падает.</li>
+<li class="en-p"><strong>TP reaches its peak</strong> where <strong>MP = 0</strong>. Logical: if the next worker adds nothing (MP = 0), TP stops growing. If they get in the way (MP &lt; 0), TP falls.</li>
+    </ul>
+
+    <div>
+        <svg class="svg-graph" viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="210"/>
+            <line class="axis" x1="50" y1="210" x2="360" y2="210"/>
+            <path class="mc" d="M 60 200 Q 130 60 200 120 T 340 200"/>
+            <path class="avc" d="M 60 195 Q 200 80 340 175"/>
+            <text x="120" y="80" fill="#2980b9">MP<tspan baseline-shift="sub" font-size="10">L</tspan></text>
+            <text x="280" y="130" fill="#16a085">AP<tspan baseline-shift="sub" font-size="10">L</tspan></text>
+            <text x="22" y="22">MP, AP</text>
+            <text x="345" y="225">L</text>
+        </svg>
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="sr-costs">8. Издержки в коротком периоде (TC, FC, VC) <span class="ch-tag">Ch. 9, p. 266</span></h2>
+    <h3>Where do costs come from?</h3>
+    <p>Издержки фирмы — это деньги, которые она тратит на ресурсы. На рабочих (зарплата ж·Л), на оборудование (аренда г·К), на сырье и т.д.</p>
+<p class="en-p">The firm's costs are <strong>the money it spends on inputs</strong>. On workers (wages w·L), on equipment (rental r·K), on raw materials, and so on.</p>
+    <p>В краткосрочном периоде фирма имеет два вида издержек:</p>
+<p class="en-p">In the short run, the firm has two types of costs:</p>
+
+    <h4>Fixed cost FC</h4>
+    <p>Стоимость, которая не зависит от того, сколько вы производите. Аренда здания, аренда оборудования, страхование.</p>
+<p class="en-p">Cost that <strong>does not depend</strong> on how much you produce. Rent on the building, equipment lease, insurance.</p>
+    <p>«Исправлено», потому что:</p>
+<p class="en-p">"Fixed" because:</p>
+    <ul>
+        <li>Если вы производите 0 единиц — вы все равно платите.</li>
+<li class="en-p">If you produce 0 units — you still pay.</li>
+        <li>Если вы производите 100 единиц — вы платите столько же.</li>
+<li class="en-p">If you produce 100 units — you pay the same.</li>
+        <li>Если 1 000 — всё равно.</li>
+<li class="en-p">If 1 000 — still the same.</li>
+    </ul>
+    <p>Думайте об этом как об интернет-подписке: используете ее или нет, вы все равно платите 20 долларов в месяц.</p>
+<p class="en-p">Think of it like an internet subscription: use it or not, you still pay $20/month.</p>
+
+    <h4>Variable cost VC</h4>
+    <p>Затраты, которые растут вместе с выпуском. Заработная плата (больше продукции → больше рабочих/часов), сырье (больше деталей → больше металла), электричество.</p>
+<p class="en-p">Cost that <strong>grows with output</strong>. Wages (more output → more workers/hours), raw materials (more parts → more metal), electricity.</p>
+    <p>Если фирма ничего не производит, VC = 0.</p>
+<p class="en-p">If the firm produces nothing, VC = 0.</p>
+
+    <h4>Total cost TC</h4>
+    <div class="formula-box">
+        <strong>TC = FC + VC</strong>
+    </div>
+    <p>Просто: добавьте фиксированную и переменную.</p>
+<p class="en-p">Simple: add fixed and variable.</p>
+
+    <div class="example-box">
+        <h4>Numerical example</h4>
+        <p>Небольшая пекарня:</p>
+<p class="en-p">A small bakery:</p>
+        <ul>
+            <li>Аренда магазина и оборудования — $1 000/мес → ФК.</li>
+<li class="en-p">Rent on the shop and equipment — <strong>$1 000/month</strong> → FC.</li>
+            <li>Мука, ​​сахар, зарплата пекаря — 2 доллара за багет → ВК.</li>
+<li class="en-p">Flour, sugar, baker's wage — <strong>$2 per baguette</strong> → VC.</li>
+        </ul>
+        <p>Если Q = 500 багетов/месяц:</p>
+<p class="en-p">If Q = 500 baguettes/month:</p>
+        <div class="calc">FC = 1 000<br>
+        VC = 2 · 500 = 1 000<br>
+        TC = 1 000 + 1 000 = <strong>$2 000</strong></div>
+        <p>Если Q = 0 (закрыто по праздникам):</p>
+<p class="en-p">If Q = 0 (closed for the holidays):</p>
+        <div class="calc">FC = 1 000 (still has to pay!)<br>
+        VC = 0<br>
+        TC = $1 000</div>
+    </div>
+
+    <div class="key-box">Большая краткосрочная идея: вы не можете уменьшить FC, что бы вы ни делали. Это «застрявшие» деньги. По-английски их также называют невозвратными издержками, что важно позже, когда мы спросим: «Когда фирме следует закрыться?»<br><br>
+        
+        <strong>The big short-run idea:</strong> you cannot reduce FC, no matter what you do. It's "stuck" money. In English these are also called <strong>sunk costs</strong> — important later when we ask "when should a firm shut down?"
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="other-sr-costs">9. Средние и предельные издержки (AVC, ATC, MC) <span class="ch-tag">Ch. 9, p. 270</span></h2>
+    <h3>Why four more curves?</h3>
+    <p>TC, FC, VC — итоги за период. Но зачастую полезнее спросить: «Сколько мне стоит одна единица товара?». Из итогов мы получаем четыре «средних/предельных» показателя.</p>
+<p class="en-p">TC, FC, VC are <strong>totals</strong> for a period. But it's often more useful to ask "<strong>what does one unit of product cost me?</strong>". From the totals we get four "average/marginal" measures.</p>
+
+    <h4>AFC — average fixed cost</h4>
+    <div class="formula-box">AFC = FC / Q</div>
+    <p>«Какая часть фиксированной стоимости приходится на каждую единицу». Эта кривая всегда падает с ростом Q: один и тот же FC распространяется на все большее количество единиц.</p>
+<p class="en-p">"How much of the fixed cost falls on each unit." This curve <strong>always falls</strong> as Q grows: the same FC is spread over more and more units.</p>
+    <p>Если FC = 1 000 долл., то при Q = 100 AFC = 10 долл./ед.; при Q = 1 000 AFC = 1 доллар США/единица.</p>
+<p class="en-p"><em>If FC = $1 000, then at Q = 100 AFC = $10/unit; at Q = 1 000 AFC = $1/unit.</em></p>
+
+    <h4>AVC — average variable cost</h4>
+    <div class="formula-box">AVC = VC / Q</div>
+    <p>«Какая часть переменных затрат на единицу продукции». Обычно U-образная: сначала падает, затем поднимается.</p>
+<p class="en-p">"How much of the variable cost per unit." Typically <strong>U-shaped</strong>: first falls, then rises.</p>
+
+    <h4>ATC — average total cost</h4>
+    <div class="formula-box">ATC = TC / Q = AFC + AVC</div>
+    <p>«Все затраты за единицу». Тоже U-образный.</p>
+<p class="en-p">"All costs per unit." Also <strong>U-shaped</strong>.</p>
+
+    <h4>MC — marginal cost</h4>
+    <p>Самая важная концепция здесь. Стоимость производства еще одной, следующей единицы.</p>
+<p class="en-p">The most important concept here. The <strong>cost of producing one more, the next unit</strong>.</p>
+    <div class="formula-box">MC = ΔTC / ΔQ = ΔVC / ΔQ</div>
+    <p>(ΔTC = ΔVC, поскольку FC не меняется — оно фиксировано.)</p>
+<p class="en-p">(ΔTC = ΔVC because FC doesn't change — it's fixed.)</p>
+
+    <h3>The key property: "MC crosses AVC and ATC at their minima"</h3>
+    <p>Та же логика, что и ранее у MP и AP:</p>
+<p class="en-p">Same logic as MP and AP earlier:</p>
+
+    <div class="why-box">
+        Suppose the firm's average cost right now is $10/unit. Consider producing one more unit. If its marginal cost is:
+        <ul>
+            <li>MC = 7 долларов США (меньше среднего) → эта единица «дешевле, чем обычно» → средний показатель упадет.</li>
+<li class="en-p">MC = $7 (less than average) → this unit is "cheaper than usual" → average will <strong>fall</strong>.</li>
+            <li>MC = $15 (больше среднего) → «дороже обычного» → средний показатель вырастет.</li>
+<li class="en-p">MC = $15 (more than average) → "more expensive than usual" → average will <strong>rise</strong>.</li>
+            <li>MC = 10$ (равно среднему) → ничего не меняется → средний индекс находится в точке разворота (своем минимуме).</li>
+<li class="en-p">MC = $10 (equal to average) → nothing changes → the average is at its <strong>turning point</strong> (its minimum).</li>
+        </ul>
+        That is exactly why MC crosses ATC and AVC at their <strong>minimum</strong>.
+    </div>
+
+    <div>
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="230"/>
+            <line class="axis" x1="50" y1="230" x2="380" y2="230"/>
+            <path class="mc" d="M 60 220 Q 150 100 220 120 T 360 50"/>
+            <path class="avc" d="M 60 215 Q 200 170 360 110"/>
+            <path class="ac" d="M 60 210 Q 220 140 360 90"/>
+            <circle class="pt" cx="180" cy="160" r="4"/>
+            <circle class="pt" cx="240" cy="140" r="4"/>
+            <text x="65" y="100" fill="#2980b9">MC</text>
+            <text x="345" y="125" fill="#16a085">AVC</text>
+            <text x="345" y="85" fill="#8e44ad">ATC</text>
+            <text x="22" y="22">$/Q</text>
+            <text x="370" y="245">Q</text>
+            <text x="155" y="180" font-size="10">min AVC</text>
+            <text x="220" y="165" font-size="10">min ATC</text>
+        </svg>
+    </div>
+
+    <h3>Link to the production function</h3>
+    <p>Фрэнк подчеркивает, что затраты — это всего лишь «зеркальное отражение» производства. Если каждому рабочему платят одинаковую заработную плату w, то:</p>
+<p class="en-p">Frank emphasises that costs are just a "mirror image" of production. If every worker is paid the same wage w, then:</p>
+    <div class="formula-box">
+        MC = w / MP<sub>L</sub> &nbsp; and &nbsp; AVC = w / AP<sub>L</sub>
+    </div>
+    <p>Почему? Один дополнительный рабочий стоит w долларов и производит дополнительных единиц MP L. Значит стоимость одной дополнительной единицы = ж/МП L = MC.</p>
+<p class="en-p">Why? One extra worker costs w dollars and produces MP<sub>L</sub> extra units. So the cost of one extra unit = w / MP<sub>L</sub> = MC.</p>
+    <p>Когда MP падает (убывающая доходность), MC возрастает. Вот почему MC имеет U-образную форму.</p>
+<p class="en-p">When MP falls (diminishing returns), MC rises. That's why MC is U-shaped.</p>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="lr-costs">10. Издержки в долгом периоде <span class="ch-tag">Ch. 9, p. 278</span></h2>
+    <h3>What changes in the long run?</h3>
+    <p>В конечном итоге у фирмы будет достаточно времени, чтобы все изменить: построить новый цех, купить новые станки, переехать в другой город.</p>
+<p class="en-p">In the long run the firm has <strong>enough time</strong> to change <strong>everything</strong>: build a new shop, buy new machines, move to another city.</p>
+    <p>Итак, теперь все входные данные являются переменными. ФК больше нет — можно все изменить.</p>
+<p class="en-p">So now <strong>all inputs are variable</strong>. There's no FC anymore — you can change everything.</p>
+
+    <p>Главный вопрос фирмы: какая комбинация L и K дает мне желаемый Q при наименьших затратах?</p>
+<p class="en-p">The firm's main question: <strong>which combination of L and K gives me the desired Q at the lowest cost?</strong></p>
+
+    <h3>Tool 1: the isoquant</h3>
+    <p>«Кривая равного выхода». Все точки на нем дают один и тот же Q, но с разными комбинациями L и K.</p>
+<p class="en-p">An <strong>"equal-output curve"</strong>. All points on it give the same Q, but with different combinations of L and K.</p>
+    <div class="story-box">
+        To bake 100 pies per day, you could:
+        <ul>
+            <li>Наймите 10 пекарей с 2 ​​печами (много труда, мало капитала).</li>
+<li class="en-p">Hire 10 bakers with 2 ovens (lots of labour, little capital).</li>
+            <li>Наймите 3 пекарей с 5 печами (мало труда, много капитала).</li>
+<li class="en-p">Hire 3 bakers with 5 ovens (little labour, lots of capital).</li>
+            <li>И много вариантов между ними.</li>
+<li class="en-p">And many options in between.</li>
+        </ul>
+        All these options sit on <strong>one isoquant "Q = 100 pies"</strong>.
+    </div>
+    <p>Изокванты обычно выпуклы к началу координат, потому что L и K не являются идеальными заменителями.</p>
+<p class="en-p">Isoquants are usually convex toward the origin — because L and K aren't perfect substitutes.</p>
+
+    <h3>Tool 2: the isocost</h3>
+    <p>«Линия равной стоимости». Все баллы по нему стоят одну и ту же общую сумму C.</p>
+<p class="en-p">An <strong>"equal-cost line"</strong>. All points on it cost the same total amount C.</p>
+    <p>Пусть w — заработная плата (долларов на рабочего), а r — стоимость аренды капитала (долларов на единицу К). Затем:</p>
+<p class="en-p">Let w be the wage ($/worker) and r the rental cost of capital ($/unit of K). Then:</p>
+    <div class="formula-box">
+        C = w · L + r · K
+    </div>
+    <p>Решение для К:</p>
+<p class="en-p">Solving for K:</p>
+    <div class="formula-box">
+        K = (C / r) − (w / r) · L
+    </div>
+    <p>Это прямая линия с наклоном −w/r. Чем дороже рабочая сила (выше w), тем круче изокоста.</p>
+<p class="en-p">This is a straight line with slope <strong>−w/r</strong>. The more expensive labour (higher w), the steeper the isocost.</p>
+    <p>Изокосты, расположенные дальше от начала координат, представляют больший общий бюджет.</p>
+<p class="en-p">Isocosts farther from the origin represent larger total budgets.</p>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="optimal-input">11. Оптимальная комбинация ресурсов <span class="ch-tag">Ch. 9</span></h2>
+    <h3>Where is the optimum?</h3>
+    <p>Фирма хочет производить заданное количество Q при минимальных затратах. Итак: оставайтесь на нужной изокванте, но касайтесь минимально возможной изокосты.</p>
+<p class="en-p">The firm wants to produce a given Q at minimum cost. So: stay on the required isoquant, but touch the <strong>lowest possible</strong> isocost.</p>
+    <p>Геометрически это точка касания изокванты и изокосты (рис. 9.10 в книге).</p>
+<p class="en-p">Geometrically this is the <strong>point of tangency</strong> between an isoquant and an isocost (Figure 9.10 in the book).</p>
+
+    <div>
+        <svg class="svg-graph" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="230"/>
+            <line class="axis" x1="50" y1="230" x2="360" y2="230"/>
+            <path d="M 70 50 Q 100 130 200 170 T 340 220" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <line stroke="#e67e22" stroke-width="2" x1="60" y1="60" x2="320" y2="220"/>
+            <circle class="pt" cx="170" cy="150" r="5"/>
+            <text x="345" y="225" fill="#27ae60">isoquant Q</text>
+            <text x="180" y="142" font-size="11">optimum</text>
+            <text x="270" y="195" fill="#e67e22">isocost</text>
+            <text x="22" y="22">K</text>
+            <text x="355" y="245">L</text>
+        </svg>
+    </div>
+
+    <h3>The optimum condition</h3>
+    <p>При касании наклоны равны. Наклон изокосты = −w/r. Наклон изокванты представляет собой предельную норму технического замещения (MRTS) = MP L/MP K.</p>
+<p class="en-p">At the tangency, the slopes are equal. Slope of the isocost = −w/r. Slope of the isoquant is the <strong>marginal rate of technical substitution (MRTS)</strong> = MP<sub>L</sub>/MP<sub>K</sub>.</p>
+    <p>Ставим их равными:</p>
+<p class="en-p">Setting them equal:</p>
+    <div class="formula-box">
+        <strong>MP<sub>L</sub> / MP<sub>K</sub> = w / r</strong>
+    </div>
+    <p>Это часто переписывается более интуитивно:</p>
+<p class="en-p">This is often rewritten more intuitively:</p>
+    <div class="formula-box">
+        <strong>MP<sub>L</sub> / w = MP<sub>K</sub> / r</strong>
+    </div>
+
+    <h3>What does this mean in plain words?</h3>
+    <div class="why-box">
+        Imagine you have $1 in your pocket. Should you spend it on labour or on capital?
+        <ul>
+            <li>За 1 доллар труда можно купить дополнительные единицы продукции MP L/w (вы можете нанять 1/w рабочего, который производит MP L ·(1/w) = единиц MP L/w).</li>
+<li class="en-p">$1 on labour buys <strong>MP<sub>L</sub> / w</strong> extra units of output (you can hire 1/w of a worker, who produces MP<sub>L</sub>·(1/w) = MP<sub>L</sub>/w units).</li>
+            <li>1 доллар капитала покупает дополнительные единицы MP K/r.</li>
+<li class="en-p">$1 on capital buys <strong>MP<sub>K</sub> / r</strong> extra units.</li>
+        </ul>
+        At the optimum these two "outputs per dollar" are <strong>equal</strong>. If they weren't, you could shift money to the better input and get more output for the same cost (or the same output for less).
+    </div>
+
+    <div class="example-box">
+        <h4>Example (textbook, p. 280–281)</h4>
+        <p>Предположим, что фирма находится в оптимальном состоянии. Теперь заработная плата w повышается (скажем, профсоюз добился повышения).</p>
+<p class="en-p">Suppose the firm is at the optimum. Now the wage <strong>w rises</strong> (say, the union won a raise).</p>
+        <ul>
+            <li>Теперь w/r выше → изокоста становится круче.</li>
+<li class="en-p">Now w/r is higher → the isocost becomes <strong>steeper</strong>.</li>
+            <li>Точка касания с той же изоквантой смещается вверх и влево.</li>
+<li class="en-p">The tangency point with the same isoquant <strong>shifts up and to the left</strong>.</li>
+            <li>Это означает: теперь фирма использует больше K и меньше L.</li>
+<li class="en-p">That means: the firm now uses <strong>more K and less L</strong>.</li>
+        </ul>
+        <p>Логично: рабочая сила подорожала — замените ее более дешевым капиталом (роботами).</p>
+<p class="en-p">Logical: labour got pricier — substitute it with cheaper capital (robots).</p>
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="industry-structure">12. Долгие издержки и структура отрасли <span class="ch-tag">Ch. 9, p. 286</span></h2>
+    <h3>LAC — the main long-run curve</h3>
+    <p>В краткосрочной перспективе предприятие каждого размера имеет свой собственный SAC. В долгосрочном периоде фирма может выбрать любой размер. Кривая, показывающая минимально возможный ATC при идеально выбранном размере, представляет собой LAC (долгосрочные средние издержки).</p>
+<p class="en-p">In the short run, each plant size has its own SAC. In the long run the firm can pick <strong>any</strong> size. The curve showing <strong>the lowest possible ATC at the perfectly chosen size</strong> is the <strong>LAC</strong> (long-run average cost).</p>
+    <p>Геометрически ЛАК представляет собой «оболочку» всех САК снизу (рис. 9.13). Каждый SAC касается LAC только в одной точке.</p>
+<p class="en-p">Geometrically, LAC is the <strong>"envelope"</strong> of all SACs from below (Figure 9.13). Each SAC touches LAC at just one point.</p>
+
+    <h3>Three shapes of LAC → three types of industries</h3>
+
+    <h4>1. LAC falls — economies of scale</h4>
+    <p>Более крупная фирма производит дешевле, чем меньшая. Чем больше, тем дешевле.</p>
+<p class="en-p">A bigger firm produces more cheaply than a smaller one. The bigger, the cheaper.</p>
+    <p>Что за промышленность? Если одна фирма становится огромной, ее затраты будут ниже, чем у любого конкурента. Это выталкивает всех. Получаем монополию (или олигополию).</p>
+<p class="en-p"><strong>What kind of industry?</strong> If one firm grows huge, its costs are below any rival's. It pushes everyone out. We get a <strong>monopoly</strong> (or an oligopoly).</p>
+    <p>Примеры: электричество, водоснабжение, газораспределение. Прокладывать вторую трубопроводную сеть параллельно первой нет смысла. Это «естественные монополии».</p>
+<p class="en-p"><em>Examples: electricity, water supply, gas distribution. Laying a second pipe network parallel to the first makes no sense. These are "natural monopolies".</em></p>
+
+    <h4>2. LAC rises — diseconomies of scale</h4>
+    <p>Более крупная фирма работает хуже, чем меньшая. Слишком много управления, бюрократии, раздробленности.</p>
+<p class="en-p">A bigger firm works <strong>worse</strong> than a smaller one. Too much management, bureaucracy, fragmentation.</p>
+    <p>Что за промышленность? Большие фирмы нерентабельны → в отрасли полно мелких фирм. Близость к совершенной конкуренции.</p>
+<p class="en-p"><strong>What kind of industry?</strong> Big firms aren't profitable → the industry is full of <strong>small firms</strong>. Close to perfect competition.</p>
+    <p>Примеры: парикмахерские, рестораны, ремонтные мастерские. Огромный ресторан зачастую хуже маленького домашнего.</p>
+<p class="en-p"><em>Examples: hair salons, restaurants, repair shops. A huge restaurant is often worse than a small home-style one.</em></p>
+
+    <h4>3. LAC is flat — constant returns to scale</h4>
+    <p>Размер не имеет значения — стоимость единицы одинакова.</p>
+<p class="en-p">Size doesn't matter — unit cost is the same.</p>
+    <p>В отрасли могут присутствовать как мелкие, так и крупные фирмы.</p>
+<p class="en-p">The industry can have a mix of small and large firms.</p>
+
+    <div class="key-box">Большая идея Ч. 9: форма LAC предсказывает, какую отрасль мы увидим. Падение LAC → монополия. Рост LAC → множество мелких фирм.<br><br>
+        
+        <strong>The big idea of Ch. 9:</strong> the shape of LAC <strong>predicts</strong> what kind of industry we will see. Falling LAC → monopoly. Rising LAC → many small firms.
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="profit-max">13. Как фирма максимизирует прибыль <span class="ch-tag">Ch. 10, p. 305</span></h2>
+    <div class="quick-box"><strong>In brief:</strong>
+        <ul>
+            <li>Общее правило: MR = MC; в условиях конкуренции MR = P → P = MC.</li>
+<li class="en-p">General rule: <strong>MR = MC</strong>; under competition <strong>MR = P</strong> → <strong>P = MC</strong>.</li>
+            <li>Та же логика, что и на рис. 1.1: оптимальное количество, где MB = MC.</li>
+<li class="en-p">Same logic as <strong>Figure 1.1</strong>: optimal quantity where <strong>MB = MC</strong>.</li>
+            <li>Кривая предложения фирмы = MC выше минимального AVC (рис. 10.4).</li>
+<li class="en-p">Firm's supply curve = <strong>MC above minimum AVC</strong> (Figure 10.4).</li>
+        </ul>
+    </div>
+
+    <div class="figure-box">
+        <span class="fig-label">FIGURE 1.1 — The Optimal Quantity of Conversation</span>
+        <p>Оптимальный объем любой непрерывно изменяющейся деятельности такой, при котором предельная выгода MB равна предельным издержкам MC. Пример: MB падает, MC остается неизменным на уровне 4 центов/мин → оптимум = 400 минут/месяц.</p>
+<p class="en-p">The optimal amount of any continuously variable activity is where <strong>marginal benefit MB equals marginal cost MC</strong>. Example: MB falls, MC is flat at 4¢/min → optimum = 400 minutes/month.</p>
+    </div>
+
+    <div class="book-quote"><p>Оптимальный объем непрерывно изменяющейся деятельности — это объем, при котором его предельная выгода точно равна его предельным издержкам.</p>
+<p class="en-p">The optimal amount of a continuously variable activity is the quantity for which its marginal benefit is just equal to its marginal cost.</p></div>
+
+    <div>
+        <svg class="svg-graph" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="210"/>
+            <line class="axis" x1="50" y1="210" x2="380" y2="210"/>
+            <path d="M 70 45 Q 200 100 350 195" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <line stroke="#e74c3c" stroke-width="2.5" x1="50" y1="120" x2="360" y2="120"/>
+            <circle class="pt" cx="200" cy="120" r="5"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="120" x2="200" y2="120"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="200" y1="120" x2="200" y2="210"/>
+            <text x="18" y="24">¢/min</text>
+            <text x="365" y="225">min/month</text>
+            <text x="22" y="124">P=4</text>
+            <text x="188" y="225">400</text>
+            <text x="355" y="200" fill="#2980b9">MB</text>
+            <text x="365" y="115" fill="#e74c3c">MC</text>
+            <text x="200" y="235" text-anchor="middle" font-size="10">Figure 1.1 → for a firm: MB becomes MR (or P)</text>
+        </svg>
+    </div>
+
+    <h3>The setup: perfect competition</h3>
+    <p>В главе 10 рассматривается совершенная конкуренция — рынок с тысячами одинаковых мелких фирм. Ключевые моменты:</p>
+<p class="en-p">Chapter 10 studies <strong>perfect competition</strong> — a market with thousands of identical small firms. The key points:</p>
+    <ul>
+        <li>Каждая фирма – это крошечная капля в океане. Если он хоть чуть-чуть поднимет цену — все покупатели уйдут к соседу.</li>
+<li class="en-p">Each firm is a tiny drop in the ocean. If it raises its price even slightly — all buyers go to a neighbour.</li>
+        <li>Таким образом, фирма принимает рыночную цену как заданную. Это ценополучатель.</li>
+<li class="en-p">So the firm <strong>takes the market price as given</strong>. It's a <strong>price taker</strong>.</li>
+    </ul>
+
+    <h3>What does the firm want to maximise?</h3>
+    <p>Прибыль π:</p>
+<p class="en-p">Profit π:</p>
+    <div class="formula-box">
+        π = revenue − cost = TR − TC = P · Q − TC(Q)
+    </div>
+    <p>P устанавливается рынком (фирма не выбирает). Фирма выбирает только Q — сколько производить. Вопрос: какое Q максимизирует π?</p>
+<p class="en-p">P is set by the market (firm doesn't choose). The firm chooses only <strong>Q</strong> — how much to produce. The question: which Q maximises π?</p>
+
+    <h3>The rule: P = MC</h3>
+    <div class="formula-box" style="text-align:center;font-size:1.15em;">
+        <strong>Profit is maximised when P = MC(Q*)</strong>
+    </div>
+
+    <div class="why-box">
+        Ask whether producing "one more" unit is worth it:
+        <ul>
+            <li>Это принесет дополнительный доход в размере P (вы получите рыночную цену).</li>
+<li class="en-p">It brings in extra revenue of <strong>P</strong> (you'll get the market price).</li>
+            <li>Это требует дополнительных MC (по определению).</li>
+<li class="en-p">It costs extra <strong>MC</strong> (by definition).</li>
+            <li>Если P &gt; MC → еще одна единица увеличивает прибыль. Сделай это. Продолжать идти.</li>
+<li class="en-p">If P &gt; MC → one more unit increases profit. Make it. Keep going.</li>
+            <li>Если P&lt; MC → еще одна единица снижает прибыль. Не делайте этого; остановись раньше.</li>
+<li class="en-p">If P &lt; MC → one more unit shrinks profit. Don't make it; stop earlier.</li>
+            <li>Если P = MC → точно нейтрально. Это оптимум.</li>
+<li class="en-p">If P = MC → exactly neutral. That's the optimum.</li>
+        </ul>
+        "Do it while it's worth it; stop when it isn't" — the most repeated reasoning pattern in economics.
+    </div>
+
+    <h3>P = MR under perfect competition</h3>
+    <p>Общее правило для любой фирмы: MR = MC (предельный доход = предельные издержки).</p>
+<p class="en-p">The general rule for any firm is <strong>MR = MC</strong> (marginal revenue = marginal cost).</p>
+    <p>Для конкурентной фирмы каждая дополнительная единица продается по той же цене P. Таким образом, дополнительный доход от еще одной единицы = P. То есть MR = P.</p>
+<p class="en-p">For a competitive firm, every extra unit sells at the same P. So extra revenue from one more unit = P. That is, <strong>MR = P</strong>.</p>
+    <p>Подключите это к MR = MC, и вы получите P = MC. Частный случай общего правила.</p>
+<p class="en-p">Plug this into MR = MC and you get <strong>P = MC</strong>. A special case of the general rule.</p>
+
+    <div class="example-box">
+        <h4>Textbook example (Figure 10.2)</h4>
+        <p>Рыночная цена P = 20 долларов. Кривая MC растет. Фирма проводит горизонтальную линию на уровне 20 долларов и определяет, где она пересекает MC. Если они встречаются при Q* = 260, фирма производит ровно 260 единиц.</p>
+<p class="en-p">Market price P = $20. The MC curve is rising. The firm draws a horizontal line at $20 and finds where it crosses MC. If they meet at Q* = 260, the firm produces exactly 260 units.</p>
+        <p>Если P вырастет до 25 долларов (точка пересечения сдвинется вверх по кривой MC), фирма будет производить больше. Вот почему часть MC выше AVC представляет собой краткосрочную кривую предложения фирмы (она показывает, сколько фирма будет производить при любом P).</p>
+<p class="en-p">If P rises to $25 — the crossing point slides up the MC curve, the firm produces more. That is why <strong>the part of MC above AVC is the firm's short-run supply curve</strong> (it shows how much the firm will produce at any P).</p>
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="shutdown">14. Когда фирме лучше закрыться <span class="ch-tag">Ch. 10, p. 307</span></h2>
+    <h3>Why would a firm keep operating at a loss?</h3>
+    <p>Это звучит странно, но иногда фирмы продолжают работать, даже теряя деньги. Это не глупость — это правильный вызов. Вот почему.</p>
+<p class="en-p">It sounds odd, but firms sometimes keep operating even while losing money. It's <strong>not stupidity</strong> — it's the right call. Here's why.</p>
+
+    <p>Помните: в краткосрочном периоде FC выплачиваются независимо от того, производите вы или нет. Таким образом, вопрос «работать или закрыться» сводится к следующему: «Может ли мой доход хотя бы покрыть мои переменные затраты?»</p>
+<p class="en-p">Remember: in the short run FC <strong>is paid no matter what</strong> — whether you produce or not. So the question "operate or shut down" boils down to: "can my revenue at least cover my variable costs?"</p>
+
+    <h3>The shutdown rule</h3>
+    <div class="formula-box" style="text-align:center;font-size:1.1em;">
+        <strong>Operate iff P ≥ AVC<sub>min</sub></strong>
+    </div>
+    <p>Продолжайте производить до тех пор, пока цена покрывает хотя бы минимальные средние переменные издержки. Если P ниже AVC min — выключить.</p>
+<p class="en-p">Keep producing as long as the price covers at least the minimum average variable cost. If P is below AVC<sub>min</sub> — shut down.</p>
+
+    <h3>All four cases</h3>
+
+    <table>
+        <tr><th>Relation between P and costs</th><th>What to do</th><th>Financial result</th></tr>
+        <tr><td>P &lt; AVC<sub>min</sub></td><td>Shut down</td><td>Loss = FC. Producing would only make the loss bigger.</td></tr>
+        <tr><td>AVC<sub>min</sub> ≤ P &lt; ATC<sub>min</sub></td><td>Operate at a loss</td><td>Loss &lt; FC. Part of FC is covered.</td></tr>
+        <tr><td>P = ATC<sub>min</sub></td><td>Operate (break-even)</td><td>Economic profit = 0.</td></tr>
+        <tr><td>P &gt; ATC<sub>min</sub></td><td>Operate with profit</td><td>π &gt; 0.</td></tr>
+    </table>
+
+    <div class="example-box">
+        <h4>Example: a bakery in trouble</h4>
+        <p>FC = 1 000 долларов США в месяц, мин AVC = 2 доллара США/багет, мин ATC = 4 доллара США/багет.</p>
+<p class="en-p">FC = $1 000/month, AVC<sub>min</sub> = $2/baguette, ATC<sub>min</sub> = $4/baguette.</p>
+        <p>Сценарий 1: P падает до 3 долларов.</p>
+<p class="en-p"><strong>Scenario 1:</strong> P drops to $3.</p>
+        <ul>
+            <li>3 &gt; AVC мин = 2 → продолжайте работу.</li>
+<li class="en-p">3 &gt; AVC<sub>min</sub> = 2 → keep operating.</li>
+            <li>3 &lt; УВД мин = 4 → все еще в недоумении.</li>
+<li class="en-p">3 &lt; ATC<sub>min</sub> = 4 → still at a loss.</li>
+            <li>Но каждый багет приносит $3 − $2 = $1 на покрытие FC.</li>
+<li class="en-p">But each baguette contributes $3 − $2 = $1 toward covering FC.</li>
+            <li>Если мы продадим 500 багетов: 500 долларов США покрыты FC → убыток = FC - 500 = 1 000 долларов США - 500 = 500 долларов США.</li>
+<li class="en-p">If we sell 500 baguettes: $500 of FC covered → loss = FC − 500 = $1 000 − 500 = <strong>$500</strong>.</li>
+            <li>Если мы закроемся: потеря = FC = 1 000 долларов. Худший!</li>
+<li class="en-p">If we shut down: loss = FC = <strong>$1 000</strong>. Worse!</li>
+        </ul>
+        <p>Сценарий 2: P падает до $1,50.</p>
+<p class="en-p"><strong>Scenario 2:</strong> P drops to $1.50.</p>
+        <ul>
+            <li>1,50 &lt; AVC min = 2 → каждый багет добавляет 50 центов убытка к FC.</li>
+<li class="en-p">1.50 &lt; AVC<sub>min</sub> = 2 → each baguette adds 50 ¢ of loss on top of FC.</li>
+            <li>Лучше закрыть → потери = FC = $1 000, дальнейшего ущерба нет.</li>
+<li class="en-p">Better to shut down → loss = FC = $1 000, no further damage.</li>
+        </ul>
+    </div>
+
+    <div class="key-box">Кривая краткосрочного предложения фирмы (рис. 10.4) представляет собой часть кривой MC выше минимума AVC. Ниже этой точки фирма ничего не производит, поэтому кривая предложения «перепрыгивает» от оси Q вверх к кривой MC.<br><br>
+        
+        <strong>The short-run supply curve of the firm (Figure 10.4)</strong> is the portion of the MC curve <strong>above the AVC minimum</strong>. Below that point the firm produces nothing — so the supply curve "jumps" from the Q-axis up to the MC curve.
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="lr-supply">15. Долгосрочное предложение отрасли <span class="ch-tag">Ch. 10, p. 321</span></h2>
+    <h3>What changes in the long run?</h3>
+    <p>В долгосрочной перспективе фирмы могут войти в отрасль (если есть прибыль) и выйти из нее (если есть убытки).</p>
+<p class="en-p">In the long run, firms can <strong>enter</strong> the industry (if profits are there) and <strong>exit</strong> (if there are losses).</p>
+    <p>Логика бесплатного входа:</p>
+<p class="en-p">Logic of free entry:</p>
+    <ol>
+        <li>Если π &gt; 0 в отрасли → посторонние замечают: «Здесь можно зарабатывать деньги!» → они входят → предложение S в отрасли растет → рынок P падает → прибыль сокращается.</li>
+<li class="en-p">If π &gt; 0 in the industry → outsiders notice "money to be made here!" → they enter → industry supply S rises → market P falls → profits shrink.</li>
+        <li>Это продолжается до тех пор, пока π = 0.</li>
+<li class="en-p">This continues until π = 0.</li>
+        <li>Если π &lt; 0 → фирмы уходят → S падает → P растет → убытки сокращаются → до тех пор, пока π = 0.</li>
+<li class="en-p">If π &lt; 0 → firms exit → S falls → P rises → losses shrink → until π = 0.</li>
+    </ol>
+    <p>Вывод: в долгосрочном равновесии экономическая прибыль = 0.</p>
+<p class="en-p">Conclusion: in long-run equilibrium <strong>economic profit = 0</strong>.</p>
+
+    <div class="formula-box" style="text-align:center;font-size:1.1em;">
+        <strong>In LR competitive equilibrium:<br>
+        P = MR = MC = LAC<sub>min</sub></strong>, &nbsp; π = 0
+    </div>
+
+    <div class="why-box">Почему именно LACmin? В долгосрочном периоде фирма не имеет ФК и выбирает оптимальный размер предприятия. Если его АТС выше, чем у соперников, он проигрывает. Таким образом, каждая выживающая фирма работает в своей наиболее эффективной точке — минимуме LAC.<br>
+        <br>
+                И «экономическая» прибыль = 0 не является «бухгалтерской» прибылью = 0. Экономическая прибыль = 0 означает, что фирма зарабатывает ровно столько, сколько она могла бы заработать при следующей лучшей альтернативе (нормальная прибыль). Это нормально, это не потеря.<br><br>
+        
+        Why specifically LAC<sub>min</sub>? In the long run the firm has no FC and chooses the <strong>optimal plant size</strong>. If its ATC is higher than rivals', it loses. So every surviving firm operates at its most efficient point — the minimum of LAC.<br>
+        And "economic" profit = 0 is not "accounting" profit = 0. Economic profit = 0 means the firm earns exactly what it could earn in its next-best alternative (normal profit). That's fine, not a loss.
+    </div>
+
+    <h3>Three types of industries (by LRS shape, Figure 10.11)</h3>
+    <p>LRS = долгосрочное предложение отрасли.</p>
+<p class="en-p">LRS = <strong>long-run industry supply</strong>.</p>
+
+    <ol>
+        <li>Промышленность с постоянными издержками. Когда отрасль расширяется, цены на факторы производства не меняются (рабочей силы и материалов достаточно для всех). → LRS остается неизменным на уровне LAC min .</li>
+<li class="en-p"><strong>Constant-cost industry.</strong> When the industry expands, input prices don't change (there's plenty of labour and materials for everyone). → LRS is <strong>flat</strong> at LAC<sub>min</sub>.</li>
+        <li>Increasing-cost industry. Рост съедает дефицитные ресурсы (специалистов, редкие материалы), повышая их цены → минимальный LAC каждой фирмы смещается вверх → LRS наклоняется вверх.</li>
+<li class="en-p"><strong>Increasing-cost industry.</strong> Growth eats up scarce inputs (specialists, rare materials), pushing their prices up → each firm's LAC<sub>min</sub> shifts up → LRS <strong>slopes upward</strong>.</li>
+        <li>Удешевляющая промышленность. Редкий случай — когда расширение фактически снижает цены на ресурсы (в отрасли появляются новые специализированные поставщики). → LRS имеет наклон вниз.</li>
+<li class="en-p"><strong>Decreasing-cost industry.</strong> Rare case — when expansion actually lowers input prices (new specialised suppliers appear for the industry). → LRS <strong>slopes downward</strong>.</li>
+    </ol>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="monopoly-def">16. Что такое монополия <span class="ch-tag">Ch. 11, p. 336</span></h2>
+    <h3>The definition</h3>
+    <p>Монополия – это рынок, на котором имеется только один продавец. Фрэнк добавляет: у продукта не должно быть близких заменителей.</p>
+<p class="en-p"><strong>A monopoly</strong> is a market with <strong>only one seller</strong>. Frank adds: the product must have <strong>no close substitutes</strong>.</p>
+
+    <h3>Key difference from a competitor — the demand curve</h3>
+    <p>Это самый важный момент, который большинство студентов путают:</p>
+<p class="en-p">This is the most important point, and the one most students confuse:</p>
+
+    <table>
+        <tr><th></th><th>Competitive firm</th><th>Monopolist</th></tr>
+        <tr><td>Number of firms</td><td>Many (thousands)</td><td>One</td></tr>
+        <tr><td>What demand curve does it face?</td><td><strong>Horizontal</strong> at price P (flat)</td><td><strong>The entire market demand</strong> (downward-sloping)</td></tr>
+        <tr><td>Power over price</td><td>None — <strong>price taker</strong></td><td>Yes — <strong>price maker</strong></td></tr>
+        <tr><td>What it chooses</td><td>Only Q (P is given)</td><td>Q (and P follows from the demand curve)</td></tr>
+    </table>
+
+    <div class="story-box">Конкурентоспособная фирма — это крошечный ларек на гигантском рынке. Если он поднимет цену хотя бы на один цент, каждый покупатель уйдет к соседу. Так что цена «навязывается сверху».<br>
+        <br>
+        <br>
+                Монополист — единственный продавец на многие мили вокруг. Он решает, какую цену взимать. Но если он установит слишком высокую цену, почти никто не купит. Чем выше P, тем ниже Q. Это нисходящий спрос.<br><br>
+        
+        A competitive firm is a tiny stall in a giant market. If it raises its price by even one cent, every buyer walks to the neighbour. So price is "imposed from above."<br><br>
+        A monopolist is the <strong>only</strong> seller for miles around. It decides what price to charge. But: if it sets it too high, almost no one buys. The higher P, the lower Q. That's the downward-sloping demand.
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    
+    <div class="example-box">
+        <h4>📊 Числовой пример: монополия на рынке лекарства</h4>
+        <p>Спрос: <code>P = 10 − Q</code>, MC = 2. MR = 10 − 2Q. Из MR = MC: <strong>Q* = 4</strong>, <strong>P* = 6 $</strong>, прибыль <strong>π = 16 млн $</strong>. При конкуренции: Q<sub>c</sub> = 8, P<sub>c</sub> = 2 $.</p>
+        <p class="en-p">Demand P = 10 − Q, MC = 2, MR = 10 − 2Q. MR = MC → Q* = 4, P* = $6, profit $16m. Competition: Q<sub>c</sub> = 8, P<sub>c</sub> = $2.</p>
+    </div>
+
+    <h2 id="five-sources">17. Пять источников монополии <span class="ch-tag">Ch. 11, p. 337</span></h2>
+    <p>Почему одна фирма может стать монополистом? Фрэнк перечисляет пять причин:</p>
+<p class="en-p">Why can a single firm become a monopolist? Frank lists <strong>five reasons</strong>:</p>
+
+    <h3>1. Exclusive control over a key input</h3>
+    <p>Фирма владеет ограниченными ресурсами, которые никто другой не может получить, и без них продукт не может быть произведен.</p>
+<p class="en-p">The firm owns a scarce input that no one else can get, and without it the product can't be made.</p>
+    <p>Классический хрестоматийный пример: компания Alcoa в США долгое время контролировала почти все бокситы (сырье для алюминия). Ни бокситов, ни алюминия → Alcoa была монополистом.</p>
+<p class="en-p"><strong>Classic textbook example:</strong> the company <strong>Alcoa</strong> in the US long controlled almost all <strong>bauxite</strong> (raw material for aluminium). No bauxite, no aluminium → Alcoa was a monopolist.</p>
+
+    <h3>2. Economies of scale → natural monopoly</h3>
+    <p>Это тот случай, когда LAC продолжает падать за пределы соответствующего диапазона. Одна крупная фирма производит дешевле, чем две средние или десять мелких.</p>
+<p class="en-p">This is the case where LAC keeps falling over the relevant range. One big firm produces more cheaply than two medium ones or ten small ones.</p>
+    <p>Если в такую ​​отрасль входит несколько фирм, у каждой из них стоимость единицы продукции выше → они не могут конкурировать. Только один победитель.</p>
+<p class="en-p">If several firms enter such an industry, each has higher unit cost → they can't compete. Only one winner.</p>
+    <p>Примеры: электросети, водоснабжение, газораспределение, железные дороги. Прокладывать вторую линию параллельно первой – расточительство.</p>
+<p class="en-p"><strong>Examples:</strong> electric grid, water supply, gas distribution, railways. Laying a second line parallel to the first is wasteful.</p>
+
+    <h3>3. Patents</h3>
+    <p>Правительство предоставляет изобретателю законную монополию на свое изобретение на N лет (обычно 20). В течение этого периода никто другой не сможет продать тот же продукт.</p>
+<p class="en-p">The government gives the inventor a <strong>legal monopoly</strong> over their invention for N years (usually 20). During this period nobody else can sell the same product.</p>
+    <p>Идея: стимулировать инвестиции в НИОКР. Без патентов немногие стали бы тратить миллиарды на изобретение нового лекарства, если бы конкуренты могли клонировать его на следующий день.</p>
+<p class="en-p">The idea: encourage investment in R&amp;D. Without patents, few would spend billions inventing a new drug if competitors could clone it the next day.</p>
+    <p>Пример: фармацевтические компании являются монополистами на рынке своих новых лекарств, пока действует патент.</p>
+<p class="en-p"><strong>Example:</strong> pharma companies are monopolists in their new drug's market while the patent lasts.</p>
+
+    <h3>4. Network economies (network effects)</h3>
+    <p>Ценность продукта для одного пользователя растет вместе с числом других пользователей.</p>
+<p class="en-p">The product's value to one user <strong>grows with the number of other users</strong>.</p>
+    <p>Примеры:</p>
+<p class="en-p"><strong>Examples:</strong></p>
+    <ul>
+        <li>Windows: программисты пишут приложения для самых популярных ОС. Чем больше пользователей Windows, тем больше приложений; чем больше приложений, тем привлекательнее Windows → еще больше пользователей. Самоусиливающаяся петля.</li>
+<li class="en-p">Windows: programmers write apps for the most popular OS. The more users Windows has, the more apps; the more apps, the more attractive Windows is → still more users. A self-reinforcing loop.</li>
+        <li>Социальные сети: вам нужен Facebook, потому что там есть ваши друзья.</li>
+<li class="en-p">Social networks: you need Facebook because your friends are there.</li>
+        <li>Платежные системы.</li>
+<li class="en-p">Payment systems.</li>
+    </ul>
+    <p>Сетевые эффекты часто позволяют одному игроку захватить практически весь рынок.</p>
+<p class="en-p">Network effects often let one player capture almost the whole market.</p>
+
+    <h3>5. Government licences / franchises</h3>
+    <p>Правительство предоставляет право работать только одной фирме (или нескольким ограниченным группам).</p>
+<p class="en-p">The government grants the right to operate to only one firm (or a limited few).</p>
+    <p>Примеры учебников:</p>
+<p class="en-p"><strong>Textbook examples:</strong></p>
+    <ul>
+        <li>Почтовая служба (USPS в США) — государственная монополия на доставку писем.</li>
+<li class="en-p">The postal service (USPS in the US) — a state monopoly on letter delivery.</li>
+        <li>Медальоны такси в Нью-Йорке — исторически для вождения такси требовался медальон, и город ограничивал их количество.</li>
+<li class="en-p">Taxi medallions in New York City — historically you needed a medallion to drive a cab, and the city limited how many existed.</li>
+        <li>Кабельное телевидение, лицензии на использование спектра, продажа спиртных напитков в некоторых штатах.</li>
+<li class="en-p">Cable TV, spectrum licences, liquor sales in some states.</li>
+    </ul>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="mr-graph">18. Предельный доход монополиста (MR) <span class="ch-tag">Ch. 11, p. 346</span></h2>
+    <h3>What is MR?</h3>
+    <p>MR (предельный доход) = дополнительный доход от продажи еще одной единицы товара. Зеркало доходов MC.</p>
+<p class="en-p"><strong>MR (marginal revenue)</strong> = the <strong>extra revenue from selling one more unit</strong>. The revenue mirror of MC.</p>
+
+    <h3>For a competitor MR = P. For a monopolist — no!</h3>
+    <p>Для конкурента все просто: еще одна единица, еще один П. MR = П.</p>
+<p class="en-p">For a competitor it's simple: one more unit, one more P. MR = P.</p>
+    <p>Монополисту сложнее. Чтобы продать еще одну единицу, монополист должен снизить цену не только на эту единицу, но и на все предыдущие (одну фирму, одну рыночную цену). Так:</p>
+<p class="en-p">For a monopolist it's <strong>trickier</strong>. To sell one more unit, the monopolist has to <strong>lower the price not just on that unit, but on all the previous ones</strong> (one firm, one market price). So:</p>
+
+    <div class="why-box">Допустим, монополист в настоящее время продает 10 единиц продукции по 100 долларов каждая → выручка 1000 долларов США.<br>
+        <br>
+                Чтобы продать 11-ю единицу, цена должна упасть до 95 долларов (согласно кривой спроса).<br>
+        <br>
+                Новый доход = 11 · 95 = $1 045.<br>
+        <br>
+                Изменение выручки = 1 045 − 1 000 = 45 долларов США.<br>
+        <br>
+                Но цена 11-й единицы составляет 95 долларов. Итак, MR = 45 долларов ≠ P = 95 долларов.<br>
+        <br>
+        <br>
+                Почему MR ниже P? Поскольку снижение цены на 5 долларов также коснулось первоначальных 10 единиц — это потеря 50 долларов для старых покупателей. Чистое изменение выручки = +95 долларов США (новая единица) − 50 долларов США (снижение цен на существующие единицы) = +45 долларов США.<br><br>
+        
+        Say the monopolist currently sells 10 units at $100 each → revenue $1 000.<br>
+        To sell the 11th unit, price has to drop to $95 (per the demand curve).<br>
+        New revenue = 11 · 95 = $1 045.<br>
+        Change in revenue = 1 045 − 1 000 = <strong>$45</strong>.<br>
+        But the 11th unit's price is $95. So <strong>MR = $45 ≠ P = $95</strong>.<br><br>
+        Why is MR below P? Because the $5 price cut also applied to the original 10 units — that's $50 lost on the old buyers. Net change in revenue = +$95 (new unit) − $50 (price cut on existing units) = +$45.
+    </div>
+
+    <h3>The MR formula for linear demand</h3>
+    <p>Если кривая спроса линейна: P = a − b · Q , то:</p>
+<p class="en-p">If the demand curve is linear: <code>P = a − b · Q</code>, then:</p>
+    <div class="formula-box">
+        TR = P · Q = (a − bQ) · Q = aQ − bQ²<br>
+        MR = dTR/dQ = <strong>a − 2bQ</strong>
+    </div>
+
+    <h3>Geometric rule (Figure 11.5)</h3>
+    <p>Сравнивать:</p>
+<p class="en-p">Compare:</p>
+    <ul>
+        <li>Спрос: P = a - b ·Q (пересечение = a, наклон = -b)</li>
+<li class="en-p">Demand: P = a − <strong>b</strong>·Q (intercept = a, slope = −b)</li>
+        <li>MR: MR = a − 2b ·Q (пересечение = a, наклон = −2b)</li>
+<li class="en-p">MR: MR = a − <strong>2b</strong>·Q (intercept = a, slope = −2b)</li>
+    </ul>
+    <p>Правило: MR имеет ту же точку пересечения по оси P, что и D, но в два раза более крутую. Эквивалентно, MR попадает в ось Q ровно посередине между началом координат и местом, где D попадает в ось Q.</p>
+<p class="en-p">The rule: <strong>MR has the same intercept on the P-axis as D, but is twice as steep</strong>. Equivalently, MR hits the Q-axis exactly <strong>halfway</strong> between the origin and where D hits the Q-axis.</p>
+
+    <h3>MR and price elasticity</h3>
+    <div class="formula-box">
+        MR = P · (1 − 1/|ε|)
+    </div>
+    <p>где ε — ценовая эластичность спроса. Очень полезно:</p>
+<p class="en-p">where ε is the price elasticity of demand. Very useful:</p>
+    <ul>
+        <li>Если |ε| &gt; 1 (эластичный) → MR &gt; 0 → расширение Q увеличивает доход.</li>
+<li class="en-p">If |ε| &gt; 1 (elastic) → MR &gt; 0 → expanding Q raises revenue.</li>
+        <li>Если |ε| = 1 → MR = 0 → общий доход на пике.</li>
+<li class="en-p">If |ε| = 1 → MR = 0 → total revenue at its peak.</li>
+        <li>Если |ε| &lt; 1 (неэластичный) → MR &lt; 0 → расширение Q снижает доход: каждая новая единица снижает TR.</li>
+<li class="en-p">If |ε| &lt; 1 (inelastic) → MR &lt; 0 → expanding Q lowers revenue: each new unit reduces TR.</li>
+    </ul>
+
+    <div class="key-box">Ключевой вывод: монополист никогда не действует на неэластичной части кривой спроса. Если бы он в конечном итоге оказался там, он мог бы сократить Q, повысить P, увеличить доход и в то же время сэкономить на затратах. Так что оптимум сидит только на упругой части.<br><br>
+        
+        <strong>Key takeaway:</strong> a monopolist <strong>never operates on the inelastic part</strong> of the demand curve. If it ended up there, it could cut Q, raise P, increase revenue, and save on costs at the same time. So the optimum sits only on the elastic part.
+    </div>
+
+    <h3>Where does a monopolist optimally produce?</h3>
+    <p>По общему правилу MR = MC. Найдите отсюда Q*, затем прочитайте P* по кривой спроса выше Q*.</p>
+<p class="en-p">By the general rule <strong>MR = MC</strong>. Find Q* from this, then read P* off the demand curve above Q*.</p>
+
+    <div class="formula-box" style="text-align:center;font-size:1.1em;">
+        <strong>MR(Q*) = MC(Q*)</strong>, &nbsp; then <strong>P* = D(Q*)</strong>
+    </div>
+
+    <p>Вы найдете P* &gt; МК. Этот разрыв (P − MC) представляет собой монопольную надбавку — и он приводит к потере благосостояния, безвозвратным потерям (DWL).</p>
+<p class="en-p">You'll find P* &gt; MC. This gap (P − MC) is the <strong>monopoly markup</strong> — and it creates a loss of welfare, the <strong>deadweight loss (DWL)</strong>.</p>
+
+    <div>
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="230"/>
+            <line class="axis" x1="50" y1="230" x2="380" y2="230"/>
+            <line class="demand" x1="60" y1="40" x2="360" y2="220"/>
+            <line class="mr" x1="60" y1="40" x2="210" y2="220"/>
+            <line class="mc" x1="60" y1="200" x2="360" y2="80"/>
+            <circle class="pt" cx="140" cy="125" r="4"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="80" x2="140" y2="80"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="140" y1="80" x2="140" y2="230"/>
+            <text x="365" y="225" fill="#27ae60">D</text>
+            <text x="195" y="220" fill="#e74c3c">MR</text>
+            <text x="365" y="80" fill="#2980b9">MC</text>
+            <text x="18" y="84">P*</text>
+            <text x="127" y="245">Q*</text>
+            <text x="22" y="22">P, MR, MC</text>
+            <text x="370" y="245">Q</text>
+        </svg>
+    </div>
+
+    
+
+    <!-- =========================================================== -->
+    <h2 id="oligopoly">19. Олигополия: Cournot, Bertrand, Stackelberg <span class="ch-tag">Ch. 13, p. 402</span></h2>
+    <h3>What is an oligopoly?</h3>
+    <p>Олигополия – это рынок, на котором присутствует несколько крупных фирм (обычно 2–10). Ни один (монополия), ни тысячи (совершенная конкуренция).</p>
+<p class="en-p"><strong>Oligopoly</strong> is a market with <strong>a few large firms</strong> (typically 2–10). Not one (monopoly), not thousands (perfect competition).</p>
+    <p>Большая задача: каждая фирма должна подумать о том, что будет делать ее конкурент. Это «стратегическое поведение», поэтому глава 13 идет сразу после теории игр (гл. 12).</p>
+<p class="en-p">The big challenge: each firm has to <strong>think about what its rival will do</strong>. This is "strategic behaviour" — which is why Chapter 13 comes right after game theory (Ch. 12).</p>
+    <p>Самый простой случай — дуополия: всего две фирмы. По этому поводу Фрэнк обсуждает три модели. Во всех из них:</p>
+<p class="en-p">The simplest case is a <strong>duopoly</strong>: just two firms. On this Frank discusses three models. In all of them:</p>
+    <ul>
+        <li>Линейный рыночный спрос: P = a − b·(q₁ + q₂) , где q₁ и q₂ — выпуск двух фирм.</li>
+<li class="en-p">Linear market demand: <code>P = a − b·(q₁ + q₂)</code>, where q₁ and q₂ are the two firms' outputs.</li>
+        <li>Идентичные предельные издержки: MC = c для каждой фирмы.</li>
+<li class="en-p">Identical marginal cost: <code>MC = c</code> for each firm.</li>
+    </ul>
+
+    <hr>
+
+    <h3>19a. The Cournot model — simultaneous choice of quantities</h3>
+
+    <p>Идея: обе фирмы одновременно (без переговоров) решают, сколько производить. Каждый думает: «учитывая, что мой соперник будет производить q₂, какой q₁ для меня лучший?»</p>
+<p class="en-p"><strong>Idea:</strong> both firms simultaneously (without negotiation) decide how much to produce. Each one thinks: "given that my rival will produce q₂, what's the best q₁ for me?"</p>
+
+    <h4>Reaction function</h4>
+    <p>Фирма 1 максимизирует получение прибыли q₂ при заданном уровне. В результате получается формула, показывающая наилучшее значение q₁ в зависимости от q₂:</p>
+<p class="en-p">Firm 1 maximises its profit taking q₂ as given. The result is a formula showing its best q₁ as a function of q₂:</p>
+    <div class="formula-box">
+        q₁* = (a − c) / (2b) − q₂ / 2
+    </div>
+    <p>Прочтите это так: «Если мой соперник производит 0, я производю (a − c)/(2b). Чем больше мой соперник производит, тем меньше я производю».</p>
+<p class="en-p">Read it as: "if my rival produces 0, I produce (a − c)/(2b). The more my rival produces, the less I produce."</p>
+
+    <h4>Symmetric equilibrium</h4>
+    <p>Поскольку фирмы идентичны, в равновесии q₁ = q₂ = q. Подключите функцию реакции:</p>
+<p class="en-p">Since the firms are identical, in equilibrium q₁ = q₂ = q. Plug into the reaction function:</p>
+    <div class="calc">q = (a − c)/(2b) − q/2<br>
+    q + q/2 = (a − c)/(2b)<br>
+    (3/2)·q = (a − c)/(2b)<br>
+    q = (a − c)/(3b)</div>
+
+    <div class="formula-box">
+        q₁* = q₂* = (a − c) / (3b)<br>
+        Total output: Q* = 2(a − c) / (3b)
+    </div>
+
+    <p>Сравните монополию и конкуренцию:</p>
+<p class="en-p"><strong>Compare to monopoly and competition:</strong></p>
+    <ul>
+        <li>Монополия: Q = (a − c)/(2b) — меньше Курно.</li>
+<li class="en-p">Monopoly: Q = (a − c)/(2b) — less than Cournot.</li>
+        <li>Конкуренция: Q = (a − c)/b — больше, чем по Курно.</li>
+<li class="en-p">Competition: Q = (a − c)/b — more than Cournot.</li>
+        <li>Курно находится между ними.</li>
+<li class="en-p">Cournot is in between.</li>
+    </ul>
+
+    <hr>
+
+    <h3>19b. The Bertrand model — simultaneous choice of prices</h3>
+
+    <p>Идея: фирмы конкурируют не по количеству, а по ценам. Товар идентичный, поэтому покупатели идут к тому, у кого дешевле.</p>
+<p class="en-p"><strong>Idea:</strong> firms compete not on quantities but on <strong>prices</strong>. The product is identical, so customers go to whoever's cheaper.</p>
+
+    <h4>The "race to the bottom"</h4>
+    <ol>
+        <li>Если P₁ &gt; P₂ → все клиенты обращаются к фирме 2, фирма 1 получает 0.</li>
+<li class="en-p">If P₁ &gt; P₂ → all customers go to firm 2, firm 1 gets 0.</li>
+        <li>Фирма 1 хочет вернуть своих клиентов → она снижает цену ниже P₂.</li>
+<li class="en-p">Firm 1 wants its customers back → it lowers its price below P₂.</li>
+        <li>Теперь P₂ &gt; P₁ → фирма 2 находится в такой же ситуации, снижает цену.</li>
+<li class="en-p">Now P₂ &gt; P₁ → firm 2 is in the same situation, lowers its price.</li>
+        <li>Это продолжается до тех пор, пока P = MC. Они не могут еще больше сократить расходы — кроме того, это реальные потери на единицу продукции.</li>
+<li class="en-p">This continues until <strong>P = MC</strong>. They can't undercut any further — beyond that, it's a real loss per unit.</li>
+    </ol>
+
+    <div class="formula-box" style="text-align:center;font-size:1.1em;">
+        P₁* = P₂* = MC = c, &nbsp; π₁ = π₂ = 0
+    </div>
+
+    <div class="warn-box">Парадокс Бертрана: достаточно всего двух фирм, чтобы получить тот же результат, что и при совершенной конкуренции (нулевая прибыль, P = MC). Это «парадокс», потому что на самом деле две фирмы редко ведут себя подобным образом — продукция различается незначительно, мощности ограничены, есть барьеры. Хотя в чистой модели да.<br><br>
+        
+        <strong>The Bertrand paradox:</strong> just <strong>two firms</strong> are enough to get the same outcome as perfect competition (zero profit, P = MC). It's a "paradox" because in reality two firms rarely behave this way — products differ slightly, capacity is limited, there are barriers. In the pure model, though, yes.
+    </div>
+
+    <hr>
+
+    <h3>19c. The Stackelberg model — sequential moves</h3>
+
+    <p>Идея: одна фирма является лидером и первой выбирает объем выпускаемой продукции. Другой — последователь, наблюдает за выбором лидера и реагирует.</p>
+<p class="en-p"><strong>Idea:</strong> one firm is the <strong>leader</strong>, choosing its output <strong>first</strong>. The other is the <strong>follower</strong>, observes the leader's choice and reacts.</p>
+
+    <p>Лидер играет умно: он знает, что ведомый отреагирует в соответствии с его функцией реакции. Поэтому он подключает эту функцию реакции к своей собственной задаче максимизации прибыли.</p>
+<p class="en-p">The leader plays cleverly: it <em>knows</em> the follower will react along its reaction function. So it plugs that reaction function into its own profit-maximisation problem.</p>
+
+    <h4>Backward induction</h4>
+    <ol>
+        <li>Сначала посмотрите на последователя. Его функция реакции: q₂ = (a - c)/(2b) - q₁/2.</li>
+<li class="en-p">Look at the follower first. Its reaction function: q₂ = (a − c)/(2b) − q₁/2.</li>
+        <li>Подставьте это в формулу прибыли лидера. Лидер максимизирует знание этого.</li>
+<li class="en-p">Plug this into the leader's profit formula. The leader maximises <strong>knowing this</strong>.</li>
+        <li>Вы получаете:</li>
+<li class="en-p">You get:</li>
+    </ol>
+
+    <div class="formula-box">
+        Leader: q₁* = (a − c) / (2b)<br>
+        Follower: q₂* = (a − c) / (4b)<br>
+        Total output: Q* = 3(a − c) / (4b)
+    </div>
+
+    <p>Лидер производит больше, чем последователь. Прибыль лидера также выше — это преимущество первопроходца.</p>
+<p class="en-p">The leader produces more than the follower. The leader's profit is also higher — this is the <strong>first-mover advantage</strong>.</p>
+
+    <hr>
+
+    <h3>Comparison of all models (textbook, p. 408)</h3>
+
+    <table>
+        <tr><th>Model</th><th>Total Q*</th><th>P*</th><th>Profit</th></tr>
+        <tr><td>Monopoly</td><td>(a − c)/(2b) — lowest</td><td>highest</td><td>maximum</td></tr>
+        <tr><td>Stackelberg</td><td>3(a − c)/(4b)</td><td>middle</td><td>leader &gt; follower</td></tr>
+        <tr><td>Cournot</td><td>2(a − c)/(3b)</td><td>lower</td><td>π₁ = π₂ &gt; 0</td></tr>
+        <tr><td>Bertrand</td><td>(a − c)/b — same as competition</td><td>= MC = c</td><td>0</td></tr>
+        <tr><td>Perfect competition</td><td>(a − c)/b — maximum</td><td>= MC = c</td><td>0</td></tr>
+    </table>
+
+    <div class="key-box">Большая интуиция Ч. 13: переход от монополии к конкуренции, общий объем производства растет, цены падают, а прибыль сокращается до нуля. Олигополия представляет собой спектр между монополией и конкуренцией. Где именно, зависит от того, конкурируют ли фирмы в количествах (Курно), ценах (Бертран) или с лидером (Штакельберг).<br><br>
+        
+        <strong>The big intuition of Ch. 13:</strong> moving from monopoly toward competition, total output rises, price falls, and profits shrink to zero. Oligopoly is a spectrum between monopoly and competition. Where exactly depends on whether firms compete in quantities (Cournot), prices (Bertrand), or with a leader (Stackelberg).
+    </div>
+
+    
+
+    <hr>
+
+    <!-- =========================================================== -->
+    <h2 style="border-color:#27ae60;color:#1a5c3a;background:linear-gradient(90deg,#e8f8f0 0%,transparent 100%);">📌 Common Pitfalls</h2>
+    <p>Вещи, о которых предупреждает Фрэнк (и которые любят проверять на экзаменах):</p>
+<p class="en-p">Things Frank warns about (and exams love to test):</p>
+    <ul>
+        <li>🔁Движение против сдвига — если меняется собственная цена товара, это движение; все остальное — это сдвиг.</li>
+<li class="en-p">🔁 <strong>Movement vs. shift</strong> — if the good's own price changes, it's movement; anything else is a shift.</li>
+        <li>📐 Оси: P всегда вертикальна, Q всегда горизонтальна (рис. 2.1).</li>
+<li class="en-p">📐 <strong>Axes:</strong> P is always vertical, Q is always horizontal (Figure 2.1).</li>
+        <li>✖️ MC пересекает AVC и ATC в их минимумах, а не где-либо еще (рис. 9.4).</li>
+<li class="en-p">✖️ <strong>MC crosses AVC and ATC at their minima</strong>, not anywhere else (Figure 9.4).</li>
+        <li>📉 MR в два раза крутее, чем D для линейного спроса (рис. 11.5).</li>
+<li class="en-p">📉 <strong>MR is twice as steep as D</strong> for linear demand (Figure 11.5).</li>
+        <li>0️⃣ В долгосрочном конкурентном равновесии экономическая прибыль = 0. Бухгалтерская прибыль может быть положительной — это «нормальная прибыль», уже внутри себестоимости.</li>
+<li class="en-p">0️⃣ <strong>In long-run competitive equilibrium, economic profit = 0</strong>. Accounting profit can be positive — that's "normal profit", already inside cost.</li>
+        <li>🚪 Правило выключения: P&lt; AVC min , а не P &lt; УВД мин. Самая распространенная ошибка учащихся (рис. 10.4).</li>
+<li class="en-p">🚪 <strong>Shutdown rule: P &lt; AVC<sub>min</sub></strong>, not P &lt; ATC<sub>min</sub>. Most common student mistake (Figure 10.4).</li>
+        <li>🧐 Монополист никогда не действует на неэластичной части кривой спроса — MR &lt; 0 там.</li>
+<li class="en-p">🧐 <strong>A monopolist never operates on the inelastic part</strong> of the demand curve — MR &lt; 0 there.</li>
+        <li>📊 В Бертране уже только две фирмы дают конкурентный результат — парадокс.</li>
+<li class="en-p">📊 <strong>In Bertrand, just two firms already give the competitive outcome</strong> — the paradox.</li>
+    </ul>
+
+    <p>← ← К списку тем 🇷🇺 Русская версия</p>
+<p class="en-p"><a href="index.html">← ← К списку тем</a>
+        <a href="Frank_Study_Guide_EN.html" class="lang-switch">🇷🇺 Русская версия</a></p>
+</div>
+</body>
+</html>
