@@ -45,6 +45,9 @@ jobs:
       - name: Generate HRM tests
         run: python3 HRM/gen_tests.py
 
+      - name: Generate Accounting & Banking tests
+        run: python3 AccountingBanking/gen_tests.py
+
       - name: Assemble site
         env:
           REPO_NAME: ${{ github.event.repository.name }}

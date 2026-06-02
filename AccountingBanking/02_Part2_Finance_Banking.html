@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part 2 — Finance & Banking (MCQ)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #16a085; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #16a085;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #16a085;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 1.15rem;
+      color: #16a085;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #16a085; margin-bottom: 0.35rem; }
+    .q-ru { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .q-en { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #eef9f6; }
+  .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-ru { font-size: 0.95rem; }
+    .opt-en { font-size: 0.82rem; color: #777; }
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .open-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .open-block textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-top: 0.5rem;
+      padding: 0.65rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .sample {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: ##eefaf7;
+      border-radius: 8px;
+      border-left: 3px solid #16a085;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
+    table.matrix {
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0 auto;
+    }
+    table.matrix th, table.matrix td {
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      text-align: center;
+    }
+    table.matrix th { background: #16a085; color: #fff; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #16a085;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #138d75; }
+    button.secondary {
+      background: #fff;
+      color: #16a085;
+      border: 2px solid #16a085;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #16a085;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+    .howto {
+      margin-top: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: #eefaf7;
+      border-radius: 8px;
+      border-left: 3px solid #16a085;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← К тестам Accounting & Banking</a></p>
+    <h1>Part 2 — Finance & Banking (MCQ)</h1>
+    <p class="sub">Accounting and Banking for SMEs — Part 2 MCQ</p>
+    <div class="rules">1 балл за каждый верный ответ.</div>
+    <form id="test-form">
+      <div id="questions"></div>
+      
+      <div class="actions">
+        <button type="submit">Проверить ответы</button>
+        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = {"correct": 1, "wrong": 0, "max": null};
+    const QUESTIONS = [{"num": 1, "id": "q1", "en": "In the perspective of investors, which instrument is riskier?", "ru": "С точки зрения инвестора, какой инструмент рискованнее?", "options": [{"id": "a", "en": "Government bond", "ru": "Государственная облигация"}, {"id": "b", "en": "Corporate bond", "ru": "Корпоративная облигация"}, {"id": "c", "en": "Equity share", "ru": "Акция (доля в капитале)"}, {"id": "d", "en": "Subordinated bond", "ru": "Субординированная облигация"}], "correct": "c", "section": null}, {"num": 2, "id": "q2", "en": "In the perspective of firms, which instrument has constant cash outflows?", "ru": "С точки зрения фирмы, у какого инструмента постоянные денежные выплаты?", "options": [{"id": "a", "en": "Bond with variable rates", "ru": "Облигация с плавающей ставкой"}, {"id": "b", "en": "Equity", "ru": "Акционерный капитал"}, {"id": "c", "en": "Bond with fixed rates", "ru": "Облигация с фиксированной ставкой"}, {"id": "d", "en": "None of the above", "ru": "Ни один из перечисленных"}], "correct": "c", "section": null}, {"num": 3, "id": "q3", "en": "About the exchange of money, in the financial system we have:", "ru": "Об обмене денег в финансовой системе:", "options": [{"id": "a", "en": "Indirect and direct circuit", "ru": "Прямой и непрямой контур"}, {"id": "b", "en": "Direct circuit only", "ru": "Только прямой контур"}, {"id": "c", "en": "Indirect circuit only", "ru": "Только непрямой контур"}, {"id": "d", "en": "None of the above", "ru": "Ни один из перечисленных"}], "correct": "a", "section": null}, {"num": 4, "id": "q4", "en": "A credit line on which a borrower can draw and repay many times is:", "ru": "Кредитная линия, по которой заёмщик может многократно брать и возвращать средства:", "options": [{"id": "a", "en": "Bond", "ru": "Облигация"}, {"id": "b", "en": "Non revolving loan", "ru": "Невозобновляемый кредит"}, {"id": "c", "en": "Revolving loan", "ru": "Возобновляемый кредит (revolving)"}, {"id": "d", "en": "Syndicated loan", "ru": "Синдицированный кредит"}], "correct": "c", "section": null}, {"num": 5, "id": "q5", "en": "In the European Banking Union we have:", "ru": "В Европейском банковском союзе:", "options": [{"id": "a", "en": "1 pillar", "ru": "1 столп"}, {"id": "b", "en": "5 pillars", "ru": "5 столпов"}, {"id": "c", "en": "2 pillars", "ru": "2 столпа"}, {"id": "d", "en": "3 pillars", "ru": "3 столпа"}], "correct": "d", "section": null}, {"num": 6, "id": "q6", "en": "The first pillar of the European Banking Union is about:", "ru": "Первый столп Европейского банковского союза — это:", "options": [{"id": "a", "en": "Sustainability", "ru": "Устойчивость"}, {"id": "b", "en": "Deposit guarantee schemes", "ru": "Схемы гарантирования вкладов"}, {"id": "c", "en": "Resolution mechanisms", "ru": "Механизмы resolution"}, {"id": "d", "en": "Supervision", "ru": "Надзор (supervision)"}], "correct": "d", "section": null}, {"num": 7, "id": "q7", "en": "With the stress tests the authority defines:", "ru": "Стресс-тесты позволяют регулятору определить:", "options": [{"id": "a", "en": "The need of new equity", "ru": "Потребность в новом капитале (equity)"}, {"id": "b", "en": "The need of new debt", "ru": "Потребность в новом долге"}, {"id": "c", "en": "The profitability of the banks", "ru": "Рентабельность банков"}, {"id": "d", "en": "None of the answers", "ru": "Ни один из ответов"}], "correct": "a", "section": null}, {"num": 8, "id": "q8", "en": "Ratings are used for the calculation of:", "ru": "Рейтинги используются для расчёта:", "options": [{"id": "a", "en": "EAD", "ru": "EAD"}, {"id": "b", "en": "LGD", "ru": "LGD"}, {"id": "c", "en": "None of the answers", "ru": "Ни один из ответов"}, {"id": "d", "en": "PD", "ru": "PD (вероятность дефолта)"}], "correct": "d", "section": null}, {"num": 9, "id": "q9", "en": "According to CAPM the cost of equity (used in DCF) is determined using:", "ru": "По CAPM стоимость equity (в DCF) определяется через:", "options": [{"id": "a", "en": "Risk free rate, beta, market risk premium", "ru": "Безрисковая ставка, бета, рыночная премия за риск"}, {"id": "b", "en": "Beta and WACC", "ru": "Бета и WACC"}, {"id": "c", "en": "WACC", "ru": "WACC"}, {"id": "d", "en": "Only risk free rate", "ru": "Только безрисковая ставка"}], "correct": "a", "section": null}, {"num": 10, "id": "q10", "en": "The repricing model is useful to manage:", "ru": "Модель переоценки (repricing) полезна для управления:", "options": [{"id": "a", "en": "Interest rate risk", "ru": "Процентным риском"}, {"id": "b", "en": "Credit risk", "ru": "Кредитным риском"}, {"id": "c", "en": "Sovereign risk", "ru": "Суверенным риском"}, {"id": "d", "en": "Mutual funds", "ru": "Паевыми фондами"}], "correct": "a", "section": null}, {"num": 11, "id": "q11", "en": "IFRS 9 is useful to determine:", "ru": "IFRS 9 используется для определения:", "options": [{"id": "a", "en": "Geographical division of assets", "ru": "Географического распределения активов"}, {"id": "b", "en": "The expected losses", "ru": "Ожидаемых потерь (expected losses)"}, {"id": "c", "en": "Geographical division of liabilities", "ru": "Географического распределения обязательств"}, {"id": "d", "en": "Bonis", "ru": "Bonis"}], "correct": "b", "section": null}, {"num": 12, "id": "q12", "en": "Repayments from foreign borrowers may be interrupted due to government restrictions — this is:", "ru": "Риск прерывания платежей иностранных заёмщиков из-за ограничений правительства — это:", "options": [{"id": "a", "en": "Country risk", "ru": "Страновой риск (country risk)"}, {"id": "b", "en": "Liquidity risk", "ru": "Риск ликвидности"}, {"id": "c", "en": "Market risk", "ru": "Рыночный риск"}, {"id": "d", "en": "Operational risk", "ru": "Операционный риск"}], "correct": "a", "section": null}, {"num": 13, "id": "q13", "en": "What are the strengths of the DCF?", "ru": "Сильные стороны DCF:", "options": [{"id": "a", "en": "All the answers", "ru": "Все перечисленные"}, {"id": "b", "en": "It is scientific", "ru": "Научность"}, {"id": "c", "en": "It is widely used", "ru": "Широкое применение"}, {"id": "d", "en": "It is based on cash flows", "ru": "Основан на денежных потоках"}], "correct": "a", "section": null}, {"num": 14, "id": "q14", "en": "Which theory introduces moral hazard and adverse selection?", "ru": "Какая теория вводит moral hazard и adverse selection?", "options": [{"id": "a", "en": "Information asymmetries", "ru": "Информационная асимметрия"}, {"id": "b", "en": "Uncertainty", "ru": "Неопределённость"}, {"id": "c", "en": "Intellectual asymmetries", "ru": "Интеллектуальная асимметрия"}, {"id": "d", "en": "Transaction costs", "ru": "Транзакционные издержки"}], "correct": "a", "section": null}, {"num": 15, "id": "q15", "en": "Which activity is specific to investment banks?", "ru": "Какая деятельность характерна для инвестиционных банков?", "options": [{"id": "a", "en": "M&A support", "ru": "Поддержка M&A"}, {"id": "b", "en": "Credit intermediation", "ru": "Кредитное посредничество"}, {"id": "c", "en": "General lending activities", "ru": "Обычное кредитование"}, {"id": "d", "en": "None of the answers", "ru": "Ни один из ответов"}], "correct": "a", "section": null}, {"num": 16, "id": "q16", "en": "The total value of an operating business regardless of capital structure is:", "ru": "Совокупная стоимость действующего бизнеса независимо от структуры капитала:", "options": [{"id": "a", "en": "Firm value", "ru": "Стоимость фирмы (firm value)"}, {"id": "b", "en": "Equity value", "ru": "Стоимость equity"}, {"id": "c", "en": "Net debt", "ru": "Чистый долг"}, {"id": "d", "en": "None of the answers", "ru": "Ни один из ответов"}], "correct": "a", "section": null}, {"num": 17, "id": "q17", "en": "The bail-in:", "ru": "Bail-in:", "options": [{"id": "a", "en": "Optional choice of bank managers", "ru": "Добровольный выбор менеджеров"}, {"id": "b", "en": "Related only to customer creditworthiness", "ru": "Связан только с кредитоспособностью клиентов"}, {"id": "c", "en": "Resolution mechanism of the first pillar of EBU", "ru": "Механизм resolution 1-го столпа EBU"}, {"id": "d", "en": "Resolution mechanism of the second pillar of EBU", "ru": "Механизм resolution 2-го столпа EBU"}], "correct": "d", "section": null}, {"num": 18, "id": "q18", "en": "The early interventions of the SRM are used:", "ru": "Ранние вмешательства SRM применяются:", "options": [{"id": "a", "en": "None of the answers", "ru": "Ни один из ответов"}, {"id": "b", "en": "After the bail-in", "ru": "После bail-in"}, {"id": "c", "en": "Before the bail-in", "ru": "До bail-in"}, {"id": "d", "en": "During the bail-in", "ru": "Во время bail-in"}], "correct": "c", "section": null}];
+    const OPEN_ITEMS = [];
+    const SNA_ITEMS = [];
+
+    const form = document.getElementById('test-form');
+    const container = document.getElementById('questions');
+    const resultsBox = document.getElementById('results');
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      let currentSection = '';
+      QUESTIONS.forEach((q) => {
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = q.section;
+          container.appendChild(h);
+        }
+        const card = document.createElement('div');
+        card.className = 'q';
+        card.dataset.id = q.id;
+        card.innerHTML = `
+          <div class="q-num">Вопрос ${q.num}</div>
+          <div class="q-ru">${q.ru}</div>
+          <div class="q-en">${q.en}</div>
+          <div class="opts">
+            ${q.options.map(o => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span>
+                  <div class="opt-ru"><strong>${o.id.toUpperCase()})</strong> ${o.ru}</div>
+                  <div class="opt-en">${o.en}</div>
+                </span>
+              </label>`).join('')}
+          </div>
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderOpen() {
+      if (!OPEN_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'Открытые вопросы';
+      container.appendChild(h);
+      OPEN_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-num">${item.title_ru}</div>
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <textarea name="open_${idx}" placeholder="Ваш ответ..."></textarea>
+          <div class="howto" hidden></div><div class="sample" hidden></div>`;
+        block.querySelector('.sample').textContent = item.sample_ru || '';
+        const howtoEl = block.querySelector('.howto');
+        if (item.howto_ru) howtoEl.textContent = item.howto_ru;
+        else howtoEl.remove();
+        container.appendChild(block);
+      });
+    }
+
+    function renderSna() {
+      if (!SNA_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'SNA — расчёты';
+      container.appendChild(h);
+      SNA_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <div class="feedback" hidden></div>`;
+        block.dataset.expected = item.expected;
+        block.dataset.accept = JSON.stringify(item.accept || []);
+        container.appendChild(block);
+      });
+    }
+
+    function normalize(val) {
+      return String(val || '').trim().toLowerCase().replace(/\\s+/g, ' ');
+    }
+
+    function checkSnaAnswer(expected, accept, user) {
+      const n = normalize(user);
+      if (!n) return null;
+      const variants = [expected, ...(accept || [])].map(normalize);
+      return variants.some(v => n === v || n.includes(v) || v.includes(n));
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const warnEl = document.getElementById('warn-text');
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        card.classList.remove('unanswered', 'correct', 'wrong');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = true;
+        fb.textContent = '';
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          lbl.classList.remove('result-opt');
+          lbl.style.background = '';
+          lbl.querySelector('input').disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove('visible');
+        warnEl.hidden = false;
+        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        const first = container.querySelector('.q.unanswered');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      warnEl.hidden = true;
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        const fb = card.querySelector('.feedback');
+        fb.hidden = false;
+        card.classList.remove('unanswered', 'correct', 'wrong');
+
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          return;
+        }
+
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add('correct');
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+        } else {
+          wrong++;
+          card.classList.add('wrong');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+        }
+
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          const inp = lbl.querySelector('input');
+          lbl.classList.add('result-opt');
+          if (inp.value === q.correct) lbl.style.background = '#e8f8ef';
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = '#fdecea';
+          inp.disabled = true;
+        });
+      });
+
+      container.querySelectorAll('.open-block .sample, .open-block .howto').forEach(el => { el.hidden = false; });
+
+      container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
+        const block = fb.closest('.open-block');
+        if (!block.dataset.expected) return;
+        const inp = block.querySelector('input');
+        const ok = checkSnaAnswer(block.dataset.expected, JSON.parse(block.dataset.accept || '[]'), inp.value);
+        fb.hidden = false;
+        if (ok === null) {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        } else if (ok) {
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+        } else {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        }
+      });
+
+      const total = QUESTIONS.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
+
+      document.getElementById('score-text').textContent =
+        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+      document.getElementById('score-detail').textContent =
+        SCORING.correct !== 1 || SCORING.wrong !== 0
+          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
+          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+
+      resultsBox.classList.add('visible');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      form.reset();
+      resultsBox.classList.remove('visible');
+      document.getElementById('warn-text').hidden = true;
+      renderQuestions();
+      renderOpen();
+      renderSna();
+      
+    });
+
+    renderQuestions();
+    renderOpen();
+    renderSna();
+    
+  </script>
+</body>
+</html>
