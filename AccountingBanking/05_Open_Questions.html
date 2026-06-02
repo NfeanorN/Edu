@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open questions & exercises</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #16a085; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #16a085;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #16a085;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 1.15rem;
+      color: #16a085;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #16a085; margin-bottom: 0.35rem; }
+    .q-ru { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .q-en { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #eef9f6; }
+  .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-ru { font-size: 0.95rem; }
+    .opt-en { font-size: 0.82rem; color: #777; }
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .open-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .open-block textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-top: 0.5rem;
+      padding: 0.65rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .sample {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: ##eefaf7;
+      border-radius: 8px;
+      border-left: 3px solid #16a085;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
+    table.matrix {
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0 auto;
+    }
+    table.matrix th, table.matrix td {
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      text-align: center;
+    }
+    table.matrix th { background: #16a085; color: #fff; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #16a085;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #138d75; }
+    button.secondary {
+      background: #fff;
+      color: #16a085;
+      border: 2px solid #16a085;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #16a085;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+    .howto {
+      margin-top: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: #eefaf7;
+      border-radius: 8px;
+      border-left: 3px solid #16a085;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← К тестам Accounting & Banking</a></p>
+    <h1>Open questions & exercises</h1>
+    <p class="sub">Open questions — sample answers after check</p>
+    
+    <form id="test-form">
+      <div id="questions"></div>
+      
+      <div class="actions">
+        <button type="submit">Проверить ответы</button>
+        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = {"correct": 1, "wrong": 0, "max": null};
+    const QUESTIONS = [];
+    const OPEN_ITEMS = [{"title_ru": "Функции финансовой системы", "ru": "Explain the functions of the financial system", "en": "Explain the functions of the financial system", "sample_ru": "Посредничество, распределение рисков, трансформация сроков и объёмов, платёжная система, ценообразование информации, мобилизация сбережений."}, {"title_ru": "Теории существования финансовых посредников", "ru": "Explains the theories of the existence of financial intermediaries", "en": "Explains the theories of the existence of financial intermediaries", "sample_ru": "Снижение транзакционных издержек, диверсификация риска, асимметрия информации (adverse selection, moral hazard), трансформация сроков и объёмов, экспертиза."}, {"title_ru": "Баланс банка и индексы", "ru": "Talk about the balance sheets of banks and the most important indices", "en": "Talk about the balance sheets of banks and the most important indices", "sample_ru": "Активы: кредиты, ценные бумаги, резервы. Обязательства: депозиты, заимствования. Капитал. Индексы: ROE, ROA, NIM, CAR (Basel), LCR, NPL ratio."}, {"title_ru": "European Banking Union", "ru": "Highlight the main features of the European Banking Union", "en": "Highlight the main features of the European Banking Union", "sample_ru": "3 столпа: (1) единый надзор (SSM), (2) resolution и bail-in (SRM), (3) гарантии вкладов (EDIS)."}, {"title_ru": "Interest rate risk", "ru": "Talk about interest rate risk", "en": "Talk about interest rate risk", "sample_ru": "Риск изменения ставок → NII и стоимость активов/обязательств. Управление: repricing gap, duration, hedging."}, {"title_ru": "DCF model", "ru": "Explain the DCF model", "en": "Explain the DCF model", "sample_ru": "Прогноз FCF, дисконтирование (WACC / cost of equity через CAPM), terminal value."}, {"title_ru": "SoFP — вариант 1 (5 pts)", "ru": "Uniclam Group Corp. — построить Statement of Financial Position (меньшие суммы)", "en": "Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)", "howto_ru": "1) Разнести статьи: NCA (GW, intangibles, PPE), CA (inventory, receivables, cash), Equity, NCL (LT debt, deferred tax), CL (ST debt, payables, current tax).\n2) Сложить каждый блок.\n3) Проверить: Total Assets = Equity + NCL + CL.", "sample_ru": "Активы 204 850: NCA 124 950, CA 79 900.\nПассивы: Equity 66 300, NCL 87 550, CL 51 000."}, {"title_ru": "SoFP — вариант 2 (6 pts)", "ru": "Uniclam Group Corp. — SoFP (большие суммы)", "en": "Statement of Financial Position — larger figures version", "howto_ru": "Тот же алгоритм, что в варианте 1. Суммы больше, логика классификации та же.", "sample_ru": "Активы 615 550: NCA 375 850, CA 239 700.\nПассивы: Equity 198 900, NCL 262 650, CL 153 000."}, {"title_ru": "Exercise 2 — таблица (2024)", "ru": "Divisions A/B: revenue 108k/72k; indirect per direct labour; selling per revenue; electricity & financial per raw materials.", "en": "Division table — 2024 exam version.", "howto_ru": "Indirect: 3 600 × (direct_A / 36 000) → A=1 200, B=2 400.\nSelling: 12 000 × (rev_A / 180 000) → A=7 200, B=4 800.\nElectricity: 16 800 × (12/18) → A=11 200, B=5 600.\nFinancial: 24 000 × (12/18) → A=16 000, B=8 000.\nPre-tax = Revenue − все строки; Tax 30%; Net = Pre-tax − Tax.", "sample_ru": "Division A: Pre-tax 48 400 → Tax 14 520 → Net Income 33 880.\nDivision B: Pre-tax 21 200 → Tax 6 360 → Net Income 14 840."}, {"title_ru": "Exercise 2 — таблица (2025 tablet)", "ru": "Divisions: revenue 144k/120k; indirect/selling/adv/electricity/financial по правилам.", "en": "Division table — tablet version with advertising.", "howto_ru": "Indirect 8 400 по direct labour; Selling 24 000 и Advertising 25 000 по revenue; Electricity 22 400 и Financial 30 000 по raw materials (28k : 32k).", "sample_ru": "Division A: Pre-tax 46 020 → Tax 13 806 → Net 32 214.\nDivision B: Pre-tax 180 → Tax 54 → Net 126."}, {"title_ru": "Exercise 3 — production May", "ru": "Omega: production May? Sales May 90k, June 80k, 30% ending inventory.", "en": "Budgeted production for May.", "howto_ru": "Ending inv. = 0,3 × June sales.\nBeginning inv. = 0,3 × May sales.\nProduction = Sales + Ending − Beginning.", "sample_ru": "Production May = 90 000 + 24 000 − 27 000 = 87 000 units"}, {"title_ru": "Depreciation — straight-line", "ru": "Asset $160 000, life 6 years, residual $28 000 — build 6-year schedule (straight-line).", "en": "Straight-line depreciation schedule.", "howto_ru": "Annual dep = (160 000 − 28 000) / 6 = 22 000.\nКаждый год: Accum. += 22 000; NBV = 160 000 − Accum.\nГод 6: NBV = 28 000.", "sample_ru": "См. таблицу на странице 10 и в 00_How_To_Solve.html."}, {"title_ru": "Depreciation — reducing balance 15%", "ru": "Reducing balance 15% — 6-year schedule.", "en": "Reducing balance depreciation schedule.", "howto_ru": "Dep_year = Carrying × 15%; NBV = Carrying − Dep.\nСледующий год Carrying = предыдущий NBV.", "sample_ru": "Год 1: dep 24 000, NBV 136 000. Год 2: dep 20 400, NBV 115 600. …"}];
+    const SNA_ITEMS = [];
+
+    const form = document.getElementById('test-form');
+    const container = document.getElementById('questions');
+    const resultsBox = document.getElementById('results');
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      let currentSection = '';
+      QUESTIONS.forEach((q) => {
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = q.section;
+          container.appendChild(h);
+        }
+        const card = document.createElement('div');
+        card.className = 'q';
+        card.dataset.id = q.id;
+        card.innerHTML = `
+          <div class="q-num">Вопрос ${q.num}</div>
+          <div class="q-ru">${q.ru}</div>
+          <div class="q-en">${q.en}</div>
+          <div class="opts">
+            ${q.options.map(o => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span>
+                  <div class="opt-ru"><strong>${o.id.toUpperCase()})</strong> ${o.ru}</div>
+                  <div class="opt-en">${o.en}</div>
+                </span>
+              </label>`).join('')}
+          </div>
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderOpen() {
+      if (!OPEN_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'Открытые вопросы';
+      container.appendChild(h);
+      OPEN_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-num">${item.title_ru}</div>
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <textarea name="open_${idx}" placeholder="Ваш ответ..."></textarea>
+          <div class="howto" hidden></div><div class="sample" hidden></div>`;
+        block.querySelector('.sample').textContent = item.sample_ru || '';
+        const howtoEl = block.querySelector('.howto');
+        if (item.howto_ru) howtoEl.textContent = item.howto_ru;
+        else howtoEl.remove();
+        container.appendChild(block);
+      });
+    }
+
+    function renderSna() {
+      if (!SNA_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'SNA — расчёты';
+      container.appendChild(h);
+      SNA_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <div class="feedback" hidden></div>`;
+        block.dataset.expected = item.expected;
+        block.dataset.accept = JSON.stringify(item.accept || []);
+        container.appendChild(block);
+      });
+    }
+
+    function normalize(val) {
+      return String(val || '').trim().toLowerCase().replace(/\\s+/g, ' ');
+    }
+
+    function checkSnaAnswer(expected, accept, user) {
+      const n = normalize(user);
+      if (!n) return null;
+      const variants = [expected, ...(accept || [])].map(normalize);
+      return variants.some(v => n === v || n.includes(v) || v.includes(n));
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const warnEl = document.getElementById('warn-text');
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        card.classList.remove('unanswered', 'correct', 'wrong');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = true;
+        fb.textContent = '';
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          lbl.classList.remove('result-opt');
+          lbl.style.background = '';
+          lbl.querySelector('input').disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove('visible');
+        warnEl.hidden = false;
+        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        const first = container.querySelector('.q.unanswered');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      warnEl.hidden = true;
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        const fb = card.querySelector('.feedback');
+        fb.hidden = false;
+        card.classList.remove('unanswered', 'correct', 'wrong');
+
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          return;
+        }
+
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add('correct');
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+        } else {
+          wrong++;
+          card.classList.add('wrong');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+        }
+
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          const inp = lbl.querySelector('input');
+          lbl.classList.add('result-opt');
+          if (inp.value === q.correct) lbl.style.background = '#e8f8ef';
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = '#fdecea';
+          inp.disabled = true;
+        });
+      });
+
+      container.querySelectorAll('.open-block .sample, .open-block .howto').forEach(el => { el.hidden = false; });
+
+      container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
+        const block = fb.closest('.open-block');
+        if (!block.dataset.expected) return;
+        const inp = block.querySelector('input');
+        const ok = checkSnaAnswer(block.dataset.expected, JSON.parse(block.dataset.accept || '[]'), inp.value);
+        fb.hidden = false;
+        if (ok === null) {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        } else if (ok) {
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+        } else {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        }
+      });
+
+      const total = QUESTIONS.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
+
+      document.getElementById('score-text').textContent =
+        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+      document.getElementById('score-detail').textContent =
+        SCORING.correct !== 1 || SCORING.wrong !== 0
+          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
+          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+
+      resultsBox.classList.add('visible');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      form.reset();
+      resultsBox.classList.remove('visible');
+      document.getElementById('warn-text').hidden = true;
+      renderQuestions();
+      renderOpen();
+      renderSna();
+      
+    });
+
+    renderQuestions();
+    renderOpen();
+    renderSna();
+    
+  </script>
+</body>
+</html>

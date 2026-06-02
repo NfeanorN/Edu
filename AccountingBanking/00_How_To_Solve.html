@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Как решать задачи — Accounting &amp; Banking</title>
+  <style>
+    * {{ box-sizing: border-box; }}
+    body {{
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8f4f1 100%);
+    }}
+    .wrap {{ max-width: 860px; margin: 0 auto; }}
+    .back a {{ color: #16a085; text-decoration: none; }}
+    h1 {{ color: #2c3e50; border-bottom: 4px solid #16a085; padding-bottom: 12px; }}
+    h2 {{ color: #16a085; margin-top: 2rem; font-size: 1.2rem; }}
+    .card {{
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }}
+  .card pre {{ background: #f4f8f7; padding: 0.75rem; border-radius: 8px; overflow-x: auto; font-size: 0.88rem; }}
+    table {{ border-collapse: collapse; width: 100%; font-size: 0.88rem; margin: 0.5rem 0; }}
+    th, td {{ border: 1px solid #ccc; padding: 6px 8px; text-align: right; }}
+    th {{ background: #16a085; color: #fff; text-align: center; }}
+    td:first-child, th:first-child {{ text-align: center; }}
+    .sub {{ color: #555; }}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← К списку тестов</a></p>
+    <h1>Как решать задачи</h1>
+    <p class="sub">Accounting &amp; Banking for SMEs — пошаговые методы для расчётных и практических заданий экзамена.</p>
+
+    <div class="card">
+      <h2>1. ROE банка</h2>
+      <p><strong>Формула:</strong> ROE = чистая прибыль / собственный капитал (bank capital).</p>
+      <pre>Пример: profit = 5, bank capital = 50
+ROE = 5 / 50 = 0,10 = 10%  → ответ b)</pre>
+      <p>Если в условии прибыль <em>до налогов</em> и tax = 50%: PAT = 5 × (1 − 0,5) = 2,5 → ROE = 5%. Смотрите, дана ли уже <strong>чистая</strong> прибыль.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Repricing gap (ΔNII)</h2>
+      <pre>ΔNII = Gap × Δr
+Gap = −10 000 000 €,  Δr = 2% = 0,02
+ΔNII = −10 000 000 × 0,02 = −200 000 €  → ответ a)</pre>
+      <p>Отрицательный gap: при росте ставок чистый процентный доход падает.</p>
+    </div>
+
+    <div class="card">
+      <h2>3. Duration облигации</h2>
+      <p>Дольше срок погашения и <strong>реже</strong> купоны → выше duration.</p>
+      <p>Ответ: <strong>10 лет, 5%, купон ежегодно</strong> (не ежемесячно).</p>
+    </div>
+
+    <div class="card">
+      <h2>4. Statement of Financial Position (Uniclam)</h2>
+      <p><strong>Шаг 1.</strong> Разнести статьи по классам IFRS:</p>
+      <ul>
+        <li><strong>NCA:</strong> Goodwill, Other intangible, PPE</li>
+        <li><strong>CA:</strong> Inventories, Trade receivables, Cash</li>
+        <li><strong>Equity:</strong> Share capital, Retained earnings</li>
+        <li><strong>NCL:</strong> Long-term borrowings, Deferred tax</li>
+        <li><strong>CL:</strong> Short-term borrowings, Trade payables, Current tax payable</li>
+      </ul>
+      <p><strong>Шаг 2.</strong> Сложить подразделы → Total Assets = Total Equity + Liabilities.</p>
+      <pre>Вариант 1: активы = 204 850 €
+  NCA = 12 750 + 8 500 + 103 700 = 124 950
+  CA  = 37 400 + 23 800 + 18 700 = 79 900
+Пассивы: Equity 66 300 + NCL 87 550 + CL 51 000 = 204 850</pre>
+    </div>
+
+    <div class="card">
+      <h2>5. Таблица подразделений A / B</h2>
+      <p>Общие суммы распределяйте пропорционально:</p>
+      <ul>
+        <li><strong>Indirect labour</strong> → по direct labour (A : B = 12 : 24)</li>
+        <li><strong>Selling (и Advertising)</strong> → по revenue (A : B = 108 : 72)</li>
+        <li><strong>Electricity, Financial costs</strong> → по raw materials (A : B = 12 : 6)</li>
+      </ul>
+      <pre>Pre-tax profit = Revenue − все затраты
+Taxes = 30% × Pre-tax profit
+Net Income = Pre-tax − Taxes
+
+Пример 2024, Division A:
+  Selling = 12 000 × 108/180 = 7 200
+  Electricity = 16 800 × 12/18 = 11 200
+  Pre-tax = 48 400 → Tax = 14 520 → Net = 33 880 ✓</pre>
+    </div>
+
+    <div class="card">
+      <h2>6. Производство (inventory 30%)</h2>
+      <pre>Ending inventory = 30% × продажи следующего месяца
+Beginning inventory = 30% × продажи текущего месяца
+Production = Продажи + Ending inv. − Beginning inv.
+
+May: 90 000 + (0,3×80 000) − (0,3×90 000) = 87 000 units</pre>
+    </div>
+
+    <div class="card">
+      <h2>7. Амортизация — straight-line</h2>
+      <pre>Годовая амортизация = (Cost − Residual) / Life
+= (160 000 − 28 000) / 6 = 22 000 $/год
+
+Каждый год: Accum. dep. += 22 000; NBV = Cost − Accum. dep.
+Год 6: NBV = 28 000 $ (остаточная стоимость)</pre>
+      <table>
+        <tr><th>Year</th><th>Dep.</th><th>Accum.</th><th>NBV</th></tr>
+        <tr><td>1</td><td>22 000</td><td>22 000</td><td>138 000</td></tr>
+        <tr><td>2</td><td>22 000</td><td>44 000</td><td>116 000</td></tr>
+        <tr><td>3</td><td>22 000</td><td>66 000</td><td>94 000</td></tr>
+        <tr><td>4</td><td>22 000</td><td>88 000</td><td>72 000</td></tr>
+        <tr><td>5</td><td>22 000</td><td>110 000</td><td>50 000</td></tr>
+        <tr><td>6</td><td>22 000</td><td>132 000</td><td>28 000</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>8. Амортизация — reducing balance 15%</h2>
+      <pre>Depreciation year n = Carrying value × 15%
+NBV = Carrying value − Depreciation</pre>
+      <table>
+        <tr><th>Year</th><th>Carrying</th><th>Dep.</th><th>Accum.</th><th>NBV</th></tr>
+        <tr><td>1</td><td>160 000</td><td>24 000</td><td>24 000</td><td>136 000</td></tr>
+        <tr><td>2</td><td>136 000</td><td>20 400</td><td>44 400</td><td>115 600</td></tr>
+        <tr><td>3</td><td>115 600</td><td>17 340</td><td>61 740</td><td>98 260</td></tr>
+        <tr><td>4</td><td>98 260</td><td>14 739</td><td>76 479</td><td>83 521</td></tr>
+        <tr><td>5</td><td>83 521</td><td>12 528</td><td>89 007</td><td>70 993</td></tr>
+        <tr><td>6</td><td>70 993</td><td>10 649</td><td>99 656</td><td>60 344</td></tr>
+      </table>
+      <p>NBV при reducing balance обычно <strong>не</strong> совпадает с residual $28 000 без корректировки в последний год.</p>
+    </div>
+
+    <div class="card">
+      <h2>9. Call option</h2>
+      <p>Покупатель call выигрывает, когда цена актива <strong>растёт</strong> (payoff ↑).</p>
+      <p>Если цена <strong>падает</strong> → payoff <strong>ниже</strong> (ответ b), не «выше».</p>
+    </div>
+
+    <div class="card">
+      <h2>10. European Banking Union — 3 столпа</h2>
+      <ol>
+        <li><strong>Supervision</strong> (SSM) — надзор</li>
+        <li><strong>Resolution</strong> (SRM, bail-in, bad-bank) — урегулирование</li>
+        <li><strong>Deposit guarantee</strong> (DGS) — гарантии вкладов</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>
