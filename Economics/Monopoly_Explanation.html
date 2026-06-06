@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monopoly — Монополия (Frank, Ch. 11)</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 920px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #8e44ad; padding-bottom: 15px; margin-bottom: 10px; font-size: 2.1em; }
+        .source { color: #666; font-size: 0.95em; margin-bottom: 28px; }
+        h2 { color: #34495e; margin-top: 42px; margin-bottom: 18px; font-size: 1.55em; border-left: 5px solid #8e44ad; padding-left: 15px; }
+        h3 { color: #555; margin-top: 28px; margin-bottom: 12px; font-size: 1.2em; }
+        p { margin: 14px 0; text-align: justify; }
+        .en { color: #555; font-style: italic; font-size: 0.94em; margin-top: -8px; margin-bottom: 14px; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 22px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+        th, td { border: 1px solid #ddd; padding: 11px 14px; text-align: left; }
+        th { background: linear-gradient(135deg, #8e44ad 0%, #6c3483 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 38px 0; }
+        ul, ol { margin: 12px 0; padding-left: 28px; }
+        li { margin: 8px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 22px 0; }
+        .formula-box { background: #f3eef8; border-left: 4px solid #8e44ad; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
+        .story-box { background: #fff9e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
+        .example-box { background: #eef7ff; border-left: 4px solid #3498db; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
+        .key-box { background: #e8f6ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
+        .book-ref { display: inline-block; background: #eee; color: #555; font-size: 0.82em; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-style: normal; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; }
+        pre { background: #f8f8f8; padding: 16px; border-radius: 8px; border: 1px solid #e0e0e0; overflow-x: auto; font-size: 0.88em; line-height: 1.45; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #8e44ad; text-decoration: none; }
+        .back a:hover { text-decoration: underline; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .fig-caption { text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a> · <a href="Frank_Study_Guide.html">Frank Study Guide</a></p>
+
+    <h1>Monopoly — Монополия</h1>
+    <p class="source">Источник: <strong>Robert H. Frank, <em>Microeconomics and Behavior</em>, 7th ed.</strong>, Chapter 11 — «Monopoly and Other Forms of Imperfect Competition» (стр. 336–346). Примеры и логика — из учебника.</p>
+
+    <h2>1. Определение <span class="book-ref">Ch. 11, p. 336</span></h2>
+    <p><strong>Монополия</strong> — рынок, на котором есть <strong>только один продавец</strong>, а у продукта <strong>нет близких заменителей</strong>. Фирма — <strong>price maker</strong> (задаёт цену), а не price taker.</p>
+    <p class="en"><strong>A monopoly</strong> is a market with <strong>only one seller</strong> and a product with <strong>no close substitutes</strong>. The firm is a <strong>price maker</strong>, not a price taker.</p>
+
+    <table>
+        <tr><th></th><th>Конкурентная фирма</th><th>Монополист</th></tr>
+        <tr><td>Число фирм</td><td>Много</td><td>Одна</td></tr>
+        <tr><td>Кривая спроса</td><td><strong>Горизонтальная</strong> при цене P</td><td><strong>Весь рыночный спрос</strong> (нисходящая D)</td></tr>
+        <tr><td>Власть над ценой</td><td>Нет</td><td>Да</td></tr>
+        <tr><td>Что выбирает фирма</td><td>Только Q (P задана)</td><td>Q → P определяется по D</td></tr>
+    </table>
+
+    <div class="story-box">
+        <p>Конкурентная фирма — крошечный ларёк на гигантском рынке: подняла цену на цент — все ушли к соседу. Цена «навязана сверху».</p>
+        <p>Монополист — единственный продавец на многие мили вокруг. Он решает, какую цену взять. Но если цена слишком высокая — почти никто не купит. Чем выше P, тем ниже Q — это нисходящий спрос.</p>
+        <p class="en">A competitive firm is a tiny stall: raise price by a penny and every buyer leaves. A monopolist is the only seller for miles — but high P means low Q; that's the downward-sloping demand curve.</p>
+    </div>
+
+    <hr>
+
+    <h2>2. Пять источников монополии <span class="book-ref">Ch. 11, p. 337</span></h2>
+    <p>Фрэнк перечисляет <strong>пять причин</strong>, почему на рынке может остаться один продавец:</p>
+    <p class="en">Frank lists <strong>five reasons</strong> a single seller can dominate a market:</p>
+
+    <h3>1) Эксклюзивный контроль над ключевым ресурсом</h3>
+    <p><strong>Пример из книги — Alcoa:</strong> компания <strong>Alcoa</strong> в США долго контролировала почти все запасы <strong>bauxite</strong> (бокситы — сырьё для алюминия). Без бокситов нельзя производить алюминий → Alcoa была монополистом.</p>
+    <p class="en"><strong>Book example — Alcoa:</strong> Alcoa long controlled nearly all US <strong>bauxite</strong> (raw material for aluminium). No bauxite, no aluminium → Alcoa was a monopolist.</p>
+
+    <h3>2) Экономия от масштаба → естественная монополия</h3>
+    <p>Если <strong>LAC</strong> продолжает падать на всём релевантном диапазоне выпуска (см. Ch. 9), одна крупная фирма дешевле двух средних. Конкуренты с более высокими unit costs вытесняются.</p>
+    <p><strong>Примеры из книги:</strong> электросети, водоснабжение, газораспределение, железные дороги. Прокладывать вторую сеть параллельно первой — расточительство («natural monopolies»).</p>
+    <p class="en">When <strong>LAC keeps falling</strong>, one big firm beats rivals on cost. <strong>Examples:</strong> electric grid, water, gas, railways — a second parallel network is wasteful.</p>
+
+    <h3>3) Патенты</h3>
+    <p>Государство даёт изобретателю <strong>законную монополию</strong> на ~20 лет. Без патентов мало кто потратит миллиарды на новое лекарство, если конкуренты смогут клонировать его на следующий день.</p>
+    <p><strong>Пример:</strong> фармацевтические компании — монополисты на рынке нового препарата, пока действует патент.</p>
+    <p class="en">Patents grant a <strong>legal monopoly</strong> (~20 years). <strong>Example:</strong> pharma firms monopolise new drugs while the patent lasts.</p>
+
+    <h3>4) Сетевые эффекты (network economies)</h3>
+    <p>Ценность продукта растёт с числом пользователей. <strong>Примеры из книги:</strong></p>
+    <ul>
+        <li><strong>Windows</strong> — больше пользователей → больше приложений → ещё привлекательнее ОС → самоусиливающаяся петля.</li>
+        <li><strong>Социальные сети</strong> — вы на Facebook, потому что там ваши друзья.</li>
+        <li><strong>Платёжные системы</strong> — ценность сети для каждого участника.</li>
+    </ul>
+    <p class="en">Value grows with users. <strong>Windows</strong>, social networks, payment systems — one player often captures almost the whole market.</p>
+
+    <h3>5) Государственные лицензии и франшизы</h3>
+    <p><strong>Примеры из книги:</strong></p>
+    <ul>
+        <li><strong>USPS</strong> — государственная монополия на доставку писем в США.</li>
+        <li><strong>Taxi medallions</strong> в Нью-Йорке — город ограничивал число медальонов.</li>
+        <li>Кабельное ТВ, лицензии на радиочастоты, продажа алкоголя в некоторых штатах.</li>
+    </ul>
+    <p class="en">USPS (mail), NYC taxi medallions, cable TV, spectrum licences, liquor sales in some states.</p>
+
+    <h2>2.1 Как удержать монополию <span class="book-ref">Ch. 11 + Ch. 9</span></h2>
+    <p>Монополия держится, пока <strong>барьеры входа</strong> не дают конкурентам войти и сбить цену до уровня конкуренции (P → MC, π → 0). Фрэнк связывает удержание власти с теми же пятью источниками — их нужно <strong>защищать и усиливать</strong>:</p>
+    <p class="en">A monopoly lasts while <strong>barriers to entry</strong> keep rivals out. Frank's five sources are also five <strong>moats</strong> to defend.</p>
+
+    <table>
+        <tr><th>Источник (Frank)</th><th>Как удержать</th><th>Пример</th></tr>
+        <tr><td>Ключевой ресурс</td><td>Купить/законтрактовать запасы; эксклюзивные сделки с поставщиками</td><td><strong>Alcoa</strong> — контроль бокситов; без сырья конкурент не войдёт</td></tr>
+        <tr><td>Экономия от масштаба</td><td>Расти быстрее рынка → unit cost ниже, чем у новичка</td><td>Электросеть: второй оператор с меньшим масштабом проигрывает по LAC</td></tr>
+        <tr><td>Патент</td><td>Продлевать через новые формулы; патентовать смежные технологии</td><td>Фарма — патент на молекулу + на способ доставки</td></tr>
+        <tr><td>Сетевые эффекты</td><td>«Липкость»: данные, друзья, приложения — переключение дорого</td><td><strong>Windows</strong> — чем больше пользователей, тем сильнее петля</td></tr>
+        <tr><td>Лицензия / регулятор</td><td>Лоббирование квот; ограничение числа разрешений</td><td>Медальоны такси NYC — фиксированное число лицензий</td></tr>
+    </table>
+
+    <div class="story-box">
+        <p><strong>Логика:</strong> если π &gt; 0, снаружи видят «здесь можно заработать» (Ch. 10 — свободный вход). Конкурент войдёт, если его издержки ≤ вашей цены. Монополист удерживает рынок, если вход <strong>убыточен или невозможен</strong>: нет ресурса, сеть уже занята, патент действует, масштаб конкурента слишком мал.</p>
+        <p><strong>Limit pricing (идея):</strong> иногда монополист сознательно держит цену <strong>ниже</strong> краткосрочного максимума, чтобы потенциальному конкуренту было невыгодно входить (его MC выше вашей текущей цены). Это жертва части прибыли сегодня ради монополии завтра.</p>
+        <p class="en">If π &gt; 0, outsiders want in. The monopolist survives when entry is unprofitable — no resource, network locked in, patent active, rival too small for scale. <strong>Limit pricing:</strong> set P below the short-run maximum so entrants can't cover their costs.</p>
+    </div>
+
+    <hr> <span class="book-ref">Ch. 11, p. 346</span></h2>
+    <p>У конкурента <strong>MR = P</strong> (ещё одна единица → ещё один доллар выручки). У монополиста — <strong>нет</strong>: чтобы продать дополнительную единицу, нужно <strong>снизить цену на все предыдущие</strong> (одна фирма — одна рыночная цена).</p>
+    <p class="en">For a competitor <strong>MR = P</strong>. For a monopolist, selling one more unit requires <strong>cutting price on all previous units</strong> — so MR &lt; P.</p>
+
+    <div class="example-box">
+        <h3 style="margin-top:0">Числовой пример из книги: 10 → 11 единиц</h3>
+        <p>Монополист продаёт <strong>10 единиц по $100</strong> → выручка <strong>$1 000</strong>.</p>
+        <p>Чтобы продать <strong>11-ю</strong>, цена падает до <strong>$95</strong> (по кривой спроса).</p>
+        <p>Новая выручка = 11 × 95 = <strong>$1 045</strong> → прирост <strong>MR = $45</strong>.</p>
+        <p>Но цена 11-й единицы = $95, а не $45! Почему MR ниже P?</p>
+        <ul>
+            <li>+ $95 — выручка от новой единицы</li>
+            <li>− $50 — потеря на старых 10 единицах ($5 × 10)</li>
+            <li>= <strong>+$45 = MR</strong></li>
+        </ul>
+        <p class="en">10 units at $100 → TR $1,000. Price drops to $95 for 11 units → TR $1,045. MR = $45, but P on the 11th unit = $95. The $5 cut on 10 old units costs $50.</p>
+    </div>
+
+    <h3>Линейный спрос: формула MR</h3>
+    <p>Если <code>P = a − b·Q</code>, то:</p>
+    <div class="formula-box">
+        TR = P·Q = aQ − bQ²<br>
+        <strong>MR = dTR/dQ = a − 2b·Q</strong>
+    </div>
+    <p class="en">For linear demand P = a − bQ, marginal revenue is MR = a − 2bQ.</p>
+
+    <h3>Геометрическое правило <span class="book-ref">Figure 11.5</span></h3>
+    <p>MR и D имеют <strong>одинаковый intercept</strong> на оси P, но MR <strong>в два раза круче</strong>. MR пересекает ось Q ровно <strong>посередине</strong> между началом координат и точкой, где D пересекает ось Q.</p>
+    <p class="en">MR and D share the same P-intercept; MR is twice as steep. MR hits the Q-axis halfway between the origin and where D hits Q.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
+            </defs>
+            <line x1="55" y1="25" x2="55" y2="245" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+            <line x1="55" y1="245" x2="395" y2="245" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+            <!-- D: intercept 10, Q-intercept at Q=10 when P=0, scale: P 0-10 maps y 245-45, Q 0-10 maps x 55-355 -->
+            <line x1="55" y1="45" x2="355" y2="245" stroke="#27ae60" stroke-width="2.5"/>
+            <!-- MR: same intercept, Q-intercept at Q=5 -->
+            <line x1="55" y1="45" x2="205" y2="245" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4"/>
+            <!-- MC = 2 constant, P=2 -> y = 245 - (2/10)*200 = 205 -->
+            <line x1="55" y1="205" x2="355" y2="205" stroke="#2980b9" stroke-width="2.5"/>
+            <!-- Q*=4: x = 55 + 4/10*300 = 175 -->
+            <circle cx="175" cy="205" r="5" fill="#8e44ad"/>
+            <line x1="175" y1="205" x2="175" y2="245" stroke="#999" stroke-dasharray="4,3"/>
+            <line x1="55" y1="125" x2="175" y2="125" stroke="#999" stroke-dasharray="4,3"/>
+            <circle cx="175" cy="125" r="4" fill="#27ae60"/>
+            <!-- labels -->
+            <text x="360" y="250" font-size="13">Q</text>
+            <text x="28" y="30" font-size="13">P</text>
+            <text x="358" y="55" fill="#27ae60" font-size="14" font-weight="600">D</text>
+            <text x="188" y="238" fill="#e74c3c" font-size="13" font-weight="600">MR</text>
+            <text x="358" y="210" fill="#2980b9" font-size="14" font-weight="600">MC=2</text>
+            <text x="168" y="262" font-size="12">Q*=4</text>
+            <text x="22" y="129" font-size="12">P*=6</text>
+            <text x="175" cy="125" y="118" font-size="11" fill="#8e44ad">MR=MC</text>
+        </svg>
+        <p class="fig-caption">Figure 11.5 (упрощённо): D и MR для P = 10 − Q; оптimum при MR = MC = 2 → Q* = 4, P* = 6.</p>
+    </div>
+
+    <h3>MR и ценовая эластичность</h3>
+    <div class="formula-box">
+        <strong>MR = P · (1 − 1/|ε|)</strong>, &nbsp; где ε — ценовая эластичность спроса
+    </div>
+    <ul>
+        <li>|ε| &gt; 1 (эластичный) → MR &gt; 0</li>
+        <li>|ε| = 1 → MR = 0 (TR на максимуме)</li>
+        <li>|ε| &lt; 1 (неэластичный) → MR &lt; 0</li>
+    </ul>
+
+    <div class="key-box">
+        <strong>Ключевой вывод Фрэнка:</strong> монополист <strong>никогда не работает на неэластичном участке</strong> спроса. Там MR &lt; 0 — можно сократить Q, поднять P, увеличить выручку и сэкономить на издержках одновременно.
+        <p class="en" style="margin-bottom:0">A monopolist <strong>never operates on the inelastic portion</strong> of demand — MR &lt; 0 there, so cutting Q raises revenue and saves cost.</p>
+    </div>
+
+    <hr>
+
+    <h2>4. Максимизация прибыли: MR = MC</h2>
+    <p>Общее правило (как в Ch. 10 и Figure 1.1: MB = MC):</p>
+    <div class="formula-box" style="text-align:center;font-size:1.05em;">
+        <strong>MR(Q*) = MC(Q*)</strong>, &nbsp; затем &nbsp; <strong>P* = D(Q*)</strong>
+    </div>
+    <p>Результат: <strong>P* &gt; MC</strong>. Разрыв (P − MC) — <strong>монопольная наценка (markup)</strong>. Ограничение выпуска создаёт <strong>deadweight loss (DWL)</strong>.</p>
+    <p class="en">Find Q* where MR = MC, then read P* from demand. Outcome: P* &gt; MC — monopoly markup and deadweight loss.</p>
+
+    <div class="example-box">
+        <h3 style="margin-top:0">Главный числовой пример: монополия на рынке лекарства</h3>
+        <p><span class="book-ref">Ch. 11 — worked example</span></p>
+        <p>Линейный спрос: <code>P = 10 − Q</code> (Q в млн упаковок, P в $)</p>
+        <p>Постоянные MC: <code>MC = 2</code></p>
+        <pre>MR = 10 − 2Q
+
+MR = MC:   10 − 2Q = 2   →   Q* = 4 млн
+P* = 10 − 4 = 6 $
+
+TR = 6 × 4 = 24 млн $
+TC = 2 × 4 =  8 млн $
+π  = 16 млн $</pre>
+        <p><strong>Сравнение с конкуренцией:</strong> P = MC → 10 − Q = 2 → <strong>Q<sub>c</sub> = 8</strong>, <strong>P<sub>c</sub> = 2 $</strong>.</p>
+        <p>Монополия производит <strong>вдвое меньше</strong> и берёт <strong>втрое выше</strong> цену.</p>
+        <p class="en">Demand P = 10 − Q, MC = 2. Monopoly: Q* = 4, P* = $6, profit $16m. Competition: Q<sub>c</sub> = 8, P<sub>c</sub> = $2.</p>
+    </div>
+
+    <div class="example-box">
+        <h3 style="margin-top:0">Пример в €: «максимальная цена 100 €» — но это не оптимум!</h3>
+        <p>Линейный спрос: <code>P = 100 − Q</code> (Q — тыс. штук, P — €). Постоянные издержки: <code>MC = 20 €</code>.</p>
+        <p>При Q = 0 цена на кривой спроса = <strong>100 €</strong> — это <em>choke price</em> (цена, выше которой спрос = 0). Но продавать по 100 € и не продать ни одной единицы — прибыль ноль.</p>
+        <pre>MR = 100 − 2Q
+
+Шаг 1 — найти Q*:     MR = MC
+                        100 − 2Q = 20   →   Q* = 40 (тыс. шт.)
+
+Шаг 2 — цена:          P* = 100 − 40 = 60 €
+
+Шаг 3 — прибыль:       π = (P* − MC) × Q* = (60 − 20) × 40 = 1 600 000 €</pre>
+        <p class="en">Demand P = 100 − Q (€), MC = 20. Choke price = €100 at Q = 0 — but selling at €100 yields Q = 0 and π = 0. Optimum: Q* = 40, P* = €60, π = €1.6m.</p>
+
+        <table>
+            <tr><th>Стратегия</th><th>P (€)</th><th>Q (тыс.)</th><th>π (€)</th><th>Комментарий</th></tr>
+            <tr><td>«Поставлю 100 € — ведь это максимум»</td><td>100</td><td>0</td><td><strong>0</strong></td><td>Никто не покупает — π = 0</td></tr>
+            <tr><td>Слишком дёшево</td><td>40</td><td>60</td><td>1 200 000</td><td>MR &lt; MC — выпуск <em>слишком большой</em></td></tr>
+            <tr><td>Слишком дорого</td><td>80</td><td>20</td><td>1 200 000</td><td>MR &gt; MC — можно продать ещё и заработать</td></tr>
+            <tr style="background:#e8f6ef"><td><strong>Оптимум MR = MC</strong></td><td><strong>60</strong></td><td><strong>40</strong></td><td><strong>1 600 000</strong></td><td>Максимум прибыли ✓</td></tr>
+            <tr><td>Конкуренция (P = MC)</td><td>20</td><td>80</td><td>0</td><td>Экономическая прибыль исчезает</td></tr>
+        </table>
+
+        <p><strong>Вывод:</strong> «100 €» на оси P — это не «правильная монопольная цена», а только верхняя точка спроса. Оптимальная цена <strong>60 €</strong> — ниже 100, но прибыль максимальна.</p>
+    </div>
+
+    <div class="example-box">
+        <h3 style="margin-top:0">Ещё один расчёт в €: P = 200 − 2Q, MC = 40</h3>
+        <pre>MR = 200 − 4Q
+MR = MC:  200 − 4Q = 40  →  Q* = 40
+P* = 200 − 2·40 = 120 €
+π  = (120 − 40) × 40 = 3 200 000 €
+
+Choke price (Q = 0): 200 € — снова не оптимум.</pre>
+        <p class="en">P = 200 − 2Q, MC = 40 → Q* = 40, P* = €120, profit €3.2m. Choke price €200 is not optimal.</p>
+    </div>
+
+    <h3>Как увеличить максимальную прибыль (по Frank)</h3>
+    <p>Оптимум MR = MC даёт π* при <em>данных</em> спросе и издержках. Чтобы π выросло, монополист сдвигает кривые:</p>
+    <ol>
+        <li><strong>Снизить MC</strong> (технология, масштаб) → при том же спросе MR = MC в точке с большим Q и большим markup-объёмом.<br>
+            <em>Пример:</em> MC падает с 20 до 10 € при P = 100 − Q → Q* = 45, P* = 55 €, π = 45 × 45 = <strong>2 025 000 €</strong> (+425 тыс.).</li>
+        <li><strong>Сделать спрос менее эластичным</strong> (бренд, уникальность, switching costs) → по формуле (P−MC)/P = 1/|ε| можно поднять цену при том же MC.<br>
+            <em>Пример из книги:</em> Windows — сетевой эффект снижает эластичность; пользователю дорого уйти.</li>
+        <li><strong>Ценовая дискриминация</strong> (Ch. 11) — брать с каждого покупателя ближе к его WTP → π выше, чем при одной цене 60 €. См. <a href="Price_Discrimination_Explanation.html">Price Discrimination</a>.</li>
+        <li><strong>Удержать монополию</strong> (раздел 2.1) — не дать конкурентам войти и сбить P с 60 € до 20 € (π → 0).</li>
+    </ol>
+    <p class="en">Raise profit by cutting MC, making demand less elastic, price discriminating, or blocking entry so P doesn't fall to competitive level.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="235" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="235" x2="400" y2="235" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="35" x2="350" y2="235" stroke="#27ae60" stroke-width="2" opacity="0.5"/>
+            <text x="355" y="238" fill="#27ae60" font-size="12">D: P=100−Q</text>
+            <!-- profit bars at Q=20,40,60 - scaled -->
+            <rect x="120" y="155" width="35" height="80" fill="#e74c3c" opacity="0.7"/>
+            <rect x="195" y="115" width="35" height="120" fill="#27ae60" opacity="0.85"/>
+            <rect x="270" y="175" width="35" height="60" fill="#e74c3c" opacity="0.7"/>
+            <text x="125" y="150" font-size="11">Q=20</text>
+            <text x="118" y="248" font-size="10">π=1,2M</text>
+            <text x="200" y="108" font-size="11" font-weight="600">Q*=40</text>
+            <text x="188" y="248" font-size="10" font-weight="600">π=1,6M ✓</text>
+            <text x="275" y="170" font-size="11">Q=60</text>
+            <text x="268" y="248" font-size="10">π=1,2M</text>
+            <line x1="50" y1="235" x2="50" y2="115" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="15" y="120" font-size="11">π</text>
+            <text x="180" y="18" font-size="13" fill="#555">Прибыль π = (P − MC) × Q при P = 100 − Q, MC = 20</text>
+        </svg>
+        <p class="fig-caption">Максимум прибыли при Q* = 40 — не при минимальном и не при максимальном выпуске.</p>
+    </div>
+
+    <h3>Наценка и эластичность (Lerner index)</h3>
+    <div class="formula-box">
+        <strong>(P − MC) / P = 1 / |ε|</strong><br>
+        <span style="font-size:0.92em">Чем менее эластичен спрос → тем выше markup.</span>
+    </div>
+    <p>Для нашего примера при Q = 4: |ε| = 1,5 → (6−2)/6 = 2/3 = 1/1,5 ✓</p>
+    <p class="en">Markup equals the inverse of |ε|. Less elastic demand → larger markup.</p>
+
+    <hr>
+
+    <h2>5. Потери общества (DWL) <span class="book-ref">Ch. 11</span></h2>
+    <p>При совершенной конкуренции P = MC и выпуск Q<sub>c</sub> максимизирует суммарный излишек. Монополия ограничивает Q до Q<sub>m</sub> &lt; Q<sub>c</sub>. Единицы между Q<sub>m</sub> и Q<sub>c</sub> не производятся, хотя готовность платить &gt; MC — это <strong>чистая потеря</strong> (треугольник DWL).</p>
+    <p class="en">Competition: P = MC, max total surplus. Monopoly: Q<sub>m</sub> &lt; Q<sub>c</sub>; units where WTP &gt; MC are not produced — deadweight loss triangle.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 400 270" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="250"/>
+            <line x1="50" y1="250" x2="380" y2="250"/>
+            <path d="M 50 50 L 170 130 L 290 210 L 370 240" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <line x1="50" y1="210" x2="370" y2="210" stroke="#2980b9" stroke-width="2.5"/>
+            <polygon points="170,130 170,210 290,210" fill="rgba(231,76,60,0.25)" stroke="#e74c3c" stroke-width="1"/>
+            <line x1="50" y1="130" x2="170" y2="130" stroke="#8e44ad" stroke-dasharray="4,3"/>
+            <line x1="170" y1="130" x2="170" y2="250" stroke="#8e44ad" stroke-dasharray="4,3"/>
+            <line x1="50" y1="210" x2="290" y2="210" stroke="#27ae60" stroke-dasharray="4,3"/>
+            <line x1="290" y1="210" x2="290" y2="250" stroke="#27ae60" stroke-dasharray="4,3"/>
+            <circle cx="170" cy="130" r="4" fill="#8e44ad"/>
+            <circle cx="290" cy="210" r="4" fill="#27ae60"/>
+            <text x="22" y="134" font-size="12">P<sub>m</sub>=6</text>
+            <text x="22" y="214" font-size="12">P<sub>c</sub>=2</text>
+            <text x="162" y="265" font-size="12">Q<sub>m</sub>=4</text>
+            <text x="282" y="265" font-size="12">Q<sub>c</sub>=8</text>
+            <text x="210" y="185" fill="#e74c3c" font-weight="600">DWL</text>
+            <text x="330" y="55" fill="#27ae60">D</text>
+            <text x="330" y="218" fill="#2980b9">MC</text>
+        </svg>
+        <p class="fig-caption">Монополия (Q<sub>m</sub>=4, P<sub>m</sub>=6) vs конкуренция (Q<sub>c</sub>=8, P<sub>c</sub>=2). Красный треугольник — DWL.</p>
+    </div>
+
+    <hr>
+
+    <h2>6. Связь с другими главами Frank</h2>
+    <ul>
+        <li><strong>Ch. 9 (LAC):</strong> падающая LAC → естественная монополия (электричество, вода).</li>
+        <li><strong>Ch. 10 (MR = MC):</strong> то же правило, что у конкурента — но MR &lt; P.</li>
+        <li><strong>Ch. 12–13:</strong> олигополия (Cournot, Bertrand) — спектр между монополией и конкуренцией: Q растёт, P падает, π → 0.</li>
+    </ul>
+    <p class="en">Ch. 9 LAC shape → natural monopoly. Ch. 10 same MR=MC rule. Ch. 13 oligopoly sits between monopoly and competition.</p>
+
+    <div class="key-box">
+        <strong>Запомнить:</strong>
+        <ol>
+            <li>Монополист = весь рыночный спрос (нисходящая D).</li>
+            <li>MR &lt; P; для линейного спроса MR в 2 раза круче D (Figure 11.5).</li>
+            <li>Оптimum: MR = MC → P* с кривой D.</li>
+            <li>P* &gt; MC → markup и DWL.</li>
+            <li>5 источников: ресурс (Alcoa), масштаб, патент, сеть (Windows), лицензия (USPS).</li>
+            <li>Удержание: барьеры входа + limit pricing; иначе π → 0 при конкуренции.</li>
+            <li>100 € на D — choke price, не оптимум; считай MR = MC → часто P* ниже «максимума на графике».</li>
+        </ol>
+    </div>
+
+    <p class="back" style="margin-top:2rem"><a href="Market_Power_Explanation.html">→ Market Power (олигополия, наценка)</a> · <a href="Price_Discrimination_Explanation.html">→ Price Discrimination</a> · <a href="Frank_Study_Guide.html">→ Frank Study Guide</a></p>
+</body>
+</html>
