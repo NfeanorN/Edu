@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EPC — Booking a Classroom for Extra Classes</title>
+  <style>
+    @page { size: A3 portrait; margin: 8mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Helvetica, Arial, sans-serif; background: #fff; color: #1a1a1a; }
+    .page { width: 900px; margin: 0 auto; padding: 12px 16px 24px; page-break-inside: avoid; }
+    h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; text-align: center; }
+    .subtitle { text-align: center; font-size: 12px; color: #555; margin-bottom: 8px; }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 20px;
+      font-size: 10px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .swatch { width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid #333; }
+    .swatch.event-start { background: #c8e6c9; border-color: #2e7d32; }
+    .swatch.event { background: #e8f5e9; border-color: #2e7d32; }
+    .swatch.event-end { background: #ffcdd2; border-color: #c62828; }
+    .swatch.function { background: #bbdefb; border-color: #1565c0; }
+    svg.diagram { display: block; margin: 0 auto; width: 100%; height: auto; }
+    .edge-label { font-size: 9px; fill: #333; font-weight: 500; }
+    .note { font-size: 8px; fill: #666; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Event-Process Chain (EPC)</h1>
+    <p class="subtitle">Process: Booking a classroom for extra classes</p>
+    <div class="legend">
+      <span><i class="swatch event-start"></i> Start event</span>
+      <span><i class="swatch event"></i> Event</span>
+      <span><i class="swatch function"></i> Function</span>
+      <span><i class="swatch event-end"></i> End event</span>
+      <span>⊕ XOR</span>
+      <span>&amp; AND</span>
+      <span>O OR</span>
+    </div>
+
+    <svg class="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1460">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#333"/>
+        </marker>
+      </defs>
+
+      <!-- START -->
+      <polygon points="380,24 460,52 380,80 300,52" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2"/>
+      <text x="380" y="50" text-anchor="middle" font-size="9" font-weight="600">Extra class booking</text>
+      <text x="380" y="62" text-anchor="middle" font-size="9" font-weight="600">needed</text>
+
+      <line x1="380" y1="80" x2="380" y2="98" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="290" y="100" width="180" height="44" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="380" y="118" text-anchor="middle" font-size="9">Submit booking request</text>
+      <text x="380" y="132" text-anchor="middle" font-size="8" fill="#444">date, time, subject, group size</text>
+
+      <line x1="380" y1="144" x2="380" y2="162" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="380,164 455,188 380,212 305,188" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="380" y="192" text-anchor="middle" font-size="9">Request submitted</text>
+
+      <line x1="380" y1="212" x2="380" y2="230" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="380" cy="248" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="380" y="253" text-anchor="middle" font-size="11" font-weight="bold">⊕</text>
+
+      <line x1="380" y1="261" x2="380" y2="278" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="275" y="280" width="210" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="380" y="304" text-anchor="middle" font-size="9">Check classroom availability</text>
+
+      <line x1="380" y1="320" x2="380" y2="338" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="380" cy="356" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="380" y="361" text-anchor="middle" font-size="11" font-weight="bold">⊕</text>
+
+      <!-- NO -->
+      <line x1="367" y1="356" x2="200" y2="356" stroke="#333" stroke-width="1.5"/>
+      <line x1="200" y1="356" x2="200" y2="388" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="278" y="350" class="edge-label">no</text>
+
+      <polygon points="200,390 268,410 200,430 132,410" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="200" y="408" text-anchor="middle" font-size="8.5">Classroom not</text>
+      <text x="200" y="420" text-anchor="middle" font-size="8.5">available</text>
+
+      <line x1="200" y1="430" x2="200" y2="448" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="115" y="450" width="170" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="200" y="468" text-anchor="middle" font-size="8.5">Propose alternative</text>
+      <text x="200" y="482" text-anchor="middle" font-size="8.5">date or classroom</text>
+
+      <line x1="200" y1="490" x2="200" y2="508" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="200,510 275,530 200,550 125,530" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="200" y="528" text-anchor="middle" font-size="8.5">Alternative proposed</text>
+
+      <line x1="200" y1="550" x2="200" y2="580" stroke="#333" stroke-width="1.5"/>
+      <line x1="200" y1="580" x2="80" y2="580" stroke="#333" stroke-width="1.5"/>
+      <line x1="80" y1="580" x2="80" y2="248" stroke="#333" stroke-width="1.5"/>
+      <line x1="80" y1="248" x2="367" y2="248" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- YES -->
+      <line x1="393" y1="356" x2="560" y2="356" stroke="#333" stroke-width="1.5"/>
+      <line x1="560" y1="356" x2="560" y2="388" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="472" y="350" class="edge-label">yes</text>
+
+      <polygon points="560,390 628,410 560,430 492,410" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="560" y="412" text-anchor="middle" font-size="8.5">Classroom available</text>
+
+      <line x1="560" y1="430" x2="560" y2="448" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="485" y="450" width="150" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="560" y="474" text-anchor="middle" font-size="8.5">Reserve classroom</text>
+
+      <line x1="560" y1="490" x2="560" y2="508" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="560,510 635,530 560,550 485,530" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="560" y="532" text-anchor="middle" font-size="8.5">Classroom reserved</text>
+
+      <line x1="560" y1="550" x2="560" y2="580" stroke="#333" stroke-width="1.5"/>
+      <line x1="560" y1="580" x2="380" y2="580" stroke="#333" stroke-width="1.5"/>
+      <line x1="380" y1="580" x2="380" y2="598" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- AND split -->
+      <circle cx="380" cy="616" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="380" y="621" text-anchor="middle" font-size="13" font-weight="bold">&amp;</text>
+
+      <line x1="367" y1="616" x2="120" y2="616" stroke="#333" stroke-width="1.5"/>
+      <line x1="120" y1="616" x2="120" y2="648" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="45" y="650" width="150" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="120" y="674" text-anchor="middle" font-size="8.5">Check projector</text>
+
+      <line x1="380" y1="629" x2="380" y2="648" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="305" y="650" width="150" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="380" y="668" text-anchor="middle" font-size="8.5">Check sound</text>
+      <text x="380" y="682" text-anchor="middle" font-size="8.5">system</text>
+
+      <line x1="393" y1="616" x2="640" y2="616" stroke="#333" stroke-width="1.5"/>
+      <line x1="640" y1="616" x2="640" y2="648" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="565" y="650" width="150" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="640" y="668" text-anchor="middle" font-size="8.5">Verify room</text>
+      <text x="640" y="682" text-anchor="middle" font-size="8.5">capacity</text>
+
+      <!-- AND join -->
+      <line x1="120" y1="690" x2="120" y2="720" stroke="#333" stroke-width="1.5"/>
+      <line x1="380" y1="690" x2="380" y2="720" stroke="#333" stroke-width="1.5"/>
+      <line x1="640" y1="690" x2="640" y2="720" stroke="#333" stroke-width="1.5"/>
+      <line x1="120" y1="720" x2="640" y2="720" stroke="#333" stroke-width="1.5"/>
+      <line x1="380" y1="720" x2="380" y2="738" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="380" cy="756" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="380" y="761" text-anchor="middle" font-size="13" font-weight="bold">&amp;</text>
+
+      <line x1="380" y1="769" x2="380" y2="786" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="380,788 468,812 380,836 292,812" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="380" y="810" text-anchor="middle" font-size="8.5">Initial preparations</text>
+      <text x="380" y="822" text-anchor="middle" font-size="8.5">completed</text>
+
+      <line x1="380" y1="836" x2="380" y2="854" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="265" y="856" width="230" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="380" y="874" text-anchor="middle" font-size="8.5">Determine material &amp;</text>
+      <text x="380" y="888" text-anchor="middle" font-size="8.5">equipment needs</text>
+
+      <line x1="380" y1="896" x2="380" y2="914" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- OR split -->
+      <circle cx="380" cy="932" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="380" y="937" text-anchor="middle" font-size="10" font-weight="bold">O</text>
+
+      <line x1="367" y1="932" x2="100" y2="932" stroke="#333" stroke-width="1.5"/>
+      <line x1="100" y1="932" x2="100" y2="964" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <polygon points="100,966 168,986 100,1006 32,986" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="100" y="988" text-anchor="middle" font-size="8">Materials needed</text>
+      <line x1="100" y1="1006" x2="100" y2="1024" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="25" y="1026" width="150" height="36" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="100" y="1048" text-anchor="middle" font-size="8.5">Prepare handouts</text>
+
+      <line x1="380" y1="945" x2="380" y2="964" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <polygon points="380,966 448,986 380,1006 312,986" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="380" y="988" text-anchor="middle" font-size="8">IT support needed</text>
+      <line x1="380" y1="1006" x2="380" y2="1024" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="305" y="1026" width="150" height="36" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="380" y="1048" text-anchor="middle" font-size="8.5">Request IT setup</text>
+
+      <line x1="393" y1="932" x2="660" y2="932" stroke="#333" stroke-width="1.5"/>
+      <line x1="660" y1="932" x2="660" y2="964" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <polygon points="660,966 728,986 660,1006 592,986" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="660" y="984" text-anchor="middle" font-size="8">No extra</text>
+      <text x="660" y="996" text-anchor="middle" font-size="8">needs</text>
+
+      <!-- OR join -->
+      <line x1="100" y1="1062" x2="100" y2="1090" stroke="#333" stroke-width="1.5"/>
+      <line x1="380" y1="1062" x2="380" y2="1090" stroke="#333" stroke-width="1.5"/>
+      <line x1="660" y1="1006" x2="660" y2="1090" stroke="#333" stroke-width="1.5"/>
+      <line x1="100" y1="1090" x2="660" y2="1090" stroke="#333" stroke-width="1.5"/>
+      <line x1="380" y1="1090" x2="380" y2="1108" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <circle cx="380" cy="1126" r="13" fill="#fff" stroke="#333" stroke-width="2"/>
+      <text x="380" y="1131" text-anchor="middle" font-size="10" font-weight="bold">O</text>
+
+      <line x1="380" y1="1139" x2="380" y2="1156" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="380,1158 465,1180 380,1202 295,1180" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="380" y="1180" text-anchor="middle" font-size="8.5">Setup requirements met</text>
+
+      <line x1="380" y1="1202" x2="380" y2="1220" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="285" y="1222" width="190" height="36" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="380" y="1244" text-anchor="middle" font-size="8.5">Publish announcement</text>
+
+      <line x1="380" y1="1258" x2="380" y2="1276" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="380,1278 455,1302 380,1326 305,1302" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="380" y="1306" text-anchor="middle" font-size="9">Announcement published</text>
+
+      <line x1="380" y1="1326" x2="380" y2="1344" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <rect x="285" y="1346" width="190" height="40" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+      <text x="380" y="1370" text-anchor="middle" font-size="9">Open student registration</text>
+
+      <line x1="380" y1="1386" x2="380" y2="1404" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <polygon points="380,1406 460,1430 380,1454 300,1430" fill="#ffcdd2" stroke="#c62828" stroke-width="2"/>
+      <text x="380" y="1428" text-anchor="middle" font-size="9" font-weight="600">Student registration</text>
+      <text x="380" y="1440" text-anchor="middle" font-size="9" font-weight="600">opened</text>
+      <text x="380" y="1456" text-anchor="middle" class="note">(process end)</text>
+    </svg>
+  </div>
+</body>
+</html>
