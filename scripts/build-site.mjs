@@ -16,6 +16,7 @@ const STATIC_DIRS = [
   "Avatar",
   "CV",
   "EPC_Champions_League_Final",
+  "EPC_Extra_Class_Booking",
   "EPC_Study_Room_Booking",
 ];
 
