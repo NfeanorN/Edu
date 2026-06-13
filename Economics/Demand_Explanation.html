@@ -3,577 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demand (Спрос) - Simple Explanation</title>
+    <title>Demand (Спрос) — Frank, Ch. 2</title>
     <style>
-        @page {
-            size: A4;
-            margin: 2cm;
-        }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            line-height: 1.8;
-            margin: 0;
-            padding: 40px;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 4px solid #3498db;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            font-size: 2.2em;
-        }
-        h2 {
-            color: #34495e;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 1.6em;
-            border-left: 5px solid #3498db;
-            padding-left: 15px;
-        }
-        h3 {
-            color: #555;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-        h4 {
-            color: #666;
-            margin-top: 25px;
-            margin-bottom: 12px;
-            font-size: 1.1em;
-        }
-        p {
-            margin: 15px 0;
-            text-align: justify;
-        }
-        strong {
-            color: #2c3e50;
-            font-weight: 600;
-        }
-        code {
-            background-color: #f4f4f4;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-family: 'Courier New', 'Consolas', monospace;
-            font-size: 0.9em;
-            border: 1px solid #ddd;
-        }
-        pre {
-            background-color: #f8f8f8;
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            border: 2px solid #e0e0e0;
-            margin: 20px 0;
-            font-family: 'Courier New', 'Consolas', monospace;
-            font-size: 0.9em;
-            line-height: 1.4;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 25px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px 15px;
-            text-align: left;
-        }
-        th {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 0.5px;
-        }
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        tr:hover {
-            background-color: #e8f4f8;
-        }
-        hr {
-            border: none;
-            border-top: 3px solid #ecf0f1;
-            margin: 40px 0;
-        }
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        li {
-            margin: 10px 0;
-        }
-        .highlight {
-            background-color: #fff3cd;
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
-        .graph-box {
-            background: #f8f9fa;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-        @media print {
-            body {
-                padding: 20px;
-            }
-            h1 {
-                page-break-after: avoid;
-            }
-            h2, h3 {
-                page-break-after: avoid;
-            }
-            table {
-                page-break-inside: avoid;
-            }
-            pre {
-                page-break-inside: avoid;
-            }
-        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #3498db; padding-left: 15px; }
+        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
+        h4 { color: #666; margin-top: 25px; margin-bottom: 12px; font-size: 1.1em; }
+        p { margin: 15px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        th { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #e8f4f8; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .formula-box { background: #eef6fc; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .book-ref { font-size: 0.92em; color: #666; font-style: italic; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #3498db; text-decoration: none; }
+        .back a:hover { text-decoration: underline; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
+        .svg-graph .demand { stroke: #3498db; stroke-width: 2.5; fill: none; }
+        .svg-graph .supply { stroke: #e67e22; stroke-width: 2.5; fill: none; }
+        .svg-graph .point { fill: #e74c3c; stroke: #c0392b; stroke-width: 1.5; }
+        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; fill: #2c3e50; }
+        td.graph-cell { text-align: center; vertical-align: middle; width: 96px; padding: 8px 6px; }
+        .mini-shift { display: block; width: 88px; height: 52px; margin: 0 auto; }
+        .mini-shift .axis { stroke: #555; stroke-width: 1; fill: none; }
+        .mini-shift .d0 { stroke: #3498db; stroke-width: 1.6; fill: none; opacity: 0.5; }
+        .mini-shift .d1 { stroke: #2980b9; stroke-width: 1.8; fill: none; }
+        .mini-shift text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 7px; fill: #444; }
     </style>
 </head>
 <body>
-    <h1>Demand (Спрос) - Simple Explanation / Простое объяснение</h1>
+    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
 
-    <h2>English / Английский</h2>
+    <h1>Demand (Спрос) — Frank, Ch. 2</h1>
+    <p class="book-ref">Source: Robert H. Frank, <em>Microeconomics and Behavior</em>, Chapter 2 (Supply and Demand), pp. 24–36. All examples below are from the textbook.</p>
+    <p class="book-ref">Источник: Frank, глава 2. Все примеры — из учебника (рынок лобстеров в Hyannis, Massachusetts).</p>
 
-    <h3>What is Demand? / Что такое спрос?</h3>
-
-    <p><strong>Demand</strong> is how much of a product or service people want to buy at different prices. It shows the relationship between price and the quantity people are willing to purchase.</p>
-
-    <p><strong>Спрос</strong> - это то, сколько товара или услуги люди хотят купить при разных ценах. Он показывает связь между ценой и количеством, которое люди готовы купить.</p>
-
-    <hr>
-
-    <h2>The Demand Curve / Кривая спроса</h2>
-
-    <h3>Basic Concept / Основная концепция</h3>
-
-    <p>The demand curve is a graph that shows:</p>
+    <h2>What is Demand? / Что такое спрос?</h2>
+    <p>The <strong>demand curve (D)</strong> is a “behaviour map of buyers”: it shows <strong>how much buyers want to buy at every possible price</strong> (Frank, Ch. 2, p. 24).</p>
+    <p><strong>Кривая спроса D</strong> — «карта поведения покупателей»: сколько они хотят купить при каждой возможной цене.</p>
     <ul>
-        <li><strong>X-axis (horizontal)</strong>: Quantity (how many units people want to buy)</li>
-        <li><strong>Y-axis (vertical)</strong>: Price (how much it costs)</li>
+        <li><strong>Y-axis:</strong> price P ($/unit)</li>
+        <li><strong>X-axis:</strong> quantity Q (units per day, etc.)</li>
     </ul>
 
-    <p>Кривая спроса - это график, который показывает:</p>
-    <ul>
-        <li><strong>Ось X (горизонтальная)</strong>: Количество (сколько единиц люди хотят купить)</li>
-        <li><strong>Ось Y (вертикальная)</strong>: Цена (сколько это стоит)</li>
-    </ul>
-
-    <h3>Key Rule / Главное правило</h3>
-
-    <p><strong>Law of Demand</strong>: When price goes UP, quantity demanded goes DOWN. When price goes DOWN, quantity demanded goes UP.</p>
-
-    <p><strong>Закон спроса</strong>: Когда цена РАСТЕТ, количество спроса ПАДАЕТ. Когда цена ПАДАЕТ, количество спроса РАСТЕТ.</p>
-
-    <p>This creates a <strong>downward-sloping curve</strong> (line that goes down from left to right).</p>
-
-    <p>Это создает <strong>нисходящую кривую</strong> (линия, которая идет вниз слева направо).</p>
-
-    <hr>
-
-    <h2>How the Demand Curve Changes / Как меняется кривая спроса</h2>
-
-    <h3>Two Types of Changes / Два типа изменений</h3>
-
-    <h4>1. Movement ALONG the Demand Curve / Движение ВДОЛЬ кривой спроса</h4>
-
-    <p><strong>What happens / Что происходит:</strong></p>
-    <ul>
-        <li>Only the PRICE of the product changes</li>
-        <li>Everything else stays the same</li>
-        <li>We move from one point to another on the SAME curve</li>
-    </ul>
-
-    <p><strong>Что происходит:</strong></p>
-    <ul>
-        <li>Меняется только ЦЕНА продукта</li>
-        <li>Все остальное остается прежним</li>
-        <li>Мы движемся от одной точки к другой на ОДНОЙ И ТОЙ ЖЕ кривой</li>
-    </ul>
-
-    <div class="graph-box">
-        <pre>Price (P)
-  |
- 4|              *  ← New point (новая точка)
-  |            /
-  |          /
- 2|        *  ← Old point (старая точка)
-  |
- 0+----+----+----+----+----+----+ Quantity (Q)
-     70        90</pre>
-    </div>
-
-    <p><strong>Example / Пример:</strong></p>
-    <ul>
-        <li>Price of coffee goes from $2 to $4</li>
-        <li>At $2, people want 90 cups</li>
-        <li>At $4, people want 70 cups</li>
-        <li>We move UP along the curve</li>
-    </ul>
-
-    <p><strong>Пример:</strong></p>
-    <ul>
-        <li>Цена кофе меняется с $2 до $4</li>
-        <li>При $2 люди хотят 90 чашек</li>
-        <li>При $4 люди хотят 70 чашек</li>
-        <li>Мы движемся ВВЕРХ вдоль кривой</li>
-    </ul>
-
-    <hr>
-
-    <h4>2. SHIFT of the Demand Curve / СДВИГ кривой спроса</h4>
-
-    <p><strong>What happens / Что происходит:</strong></p>
-    <ul>
-        <li>Something OTHER than price changes</li>
-        <li>The ENTIRE curve moves to a new position</li>
-        <li>At EVERY price level, people want a different quantity</li>
-    </ul>
-
-    <p><strong>Что происходит:</strong></p>
-    <ul>
-        <li>Меняется что-то КРОМЕ цены</li>
-        <li>ВСЯ кривая перемещается в новое положение</li>
-        <li>При КАЖДОЙ цене люди хотят другое количество</li>
-    </ul>
-
-    <p><strong>Shift RIGHT (Increase in Demand) / Сдвиг ВПРАВО (Увеличение спроса):</strong></p>
-    <div class="graph-box">
-        <pre>Price (P)
-  |
-10|  *        *
-  |    *        *
- 8|      *        *
- 6|        *        *
- 4|          *        *
- 2|            *        *
- 0+----+----+----+----+----+----+----+----+----+----+ Quantity (Q)
-      D₀ (old)  D₁ (new)</pre>
-    </div>
-
-    <p><strong>Shift LEFT (Decrease in Demand) / Сдвиг ВЛЕВО (Уменьшение спроса):</strong></p>
-    <div class="graph-box">
-        <pre>Price (P)
-  |
-10|  *        *
-  |    *        *
- 8|      *        *
- 6|        *        *
- 4|          *        *
- 2|            *        *
- 0+----+----+----+----+----+----+----+----+----+----+ Quantity (Q)
-      D₁ (new)  D₀ (old)</pre>
-    </div>
-
-    <hr>
-
-    <h2>8 Factors That Shift Demand Curves / 8 факторов, которые сдвигают кривые спроса</h2>
-
-    <p><em>Based on Figure 2.8 from the textbook / На основе рисунка 2.8 из учебника</em></p>
-
-    <h3>Factor 1: Price of Complement Falls / Фактор 1: Цена дополняющего товара падает</h3>
-
-    <p><strong>English:</strong></p>
-    <ul>
-        <li><strong>Complement</strong> = product used together (e.g., coffee and sugar, cars and gasoline)</li>
-        <li>When price of complement goes DOWN → More people buy the complement → They also need MORE of our product</li>
-        <li><strong>Result:</strong> Demand curve shifts RIGHT (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Русский:</strong></p>
-    <ul>
-        <li><strong>Дополняющий товар</strong> = товар, используемый вместе (например, кофе и сахар, машины и бензин)</li>
-        <li>Когда цена дополняющего товара ПАДАЕТ → Больше людей покупают дополняющий товар → Им нужно БОЛЬШЕ нашего продукта</li>
-        <li><strong>Результат:</strong> Кривая спроса сдвигается ВПРАВО (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Example / Пример:</strong></p>
-    <ul>
-        <li>Price of smartphones falls → More people buy smartphones → They need MORE phone cases</li>
-        <li>Цена смартфонов падает → Больше людей покупают смартфоны → Им нужно БОЛЬШЕ чехлов</li>
-    </ul>
-
-    <hr>
-
-    <h3>Factor 2: Price of Substitute Falls / Фактор 2: Цена товара-заменителя падает</h3>
-
-    <p><strong>English:</strong></p>
-    <ul>
-        <li><strong>Substitute</strong> = product that can replace ours (e.g., tea and coffee, butter and margarine)</li>
-        <li>When price of substitute goes DOWN → People buy the substitute instead → They buy LESS of our product</li>
-        <li><strong>Result:</strong> Demand curve shifts LEFT (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Русский:</strong></p>
-    <ul>
-        <li><strong>Товар-заменитель</strong> = товар, который может заменить наш (например, чай и кофе, масло и маргарин)</li>
-        <li>Когда цена заменителя ПАДАЕТ → Люди покупают заменитель вместо нашего → Они покупают МЕНЬШЕ нашего продукта</li>
-        <li><strong>Результат:</strong> Кривая спроса сдвигается ВЛЕВО (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Example / Пример:</strong></p>
-    <ul>
-        <li>Price of tea falls → People buy tea instead of coffee → Demand for coffee goes DOWN</li>
-        <li>Цена чая падает → Люди покупают чай вместо кофе → Спрос на кофе ПАДАЕТ</li>
-    </ul>
-
-    <hr>
-
-    <h3>Factor 3: Income Rises, Normal Good / Фактор 3: Доход растет, нормальный товар</h3>
-
-    <p><strong>English:</strong></p>
-    <ul>
-        <li><strong>Normal good</strong> = product people buy MORE of when they have more money (e.g., meat, cars, vacations)</li>
-        <li>When income goes UP → People have more money → They buy MORE normal goods</li>
-        <li><strong>Result:</strong> Demand curve shifts RIGHT (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Русский:</strong></p>
-    <ul>
-        <li><strong>Нормальный товар</strong> = товар, который люди покупают БОЛЬШЕ, когда у них больше денег (например, мясо, машины, отпуск)</li>
-        <li>Когда доход РАСТЕТ → У людей больше денег → Они покупают БОЛЬШЕ нормальных товаров</li>
-        <li><strong>Результат:</strong> Кривая спроса сдвигается ВПРАВО (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Example / Пример:</strong></p>
-    <ul>
-        <li>People get salary increase → They buy more restaurant meals → Demand for restaurant meals goes UP</li>
-        <li>Люди получают повышение зарплаты → Они покупают больше еды в ресторанах → Спрос на еду в ресторанах РАСТЕТ</li>
-    </ul>
-
-    <hr>
-
-    <h3>Factor 4: Income Rises, Inferior Good / Фактор 4: Доход растет, низший товар</h3>
-
-    <p><strong>English:</strong></p>
-    <ul>
-        <li><strong>Inferior good</strong> = product people buy LESS of when they have more money (e.g., instant noodles, public transport, second-hand clothes)</li>
-        <li>When income goes UP → People have more money → They buy LESS inferior goods (they buy better alternatives)</li>
-        <li><strong>Result:</strong> Demand curve shifts LEFT (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Русский:</strong></p>
-    <ul>
-        <li><strong>Низший товар</strong> = товар, который люди покупают МЕНЬШЕ, когда у них больше денег (например, лапша быстрого приготовления, общественный транспорт, подержанная одежда)</li>
-        <li>Когда доход РАСТЕТ → У людей больше денег → Они покупают МЕНЬШЕ низших товаров (они покупают лучшие альтернативы)</li>
-        <li><strong>Результат:</strong> Кривая спроса сдвигается ВЛЕВО (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Example / Пример:</strong></p>
-    <ul>
-        <li>People get salary increase → They stop buying instant noodles → They buy fresh food instead</li>
-        <li>Люди получают повышение зарплаты → Они перестают покупать лапшу быстрого приготовления → Они покупают свежую еду вместо этого</li>
-    </ul>
-
-    <hr>
-
-    <h3>Factor 5: Population Grows / Фактор 5: Население растет</h3>
-
-    <p><strong>English:</strong></p>
-    <ul>
-        <li>When population increases → More people in the market → More total demand for products</li>
-        <li><strong>Result:</strong> Demand curve shifts RIGHT (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Русский:</strong></p>
-    <ul>
-        <li>Когда население растет → Больше людей на рынке → Больше общего спроса на товары</li>
-        <li><strong>Результат:</strong> Кривая спроса сдвигается ВПРАВО (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Example / Пример:</strong></p>
-    <ul>
-        <li>City population grows from 100,000 to 150,000 → More people need apartments → Demand for apartments goes UP</li>
-        <li>Население города растет с 100,000 до 150,000 → Больше людей нуждаются в квартирах → Спрос на квартиры РАСТЕТ</li>
-    </ul>
-
-    <hr>
-
-    <h3>Factor 6: Price Increase Expected / Фактор 6: Ожидается рост цены</h3>
-
-    <p><strong>English:</strong></p>
-    <ul>
-        <li>When people expect prices to go UP in the future → They buy MORE now (before prices rise)</li>
-        <li><strong>Result:</strong> Demand curve shifts RIGHT (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Русский:</strong></p>
-    <ul>
-        <li>Когда люди ожидают роста цен в будущем → Они покупают БОЛЬШЕ сейчас (до того, как цены вырастут)</li>
-        <li><strong>Результат:</strong> Кривая спроса сдвигается ВПРАВО (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Example / Пример:</strong></p>
-    <ul>
-        <li>News says gasoline prices will rise next month → People fill their tanks now → Demand for gasoline goes UP now</li>
-        <li>Новости говорят, что цены на бензин вырастут в следующем месяце → Люди заправляют баки сейчас → Спрос на бензин РАСТЕТ сейчас</li>
-    </ul>
-
-    <hr>
-
-    <h3>Factor 7: Income Decline Expected / Фактор 7: Ожидается падение дохода</h3>
-
-    <p><strong>English:</strong></p>
-    <ul>
-        <li>When people expect their income to go DOWN in the future → They save money now → They buy LESS now</li>
-        <li><strong>Result:</strong> Demand curve shifts LEFT (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Русский:</strong></p>
-    <ul>
-        <li>Когда люди ожидают падения дохода в будущем → Они экономят деньги сейчас → Они покупают МЕНЬШЕ сейчас</li>
-        <li><strong>Результат:</strong> Кривая спроса сдвигается ВЛЕВО (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Example / Пример:</strong></p>
-    <ul>
-        <li>People hear about upcoming layoffs → They worry about money → They buy less luxury items → Demand goes DOWN</li>
-        <li>Люди слышат о предстоящих увольнениях → Они беспокоятся о деньгах → Они покупают меньше предметов роскоши → Спрос ПАДАЕТ</li>
-    </ul>
-
-    <hr>
-
-    <h3>Factor 8: Tastes Shift in Favor / Фактор 8: Вкусы меняются в пользу товара</h3>
-
-    <p><strong>English:</strong></p>
-    <ul>
-        <li>When people start liking a product MORE (tastes change) → They want to buy MORE of it</li>
-        <li><strong>Result:</strong> Demand curve shifts RIGHT (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Русский:</strong></p>
-    <ul>
-        <li>Когда людям начинает нравиться продукт БОЛЬШЕ (меняются вкусы) → Они хотят покупать БОЛЬШЕ его</li>
-        <li><strong>Результат:</strong> Кривая спроса сдвигается ВПРАВО (D₀ → D₁)</li>
-    </ul>
-
-    <p><strong>Example / Пример:</strong></p>
-    <ul>
-        <li>Health campaign promotes eating vegetables → People want more vegetables → Demand for vegetables goes UP</li>
-        <li>Здоровая кампания продвигает употребление овощей → Люди хотят больше овощей → Спрос на овощи РАСТЕТ</li>
-    </ul>
-
-    <hr>
-
-    <h2>Summary Table / Сводная таблица</h2>
+    <h3>Law of Demand / Закон спроса</h3>
+    <p><strong>Lower price → buyers want more.</strong> When a lobster costs $20, only wealthy people buy. When it costs $4, everyone buys, even students for dinner. The D curve slopes <strong>down to the right</strong>.</p>
+    <p><strong>Ниже цена → больше покупают.</strong> При $20 за лобстера покупают только состоятельные; при $4 — почти все. Кривая D идёт <strong>вниз вправо</strong>.</p>
+
+    <h3>Textbook example — Figure 2.1 (lobster market, Hyannis)</h3>
+    <p>Frank uses the lobster market in Hyannis on one summer day. From the demand schedule (Figure 2.1):</p>
 
     <table>
-        <thead>
-            <tr>
-                <th>Factor / Фактор</th>
-                <th>Change / Изменение</th>
-                <th>Graph Shift / Сдвиг графика</th>
-                <th>Direction / Направление</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Price of complement falls / Цена дополняющего товара падает</td>
-                <td>More demand / Больше спроса</td>
-                <td>RIGHT / ВПРАВО</td>
-                <td>D₀ → D₁</td>
-            </tr>
-            <tr>
-                <td>Price of substitute falls / Цена товара-заменителя падает</td>
-                <td>Less demand / Меньше спроса</td>
-                <td>LEFT / ВЛЕВО</td>
-                <td>D₀ → D₁</td>
-            </tr>
-            <tr>
-                <td>Income rises, normal good / Доход растет, нормальный товар</td>
-                <td>More demand / Больше спроса</td>
-                <td>RIGHT / ВПРАВО</td>
-                <td>D₀ → D₁</td>
-            </tr>
-            <tr>
-                <td>Income rises, inferior good / Доход растет, низший товар</td>
-                <td>Less demand / Меньше спроса</td>
-                <td>LEFT / ВЛЕВО</td>
-                <td>D₀ → D₁</td>
-            </tr>
-            <tr>
-                <td>Population grows / Население растет</td>
-                <td>More demand / Больше спроса</td>
-                <td>RIGHT / ВПРАВО</td>
-                <td>D₀ → D₁</td>
-            </tr>
-            <tr>
-                <td>Price increase expected / Ожидается рост цены</td>
-                <td>More demand now / Больше спроса сейчас</td>
-                <td>RIGHT / ВПРАВО</td>
-                <td>D₀ → D₁</td>
-            </tr>
-            <tr>
-                <td>Income decline expected / Ожидается падение дохода</td>
-                <td>Less demand now / Меньше спроса сейчас</td>
-                <td>LEFT / ВЛЕВО</td>
-                <td>D₀ → D₁</td>
-            </tr>
-            <tr>
-                <td>Tastes shift in favor / Вкусы меняются в пользу</td>
-                <td>More demand / Больше спроса</td>
-                <td>RIGHT / ВПРАВО</td>
-                <td>D₀ → D₁</td>
-            </tr>
-        </tbody>
+        <tr><th>Price P ($/lobster)</th><th>Quantity demanded Q<sub>D</sub> (thousands per day)</th></tr>
+        <tr><td>20</td><td>1</td></tr>
+        <tr><td>16</td><td>2</td></tr>
+        <tr><td>12</td><td>3</td></tr>
+        <tr><td>8</td><td>4</td></tr>
+        <tr><td>4</td><td>5</td></tr>
     </table>
 
-    <hr>
+    <p>Read it: “if the price were $20, buyers would take only 1 000 lobsters per day; if it dropped to $8, they would take 4 000.”</p>
+    <p>«При цене $20 покупают 1 000 лобстеров в день; при $8 — 4 000.»</p>
 
-    <h2>Key Takeaways / Главные выводы</h2>
-
-    <h3>English / Английский</h3>
-    <ol>
-        <li><strong>Demand</strong> = relationship between price and quantity people want to buy</li>
-        <li>Demand curve <strong>slopes downward</strong> (higher price = less quantity)</li>
-        <li><strong>Price change</strong> = movement along the curve (same curve, different point)</li>
-        <li><strong>Other factors change</strong> = shift of the entire curve (new curve position)</li>
-        <li><strong>8 main factors</strong> shift demand curves: complements, substitutes, income (normal/inferior goods), population, expectations (price/income), and tastes</li>
-        <li>Right shift = more demand at all prices</li>
-        <li>Left shift = less demand at all prices</li>
-    </ol>
-
-    <h3>Русский / Russian</h3>
-    <ol>
-        <li><strong>Спрос</strong> = связь между ценой и количеством, которое люди хотят купить</li>
-        <li>Кривая спроса <strong>идет вниз</strong> (выше цена = меньше количество)</li>
-        <li><strong>Изменение цены</strong> = движение вдоль кривой (та же кривая, другая точка)</li>
-        <li><strong>Изменение других факторов</strong> = сдвиг всей кривой (новое положение кривой)</li>
-        <li><strong>8 основных факторов</strong> сдвигают кривые спроса: дополняющие товары, заменители, доход (нормальные/низшие товары), население, ожидания (цена/доход) и вкусы</li>
-        <li>Сдвиг вправо = больше спроса при всех ценах</li>
-        <li>Сдвиг влево = меньше спроса при всех ценах</li>
-    </ol>
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="210"/>
+            <line class="axis" x1="50" y1="210" x2="360" y2="210"/>
+            <line class="demand" x1="70" y1="40" x2="320" y2="190"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="55" x2="100" y2="55"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="100" y1="55" x2="100" y2="210"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="160" x2="250" y2="160"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="250" y1="160" x2="250" y2="210"/>
+            <text x="22" y="22">P ($/lobster)</text>
+            <text x="305" y="225">Q (thousands)</text>
+            <text x="25" y="59">20</text>
+            <text x="25" y="164">8</text>
+            <text x="97" y="225">1</text>
+            <text x="247" y="225">4</text>
+            <text x="328" y="195">D</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Figure 2.1 — demand schedule for lobsters in Hyannis.</p>
+    </div>
 
     <hr>
 
-    <h2>Visual Summary / Визуальная сводка</h2>
+    <h2>Movement along D vs. shift of D / Движение вдоль D и сдвиг D</h2>
+    <p class="book-ref">Frank, Ch. 2, p. 36 — “What Shifts Supply &amp; Demand”</p>
 
-    <h3>Movement vs. Shift / Движение против сдвига</h3>
+    <div class="formula-box">
+        <p><strong>Rule from the book:</strong></p>
+        <ul style="margin:0.5rem 0 0;">
+            <li>A change in the good's <strong>own price</strong> → <strong>movement along</strong> the curve.</li>
+            <li>A change in <strong>anything else</strong> → <strong>shift</strong> of the curve.</li>
+        </ul>
+        <p style="margin-top:0.75rem;"><strong>Правило:</strong> изменилась <strong>собственная цена</strong> товара → движение <strong>вдоль</strong> кривой. Изменилось <strong>что-то другое</strong> → <strong>сдвиг</strong> кривой.</p>
+    </div>
 
-    <p><strong>Movement ALONG curve / Движение ВДОЛЬ кривой:</strong></p>
-    <ul>
-        <li>Only price changes / Меняется только цена</li>
-        <li>Same curve / Та же кривая</li>
-        <li>Different point / Другая точка</li>
-    </ul>
+    <p>A demand curve is a “<strong>holding-everything-else-constant</strong>” graph: incomes, prices of related goods, season, etc. are fixed when we draw D.</p>
+    <p>Кривая D строится при <strong>прочих равных</strong> (ceteris paribus): доходы, цены связанных товаров и т.д. зафиксированы.</p>
 
-    <p><strong>SHIFT of curve / СДВИГ кривой:</strong></p>
-    <ul>
-        <li>Other factors change / Меняются другие факторы</li>
-        <li>New curve position / Новое положение кривой</li>
-        <li>Different quantity at every price / Другое количество при каждой цене</li>
-    </ul>
+    <h4>Movement along D — textbook example</h4>
+    <p><strong>The price of lobsters fell from $12 to $8.</strong> That is a change in the good's own price → movement along the same curve D (from Q = 3 thousand to Q = 4 thousand), not a shift.</p>
+    <p><strong>Цена лобстеров упала с $12 до $8</strong> — меняется только собственная цена → движение вдоль той же кривой D (с 3 до 4 тыс.), а не сдвиг.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="210"/>
+            <line class="axis" x1="50" y1="210" x2="360" y2="210"/>
+            <line class="demand" x1="70" y1="40" x2="320" y2="190"/>
+            <circle class="point" cx="175" cy="108" r="5"/>
+            <circle class="point" cx="250" cy="160" r="5"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="108" x2="175" y2="108"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="175" y1="108" x2="175" y2="210"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="160" x2="250" y2="160"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="250" y1="160" x2="250" y2="210"/>
+            <text x="22" y="22">P</text>
+            <text x="355" y="225">Q</text>
+            <text x="25" y="112">12</text>
+            <text x="25" y="164">8</text>
+            <text x="172" y="225">3</text>
+            <text x="247" y="225">4</text>
+            <text x="328" y="195">D</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Movement along D: P falls $12 → $8, Q rises 3 → 4 thousand (Figure 2.1 schedule).</p>
+    </div>
+
+    <h4>Shift of D — textbook examples</h4>
+    <p><strong>Tourists' incomes rose</strong> → not the price of lobsters → <strong>D shifts right</strong> (new curve D₁).</p>
+    <p><strong>Crabs (a substitute) became more expensive</strong> → <strong>D for lobsters shifts right</strong> (people switch from crabs to lobsters).</p>
+    <p><strong>Доход туристов вырос</strong> → D сдвигается <strong>вправо</strong>. <strong>Крабы (заменитель) подорожали</strong> → спрос на лобстеров сдвигается <strong>вправо</strong>.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+            <line class="axis" x1="50" y1="200" x2="300" y2="200"/>
+            <path class="demand" d="M 90 60 L 170 120 L 250 180" opacity="0.7"/>
+            <text x="268" y="175" opacity="0.7">D₀</text>
+            <path class="demand" d="M 130 60 L 210 120 L 290 180"/>
+            <text x="308" y="175">D₁</text>
+            <text x="28" y="18">P</text>
+            <text x="305" y="212">Q</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Shift right: more demand at every price (e.g. higher incomes, substitute pricier).</p>
+    </div>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="200"/>
+            <line class="axis" x1="50" y1="200" x2="300" y2="200"/>
+            <path class="demand" d="M 90 60 L 170 120 L 250 180" opacity="0.7"/>
+            <text x="268" y="175" opacity="0.7">D₀</text>
+            <path class="demand" d="M 50 60 L 130 120 L 210 180"/>
+            <text x="228" y="175">D₁</text>
+            <text x="28" y="18">P</text>
+            <text x="305" y="212">Q</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Shift left: less demand at every price (e.g. butter — complement — becomes more expensive).</p>
+    </div>
+
+    <hr>
+
+    <h2>Factors that shift the demand curve D / Факторы сдвига D</h2>
+    <p class="book-ref">Frank, Ch. 2, p. 36 — list of main factors (same as in the textbook table)</p>
+
+    <table>
+        <tr><th>Factor / Фактор</th><th>Change / Изменение</th><th>Shift / Сдвиг</th><th>Graph / График</th><th>Textbook example / Пример из книги</th></tr>
+        <tr>
+            <td>Tastes / Вкусы</td>
+            <td>Lobster becomes trendy</td>
+            <td>D → right</td>
+            <td class="graph-cell">
+                <svg class="mini-shift" viewBox="0 0 88 52" xmlns="http://www.w3.org/2000/svg" aria-label="D shifts right">
+                    <line class="axis" x1="10" y1="6" x2="10" y2="46"/><line class="axis" x1="10" y1="46" x2="84" y2="46"/>
+                    <path class="d0" d="M 14 10 L 38 28 L 62 42"/><text x="64" y="44">D₀</text>
+                    <path class="d1" d="M 26 10 L 50 28 L 74 42"/><text x="76" y="44">D₁</text>
+                    <text x="2" y="10">P</text><text x="78" y="51">Q</text>
+                </svg>
+            </td>
+            <td>Celebrity posts a recipe</td>
+        </tr>
+        <tr>
+            <td>Income — normal good / Нормальный товар</td>
+            <td>Incomes rise</td>
+            <td>D → right</td>
+            <td class="graph-cell">
+                <svg class="mini-shift" viewBox="0 0 88 52" xmlns="http://www.w3.org/2000/svg" aria-label="D shifts right">
+                    <line class="axis" x1="10" y1="6" x2="10" y2="46"/><line class="axis" x1="10" y1="46" x2="84" y2="46"/>
+                    <path class="d0" d="M 14 10 L 38 28 L 62 42"/><text x="64" y="44">D₀</text>
+                    <path class="d1" d="M 26 10 L 50 28 L 74 42"/><text x="76" y="44">D₁</text>
+                    <text x="2" y="10">P</text><text x="78" y="51">Q</text>
+                </svg>
+            </td>
+            <td>Bigger paychecks → more restaurant meals</td>
+        </tr>
+        <tr>
+            <td>Income — inferior good / Низший товар</td>
+            <td>Incomes rise</td>
+            <td>D → left</td>
+            <td class="graph-cell">
+                <svg class="mini-shift" viewBox="0 0 88 52" xmlns="http://www.w3.org/2000/svg" aria-label="D shifts left">
+                    <line class="axis" x1="10" y1="6" x2="10" y2="46"/><line class="axis" x1="10" y1="46" x2="84" y2="46"/>
+                    <path class="d0" d="M 26 10 L 50 28 L 74 42"/><text x="76" y="44">D₀</text>
+                    <path class="d1" d="M 14 10 L 38 28 L 62 42"/><text x="64" y="44">D₁</text>
+                    <text x="2" y="10">P</text><text x="78" y="51">Q</text>
+                </svg>
+            </td>
+            <td>Richer people buy less instant noodles</td>
+        </tr>
+        <tr>
+            <td>Price of a substitute / Заменитель</td>
+            <td>Crabs become more expensive</td>
+            <td>D for lobsters → right</td>
+            <td class="graph-cell">
+                <svg class="mini-shift" viewBox="0 0 88 52" xmlns="http://www.w3.org/2000/svg" aria-label="D shifts right">
+                    <line class="axis" x1="10" y1="6" x2="10" y2="46"/><line class="axis" x1="10" y1="46" x2="84" y2="46"/>
+                    <path class="d0" d="M 14 10 L 38 28 L 62 42"/><text x="64" y="44">D₀</text>
+                    <path class="d1" d="M 26 10 L 50 28 L 74 42"/><text x="76" y="44">D₁</text>
+                    <text x="2" y="10">P</text><text x="78" y="51">Q</text>
+                </svg>
+            </td>
+            <td>Crabs and lobsters can substitute</td>
+        </tr>
+        <tr>
+            <td>Price of a complement / Дополняющий товар</td>
+            <td>Butter becomes more expensive</td>
+            <td>D for lobsters → left</td>
+            <td class="graph-cell">
+                <svg class="mini-shift" viewBox="0 0 88 52" xmlns="http://www.w3.org/2000/svg" aria-label="D shifts left">
+                    <line class="axis" x1="10" y1="6" x2="10" y2="46"/><line class="axis" x1="10" y1="46" x2="84" y2="46"/>
+                    <path class="d0" d="M 26 10 L 50 28 L 74 42"/><text x="76" y="44">D₀</text>
+                    <path class="d1" d="M 14 10 L 38 28 L 62 42"/><text x="64" y="44">D₁</text>
+                    <text x="2" y="10">P</text><text x="78" y="51">Q</text>
+                </svg>
+            </td>
+            <td>Lobsters often eaten with butter</td>
+        </tr>
+        <tr>
+            <td>Expectations / Ожидания</td>
+            <td>People expect a price rise tomorrow</td>
+            <td>D today → right</td>
+            <td class="graph-cell">
+                <svg class="mini-shift" viewBox="0 0 88 52" xmlns="http://www.w3.org/2000/svg" aria-label="D shifts right">
+                    <line class="axis" x1="10" y1="6" x2="10" y2="46"/><line class="axis" x1="10" y1="46" x2="84" y2="46"/>
+                    <path class="d0" d="M 14 10 L 38 28 L 62 42"/><text x="64" y="44">D₀</text>
+                    <path class="d1" d="M 26 10 L 50 28 L 74 42"/><text x="76" y="44">D₁</text>
+                    <text x="2" y="10">P</text><text x="78" y="51">Q</text>
+                </svg>
+            </td>
+            <td>“Better buy now while it's cheap”</td>
+        </tr>
+        <tr>
+            <td>Population / Население</td>
+            <td>More people in town</td>
+            <td>D → right</td>
+            <td class="graph-cell">
+                <svg class="mini-shift" viewBox="0 0 88 52" xmlns="http://www.w3.org/2000/svg" aria-label="D shifts right">
+                    <line class="axis" x1="10" y1="6" x2="10" y2="46"/><line class="axis" x1="10" y1="46" x2="84" y2="46"/>
+                    <path class="d0" d="M 14 10 L 38 28 L 62 42"/><text x="64" y="44">D₀</text>
+                    <path class="d1" d="M 26 10 L 50 28 L 74 42"/><text x="76" y="44">D₁</text>
+                    <text x="2" y="10">P</text><text x="78" y="51">Q</text>
+                </svg>
+            </td>
+            <td>Tourist season</td>
+        </tr>
+    </table>
+
+    <h3>Practice — movement or shift? (Frank, Ch. 2)</h3>
+    <ol>
+        <li><strong>The price of lobsters fell from $12 to $8.</strong> → Own price changed → <strong>movement along D</strong>.</li>
+        <li><strong>Tourists' incomes rose.</strong> → Other factor → <strong>D shifts right</strong>.</li>
+        <li><strong>Crabs (a substitute) became more expensive.</strong> → Other factor → <strong>D shifts right</strong>.</li>
+        <li><strong>The price of lobsters rose because of a storm.</strong> → The storm shifted <strong>S to the left</strong>; the price rose as a consequence. Along D we move (higher price → less demanded), but <strong>D itself does not shift</strong>.</li>
+    </ol>
+
+    <hr>
+
+    <h2>Equilibrium — D and S together / Равновесие D и S</h2>
+    <p class="book-ref">Frank, Ch. 2, p. 27 — Figure 2.5</p>
+    <p>In Figure 2.5, D and S for lobsters cross at <strong>P* = $8 per lobster</strong> and <strong>Q* = 4 thousand lobsters per day</strong>. At $8, quantity demanded equals quantity supplied.</p>
+    <p>В Figure 2.5: <strong>P* = $8</strong>, <strong>Q* = 4 тыс. лобстеров/день</strong>. Объём спроса = объём предложения.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="50" y1="20" x2="50" y2="210"/>
+            <line class="axis" x1="50" y1="210" x2="360" y2="210"/>
+            <line class="demand" x1="70" y1="40" x2="340" y2="200"/>
+            <line class="supply" x1="60" y1="200" x2="340" y2="40"/>
+            <circle class="point" cx="200" cy="120" r="5"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="50" y1="120" x2="200" y2="120"/>
+            <line stroke="#999" stroke-dasharray="3,3" x1="200" y1="120" x2="200" y2="210"/>
+            <text x="22" y="22">P</text>
+            <text x="355" y="225">Q</text>
+            <text x="20" y="124">P* = 8</text>
+            <text x="180" y="225">Q* = 4</text>
+            <text x="345" y="195">D</text>
+            <text x="345" y="45">S</text>
+            <text x="208" y="115" fill="#e74c3c" font-weight="600">E</text>
+        </svg>
+        <p style="margin:0.5rem 0 0; font-size:0.95em;">Figure 2.5 — equilibrium in the lobster market: E at P* = $8, Q* = 4 thousand/day.</p>
+    </div>
+
+    <div class="formula-box">
+        <p><strong>Summary (Frank, Ch. 2):</strong></p>
+        <ul style="margin:0.5rem 0 0;">
+            <li>D slopes down: lower P → more Q demanded.</li>
+            <li>Own price change → movement along D.</li>
+            <li>Other factors (tastes, income, substitutes, complements, expectations, population) → shift of D.</li>
+            <li>Equilibrium: Q<sub>D</sub>(P*) = Q<sub>S</sub>(P*) — in the lobster example, P* = 8, Q* = 4.</li>
+        </ul>
+    </div>
 
 </body>
 </html>

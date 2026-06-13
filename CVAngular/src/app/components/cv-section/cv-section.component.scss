@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+h2 {
+  color: var(--cv-heading);
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.15rem;
+  border-left: 4px solid var(--cv-primary);
+  padding-left: 12px;
+}
+
+.cv-section__subtitle {
+  color: #666;
+  font-weight: 400;
+}

@@ -14,7 +14,6 @@ const STATIC_DIRS = [
   "HRM",
   "AccountingBanking",
   "Avatar",
-  "CV",
   "EPC_Champions_League_Final",
   "EPC_Extra_Class_Booking",
   "EPC_Study_Room_Booking",
@@ -23,6 +22,10 @@ const STATIC_DIRS = [
 const REACT_APPS = [
   { name: "EconomicsReact", dist: "EconomicsReact/dist" },
   { name: "AvatarSubtitlesReact", dist: "AvatarSubtitlesReact/dist" },
+];
+
+const ANGULAR_APPS = [
+  { name: "CV", dist: "CVAngular/dist/cvangular/browser" },
 ];
 
 function rmDir(dir) {
@@ -61,7 +64,7 @@ function writeRoot404() {
     (function () {
       var base = ${JSON.stringify(base)};
       var path = location.pathname;
-      var apps = ["EconomicsReact", "AvatarSubtitlesReact"];
+      var apps = ["EconomicsReact", "AvatarSubtitlesReact", "CV"];
       for (var i = 0; i < apps.length; i++) {
         var prefix = base + "/" + apps[i] + "/";
         if (path.indexOf(prefix) === 0 || path === base + "/" + apps[i]) {
@@ -97,6 +100,17 @@ for (const app of REACT_APPS) {
   const src = path.join(root, app.dist);
   if (!fs.existsSync(src)) {
     throw new Error(`Missing build output: ${app.dist}. Run npm run build first.`);
+  }
+  const dest = path.join(siteDir, app.name);
+  copyDir(src, dest);
+  addSpaFallback(dest);
+  console.log("Copied:", app.name);
+}
+
+for (const app of ANGULAR_APPS) {
+  const src = path.join(root, app.dist);
+  if (!fs.existsSync(src)) {
+    throw new Error(`Missing build output: ${app.dist}. Run ng build first.`);
   }
   const dest = path.join(siteDir, app.name);
   copyDir(src, dest);
