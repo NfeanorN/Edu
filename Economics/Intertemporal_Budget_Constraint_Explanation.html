@@ -29,6 +29,12 @@
         .svg-graph .budget-line { stroke: #e74c3c; stroke-width: 2.5; fill: none; }
         .svg-graph .endowment { stroke: #27ae60; stroke-width: 2; fill: none; stroke-dasharray: 5,4; }
         .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
+        .key-box { background: #e8f8ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
+        .key-box::before { content: "⭐ Экзамен / Exam: "; font-weight: 700; color: #1e7e45; }
+        .kz { color: #555; font-size: 0.95em; padding: 8px 0 8px 14px; border-left: 3px solid #3498db; margin: 8px 0 14px; }
+        .kz::before { content: "🇰🇿 KZ: "; font-weight: 700; color: #2980b9; }
+        .en { color: #555; font-size: 0.95em; padding: 8px 0 8px 14px; border-left: 3px solid #5b8def; margin: 8px 0 14px; font-style: italic; }
+        .en::before { content: "EN: "; font-weight: 700; color: #3a6cdc; font-style: normal; }
     </style>
 </head>
 <body>
@@ -39,6 +45,41 @@
     <h2>What is Intertemporal Budget Constraint? / Что такое межвременное бюджетное ограничение?</h2>
     <p>The <strong>intertemporal budget constraint</strong> extends the budget constraint to choices across <strong>time periods</strong> (e.g., today vs tomorrow, period 1 vs period 2). It shows how a consumer can allocate consumption between periods, taking into account <strong>interest rates</strong> and the ability to <strong>save</strong> or <strong>borrow</strong>.</p>
     <p><strong>Межвременное бюджетное ограничение</strong> расширяет обычное бюджетное ограничение на выбор между <strong>временными периодами</strong> (сегодня vs завтра, период 1 vs период 2). Показывает, как потребитель может распределить потребление между периодами с учётом <strong>процентной ставки</strong> и возможности <strong>сберегать</strong> или <strong>занимать</strong>.</p>
+    <p class="kz">Уақыт аралық бюджет шектеуі — қазіргі және болашақ кезеңдер арасында тұтынуды қалай бөлуге болатынын көрсетеді. Процент мөлшерлемесі (r) арқылы уақыт «бағаланады».</p>
+
+    <hr>
+
+    <h2>Symbols / Обозначения / Белгілер</h2>
+    <table>
+        <tr><th>Symbol</th><th>RU</th><th>KZ</th></tr>
+        <tr><td><strong>Y₁, C₁</strong></td><td>Доход и потребление в <strong>периоде 1</strong> (сегодня)</td><td>1-кезең кірісі мен тұтыну (бүгін)</td></tr>
+        <tr><td><strong>Y₂, C₂</strong></td><td>Доход и потребление в <strong>периоде 2</strong> (завтра)</td><td>2-кезең кірісі мен тұтыну (ертең)</td></tr>
+        <tr><td><strong>r</strong></td><td>Процентная ставка (цена времени)</td><td>Пайыз мөлшерлемесі (уақыттың «бағасы»)</td></tr>
+        <tr><td><strong>S</strong></td><td>Сбережения: S = Y₁ − C₁ (если C₁ &lt; Y₁)</td><td>Жинақ: S = Y₁ − C₁</td></tr>
+        <tr><td><strong>B</strong></td><td>Заём: B = C₁ − Y₁ (если C₁ &gt; Y₁)</td><td>Несие: B = C₁ − Y₁</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Where is TIME in the formula? / Где в формуле «время»?</h2>
+    <p>В формуле <strong>нет отдельной переменной «t»</strong>. Время закодировано так:</p>
+    <ol>
+        <li><strong>Индексы 1 и 2</strong> — это период «сейчас» и «потом».</li>
+        <li><strong>Деление на (1 + r)</strong> — перевод суммы из <strong>будущего</strong> (период 2) в <strong>настоящее</strong> (период 1). Чем дальше в будущем деньги, тем меньше их PV сегодня.</li>
+        <li><strong>Умножение на (1 + r)</strong> — перевод из настоящего в будущее (future value).</li>
+        <li><strong>Ставка r</strong> — «цена времени»: 1 € сегодня = (1 + r) € завтра (если положить под процент).</li>
+    </ol>
+    <p class="en">Time is not a separate variable t. It appears through subscripts (1 vs 2), discounting C₂/(1+r), and the interest rate r as the price of waiting.</p>
+    <p class="kz">Уақыт формулада жеке t ретінде жоқ. Ол 1 және 2 индекстері, (1+r)-ке бөлу (болашақты бүгінгіге аудару) және r — уақыттың бағасы арқылы көрінеді.</p>
+
+    <div class="formula-box">
+        <p><strong>Present Value (PV) — приведённая стоимость / ағымдағы құн:</strong></p>
+        <p><strong>PV = FV / (1 + r)<sup>t</sup></strong> &nbsp;·&nbsp; в двухпериодной модели для периода 2: <strong>PV(C₂) = C₂ / (1 + r)</strong></p>
+        <p><strong>Future Value (FV) — будущая стоимость / болашақ құн:</strong></p>
+        <p><strong>FV = PV · (1 + r)<sup>t</sup></strong> &nbsp;·&nbsp; пример: PV = 100€, r = 10% → FV = 100 × 1.1 = <strong>110€</strong> через год</p>
+    </div>
+
+    <div class="key-box">Intertemporal budget constraint = все доходы и расходы за оба периода приводятся к <strong>одной «дате»</strong> (обычно period 1) через деление будущего на <strong>(1 + r)</strong>.</div>
 
     <hr>
 
@@ -67,18 +108,25 @@
     <p>Ограничение: <strong>приведённая стоимость</strong> потребления равна <strong>приведённой стоимости</strong> дохода:</p>
 
     <div class="formula-box">
-        <p><strong>C₁ + C₂/(1 + r) = Y₁ + Y₂/(1 + r)</strong></p>
+        <p><strong>Main form (Present Value — всё в «сегодняшних» €):</strong></p>
+        <p style="font-size:1.15em"><strong>C₁ + C₂/(1 + r) = Y₁ + Y₂/(1 + r)</strong></p>
         <p>Present value of consumption = Present value of income</p>
         <p>Приведённая стоимость потребления = Приведённая стоимость дохода</p>
+        <hr style="border:none;border-top:1px dashed #ccc;margin:12px 0">
+        <p><strong>Future Value form (всё в «завтрашних» €):</strong></p>
+        <p style="font-size:1.15em"><strong>C₁(1 + r) + C₂ = Y₁(1 + r) + Y₂</strong></p>
+        <p>Та же бюджетная линия — другая «база» для discounting.</p>
     </div>
 
     <p><strong>Present value (PV)</strong> converts future amounts to today's value. C₂/(1 + r) is the present value of period 2 consumption: if you want to consume C₂ in period 2, you need to save C₂/(1 + r) in period 1.</p>
     <p><strong>Приведённая стоимость (PV)</strong> переводит будущие суммы в сегодняшнюю стоимость. C₂/(1 + r) — приведённая стоимость потребления периода 2.</p>
+    <p class="kz">C₂/(1+r) — 2-кезеңдегі C₂ сомасын 1-кезеңге (бүгін) аудару. Болашақ ақша бүгінгіден «арзан» саналады.</p>
 
-    <h3>Alternative form / Альтернативная форма</h3>
+    <h3>Saving form / Форма через сбережения</h3>
     <p>Rearranging: <strong>C₂ = Y₂ + (Y₁ − C₁)(1 + r)</strong></p>
     <p>This says: period 2 consumption = period 2 income + (period 1 savings) × (1 + interest rate).</p>
     <p>Перегруппировка: <strong>C₂ = Y₂ + (Y₁ − C₁)(1 + r)</strong>. Потребление периода 2 = доход периода 2 + (сбережения периода 1) × (1 + ставка).</p>
+    <p>Если <strong>C₁ &gt; Y₁</strong> (заём): C₂ = Y₂ − (C₁ − Y₁)(1 + r) — во 2-м периоде отдаёте долг с процентами.</p>
 
     <hr>
 
@@ -102,7 +150,25 @@
             <text x="300" y="200" font-size="11">Slope = -(1+r)</text>
         </svg>
         <p style="margin:0.5rem 0 0; font-size:0.95em;">Бюджетная линия: наклон = −(1 + r). Точка E = (Y₁, Y₂) — endowment point (точка наделённости).</p>
+        <pre>C₂ ↑
+   |  ● (0 , Y₂ + Y₁(1+r))     ← max C₂: save all Y₁
+   |   \
+   |    \  budget line
+   |     \
+   |      ● E = (Y₁, Y₂)       ← consume income each period
+   |       \
+   |        \
+   +---------●----------------→ C₁
+            (Y₁ + Y₂/(1+r), 0) ← max C₁: borrow / spend all PV today</pre>
     </div>
+
+    <table>
+        <tr><th>Graph element</th><th>Formula</th><th>Meaning / RU</th></tr>
+        <tr><td><strong>Slope</strong></td><td>−(1 + r)</td><td>+1 € in period 1 costs (1+r) € in period 2</td></tr>
+        <tr><td><strong>Horizontal intercept</strong></td><td>C₁ = Y₁ + Y₂/(1 + r)</td><td>Max consumption today (C₂ = 0)</td></tr>
+        <tr><td><strong>Vertical intercept</strong></td><td>C₂ = Y₂ + Y₁(1 + r)</td><td>Max consumption tomorrow (C₁ = 0)</td></tr>
+        <tr><td><strong>Endowment E</strong></td><td>(Y₁, Y₂)</td><td>No saving, no borrowing</td></tr>
+    </table>
 
     <h3>Intercepts / Пересечения</h3>
     <ul>
