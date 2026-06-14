@@ -11,6 +11,7 @@ import { elasticities } from './elasticities'
 import { productionCostShortRun } from './production-cost-short-run'
 import { productionFunction } from './production-function'
 import { costLongRun } from './cost-long-run'
+import { perfectCompetition } from './perfect-competition'
 import { marketPower } from './market-power'
 import { gameTheory } from './game-theory'
 import { priceDiscrimination } from './price-discrimination'
@@ -38,6 +39,7 @@ const map: Record<string, TopicContent> = {
   'production-cost-short-run': productionCostShortRun,
   'production-function': productionFunction,
   'cost-long-run': costLongRun,
+  'perfect-competition': perfectCompetition,
   'market-power': marketPower,
   'game-theory': gameTheory,
   'price-discrimination': priceDiscrimination,

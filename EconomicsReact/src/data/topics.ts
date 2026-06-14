@@ -95,10 +95,17 @@ export const TOPICS: Topic[] = [
     section: 'micro',
   },
   {
+    slug: 'perfect-competition',
+    file: 'Perfect_Competition_Explanation.html',
+    title: 'Perfect Competition — Совершенная конкуренция',
+    desc: 'Frank Ch. 10, Exam #15: P=MC, shutdown, LR equilibrium, vs monopoly.',
+    section: 'micro',
+  },
+  {
     slug: 'market-power',
     file: 'Market_Power_Explanation.html',
     title: 'Market Power & Pricing — Рыночная власть и ценообразование',
-    desc: 'Monopoly, oligopoly, profit maximization.',
+    desc: 'Market structures overview, oligopoly, mark-up pricing.',
     section: 'micro',
   },
   {
@@ -154,8 +161,8 @@ export const TOPICS: Topic[] = [
   {
     slug: 'okun-phillips',
     file: 'Okun_Phillips_Explanation.html',
-    title: "Phillips Curve — Кривая Филлипса (Exam Topic 31)",
-    desc: 'GDP–unemployment, inflation–unemployment trade-off.',
+    title: "Okun & Phillips — Закон Оукена и Филлипс",
+    desc: "Okun: Y↔u, rule 1:2. Phillips (#31): SR/LR, stagflation.",
     section: 'macro',
   },
   {
