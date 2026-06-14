@@ -33,6 +33,10 @@
         .back a:hover { text-decoration: underline; }
         .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
         .fig-caption { text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; }
+        .step-box { background: #fff; border: 1px solid #d0e8f7; border-radius: 8px; padding: 14px 16px; margin: 16px 0; }
+        .step-box h4 { margin: 0 0 10px; color: #2980b9; font-size: 1.05em; }
+        .kz { color: #555; font-size: 0.94em; padding: 6px 0 6px 12px; border-left: 3px solid #3498db; margin: 8px 0; }
+        .kz::before { content: "🇰🇿 KZ: "; font-weight: 700; color: #2980b9; }
     </style>
 </head>
 <body>
@@ -215,9 +219,114 @@ P* = 10 − 4 = 6 $
 TR = 6 × 4 = 24 млн $
 TC = 2 × 4 =  8 млн $
 π  = 16 млн $</pre>
+
+        <div class="step-box">
+            <h4>📖 Толық түсіндірме: әр сан қайдан алынды?</h4>
+
+            <p><strong>Бастапқы деректер (берілген):</strong></p>
+            <ul>
+                <li><strong>P = 10 − Q</strong> — сұраныс функциясы: Q=0 → P=10$; Q=10 → P=0. Q — <strong>млн упаковок</strong>.</li>
+                <li><strong>MC = 2 $</strong> — әр қосымша упаковка өндіруге <strong>2 доллар</strong> кетеді (postоянные marginal cost).</li>
+            </ul>
+            <p class="kz">Берілген: сұраныс P=10−Q, шекаралық шығын MC=2$. Q — миллион қаптама.</p>
+
+            <p><strong>Қадам 1 — MR (шекаралық табыс):</strong></p>
+            <p>TR = P × Q = (10 − Q) × Q = 10Q − Q². Шекаралық табыс MR = dTR/dQ:</p>
+            <p><strong>MR = 10 − 2Q</strong> (линейлі сұраныста MR әрқашан D-дан 2 есе тік)</p>
+            <p class="kz"><strong>MR</strong> — тағы 1 упаковка сатқанда жалпы табыс қанша өзгереді. MR = 10−2Q.</p>
+
+            <p><strong>Қадам 2 — Q* (оптималды көлем):</strong></p>
+            <p>Монополист прибыльді <strong>MR = MC</strong> арқылы максимумдайды:</p>
+            <p>10 − 2Q = 2 → 2Q = 8 → <strong>Q* = 4 млн упаковок</strong></p>
+            <p class="kz">4 млн — монополия үшін ең тиімді өндіріс мөлшері. Одан артық өндірсе, MC &gt; MR → әр қосымша бірлік зиян.</p>
+
+            <p><strong>Қадам 3 — P* (оптималды баға):</strong></p>
+            <p>Q*=4-ті сұраныс функциясына қойамыз (D кривые):</p>
+            <p><strong>P* = 10 − 4 = 6 $</strong> — әр упаковка 6 доллардан сатылады.</p>
+            <p class="kz">6$ — монополист қойған баға. MC=2$ болса да, P*=6$ (монополия markup).</p>
+
+            <p><strong>Қадам 4 — TR (Total Revenue / жалпы табыс):</strong></p>
+            <p><strong>TR = P* × Q* = 6 × 4 = 24 млн $</strong></p>
+            <ul>
+                <li><strong>6</strong> — бір упаковка бағасы ($)</li>
+                <li><strong>4</strong> — сатылған упаковка саны (млн)</li>
+                <li><strong>24 млн $</strong> — барлық сатудан түскен ақша</li>
+            </ul>
+            <p class="kz"><strong>TR (жалпы табыс)</strong> — барлық сатудан алынған кіріс. 6$ × 4 млн = 24 млн $.</p>
+
+            <p><strong>Қадам 5 — TC (Total Cost / жалпы шығын):</strong></p>
+            <p><strong>TC = MC × Q* = 2 × 4 = 8 млн $</strong></p>
+            <ul>
+                <li><strong>2</strong> — әр упаковкаға кететін шығын (MC)</li>
+                <li><strong>4</strong> — өндірілген/сатылған көлем (млн)</li>
+                <li><strong>8 млн $</strong> — 4 млн упаковка өндіруге кеткен жалпы шығын</li>
+            </ul>
+            <p class="kz"><strong>TC (жалпы шығын)</strong> — өндіруге жұмсалған барлық ақша. MC тұрақты → TC = 2 × 4 = 8 млн $.</p>
+
+            <p><strong>Қадам 6 — π (Profit / пайда):</strong></p>
+            <p><strong>π = TR − TC = 24 − 8 = 16 млн $</strong></p>
+            <p>Немесе тікелей: <strong>π = (P* − MC) × Q* = (6 − 2) × 4 = 4 × 4 = 16 млн $</strong></p>
+            <ul>
+                <li><strong>(6 − 2) = 4 $</strong> — әр упаковкадан <em>unit profit</em> (бірлік пайда): сатқан баға минус шығын</li>
+                <li><strong>× 4 млн</strong> — осынша упаковка сатылды</li>
+                <li><strong>16 млн $</strong> — монополистің <strong>экономикалық пайдасы</strong> (таза кіріс минус шығын)</li>
+            </ul>
+            <p class="kz"><strong>π (пайда)</strong> = TR − TC. Немесе (P*−MC)×Q* = (6−2)×4 = 16 млн $. Бұл монополияның таза табысы.</p>
+
+            <table>
+                <tr><th>Тerm / Термин</th><th>Formula / Формула</th><th>Мысалдағы мән</th><th>Мағынасы / KZ</th></tr>
+                <tr><td><strong>Q*</strong></td><td>MR = MC</td><td>4 млн</td><td>Оптималды өндіріс / Оптималды көлем</td></tr>
+                <tr><td><strong>P*</strong></td><td>P = 10 − Q*</td><td>6 $</td><td>Оптималды баға / Сатылатын баға</td></tr>
+                <tr><td><strong>TR</strong></td><td>P* × Q*</td><td>24 млн $</td><td>Жалпы табыс / Барлық кіріс</td></tr>
+                <tr><td><strong>TC</strong></td><td>MC × Q*</td><td>8 млн $</td><td>Жалпы шығын / Барлық өндіріс шығыны</td></tr>
+                <tr><td><strong>π</strong></td><td>TR − TC = (P*−MC)×Q*</td><td>16 млн $</td><td>Пайда / Таза табыс</td></tr>
+            </table>
+
+            <p><strong>Салыстыру — конкуренция:</strong> P = MC → 10 − Q = 2 → Q<sub>c</sub> = 8, P<sub>c</sub> = 2 $. Табыс TR = 16, шығын TC = 16 → <strong>π = 0</strong> (конкуренцияда ұзақ мерзімде экономикалық пайда жоқ).</p>
+            <p class="kz">Монополия: Q=4, P=6, π=16 млн. Конкуренция: Q=8, P=2, π=0. Монополия аз өндіреді, қымбат сатады, бірақ пайда алады.</p>
+        </div>
+
         <p><strong>Сравнение с конкуренцией:</strong> P = MC → 10 − Q = 2 → <strong>Q<sub>c</sub> = 8</strong>, <strong>P<sub>c</sub> = 2 $</strong>.</p>
         <p>Монополия производит <strong>вдвое меньше</strong> и берёт <strong>втрое выше</strong> цену.</p>
         <p class="en">Demand P = 10 − Q, MC = 2. Monopoly: Q* = 4, P* = $6, profit $16m. Competition: Q<sub>c</sub> = 8, P<sub>c</sub> = $2.</p>
+
+        <div class="graph-box">
+            <svg class="svg-graph" viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arr-m1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
+                </defs>
+                <line x1="60" y1="30" x2="60" y2="260" stroke="#333" stroke-width="1.5" marker-end="url(#arr-m1)"/>
+                <line x1="60" y1="260" x2="400" y2="260" stroke="#333" stroke-width="1.5" marker-end="url(#arr-m1)"/>
+                <!-- scale: P 0-10 → y 260-60; Q 0-10 → x 60-360 -->
+                <!-- D: P=10-Q -->
+                <line x1="60" y1="60" x2="360" y2="260" stroke="#27ae60" stroke-width="2.5"/>
+                <!-- MR: P=10-2Q -->
+                <line x1="60" y1="60" x2="210" y2="260" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4"/>
+                <!-- MC=2 → y=260-40=220 -->
+                <line x1="60" y1="220" x2="360" y2="220" stroke="#2980b9" stroke-width="2.5"/>
+                <!-- Monopoly Q*=4 → x=60+120=180 -->
+                <circle cx="180" cy="220" r="5" fill="#8e44ad" stroke="#6c3483"/>
+                <line x1="180" y1="220" x2="180" y2="260" stroke="#8e44ad" stroke-dasharray="4,3"/>
+                <line x1="60" y1="140" x2="180" y2="140" stroke="#27ae60" stroke-dasharray="4,3"/>
+                <circle cx="180" cy="140" r="4" fill="#27ae60"/>
+                <text x="172" y="278" font-size="11" fill="#8e44ad">Q*=4</text>
+                <text x="18" y="144" font-size="11" fill="#27ae60">P*=6</text>
+                <!-- Competition Qc=8 → x=300 -->
+                <circle cx="300" cy="220" r="4" fill="#3498db" stroke="#2471a3"/>
+                <line x1="300" y1="220" x2="300" y2="260" stroke="#3498db" stroke-dasharray="4,3"/>
+                <text x="288" y="278" font-size="11" fill="#3498db">Qc=8</text>
+                <!-- profit area rectangle hint -->
+                <rect x="60" y="140" width="120" height="80" fill="#8e44ad" opacity="0.08"/>
+                <text x="365" y="55" fill="#27ae60" font-size="13" font-weight="600">D</text>
+                <text x="215" y="252" fill="#e74c3c" font-size="12" font-weight="600">MR</text>
+                <text x="365" y="225" fill="#2980b9" font-size="12" font-weight="600">MC=2</text>
+                <text x="405" y="265" font-size="13">Q</text>
+                <text x="38" y="38" font-size="13">P ($)</text>
+                <text x="68" y="55" font-size="10" fill="#666">10</text>
+                <text x="68" y="225" font-size="10" fill="#666">2</text>
+            </svg>
+            <p class="fig-caption">Монополия: MR=MC → Q*=4, P*=6 (фиолетовая точка). Конкуренция: P=MC → Q<sub>c</sub>=8, P<sub>c</sub>=2 (синяя). Заштриховано — прибыль π = (6−2)×4 = 16 млн $.</p>
+        </div>
     </div>
 
     <div class="example-box">
@@ -244,6 +353,44 @@ TC = 2 × 4 =  8 млн $
         </table>
 
         <p><strong>Вывод:</strong> «100 €» на оси P — это не «правильная монопольная цена», а только верхняя точка спроса. Оптимальная цена <strong>60 €</strong> — ниже 100, но прибыль максимальна.</p>
+
+        <div class="graph-box">
+            <svg class="svg-graph" viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <marker id="arr-m2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
+                </defs>
+                <line x1="60" y1="30" x2="60" y2="260" stroke="#333" stroke-width="1.5" marker-end="url(#arr-m2)"/>
+                <line x1="60" y1="260" x2="400" y2="260" stroke="#333" stroke-width="1.5" marker-end="url(#arr-m2)"/>
+                <!-- scale: P 0-100 → y 260-60; Q 0-100 → x 60-360 -->
+                <!-- D: P=100-Q -->
+                <line x1="60" y1="60" x2="360" y2="260" stroke="#27ae60" stroke-width="2.5"/>
+                <!-- MR: P=100-2Q, Q at MR=0 is 50 → x=210 -->
+                <line x1="60" y1="60" x2="210" y2="260" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4"/>
+                <!-- MC=20 → y=260-40=220 -->
+                <line x1="60" y1="220" x2="360" y2="220" stroke="#2980b9" stroke-width="2.5"/>
+                <!-- choke price 100 at Q=0 -->
+                <circle cx="60" cy="60" r="4" fill="#f39c12" stroke="#d68910"/>
+                <text x="68" y="52" font-size="10" fill="#d68910" font-weight="600">choke 100€</text>
+                <!-- optimum Q*=40 → x=60+120=180, P*=60 → y=140 -->
+                <circle cx="180" cy="220" r="5" fill="#8e44ad" stroke="#6c3483"/>
+                <line x1="180" y1="220" x2="180" y2="260" stroke="#8e44ad" stroke-dasharray="4,3"/>
+                <line x1="60" y1="140" x2="180" y2="140" stroke="#27ae60" stroke-dasharray="4,3"/>
+                <circle cx="180" cy="140" r="4" fill="#27ae60"/>
+                <text x="168" y="278" font-size="11" fill="#8e44ad">Q*=40</text>
+                <text x="14" y="144" font-size="11" fill="#27ae60">P*=60€</text>
+                <!-- competition Qc=80 → x=300 -->
+                <circle cx="300" cy="220" r="4" fill="#3498db" stroke="#2471a3"/>
+                <line x1="300" y1="220" x2="300" y2="260" stroke="#3498db" stroke-dasharray="4,3"/>
+                <text x="286" y="278" font-size="11" fill="#3498db">Qc=80</text>
+                <rect x="60" y="140" width="120" height="80" fill="#8e44ad" opacity="0.08"/>
+                <text x="365" y="55" fill="#27ae60" font-size="13" font-weight="600">D</text>
+                <text x="215" y="252" fill="#e74c3c" font-size="12" font-weight="600">MR</text>
+                <text x="365" y="225" fill="#2980b9" font-size="12" font-weight="600">MC=20€</text>
+                <text x="405" y="265" font-size="13">Q (тыс.)</text>
+                <text x="30" y="38" font-size="13">P (€)</text>
+            </svg>
+            <p class="fig-caption">100 € — choke price (Q=0, π=0), не оптимум. Оптимум MR=MC: Q*=40, P*=60 €, π=1.6 млн €. Конкуренция: Q<sub>c</sub>=80, P<sub>c</sub>=20 €.</p>
+        </div>
     </div>
 
     <div class="example-box">
@@ -257,16 +404,160 @@ Choke price (Q = 0): 200 € — снова не оптимум.</pre>
         <p class="en">P = 200 − 2Q, MC = 40 → Q* = 40, P* = €120, profit €3.2m. Choke price €200 is not optimal.</p>
     </div>
 
-    <h3>Как увеличить максимальную прибыль (по Frank)</h3>
-    <p>Оптимум MR = MC даёт π* при <em>данных</em> спросе и издержках. Чтобы π выросло, монополист сдвигает кривые:</p>
-    <ol>
-        <li><strong>Снизить MC</strong> (технология, масштаб) → при том же спросе MR = MC в точке с большим Q и большим markup-объёмом.<br>
-            <em>Пример:</em> MC падает с 20 до 10 € при P = 100 − Q → Q* = 45, P* = 55 €, π = 45 × 45 = <strong>2 025 000 €</strong> (+425 тыс.).</li>
-        <li><strong>Сделать спрос менее эластичным</strong> (бренд, уникальность, switching costs) → по формуле (P−MC)/P = 1/|ε| можно поднять цену при том же MC.<br>
-            <em>Пример из книги:</em> Windows — сетевой эффект снижает эластичность; пользователю дорого уйти.</li>
-        <li><strong>Ценовая дискриминация</strong> (Ch. 11) — брать с каждого покупателя ближе к его WTP → π выше, чем при одной цене 60 €. См. <a href="Price_Discrimination_Explanation.html">Price Discrimination</a>.</li>
-        <li><strong>Удержать монополию</strong> (раздел 2.1) — не дать конкурентам войти и сбить P с 60 € до 20 € (π → 0).</li>
-    </ol>
+    <h2 id="raise-profit">4.1 Как увеличить прибыль монополиста (по Frank)</h2>
+    <p>Оптимум <strong>MR = MC</strong> даёт максимальную прибыль π* при <em>данных</em> кривых спроса D и издержках MC. Это лучший выбор «внутри» текущей ситуации. Но монополист может <strong>сдвинуть сами кривые</strong> — тогда точка MR = MC переезжает, и π* становится больше.</p>
+    <p class="kz">MR=MC — ағымдағы D және MC үшін оптимум. Пайданы өсіру үшін монополист MC-ны төмендетеді, сұранысты аз эластик етеді, баға дискриминациясын қолданады немесе кіруді блоктайды.</p>
+
+    <!-- ===== STRATEGY 1: LOWER MC ===== -->
+    <div class="example-box">
+        <h3 style="margin-top:0">Стратегия 1: Снизить MC (технология, масштаб)</h3>
+        <p><strong>Идея:</strong> линия MC <strong>опускается вниз</strong>. Кривая MR и D не меняются, но точка MR = MC сдвигается <strong>вправо</strong> (больше Q). Фирма производит больше, цена P* немного падает, но <strong>unit profit (P−MC)</strong> растёт — итоговая π увеличивается.</p>
+        <p class="kz">MC төмендесе → MR=MC нүктесі оңға жылжиды → Q* өседі, (P*−MC) артады → π өседі.</p>
+
+        <p><strong>Пример</strong> (тот же спрос <code>P = 100 − Q</code>, MC было 20 €):</p>
+        <table>
+            <tr><th></th><th>MC = 20 € (было)</th><th>MC = 10 € (стало)</th></tr>
+            <tr><td>MR = MC</td><td>100 − 2Q = 20 → Q* = 40</td><td>100 − 2Q = 10 → <strong>Q* = 45</strong></td></tr>
+            <tr><td>P* = 100 − Q*</td><td>60 €</td><td><strong>55 €</strong></td></tr>
+            <tr><td>π = (P* − MC) × Q*</td><td>(60−20)×40 = <strong>1 600 000 €</strong></td><td>(55−10)×45 = <strong>2 025 000 €</strong></td></tr>
+        </table>
+        <p>π выросла на <strong>+425 000 €</strong>, хотя цена даже <em>снизилась</em> с 60 до 55 € — потому что издержки упали сильнее.</p>
+
+        <div class="graph-box">
+            <svg class="svg-graph" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">
+                <line x1="55" y1="25" x2="55" y2="265" stroke="#333" stroke-width="1.5"/>
+                <line x1="55" y1="265" x2="410" y2="265" stroke="#333" stroke-width="1.5"/>
+                <line x1="55" y1="65" x2="355" y2="265" stroke="#27ae60" stroke-width="2.5"/>
+                <line x1="55" y1="65" x2="205" y2="265" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4"/>
+                <!-- MC old = 20 → y=225 -->
+                <line x1="55" y1="225" x2="355" y2="225" stroke="#2980b9" stroke-width="2" stroke-dasharray="8,4" opacity="0.55"/>
+                <!-- MC new = 10 → y=245 -->
+                <line x1="55" y1="245" x2="355" y2="245" stroke="#2980b9" stroke-width="2.5"/>
+                <!-- old opt Q=40 x=175 -->
+                <circle cx="175" cy="225" r="4" fill="#95a5a6"/>
+                <line x1="175" y1="225" x2="175" y2="265" stroke="#95a5a6" stroke-dasharray="3,3"/>
+                <text x="158" y="280" font-size="10" fill="#95a5a6">Q=40</text>
+                <!-- new opt Q=45 x=190 -->
+                <circle cx="190" cy="245" r="5" fill="#8e44ad"/>
+                <line x1="190" y1="245" x2="190" y2="265" stroke="#8e44ad" stroke-dasharray="4,3"/>
+                <line x1="55" y1="135" x2="190" y2="135" stroke="#27ae60" stroke-dasharray="4,3"/>
+                <text x="178" y="280" font-size="10" fill="#8e44ad" font-weight="600">Q*=45</text>
+                <text x="12" y="139" font-size="10" fill="#27ae60">P*=55€</text>
+                <rect x="55" y="135" width="135" height="110" fill="#8e44ad" opacity="0.1"/>
+                <text x="360" y="55" fill="#27ae60" font-size="12" font-weight="600">D</text>
+                <text x="210" y="258" fill="#e74c3c" font-size="11">MR</text>
+                <text x="360" y="230" fill="#2980b9" font-size="11">MC=10€ (new)</text>
+                <text x="360" y="210" fill="#2980b9" font-size="10" opacity="0.7">MC=20€ (old)</text>
+                <text x="400" y="270" font-size="12">Q</text>
+                <text x="35" y="35" font-size="12">P (€)</text>
+            </svg>
+            <p class="fig-caption">MC ↓ с 20 до 10 €: MR=MC сдвигается Q 40→45. Серая точка — старый оптимум, фиолетовая — новый. Заштриховано — большая π.</p>
+        </div>
+        <p><strong>Откуда берётся снижение MC:</strong> новая технология, automation, economies of scale, cheaper inputs, outsourcing. На графике — <em>параллельный сдвиг MC вниз</em>.</p>
+    </div>
+
+    <!-- ===== STRATEGY 2: LESS ELASTIC ===== -->
+    <div class="example-box">
+        <h3 style="margin-top:0">Стратегия 2: Сделать спрос менее эластичным</h3>
+        <p><strong>Эластичность</strong> — насколько сильно Q падает при росте P. <strong>Менее эластичный</strong> спрос = кривая D <strong>круче</strong> (steep): покупатели не уходят при повышении цены — нет заменителей, бренд, привычка, switching costs.</p>
+        <p class="kz">Az эластik сұраныс = икемсіз тұтынушы. Баға өссе де, Q аз болмайды → монополия жоғары markup қоя алады.</p>
+
+        <div class="formula-box">
+            <strong>Индекс Lerner (наценка): (P − MC) / P = 1 / |ε|</strong><br>
+            <span style="font-size:0.92em">Чем <strong>меньше</strong> |ε| (неэластичнее) → тем <strong>выше</strong> доля (P−MC) в цене → больше π.</span>
+        </div>
+
+        <p><strong>Пример из Frank — Windows:</strong> сетевой эффект (все друзья на Windows → тебе неудобно уйти), switching costs (переучиться, купить новые программы). Спрос на Windows <strong>менее эластичен</strong>, чем на generic ОС → Microsoft может держать высокую цену.</p>
+
+        <p><strong>На графике:</strong> D<sub>elastic</sub> (плоская, |ε| большой) vs D<sub>inelastic</sub> (крутая, |ε| малый). При одном MC монополист на крутой D ставит <strong>выше P</strong> и получает <strong>больше markup</strong>.</p>
+
+        <div class="graph-box">
+            <svg class="svg-graph" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">
+                <line x1="55" y1="25" x2="55" y2="265" stroke="#333" stroke-width="1.5"/>
+                <line x1="55" y1="265" x2="410" y2="265" stroke="#333" stroke-width="1.5"/>
+                <!-- MC=20 -->
+                <line x1="55" y1="225" x2="355" y2="225" stroke="#2980b9" stroke-width="2.5"/>
+                <!-- D elastic (flat): P=100-0.5Q approx - from (55,65) to (355,265) wider -->
+                <line x1="55" y1="65" x2="355" y2="265" stroke="#27ae60" stroke-width="2" opacity="0.45"/>
+                <text x="300" y="250" fill="#27ae60" font-size="11" opacity="0.7">D elastic (flat)</text>
+                <!-- D inelastic (steep): P=100-2Q from (55,65) to (205,265) -->
+                <line x1="55" y1="65" x2="205" y2="265" stroke="#27ae60" stroke-width="2.5"/>
+                <text x="130" y="200" fill="#27ae60" font-size="11" font-weight="600">D inelastic (steep)</text>
+                <!-- MR inelastic: P=100-4Q, MR=100-8Q, MC=20 at Q=10, x=115 -->
+                <line x1="55" y1="65" x2="130" y2="265" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="5,4"/>
+                <circle cx="115" cy="225" r="5" fill="#8e44ad"/>
+                <line x1="115" y1="225" x2="115" y2="265" stroke="#8e44ad" stroke-dasharray="4,3"/>
+                <line x1="55" y1="185" x2="115" y2="185" stroke="#27ae60" stroke-dasharray="4,3"/>
+                <text x="100" y="280" font-size="10" fill="#8e44ad">Q*=10</text>
+                <text x="8" y="189" font-size="10" fill="#27ae60">P*=80€</text>
+                <text x="118" y="215" font-size="9" fill="#8e44ad">|ε|↓ markup↑</text>
+                <rect x="55" y="185" width="60" height="40" fill="#8e44ad" opacity="0.15"/>
+                <text x="360" y="230" fill="#2980b9" font-size="11">MC=20€</text>
+                <text x="400" y="270" font-size="12">Q</text>
+                <text x="35" y="35" font-size="12">P (€)</text>
+            </svg>
+            <p class="fig-caption">Крутая D (inelastic): при MC=20 оптимум P*=80 €, Q*=10, π=(80−20)×10=600k. Плоская D — ниже markup. Бренд/switching costs → D становится круче.</p>
+        </div>
+        <p><strong>Инструменты:</strong> реклама и бренд, патенты, уникальные функции, контракты, экосистема (Apple), loyalty programs.</p>
+    </div>
+
+    <!-- ===== STRATEGY 3: PRICE DISCRIMINATION ===== -->
+    <div class="example-box">
+        <h3 style="margin-top:0">Стратегия 3: Ценовая дискриминация</h3>
+        <p><strong>Идея:</strong> при одной цене 60 € часть покупателей платит <em>меньше</em>, чем готовы (WTP), а часть не покупает вообще — <strong>consumer surplus</strong> «теряется». Дискриминация — брать с каждого ближе к его reservation price.</p>
+        <p class="kz">Бір баға (60€) — кейбір тұтынушылар арзан сатып алады, π толық емес. Дискриминация — әркімнен WTP-ге жақын баға алу → π максимум.</p>
+
+        <table>
+            <tr><th>Тип</th><th>Как работает</th><th>π vs одна цена</th></tr>
+            <tr><td><strong>1-я степень (perfect)</strong></td><td>Каждая единица по индивидуальному WTP</td><td>Максимум — весь CS → монополисту</td></tr>
+            <tr><td><strong>2-я степень</strong></td><td>Разные цены за объём (опт, bulk)</td><td>Выше</td></tr>
+            <tr><td><strong>3-я степень</strong></td><td>Разные группы (student, business)</td><td>Выше, если сегменты разделимы</td></tr>
+        </table>
+
+        <div class="graph-box">
+            <svg class="svg-graph" viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg">
+                <line x1="55" y1="20" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+                <line x1="55" y1="250" x2="410" y2="250" stroke="#333" stroke-width="1.5"/>
+                <line x1="55" y1="50" x2="355" y2="250" stroke="#27ae60" stroke-width="2.5"/>
+                <line x1="55" y1="210" x2="355" y2="210" stroke="#2980b9" stroke-width="2"/>
+                <!-- single price P=60, Q=40 -->
+                <line x1="55" y1="110" x2="195" y2="110" stroke="#e67e22" stroke-width="1.5" stroke-dasharray="5,3"/>
+                <line x1="195" y1="110" x2="195" y2="250" stroke="#e67e22" stroke-dasharray="5,3"/>
+                <rect x="195" y="110" width="0" height="0"/>
+                <rect x="55" y="110" width="140" height="100" fill="#e67e22" opacity="0.35"/>
+                <text x="90" y="175" font-size="10" fill="#d35400">π single price</text>
+                <text x="198" y="265" font-size="10" fill="#e67e22">Q=40</text>
+                <text x="8" y="115" font-size="10" fill="#e67e22">P=60€</text>
+                <!-- perfect discrimination: area under D above MC to Q where P=MC -->
+                <polygon points="55,210 195,110 355,250 55,250" fill="#8e44ad" opacity="0.2"/>
+                <text x="120" y="230" font-size="10" fill="#8e44ad" font-weight="600">π perfect discr. (больше!)</text>
+                <line x1="295" y1="210" x2="295" y2="250" stroke="#8e44ad" stroke-dasharray="4,3"/>
+                <text x="278" y="265" font-size="10" fill="#8e44ad">Q до P=MC</text>
+                <text x="360" y="55" fill="#27ae60" font-size="12">D</text>
+                <text x="360" y="215" fill="#2980b9" font-size="11">MC=20€</text>
+                <text x="400" y="255" font-size="12">Q</text>
+                <text x="35" y="30" font-size="12">P</text>
+            </svg>
+            <p class="fig-caption">Оранжевый прямоугольник — π при одной цене 60 €. Фиолетовая область (D − MC) — π при perfect discrimination: каждый платит свой WTP, Q до P=MC, нет DWL.</p>
+        </div>
+        <p>См. подробнее: <a href="Price_Discrimination_Explanation.html">Price Discrimination</a>.</p>
+    </div>
+
+    <!-- ===== STRATEGY 4: ENTRY BARRIERS ===== -->
+    <div class="story-box">
+        <h3 style="margin-top:0">Стратегия 4: Удержать монополию (барьеры входа)</h3>
+        <p>Если конкурент войдёт, спрос D для <em>вашей</em> фирмы станет эластичнее (есть substitute), P упадёт с 60 € до ~20 € (уровень MC), π → 0. Поэтому монополист инвестирует в патенты, сетевые эффекты, exclusive contracts, lobbying — чтобы <strong>не потерять</strong> уже достигнутую π*.</p>
+        <p class="kz">Бәсекелес кірсе → P MC-ге түседі → π=0. Монополия кіруді блоктайды (патент, бренд, заң).</p>
+    </div>
+
+    <h3>Сводная таблица: как растёт π</h3>
+    <table>
+        <tr><th>Стратегия</th><th>Что сдвигается на графике</th><th>Эффект на Q*, P*, π</th></tr>
+        <tr><td>↓ MC</td><td>Линия MC вниз</td><td>Q*↑, P*↓ или ≈, π↑</td></tr>
+        <tr><td>↓ эластичность (бренд)</td><td>D круче (steep)</td><td>P*↑, markup↑, π↑</td></tr>
+        <tr><td>Price discrimination</td><td>Захват CS</td><td>Q↑ до P=MC, π↑↑</td></tr>
+        <tr><td>Барьеры входа</td><td>D не размывается</td><td>P остаётся &gt; MC, π сохраняется</td></tr>
+    </table>
     <p class="en">Raise profit by cutting MC, making demand less elastic, price discriminating, or blocking entry so P doesn't fall to competitive level.</p>
 
     <div class="graph-box">

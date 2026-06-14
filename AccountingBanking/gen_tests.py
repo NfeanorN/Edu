@@ -311,6 +311,11 @@ def q(num, en, ru, options, correct, section=None, qid=None, explain_ru=None):
     return d
 
 
+def write_static(filename: str, html: str) -> None:
+    """Write HTML that is not passed through str.format (CSS uses single braces)."""
+    (ROOT / filename).write_text(html.replace("{{", "{").replace("}}", "}"), encoding="utf-8")
+
+
 def write_page(filename, title_ru, title_en, questions, open_items=None, sna_items=None,
                rules_html="", extra_html="", scoring=None):
     html = TEMPLATE.format(
@@ -329,8 +334,8 @@ def write_page(filename, title_ru, title_en, questions, open_items=None, sna_ite
 
 
 def main():
-    (ROOT / "index.html").write_text(INDEX, encoding="utf-8")
-    (ROOT / "00_How_To_Solve.html").write_text(HOWTO_HTML, encoding="utf-8")
+    write_static("index.html", INDEX)
+    write_static("00_How_To_Solve.html", HOWTO_HTML)
 
     part1 = [
         q(1, "The management of an organization performs three general broad functions:",

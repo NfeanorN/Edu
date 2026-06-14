@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Prep — 36 Topics (Detailed) — Economics</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; margin: 0; padding: 2rem 1rem; color: #1a1a2e; background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%); }
+        .wrap { max-width: 960px; margin: 0 auto; background: #fff; padding: 2rem 2.4rem; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,.07); }
+        h1 { color: #1a3a5c; border-bottom: 4px solid #27ae60; padding-bottom: 12px; font-size: 1.9rem; margin-top: 0; }
+        h2 { color: #1a3a5c; margin-top: 2.8rem; font-size: 1.35rem; border-left: 5px solid #27ae60; padding: 6px 0 6px 14px; background: linear-gradient(90deg, #eefbf3 0%, transparent 100%); scroll-margin-top: 1rem; }
+        h3 { color: #2c3e50; margin-top: 1.4rem; font-size: 1.08rem; }
+        h2 .num { color: #27ae60; }
+        p { margin: 10px 0; text-align: justify; }
+        .en { color: #3d4f66; font-size: 0.94em; padding: 8px 0 8px 14px; border-left: 3px solid #5b8def; margin: 8px 0 14px; line-height: 1.65; }
+        .en::before { content: "EN: "; font-weight: 700; color: #3a6cdc; }
+        .exam-q { background: #fdecea; border-left: 4px solid #e74c3c; padding: 10px 14px; margin: 12px 0; border-radius: 6px; font-size: 0.95em; }
+        .exam-q::before { content: "📝 Вопрос на экзамене: "; font-weight: 700; color: #c0392b; }
+        .formula { background: #eef8f0; border-left: 4px solid #27ae60; padding: 12px 16px; margin: 14px 0; border-radius: 6px; font-family: Cambria, Georgia, serif; line-height: 1.6; }
+        .key { background: #fff8e7; border-left: 4px solid #f0b429; padding: 12px 16px; margin: 14px 0; border-radius: 6px; }
+        .key::before { content: "⭐ Главное: "; font-weight: 700; color: #8a6d1f; }
+        .story { background: #f4ecfe; border-left: 4px solid #8e44ad; padding: 12px 16px; margin: 14px 0; border-radius: 6px; }
+        .story::before { content: "💭 Пример: "; font-weight: 700; color: #6c3a8f; }
+        .warn { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin: 12px 0; border-radius: 6px; font-size: 0.94em; }
+        .warn::before { content: "⚠️ Не путать: "; font-weight: 700; }
+        .graph { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 14px 14px 10px; margin: 14px 0; overflow-x: auto; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .fig-caption { text-align: center; font-size: 0.88em; color: #555; margin: 8px 0 4px; line-height: 1.5; }
+        pre { margin: 0; font-size: 0.8em; line-height: 1.4; font-family: ui-monospace, 'Courier New', monospace; }
+        table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.93em; }
+        th, td { border: 1px solid #e0e6ed; padding: 9px 11px; text-align: left; vertical-align: top; }
+        th { background: #27ae60; color: #fff; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        ul, ol { margin: 10px 0; padding-left: 1.5rem; }
+        li { margin: 6px 0; }
+        .back { margin-bottom: 1rem; }
+        .back a { color: #27ae60; text-decoration: none; font-weight: 500; }
+        .toc { background: #f8f9fb; border: 1px solid #e0e6ed; border-radius: 10px; padding: 16px 20px; margin: 1.2rem 0 2rem; columns: 2; column-gap: 1.5rem; font-size: 0.88em; line-height: 1.5; }
+        .toc a { color: #1a3a5c; text-decoration: none; display: block; margin: 4px 0; }
+        .toc a:hover { color: #27ae60; }
+        .part { font-size: 1.1rem; font-weight: 700; color: #27ae60; margin: 2rem 0 0.5rem; border-bottom: 2px solid #ecf0f1; padding-bottom: 6px; }
+        .more { font-size: 0.9em; margin-top: 10px; }
+        .more a { color: #27ae60; }
+        hr { border: none; border-top: 2px solid #ecf0f1; margin: 2rem 0; }
+        @media (max-width: 700px) { .toc { columns: 1; } .wrap { padding: 1.2rem; } }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Frank_Study_Guide.html">Frank Study Guide</a></p>
+    <h1>Exam Prep — 36 Topics (Detailed)<br><span style="font-size:0.52em;color:#666;font-weight:400">Подробная шпаргалка: объяснения, примеры, формулы, графики — RU + EN</span></h1>
+    <p>Каждая тема: <strong>формулировка вопроса</strong> → объяснение → формула → пример → что нарисовать на экзамене.</p>
+
+    <nav class="toc">
+        <a href="#t1">1. Returns to scale</a><a href="#t2">2. Short vs Long run</a>
+        <a href="#t3">3. Isoquant & Isocost</a><a href="#t4">4. MC, MR, Average Cost</a>
+        <a href="#t5">5. Iso-cost</a><a href="#t6">6. Game theory</a>
+        <a href="#t7">7. Utility function</a><a href="#t8">8. Intertemporal budget</a>
+        <a href="#t9">9. CB & inflation</a><a href="#t10">10. Interest rate → GDP</a>
+        <a href="#t11">11. Marginal Propensity</a><a href="#t12">12. Marginal Utility</a>
+        <a href="#t13">13. Reservation price</a><a href="#t14">14. Opportunity cost</a>
+        <a href="#t15">15. Perfect competition</a><a href="#t16">16. Rational spending rule</a>
+        <a href="#t17">17. Investment vs Saving</a><a href="#t18">18. Supply & Demand</a>
+        <a href="#t19">19. Money market</a><a href="#t20">20. LR cost & RTS</a>
+        <a href="#t21">21. CB & interest rate</a><a href="#t22">22. MU maximized?</a>
+        <a href="#t23">23. Monopolist & ΔTR</a><a href="#t24">24. Real vs Nominal GDP</a>
+        <a href="#t25">25. Money supply tools</a><a href="#t26">26. IS-LM</a>
+        <a href="#t27">27. Exchange rates</a><a href="#t28">28. Multiplier graph</a>
+        <a href="#t29">29. Budget constraint shift</a><a href="#t30">30. MPC & slope</a>
+        <a href="#t31">31. Phillips curve</a><a href="#t32">32. Maximize profit</a>
+        <a href="#t33">33. Price discrimination</a><a href="#t34">34. Perfect price discrimination</a>
+        <a href="#t35">35. Willingness to pay</a><a href="#t36">36. Industry supply SR/LR</a>
+    </nav>
+
+    <div class="part">Часть I — Производство и издержки (Topics 1–5, 20, 36)</div>
+
+    <!-- ========== 1 ========== -->
+    <h2 id="t1"><span class="num">1.</span> Returns to Scale / Отдача от масштаба</h2>
+    <div class="exam-q">Что происходит с выпуском Q, если увеличить <em>все</em> факторы производства (L и K) в k раз?</div>
+    <p><strong>Отдача от масштаба (returns to scale, RTS)</strong> — это свойство <strong>долгосрочной</strong> производственной функции Q = f(L, K). Мы смотрим не на «добавить ещё одного рабочего при фиксированном заводе» (это краткосрочный diminishing returns), а на «удвоить и завод, и число рабочих одновременно».</p>
+    <p class="en">Returns to scale describe what happens to output when <strong>all inputs</strong> are scaled up by factor k. This is a long-run concept — unlike diminishing marginal product of labour with fixed capital.</p>
+
+    <table>
+        <tr><th>Тип RTS</th><th>Математически</th><th>Пример (k=2)</th><th>LRAC</th><th>Интуиция</th></tr>
+        <tr><td><strong>Increasing</strong> / возрастающая</td><td>f(2L,2K) &gt; 2·f(L,K)</td><td>2× ресурсы → 2.5× выпуск</td><td>Падает ↓</td><td>Специализация, bulk-закупки, эффект масштаба</td></tr>
+        <tr><td><strong>Constant</strong> / постоянная</td><td>f(2L,2K) = 2·f(L,K)</td><td>2× → ровно 2×</td><td>Плоская —</td><td>Удвоили всё — удвоили продукт</td></tr>
+        <tr><td><strong>Decreasing</strong> / убывающая</td><td>f(2L,2K) &lt; 2·f(L,K)</td><td>2× → только 1.5×</td><td>Растёт ↑</td><td>Координация, бюрократия, перегруз</td></tr>
+    </table>
+
+    <div class="formula">
+        Проверка через экспоненту: Q = A·L<sup>α</sup>·K<sup>β</sup><br>
+        Если α + β &gt; 1 → increasing RTS · α + β = 1 → constant · α + β &lt; 1 → decreasing
+    </div>
+
+    <div class="story">Пекарня: 1 печь + 2 пекаря = 100 пирогов. Удваиваем всё (2 печи + 4 пекаря). Если получаем 250 пирогов — increasing RTS (специализация: один месит, другой печёт). Если 200 — constant. Если 150 — decreasing (пекари мешают друг другу).</div>
+
+    <div class="key">На экзамене: RTS = долгий период, все факторы ×k. Связь с LRAC: increasing RTS ↔ economies of scale ↔ LRAC падает.</div>
+    <p class="more"><a href="Cost_Long_Run_Explanation.html">→ Cost Long Run</a></p>
+
+    <!-- ========== 2 ========== -->
+    <h2 id="t2"><span class="num">2.</span> Short Run vs Long Run / Краткий vs долгий период</h2>
+    <div class="exam-q">В чём разница между short run и long run? Почему в short run «хотя бы один фактор фиксирован»?</div>
+
+    <h3>Short run (краткосрочный период)</h3>
+    <p>Временной горизонт, в котором фирма <strong>не может изменить</strong> хотя бы один фактор производства. Обычно фиксирован <strong>капитал K</strong> (размер завода, оборудование, площадь). Переменный только <strong>труд L</strong> (можно нанять/уволить рабочих, купить сырьё).</p>
+    <p class="en">Short run: at least one input is fixed (typically capital/plant size). Only variable inputs like labour can change. You work within existing capacity.</p>
+    <ul>
+        <li>Есть <strong>постоянные издержки FC</strong> (аренда завода — платишь, даже если Q=0)</li>
+        <li>Закон <strong>убывающей предельной отдачи</strong> MP<sub>L</sub> eventually falls при фиксированном K</li>
+        <li>Кривые <strong>SR ATC, SR MC</strong> — для одного размера завода</li>
+    </ul>
+
+    <h3>Long run (долгосрочный период)</h3>
+    <p><strong>Все</strong> факторы переменные. Фирма может построить новый завод, купить оборудование, изменить технологию, выбрать оптимальный масштаб. Нет FC в смысле «нельзя изменить» — всё можно пересмотреть.</p>
+    <p class="en">Long run: all inputs are variable. The firm chooses plant size, technology, and input mix. No fixed factor in the economic sense.</p>
+    <ul>
+        <li>Анализируем <strong>returns to scale</strong>, isoquants, LRAC</li>
+        <li>Фирма выбирает <strong>оптимальный размер</strong> завода для каждого Q</li>
+        <li>SR ATC₁, SR ATC₂, SR ATC₃… → огибающая = <strong>LRAC</strong></li>
+    </ul>
+
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg" aria-label="Short run vs long run">
+            <rect x="30" y="30" width="190" height="150" rx="8" fill="#eef7ff" stroke="#3498db" stroke-width="2"/>
+            <text x="45" y="55" font-size="14" font-weight="600" fill="#2980b9">Short Run</text>
+            <text x="45" y="80" font-size="12" fill="#333">K фиксирован (завод)</text>
+            <text x="45" y="100" font-size="12" fill="#333">L переменен → нанимаем рабочих</text>
+            <text x="45" y="120" font-size="12" fill="#333">MC: сначала ↓, потом ↑</text>
+            <text x="45" y="140" font-size="12" fill="#333">(diminishing returns)</text>
+            <rect x="240" y="30" width="190" height="150" rx="8" fill="#eefbf3" stroke="#27ae60" stroke-width="2"/>
+            <text x="255" y="55" font-size="14" font-weight="600" fill="#27ae60">Long Run</text>
+            <text x="255" y="80" font-size="12" fill="#333">K и L переменны</text>
+            <text x="255" y="100" font-size="12" fill="#333">Выбираем размер завода</text>
+            <text x="255" y="120" font-size="12" fill="#333">Isoquant + isocost</text>
+            <text x="255" y="140" font-size="12" fill="#333">→ LRAC (envelope)</text>
+        </svg>
+    </div>
+    <div class="warn">«Short run» — не «завтра vs через 10 лет». Это «можно ли менять завод прямо сейчас». Для Uber — машина может быть фиксирована в SR; для Boeing — завод фиксирован годами.</div>
+    <p class="more"><a href="Production_Cost_Short_Run_Explanation.html">→ Short Run Costs</a></p>
+
+    <!-- ========== 3 ========== -->
+    <h2 id="t3"><span class="num">3.</span> Isoquant, Isocost & Increasing RTS — как произвести больше с меньшими издержками</h2>
+    <div class="exam-q">Фирма хочет расшириться в long run с increasing returns to scale. Как выглядят isoquant и isocost? Как произвести больше с меньшими unit costs?</div>
+
+    <h3>Isoquant (изокванта)</h3>
+    <p>Кривая всех комбинаций труда L и капитала K, дающих <strong>один и тот же выпуск Q</strong>. Свойства:</p>
+    <ul>
+        <li><strong>Выпуклая к началу координат</strong> (concave to origin) — L и K не идеальные заменители</li>
+        <li>Выше по графику → <strong>больший Q</strong> (Q₂ &gt; Q₁)</li>
+        <li>Не пересекаются (технология однозначна)</li>
+        <li>Наклон = <strong>MRTS</strong> = MP<sub>L</sub>/MP<sub>K</sub> (marginal rate of technical substitution)</li>
+    </ul>
+    <p class="en">An isoquant shows all (L,K) bundles producing the same Q. Higher isoquant = more output. Slope = MRTS = rate at which you can substitute L for K while keeping Q constant.</p>
+
+    <h3>Isocost (изокоста) — см. также тему 5</h3>
+    <p>Все комбинации (L,K), которые фирма может купить при бюджете C: <strong>C = wL + rK</strong>. Прямая линия, наклон <strong>−w/r</strong>.</p>
+
+    <h3>Оптимум: минимум издержек</h3>
+    <p>Фирма хочет произвести Q с <strong>минимальными затратами</strong>. Ищет точку <strong>касания</strong> isoquant (нужный Q) и самой нижней isocost (минимальный бюджет C).</p>
+    <div class="formula">Условие оптимума: MRTS = MP<sub>L</sub>/MP<sub>K</sub> = w/r<br>
+    «Последний € на труд даёт столько же прироста Q, как последний € на капитал»</div>
+
+    <h3>Increasing RTS → «больше с меньшими unit costs»</h3>
+    <p>Если действует <strong>возрастающая отдача от масштаба</strong>, при увеличении Q фирма может увеличить <strong>и L, и K</strong> так, что выпуск растёт <strong>быстрее</strong>, чем затраты. Unit cost (AC) <strong>падает</strong> — это economies of scale.</p>
+    <ol>
+        <li>Нужен больший Q → переходим на <strong>более высокую isoquant</strong> Q₂</li>
+        <li>Масштабируем оба фактора → при increasing RTS новая точка касания даёт <strong>ниже LRAC</strong></li>
+        <li>На графике LRAC <strong>нисходящая</strong> — крупнее = дешевле на единицу</li>
+    </ol>
+
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" aria-label="Isoquant and isocost">
+            <line x1="55" y1="20" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="440" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="28" font-size="13">K ↑</text>
+            <text x="425" y="268" font-size="13">L →</text>
+            <path d="M 75 55 Q 120 140 210 175 T 370 225" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <path d="M 75 95 Q 150 190 250 215 T 390 240" stroke="#27ae60" stroke-width="2" fill="none" opacity="0.55"/>
+            <text x="320" y="50" fill="#27ae60" font-size="12">Q₂</text>
+            <text x="320" y="88" fill="#27ae60" font-size="12">Q₁</text>
+            <line x1="65" y1="70" x2="380" y2="235" stroke="#e67e22" stroke-width="2"/>
+            <line x1="65" y1="110" x2="320" y2="235" stroke="#e67e22" stroke-width="2" opacity="0.55"/>
+            <circle cx="175" cy="152" r="5" fill="#8e44ad"/>
+            <circle cx="230" cy="198" r="5" fill="#8e44ad"/>
+            <text x="182" y="145" font-size="11" fill="#8e44ad">A (Q₁, C₁)</text>
+            <text x="238" y="192" font-size="11" fill="#8e44ad">B (Q₂, C₂)</text>
+            <text x="300" y="220" fill="#e67e22" font-size="12">isocost C₂</text>
+        </svg>
+        <p class="fig-caption">Increasing RTS: Q₂/Q₁ &gt; C₂/C₁ → AC₂ = C₂/Q₂ &lt; AC₁ = C₁/Q₁ (unit cost падает при масштабировании).</p>
+    </div>
+    <p class="more"><a href="Frank_Study_Guide.html#lr-costs">→ Frank Ch.9 isoquant/isocost</a></p>
+
+    <!-- ========== 4 ========== -->
+    <h2 id="t4"><span class="num">4.</span> MC, MR & Average Cost — Предельные и средние издержки и доход</h2>
+    <div class="exam-q">Определи MC, AVC, ATC, MR, AR. Нарисуй MC и AVC. Где MC пересекает AVC? Чем MR монополиста отличается от конкурента? Правило MR = MC.</div>
+
+    <p>На экзамене часто смешивают <strong>cost side</strong> (издержки) и <strong>revenue side</strong> (доход). Frank (Ch. 9–10–11): MC — «зеркало» MP; MR — «зеркало» MC, но для выручки.</p>
+    <p class="en">MC mirrors marginal product; MR mirrors MC on the revenue side. Profit max for any firm: MR = MC.</p>
+
+    <h3>A. Издержки: MC и Average Cost (Ch. 9)</h3>
+    <table>
+        <tr><th>Показатель</th><th>Формула</th><th>Смысл</th></tr>
+        <tr><td><strong>TC</strong></td><td>FC + VC</td><td>Общие издержки</td></tr>
+        <tr><td><strong>MC</strong></td><td>ΔTC/ΔQ = ΔVC/ΔQ</td><td>Издержки на <em>ещё одну</em> единицу (следующую!)</td></tr>
+        <tr><td><strong>AFC</strong></td><td>FC/Q</td><td>Постоянные на единицу — <strong>всегда ↓</strong></td></tr>
+        <tr><td><strong>AVC</strong></td><td>VC/Q</td><td>Переменные на единицу — U-образная</td></tr>
+        <tr><td><strong>ATC</strong></td><td>TC/Q = AFC + AVC</td><td>Полные издержки на единицу — U-образная</td></tr>
+        <tr><td><strong>LRAC</strong></td><td>огибающая SR ATC</td><td>Min cost/ед. в long run</td></tr>
+    </table>
+
+    <div class="formula">
+        <strong>MC = w / MP<sub>L</sub></strong> &nbsp;(зеркало производства) · &nbsp; <strong>AVC = w / AP<sub>L</sub></strong><br>
+        MP падает (diminishing returns) → MC растёт → U-shape
+    </div>
+
+    <p><strong>Marginal cost (MC)</strong> — стоимость производства <strong>следующей</strong> единицы. В SR: ΔTC = ΔVC (FC не меняется). MC U-образная: сначала ↓ (растущий MP), потом ↑ (diminishing returns).</p>
+    <p><strong>Average cost</strong> — издержки <em>на единицу</em> (не marginal!): ATC = «сколько в среднем стоит каждая произведённая единица».</p>
+    <p class="en">MC = cost of the next unit. ATC/AVC = cost per unit averaged over all units produced so far. Don't confuse marginal with average.</p>
+
+    <h3>Правило: MC пересекает AVC и ATC в минимумах</h3>
+    <p>MC — «стоимость следующей единицы». Если MC &lt; AVC → новая единица дешевле среднего → <strong>AVC падает</strong>. Если MC &gt; AVC → <strong>AVC растёт</strong>. В минимуме AVC: <strong>MC = AVC</strong>. То же для ATC.</p>
+    <p class="en">MC pulls averages: below average → average falls; above → rises. MC crosses AVC and ATC at their minimum points (Fig. 9.4).</p>
+
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="MC, AVC, ATC cost curves">
+            <defs>
+                <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
+            </defs>
+            <line x1="55" y1="25" x2="55" y2="265" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+            <line x1="55" y1="265" x2="460" y2="265" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+            <text x="18" y="30" font-size="13" fill="#333">Cost</text>
+            <text x="445" y="285" font-size="13" fill="#333">Q</text>
+            <path d="M 70 240 Q 195 55 310 75 T 440 130" stroke="#2980b9" stroke-width="3" fill="none"/>
+            <text x="400" y="115" fill="#2980b9" font-size="14" font-weight="600">MC</text>
+            <path d="M 70 235 Q 240 115 420 95" stroke="#8e44ad" stroke-width="2.5" fill="none"/>
+            <text x="400" y="88" fill="#8e44ad" font-size="14" font-weight="600">ATC</text>
+            <path d="M 70 230 Q 210 145 420 120" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <text x="400" y="138" fill="#27ae60" font-size="14" font-weight="600">AVC</text>
+            <circle cx="215" cy="148" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="295" cy="108" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+            <line x1="215" y1="148" x2="215" y2="265" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="295" y1="108" x2="295" y2="265" stroke="#aaa" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="198" y="282" font-size="12" fill="#555">Q₂ min AVC</text>
+            <text x="278" y="282" font-size="12" fill="#555">Q₃ min ATC</text>
+            <text x="168" y="142" font-size="11" fill="#e74c3c">MC = AVC</text>
+            <text x="248" y="100" font-size="11" fill="#e74c3c">MC = ATC</text>
+            <line x1="350" y1="95" x2="350" y2="118" stroke="#999" stroke-width="1.5"/>
+            <text x="358" y="110" font-size="10" fill="#666">AFC gap</text>
+        </svg>
+        <p class="fig-caption"><strong>Fig. 9.4:</strong> MC пересекает AVC и ATC снизу в минимумах. ATC = AVC + AFC → min ATC правее min AVC.</p>
+    </div>
+
+    <hr style="margin:1.5rem 0;border-top:1px dashed #ccc;">
+
+    <h3>B. Доход: TR, AR, MR (Ch. 10–11)</h3>
+    <table>
+        <tr><th>Показатель</th><th>Формула</th><th>Смысл</th></tr>
+        <tr><td><strong>TR</strong> (total revenue)</td><td>P × Q</td><td>Общая выручка</td></tr>
+        <tr><td><strong>AR</strong> (average revenue)</td><td>TR/Q = P</td><td>Выручка на единицу = цена</td></tr>
+        <tr><td><strong>MR</strong> (marginal revenue)</td><td>ΔTR/ΔQ = dTR/dQ</td><td>Доп. выручка от <em>ещё одной</em> проданной единицы</td></tr>
+    </table>
+
+    <p><strong>Marginal revenue (MR)</strong> — сколько <strong>дополнительных</strong> € приносит продажа следующей единицы. Зависит от того, нужно ли снижать цену на все предыдущие единицы.</p>
+
+    <h4>Конкурентная фирма: MR = P = AR</h4>
+    <p>Фирма — price taker. Продала +1 unit по рыночной цене P — получила +P. Цену на старые единицы менять не нужно.</p>
+    <div class="formula">MR = P = AR &nbsp;→&nbsp; кривая MR для firm — <strong>горизонтальная</strong> при P*</div>
+    <p>Правило прибыли: <strong>MR = MC</strong> → подставляем MR = P → <strong>P = MC</strong> (Ch. 10, Frank).</p>
+
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 440 260" xmlns="http://www.w3.org/2000/svg" aria-label="Competitive firm MR=P MC">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="410" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="28" font-size="12">P, Cost</text>
+            <text x="395" y="248" font-size="12">Q</text>
+            <line x1="55" y1="95" x2="400" y2="95" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="320" y="88" fill="#e74c3c" font-size="13" font-weight="600">MR = P = AR</text>
+            <path d="M 60 210 Q 180 80 300 90 T 390 140" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="340" y="130" fill="#2980b9" font-size="12">MC</text>
+            <path d="M 60 205 Q 230 130 390 105" stroke="#8e44ad" stroke-width="2" fill="none"/>
+            <text x="340" y="100" fill="#8e44ad" font-size="12">ATC</text>
+            <circle cx="240" cy="95" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <line x1="240" y1="95" x2="240" y2="230" stroke="#aaa" stroke-dasharray="4,3"/>
+            <text x="245" y="248" font-size="11">Q*: P = MC</text>
+            <text x="55" y="100" font-size="11" fill="#e74c3c">P*</text>
+        </svg>
+        <p class="fig-caption">Конкуренция: горизонтальная MR = P. Оптимум Q* где <strong>P = MC</strong>. Прибыль = (P − ATC) × Q (если P &gt; ATC).</p>
+    </div>
+
+    <h4>Монополист: MR &lt; P</h4>
+    <p>Чтобы продать +1 unit, монополист снижает P <strong>на всех</strong> единицах, не только на последней. Поэтому MR &lt; P.</p>
+    <div class="formula">
+        TR = P(Q) · Q &nbsp;→&nbsp; MR = dTR/dQ = P + Q·(dP/dQ) &lt; P<br>
+        Линейный спрос P = a − bQ → <strong>MR = a − 2bQ</strong> (в 2× круче D, Fig. 11.5)
+    </div>
+
+    <div class="story">Frank (Ch. 11): 10 units × $100 = TR $1000. Чтобы продать 11-ю → P падает до $95. TR = 11×95 = $1045. ΔTR = $45. Цена 11-й = $95, но <strong>MR = $45</strong> (потеря $5×10 на старых единицах).</div>
+
+    <div class="formula">MR = P·(1 − 1/|ε|) &nbsp;·&nbsp; |ε| &gt; 1 → MR &gt; 0 · |ε| = 1 → MR = 0 (max TR) · |ε| &lt; 1 → MR &lt; 0</div>
+    <p>Монополист <strong>никогда</strong> не производит на inelastic части D (там MR &lt; 0).</p>
+
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="Monopoly D MR MC">
+            <line x1="55" y1="25" x2="55" y2="265" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="265" x2="460" y2="265" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="30" font-size="12">P, MR, MC</text>
+            <text x="445" y="282" font-size="12">Q</text>
+            <!-- D: P = 10 - Q scaled -->
+            <line x1="55" y1="45" x2="405" y2="245" stroke="#27ae60" stroke-width="2.5"/>
+            <text x="390" y="240" fill="#27ae60" font-size="13" font-weight="600">D</text>
+            <!-- MR: twice as steep, hits Q-axis at half -->
+            <line x1="55" y1="45" x2="230" y2="265" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="210" y="255" fill="#e74c3c" font-size="13" font-weight="600">MR</text>
+            <!-- MC horizontal at 2 -->
+            <line x1="55" y1="195" x2="400" y2="195" stroke="#2980b9" stroke-width="2.5"/>
+            <text x="360" y="188" fill="#2980b9" font-size="12">MC = 2</text>
+            <!-- Q*=4, MR=MC -->
+            <circle cx="175" cy="195" r="6" fill="#8e44ad" stroke="#fff" stroke-width="1.5"/>
+            <line x1="175" y1="195" x2="175" y2="265" stroke="#aaa" stroke-dasharray="4,3"/>
+            <line x1="55" y1="120" x2="175" y2="120" stroke="#aaa" stroke-dasharray="4,3"/>
+            <circle cx="175" cy="120" r="4" fill="#f39c12"/>
+            <text x="180" y="278" font-size="11">Q*=4</text>
+            <text x="28" y="125" font-size="11">P*=6</text>
+            <text x="180" y="188" font-size="10" fill="#8e44ad">MR=MC</text>
+            <path d="M 55 120 L 175 120 L 175 265 Z" fill="#27ae60" opacity="0.08"/>
+            <text x="90" y="200" font-size="10" fill="#555">π = (P−ATC)·Q</text>
+        </svg>
+        <p class="fig-caption">Монополия (P = 10−Q, MC = 2): MR = 10−2Q. MR = MC → Q*=4, P*=6 (читаем с D). Конкуренция дала бы Q=8, P=2.</p>
+    </div>
+
+    <h3>C. Главное правило: MR = MC (любая фирма)</h3>
+    <div class="formula" style="text-align:center;font-size:1.05em;">
+        <strong>MR(Q*) = MC(Q*)</strong> → затем P* = D(Q*) для монополии<br>
+        Конкуренция: MR = P → <strong>P = MC</strong> · LR equilibrium: P = MC = min LRAC, π = 0
+    </div>
+
+    <table>
+        <tr><th></th><th>MC / Average Cost</th><th>MR / Average Revenue</th></tr>
+        <tr><td><strong>Marginal</strong></td><td>Следующая единица <em>стоит</em></td><td>Следующая единица <em>приносит</em></td></tr>
+        <tr><td><strong>Average</strong></td><td>ATC, AVC — cost per unit</td><td>AR = TR/Q = P</td></tr>
+        <tr><td><strong>Зеркало</strong></td><td>MC = w/MP<sub>L</sub></td><td>MR &lt; P (monopoly) или MR = P (competition)</td></tr>
+        <tr><td><strong>Оптимум Q</strong></td><td colspan="2">MR = MC (не min ATC! не max TR!)</td></tr>
+        <tr><td><strong>Прибыль</strong></td><td colspan="2">π = TR − TC = (P − ATC) × Q</td></tr>
+    </table>
+
+    <div class="key">
+        Экзамен: (1) MC пересекает AVC/ATC в минимумах. (2) MR = P только у конкурента. (3) MR в 2× круче D при линейном спросе. (4) MR = MC → Q*, P* с D. (5) Shutdown: P &lt; min AVC (SR). (6) «Average marginal cost» — не стандартный термин; говорят <strong>average cost</strong> (ATC) и <strong>marginal cost</strong> (MC) отдельно.
+    </div>
+
+    <h3>LRAC — огибающая</h3>
+    <p>Каждая SR ATC — для одного размера завода. LRAC касается каждой SR ATC в точке, где этот размер завода <strong>оптимален</strong> для данного Q. LRAC не может быть выше SR ATC (в long run можно выбрать лучший завод).</p>
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" aria-label="LRAC envelope">
+            <line x1="50" y1="20" x2="50" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="250" x2="460" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="15" y="28" font-size="12">$/Q</text>
+            <text x="445" y="268" font-size="12">Q</text>
+            <path d="M 60 220 Q 130 155 200 145 T 270 195" stroke="#3498db" stroke-width="2" fill="none" opacity="0.75"/>
+            <path d="M 100 210 Q 200 105 290 98 T 380 175" stroke="#3498db" stroke-width="2" fill="none" opacity="0.75"/>
+            <path d="M 150 205 Q 280 88 390 82 T 440 160" stroke="#3498db" stroke-width="2" fill="none" opacity="0.75"/>
+            <path d="M 60 220 Q 190 95 310 88 T 440 155" stroke="#27ae60" stroke-width="3" fill="none"/>
+            <text x="350" y="78" fill="#27ae60" font-size="14" font-weight="600">LRAC</text>
+            <text x="230" y="205" fill="#3498db" font-size="11">SR ATC₁</text>
+            <text x="320" y="188" fill="#3498db" font-size="11">SR ATC₂</text>
+            <text x="395" y="168" fill="#3498db" font-size="11">SR ATC₃</text>
+            <circle cx="190" cy="108" r="5" fill="#e74c3c"/>
+            <circle cx="310" cy="88" r="5" fill="#e74c3c"/>
+            <text x="300" y="108" font-size="11" fill="#555">MES</text>
+        </svg>
+        <p class="fig-caption">LRAC — «оболочка» SR ATC снизу; каждая SR ATC касается LRAC в одной точке (Fig. 9.13).</p>
+    </div>
+    <p class="more"><a href="Production_Cost_Short_Run_Explanation.html">→ Short Run Costs (MC, ATC)</a> · <a href="Monopoly_Explanation.html">→ Monopoly (MR, MR=MC)</a></p>
+
+    <!-- ========== 5 ========== -->
+    <h2 id="t5"><span class="num">5.</span> Iso-cost Function / Функция изокосты</h2>
+    <div class="exam-q">Запиши уравнение isocost. Что означает наклон? Что происходит, если вырастет зарплата w?</div>
+    <div class="formula">C = w·L + r·K &nbsp;→&nbsp; K = C/r − (w/r)·L<br>
+    Наклон = −w/r &nbsp;|&nbsp; Y-intercept = C/r &nbsp;|&nbsp; X-intercept = C/w</div>
+    <p><strong>w</strong> — wage (цена труда), <strong>r</strong> — rental rate (цена капитала), <strong>C</strong> — total cost budget.</p>
+    <ul>
+        <li>Линии с большим C — <strong>дальше от начала</strong> (больше бюджет → больше можно купить L и K)</li>
+        <li>Параллельные линии — один w/r, разный C</li>
+        <li>Если <strong>w ↑</strong> (зарплата выросла) → w/r ↑ → isocost <strong>круче</strong> → фирма смещается к <strong>более capital-intensive</strong> точке (меньше L, больше K)</li>
+    </ul>
+    <p class="en">Isocost is a straight line: slope −w/r. Higher w makes labour relatively expensive → firm substitutes toward capital.</p>
+
+    <div class="part">Часть II — Потребитель и спрос (Topics 7–8, 12–16, 22, 29–30, 35)</div>
+
+    <!-- ========== 7 ========== -->
+    <h2 id="t7"><span class="num">7.</span> Shape of Utility Function / Форма функции полезности</h2>
+    <div class="exam-q">Как выглядит типичная функция полезности U(x)? Почему кривые безразличия выпуклы к началу?</div>
+    <p><strong>Функция полезности U(x)</strong> показывает, сколько «удовольствия» приносит потребление x. Типичная форма — <strong>вогнутая (concave)</strong>: кривая становится всё более пологой при росте x.</p>
+    <p class="en">Utility is typically concave: each additional unit adds less satisfaction than the previous one (diminishing marginal utility).</p>
+    <div class="formula">MU = dU/dx &gt; 0 (больше x → больше U) · d²U/dx² &lt; 0 (MU убывает)</div>
+    <p><strong>Кривые безразличия</strong> — все комбинации (X,Y) с одинаковой полезностью:</p>
+    <ul>
+        <li><strong>Выпуклы к началу</strong> (convex to origin) — среднее предпочтительнее крайностей</li>
+        <li>Выше = лучше (больше U)</li>
+        <li>Не пересекаются</li>
+        <li>Наклон = MRS = MU<sub>x</sub>/MU<sub>y</sub> (сколько Y готов отдать за 1 X)</li>
+    </ul>
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" aria-label="Utility and indifference curves">
+            <!-- U(x) concave -->
+            <text x="30" y="22" font-size="13" font-weight="600" fill="#333">U(x) — вогнутая</text>
+            <line x1="40" y1="115" x2="220" y2="115" stroke="#333" stroke-width="1.2"/>
+            <line x1="40" y1="115" x2="40" y2="25" stroke="#333" stroke-width="1.2"/>
+            <path d="M 45 110 Q 100 100 160 55 T 215 30" stroke="#8e44ad" stroke-width="2.5" fill="none"/>
+            <text x="200" y="28" font-size="11" fill="#666">наклон = MU ↓</text>
+            <text x="15" y="30" font-size="11">U</text>
+            <text x="210" y="125" font-size="11">x</text>
+            <!-- Indifference curves -->
+            <text x="260" y="22" font-size="13" font-weight="600" fill="#333">Кривые безразличия</text>
+            <line x1="260" y1="220" x2="460" y2="220" stroke="#333" stroke-width="1.2"/>
+            <line x1="260" y1="220" x2="260" y2="40" stroke="#333" stroke-width="1.2"/>
+            <path d="M 280 200 Q 340 120 420 55" stroke="#27ae60" stroke-width="2" fill="none"/>
+            <path d="M 280 170 Q 360 110 440 75" stroke="#27ae60" stroke-width="2" fill="none" opacity="0.7"/>
+            <path d="M 280 140 Q 380 95 450 95" stroke="#27ae60" stroke-width="2" fill="none" opacity="0.45"/>
+            <text x="400" y="50" fill="#27ae60" font-size="11">IC₃ (лучше)</text>
+            <text x="400" y="78" fill="#27ae60" font-size="11">IC₂</text>
+            <text x="400" y="98" fill="#27ae60" font-size="11">IC₁</text>
+            <text x="248" y="55" font-size="11">Y</text>
+            <text x="450" y="232" font-size="11">X</text>
+        </svg>
+        <p class="fig-caption">U(x) вогнутая (MU убывает) · IC выпуклы к началу (MRS убывает).</p>
+    </div>
+
+    <!-- ========== 8 ========== -->
+    <h2 id="t8"><span class="num">8.</span> Intertemporal Budget Constraint · PV & FV</h2>
+    <div class="exam-q">Запиши межвременное бюджетное ограничение. Формулы PV и FV. Что делает рост процентной ставки?</div>
+    <p>Потребитель живёт в <strong>двух периодах</strong>. Доход Y₁ в период 1, Y₂ в период 2. Может сберегать (положить под процент r) или занимать.</p>
+    <div class="formula">
+        <strong>Present Value (PV):</strong> PV = FV / (1+r)<sup>t</sup><br>
+        <strong>Future Value (FV):</strong> FV = PV · (1+r)<sup>t</sup><br>
+        <strong>Budget constraint (PV form):</strong> C₁ + C₂/(1+r) = Y₁ + Y₂/(1+r)<br>
+        <strong>Future form:</strong> C₁(1+r) + C₂ = Y₁(1+r) + Y₂
+    </div>
+    <p>Наклон бюджетной линии (C₂ vs C₁): <strong>−(1+r)</strong>. Отказ от 1 € потребления сегодня → (1+r) € завтра.</p>
+    <ul>
+        <li><strong>r ↑</strong> → линия круче → сбережение выгоднее (больше «награда» за отложенное потребление)</li>
+        <li><strong>Y₁ ↑</strong> → линия сдвигается наружу (больше ресурсов)</li>
+    </ul>
+    <div class="story">Получаешь €1000 сейчас и €1000 через год, r=10%. PV дохода = 1000 + 1000/1.1 ≈ €1909. Можешь потратить всё сейчас, всё потом, или любую комбинацию на бюджетной линии.</div>
+    <p class="more"><a href="Intertemporal_Budget_Constraint_Explanation.html">→ Full chapter</a></p>
+
+    <!-- ========== 12 ========== -->
+    <h2 id="t12"><span class="num">12.</span> Marginal Utility / Предельная полезность</h2>
+    <div class="formula">MU = ΔU/ΔQ = dU/dQ</div>
+    <p>Насколько вырастет общая полезность U, если потребить <strong>ещё одну единицу</strong> товара. Закон <strong>убывающей MU</strong>: 1-й кусок пиццы — MU высокая; 5-й — MU низкая; 10-й — может быть отрицательная.</p>
+    <p class="en">Marginal utility = extra satisfaction from one more unit. Diminishing MU: each successive unit adds less than the previous.</p>
+
+    <!-- ========== 13, 35 ========== -->
+    <h2 id="t13"><span class="num">13.</span> Reservation Price / <span class="num">35.</span> Willingness to Pay</h2>
+    <div class="exam-q">Что такое reservation price / willingness to pay? Как связано с consumer surplus?</div>
+    <p><strong>Reservation price (резервная цена) = Willingness to pay (WTP)</strong> — максимальная цена, которую потребитель готов заплатить за <strong>одну единицу</strong> товара. Выше — не покупает; ниже или равно — покупает.</p>
+    <p>На рынке: индивидуальная кривая спроса показывает WTP для каждого Q. <strong>Consumer surplus</strong> = площадь между кривой D и ценой P:</p>
+    <div class="formula">CS = ½ × (P<sub>max</sub> − P) × Q &nbsp; (линейный спрос) · или ∫(WTP − P) dQ</div>
+    <div class="story">Готов заплатить за билет €80, продают за €50 → CS = €30. Это «выгода от сделки».</div>
+
+    <!-- ========== 14 ========== -->
+    <h2 id="t14"><span class="num">14.</span> Opportunity Cost / Альтернативная стоимость</h2>
+    <div class="exam-q">Что такое opportunity cost? Чем отличается от explicit cost? Где на графике? Что показывает наклон КПВ и бюджетной линии?</div>
+
+    <p><strong>Opportunity cost (альтернативная стоимость, издержки упущенной выгоды)</strong> — ценность <strong>лучшей отвергнутой альтернативы</strong>. Это не деньги, которые вы потратили, а то, что вы <em>могли бы получить</em>, выбрав иначе.</p>
+    <p class="en">Opportunity cost = value of the <strong>best forgone alternative</strong>. Not what you paid — what you gave up by choosing this option.</p>
+
+    <div class="formula">
+        <strong>Opportunity cost = Value of the best forgone alternative</strong><br>
+        Economic total cost = Explicit cost + Opportunity cost
+    </div>
+
+    <div class="warn">Не путать: <strong>explicit cost</strong> (явные) = реально заплаченные деньги (tuition €5000). <strong>Opportunity cost</strong> = зарплата €20k/год, которую мог бы получить, работая. <strong>Sunk cost</strong> (невозвратные) = уже потрачено и не вернуть — в решениях <em>не учитываем</em> (Frank, Ch. 9: аренда завода в SR).</div>
+
+    <h3>Explicit vs Opportunity vs Sunk</h3>
+    <table>
+        <tr><th>Тип</th><th>Что это</th><th>Пример</th><th>Учитывать в решении?</th></tr>
+        <tr><td><strong>Explicit</strong></td><td>Деньги «из кармана»</td><td>Плата за учёбу €5000, аренда €800/мес</td><td>Да</td></tr>
+        <tr><td><strong>Opportunity</strong></td><td>Лучшая упущенная альтернатива</td><td>Зарплата вместо учёбы; другие товары на €500</td><td><strong>Да</strong> — главное для экономики</td></tr>
+        <tr><td><strong>Sunk</strong></td><td>Уже потрачено, не вернуть</td><td>Билет в кино куплен; FC завода в SR</td><td><strong>Нет</strong> — «bygones be bygones»</td></tr>
+    </table>
+
+    <h3>Примеры (часто на экзамене)</h3>
+    <table>
+        <tr><th>Выбор</th><th>Opportunity cost</th></tr>
+        <tr><td>4 года учёбы в университете</td><td>Зарплата + опыт работы за 4 года (не tuition! tuition — explicit)</td></tr>
+        <tr><td>Купить телефон за €500</td><td>Лучшее другое, что можно купить на €500</td></tr>
+        <tr><td>2 часа за ТВ</td><td>Что можно было сделать за 2 часа (учёба, работа, спорт)</td></tr>
+        <tr><td>Госбюджет → армия</td><td>Школы, больницы, дороги на эти же деньги</td></tr>
+        <tr><td>Произвести +1 ед. товара A (на КПВ)</td><td>Столько единиц B, от которых отказываешься</td></tr>
+        <tr><td>Купить +1 ед. X (на бюджетной линии)</td><td>P<sub>x</sub>/P<sub>y</sub> единиц Y (по рыночным ценам)</td></tr>
+    </table>
+
+    <div class="story">Frank-логика: студент платит €5000 tuition (explicit). Но opportunity cost учёбы — €25 000/год зарплаты, которую он не получает. Реальная «цена» года учёбы = €5000 + €25 000 = €30 000.</div>
+
+    <h3>Где opportunity cost на графиках?</h3>
+    <p>На экзамене почти всегда спрашивают: <strong>наклон = opportunity cost</strong>. Два главных графика:</p>
+
+    <h4>1) Бюджетная линия (consumer)</h4>
+    <div class="formula">P<sub>x</sub>·X + P<sub>y</sub>·Y = M &nbsp;→&nbsp; наклон = <strong>−P<sub>x</sub>/P<sub>y</sub></strong><br>
+    |наклон| = сколько Y нужно отдать за 1 дополнительный X</div>
+    <p><strong>Пример:</strong> P<sub>x</sub> = €2, P<sub>y</sub> = €4 → наклон = −2/4 = −1/2. OC 1 ед. X = <strong>0.5 ед. Y</strong>.</p>
+
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 440 260" xmlns="http://www.w3.org/2000/svg" aria-label="Budget line opportunity cost">
+            <line x1="55" y1="25" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="230" x2="410" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="30" font-size="13">Y ↑</text>
+            <text x="395" y="248" font-size="13">X →</text>
+            <path d="M 55 35 L 390 230" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <circle cx="220" cy="132" r="5" fill="#8e44ad"/>
+            <circle cx="280" cy="175" r="5" fill="#27ae60"/>
+            <line x1="220" y1="132" x2="280" y2="132" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="280" y1="132" x2="280" y2="175" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="230" y="125" font-size="11" fill="#666">ΔX</text>
+            <text x="285" y="158" font-size="11" fill="#666">ΔY</text>
+            <text x="130" y="120" fill="#e74c3c" font-size="12">бюджетная линия</text>
+            <text x="290" y="195" font-size="11" fill="#27ae60">+1 X → −ΔY/ΔX Y</text>
+            <text x="55" y="248" font-size="11" fill="#555">0</text>
+            <text x="35" y="40" font-size="10" fill="#555">M/P<sub>y</sub></text>
+            <text x="375" y="248" font-size="10" fill="#555">M/P<sub>x</sub></text>
+        </svg>
+        <p class="fig-caption"><strong>Бюджетная линия:</strong> наклон = −P<sub>x</sub>/P<sub>y</sub> = opportunity cost X в единицах Y. Движение вдоль линии = trade-off при фиксированном бюджете M.</p>
+    </div>
+
+    <h4>2) КПВ — Production Possibilities Frontier (PPF)</h4>
+    <div class="formula">Наклон КПВ (по модулю) = <strong>OC товара A</strong> в единицах товара B<br>
+    ΔB / ΔA (отказ от B ради +1 A)</div>
+    <p><strong>Вогнутая КПV (bowed outward)</strong> → <strong>increasing opportunity cost</strong>: чем больше A производишь, тем больше B приходится отдавать за каждую следующую единицу A (специализация ресурсов, diminishing returns).</p>
+    <p><strong>Прямая КПV</strong> → constant opportunity cost (ресурсы одинаково продуктивны в обоих секторах).</p>
+    <p class="en">Concave PPF → increasing OC. Straight PPF → constant OC. Points inside PPF = inefficient; outside = unattainable.</p>
+
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="PPF opportunity cost">
+            <line x1="55" y1="25" x2="55" y2="265" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="265" x2="450" y2="265" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="30" font-size="13">Good B ↑</text>
+            <text x="430" y="282" font-size="13">Good A →</text>
+            <!-- concave PPF -->
+            <path d="M 55 45 Q 140 130 230 195 T 430 240" stroke="#27ae60" stroke-width="3" fill="none"/>
+            <!-- tangent at point -->
+            <line x1="175" y1="265" x2="320" y2="95" stroke="#3498db" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.7"/>
+            <circle cx="230" cy="195" r="6" fill="#8e44ad" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="290" cy="148" r="6" fill="#e67e22" stroke="#fff" stroke-width="1.5"/>
+            <!-- movement A -->
+            <line x1="230" y1="195" x2="290" y2="195" stroke="#999" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <line x1="290" y1="195" x2="290" y2="148" stroke="#999" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <text x="245" y="210" font-size="11" fill="#666">+ΔA</text>
+            <text x="298" y="178" font-size="11" fill="#666">−ΔB</text>
+            <text x="300" y="130" font-size="11" fill="#e67e22">OC выше ↑</text>
+            <text x="155" y="220" font-size="11" fill="#8e44ad">OC ниже</text>
+            <!-- inefficient point -->
+            <circle cx="160" cy="180" r="4" fill="#e74c3c"/>
+            <text x="100" y="175" font-size="10" fill="#e74c3c">неэффективно</text>
+            <!-- unattainable -->
+            <text x="350" y="80" font-size="10" fill="#999">недостижимо</text>
+        </svg>
+        <p class="fig-caption"><strong>КПV:</strong> наклон = OC товара A в единицах B. Вогнутая форма → OC растёт при движении вправо (increasing opportunity cost). Внутри КПV — неэффективно; снаружи — недостижимо.</p>
+    </div>
+
+    <h3>3) Межвременной выбор (bonus)</h3>
+    <p>На графике C₁ vs C₂ наклон бюджетной линии = <strong>−(1+r)</strong>. OC €1 потребления сегодня = <strong>(1+r) €</strong> потребления завтра (можно было положить под процент).</p>
+
+    <h3>Comparative advantage (связь с OC)</h3>
+    <p>Страна/фирма имеет <strong>comparative advantage</strong> в товаре, для которого её <strong>opportunity cost ниже</strong>, чем у партнёра. Торговля выгодна, даже если одна сторона абсолютно продуктивнее во всём — сравниваем OC, не абсолютные цифры.</p>
+    <div class="story">Страна A: 1 wheat = 2 cloth (OC wheat). Страна B: 1 wheat = 4 cloth. A имеет comparative advantage в wheat (OC ниже) → A производит wheat, B — cloth → обмен.</div>
+
+    <div class="key">
+        На экзамене: (1) OC = <strong>лучшая</strong> упущенная альтернатива, не все альтернативы. (2) Наклон бюджетной линии = −P<sub>x</sub>/P<sub>y</sub>. (3) Наклон КПV = OC в единицах другого товара. (4) Вогнутая КПV → increasing OC. (5) Sunk ≠ OC — sunk не учитываем в forward-looking решениях.
+    </div>
+    <p class="more"><a href="Opportunity_Cost_Explanation.html">→ Full chapter</a> · <a href="PPF_Explanation.html">PPF</a> · <a href="Budget_Constraint_Explanation.html">Budget Constraint</a></p>
+
+    <!-- ========== 16, 22 ========== -->
+    <h2 id="t16"><span class="num">16.</span> Rational Spending Rule / <span class="num">22.</span> When is MU maximized?</h2>
+    <div class="exam-q">Запиши правило рациональных расходов. Когда MU максимальна?</div>
+    <div class="formula">Оптимум потребителя: MU<sub>x</sub>/P<sub>x</sub> = MU<sub>y</sub>/P<sub>y</sub> = λ (marginal utility per euro)</div>
+    <p>Распределяй бюджет так, чтобы <strong>последний потраченный €</strong> давал одинаковую полезность во всех товарах. Если MU<sub>x</sub>/P<sub>x</sub> &gt; MU<sub>y</sub>/P<sub>y</sub> → покупай больше X (MU<sub>x</sub> упадёт), меньше Y.</p>
+
+    <h3>Когда MU «максимальна»? (частый каверзный вопрос)</h3>
+    <ul>
+        <li><strong>MU одного товара</strong> — максимальна на <strong>первой единице</strong>, дальше только падает (diminishing MU). Её не «максимизируют» — она убывает.</li>
+        <li><strong>Total utility U</strong> — максимальна, когда MU = 0 (ещё одна единица не добавляет удовольствия; дальше MU &lt; 0 → U падает).</li>
+        <li><strong>Оптимум с бюджетом</strong> — не max MU, а <strong>равенство MU/P</strong> по всем товарам + бюджет исчерпан.</li>
+    </ul>
+    <p class="en">Don't confuse: MU of a single good is highest at the first unit. Total utility peaks when MU=0. Consumer optimum equalizes MU per dollar across goods.</p>
+
+    <!-- ========== 29, 30 ========== -->
+    <h2 id="t29"><span class="num">29.</span> Budget Constraint — shift if P<sub>x</sub> falls / <span class="num">30.</span> MPC & slope</h2>
+    <div class="formula">P<sub>x</sub>·X + P<sub>y</sub>·Y = M &nbsp;→&nbsp; Y = M/P<sub>y</sub> − (P<sub>x</sub>/P<sub>y</sub>)·X</div>
+    <p>Наклон = <strong>−P<sub>x</sub>/P<sub>y</sub></strong>. Y-intercept = M/P<sub>y</sub> (если всё на Y). X-intercept = M/P<sub>x</sub>.</p>
+    <h3>Если P<sub>x</sub> ↓ (цена X упала):</h3>
+    <ol>
+        <li>X-intercept = M/P<sub>x</sub> → <strong>сдвигается вправо</strong> (можно купить больше X)</li>
+        <li>Y-intercept не меняется (P<sub>y</sub> и M те же)</li>
+        <li>Линия <strong>поворачивается наружу</strong> — становится <strong>площе</strong> (|наклон| = P<sub>x</sub>/P<sub>y</sub> уменьшается)</li>
+        <li>Substitution effect: X относительно дешевле → покупаем больше X</li>
+    </ol>
+    <h3>MPC и наклон — три разных графика!</h3>
+    <table>
+        <tr><th>График</th><th>Наклон</th><th>MPC влияет?</th></tr>
+        <tr><td>Бюджетное ограничение (2 товара)</td><td>−P<sub>x</sub>/P<sub>y</sub></td><td><strong>Нет</strong></td></tr>
+        <tr><td>Функция потребления C(Y)</td><td>MPC = c₁</td><td><strong>Да</strong></td></tr>
+        <tr><td>Линия AE = C+I+G</td><td>MPC (если I,G фикс.)</td><td><strong>Да</strong> — определяет мультипликатор</td></tr>
+    </table>
+
+    <div class="part">Часть III — Рынок фирмы (Topics 6, 15, 18, 23, 32–34)</div>
+
+    <!-- ========== 6 ========== -->
+    <h2 id="t6"><span class="num">6.</span> Game Theory / Fair Game / Теория игр</h2>
+    <div class="exam-q">Что такое Nash equilibrium? Prisoner's dilemma? Fair (zero-sum) game?</div>
+    <p><strong>Игра</strong> — ситуация, где результат для каждого игрока зависит от <strong>своих и чужих</strong> решений (strategic interdependence).</p>
+    <table>
+        <tr><th>Концепция</th><th>Определение</th><th>Пример</th></tr>
+        <tr><td><strong>Nash equilibrium</strong></td><td>Никто не хочет менять стратегию односторонне</td><td>Два конкурента выбрали цены — оба довольны при текущей цене конкурента</td></tr>
+        <tr><td><strong>Dominant strategy</strong></td><td>Лучшая стратегия при любых действиях других</td><td>«Предать» в Prisoner's Dilemma — доминирует</td></tr>
+        <tr><td><strong>Prisoner's Dilemma</strong></td><td>Индивидуально рационально → коллективно хуже</td><td>Оба «предают» → 5+5 лет; если бы оба молчали → 1+1</td></tr>
+        <tr><td><strong>Zero-sum / fair game</strong></td><td>Выигрыш одного = проигрыш другого; Σ payoffs = 0</td><td>Пoker, шахматы (чистая конкуренция)</td></tr>
+    </table>
+    <div class="key">Nash ≠ «лучший для всех». Prisoner's Dilemma показывает, почему cartels нестабильны (каждый хочет снизить цену тайно).</div>
+    <p class="more"><a href="Game_Theory_Explanation.html">→ Game Theory</a></p>
+
+    <!-- ========== 15 ========== -->
+    <h2 id="t15"><span class="num">15.</span> Perfect Competition / Совершенная конкуренция</h2>
+    <p>Условия: <strong>много</strong> мелких фирм · <strong>однородный</strong> продукт · <strong>свободный вход/выход</strong> · полная информация · фирма — <strong>price taker</strong>.</p>
+    <ul>
+        <li>Кривая спроса для <em>одной</em> фirmы — <strong>горизонтальная</strong> при рыночной цене P*</li>
+        <li>P = MR = AR для фirm</li>
+        <li>Краткосрочно: P ≥ min AVC → produce where P = MC</li>
+        <li>Долгосрочно: вход новых фирм → P ↓ до P = min ATC → <strong>экономическая прибыль = 0</strong></li>
+    </ul>
+    <p class="en">Perfect competition: firm faces horizontal demand at market price. Long-run economic profit is zero.</p>
+
+    <!-- ========== 18 ========== -->
+    <h2 id="t18"><span class="num">18.</span> Supply and Demand / Спрос и предложение</h2>
+    <div class="formula">Equilibrium: Q<sup>D</sup>(P*) = Q<sup>S</sup>(P*) → (P*, Q*)</div>
+    <p><strong>Demand D</strong> — готовность покупателей (↓ наклон: дороже → меньше покупают). <strong>Supply S</strong> — готовность продавцов (↑ наклон: дороже → больше производят).</p>
+    <h3>Movement vs Shift — не путать!</h3>
+    <table>
+        <tr><th></th><th>Movement along curve</th><th>Shift of curve</th></tr>
+        <tr><td>Причина</td><td>Изменилась <strong>цена</strong> этого товара</td><td>Изменился <strong>другой фактор</strong> (доход, технология, tastes…)</td></tr>
+        <tr><td>D shift right</td><td>—</td><td>Доход ↑, цена substitute ↑, tastes ↑</td></tr>
+        <tr><td>S shift right</td><td>—</td><td>Технология ↑, input costs ↓, taxes ↓</td></tr>
+    </table>
+    <p class="more"><a href="Demand_Explanation.html">Demand</a> · <a href="Supply_Explanation.html">Supply</a></p>
+
+    <!-- ========== 23, 32, 33, 34 ========== -->
+    <h2 id="t23"><span class="num">23.</span> Monopolist Strategies · ΔTR / <span class="num">32.</span> Maximize Profit</h2>
+    <div class="exam-q">Как монополист расширяется? Проблема снижения цены? Как посчитать ΔTR? Как максимизировать прибыль?</div>
+
+    <h3>Как монополист расширяется и привлекает клиентов</h3>
+    <ul>
+        <li>Реклама, бренд, качество продукта</li>
+        <li><strong>Price discrimination</strong> — разные цены разным группам</li>
+        <li>Barriers to entry — патенты, network effects, контроль ресурса</li>
+        <li>Product differentiation, bundling</li>
+    </ul>
+
+    <h3>Проблема снижения цены</h3>
+    <p>У конкурента: продал ещё одну единицу по P — MR = P. У <strong>монополиста</strong>: чтобы продать +1 unit, нужно снизить P <strong>на всех единицах</strong>, не только на последней. Поэтому <strong>MR &lt; P</strong>.</p>
+    <div class="formula">
+        TR = P(Q) × Q<br>
+        MR = dTR/dQ = P + Q·(dP/dQ) &lt; P<br>
+        ΔTR ≈ MR · ΔQ<br>
+        <strong>Profit max:</strong> MR = MC · <strong>Competitive:</strong> P = MC
+    </div>
+    <p>Elasticity: если |E| &gt; 1 (elastic) → снижение P ↑ TR. Если |E| &lt; 1 (inelastic) → снижение P ↓ TR. Монополист всегда производит на <strong>elastic</strong> части D.</p>
+
+    <div class="story">Было Q=100, P=€60, TR=€6000. MR на 100-й единице = €20 (не €60!). Если MR=€20 и MC=€20 → оптимум. Снизить P до €55 для Q=110: ΔTR = MR·10 — но MR мог быть отрицательным на inelastic участке.</div>
+
+    <h2 id="t33"><span class="num">33–34.</span> Price Discrimination · Perfect (1st degree)</h2>
+    <p><strong>Зачем монополисту?</strong> Без дискриминации — одна цена P* → часть consumer surplus «теряется» (покупатели с высоким WTP могли бы платить больше). С дискриминацией — захват CS → ↑ TR и π.</p>
+    <p><strong>Perfect (first-degree) price discrimination:</strong> каждая единица по индивидуальному WTP (reservation price). MR = D (нет потери на снижении цены). Производит до Q где <strong>P = MC</strong>. Нет deadweight loss, но весь CS → монополисту.</p>
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" aria-label="Perfect price discrimination">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="400" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="28" font-size="12">P</text>
+            <text x="385" y="248" font-size="12">Q</text>
+            <path d="M 55 220 L 320 45" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="280" y="55" fill="#e74c3c" font-size="13" font-weight="600">D = MR</text>
+            <path d="M 55 200 L 350 120" stroke="#2980b9" stroke-width="2" fill="none"/>
+            <text x="300" y="115" fill="#2980b9" font-size="12">MC</text>
+            <circle cx="280" cy="95" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <line x1="280" y1="95" x2="280" y2="230" stroke="#aaa" stroke-dasharray="4,3"/>
+            <text x="285" y="248" font-size="11">Q*</text>
+            <text x="285" y="88" font-size="11" fill="#27ae60">P = MC</text>
+            <path d="M 55 220 L 280 95 L 280 230 Z" fill="#27ae60" opacity="0.15"/>
+            <text x="120" y="180" font-size="11" fill="#555">площадь под D, над MC = π + CS</text>
+        </svg>
+        <p class="fig-caption">Perfect discrimination: каждая единица по WTP → MR = D → Q* где P = MC, нет deadweight loss.</p>
+    </div>
+    <p class="more"><a href="Monopoly_Explanation.html">Monopoly</a> · <a href="Price_Discrimination_Explanation.html">Price Discrimination</a></p>
+
+    <div class="part">Часть IV — Макроэкономика (Topics 9–11, 17, 19–21, 24–28, 31)</div>
+
+    <!-- ========== 9, 10, 21 ========== -->
+    <h2 id="t9"><span class="num">9.</span> Why CB changes interest rate? / <span class="num">10.</span> r → GDP / <span class="num">21.</span> CB & r</h2>
+    <div class="exam-q">Зачем ЦБ меняет ставку? Как это влияет на GDP? Как связаны ЦБ и процентная ставка?</div>
+
+    <h3>Зачем менять ставку (главное — инфляция)</h3>
+    <p>Центральный банк (ECB, Fed) ставит цель по инфляции (~2%). Инструмент — <strong>policy rate</strong> (ключевая ставка):</p>
+    <ul>
+        <li><strong>Инфляция слишком высокая</strong> → r ↑ → кредиты дороже → C↓, I↓ → AD↓ → давление на цены ↓</li>
+        <li><strong>Рецессия / низкая инфляция</strong> → r ↓ → стимул спроса</li>
+    </ul>
+    <p class="en">Central bank uses the policy rate primarily for inflation control (price stability mandate).</p>
+
+    <h3>Цепочка r → GDP</h3>
+    <ol>
+        <li>ЦБ ↑ policy rate</li>
+        <li>Банки ↑ ставки по кредитам и депозитам</li>
+        <li><strong>I</strong> ↓ (инвестиции дороже) · <strong>C</strong> ↓ (ипотека, авто) · <strong>NX</strong> ↓ (укрепление валюты → экспорт дороже)</li>
+        <li><strong>AD ↓</strong> → через мультипликатор <strong>Y (GDP) ↓</strong></li>
+        <li>Меньше спроса → меньше давление на цены → инфляция ↓</li>
+    </ol>
+    <p>Обратная цепочка при r ↓ → GDP ↑ (стимул).</p>
+    <div class="key">На IS-LM: r ↑ → точка сдвигается вверх по IS влево (меньше Y). На money market: M fixed, r ↑ clears market.</div>
+    <p class="more"><a href="Fiscal_Monetary_Policy_Explanation.html">Monetary Policy</a></p>
+
+    <!-- ========== 11, 28, 30 ========== -->
+    <h2 id="t11"><span class="num">11.</span> Marginal Propensity / <span class="num">28.</span> Multiplier</h2>
+    <div class="formula">
+        MPC = ΔC/ΔY (склонность тратить доп. доход) · MPS = ΔS/ΔY · MPC + MPS = 1<br>
+        Multiplier = 1/(1−MPC) = 1/MPS<br>
+        ΔY = Multiplier × ΔG (или ΔC₀, ΔI…)
+    </div>
+    <p>Если правительство тратит +€10 млрд (ΔG), доход растёт → люди тратят MPC×ΔY → ещё доход → … Итого ΔY &gt; €10 млрд.</p>
+    <div class="story">MPC=0.8 → multiplier=5. ΔG=10 → ΔY=50. Round 1: +10 G. Round 2: +8 C. Round 3: +6.4 C… Sum = 10×(1+0.8+0.64+…) = 10/0.2 = 50.</div>
+
+    <h3>Multiplier на графике</h3>
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" aria-label="Keynesian multiplier">
+            <line x1="50" y1="20" x2="50" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="28" font-size="12">AE</text>
+            <text x="400" y="268" font-size="12">Y</text>
+            <path d="M 50 250 L 400 20" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+            <text x="360" y="45" font-size="11" fill="#999">45° (AE=Y)</text>
+            <path d="M 50 220 L 380 50" stroke="#3498db" stroke-width="2.5" fill="none"/>
+            <path d="M 50 190 L 380 50" stroke="#e67e22" stroke-width="2.5" fill="none"/>
+            <text x="300" y="75" fill="#e67e22" font-size="12">AE₁ (после ΔG)</text>
+            <text x="300" y="105" fill="#3498db" font-size="12">AE₀</text>
+            <circle cx="195" cy="145" r="5" fill="#8e44ad"/>
+            <circle cx="255" cy="115" r="5" fill="#27ae60"/>
+            <line x1="195" y1="145" x2="195" y2="250" stroke="#aaa" stroke-dasharray="3,3"/>
+            <line x1="255" y1="115" x2="255" y2="250" stroke="#aaa" stroke-dasharray="3,3"/>
+            <text x="178" y="265" font-size="11">Y₀</text>
+            <text x="238" y="265" font-size="11">Y₁</text>
+            <line x1="195" y1="258" x2="255" y2="258" stroke="#27ae60" stroke-width="2"/>
+            <text x="200" y="276" font-size="11" fill="#27ae60">ΔY &gt; ΔG</text>
+        </svg>
+        <p class="fig-caption">ΔG сдвигает AE вверх → новое равновесие на 45° → ΔY = Multiplier × ΔG.</p>
+    </div>
+    <p class="more"><a href="Goods_Market_Multiplier_Explanation.html">Multiplier</a></p>
+
+    <!-- ========== 17 ========== -->
+    <h2 id="t17"><span class="num">17.</span> Investment vs Saving</h2>
+    <table>
+        <tr><th></th><th>Saving (S)</th><th>Investment (I)</th></tr>
+        <tr><td>Кто</td><td>Households, government (budget surplus)</td><td>Firms (machines, buildings, inventory)</td></tr>
+        <tr><td>Что это</td><td>Доход не потреблён сейчас</td><td>Покупка capital goods для будущего Q</td></tr>
+        <tr><td>Формула</td><td>S = Y − C − T (private + public)</td><td>Компонента AD: Y = C + I + G + NX</td></tr>
+    </table>
+    <p>В равновесии (closed economy, no gov): <strong>S = I</strong>. Сбережения домохозяйств через банки финансируют инвестиции фирм. Если S &gt; I → r падает до равновесия; S &lt; I → r растёт.</p>
+
+    <!-- ========== 19, 25 ========== -->
+    <h2 id="t19"><span class="num">19.</span> Money Market / <span class="num">25.</span> How CB changes Money Supply</h2>
+    <p><strong>Money demand L(r, Y):</strong> ↓ при r↑ (альтернатива — облигации), ↑ при Y↑ (больше транзакций). <strong>Money supply M<sup>s</sup>:</strong> контролирует ЦБ (вертикальная линия).</p>
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" aria-label="Money market">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="360" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="28" font-size="12">r ↑</text>
+            <text x="340" y="248" font-size="12">M</text>
+            <path d="M 60 40 Q 180 120 340 210" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="280" y="195" fill="#2980b9" font-size="12">L(r, Y)</text>
+            <line x1="220" y1="20" x2="220" y2="230" stroke="#e74c3c" stroke-width="2"/>
+            <text x="228" y="35" fill="#e74c3c" font-size="12">Mˢ</text>
+            <circle cx="220" cy="118" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="228" y="115" font-size="12" fill="#27ae60">r*</text>
+        </svg>
+        <p class="fig-caption">Money market: Mˢ вертикальна (ЦБ), L(r,Y) ↓ при r↑ → равновесие в r*.</p>
+    </div>
+    <h3>Как ЦБ увеличивает/уменьшает M:</h3>
+    <ol>
+        <li><strong>Open market operations:</strong> купить gov bonds → деньги в экономику → M↑; продать → M↓</li>
+        <li><strong>Reserve requirements ↓</strong> → банки больше кредитуют → money multiplier → M↑</li>
+        <li><strong>Policy rate ↓</strong> → дешевле заимствовать → больше кредитов → M↑ (косвенно)</li>
+        <li><strong>QE</strong> — массовая покупка активов в кризис</li>
+    </ol>
+    <p class="en">OMO: buy bonds = inject money; sell = withdraw. Lower reserve ratio = more lending = higher M.</p>
+
+    <!-- ========== 24 ========== -->
+    <h2 id="t24"><span class="num">24.</span> Real GDP vs Nominal GDP</h2>
+    <div class="formula">
+        Nominal GDP = Σ P<sub>t</sub> × Q<sub>t</sub> (current prices × current quantities)<br>
+        Real GDP = Σ P<sub>base</sub> × Q<sub>t</sub> (base-year prices × current quantities)<br>
+        GDP deflator = (Nominal GDP / Real GDP) × 100<br>
+        Real GDP growth ≈ Nominal growth − Inflation
+    </div>
+    <div class="story">Страна производит 100 cars. 2020: P=€20k → Nominal=€2M. 2024: P=€25k, Q=110 → Nominal=€2.75M. Real (base 2020) = 110×€20k = €2.2M. Рост реального выпуска = 10%, не 37.5%.</div>
+    <p class="more"><a href="GDP_Macro_Explanation.html">GDP Macro</a></p>
+
+    <!-- ========== 26 ========== -->
+    <h2 id="t26"><span class="num">26.</span> IS-LM Curve — how to draw</h2>
+    <p><strong>IS curve</strong> (goods market): все (r, Y) где Y = C(Y) + I(r) + G. <strong>↓ наклон:</strong> r↑ → I↓ → Y↓.</p>
+    <p><strong>LM curve</strong> (money market): все (r, Y) где M<sup>s</sup> = L(r,Y). <strong>↑ наклон:</strong> Y↑ → L↑ → нужен r↑ для equilibrium.</p>
+    <p><strong>Equilibrium</strong> — пересечение IS и LM → (r*, Y*).</p>
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" aria-label="IS-LM model">
+            <line x1="50" y1="20" x2="50" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="250" x2="400" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="28" font-size="12">r ↑</text>
+            <text x="385" y="268" font-size="12">Y</text>
+            <path d="M 80 40 Q 200 100 380 220" stroke="#e67e22" stroke-width="2.5" fill="none"/>
+            <text x="320" y="210" fill="#e67e22" font-size="13" font-weight="600">LM</text>
+            <path d="M 80 220 Q 220 120 380 40" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="320" y="55" fill="#2980b9" font-size="13" font-weight="600">IS</text>
+            <circle cx="230" cy="118" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="238" y="112" font-size="11" fill="#27ae60">(r*, Y*)</text>
+            <text x="60" y="270" font-size="10" fill="#666">G↑ → IS вправо (Y↑, r↑) · M↑ → LM вправо (Y↑, r↓)</text>
+        </svg>
+        <p class="fig-caption">IS-LM equilibrium: товарный рынок (IS) + денежный рынок (LM).</p>
+    </div>
+    <p class="more"><a href="IS_LM_Explanation.html">IS-LM</a></p>
+
+    <!-- ========== 27 ========== -->
+    <h2 id="t27"><span class="num">27.</span> Real vs Nominal Exchange Rate</h2>
+    <div class="formula">e = nominal exchange rate (e.g. 1 USD = 0.92 EUR)<br>
+    ε (real) = e × (P<sub>domestic</sub> / P<sub>foreign</sub>)</div>
+    <p><strong>Nominal</strong> — сколько единиц иностранной валюты за 1 домашнюю (или наоборот — смотри определение в задаче!).</p>
+    <p><strong>Real</strong> — цена <strong>корзины товаров</strong> одной страны в валюте другой с учётом инфляции. Real ε ↑ → domestic goods дороже relative to foreign → exports ↓, imports ↑.</p>
+
+    <!-- ========== 31 ========== -->
+    <h2 id="t31"><span class="num">31.</span> Phillips Curve — negative or positive?</h2>
+    <p><strong>Short-run Phillips curve:</strong> <strong>отрицательная</strong> (inverse) связь между inflation π и unemployment u. π ↑ ↔ u ↓ (trade-off).</p>
+    <p><strong>Long-run Phillips curve:</strong> <strong>вертикальная</strong> при natural rate u<sub>n</sub>. Нет постоянного trade-off — только expected inflation π<sup>e</sup> сдвигает SR curve.</p>
+    <p><strong>Stagflation (1970s):</strong> supply shock (oil) → SR Phillips shifts <strong>up</strong> → одновременно π↑ и u↑ (positive correlation in data, but curve shifted).</p>
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Phillips curve">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="380" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="28" font-size="12">π ↑</text>
+            <text x="355" y="248" font-size="12">u</text>
+            <path d="M 70 50 Q 200 120 350 210" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="280" y="195" fill="#2980b9" font-size="12">SR Phillips</text>
+            <line x1="220" y1="20" x2="220" y2="230" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="228" y="40" fill="#e74c3c" font-size="11">LR (u = uₙ)</text>
+            <path d="M 70 80 Q 200 150 350 200" stroke="#2980b9" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="4,3"/>
+            <text x="100" y="95" font-size="10" fill="#666">stagflation: SR сдвиг ↑</text>
+        </svg>
+        <p class="fig-caption">SR Phillips: π ↔ u (отрицательный наклон). LR — вертикаль при u = uₙ.</p>
+    </div>
+    <div class="key">Экзамен: SR = negative slope. LR = vertical. Stagflation = shift up, not positive slope of original curve.</div>
+    <p class="more"><a href="Okun_Phillips_Explanation.html">Phillips Curve</a></p>
+
+    <!-- ========== 20, 36 ========== -->
+    <h2 id="t20"><span class="num">20.</span> Long-run Cost Function & RTS / <span class="num">36.</span> Industry Supply SR & LR</h2>
+    <p><strong>Long-run cost function C(Q):</strong> минимальная стоимость производства Q, когда все факторы оптимально выбраны. <strong>LRAC(Q) = C(Q)/Q</strong> — U-shaped или L-shaped envelope of SR ATC curves.</p>
+    <p>Связь с RTS (повтор темы 1): increasing RTS → LRAC↓; constant → flat; decreasing → LRAC↑.</p>
+
+    <h3>Short-run industry supply</h3>
+    <p>Число фirms <strong>фиксировано</strong>. Industry S = <strong>horizontal sum</strong> of firms' MC curves (above min AVC). Восходящая — каждая firm на rising MC.</p>
+
+    <h3>Long-run industry supply</h3>
+    <p><strong>Free entry/exit.</strong> If economic profit &gt; 0 → firms enter → S shifts right → P↓ until π=0. If π &lt; 0 → exit → P↑ until π=0.</p>
+    <ul>
+        <li><strong>Constant-cost industry:</strong> LR supply <strong>horizontal</strong> at P = min ATC</li>
+        <li><strong>Increasing-cost industry:</strong> LR supply <strong>upward sloping</strong> (input prices rise as industry expands)</li>
+    </ul>
+    <div class="graph">
+        <svg class="svg-graph" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" aria-label="Industry supply SR and LR">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="400" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="28" font-size="12">P</text>
+            <text x="385" y="248" font-size="12">Q</text>
+            <path d="M 70 180 Q 200 100 380 55" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="300" y="65" fill="#2980b9" font-size="12">SR supply</text>
+            <line x1="70" y1="130" x2="380" y2="130" stroke="#27ae60" stroke-width="2.5"/>
+            <text x="250" y="122" fill="#27ae60" font-size="12">LR supply (constant-cost)</text>
+            <text x="60" y="145" font-size="11" fill="#27ae60">P = min ATC</text>
+        </svg>
+        <p class="fig-caption">Constant-cost industry: LR supply горизонтальна при P = min ATC; SR supply восходящая.</p>
+    </div>
+
+    <hr>
+    <p><strong>Быстрая навигация по полным главам:</strong> <a href="index.html">Economics index</a> · <a href="Frank_Study_Guide.html">Frank RU+EN</a> · <a href="Frank_Study_Guide_EN.html">Frank EN</a></p>
+</div>
+</body>
+</html>
