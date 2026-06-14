@@ -28,7 +28,11 @@
         .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
         .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
         .svg-graph .ppf { stroke: #27ae60; stroke-width: 2.5; fill: none; }
+        .svg-graph .ppf-old { stroke: #27ae60; stroke-width: 2; fill: none; stroke-dasharray: 8,5; opacity: 0.65; }
+        .svg-graph .ppf-new { stroke: #229954; stroke-width: 2.5; fill: none; }
+        .svg-graph .ppf-straight { stroke: #3498db; stroke-width: 2.5; fill: none; }
         .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
+        .fig-caption { text-align: center; font-size: 0.9em; color: #555; margin: 8px 0 4px; line-height: 1.55; }
     </style>
 </head>
 <body>
@@ -56,22 +60,42 @@
     </ul>
 
     <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg">
-            <line class="axis" x1="50" y1="20" x2="50" y2="220"/>
-            <line class="axis" x1="50" y1="220" x2="340" y2="220"/>
-            <path class="ppf" d="M 50 50 Q 120 120 200 180 T 340 210"/>
-            <circle cx="80" cy="90" r="4" fill="#e74c3c"/>
-            <circle cx="140" cy="145" r="4" fill="#27ae60"/>
-            <circle cx="220" cy="185" r="4" fill="#27ae60"/>
-            <circle cx="300" cy="205" r="4" fill="#95a5a6" opacity="0.8"/>
-            <text x="75" y="82">A</text>
-            <text x="135" y="137">B</text>
-            <text x="215" y="177">C</text>
-            <text x="308" y="198">D</text>
-            <text x="28" y="18">B</text>
-            <text x="338" y="232">A</text>
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="PPF points A B C D">
+            <defs>
+                <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
+            </defs>
+            <line class="axis" x1="55" y1="25" x2="55" y2="265" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+            <line class="axis" x1="55" y1="265" x2="450" y2="265" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+            <text x="18" y="30" font-size="13" font-weight="600">Good B (масло)</text>
+            <text x="380" y="288" font-size="13" font-weight="600">Good A (пушки) →</text>
+            <!-- concave PPF -->
+            <path class="ppf" d="M 55 45 Q 150 120 240 185 T 430 248"/>
+            <!-- Y intercept -->
+            <line x1="55" y1="45" x2="55" y2="265" stroke="#aaa" stroke-dasharray="3,3"/>
+            <text x="62" y="52" font-size="11" fill="#666">max B</text>
+            <!-- X intercept -->
+            <circle cx="430" cy="248" r="4" fill="#27ae60"/>
+            <text x="408" y="258" font-size="11" fill="#666">max A</text>
+            <!-- Point A inside - inefficient -->
+            <circle cx="145" cy="175" r="7" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+            <text x="115" y="168" font-size="12" fill="#e74c3c" font-weight="600">A</text>
+            <text x="95" y="195" font-size="10" fill="#e74c3c">неэффективно / inefficient</text>
+            <!-- Point B on curve -->
+            <circle cx="195" cy="158" r="7" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="205" y="152" font-size="12" fill="#1e7e45" font-weight="600">B</text>
+            <!-- Point C on curve -->
+            <circle cx="305" cy="198" r="7" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="315" y="192" font-size="12" fill="#1e7e45" font-weight="600">C</text>
+            <text x="250" y="225" font-size="10" fill="#1e7e45">на КПV / on PPF — efficient</text>
+            <!-- Point D outside - unattainable -->
+            <circle cx="365" cy="95" r="7" fill="#95a5a6" stroke="#fff" stroke-width="1.5"/>
+            <text x="375" y="88" font-size="12" fill="#7f8c8d" font-weight="600">D</text>
+            <text x="320" y="78" font-size="10" fill="#7f8c8d">недостижимо / unattainable</text>
+            <!-- feasible region hint -->
+            <path d="M 55 45 Q 150 120 240 185 T 430 248 L 430 265 L 55 265 Z" fill="#27ae60" opacity="0.06"/>
         </svg>
-        <p style="margin:0.5rem 0 0; font-size:0.95em;">A — неэффективно, B и C — на КПВ (эффективно), D — недостижимо.</p>
+        <p class="fig-caption"><strong>A</strong> — внутри КПV (ресурсы не используются полностью). <strong>B, C</strong> — на КПV (эффективно). <strong>D</strong> — снаружи (нужно больше ресурсов или технологий).<br>
+        <strong>EN:</strong> A = inside (inefficient). B, C = on PPF (efficient). D = outside (unattainable).</p>
     </div>
 
     <table>
@@ -88,16 +112,60 @@
     <p><strong>Вогнутая</strong> — растущие альтернативные издержки. Чем больше производишь одного товара, тем больше отказываешься от другого.</p>
 
     <div class="graph-box">
-        <pre>   Y (Good B)
-    |
-    |\
-    |  \
-    |    \
-    |      \    ← Concave: slope gets steeper
-    |        \     (OC increases)
-    |          \
-    |            \
-    0+-------------+ X (Good A)</pre>
+        <svg class="svg-graph" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" aria-label="Concave vs straight PPF">
+            <!-- Left: concave -->
+            <text x="130" y="22" font-size="13" font-weight="600" text-anchor="middle">Вогнутая / Concave</text>
+            <line class="axis" x1="40" y1="240" x2="240" y2="240"/>
+            <line class="axis" x1="40" y1="240" x2="40" y2="40"/>
+            <text x="18" y="48" font-size="11">B</text>
+            <text x="228" y="258" font-size="11">A</text>
+            <path class="ppf" d="M 40 50 Q 110 130 170 185 T 230 228"/>
+            <!-- tangent steep at bottom -->
+            <line x1="155" y1="240" x2="215" y2="115" stroke="#e67e22" stroke-width="1.5" stroke-dasharray="5,4"/>
+            <circle cx="170" cy="185" r="5" fill="#8e44ad" stroke="#fff" stroke-width="1.5"/>
+            <line x1="170" y1="185" x2="210" y2="185" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="210" y1="185" x2="210" y2="145" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="175" y="200" font-size="10" fill="#666">+1 A</text>
+            <text x="218" y="168" font-size="10" fill="#666">− много B</text>
+            <text x="95" y="210" font-size="10" fill="#e67e22">OC растёт ↑</text>
+            <!-- Right: straight -->
+            <text x="390" y="22" font-size="13" font-weight="600" text-anchor="middle">Прямая / Straight</text>
+            <line class="axis" x1="280" y1="240" x2="480" y2="240"/>
+            <line class="axis" x1="280" y1="240" x2="280" y2="40"/>
+            <text x="258" y="48" font-size="11">B</text>
+            <text x="468" y="258" font-size="11">A</text>
+            <line x1="280" y1="50" x2="470" y2="230" class="ppf-straight"/>
+            <line x1="380" y1="240" x2="430" y2="190" stroke="#3498db" stroke-width="1.5" stroke-dasharray="5,4"/>
+            <line x1="380" y1="190" x2="430" y2="190" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="430" y1="190" x2="430" y2="240" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="385" y="205" font-size="10" fill="#666">+1 A</text>
+            <text x="438" y="218" font-size="10" fill="#666">− фикс. B</text>
+            <text x="300" y="210" font-size="10" fill="#3498db">OC постоянна</text>
+        </svg>
+        <p class="fig-caption"><strong>Вогнутая КПV:</strong> наклон становится круче → альтернативная стоимость (OC) растёт (increasing opportunity cost).<br>
+        <strong>Прямая КПV:</strong> наклон одинаковый → OC постоянна (constant opportunity cost).</p>
+    </div>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="PPF opportunity cost slope">
+            <line class="axis" x1="55" y1="25" x2="55" y2="265"/>
+            <line class="axis" x1="55" y1="265" x2="450" y2="265"/>
+            <text x="18" y="30" font-size="13">Good B ↑</text>
+            <text x="430" y="282" font-size="13">Good A →</text>
+            <path class="ppf" d="M 55 45 Q 140 130 230 195 T 430 240"/>
+            <line x1="175" y1="265" x2="320" y2="95" stroke="#3498db" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.8"/>
+            <circle cx="230" cy="195" r="6" fill="#8e44ad" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="290" cy="148" r="6" fill="#e67e22" stroke="#fff" stroke-width="1.5"/>
+            <line x1="230" y1="195" x2="290" y2="195" stroke="#999" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <line x1="290" y1="195" x2="290" y2="148" stroke="#999" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <text x="245" y="210" font-size="11" fill="#666">+ΔA</text>
+            <text x="298" y="178" font-size="11" fill="#666">−ΔB</text>
+            <text x="300" y="130" font-size="11" fill="#e67e22">OC выше</text>
+            <text x="155" y="220" font-size="11" fill="#8e44ad">OC ниже</text>
+            <text x="330" y="75" font-size="11" fill="#3498db">|slope| = OC(A)</text>
+        </svg>
+        <p class="fig-caption">Наклон КПV (по модулю) = <strong>альтернативная стоимость</strong> товара A в единицах B: |ΔB/ΔA|. При движении вправо OC растёт.<br>
+        <strong>EN:</strong> Slope of PPF = opportunity cost of Good A in terms of B.</p>
     </div>
 
     <hr>
@@ -112,14 +180,32 @@
     </table>
 
     <div class="graph-box">
-        <pre>Good B
-  |
-  |    *  *  *  New PPF (after growth)
-  |  *       *
-  | *   *  *  *  Old PPF
-  | *
-  |
-  0+----+----+----+----+ Good A</pre>
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="PPF outward shift">
+            <defs>
+                <marker id="arrUp" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,6 L4,0 L8,6 Z" fill="#2980b9"/></marker>
+            </defs>
+            <line class="axis" x1="55" y1="25" x2="55" y2="265"/>
+            <line class="axis" x1="55" y1="265" x2="450" y2="265"/>
+            <text x="18" y="30" font-size="13">Good B ↑</text>
+            <text x="430" y="282" font-size="13">Good A →</text>
+            <!-- old PPF -->
+            <path class="ppf-old" d="M 55 85 Q 130 155 210 205 T 380 248"/>
+            <text x="300" y="238" font-size="11" fill="#27ae60" opacity="0.8">старая КПV / old PPF</text>
+            <!-- new PPF -->
+            <path class="ppf-new" d="M 55 45 Q 150 120 250 175 T 430 210"/>
+            <text x="350" y="200" font-size="12" fill="#229954" font-weight="600">новая КПV / new PPF</text>
+            <!-- shift arrows -->
+            <line x1="55" y1="85" x2="55" y2="45" stroke="#2980b9" stroke-width="2" marker-end="url(#arrUp)"/>
+            <line x1="380" y1="248" x2="430" y2="210" stroke="#2980b9" stroke-width="2" marker-end="url(#arrUp)"/>
+            <rect x="60" y="55" width="200" height="55" rx="6" fill="#e8f8f0" stroke="#27ae60" stroke-width="1"/>
+            <text x="70" y="75" font-size="11" fill="#1e7e45">↑ ресурсы / resources</text>
+            <text x="70" y="92" font-size="11" fill="#1e7e45">↑ технологии / technology</text>
+            <text x="70" y="109" font-size="11" fill="#1e7e45">↑ население / population</text>
+            <!-- inward shift note -->
+            <text x="60" y="285" font-size="10" fill="#e74c3c">← война, катастрофа: сдвиг ВНУТРЬ / war, disaster: shift IN</text>
+        </svg>
+        <p class="fig-caption">Рост ресурсов, технологий или населения → КПV сдвигается <strong>наружу</strong> (можно произвести больше обоих товаров). Война или катастрофа → сдвиг <strong>внутрь</strong>.<br>
+        <strong>EN:</strong> More resources/technology → PPF shifts out. War/disaster → PPF shifts in.</p>
     </div>
 
     <div class="formula-box">

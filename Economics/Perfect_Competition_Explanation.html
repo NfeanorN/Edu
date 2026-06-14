@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Competition — Совершенная конкуренция (Frank Ch. 10)</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 920px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #27ae60; padding-bottom: 15px; margin-bottom: 10px; font-size: 2.1em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 18px; font-size: 1.55em; border-left: 5px solid #27ae60; padding-left: 15px; }
+        h3 { color: #555; margin-top: 26px; margin-bottom: 12px; font-size: 1.2em; }
+        p { margin: 14px 0; text-align: justify; }
+        strong { color: #2c3e50; font-weight: 600; }
+        table { border-collapse: collapse; width: 100%; margin: 22px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+        th, td { border: 1px solid #ddd; padding: 11px 14px; text-align: left; }
+        th { background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 36px 0; }
+        ul, ol { margin: 14px 0; padding-left: 28px; }
+        li { margin: 8px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 20px 0; }
+        .formula-box { background: #e8f8f0; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 18px 0; border-radius: 4px; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #27ae60; text-decoration: none; }
+        .back a:hover { text-decoration: underline; }
+        .source { color: #666; font-size: 0.95em; margin-bottom: 24px; }
+        .book-ref { display: inline-block; background: #eee; color: #555; font-size: 0.82em; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-style: normal; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .fig-caption { text-align: center; font-size: 0.9em; color: #555; margin: 8px 0 4px; line-height: 1.55; }
+        .key-box { background: #e8f8ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
+        .key-box::before { content: "⭐ Экзамен / Exam: "; font-weight: 700; color: #1e7e45; }
+        .story { background: #fff8e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
+        .story::before { content: "📖 Пример Frank / Example: "; font-weight: 700; color: #d68910; }
+        .en { color: #555; font-size: 0.95em; padding: 8px 0 8px 14px; border-left: 3px solid #5b8def; margin: 8px 0 14px; font-style: italic; }
+        .en::before { content: "EN: "; font-weight: 700; color: #3a6cdc; font-style: normal; }
+        .warn-box { background: #fdf2f2; border-left: 4px solid #e74c3c; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; font-size: 0.92em; }
+    </style>
+</head>
+<body>
+    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Frank_Study_Guide.html#profit-max">Frank Ch. 10</a> · <a href="Exam_Prep_Guide.html#t15">Exam #15</a> · <a href="Monopoly_Explanation.html">Monopoly (Ch. 11)</a></p>
+
+    <h1>Perfect Competition — Совершенная конкуренция</h1>
+    <p class="source">Источник: <strong>Robert H. Frank, <em>Microeconomics and Behavior</em>, 7th ed.</strong>, Chapter 10 — «Competitive Supply» (стр. 305–321). Exam Prep Topic <a href="Exam_Prep_Guide.html#t15">#15</a>. Издержки (MC, AVC, ATC) — <a href="Production_Cost_Short_Run_Explanation.html">Ch. 9</a>.</p>
+
+    <h2>1. Что это? Условия <span class="book-ref">Ch. 10 · Exam #15</span></h2>
+    <p><strong>Совершенная конкуренция</strong> — рынок с <strong>тысячами одинаковых мелких фирм</strong>. Каждая фирма — «капля в океане»: не может влиять на цену → <strong>price taker</strong> (ценополучатель).</p>
+    <p class="en">Perfect competition: many identical small firms, homogeneous product, free entry and exit, perfect information. Each firm takes the market price as given.</p>
+
+    <table>
+        <tr><th>Условие</th><th>Смысл</th></tr>
+        <tr><td><strong>Много</strong> покупателей и продавцов</td><td>Никто не влияет на рыночную цену</td></tr>
+        <tr><td><strong>Однородный</strong> продукт</td><td>Товар идентичен (нет бренда / дифференциации)</td></tr>
+        <tr><td><strong>Свободный вход и выход</strong></td><td>Нет барьеров — фирмы входят при π &gt; 0, выходят при убытках</td></tr>
+        <tr><td><strong>Полная информация</strong></td><td>Все знают цены и качество</td></tr>
+        <tr><td><strong>Price taker</strong></td><td>Фирма принимает рыночную цену P* как данную</td></tr>
+    </table>
+
+    <div class="story">Frank (Ch. 10): если фирма поднимет цену хоть на один цент — все покупатели уйдут к соседу. Цена «навязывается сверху» рынком.</div>
+
+    <hr>
+
+    <h2>2. Рынок vs одна фирма <span class="book-ref">Ch. 10</span></h2>
+    <p><strong>Рыночный спрос</strong> D — нисходящий. <strong>Спрос для одной фирмы</strong> — <strong>горизонтальная линия</strong> на уровне P*: фирма может продать любой объём q по цене P*, но ничего не продаст, если поднимет цену.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" aria-label="Market vs firm demand">
+            <text x="100" y="22" font-size="13" font-weight="600">Market / Рынок</text>
+            <line x1="40" y1="240" x2="240" y2="240" stroke="#333" stroke-width="1.5"/>
+            <line x1="40" y1="240" x2="40" y2="40" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="48" font-size="12">P</text>
+            <text x="228" y="258" font-size="12">Q</text>
+            <line x1="45" y1="80" x2="230" y2="200" stroke="#27ae60" stroke-width="2.5"/>
+            <text x="200" y="195" fill="#27ae60" font-size="11">D</text>
+            <line x1="45" y1="200" x2="230" y2="80" stroke="#2980b9" stroke-width="2.5"/>
+            <text x="200" y="95" fill="#2980b9" font-size="11">S</text>
+            <circle cx="137" cy="140" r="5" fill="#e74c3c"/>
+            <line x1="40" y1="140" x2="137" y2="140" stroke="#aaa" stroke-dasharray="3,3"/>
+            <text x="18" y="145" font-size="11">P*</text>
+            <text x="132" y="258" font-size="11">Q*</text>
+
+            <text x="340" y="22" font-size="13" font-weight="600">Single firm / Фирма</text>
+            <line x1="280" y1="240" x2="480" y2="240" stroke="#333" stroke-width="1.5"/>
+            <line x1="280" y1="240" x2="280" y2="40" stroke="#333" stroke-width="1.5"/>
+            <text x="258" y="48" font-size="12">P</text>
+            <text x="468" y="258" font-size="12">q</text>
+            <line x1="285" y1="140" x2="475" y2="140" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="380" y="132" fill="#e74c3c" font-size="11" font-weight="600">D = MR = AR = P*</text>
+            <circle cx="380" cy="140" r="5" fill="#27ae60"/>
+            <line x1="380" y1="140" x2="380" y2="240" stroke="#aaa" stroke-dasharray="3,3"/>
+            <text x="372" y="258" font-size="11">q*</text>
+        </svg>
+        <p class="fig-caption">Слева: равновесие рынка (P*, Q*). Справа: горизонтальный спрос фирмы — price taker.</p>
+    </div>
+
+    <hr>
+
+    <h2>3. P = MR = AR и правило P = MC <span class="book-ref">Ch. 10</span></h2>
+    <p>Общее правило любой фирмы: <strong>MR = MC</strong>. При конкуренции каждая доп. единица продаётся по той же цене P → <strong>MR = P = AR</strong>.</p>
+
+    <div class="formula-box">
+        <p><strong>MR = MC</strong> &nbsp;→&nbsp; при конкуренции <strong>P = MR</strong> &nbsp;→&nbsp; <strong>P = MC</strong></p>
+        <p>π = TR − TC = P·Q − TC. Фирма выбирает только <strong>q</strong> (P задана рынком).</p>
+    </div>
+
+    <ul>
+        <li><strong>P &gt; MC</strong> → ещё одна единица увеличивает прибыль → производить больше</li>
+        <li><strong>P &lt; MC</strong> → ещё одна единица снижает прибыль → производить меньше</li>
+        <li><strong>P = MC</strong> → оптимум q*</li>
+    </ul>
+    <p class="en">Produce while P &gt; MC; stop where P = MC. Same MB = MC logic as Frank Figure 1.1.</p>
+
+    <div class="story">Frank (Figure 10.2): рыночная цена <strong>P = $20</strong>. Горизонталь P = 20 пересекает MC при <strong>q* = 260</strong> → фирма производит 260 единиц. Если P вырастет до $25 — точка пересечения сдвигается вверх по MC → q* больше.</div>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="P equals MC profit max">
+            <line x1="55" y1="25" x2="55" y2="265" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="265" x2="460" y2="265" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="30" font-size="13">P, Cost</text>
+            <text x="445" y="283" font-size="13">q</text>
+            <line x1="55" y1="120" x2="440" y2="120" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="360" y="112" fill="#e74c3c" font-size="12" font-weight="600">P = MR = $20</text>
+            <path d="M 70 240 Q 200 55 380 100" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="350" y="95" fill="#2980b9" font-size="12">MC</text>
+            <path d="M 70 235 Q 240 115 420 95" stroke="#8e44ad" stroke-width="2" fill="none"/>
+            <text x="350" y="88" fill="#8e44ad" font-size="12">ATC</text>
+            <circle cx="260" cy="120" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <line x1="260" y1="120" x2="260" y2="265" stroke="#aaa" stroke-dasharray="3,3"/>
+            <text x="248" y="283" font-size="11">q*=260</text>
+            <rect x="55" y="120" width="205" height="145" fill="#27ae60" opacity="0.12"/>
+            <text x="120" y="200" font-size="11" fill="#1e7e45">π = (P−ATC)×q</text>
+        </svg>
+        <p class="fig-caption">Figure 10.2 (Frank): P = MC → q*. Если P &gt; ATC — экономическая прибыль (зелёная область).</p>
+    </div>
+
+    <hr>
+
+    <h2>4. Краткосрочный период (SR) <span class="book-ref">Ch. 10</span></h2>
+    <p>K фиксирован. Возможны три случая:</p>
+    <table>
+        <tr><th>Условие</th><th>Результат</th></tr>
+        <tr><td><strong>P &gt; ATC</strong></td><td>Экономическая прибыль π &gt; 0</td></tr>
+        <tr><td><strong>P = ATC</strong></td><td>Break-even, π = 0</td></tr>
+        <tr><td><strong>AVC &lt; P &lt; ATC</strong></td><td>Убыток, но <strong>лучше работать</strong> (покрываем VC + часть FC)</td></tr>
+        <tr><td><strong>P &lt; min AVC</strong></td><td><strong>Shutdown</strong> — закрыться, q = 0</td></tr>
+    </table>
+
+    <h3>Правило shutdown <span class="book-ref">Ch. 10, p. 307</span></h3>
+    <div class="formula-box">
+        <p><strong>Работать, если P ≥ min AVC</strong></p>
+        <p><strong>Закрыться, если P &lt; min AVC</strong></p>
+        <p>В SR FC платятся в любом случае → вопрос: покрывает ли выручка хотя бы переменные издержки?</p>
+    </div>
+
+    <div class="story">Frank — пекарня: FC = $1 000/мес, min AVC = $2/багет, min ATC = $4.<br>
+        <strong>P = $3:</strong> 3 &gt; AVC → работать. Каждый багет даёт $1 на FC. 500 багетов → убыток $500 (лучше, чем $1 000 при закрытии).<br>
+        <strong>P = $1,50:</strong> 1,50 &lt; AVC → закрыться. Убыток = FC = $1 000.</div>
+
+    <h3>Краткосрочное предложение фирмы <span class="book-ref">Fig. 10.4</span></h3>
+    <p>Кривая предложения фирмы в SR = участок <strong>MC выше min AVC</strong>. Ниже min AVC фирма производит 0 → «скачок» от оси q к MC.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Firm supply MC above AVC">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="380" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="28" font-size="12">P</text>
+            <text x="365" y="248" font-size="12">q</text>
+            <path d="M 70 210 Q 180 80 340 120" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="300" y="115" fill="#2980b9" font-size="12">MC</text>
+            <path d="M 70 205 Q 200 140 340 115" stroke="#27ae60" stroke-width="2" fill="none"/>
+            <text x="300" y="108" fill="#27ae60" font-size="12">AVC</text>
+            <circle cx="195" cy="143" r="5" fill="#e74c3c"/>
+            <text x="200" y="158" font-size="10" fill="#e74c3c">min AVC</text>
+            <path d="M 50 143 L 195 143" stroke="#e74c3c" stroke-width="2" stroke-dasharray="4,3"/>
+            <text x="55" y="138" font-size="10" fill="#e74c3c">shutdown</text>
+            <line x1="195" y1="143" x2="340" y2="120" stroke="#e67e22" stroke-width="3"/>
+            <text x="250" y="105" fill="#e67e22" font-size="11" font-weight="600">supply</text>
+        </svg>
+        <p class="fig-caption">SR supply = MC при P ≥ min AVC. Ниже — shutdown (q = 0).</p>
+    </div>
+
+    <hr>
+
+    <h2>5. Долгосрочный период (LR) <span class="book-ref">Ch. 10, p. 321</span></h2>
+    <p>Свободный вход/выход:</p>
+    <ol>
+        <li><strong>π &gt; 0</strong> → новые фирмы входят → S↑ → P↓ → π падает</li>
+        <li><strong>π &lt; 0</strong> → фирмы выходят → S↓ → P↑ → убытки сокращаются</li>
+        <li>Процесс до <strong>π = 0</strong></li>
+    </ol>
+
+    <div class="formula-box">
+        <p><strong>LR равновесие:</strong> &nbsp; <strong>P = MR = MC = min LAC</strong> &nbsp;·&nbsp; <strong>π = 0</strong></p>
+        <p>Каждая выжившая фирма работает в <strong>минимуме долгосрочных средних издержек</strong> (оптимальный размер завода).</p>
+    </div>
+
+    <div class="warn-box">
+        <strong>π = 0</strong> — это <em>экономическая</em> прибыль = 0, не бухгалтерская. Фирма получает <strong>нормальную прибыль</strong> (= альтернативная стоимость капитала) — это не «убыток».
+    </div>
+
+    <h3>Типы отраслей по форме LRS (Figure 10.11)</h3>
+    <table>
+        <tr><th>Тип</th><th>LRS (long-run supply)</th><th>Причина</th></tr>
+        <tr><td><strong>Constant-cost</strong></td><td>Горизонтальная при min LAC</td><td>Цены факторов не растут при расширении отрасли</td></tr>
+        <tr><td><strong>Increasing-cost</strong></td><td>Восходящая</td><td>Дефицитные ресурсы дорожают</td></tr>
+        <tr><td><strong>Decreasing-cost</strong></td><td>Нисходящая (редко)</td><td>Специализированные поставщики снижают цены</td></tr>
+    </table>
+    <p>→ <a href="Cost_Long_Run_Explanation.html">Cost Long Run (Ch. 9)</a> · отрасль с мелкими фirmами близка к конкуренции</p>
+
+    <hr>
+
+    <h2>6. Конкуренция vs монополия <span class="book-ref">Ch. 10–11</span></h2>
+    <table>
+        <tr><th></th><th>Perfect competition</th><th>Monopoly</th></tr>
+        <tr><td>Фирм</td><td>Много</td><td>Одна</td></tr>
+        <tr><td>Спрос для фирмы</td><td><strong>Горизонтальный</strong> (P*)</td><td><strong>Нисходящий</strong> (рыночный D)</td></tr>
+        <tr><td>Price</td><td>Price taker</td><td>Price maker</td></tr>
+        <tr><td>MR</td><td><strong>MR = P</strong></td><td><strong>MR &lt; P</strong></td></tr>
+        <tr><td>Оптимум</td><td><strong>P = MC</strong></td><td><strong>MR = MC</strong>, P &gt; MC</td></tr>
+        <tr><td>LR profit</td><td>π = 0</td><td>π &gt; 0 возможна</td></tr>
+        <tr><td>DWL</td><td><strong>Нет</strong></td><td><strong>Есть</strong> (Q<sub>m</sub> &lt; Q<sub>c</sub>)</td></tr>
+    </table>
+
+    <p>В конкуренции выпуск Q<sub>c</sub> где P = MC — <strong>allocative efficiency</strong>, суммарный излишек максимален. Монополия ограничивает Q → DWL. См. <a href="Monopoly_Explanation.html">Monopoly</a>, <a href="Market_Power_Explanation.html">Market Power</a>.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" aria-label="Competitive equilibrium no DWL">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="400" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="28" font-size="12">P</text>
+            <text x="385" y="248" font-size="12">Q</text>
+            <line x1="55" y1="50" x2="350" y2="210" stroke="#27ae60" stroke-width="2.5"/>
+            <text x="310" y="205" fill="#27ae60" font-size="12">D</text>
+            <path d="M 55 210 Q 180 80 350 120" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="300" y="115" fill="#2980b9" font-size="12">MC</text>
+            <circle cx="260" cy="155" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <line x1="260" y1="155" x2="260" y2="230" stroke="#aaa" stroke-dasharray="3,3"/>
+            <line x1="50" y1="155" x2="260" y2="155" stroke="#aaa" stroke-dasharray="3,3"/>
+            <text x="265" y="248" font-size="11">Q<sub>c</sub></text>
+            <text x="18" y="160" font-size="11">P<sub>c</sub>=MC</text>
+            <path d="M 55 50 L 260 155 L 55 155 Z" fill="#27ae60" opacity="0.15"/>
+            <text x="100" y="120" font-size="10" fill="#555">CS</text>
+            <path d="M 55 155 L 260 155 L 260 210 L 55 210 Z" fill="#2980b9" opacity="0.12"/>
+            <text x="120" y="195" font-size="10" fill="#555">PS</text>
+        </svg>
+        <p class="fig-caption">Конкуренция: P = MC, Q<sub>c</sub>, нет DWL — CS + PS максимальны.</p>
+    </div>
+
+    <div class="key-box">
+        <strong>Exam #15 cheat sheet:</strong><br>
+        · Условия: много фирм, однородный продукт, свободный вход, price taker<br>
+        · Спрос фирмы: <strong>горизонтальный</strong> при P* · <strong>P = MR = AR</strong><br>
+        · SR: produce where <strong>P = MC</strong> if P ≥ min AVC; else shutdown<br>
+        · SR supply = <strong>MC above min AVC</strong><br>
+        · LR: <strong>P = MC = min LAC</strong>, economic profit = 0<br>
+        · vs monopoly: P = MC (not MR = MC with P &gt; MC)
+    </div>
+
+    <p>See also: <a href="Supply_Explanation.html">Supply</a> · <a href="Demand_Explanation.html">Demand</a> · <a href="Production_Cost_Short_Run_Explanation.html">Costs (Ch. 9)</a> · <a href="Frank_Study_Guide.html#shutdown">Frank Study Guide — shutdown</a> · <a href="Exam_Prep_Guide.html#t15">Exam Prep #15</a></p>
+</body>
+</html>
