@@ -3,162 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production Function — Производственная функция</title>
+    <title>Production Function — Производственная функция (Frank, Ch. 8)</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #9b59b6; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #9b59b6; padding-left: 15px; }
-        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
-        p { margin: 15px 0; text-align: justify; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 920px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #9b59b6; padding-bottom: 15px; margin-bottom: 10px; font-size: 2.1em; }
+        h2 { color: #34495e; margin-top: 40px; margin-bottom: 18px; font-size: 1.55em; border-left: 5px solid #9b59b6; padding-left: 15px; }
+        h3 { color: #555; margin-top: 26px; margin-bottom: 12px; font-size: 1.2em; }
+        p { margin: 14px 0; text-align: justify; }
         strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+        table { border-collapse: collapse; width: 100%; margin: 22px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+        th, td { border: 1px solid #ddd; padding: 11px 14px; text-align: left; }
         th { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); color: white; font-weight: 600; }
         tr:nth-child(even) { background-color: #f8f9fa; }
-        tr:hover { background-color: #f5eef8; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
-        ul, ol { margin: 15px 0; padding-left: 30px; }
-        li { margin: 10px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
-        .formula-box { background: #f5eef8; border-left: 4px solid #9b59b6; padding: 15px; margin: 20px 0; border-radius: 4px; }
-        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
+        hr { border: none; border-top: 3px solid #ecf0f1; margin: 36px 0; }
+        ul, ol { margin: 14px 0; padding-left: 28px; }
+        li { margin: 8px 0; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 20px 0; }
+        .formula-box { background: #f5eef8; border-left: 4px solid #9b59b6; padding: 14px 18px; margin: 18px 0; border-radius: 4px; }
         .back { margin-bottom: 20px; }
         .back a { color: #9b59b6; text-decoration: none; }
+        .back a:hover { text-decoration: underline; }
+        .source { color: #666; font-size: 0.95em; margin-bottom: 24px; }
+        .book-ref { display: inline-block; background: #eee; color: #555; font-size: 0.82em; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-style: normal; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
+        .fig-caption { text-align: center; font-size: 0.9em; color: #555; margin: 8px 0 4px; line-height: 1.55; }
+        .key-box { background: #e8f8ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
+        .key-box::before { content: "⭐ Экзамен / Exam: "; font-weight: 700; color: #1e7e45; }
+        .story { background: #fff8e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
+        .story::before { content: "📖 Пример Frank / Example: "; font-weight: 700; color: #d68910; }
+        .en { color: #555; font-size: 0.95em; padding: 8px 0 8px 14px; border-left: 3px solid #5b8def; margin: 8px 0 14px; font-style: italic; }
+        .en::before { content: "EN: "; font-weight: 700; color: #3a6cdc; font-style: normal; }
+        .warn-box { background: #fdf2f2; border-left: 4px solid #e74c3c; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; font-size: 0.92em; }
     </style>
 </head>
 <body>
-    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Production_Cost_Short_Run_Explanation.html">Production &amp; Cost (SR)</a> · <a href="Cost_Long_Run_Explanation.html">Long Run (isoquants)</a> · <a href="Frank_Study_Guide.html#tp-mp-ap">Frank Ch. 8</a></p>
 
     <h1>Production Function — Производственная функция</h1>
+    <p class="source">Источник: <strong>Robert H. Frank, <em>Microeconomics and Behavior</em>, 7th ed.</strong>, Chapter 8 — «Production» (стр. 241). Примеры: кухня (повара), детали (5→6 рабочих), связь MP ↔ MC (Ch. 9). Долгосрочная функция Q = f(L, K) и изокванты — <a href="Cost_Long_Run_Explanation.html">Ch. 9</a>.</p>
 
-    <h2>What is a Production Function? / Что такое производственная функция?</h2>
-    <p>A <strong>production function</strong> shows the maximum output (Q) that can be produced from given amounts of inputs (e.g. labour L, capital K) with a given technology. It describes the technical relationship between inputs and output.</p>
-    <p><strong>Производственная функция</strong> показывает максимальный выпуск (Q), который можно получить при заданных объёмах факторов производства (труд L, капитал K) и данной технологии. Это техническая связь «ресурсы → продукция».</p>
+    <h2>1. Что такое производственная функция? <span class="book-ref">Ch. 8</span></h2>
+    <p><strong>Производственная функция</strong> — техническая связь между <strong>факторами производства</strong> (ресурсы) и <strong>максимальным выпуском Q</strong> при данной технологии.</p>
+    <p class="en">The production function shows the maximum output Q from inputs L and K with given technology.</p>
 
     <div class="formula-box">
-        <p><strong>Q = F(L, K, …)</strong></p>
-        <p>Q = output (quantity) / выпуск</p>
-        <p>L = labour / труд</p>
-        <p>K = capital / капитал</p>
-        <p>F = technology / технология</p>
+        <p><strong>Q = F(L, K, …)</strong> &nbsp;или в краткосрочном периоде:&nbsp; <strong>TP = Q = f(L, K̄)</strong></p>
+        <p><strong>L</strong> = labour (труд) · <strong>K</strong> = capital (капитал: машины, цех, оборудование) · <strong>K̄</strong> = K фиксирован (short run)</p>
     </div>
 
-    <p><strong>Example:</strong> With 2 workers and 1 machine → 10 units per day. With 4 workers and 1 machine → 18 units per day. Here K is fixed (short run); only L changes.</p>
-    <p><em>Пример: 2 работника + 1 станок → 10 ед. в день. 4 работника + 1 станок → 18 ед. Капитал фиксирован (краткосрочный период), меняется только труд.</em></p>
+    <p>Frank упрощает: у фирмы два ресурса — <strong>труд L</strong> и <strong>капитал K</strong>. В <strong>краткосрочном периоде (SR)</strong> завод/кухня (K) зафиксированы; меняется только число рабочих L. В <strong>долгосрочном (LR)</strong> меняются оба — см. <a href="Cost_Long_Run_Explanation.html">isoquants</a>.</p>
+
+    <div class="warn-box">
+        <strong>Не путать:</strong><br>
+        · <strong>Diminishing returns (Ch. 8, SR):</strong> +1 рабочий при <em>фиксированном</em> K → MP<sub>L</sub> eventually падает.<br>
+        · <strong>Returns to scale (Ch. 9, LR):</strong> удвоить <em>и L, и K</em> → Q растёт быстрее / так же / медленнее. См. <a href="Exam_Prep_Guide.html#t1">Exam Prep #1</a>.
+    </div>
 
     <hr>
 
-    <h2>Total Product (TP), Average Product (AP), Marginal Product (MP) / Совокупный, средний и предельный продукт</h2>
+    <h2>2. Три «продукта»: TP, MP<sub>L</sub>, AP<sub>L</sub> <span class="book-ref">Ch. 8</span></h2>
 
     <table>
-        <tr><th>Term / Понятие</th><th>Formula / Формула</th><th>Meaning / Значение</th></tr>
-        <tr><td>Total Product (TP)</td><td>Q = F(L, K)</td><td>Total output / Совокупный выпуск</td></tr>
-        <tr><td>Average Product (AP)</td><td>AP = Q / L</td><td>Output per unit of labour / Выпуск на единицу труда</td></tr>
-        <tr><td>Marginal Product (MP)</td><td>MP = ΔQ / ΔL</td><td>Extra output from one more unit of labour / Дополнительный выпуск от ещё одной единицы труда</td></tr>
+        <tr><th>Понятие</th><th>Формула</th><th>Вопрос</th></tr>
+        <tr><td><strong>Total Product (TP)</strong></td><td>Q = f(L, K̄)</td><td>Сколько всего произведено при L рабочих?</td></tr>
+        <tr><td><strong>Marginal Product MP<sub>L</sub></strong></td><td>MP<sub>L</sub> = ΔQ / ΔL</td><td>Сколько <em>добавит</em> ещё один рабочий?</td></tr>
+        <tr><td><strong>Average Product AP<sub>L</sub></strong></td><td>AP<sub>L</sub> = Q / L</td><td>Сколько в среднем на одного рабочего?</td></tr>
     </table>
 
-    <p><strong>MP</strong> answers: “If we add one more worker, how much does output increase?” <strong>AP</strong> answers: “On average, how much does each worker produce?”</p>
-    <p><strong>MP</strong> — прирост выпуска от ещё одного работника. <strong>AP</strong> — средний выпуск на одного работника.</p>
+    <div class="story">Frank: 5 рабочих → 50 деталей; 6 рабочих → 56 деталей. MP<sub>L</sub> 6-го = 56 − 50 = <strong>6</strong>. AP<sub>L</sub> при L=6: 56/6 ≈ <strong>9,3</strong> детали на рабочего.</div>
 
     <hr>
 
-    <h2>Graphs: TP, AP, and MP / Графики TP, AP и MP</h2>
+    <h2>3. Пример Frank — маленькая кухня <span class="book-ref">Ch. 8</span></h2>
+    <p>K (кухня) <strong>фиксирована</strong>. Нанимаем поваров L:</p>
 
-    <h3>Total Product (TP) / Совокупный продукт</h3>
-    <p>TP curve shows how total output Q changes as we add more of the variable input (e.g. labour L), holding other inputs fixed. It typically rises, then may flatten or even fall if too much labour is added (negative MP).</p>
-    <p>Кривая TP показывает, как общий выпуск Q меняется с ростом переменного фактора (труда L) при фиксированном капитале.</p>
-
-    <div class="graph-box">
-        <pre>Output (Q)
-  |
-  |      TP (total product)
-  |     /
-  |    /
-  |   /    inflection point (MP max)
-  |  /    /
-  | /    /
-  |/    /
-  |    /
-  |   /  (diminishing, then negative MP)
-  |  /
-  | /
-  |
-  0+----+----+----+----+----+ L (labour)</pre>
-    </div>
-
-    <h3>Average Product (AP) and Marginal Product (MP) / Средний и предельный продукт</h3>
-    <p>When <strong>MP > AP</strong>, the average is pulled up → AP rises. When <strong>MP < AP</strong>, the average is pulled down → AP falls. So <strong>MP crosses AP at the maximum of AP</strong>. MP reaches its maximum at the inflection point of the TP curve (before AP reaches its max).</p>
-    <p>Когда MP > AP, средний продукт растёт. Когда MP < AP, средний продукт падает. <strong>MP пересекает AP в максимуме AP</strong>.</p>
-
-    <div class="graph-box">
-        <pre>MP, AP
-  |
-  |    MP
-  |   /\
-  |  /  \
-  | /    \___  (diminishing returns / убывающая отдача)
-  |/          \
-  |            \___
-  |      AP      \
-  |     /         \
-  |    /           \
-  |   /
-  |  /
-  | /
-  |
-  0+----+----+----+----+----+ L
-         ↑         ↑
-      MP max   MP = AP (max AP)</pre>
-    </div>
-
-    <hr>
-
-    <h2>Law of Diminishing Returns / Закон убывающей отдачи</h2>
-    <p>If one input (e.g. labour) is increased while at least one other input (e.g. capital) is <strong>fixed</strong>, the <strong>marginal product</strong> of the variable input will eventually <strong>decrease</strong>. Adding more and more workers to a fixed amount of machinery yields smaller and smaller increases in output.</p>
-    <p><strong>Закон убывающей отдачи:</strong> При увеличении одного фактора (труд) при неизменном другом (капитал) предельный продукт переменного фактора в итоге <strong>убывает</strong>.</p>
-
-    <div class="graph-box">
-        <pre>MP
-  |
-  |   increasing marginal returns  |  diminishing marginal returns
-  |   (возрастающая отдача)        |  (убывающая отдача)
-  |   /\                           |
-  |  /  \                          |
-  | /    \_________________________|
-  |/
-  0+----+----+----+----+----+ L</pre>
-    </div>
-
-    <hr>
-
-    <h2>Three Stages of Production / Три стадии производства</h2>
     <table>
-        <tr><th>Stage / Стадия</th><th>Condition / Условие</th><th>Description / Описание</th></tr>
-        <tr><td>Stage I</td><td>MP > AP, AP rising</td><td>Increasing returns; underuse of fixed input / Возрастающая отдача</td></tr>
-        <tr><td>Stage II</td><td>MP < AP, MP > 0</td><td>Diminishing returns; <strong>rational zone</strong> / Убывающая отдача, рациональная зона</td></tr>
-        <tr><td>Stage III</td><td>MP < 0</td><td>Negative returns; too much variable input / Отрицательная отдача, неэффективно</td></tr>
+        <tr><th>Поваров (L)</th><th>Блюд/час (Q)</th><th>MP последнего</th><th>AP = Q/L</th><th>Что происходит</th></tr>
+        <tr><td>1</td><td>10</td><td>10</td><td>10,0</td><td>—</td></tr>
+        <tr><td>2</td><td>25</td><td><strong>15</strong></td><td>12,5</td><td>Специализация: один режет, другой жарит</td></tr>
+        <tr><td>3</td><td>35</td><td>10</td><td>11,7</td><td>—</td></tr>
+        <tr><td>4</td><td>40</td><td>5</td><td>10,0</td><td>Начинают мешать друг другу</td></tr>
+        <tr><td>5</td><td>41</td><td>1</td><td>8,2</td><td>Тесно</td></tr>
+        <tr><td>6</td><td>38</td><td><strong>−3</strong></td><td>6,3</td><td>Кто-то уронил кастрюлю — Q падает!</td></tr>
     </table>
-    <p>Firms typically operate in <strong>Stage II</strong>: adding more labour still increases total output (MP > 0) but each extra worker adds less than the average (MP < AP). In Stage III, adding labour <em>reduces</em> total output (MP < 0), so it is irrational to produce there.</p>
-    <p><strong>Рациональная зона</strong> — Стадия II. В Стадии III предельный продукт отрицателен — добавление труда снижает выпуск.</p>
+    <p class="en">One small kitchen (fixed K), too many cooks (L) → MP falls, then goes negative.</p>
 
     <hr>
 
-    <h2>Link to Costs: MP and Marginal Cost (MC) / Связь с издержками: MP и MC</h2>
-    <p>When <strong>MP rises</strong>, producing one more unit of output requires less extra labour (and other variable inputs) → <strong>MC falls</strong>. When <strong>MP falls</strong> (diminishing returns), each extra unit of output requires more variable input → <strong>MC rises</strong>. So <strong>MC is inversely related to MP</strong>.</p>
-    <p>Когда MP растёт → MC падает. Когда MP падает (убывающая отдача) → MC растёт. <strong>MC обратно связан с MP</strong>.</p>
+    <h2>4. Закон убывающей отдачи / Law of diminishing returns</h2>
+    <div class="key-box">Если добавлять переменный фактор (L) к <strong>фиксированному</strong> K, рано или поздно <strong>MP<sub>L</sub> начнёт падать</strong>. Это главный закон Ch. 8 — только для <strong>краткосрочного</strong> периода.</div>
+
+    <p>Сначала MP может <strong>расти</strong> (специализация, L=1→2 в таблице). Потом — убывание. При L=6 MP &lt; 0 → TP падает.</p>
 
     <div class="graph-box">
-        <pre>MP (labour)                    MC (cost)
-  |    /\                        |        /
-  |   /  \                       |       /
-  |  /    \___                   |      /
-  | /                           |     /
-  |/                            |____/
-  0+----+----+----+ L            0+----+----+----+ Q
-  When MP rises → MC falls. When MP falls → MC rises.</pre>
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="TP curve">
+            <line x1="55" y1="25" x2="55" y2="270" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="270" x2="440" y2="270" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="13">Q (TP)</text>
+            <text x="420" y="288" font-size="13">L</text>
+            <path d="M 70 250 Q 180 80 280 120 T 400 200" stroke="#9b59b6" stroke-width="2.5" fill="none"/>
+            <circle cx="280" cy="120" r="6" fill="#e74c3c"/>
+            <text x="288" y="115" font-size="11" fill="#e74c3c">max TP</text>
+            <text x="288" y="130" font-size="10" fill="#666">MP=0</text>
+            <text x="120" y="100" font-size="10" fill="#666">MP max (перегиб TP)</text>
+            <text x="350" y="220" font-size="10" fill="#c0392b">MP&lt;0 → TP↓</text>
+        </svg>
+        <p class="fig-caption"><strong>TP (совокупный продукт):</strong> растёт, пока MP &gt; 0; максимум TP, когда MP = 0; дальше TP падает при MP &lt; 0.</p>
     </div>
 
-    <p>See also: <a href="Production_Cost_Short_Run_Explanation.html">Production & Cost (Short Run)</a> for TC, VC, MC, ATC, AVC and full cost curves.</p>
-    <p><em>См. также: Производство и издержки (краткосрочный период) — TC, VC, MC, ATC, AVC.</em></p>
+    <hr>
+
+    <h2>5. Связь MP и AP — правило для экзамена <span class="book-ref">Ch. 8</span></h2>
+    <ul>
+        <li>Пока <strong>MP &gt; AP</strong> → AP <strong>растёт</strong></li>
+        <li>Когда <strong>MP &lt; AP</strong> → AP <strong>падает</strong></li>
+        <li>⇒ <strong>MP пересекает AP в максимуме AP</strong></li>
+        <li><strong>TP максимален</strong>, когда <strong>MP = 0</strong></li>
+    </ul>
+
+    <div class="story">Аналогия Frank — средний балл класса = 7. Новый ученик: оценка 9 → средний растёт; оценка 5 → падает; оценка 7 → средний на пике. Новый ученик = MP, класс = AP. Та же арифметика, что у MC и ATC в Ch. 9.</div>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" aria-label="MP and AP">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="440" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="13">MP, AP</text>
+            <text x="420" y="268" font-size="13">L</text>
+            <path d="M 70 230 Q 200 60 340 175" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <path d="M 70 225 Q 240 100 400 165" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <circle cx="240" cy="108" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+            <text x="248" y="103" font-size="11" fill="#e74c3c">max AP</text>
+            <text x="100" y="75" fill="#2980b9" font-size="12" font-weight="600">MP<sub>L</sub></text>
+            <text x="320" y="140" fill="#27ae60" font-size="12" font-weight="600">AP<sub>L</sub></text>
+            <line x1="55" y1="108" x2="240" y2="108" stroke="#999" stroke-dasharray="3,3"/>
+        </svg>
+        <p class="fig-caption">MP<sub>L</sub> пересекает AP<sub>L</sub> снизу в точке максимума AP. MP сначала может расти, затем падает (diminishing returns).</p>
+    </div>
+
+    <h3>Три стадии производства</h3>
+    <table>
+        <tr><th>Стадия</th><th>Условие</th><th>Смысл</th></tr>
+        <tr><td><strong>I</strong></td><td>MP &gt; AP, AP растёт</td><td>Специализация, недогрузка K</td></tr>
+        <tr><td><strong>II</strong></td><td>MP &lt; AP, но MP &gt; 0</td><td><strong>Рациональная зона</strong> — Q ещё растёт, но всё медленнее</td></tr>
+        <tr><td><strong>III</strong></td><td>MP &lt; 0</td><td>Лишний L <strong>снижает</strong> Q — неэффективно</td></tr>
+    </table>
+    <p>Фирма обычно работает в <strong>Стадии II</strong>: ещё один рабочий добавляет выпуск (MP &gt; 0), но меньше среднего (MP &lt; AP).</p>
+
+    <hr>
+
+    <h2>6. Зеркало: MP и MC <span class="book-ref">Ch. 8–9</span></h2>
+    <p>Производство и издержки — <strong>две стороны одной медали</strong>. Чтобы произвести +1 ед. Q, нужно больше переменного фактора (труд). Если MP падает — на каждую дополнительную единицу Q нужно <strong>больше</strong> труда → MC растёт.</p>
+
+    <div class="formula-box">
+        <p><strong>MC = w / MP<sub>L</sub></strong> &nbsp; (w = заработная плата за единицу труда)</p>
+        <p><strong>AVC = w / AP<sub>L</sub></strong></p>
+        <p>MP ↑ → MC ↓ · MP ↓ (diminishing returns) → MC ↑ → U-shape AVC и ATC</p>
+    </div>
+    <p class="en">Marginal cost is inversely related to marginal product. That's why MC curves are U-shaped when MP eventually falls.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" aria-label="MP and MC mirror">
+            <text x="60" y="22" font-size="13" font-weight="600">Production (Ch. 8)</text>
+            <line x1="40" y1="220" x2="220" y2="220" stroke="#333" stroke-width="1.5"/>
+            <line x1="40" y1="220" x2="40" y2="40" stroke="#333" stroke-width="1.5"/>
+            <path d="M 50 200 Q 130 70 200 130" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="130" y="65" fill="#2980b9" font-size="11">MP<sub>L</sub> ↑ then ↓</text>
+            <text x="15" y="45" font-size="11">MP</text>
+            <text x="200" y="238" font-size="11">L</text>
+            <text x="280" y="22" font-size="13" font-weight="600">Costs (Ch. 9)</text>
+            <line x1="260" y1="220" x2="460" y2="220" stroke="#333" stroke-width="1.5"/>
+            <line x1="260" y1="220" x2="260" y2="40" stroke="#333" stroke-width="1.5"/>
+            <path d="M 270 130 Q 350 200 440 90" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="350" y="175" fill="#e74c3c" font-size="11">MC ↓ then ↑</text>
+            <text x="235" y="45" font-size="11">MC</text>
+            <text x="440" y="238" font-size="11">Q</text>
+            <text x="130" y="250" font-size="10" fill="#666" text-anchor="middle">MP падает → MC растёт</text>
+        </svg>
+        <p class="fig-caption">Зеркало Frank: убывающий MP<sub>L</sub> (diminishing returns) → растущий MC. Подробнее — <a href="Production_Cost_Short_Run_Explanation.html">Production &amp; Cost (SR)</a>.</p>
+    </div>
+
+    <hr>
+
+    <h2>7. Долгосрочная производственная функция <span class="book-ref">Ch. 9</span></h2>
+    <p>Когда <strong>оба</strong> фактора переменны: <strong>Q = f(L, K)</strong>. Тот же выпуск Q можно получить разными комбинациями (L, K) — это <strong>изокванты</strong>.</p>
+
+    <div class="story">Пекарня Frank: 100 пирогов/день можно выпечь как <strong>10 пекарей + 2 печи</strong>, или <strong>3 пекаря + 5 печей</strong> — обе точки на одной изокванте Q = 100.</div>
+
+    <p>Оптимум в LR: касание изокванты и самой низкой изокосты → <strong>MRTS = w/r</strong> = MP<sub>L</sub>/MP<sub>K</sub>. Подробно: <a href="Cost_Long_Run_Explanation.html">Cost Long Run — isoquants &amp; isocosts</a>.</p>
+
+    <div class="key-box">
+        <strong>SR (Ch. 8):</strong> Q = f(L, K̄) · TP, MP<sub>L</sub>, AP<sub>L</sub> · diminishing returns · MP crosses AP at max AP · TP max when MP=0.<br>
+        <strong>Mirror:</strong> MC = w/MP<sub>L</sub> · MC crosses AVC/ATC at minima (Ch. 9).<br>
+        <strong>LR (Ch. 9):</strong> Q = f(L,K) · isoquants · returns to scale — <a href="Exam_Prep_Guide.html#t1">Exam #1</a>.
+    </div>
+
+    <p>See also: <a href="Production_Cost_Short_Run_Explanation.html">Production &amp; Cost (Short Run)</a> · <a href="Cost_Long_Run_Explanation.html">Cost Long Run</a> · <a href="PPF_Explanation.html">PPF</a> (scarcity at economy level) · <a href="Exam_Prep_Guide.html#t1">Returns to scale</a></p>
 </body>
 </html>

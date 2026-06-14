@@ -113,6 +113,63 @@
 
     <hr>
 
+    <h2>Numerical Example — Find Y* and i* / Числовой пример</h2>
+    <p><strong>Exam Prep #26.</strong> Typical problem: you are given <strong>C, I, G</strong> (goods market) and <strong>M, L</strong> (money market). Solve <strong>two equations, two unknowns</strong> (Y and i).</p>
+
+    <h3>Given data</h3>
+    <div class="formula-box">
+        <p><strong>C = 50 + 0.75Y</strong> &nbsp;·&nbsp; <strong>I = 200 − 20i</strong> &nbsp;·&nbsp; <strong>G = 50</strong></p>
+        <p><strong>M = 200</strong> (money supply) &nbsp;·&nbsp; <strong>L = 0.25Y − 5i</strong> (money demand)</p>
+        <p><em>i</em> = interest rate (e.g. %). Closed economy, no taxes in this simplified setup.</p>
+    </div>
+
+    <h3>Step 1 — Derive the IS curve (goods market: Y = Z)</h3>
+    <pre>Y = C + I + G
+Y = 50 + 0.75Y + 200 − 20i + 50
+Y − 0.75Y = 300 − 20i
+0.25Y = 300 − 20i
+
+<strong>IS:  Y = 1 200 − 80i</strong>   (or:  0.25Y + 20i = 300)</pre>
+
+    <h3>Step 2 — Write the LM curve (money market: M = L)</h3>
+    <pre>200 = 0.25Y − 5i
+
+<strong>LM:  0.25Y − 5i = 200</strong>   (or:  Y = 800 + 20i)</pre>
+
+    <h3>Step 3 — Solve simultaneously</h3>
+    <pre>Substitute IS into LM:
+200 = 0.25(1 200 − 80i) − 5i
+200 = 300 − 20i − 5i
+200 = 300 − 25i
+25i = 100
+
+<strong>i* = 4</strong>
+
+Y* = 1 200 − 80(4) = 1 200 − 320
+
+<strong>Y* = 880</strong></pre>
+
+    <p><strong>Check LM:</strong> 0.25(880) − 5(4) = 220 − 20 = 200 ✓</p>
+
+    <h3>Shortcut if IS is already given as one line</h3>
+    <p>Sometimes the exam gives <strong>Y = 500 + 0.5Y − 10i</strong> directly (already simplified). Then:</p>
+    <pre>0.5Y = 500 − 10i  →  Y = 1 000 − 20i   (same IS, rescaled)
+
+With LM: 200 = 0.25Y − 5i  →  i* = 5, Y* = 900</pre>
+    <p>Always <strong>rearrange to Y = …</strong> or <strong>…Y + …i = constant</strong> before substituting.</p>
+
+    <h3>What if central bank <em>sells</em> bonds? (M↓)</h3>
+    <p>CB sells bonds → banks pay CB → <strong>M falls</strong> → <strong>LM shifts left</strong> → at old Y, money demand &gt; supply → <strong>i↑</strong> → <strong>I↓</strong> → move up along IS → <strong>Y↓</strong>.</p>
+    <p>Example: M drops from 200 to <strong>150</strong> (same IS):</p>
+    <pre>150 = 0.25(1 200 − 80i) − 5i
+150 = 300 − 25i
+25i = 150  →  <strong>i* = 6</strong>  (↑ from 4)
+Y* = 1 200 − 80(6) = <strong>720</strong>  (↓ from 880)</pre>
+
+    <p>See also: <a href="Consumption_Function_Explanation.html">Consumption Function</a> · <a href="Fiscal_Monetary_Policy_Explanation.html">Monetary Policy (#25)</a> · <a href="Exam_Prep_Guide.html#t26">Exam Prep #26</a></p>
+
+    <hr>
+
     <h2>Policy Effects / Эффекты политики</h2>
     <table>
         <tr><th>Policy / Политика</th><th>Effect / Эффект</th></tr>
