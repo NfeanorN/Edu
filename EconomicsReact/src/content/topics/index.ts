@@ -15,7 +15,9 @@ import { marketPower } from './market-power'
 import { gameTheory } from './game-theory'
 import { priceDiscrimination } from './price-discrimination'
 import { externalities } from './externalities'
+import { examMacroKeyQuestions } from './exam-macro-key-questions'
 import { gdpMacro } from './gdp-macro'
+import { consumptionFunction } from './consumption-function'
 import { goodsMarketMultiplier } from './goods-market-multiplier'
 import { okunPhillips } from './okun-phillips'
 import { isLm } from './is-lm'
@@ -40,7 +42,9 @@ const map: Record<string, TopicContent> = {
   'game-theory': gameTheory,
   'price-discrimination': priceDiscrimination,
   'externalities': externalities,
+  'exam-macro-key-questions': examMacroKeyQuestions,
   'gdp-macro': gdpMacro,
+  'consumption-function': consumptionFunction,
   'goods-market-multiplier': goodsMarketMultiplier,
   'okun-phillips': okunPhillips,
   'is-lm': isLm,

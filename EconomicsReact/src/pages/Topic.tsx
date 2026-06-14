@@ -17,7 +17,7 @@ export default function Topic(): JSX.Element {
     )
   }
 
-  const variant = slug === 'demand' || slug === 'rational-choice' || slug === 'gdp-macro' || slug === 'is-lm' || slug === 'goods-market-multiplier' ? 'blue' : 'green'
+  const variant = slug === 'demand' || slug === 'rational-choice' || slug === 'gdp-macro' || slug === 'is-lm' || slug === 'goods-market-multiplier' || slug === 'consumption-function' || slug === 'exam-macro-key-questions' ? 'blue' : 'green'
 
   return (
     <TopicLayout title={topic.title} variant={variant}>

@@ -62,8 +62,8 @@ export const TOPICS: Topic[] = [
   {
     slug: 'rational-choice',
     file: 'Rational_Choice_Explanation.html',
-    title: 'Rational Choice Theory — Теория рационального выбора',
-    desc: 'Utility, indifference curves, consumer equilibrium. Полезность, равновесие.',
+    title: 'Rational Choice — Рациональный выбор (Frank, Ch. 1 & 3)',
+    desc: 'Utility, IC, MRS = P_x/P_y; C₁ vs C₂, MRS = 1+r, saver/borrower. Полезность, равновесие, межвременный оптимум.',
     section: 'micro',
   },
   {
@@ -124,6 +124,13 @@ export const TOPICS: Topic[] = [
   },
   // Part II — Macroeconomics
   {
+    slug: 'exam-macro-key-questions',
+    file: 'Exam_Macro_Key_Questions.html',
+    title: 'Exam Q&A — Consumption, CB, IS-LM',
+    desc: 'C at Y=0, YED, CB bond sales, post-recession, IS-LM Y* and i*.',
+    section: 'macro',
+  },
+  {
     slug: 'gdp-macro',
     file: 'GDP_Macro_Explanation.html',
     title: 'GDP & Macro Variables — ВВП и макроэкономические переменные',
@@ -131,16 +138,23 @@ export const TOPICS: Topic[] = [
     section: 'macro',
   },
   {
+    slug: 'consumption-function',
+    file: 'Consumption_Function_Explanation.html',
+    title: 'Consumption Function — Функция потребления',
+    desc: 'Exam #11, #30: C = c₀ + c₁Y, MPC/MPS, slope vs budget line, shifts.',
+    section: 'macro',
+  },
+  {
     slug: 'goods-market-multiplier',
     file: 'Goods_Market_Multiplier_Explanation.html',
     title: 'Goods Market & Multiplier — Рынок товаров и мультипликатор',
-    desc: 'Consumption function, spending multiplier, paradox of thrift.',
+    desc: 'Equilibrium Y=Z, spending multiplier, paradox of thrift.',
     section: 'macro',
   },
   {
     slug: 'okun-phillips',
     file: 'Okun_Phillips_Explanation.html',
-    title: "Okun's Law & Phillips Curve — Закон Оукена и кривая Филлипса",
+    title: "Phillips Curve — Кривая Филлипса (Exam Topic 31)",
     desc: 'GDP–unemployment, inflation–unemployment trade-off.',
     section: 'macro',
   },

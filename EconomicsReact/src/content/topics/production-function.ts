@@ -1,44 +1,48 @@
 import type { TopicContent } from '../../components/TopicContent'
 
 export const productionFunction: TopicContent = [
+  { type: 'p', en: 'Source: Frank, Microeconomics and Behavior, 7th ed., Ch. 8 (Production). Kitchen example, diminishing returns, MP–AP rules, MC = w/MP.', ru: 'Источник: Frank, Ch. 8. Пример кухни, убывающая отдача, правила MP/AP, MC = w/MP.' },
   { type: 'h2', en: 'What is a Production Function?', ru: 'Что такое производственная функция?' },
-  { type: 'p', en: 'A production function shows the maximum output (Q) that can be produced from given amounts of inputs (labour L, capital K) with a given technology. It describes the technical relationship between inputs and output.', ru: 'Производственная функция показывает максимальный выпуск (Q) при заданных объёмах факторов (труд L, капитал K) и данной технологии.' },
-  { type: 'formula', lines: ['Q = F(L, K, …)', 'Q = output, L = labour, K = capital, F = technology'] },
-  { type: 'p', en: 'Example: 2 workers + 1 machine → 10 units/day. 4 workers + 1 machine → 18 units/day. Here K is fixed (short run); only L changes.', ru: 'Пример: 2 работника + 1 станок → 10 ед. 4 работника + 1 станок → 18 ед. Капитал фиксирован.' },
+  { type: 'p', en: 'Maximum output Q from inputs L and K with given technology. Short run: Q = f(L, K̄) with K fixed.', ru: 'Максимальный выпуск Q при заданных L, K и технологии. Краткосрочно: Q = f(L, K̄), K фиксирован.' },
+  { type: 'formula', lines: ['Q = F(L, K, …)', 'SR: TP = Q = f(L, K̄)'] },
+  { type: 'p', en: 'Do not confuse: diminishing returns (SR, +L with fixed K) vs returns to scale (LR, scale both L and K).', ru: 'Не путать: убывающая отдача (SR) и масштаб возврата (LR).' },
   { type: 'hr' },
-  { type: 'h2', en: 'Total Product (TP), Average Product (AP), Marginal Product (MP)', ru: 'Совокупный, средний и предельный продукт' },
+  { type: 'h2', en: 'TP, MP, AP', ru: 'TP, MP, AP' },
   { type: 'table', headers: ['Term', 'Formula', 'Meaning'], rows: [
-    ['Total Product (TP)', 'Q = F(L, K)', 'Total output'],
-    ['Average Product (AP)', 'AP = Q / L', 'Output per unit of labour'],
-    ['Marginal Product (MP)', 'MP = ΔQ / ΔL', 'Extra output from one more unit of labour'],
+    ['Total Product (TP)', 'Q = f(L, K̄)', 'Total output'],
+    ['Marginal Product (MP)', 'MP = ΔQ / ΔL', 'Extra output from one more worker'],
+    ['Average Product (AP)', 'AP = Q / L', 'Output per worker'],
   ]},
-  { type: 'p', en: 'MP = extra output from one more worker. AP = average output per worker. When MP > AP → AP rises; when MP < AP → AP falls. MP crosses AP at max AP.', ru: 'MP — прирост выпуска от ещё одного работника. AP — средний выпуск на работника. MP пересекает AP в максимуме AP.' },
+  { type: 'p', en: 'Frank: 5 workers → 50 parts; 6 workers → 56 parts. MP of 6th = 6. AP at L=6: 56/6 ≈ 9.3.', ru: 'Frank: 5 рабочих → 50 деталей; 6 → 56. MP 6-го = 6. AP при L=6 ≈ 9,3.' },
   { type: 'hr' },
-  { type: 'h2', en: 'Graphs: TP, AP, and MP', ru: 'Графики TP, AP и MP' },
-  { type: 'graph', ascii: `Output (Q)          MP, AP
-  |                    |
-  |      TP            |    MP
-  |     /              |   /\\
-  |    /               |  /  \\
-  |   /    inflection   | /    \\___
-  |  /    /            |/          AP
-  | /    /             |     /
-  |/    /              |    /
-  0+----+----+---- L   0+----+----+---- L
-         ↑                    ↑
-    MP maximum           MP = AP (max AP)` },
+  { type: 'h2', en: 'Frank kitchen example (fixed K)', ru: 'Пример Frank — кухня (K фиксирован)' },
+  { type: 'table', headers: ['L', 'Q', 'MP', 'AP'], rows: [
+    ['1', '10', '10', '10.0'],
+    ['2', '25', '15', '12.5'],
+    ['3', '35', '10', '11.7'],
+    ['4', '40', '5', '10.0'],
+    ['5', '41', '1', '8.2'],
+    ['6', '38', '−3', '6.3'],
+  ]},
+  { type: 'p', en: 'Specialization at first (MP rises), then crowding (MP falls), then MP < 0 at L=6.', ru: 'Сначала специализация, потом теснота, при L=6 MP < 0 — TP падает.' },
   { type: 'hr' },
-  { type: 'h2', en: 'Law of Diminishing Returns', ru: 'Закон убывающей отдачи' },
-  { type: 'p', en: 'If one input (e.g. labour) is increased while another (e.g. capital) is fixed, the marginal product of the variable input will eventually decrease.', ru: 'При увеличении одного фактора при неизменном другом предельный продукт переменного фактора в итоге убывает.' },
+  { type: 'h2', en: 'Law of diminishing returns', ru: 'Закон убывающей отдачи' },
+  { type: 'p', en: 'Adding variable input L to fixed K → MP eventually falls. TP max when MP = 0.', ru: 'При фиксированном K MP в итоге падает. TP максимален, когда MP = 0.' },
   { type: 'hr' },
-  { type: 'h2', en: 'Three Stages of Production', ru: 'Три стадии производства' },
+  { type: 'h2', en: 'MP and AP rules', ru: 'Правила MP и AP' },
+  { type: 'p', en: 'MP > AP → AP rises. MP < AP → AP falls. MP crosses AP at max AP. Class-average analogy (Frank).', ru: 'MP > AP → AP растёт. MP < AP → AP падает. MP пересекает AP в максимуме AP.' },
+  { type: 'hr' },
+  { type: 'h2', en: 'Three stages of production', ru: 'Три стадии производства' },
   { type: 'table', headers: ['Stage', 'Condition', 'Description'], rows: [
-    ['Stage I', 'MP > AP, AP rising', 'Increasing returns'],
-    ['Stage II', 'MP < AP, MP > 0', 'Diminishing returns — rational zone'],
-    ['Stage III', 'MP < 0', 'Negative returns — irrational'],
+    ['I', 'MP > AP', 'Specialization, underused K'],
+    ['II', 'MP < AP, MP > 0', 'Rational zone — diminishing returns'],
+    ['III', 'MP < 0', 'Extra L reduces Q'],
   ]},
-  { type: 'p', en: 'Firms operate in Stage II. In Stage III, adding labour reduces total output (MP < 0).', ru: 'Рациональная зона — Стадия II. В Стадии III MP < 0 — добавление труда снижает выпуск.' },
   { type: 'hr' },
-  { type: 'h2', en: 'Link to Costs: MP and Marginal Cost (MC)', ru: 'Связь с издержками: MP и MC' },
-  { type: 'p', en: 'When MP rises → MC falls. When MP falls (diminishing returns) → MC rises. MC is inversely related to MP. See Production & Cost (Short Run) for full cost curves.', ru: 'Рост MP → падение MC. Падение MP → рост MC. MC обратно связан с MP.' },
+  { type: 'h2', en: 'Mirror: MP and MC', ru: 'Зеркало: MP и MC' },
+  { type: 'formula', lines: ['MC = w / MP_L', 'AVC = w / AP_L'] },
+  { type: 'p', en: 'Falling MP (diminishing returns) → rising MC. U-shaped AVC/ATC in Ch. 9.', ru: 'Падение MP → рост MC. U-образные AVC/ATC в Ch. 9.' },
+  { type: 'hr' },
+  { type: 'h2', en: 'Long run (Ch. 9)', ru: 'Долгосрочный период (Ch. 9)' },
+  { type: 'p', en: 'Q = f(L, K), isoquants, MRTS = w/r. Bakery: 100 pies with 10 bakers + 2 ovens or 3 bakers + 5 ovens.', ru: 'Q = f(L, K), изокванты, MRTS = w/r. Пекарня: 100 пирогов разными комбинациями L и K.' },
 ]
