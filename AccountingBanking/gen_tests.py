@@ -17,8 +17,34 @@ def build_template():
     end = t.index('"""', start)
     body = t[start:end]
     body = body.replace("#7b4397", ACCENT).replace("#6a3784", "#138d75").replace(
-        "← К тестам HRM", "← К тестам Accounting & Banking"
+        "← К тестам HRM", "← Back to tests / К списку тестов"
     ).replace("f3f0f7", "#eef9f6").replace("f8f5fc", "#eefaf7").replace("##eef9f6", "#eef9f6")
+    body = body.replace('<html lang="ru">', '<html lang="en">')
+    # EN first (primary), RU second (translation) — titles stay: h1=title_ru (short EN), sub=title_en
+    body = body.replace(
+        ".q-ru {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}\n"
+        "    .q-en {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}",
+        ".q-en {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}\n"
+        "    .q-ru {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}",
+    )
+    body = body.replace(
+        ".opt-ru {{ font-size: 0.95rem; }}\n    .opt-en {{ font-size: 0.82rem; color: #777; }}",
+        ".opt-en {{ font-size: 0.95rem; }}\n    .opt-ru {{ font-size: 0.82rem; color: #777; }}",
+    )
+    body = body.replace(
+        "          <div class=\"q-ru\">${{q.ru}}</div>\n          <div class=\"q-en\">${{q.en}}</div>",
+        "          <div class=\"q-en\">${{q.en}}</div>\n          <div class=\"q-ru\">${{q.ru}}</div>",
+    )
+    body = body.replace(
+        "                  <div class=\"opt-ru\"><strong>${{o.id.toUpperCase()}})</strong> ${{o.ru}}</div>\n"
+        "                  <div class=\"opt-en\">${{o.en}}</div>",
+        "                  <div class=\"opt-en\"><strong>${{o.id.toUpperCase()}})</strong> ${{o.en}}</div>\n"
+        "                  <div class=\"opt-ru\">${{o.ru}}</div>",
+    )
+    body = body.replace(
+        "          <div class=\"q-ru\">${{item.ru}}</div>\n          <div class=\"q-en\">${{item.en}}</div>",
+        "          <div class=\"q-en\">${{item.en}}</div>\n          <div class=\"q-ru\">${{item.ru}}</div>",
+    )
     body = body.replace(
         "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}",
         "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}\n"
@@ -57,6 +83,14 @@ def build_template():
         "'</mark>. Правильный: <mark class=\"correct-mark\">' + q.correct.toUpperCase() + '</mark>' +\n"
         "            (q.explain_ru ? '<div class=\"explain\">' + q.explain_ru + '</div>' : '');",
     )
+    body = body.replace(
+        "h.textContent = 'Открытые вопросы';",
+        "h.textContent = 'Open questions / Открытые вопросы';",
+    )
+    body = body.replace(
+        "h.textContent = 'SNA — расчёты';",
+        "h.textContent = 'SNA calculations / SNA — расчёты';",
+    )
     return body
 
 
@@ -64,11 +98,11 @@ TEMPLATE = build_template()
 
 
 HOWTO_HTML = """<!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Как решать задачи — Accounting &amp; Banking</title>
+  <title>How to Solve Problems — Accounting &amp; Banking</title>
   <style>
     * {{ box-sizing: border-box; }}
     body {{
@@ -101,9 +135,9 @@ HOWTO_HTML = """<!doctype html>
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← К списку тестов</a></p>
-    <h1>Как решать задачи</h1>
-    <p class="sub">Accounting &amp; Banking for SMEs — пошаговые методы для расчётных и практических заданий экзамена.</p>
+    <p class="back"><a href="index.html">← Back to tests / К списку тестов</a></p>
+    <h1>How to Solve Problems</h1>
+    <p class="sub">Как решать задачи — Accounting &amp; Banking for SMEs, step-by-step methods for exam calculations.</p>
 
     <div class="card">
       <h2>1. ROE банка</h2>
@@ -225,7 +259,7 @@ NBV = Carrying value − Depreciation</pre>
 """
 
 INDEX = """<!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -270,21 +304,21 @@ INDEX = """<!doctype html>
 <body>
   <div class="wrap">
     <h1>Accounting &amp; Banking for SMEs</h1>
-    <p class="sub">Учёт и банковское дело для МСП — экзамены 2024–2026. RU + EN, проверка ответов.</p>
+    <p class="sub">Accounting &amp; Banking for SMEs — exams 2024–2026. EN + RU, answer checking. · Учёт и банковское дело для МСП.</p>
     <ul class="topics">
-      <li><a href="00_How_To_Solve.html"><span class="title">00 — Как решать задачи</span><span class="desc">ROE, gap, SoFP, таблицы, амортизация — пошагово</span></a></li>
+      <li><a href="00_How_To_Solve.html"><span class="title">00 — How to Solve Problems</span><span class="desc">ROE, gap, SoFP, tables, depreciation — step by step · Как решать задачи</span></a></li>
       <li><a href="01_Part1_Management_Accounting.html"><span class="title">01 — Part 1 (05/06/2024)</span><span class="desc">8 MCQ · management, break-even, DCF</span></a></li>
       <li><a href="06_Part1_IFRS_2025.html"><span class="title">06 — Part 1 IFRS (25/06/2025)</span><span class="desc">IAS 2, Framework, IFRS 15</span></a></li>
-      <li><a href="11_Part1_Financial_Statements.html"><span class="title">11 — Part 1: отчётность (Q1–4)</span><span class="desc">Cash flows, current ratio, IAS 7</span></a></li>
-      <li><a href="07_Part1_Management_Q5-8.html"><span class="title">07 — Management Q5–8</span><span class="desc">Функции менеджмента, direct costs</span></a></li>
-      <li><a href="02_Part2_Finance_Banking.html"><span class="title">02 — Part 2 (05/06/2024)</span><span class="desc">18 MCQ · банки, CAPM, EBU</span></a></li>
+      <li><a href="11_Part1_Financial_Statements.html"><span class="title">11 — Part 1: Financial Statements (Q1–4)</span><span class="desc">Cash flows, current ratio, IAS 7 · отчётность</span></a></li>
+      <li><a href="07_Part1_Management_Q5-8.html"><span class="title">07 — Management Q5–8</span><span class="desc">Management functions, direct costs · функции менеджмента</span></a></li>
+      <li><a href="02_Part2_Finance_Banking.html"><span class="title">02 — Part 2 (05/06/2024)</span><span class="desc">18 MCQ · banks, CAPM, EBU · банки</span></a></li>
       <li><a href="08_Part2_Exam_2026_Variant_B.html"><span class="title">08 — Part 2 (25/06/2026, Variant B)</span><span class="desc">18 MCQ · Basel I, IFRS 9, VaR</span></a></li>
       <li><a href="12_Part2_Exam_Variant_C.html"><span class="title">12 — Part 2 (Variant C, Q7–14)</span><span class="desc">DGS, IFRS 9 Stage 1, call option</span></a></li>
-      <li><a href="03_Part2_Calculations.html"><span class="title">03 — Расчёты Part 2</span><span class="desc">ROE, repricing gap, duration · 3 балла</span></a></li>
+      <li><a href="03_Part2_Calculations.html"><span class="title">03 — Part 2 Calculations</span><span class="desc">ROE, repricing gap, duration · 3 points · Расчёты</span></a></li>
       <li><a href="04_Sustainability.html"><span class="title">04 — Sustainability &amp; SROI</span><span class="desc">3 MCQ</span></a></li>
-      <li><a href="09_Statement_of_Financial_Position.html"><span class="title">09 — Statement of Financial Position</span><span class="desc">Uniclam Group Corp. · 2 варианта</span></a></li>
-      <li><a href="10_Depreciation.html"><span class="title">10 — Depreciation</span><span class="desc">Straight-line и reducing balance 15%</span></a></li>
-      <li><a href="05_Open_Questions.html"><span class="title">05 — Открытые вопросы</span><span class="desc">Посредники, баланс банка, DCF, EBU</span></a></li>
+      <li><a href="09_Statement_of_Financial_Position.html"><span class="title">09 — Statement of Financial Position</span><span class="desc">Uniclam Group Corp. · 2 variants</span></a></li>
+      <li><a href="10_Depreciation.html"><span class="title">10 — Depreciation</span><span class="desc">Straight-line and reducing balance 15% · амортизация</span></a></li>
+      <li><a href="05_Open_Questions.html"><span class="title">05 — Open Questions</span><span class="desc">Intermediaries, bank balance sheet, DCF, EBU · открытые вопросы</span></a></li>
     </ul>
   </div>
 </body>
@@ -867,7 +901,7 @@ def main():
            opt("d", "Equity ratio", "Показатель equity")], "a"),
     ]
 
-    guide_link = '<p class="sub"><a href="00_How_To_Solve.html">📘 Как решать задачи — пошаговые методы</a></p>'
+    guide_link = '<p class="sub"><a href="00_How_To_Solve.html">📘 How to Solve Problems — step-by-step methods · Как решать задачи</a></p>'
 
     sofp_extra = guide_link + """
     <div class="section-title">Эталон: Uniclam Group Corp.</div>
