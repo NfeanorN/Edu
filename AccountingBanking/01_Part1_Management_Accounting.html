@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,7 +67,7 @@
   .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
     .opt-en { font-size: 0.95rem; }
-    .opt-ru { font-size: 0.82rem; color: #777; }
+    .opt-ru { font-size: 0.82rem; color: #777; font-style: italic; }
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -97,7 +97,7 @@
     .sample {
       margin-top: 0.75rem;
       padding: 0.75rem;
-      background: ##eefaf7;
+      background: #eefaf7;
       border-radius: 8px;
       border-left: 3px solid #16a085;
       font-size: 0.9rem;
@@ -159,7 +159,7 @@
     mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
     mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
     .howto {
-      margin-top: 0.75rem;
+      margin-top: 0.5rem;
       padding: 0.85rem 1rem;
       background: #eefaf7;
       border-radius: 8px;
@@ -168,11 +168,15 @@
       white-space: pre-wrap;
     }
     .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
+    .answer-label { font-weight: 600; color: #16a085; margin-top: 0.75rem; font-size: 0.9rem; }
+    .reveal-btn { margin-top: 0.6rem; font-size: 0.88rem; padding: 0.45rem 1rem; }
+    details.solution { margin-top: 0.75rem; font-size: 0.9rem; }
+    details.solution summary { cursor: pointer; color: #16a085; font-weight: 600; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← Back to tests / К списку тестов</a></p>
+    <p class="back"><a href="index.html">← К тестам Accounting & Banking</a></p>
     <h1>Part 1 — Management & Accounting</h1>
     <p class="sub">Accounting and Banking for SMEs — Part 1 (05/06/2024)</p>
     <div class="rules">+1 за верный, −1 за неверный, за пропуск — 0.</div>
@@ -215,7 +219,7 @@
         card.className = 'q';
         card.dataset.id = q.id;
         card.innerHTML = `
-          <div class="q-num">Вопрос ${q.num}</div>
+          <div class="q-num">Question ${q.num}</div>
           <div class="q-en">${q.en}</div>
           <div class="q-ru">${q.ru}</div>
           <div class="opts">
@@ -228,6 +232,7 @@
                 </span>
               </label>`).join('')}
           </div>
+          ${q.explain_ru ? `<details class="solution"><summary>📗 Решение</summary><div class="howto">${q.explain_ru}</div></details>` : ''}
           <div class="feedback" hidden></div>`;
         container.appendChild(card);
       });
@@ -235,23 +240,57 @@
 
     function renderOpen() {
       if (!OPEN_ITEMS.length) return;
-      const h = document.createElement('div');
-      h.className = 'section-title';
-      h.textContent = 'Open questions / Открытые вопросы';
-      container.appendChild(h);
+      let openSection = '';
       OPEN_ITEMS.forEach((item, idx) => {
+        const sec = item.section || (item.howto_ru ? 'Практические задачи' : 'Теория — краткие ответы');
+        if (sec !== openSection) {
+          openSection = sec;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = sec;
+          container.appendChild(h);
+        }
         const block = document.createElement('div');
         block.className = 'open-block';
+        const isExercise = !!item.howto_ru;
         block.innerHTML = `
           <div class="q-num">${item.title_ru}</div>
           <div class="q-en">${item.en}</div>
           <div class="q-ru">${item.ru}</div>
-          <textarea name="open_${idx}" placeholder="Ваш ответ..."></textarea>
-          <div class="howto" hidden></div><div class="sample" hidden></div>`;
-        block.querySelector('.sample').textContent = item.sample_ru || '';
-        const howtoEl = block.querySelector('.howto');
-        if (item.howto_ru) howtoEl.textContent = item.howto_ru;
-        else howtoEl.remove();
+          <textarea name="open_${idx}" placeholder="Your answer..."></textarea>`;
+        if (isExercise) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'reveal-btn secondary';
+          btn.textContent = 'Показать решение';
+          const answerBlock = document.createElement('div');
+          answerBlock.className = 'answer-block';
+          answerBlock.hidden = true;
+          answerBlock.innerHTML = '<div class="answer-label">Решение (пошагово)</div><div class="howto"></div>';
+          answerBlock.querySelector('.howto').textContent = item.howto_ru;
+          if (item.sample_ru) {
+            const lbl = document.createElement('div');
+            lbl.className = 'answer-label';
+            lbl.textContent = 'Итог';
+            const sample = document.createElement('div');
+            sample.className = 'howto';
+            sample.textContent = item.sample_ru;
+            answerBlock.appendChild(lbl);
+            answerBlock.appendChild(sample);
+          }
+          btn.addEventListener('click', () => {
+            answerBlock.hidden = false;
+            btn.hidden = true;
+          });
+          block.appendChild(btn);
+          block.appendChild(answerBlock);
+        } else {
+          const answerBlock = document.createElement('div');
+          answerBlock.className = 'answer-block';
+          answerBlock.innerHTML = '<div class="answer-label">Краткий ответ</div><div class="howto brief"></div>';
+          answerBlock.querySelector('.howto').textContent = item.sample_ru || '';
+          block.appendChild(answerBlock);
+        }
         container.appendChild(block);
       });
     }
@@ -260,7 +299,7 @@
       if (!SNA_ITEMS.length) return;
       const h = document.createElement('div');
       h.className = 'section-title';
-      h.textContent = 'SNA calculations / SNA — расчёты';
+      h.textContent = 'SNA — расчёты';
       container.appendChild(h);
       SNA_ITEMS.forEach((item, idx) => {
         const block = document.createElement('div');
@@ -268,7 +307,7 @@
         block.innerHTML = `
           <div class="q-en">${item.en}</div>
           <div class="q-ru">${item.ru}</div>
-          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
           <div class="feedback" hidden></div>`;
         block.dataset.expected = item.expected;
         block.dataset.accept = JSON.stringify(item.accept || []);
@@ -348,7 +387,7 @@
           card.classList.add('wrong');
           fb.className = 'feedback bad';
           fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
-            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
             (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
         }
 
@@ -361,7 +400,7 @@
         });
       });
 
-      container.querySelectorAll('.open-block .sample, .open-block .howto').forEach(el => { el.hidden = false; });
+      container.querySelectorAll('.open-block .sample').forEach(el => { el.hidden = false; });
 
       container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
         const block = fb.closest('.open-block');

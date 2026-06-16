@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,7 +67,7 @@
   .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
     .opt-en { font-size: 0.95rem; }
-    .opt-ru { font-size: 0.82rem; color: #777; }
+    .opt-ru { font-size: 0.82rem; color: #777; font-style: italic; }
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -97,7 +97,7 @@
     .sample {
       margin-top: 0.75rem;
       padding: 0.75rem;
-      background: ##eefaf7;
+      background: #eefaf7;
       border-radius: 8px;
       border-left: 3px solid #16a085;
       font-size: 0.9rem;
@@ -159,7 +159,7 @@
     mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
     mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
     .howto {
-      margin-top: 0.75rem;
+      margin-top: 0.5rem;
       padding: 0.85rem 1rem;
       background: #eefaf7;
       border-radius: 8px;
@@ -168,14 +168,18 @@
       white-space: pre-wrap;
     }
     .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
+    .answer-label { font-weight: 600; color: #16a085; margin-top: 0.75rem; font-size: 0.9rem; }
+    .reveal-btn { margin-top: 0.6rem; font-size: 0.88rem; padding: 0.45rem 1rem; }
+    details.solution { margin-top: 0.75rem; font-size: 0.9rem; }
+    details.solution summary { cursor: pointer; color: #16a085; font-weight: 600; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← Back to tests / К списку тестов</a></p>
+    <p class="back"><a href="index.html">← К тестам Accounting & Banking</a></p>
     <h1>Open questions & exercises</h1>
-    <p class="sub">Open questions — sample answers after check</p>
-    
+    <p class="sub">Теория — краткие ответы сразу; задачи — кнопка «Показать решение»</p>
+    <p class="sub"><a href="00_How_To_Solve.html">📘 How to solve tasks — step-by-step guide</a></p><div class="rules">Теория: краткий ответ под вопросом. Задачи: нажмите «Показать решение» для пошагового разбора.</div>
     <form id="test-form">
       <div id="questions"></div>
       
@@ -193,7 +197,7 @@
   <script>
     const SCORING = {"correct": 1, "wrong": 0, "max": null};
     const QUESTIONS = [];
-    const OPEN_ITEMS = [{"title_ru": "Функции финансовой системы", "ru": "Explain the functions of the financial system", "en": "Explain the functions of the financial system", "sample_ru": "Посредничество, распределение рисков, трансформация сроков и объёмов, платёжная система, ценообразование информации, мобилизация сбережений."}, {"title_ru": "Теории существования финансовых посредников", "ru": "Explains the theories of the existence of financial intermediaries", "en": "Explains the theories of the existence of financial intermediaries", "sample_ru": "Снижение транзакционных издержек, диверсификация риска, асимметрия информации (adverse selection, moral hazard), трансформация сроков и объёмов, экспертиза."}, {"title_ru": "Баланс банка и индексы", "ru": "Talk about the balance sheets of banks and the most important indices", "en": "Talk about the balance sheets of banks and the most important indices", "sample_ru": "Активы: кредиты, ценные бумаги, резервы. Обязательства: депозиты, заимствования. Капитал. Индексы: ROE, ROA, NIM, CAR (Basel), LCR, NPL ratio."}, {"title_ru": "European Banking Union", "ru": "Highlight the main features of the European Banking Union", "en": "Highlight the main features of the European Banking Union", "sample_ru": "3 столпа: (1) единый надзор (SSM), (2) resolution и bail-in (SRM), (3) гарантии вкладов (EDIS)."}, {"title_ru": "Interest rate risk", "ru": "Talk about interest rate risk", "en": "Talk about interest rate risk", "sample_ru": "Риск изменения ставок → NII и стоимость активов/обязательств. Управление: repricing gap, duration, hedging."}, {"title_ru": "DCF model", "ru": "Explain the DCF model", "en": "Explain the DCF model", "sample_ru": "Прогноз FCF, дисконтирование (WACC / cost of equity через CAPM), terminal value."}, {"title_ru": "SoFP — вариант 1 (5 pts)", "ru": "Uniclam Group Corp. — построить Statement of Financial Position (меньшие суммы)", "en": "Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)", "howto_ru": "1) Разнести статьи: NCA (GW, intangibles, PPE), CA (inventory, receivables, cash), Equity, NCL (LT debt, deferred tax), CL (ST debt, payables, current tax).\n2) Сложить каждый блок.\n3) Проверить: Total Assets = Equity + NCL + CL.", "sample_ru": "Активы 204 850: NCA 124 950, CA 79 900.\nПассивы: Equity 66 300, NCL 87 550, CL 51 000."}, {"title_ru": "SoFP — вариант 2 (6 pts)", "ru": "Uniclam Group Corp. — SoFP (большие суммы)", "en": "Statement of Financial Position — larger figures version", "howto_ru": "Тот же алгоритм, что в варианте 1. Суммы больше, логика классификации та же.", "sample_ru": "Активы 615 550: NCA 375 850, CA 239 700.\nПассивы: Equity 198 900, NCL 262 650, CL 153 000."}, {"title_ru": "Exercise 2 — таблица (2024)", "ru": "Divisions A/B: revenue 108k/72k; indirect per direct labour; selling per revenue; electricity & financial per raw materials.", "en": "Division table — 2024 exam version.", "howto_ru": "Indirect: 3 600 × (direct_A / 36 000) → A=1 200, B=2 400.\nSelling: 12 000 × (rev_A / 180 000) → A=7 200, B=4 800.\nElectricity: 16 800 × (12/18) → A=11 200, B=5 600.\nFinancial: 24 000 × (12/18) → A=16 000, B=8 000.\nPre-tax = Revenue − все строки; Tax 30%; Net = Pre-tax − Tax.", "sample_ru": "Division A: Pre-tax 48 400 → Tax 14 520 → Net Income 33 880.\nDivision B: Pre-tax 21 200 → Tax 6 360 → Net Income 14 840."}, {"title_ru": "Exercise 2 — таблица (2025 tablet)", "ru": "Divisions: revenue 144k/120k; indirect/selling/adv/electricity/financial по правилам.", "en": "Division table — tablet version with advertising.", "howto_ru": "Indirect 8 400 по direct labour; Selling 24 000 и Advertising 25 000 по revenue; Electricity 22 400 и Financial 30 000 по raw materials (28k : 32k).", "sample_ru": "Division A: Pre-tax 46 020 → Tax 13 806 → Net 32 214.\nDivision B: Pre-tax 180 → Tax 54 → Net 126."}, {"title_ru": "Exercise 3 — production May", "ru": "Omega: production May? Sales May 90k, June 80k, 30% ending inventory.", "en": "Budgeted production for May.", "howto_ru": "Ending inv. = 0,3 × June sales.\nBeginning inv. = 0,3 × May sales.\nProduction = Sales + Ending − Beginning.", "sample_ru": "Production May = 90 000 + 24 000 − 27 000 = 87 000 units"}, {"title_ru": "Depreciation — straight-line", "ru": "Asset $160 000, life 6 years, residual $28 000 — build 6-year schedule (straight-line).", "en": "Straight-line depreciation schedule.", "howto_ru": "Annual dep = (160 000 − 28 000) / 6 = 22 000.\nКаждый год: Accum. += 22 000; NBV = 160 000 − Accum.\nГод 6: NBV = 28 000.", "sample_ru": "См. таблицу на странице 10 и в 00_How_To_Solve.html."}, {"title_ru": "Depreciation — reducing balance 15%", "ru": "Reducing balance 15% — 6-year schedule.", "en": "Reducing balance depreciation schedule.", "howto_ru": "Dep_year = Carrying × 15%; NBV = Carrying − Dep.\nСледующий год Carrying = предыдущий NBV.", "sample_ru": "Год 1: dep 24 000, NBV 136 000. Год 2: dep 20 400, NBV 115 600. …"}];
+    const OPEN_ITEMS = [{"title_ru": "Функции финансовой системы", "ru": "Explain the functions of the financial system", "en": "Explain the functions of the financial system", "sample_ru": "Мобилизация сбережений; кредитование; распределение рисков; трансформация сроков и объёмов; платёжная система; ценообразование информации."}, {"title_ru": "Теории существования финансовых посредников", "ru": "Explains the theories of the existence of financial intermediaries", "en": "Explains the theories of the existence of financial intermediaries", "sample_ru": "Снижение транзакционных издержек; диверсификация риска; асимметрия информации (adverse selection, moral hazard); трансформация сроков; экспертиза."}, {"title_ru": "Баланс банка и индексы", "ru": "Talk about the balance sheets of banks and the most important indices", "en": "Talk about the balance sheets of banks and the most important indices", "sample_ru": "Активы: кредиты, ценные бумаги, резервы. Пассивы: депозиты, заимствования. Капитал. Индексы: ROE, ROA, NIM, CAR, LCR, NPL."}, {"title_ru": "European Banking Union", "ru": "Highlight the main features of the European Banking Union", "en": "Highlight the main features of the European Banking Union", "sample_ru": "3 столпа: (1) единый надзор SSM, (2) resolution и bail-in (SRM), (3) гарантии вкладов (DGS/EDIS)."}, {"title_ru": "Interest rate risk", "ru": "Talk about interest rate risk", "en": "Talk about interest rate risk", "sample_ru": "Риск изменения ставок → влияет на NII и стоимость активов/обязательств. Управление: repricing gap, duration, hedging."}, {"title_ru": "DCF model", "ru": "Explain the DCF model", "en": "Explain the DCF model", "sample_ru": "Прогноз FCF → дисконтирование (WACC или Re через CAPM) → terminal value → firm/equity value."}, {"title_ru": "SoFP — вариант 1 (5 pts)", "ru": "Uniclam Group Corp. — построить Statement of Financial Position (меньшие суммы)", "en": "Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)", "howto_ru": "Шаг 1 — классификация по IFRS:\n  NCA: Goodwill 12 750 + Other intangible 8 500 + PPE 103 700\n  CA: Inventories 37 400 + Trade receivables 23 800 + Cash 18 700\n  Equity: Share capital 25 000 + Retained earnings 41 300\n  NCL: Long-term borrowings 75 000 + Deferred tax 12 550\n  CL: Short-term borrowings 20 000 + Trade payables 28 000 + Current tax 3 000\n\nШаг 2 — суммы:\n  NCA = 124 950 | CA = 79 900 | Total Assets = 204 850\n  Equity = 66 300 | NCL = 87 550 | CL = 51 000 | Total = 204 850 ✓", "sample_ru": "Активы 204 850 (NCA 124 950 + CA 79 900). Пассивы: Equity 66 300 + NCL 87 550 + CL 51 000."}, {"title_ru": "SoFP — вариант 2 (6 pts)", "ru": "Uniclam Group Corp. — SoFP (Exercise 1, 6 points)", "en": "Statement of Financial Position — exam version (larger figures)", "howto_ru": "Шаг 1 — классификация (данные с листа):\n  NCA: Goodwill 38 250 + Other intangible 25 500 + PPE 311 100\n  CA: Inventories 112 200 + Trade receivables 71 400 + Cash 56 100\n  Equity: Share capital 153 000 + Retained earnings 45 900\n  NCL: Long-term borrowings 229 500 + Deferred tax 33 150\n  CL: Short-term borrowings 53 550 + Trade payables 76 500 + Current tax 22 950\n\nШаг 2 — суммы:\n  NCA = 374 850 | CA = 239 700 | Total Assets = 614 550\n  Equity = 198 900 | NCL = 262 650 | CL = 153 000 | Total = 614 550 ✓", "sample_ru": "См. заполненную таблицу на странице 09 — Exercise 1 (6 pts)."}, {"title_ru": "Exercise 2 — таблица (2024)", "ru": "Divisions A/B: revenue 108k/72k; indirect per direct labour; selling per revenue; electricity & financial per raw materials.", "en": "Division table — 2024 exam version.", "howto_ru": "Правила распределения общих затрат:\n  Indirect labour → по direct labour (A:B = 12:24)\n  Selling → по revenue (A:B = 108:72)\n  Electricity, Financial → по raw materials (A:B = 12:6)\n\nDivision A:\n  Indirect = 3 600 × 12/36 = 1 200\n  Selling = 12 000 × 108/180 = 7 200\n  Electricity = 16 800 × 12/18 = 11 200\n  Financial = 24 000 × 12/18 = 16 000\n  Pre-tax = 108 000 − (12 000+1 200+7 200+11 200+16 000+...) = 48 400\n  Tax 30% = 14 520 → Net = 33 880\n\nDivision B: аналогично → Pre-tax 21 200 → Tax 6 360 → Net 14 840", "sample_ru": "A: Net Income 33 880. B: Net Income 14 840."}, {"title_ru": "Exercise 2 — таблица (2025 tablet)", "ru": "Divisions: revenue 144k/120k; indirect/selling/adv/electricity/financial по правилам.", "en": "Division table — tablet version with advertising.", "howto_ru": "Indirect 8 400 → по direct labour (28k:32k).\nSelling 24 000 и Advertising 25 000 → по revenue (144k:120k).\nElectricity 22 400 и Financial 30 000 → по raw materials (28k:32k).\n\nDivision A: Pre-tax = Revenue − все распределённые затраты = 46 020\n  Tax 30% = 13 806 → Net = 32 214\n\nDivision B: Pre-tax = 180 → Tax = 54 → Net = 126", "sample_ru": "A: Net 32 214. B: Net 126."}, {"title_ru": "Exercise 3 — production May", "ru": "Omega: production May? Sales May 90k, June 80k, 30% ending inventory.", "en": "Budgeted production for May.", "howto_ru": "Формула: Production = Sales + Ending inventory − Beginning inventory\nEnding inv. = 30% × продажи следующего месяца\nBeginning inv. = 30% × продажи текущего месяца\n\nMay:\n  Ending = 0,3 × 80 000 = 24 000\n  Beginning = 0,3 × 90 000 = 27 000\n  Production = 90 000 + 24 000 − 27 000 = 87 000 units", "sample_ru": "Production May = 87 000 units"}, {"title_ru": "Depreciation — straight-line", "ru": "Asset $160 000, life 6 years, residual $28 000 — build 6-year schedule (straight-line).", "en": "Straight-line depreciation schedule.", "howto_ru": "Annual dep = (Cost − Residual) / Life = (160 000 − 28 000) / 6 = 22 000 $/год\n\nКаждый год:\n  Dep. year = 22 000\n  Accum. dep. += 22 000\n  NBV = 160 000 − Accum. dep.\n\nГод 1: dep 22 000, accum 22 000, NBV 138 000\nГод 2: NBV 116 000 | Год 3: 94 000 | Год 4: 72 000 | Год 5: 50 000 | Год 6: 28 000", "sample_ru": "Год 6: NBV = 28 000 $ (остаточная стоимость). Полная таблица — на стр. 10."}, {"title_ru": "Depreciation — reducing balance 15%", "ru": "Reducing balance 15% — 6-year schedule.", "en": "Reducing balance depreciation schedule.", "howto_ru": "Dep_year = Carrying value × 15%\nNBV = Carrying − Dep\nСледующий год: Carrying = предыдущий NBV\n\nГод 1: 160 000 × 15% = 24 000 → NBV 136 000\nГод 2: 136 000 × 15% = 20 400 → NBV 115 600\nГод 3: 17 340 → NBV 98 260\nГод 4: 14 739 → NBV 83 521\nГод 5: 12 528 → NBV 70 993\nГод 6: 10 649 → NBV 60 344", "sample_ru": "Год 6: NBV 60 344 $ (не равно residual 28 000 без корректировки)."}];
     const SNA_ITEMS = [];
 
     const form = document.getElementById('test-form');
@@ -215,7 +219,7 @@
         card.className = 'q';
         card.dataset.id = q.id;
         card.innerHTML = `
-          <div class="q-num">Вопрос ${q.num}</div>
+          <div class="q-num">Question ${q.num}</div>
           <div class="q-en">${q.en}</div>
           <div class="q-ru">${q.ru}</div>
           <div class="opts">
@@ -228,6 +232,7 @@
                 </span>
               </label>`).join('')}
           </div>
+          ${q.explain_ru ? `<details class="solution"><summary>📗 Решение</summary><div class="howto">${q.explain_ru}</div></details>` : ''}
           <div class="feedback" hidden></div>`;
         container.appendChild(card);
       });
@@ -235,23 +240,57 @@
 
     function renderOpen() {
       if (!OPEN_ITEMS.length) return;
-      const h = document.createElement('div');
-      h.className = 'section-title';
-      h.textContent = 'Open questions / Открытые вопросы';
-      container.appendChild(h);
+      let openSection = '';
       OPEN_ITEMS.forEach((item, idx) => {
+        const sec = item.section || (item.howto_ru ? 'Практические задачи' : 'Теория — краткие ответы');
+        if (sec !== openSection) {
+          openSection = sec;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = sec;
+          container.appendChild(h);
+        }
         const block = document.createElement('div');
         block.className = 'open-block';
+        const isExercise = !!item.howto_ru;
         block.innerHTML = `
           <div class="q-num">${item.title_ru}</div>
           <div class="q-en">${item.en}</div>
           <div class="q-ru">${item.ru}</div>
-          <textarea name="open_${idx}" placeholder="Ваш ответ..."></textarea>
-          <div class="howto" hidden></div><div class="sample" hidden></div>`;
-        block.querySelector('.sample').textContent = item.sample_ru || '';
-        const howtoEl = block.querySelector('.howto');
-        if (item.howto_ru) howtoEl.textContent = item.howto_ru;
-        else howtoEl.remove();
+          <textarea name="open_${idx}" placeholder="Your answer..."></textarea>`;
+        if (isExercise) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'reveal-btn secondary';
+          btn.textContent = 'Показать решение';
+          const answerBlock = document.createElement('div');
+          answerBlock.className = 'answer-block';
+          answerBlock.hidden = true;
+          answerBlock.innerHTML = '<div class="answer-label">Решение (пошагово)</div><div class="howto"></div>';
+          answerBlock.querySelector('.howto').textContent = item.howto_ru;
+          if (item.sample_ru) {
+            const lbl = document.createElement('div');
+            lbl.className = 'answer-label';
+            lbl.textContent = 'Итог';
+            const sample = document.createElement('div');
+            sample.className = 'howto';
+            sample.textContent = item.sample_ru;
+            answerBlock.appendChild(lbl);
+            answerBlock.appendChild(sample);
+          }
+          btn.addEventListener('click', () => {
+            answerBlock.hidden = false;
+            btn.hidden = true;
+          });
+          block.appendChild(btn);
+          block.appendChild(answerBlock);
+        } else {
+          const answerBlock = document.createElement('div');
+          answerBlock.className = 'answer-block';
+          answerBlock.innerHTML = '<div class="answer-label">Краткий ответ</div><div class="howto brief"></div>';
+          answerBlock.querySelector('.howto').textContent = item.sample_ru || '';
+          block.appendChild(answerBlock);
+        }
         container.appendChild(block);
       });
     }
@@ -260,7 +299,7 @@
       if (!SNA_ITEMS.length) return;
       const h = document.createElement('div');
       h.className = 'section-title';
-      h.textContent = 'SNA calculations / SNA — расчёты';
+      h.textContent = 'SNA — расчёты';
       container.appendChild(h);
       SNA_ITEMS.forEach((item, idx) => {
         const block = document.createElement('div');
@@ -268,7 +307,7 @@
         block.innerHTML = `
           <div class="q-en">${item.en}</div>
           <div class="q-ru">${item.ru}</div>
-          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
           <div class="feedback" hidden></div>`;
         block.dataset.expected = item.expected;
         block.dataset.accept = JSON.stringify(item.accept || []);
@@ -348,7 +387,7 @@
           card.classList.add('wrong');
           fb.className = 'feedback bad';
           fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
-            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
             (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
         }
 
@@ -361,7 +400,7 @@
         });
       });
 
-      container.querySelectorAll('.open-block .sample, .open-block .howto').forEach(el => { el.hidden = false; });
+      container.querySelectorAll('.open-block .sample').forEach(el => { el.hidden = false; });
 
       container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
         const block = fb.closest('.open-block');

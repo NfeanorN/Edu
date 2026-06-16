@@ -17,39 +17,13 @@ def build_template():
     end = t.index('"""', start)
     body = t[start:end]
     body = body.replace("#7b4397", ACCENT).replace("#6a3784", "#138d75").replace(
-        "← К тестам HRM", "← Back to tests / К списку тестов"
-    ).replace("f3f0f7", "#eef9f6").replace("f8f5fc", "#eefaf7").replace("##eef9f6", "#eef9f6")
-    body = body.replace('<html lang="ru">', '<html lang="en">')
-    # EN first (primary), RU second (translation) — titles stay: h1=title_ru (short EN), sub=title_en
-    body = body.replace(
-        ".q-ru {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}\n"
-        "    .q-en {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}",
-        ".q-en {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}\n"
-        "    .q-ru {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}",
-    )
-    body = body.replace(
-        ".opt-ru {{ font-size: 0.95rem; }}\n    .opt-en {{ font-size: 0.82rem; color: #777; }}",
-        ".opt-en {{ font-size: 0.95rem; }}\n    .opt-ru {{ font-size: 0.82rem; color: #777; }}",
-    )
-    body = body.replace(
-        "          <div class=\"q-ru\">${{q.ru}}</div>\n          <div class=\"q-en\">${{q.en}}</div>",
-        "          <div class=\"q-en\">${{q.en}}</div>\n          <div class=\"q-ru\">${{q.ru}}</div>",
-    )
-    body = body.replace(
-        "                  <div class=\"opt-ru\"><strong>${{o.id.toUpperCase()}})</strong> ${{o.ru}}</div>\n"
-        "                  <div class=\"opt-en\">${{o.en}}</div>",
-        "                  <div class=\"opt-en\"><strong>${{o.id.toUpperCase()}})</strong> ${{o.en}}</div>\n"
-        "                  <div class=\"opt-ru\">${{o.ru}}</div>",
-    )
-    body = body.replace(
-        "          <div class=\"q-ru\">${{item.ru}}</div>\n          <div class=\"q-en\">${{item.en}}</div>",
-        "          <div class=\"q-en\">${{item.en}}</div>\n          <div class=\"q-ru\">${{item.ru}}</div>",
-    )
+        "← К тестам HRM", "← К тестам Accounting & Banking"
+    ).replace("#f3f0f7", "#eef9f6").replace("#f8f5fc", "#eefaf7")
     body = body.replace(
         "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}",
         "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}\n"
         "    .howto {{\n"
-        "      margin-top: 0.75rem;\n"
+        "      margin-top: 0.5rem;\n"
         "      padding: 0.85rem 1rem;\n"
         "      background: #eefaf7;\n"
         "      border-radius: 8px;\n"
@@ -57,39 +31,135 @@ def build_template():
         "      font-size: 0.9rem;\n"
         "      white-space: pre-wrap;\n"
         "    }}\n"
-        "    .explain {{ margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }}",
+        "    .explain {{ margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }}\n"
+        "    .answer-label {{ font-weight: 600; color: #16a085; margin-top: 0.75rem; font-size: 0.9rem; }}\n"
+        "    .reveal-btn {{ margin-top: 0.6rem; font-size: 0.88rem; padding: 0.45rem 1rem; }}\n"
+        "    details.solution {{ margin-top: 0.75rem; font-size: 0.9rem; }}\n"
+        "    details.solution summary {{ cursor: pointer; color: #16a085; font-weight: 600; }}",
     )
     body = body.replace(
-        '<div class="sample" hidden></div>`;',
-        '<div class="howto" hidden></div><div class="sample" hidden></div>`;',
+        "          </div>\n"
+        "          <div class=\"feedback\" hidden></div>`;",
+        "          </div>\n"
+        "          ${{q.explain_ru ? `<details class=\"solution\"><summary>📗 Решение</summary><div class=\"howto\">${{q.explain_ru}}</div></details>` : ''}}\n"
+        "          <div class=\"feedback\" hidden></div>`;",
     )
-    body = body.replace(
-        "block.querySelector('.sample').textContent = item.sample_ru;",
-        "block.querySelector('.sample').textContent = item.sample_ru || '';\n"
-        "        const howtoEl = block.querySelector('.howto');\n"
-        "        if (item.howto_ru) howtoEl.textContent = item.howto_ru;\n"
-        "        else howtoEl.remove();",
-    )
-    body = body.replace(
-        "container.querySelectorAll('.open-block .sample').forEach(el => {{ el.hidden = false; }});",
-        "container.querySelectorAll('.open-block .sample, .open-block .howto').forEach(el => {{ el.hidden = false; }});",
-    )
+    old_render_open = """    function renderOpen() {{
+      if (!OPEN_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'Открытые вопросы';
+      container.appendChild(h);
+      OPEN_ITEMS.forEach((item, idx) => {{
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-num">${{item.title_ru}}</div>
+          <div class="q-ru">${{item.ru}}</div>
+          <div class="q-en">${{item.en}}</div>
+          <textarea name="open_${{idx}}" placeholder="Ваш ответ..."></textarea>
+          <div class="sample" hidden></div>`;
+        block.querySelector('.sample').textContent = item.sample_ru;
+        container.appendChild(block);
+      }});
+    }}"""
+    new_render_open = """    function renderOpen() {{
+      if (!OPEN_ITEMS.length) return;
+      let openSection = '';
+      OPEN_ITEMS.forEach((item, idx) => {{
+        const sec = item.section || (item.howto_ru ? 'Практические задачи' : 'Теория — краткие ответы');
+        if (sec !== openSection) {{
+          openSection = sec;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = sec;
+          container.appendChild(h);
+        }}
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        const isExercise = !!item.howto_ru;
+        block.innerHTML = `
+          <div class="q-num">${{item.title_ru}}</div>
+          <div class="q-en">${{item.en}}</div>
+          <div class="q-ru">${{item.ru}}</div>
+          <textarea name="open_${{idx}}" placeholder="Your answer..."></textarea>`;
+        if (isExercise) {{
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'reveal-btn secondary';
+          btn.textContent = 'Показать решение';
+          const answerBlock = document.createElement('div');
+          answerBlock.className = 'answer-block';
+          answerBlock.hidden = true;
+          answerBlock.innerHTML = '<div class="answer-label">Решение (пошагово)</div><div class="howto"></div>';
+          answerBlock.querySelector('.howto').textContent = item.howto_ru;
+          if (item.sample_ru) {{
+            const lbl = document.createElement('div');
+            lbl.className = 'answer-label';
+            lbl.textContent = 'Итог';
+            const sample = document.createElement('div');
+            sample.className = 'howto';
+            sample.textContent = item.sample_ru;
+            answerBlock.appendChild(lbl);
+            answerBlock.appendChild(sample);
+          }}
+          btn.addEventListener('click', () => {{
+            answerBlock.hidden = false;
+            btn.hidden = true;
+          }});
+          block.appendChild(btn);
+          block.appendChild(answerBlock);
+        }} else {{
+          const answerBlock = document.createElement('div');
+          answerBlock.className = 'answer-block';
+          answerBlock.innerHTML = '<div class="answer-label">Краткий ответ</div><div class="howto brief"></div>';
+          answerBlock.querySelector('.howto').textContent = item.sample_ru || '';
+          block.appendChild(answerBlock);
+        }}
+        container.appendChild(block);
+      }});
+    }}"""
+    body = body.replace(old_render_open, new_render_open)
     body = body.replace(
         "fb.textContent = '✓ Верно';",
         "fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class=\"explain\">' + q.explain_ru + '</div>' : '');",
     )
     body = body.replace(
         "'</mark>. Правильный: <mark class=\"correct-mark\">' + q.correct.toUpperCase() + '</mark>';",
-        "'</mark>. Правильный: <mark class=\"correct-mark\">' + q.correct.toUpperCase() + '</mark>' +\n"
+        "'</mark>. Correct: <mark class=\"correct-mark\">' + q.correct.toUpperCase() + '</mark>' +\n"
         "            (q.explain_ru ? '<div class=\"explain\">' + q.explain_ru + '</div>' : '');",
     )
     body = body.replace(
-        "h.textContent = 'Открытые вопросы';",
-        "h.textContent = 'Open questions / Открытые вопросы';",
+        ".q-ru {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}\n"
+        "    .q-en {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}",
+        ".q-en {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}\n"
+        "    .q-ru {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}",
     )
     body = body.replace(
-        "h.textContent = 'SNA — расчёты';",
-        "h.textContent = 'SNA calculations / SNA — расчёты';",
+        ".opt-ru {{ font-size: 0.95rem; }}\n"
+        "    .opt-en {{ font-size: 0.82rem; color: #777; }}",
+        ".opt-en {{ font-size: 0.95rem; }}\n"
+        "    .opt-ru {{ font-size: 0.82rem; color: #777; font-style: italic; }}",
+    )
+    body = body.replace(
+        '<div class="q-num">Вопрос ${{q.num}}</div>\n'
+        '          <div class="q-ru">${{q.ru}}</div>\n'
+        '          <div class="q-en">${{q.en}}</div>',
+        '<div class="q-num">Question ${{q.num}}</div>\n'
+        '          <div class="q-en">${{q.en}}</div>\n'
+        '          <div class="q-ru">${{q.ru}}</div>',
+    )
+    body = body.replace(
+        '<div class="opt-ru"><strong>${{o.id.toUpperCase()}})</strong> ${{o.ru}}</div>\n'
+        '                  <div class="opt-en">${{o.en}}</div>',
+        '<div class="opt-en"><strong>${{o.id.toUpperCase()}})</strong> ${{o.en}}</div>\n'
+        '                  <div class="opt-ru">${{o.ru}}</div>',
+    )
+    body = body.replace(
+        '          <div class="q-ru">${{item.ru}}</div>\n'
+        '          <div class="q-en">${{item.en}}</div>',
+        '          <div class="q-en">${{item.en}}</div>\n'
+        '          <div class="q-ru">${{item.ru}}</div>',
     )
     return body
 
@@ -97,169 +167,10 @@ def build_template():
 TEMPLATE = build_template()
 
 
-HOWTO_HTML = """<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How to Solve Problems — Accounting &amp; Banking</title>
-  <style>
-    * {{ box-sizing: border-box; }}
-    body {{
-      font-family: "Segoe UI", system-ui, sans-serif;
-      line-height: 1.65;
-      margin: 0;
-      padding: 2rem 1rem 3rem;
-      color: #1a1a2e;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e8f4f1 100%);
-    }}
-    .wrap {{ max-width: 860px; margin: 0 auto; }}
-    .back a {{ color: #16a085; text-decoration: none; }}
-    h1 {{ color: #2c3e50; border-bottom: 4px solid #16a085; padding-bottom: 12px; }}
-    h2 {{ color: #16a085; margin-top: 2rem; font-size: 1.2rem; }}
-    .card {{
-      background: #fff;
-      border-radius: 10px;
-      padding: 1.1rem 1.25rem;
-      margin: 1rem 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,.08);
-      border: 1px solid #e8ecf1;
-    }}
-  .card pre {{ background: #f4f8f7; padding: 0.75rem; border-radius: 8px; overflow-x: auto; font-size: 0.88rem; }}
-    table {{ border-collapse: collapse; width: 100%; font-size: 0.88rem; margin: 0.5rem 0; }}
-    th, td {{ border: 1px solid #ccc; padding: 6px 8px; text-align: right; }}
-    th {{ background: #16a085; color: #fff; text-align: center; }}
-    td:first-child, th:first-child {{ text-align: center; }}
-    .sub {{ color: #555; }}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <p class="back"><a href="index.html">← Back to tests / К списку тестов</a></p>
-    <h1>How to Solve Problems</h1>
-    <p class="sub">Как решать задачи — Accounting &amp; Banking for SMEs, step-by-step methods for exam calculations.</p>
-
-    <div class="card">
-      <h2>1. ROE банка</h2>
-      <p><strong>Формула:</strong> ROE = чистая прибыль / собственный капитал (bank capital).</p>
-      <pre>Пример: profit = 5, bank capital = 50
-ROE = 5 / 50 = 0,10 = 10%  → ответ b)</pre>
-      <p>Если в условии прибыль <em>до налогов</em> и tax = 50%: PAT = 5 × (1 − 0,5) = 2,5 → ROE = 5%. Смотрите, дана ли уже <strong>чистая</strong> прибыль.</p>
-    </div>
-
-    <div class="card">
-      <h2>2. Repricing gap (ΔNII)</h2>
-      <pre>ΔNII = Gap × Δr
-Gap = −10 000 000 €,  Δr = 2% = 0,02
-ΔNII = −10 000 000 × 0,02 = −200 000 €  → ответ a)</pre>
-      <p>Отрицательный gap: при росте ставок чистый процентный доход падает.</p>
-    </div>
-
-    <div class="card">
-      <h2>3. Duration облигации</h2>
-      <p>Дольше срок погашения и <strong>реже</strong> купоны → выше duration.</p>
-      <p>Ответ: <strong>10 лет, 5%, купон ежегодно</strong> (не ежемесячно).</p>
-    </div>
-
-    <div class="card">
-      <h2>4. Statement of Financial Position (Uniclam)</h2>
-      <p><strong>Шаг 1.</strong> Разнести статьи по классам IFRS:</p>
-      <ul>
-        <li><strong>NCA:</strong> Goodwill, Other intangible, PPE</li>
-        <li><strong>CA:</strong> Inventories, Trade receivables, Cash</li>
-        <li><strong>Equity:</strong> Share capital, Retained earnings</li>
-        <li><strong>NCL:</strong> Long-term borrowings, Deferred tax</li>
-        <li><strong>CL:</strong> Short-term borrowings, Trade payables, Current tax payable</li>
-      </ul>
-      <p><strong>Шаг 2.</strong> Сложить подразделы → Total Assets = Total Equity + Liabilities.</p>
-      <pre>Вариант 1: активы = 204 850 €
-  NCA = 12 750 + 8 500 + 103 700 = 124 950
-  CA  = 37 400 + 23 800 + 18 700 = 79 900
-Пассивы: Equity 66 300 + NCL 87 550 + CL 51 000 = 204 850</pre>
-    </div>
-
-    <div class="card">
-      <h2>5. Таблица подразделений A / B</h2>
-      <p>Общие суммы распределяйте пропорционально:</p>
-      <ul>
-        <li><strong>Indirect labour</strong> → по direct labour (A : B = 12 : 24)</li>
-        <li><strong>Selling (и Advertising)</strong> → по revenue (A : B = 108 : 72)</li>
-        <li><strong>Electricity, Financial costs</strong> → по raw materials (A : B = 12 : 6)</li>
-      </ul>
-      <pre>Pre-tax profit = Revenue − все затраты
-Taxes = 30% × Pre-tax profit
-Net Income = Pre-tax − Taxes
-
-Пример 2024, Division A:
-  Selling = 12 000 × 108/180 = 7 200
-  Electricity = 16 800 × 12/18 = 11 200
-  Pre-tax = 48 400 → Tax = 14 520 → Net = 33 880 ✓</pre>
-    </div>
-
-    <div class="card">
-      <h2>6. Производство (inventory 30%)</h2>
-      <pre>Ending inventory = 30% × продажи следующего месяца
-Beginning inventory = 30% × продажи текущего месяца
-Production = Продажи + Ending inv. − Beginning inv.
-
-May: 90 000 + (0,3×80 000) − (0,3×90 000) = 87 000 units</pre>
-    </div>
-
-    <div class="card">
-      <h2>7. Амортизация — straight-line</h2>
-      <pre>Годовая амортизация = (Cost − Residual) / Life
-= (160 000 − 28 000) / 6 = 22 000 $/год
-
-Каждый год: Accum. dep. += 22 000; NBV = Cost − Accum. dep.
-Год 6: NBV = 28 000 $ (остаточная стоимость)</pre>
-      <table>
-        <tr><th>Year</th><th>Dep.</th><th>Accum.</th><th>NBV</th></tr>
-        <tr><td>1</td><td>22 000</td><td>22 000</td><td>138 000</td></tr>
-        <tr><td>2</td><td>22 000</td><td>44 000</td><td>116 000</td></tr>
-        <tr><td>3</td><td>22 000</td><td>66 000</td><td>94 000</td></tr>
-        <tr><td>4</td><td>22 000</td><td>88 000</td><td>72 000</td></tr>
-        <tr><td>5</td><td>22 000</td><td>110 000</td><td>50 000</td></tr>
-        <tr><td>6</td><td>22 000</td><td>132 000</td><td>28 000</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <h2>8. Амортизация — reducing balance 15%</h2>
-      <pre>Depreciation year n = Carrying value × 15%
-NBV = Carrying value − Depreciation</pre>
-      <table>
-        <tr><th>Year</th><th>Carrying</th><th>Dep.</th><th>Accum.</th><th>NBV</th></tr>
-        <tr><td>1</td><td>160 000</td><td>24 000</td><td>24 000</td><td>136 000</td></tr>
-        <tr><td>2</td><td>136 000</td><td>20 400</td><td>44 400</td><td>115 600</td></tr>
-        <tr><td>3</td><td>115 600</td><td>17 340</td><td>61 740</td><td>98 260</td></tr>
-        <tr><td>4</td><td>98 260</td><td>14 739</td><td>76 479</td><td>83 521</td></tr>
-        <tr><td>5</td><td>83 521</td><td>12 528</td><td>89 007</td><td>70 993</td></tr>
-        <tr><td>6</td><td>70 993</td><td>10 649</td><td>99 656</td><td>60 344</td></tr>
-      </table>
-      <p>NBV при reducing balance обычно <strong>не</strong> совпадает с residual $28 000 без корректировки в последний год.</p>
-    </div>
-
-    <div class="card">
-      <h2>9. Call option</h2>
-      <p>Покупатель call выигрывает, когда цена актива <strong>растёт</strong> (payoff ↑).</p>
-      <p>Если цена <strong>падает</strong> → payoff <strong>ниже</strong> (ответ b), не «выше».</p>
-    </div>
-
-    <div class="card">
-      <h2>10. European Banking Union — 3 столпа</h2>
-      <ol>
-        <li><strong>Supervision</strong> (SSM) — надзор</li>
-        <li><strong>Resolution</strong> (SRM, bail-in, bad-bank) — урегулирование</li>
-        <li><strong>Deposit guarantee</strong> (DGS) — гарантии вкладов</li>
-      </ol>
-    </div>
-  </div>
-</body>
-</html>
-"""
+# 00_How_To_Solve.html — standalone guide (edit file directly)
 
 INDEX = """<!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -304,21 +215,22 @@ INDEX = """<!doctype html>
 <body>
   <div class="wrap">
     <h1>Accounting &amp; Banking for SMEs</h1>
-    <p class="sub">Accounting &amp; Banking for SMEs — exams 2024–2026. EN + RU, answer checking. · Учёт и банковское дело для МСП.</p>
+    <p class="sub">Учёт и банковское дело для МСП — экзамены 2024–2026. RU + EN, проверка ответов.</p>
     <ul class="topics">
-      <li><a href="00_How_To_Solve.html"><span class="title">00 — How to Solve Problems</span><span class="desc">ROE, gap, SoFP, tables, depreciation — step by step · Как решать задачи</span></a></li>
+      <li><a href="99_All_Tests.html"><span class="title">★ Все тесты на одной странице</span><span class="desc">Все MCQ + открытые вопросы · одна проверка</span></a></li>
+      <li><a href="00_How_To_Solve.html"><span class="title">00 — How to Solve</span><span class="desc">Step-by-step: ROE, gap, SoFP, divisions, depreciation</span></a></li>
       <li><a href="01_Part1_Management_Accounting.html"><span class="title">01 — Part 1 (05/06/2024)</span><span class="desc">8 MCQ · management, break-even, DCF</span></a></li>
       <li><a href="06_Part1_IFRS_2025.html"><span class="title">06 — Part 1 IFRS (25/06/2025)</span><span class="desc">IAS 2, Framework, IFRS 15</span></a></li>
-      <li><a href="11_Part1_Financial_Statements.html"><span class="title">11 — Part 1: Financial Statements (Q1–4)</span><span class="desc">Cash flows, current ratio, IAS 7 · отчётность</span></a></li>
-      <li><a href="07_Part1_Management_Q5-8.html"><span class="title">07 — Management Q5–8</span><span class="desc">Management functions, direct costs · функции менеджмента</span></a></li>
-      <li><a href="02_Part2_Finance_Banking.html"><span class="title">02 — Part 2 (05/06/2024)</span><span class="desc">18 MCQ · banks, CAPM, EBU · банки</span></a></li>
+      <li><a href="11_Part1_Financial_Statements.html"><span class="title">11 — Part 1: отчётность (Q1–4)</span><span class="desc">Cash flows, current ratio, IAS 7</span></a></li>
+      <li><a href="07_Part1_Management_Q5-8.html"><span class="title">07 — Management Q5–8</span><span class="desc">Функции менеджмента, direct costs</span></a></li>
+      <li><a href="02_Part2_Finance_Banking.html"><span class="title">02 — Part 2 (05/06/2024)</span><span class="desc">18 MCQ · банки, CAPM, EBU</span></a></li>
       <li><a href="08_Part2_Exam_2026_Variant_B.html"><span class="title">08 — Part 2 (25/06/2026, Variant B)</span><span class="desc">18 MCQ · Basel I, IFRS 9, VaR</span></a></li>
       <li><a href="12_Part2_Exam_Variant_C.html"><span class="title">12 — Part 2 (Variant C, Q7–14)</span><span class="desc">DGS, IFRS 9 Stage 1, call option</span></a></li>
-      <li><a href="03_Part2_Calculations.html"><span class="title">03 — Part 2 Calculations</span><span class="desc">ROE, repricing gap, duration · 3 points · Расчёты</span></a></li>
+      <li><a href="03_Part2_Calculations.html"><span class="title">03 — Расчёты Part 2</span><span class="desc">ROE, repricing gap, duration · 3 балла</span></a></li>
       <li><a href="04_Sustainability.html"><span class="title">04 — Sustainability &amp; SROI</span><span class="desc">3 MCQ</span></a></li>
-      <li><a href="09_Statement_of_Financial_Position.html"><span class="title">09 — Statement of Financial Position</span><span class="desc">Uniclam Group Corp. · 2 variants</span></a></li>
-      <li><a href="10_Depreciation.html"><span class="title">10 — Depreciation</span><span class="desc">Straight-line and reducing balance 15% · амортизация</span></a></li>
-      <li><a href="05_Open_Questions.html"><span class="title">05 — Open Questions</span><span class="desc">Intermediaries, bank balance sheet, DCF, EBU · открытые вопросы</span></a></li>
+      <li><a href="09_Statement_of_Financial_Position.html"><span class="title">09 — Statement of Financial Position</span><span class="desc">Uniclam Group Corp. · 2 варианта</span></a></li>
+      <li><a href="10_Depreciation.html"><span class="title">10 — Depreciation</span><span class="desc">Straight-line и reducing balance 15%</span></a></li>
+      <li><a href="05_Open_Questions.html"><span class="title">05 — Открытые вопросы</span><span class="desc">Теория — краткие ответы; задачи — пошаговые решения</span></a></li>
     </ul>
   </div>
 </body>
@@ -369,7 +281,7 @@ def write_page(filename, title_ru, title_en, questions, open_items=None, sna_ite
 
 def main():
     write_static("index.html", INDEX)
-    write_static("00_How_To_Solve.html", HOWTO_HTML)
+    # 00_How_To_Solve.html — standalone guide (edit file directly)
 
     part1 = [
         q(1, "The management of an organization performs three general broad functions:",
@@ -553,28 +465,28 @@ def main():
            opt("b", "10%", "10%"),
            opt("c", "25%", "25%"),
            opt("d", "1%", "1%")], "b",
-          explain_ru="ROE = 5 / 50 = 10%. Если profit до налогов и tax 50% → 2,5/50 = 5%."),
+          explain_ru="Формула: ROE = profit / bank capital.\nШаг 1: подставляем 5 и 50.\nШаг 2: ROE = 5 / 50 = 0,10 = 10% → ответ b).\nЕсли profit до налогов и tax 50%: PAT = 2,5 → ROE = 5%."),
         q(15, "Repricing gap model: Gap -10 mln €; interest rate change 2%. ΔNII = Gap × Δr",
           "Repricing gap: разрыв −10 млн €; изменение ставки 2%. ΔNII = Gap × Δr",
           [opt("a", "-200.000 euro", "−200 000 €"),
            opt("b", "200.000 euro", "200 000 €"),
            opt("c", "-20.000.000 euro", "−20 000 000 €"),
            opt("d", "-50.000 euro", "−50 000 €")], "a",
-          explain_ru="ΔNII = −10 000 000 × 0,02 = −200 000 €."),
+          explain_ru="Формула: ΔNII = Gap × Δr.\nШаг 1: Gap = −10 000 000 €, Δr = 2% = 0,02.\nШаг 2: ΔNII = −10 000 000 × 0,02 = −200 000 € → ответ a).\nОтрицательный gap: при росте ставок NII падает."),
         q(16, "Which bond has the longest duration?",
           "У какой облигации наибольшая duration?",
           [opt("a", "Maturity 10 years; rate 5%; coupon monthly", "10 лет; 5%; купон ежемесячно"),
            opt("b", "Maturity 5 years; rate 5%; coupon monthly", "5 лет; 5%; купон ежемесячно"),
            opt("c", "Maturity 10 years; rate 5%; coupon annual", "10 лет; 5%; купон ежегодно"),
            opt("d", "Maturity 1 year; rate 5%; coupon monthly", "1 год; 5%; купон ежемесячно")], "c",
-          explain_ru="Больше срок + реже купоны → выше duration (10 лет, annual)."),
+          explain_ru="Duration ↑ при: (1) более длинном сроке, (2) более редких купонах.\nСравнение: 10 лет > 5 лет > 1 год.\nПри 10 годах annual купон > monthly (деньги раньше возвращаются при monthly → duration ниже).\nОтвет: c) 10 лет, купон ежегодно."),
         q(17, "Usually, loans to consumers are:",
           "Обычно потребительские кредиты — это:",
           [opt("a", "Interest bearing assets", "Процентные активы"),
            opt("b", "Non interest bearing assets", "Безпроцентные активы"),
            opt("c", "Expensive liabilities", "Дорогие обязательства"),
            opt("d", "Real assets", "Реальные активы")], "a",
-          explain_ru="Кредиты клиентам — процентные активы в балансе банка."),
+          explain_ru="В балансе банка кредиты клиентам — активы, по которым банк получает проценты → interest bearing assets (ответ a)."),
     ]
 
     sust = [
@@ -604,50 +516,50 @@ def main():
     open_items = [
         {"title_ru": "Функции финансовой системы", "ru": "Explain the functions of the financial system",
          "en": "Explain the functions of the financial system",
-         "sample_ru": "Посредничество, распределение рисков, трансформация сроков и объёмов, платёжная система, ценообразование информации, мобилизация сбережений."},
+         "sample_ru": "Мобилизация сбережений; кредитование; распределение рисков; трансформация сроков и объёмов; платёжная система; ценообразование информации."},
         {"title_ru": "Теории существования финансовых посредников", "ru": "Explains the theories of the existence of financial intermediaries",
          "en": "Explains the theories of the existence of financial intermediaries",
-         "sample_ru": "Снижение транзакционных издержек, диверсификация риска, асимметрия информации (adverse selection, moral hazard), трансформация сроков и объёмов, экспертиза."},
+         "sample_ru": "Снижение транзакционных издержек; диверсификация риска; асимметрия информации (adverse selection, moral hazard); трансформация сроков; экспертиза."},
         {"title_ru": "Баланс банка и индексы", "ru": "Talk about the balance sheets of banks and the most important indices",
          "en": "Talk about the balance sheets of banks and the most important indices",
-         "sample_ru": "Активы: кредиты, ценные бумаги, резервы. Обязательства: депозиты, заимствования. Капитал. Индексы: ROE, ROA, NIM, CAR (Basel), LCR, NPL ratio."},
+         "sample_ru": "Активы: кредиты, ценные бумаги, резервы. Пассивы: депозиты, заимствования. Капитал. Индексы: ROE, ROA, NIM, CAR, LCR, NPL."},
         {"title_ru": "European Banking Union", "ru": "Highlight the main features of the European Banking Union",
          "en": "Highlight the main features of the European Banking Union",
-         "sample_ru": "3 столпа: (1) единый надзор (SSM), (2) resolution и bail-in (SRM), (3) гарантии вкладов (EDIS)."},
+         "sample_ru": "3 столпа: (1) единый надзор SSM, (2) resolution и bail-in (SRM), (3) гарантии вкладов (DGS/EDIS)."},
         {"title_ru": "Interest rate risk", "ru": "Talk about interest rate risk",
          "en": "Talk about interest rate risk",
-         "sample_ru": "Риск изменения ставок → NII и стоимость активов/обязательств. Управление: repricing gap, duration, hedging."},
+         "sample_ru": "Риск изменения ставок → влияет на NII и стоимость активов/обязательств. Управление: repricing gap, duration, hedging."},
         {"title_ru": "DCF model", "ru": "Explain the DCF model",
          "en": "Explain the DCF model",
-         "sample_ru": "Прогноз FCF, дисконтирование (WACC / cost of equity через CAPM), terminal value."},
+         "sample_ru": "Прогноз FCF → дисконтирование (WACC или Re через CAPM) → terminal value → firm/equity value."},
         {"title_ru": "SoFP — вариант 1 (5 pts)", "ru": "Uniclam Group Corp. — построить Statement of Financial Position (меньшие суммы)",
          "en": "Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)",
-         "howto_ru": "1) Разнести статьи: NCA (GW, intangibles, PPE), CA (inventory, receivables, cash), Equity, NCL (LT debt, deferred tax), CL (ST debt, payables, current tax).\n2) Сложить каждый блок.\n3) Проверить: Total Assets = Equity + NCL + CL.",
-         "sample_ru": "Активы 204 850: NCA 124 950, CA 79 900.\nПассивы: Equity 66 300, NCL 87 550, CL 51 000."},
-        {"title_ru": "SoFP — вариант 2 (6 pts)", "ru": "Uniclam Group Corp. — SoFP (большие суммы)",
-         "en": "Statement of Financial Position — larger figures version",
-         "howto_ru": "Тот же алгоритм, что в варианте 1. Суммы больше, логика классификации та же.",
-         "sample_ru": "Активы 615 550: NCA 375 850, CA 239 700.\nПассивы: Equity 198 900, NCL 262 650, CL 153 000."},
+         "howto_ru": "Шаг 1 — классификация по IFRS:\n  NCA: Goodwill 12 750 + Other intangible 8 500 + PPE 103 700\n  CA: Inventories 37 400 + Trade receivables 23 800 + Cash 18 700\n  Equity: Share capital 25 000 + Retained earnings 41 300\n  NCL: Long-term borrowings 75 000 + Deferred tax 12 550\n  CL: Short-term borrowings 20 000 + Trade payables 28 000 + Current tax 3 000\n\nШаг 2 — суммы:\n  NCA = 124 950 | CA = 79 900 | Total Assets = 204 850\n  Equity = 66 300 | NCL = 87 550 | CL = 51 000 | Total = 204 850 ✓",
+         "sample_ru": "Активы 204 850 (NCA 124 950 + CA 79 900). Пассивы: Equity 66 300 + NCL 87 550 + CL 51 000."},
+        {"title_ru": "SoFP — вариант 2 (6 pts)", "ru": "Uniclam Group Corp. — SoFP (Exercise 1, 6 points)",
+         "en": "Statement of Financial Position — exam version (larger figures)",
+         "howto_ru": "Шаг 1 — классификация (данные с листа):\n  NCA: Goodwill 38 250 + Other intangible 25 500 + PPE 311 100\n  CA: Inventories 112 200 + Trade receivables 71 400 + Cash 56 100\n  Equity: Share capital 153 000 + Retained earnings 45 900\n  NCL: Long-term borrowings 229 500 + Deferred tax 33 150\n  CL: Short-term borrowings 53 550 + Trade payables 76 500 + Current tax 22 950\n\nШаг 2 — суммы:\n  NCA = 374 850 | CA = 239 700 | Total Assets = 614 550\n  Equity = 198 900 | NCL = 262 650 | CL = 153 000 | Total = 614 550 ✓",
+         "sample_ru": "См. заполненную таблицу на странице 09 — Exercise 1 (6 pts)."},
         {"title_ru": "Exercise 2 — таблица (2024)", "ru": "Divisions A/B: revenue 108k/72k; indirect per direct labour; selling per revenue; electricity & financial per raw materials.",
          "en": "Division table — 2024 exam version.",
-         "howto_ru": "Indirect: 3 600 × (direct_A / 36 000) → A=1 200, B=2 400.\nSelling: 12 000 × (rev_A / 180 000) → A=7 200, B=4 800.\nElectricity: 16 800 × (12/18) → A=11 200, B=5 600.\nFinancial: 24 000 × (12/18) → A=16 000, B=8 000.\nPre-tax = Revenue − все строки; Tax 30%; Net = Pre-tax − Tax.",
-         "sample_ru": "Division A: Pre-tax 48 400 → Tax 14 520 → Net Income 33 880.\nDivision B: Pre-tax 21 200 → Tax 6 360 → Net Income 14 840."},
+         "howto_ru": "Правила распределения общих затрат:\n  Indirect labour → по direct labour (A:B = 12:24)\n  Selling → по revenue (A:B = 108:72)\n  Electricity, Financial → по raw materials (A:B = 12:6)\n\nDivision A:\n  Indirect = 3 600 × 12/36 = 1 200\n  Selling = 12 000 × 108/180 = 7 200\n  Electricity = 16 800 × 12/18 = 11 200\n  Financial = 24 000 × 12/18 = 16 000\n  Pre-tax = 108 000 − (12 000+1 200+7 200+11 200+16 000+...) = 48 400\n  Tax 30% = 14 520 → Net = 33 880\n\nDivision B: аналогично → Pre-tax 21 200 → Tax 6 360 → Net 14 840",
+         "sample_ru": "A: Net Income 33 880. B: Net Income 14 840."},
         {"title_ru": "Exercise 2 — таблица (2025 tablet)", "ru": "Divisions: revenue 144k/120k; indirect/selling/adv/electricity/financial по правилам.",
          "en": "Division table — tablet version with advertising.",
-         "howto_ru": "Indirect 8 400 по direct labour; Selling 24 000 и Advertising 25 000 по revenue; Electricity 22 400 и Financial 30 000 по raw materials (28k : 32k).",
-         "sample_ru": "Division A: Pre-tax 46 020 → Tax 13 806 → Net 32 214.\nDivision B: Pre-tax 180 → Tax 54 → Net 126."},
+         "howto_ru": "Indirect 8 400 → по direct labour (28k:32k).\nSelling 24 000 и Advertising 25 000 → по revenue (144k:120k).\nElectricity 22 400 и Financial 30 000 → по raw materials (28k:32k).\n\nDivision A: Pre-tax = Revenue − все распределённые затраты = 46 020\n  Tax 30% = 13 806 → Net = 32 214\n\nDivision B: Pre-tax = 180 → Tax = 54 → Net = 126",
+         "sample_ru": "A: Net 32 214. B: Net 126."},
         {"title_ru": "Exercise 3 — production May", "ru": "Omega: production May? Sales May 90k, June 80k, 30% ending inventory.",
          "en": "Budgeted production for May.",
-         "howto_ru": "Ending inv. = 0,3 × June sales.\nBeginning inv. = 0,3 × May sales.\nProduction = Sales + Ending − Beginning.",
-         "sample_ru": "Production May = 90 000 + 24 000 − 27 000 = 87 000 units"},
+         "howto_ru": "Формула: Production = Sales + Ending inventory − Beginning inventory\nEnding inv. = 30% × продажи следующего месяца\nBeginning inv. = 30% × продажи текущего месяца\n\nMay:\n  Ending = 0,3 × 80 000 = 24 000\n  Beginning = 0,3 × 90 000 = 27 000\n  Production = 90 000 + 24 000 − 27 000 = 87 000 units",
+         "sample_ru": "Production May = 87 000 units"},
         {"title_ru": "Depreciation — straight-line", "ru": "Asset $160 000, life 6 years, residual $28 000 — build 6-year schedule (straight-line).",
          "en": "Straight-line depreciation schedule.",
-         "howto_ru": "Annual dep = (160 000 − 28 000) / 6 = 22 000.\nКаждый год: Accum. += 22 000; NBV = 160 000 − Accum.\nГод 6: NBV = 28 000.",
-         "sample_ru": "См. таблицу на странице 10 и в 00_How_To_Solve.html."},
+         "howto_ru": "Annual dep = (Cost − Residual) / Life = (160 000 − 28 000) / 6 = 22 000 $/год\n\nКаждый год:\n  Dep. year = 22 000\n  Accum. dep. += 22 000\n  NBV = 160 000 − Accum. dep.\n\nГод 1: dep 22 000, accum 22 000, NBV 138 000\nГод 2: NBV 116 000 | Год 3: 94 000 | Год 4: 72 000 | Год 5: 50 000 | Год 6: 28 000",
+         "sample_ru": "Год 6: NBV = 28 000 $ (остаточная стоимость). Полная таблица — на стр. 10."},
         {"title_ru": "Depreciation — reducing balance 15%", "ru": "Reducing balance 15% — 6-year schedule.",
          "en": "Reducing balance depreciation schedule.",
-         "howto_ru": "Dep_year = Carrying × 15%; NBV = Carrying − Dep.\nСледующий год Carrying = предыдущий NBV.",
-         "sample_ru": "Год 1: dep 24 000, NBV 136 000. Год 2: dep 20 400, NBV 115 600. …"},
+         "howto_ru": "Dep_year = Carrying value × 15%\nNBV = Carrying − Dep\nСледующий год: Carrying = предыдущий NBV\n\nГод 1: 160 000 × 15% = 24 000 → NBV 136 000\nГод 2: 136 000 × 15% = 20 400 → NBV 115 600\nГод 3: 17 340 → NBV 98 260\nГод 4: 14 739 → NBV 83 521\nГод 5: 12 528 → NBV 70 993\nГод 6: 10 649 → NBV 60 344",
+         "sample_ru": "Год 6: NBV 60 344 $ (не равно residual 28 000 без корректировки)."},
     ]
 
     part1_fs = [
@@ -901,20 +813,65 @@ def main():
            opt("d", "Equity ratio", "Показатель equity")], "a"),
     ]
 
-    guide_link = '<p class="sub"><a href="00_How_To_Solve.html">📘 How to Solve Problems — step-by-step methods · Как решать задачи</a></p>'
+    guide_link = '<p class="sub"><a href="00_How_To_Solve.html">📘 How to solve tasks — step-by-step guide</a></p>'
 
     sofp_extra = guide_link + """
-    <div class="section-title">Эталон: Uniclam Group Corp.</div>
+    <style>
+    table.sofp { border-collapse: collapse; width: 100%; font-size: 0.85rem; margin: 1rem 0; }
+    table.sofp th, table.sofp td { border: 1px solid #ccc; padding: 5px 8px; }
+    table.sofp th { background: #16a085; color: #fff; text-align: center; }
+    table.sofp td.num { text-align: right; white-space: nowrap; }
+    table.sofp td.lbl { text-align: left; }
+    table.sofp tr.subtotal td { font-weight: 600; background: #f4f8f7; }
+    table.sofp tr.total td { font-weight: 700; background: #eefaf7; }
+    </style>
+    <div class="section-title">Решение: Uniclam Group Corp.</div>
+    <p class="q-ru">Разнесите каждую статью по разделу IFRS, сложите подитоги, проверьте: <strong>Total Assets = Total Equity + Liabilities</strong>.</p>
+
+    <p class="q-ru" style="margin-top:1.5rem"><strong>Exercise 1 — вариант 1 (5 pts)</strong> · Total Assets = 204 850 €</p>
     <div class="open-block" style="box-shadow:none;overflow-x:auto">
-      <p class="q-ru"><strong>Вариант 1:</strong> Total Assets = 204 850 €</p>
-      <table class="matrix">
-        <tr><th colspan="2">Assets</th><th colspan="2">Equity &amp; Liabilities</th></tr>
-        <tr><td>NCA</td><td>124 950</td><td>Equity</td><td>66 300</td></tr>
-        <tr><td>CA</td><td>79 900</td><td>NCL</td><td>87 550</td></tr>
-        <tr><td></td><td></td><td>CL</td><td>51 000</td></tr>
-        <tr><th>Total</th><th>204 850</th><th>Total</th><th>204 850</th></tr>
+      <table class="sofp">
+        <tr><th colspan="2">ASSETS</th><th colspan="2">EQUITY &amp; LIABILITIES</th></tr>
+        <tr><td class="lbl" colspan="2"><strong>Non-current assets</strong></td><td class="lbl" colspan="2"><strong>Equity</strong></td></tr>
+        <tr><td class="lbl">Goodwill</td><td class="num">12 750</td><td class="lbl">Share capital</td><td class="num">25 000</td></tr>
+        <tr><td class="lbl">Other intangible</td><td class="num">8 500</td><td class="lbl">Retained earnings</td><td class="num">41 300</td></tr>
+        <tr><td class="lbl">Property, plant &amp; equipment</td><td class="num">103 700</td><td class="lbl"></td><td class="num"></td></tr>
+        <tr class="subtotal"><td class="lbl">Total non-current assets</td><td class="num">124 950</td><td class="lbl"><strong>Total equity</strong></td><td class="num">66 300</td></tr>
+        <tr><td class="lbl" colspan="2"><strong>Current assets</strong></td><td class="lbl" colspan="2"><strong>Non-current liabilities</strong></td></tr>
+        <tr><td class="lbl">Inventories</td><td class="num">37 400</td><td class="lbl">Long-term borrowings</td><td class="num">75 000</td></tr>
+        <tr><td class="lbl">Trade receivables</td><td class="num">23 800</td><td class="lbl">Deferred tax</td><td class="num">12 550</td></tr>
+        <tr><td class="lbl">Cash</td><td class="num">18 700</td><td class="lbl"></td><td class="num"></td></tr>
+        <tr class="subtotal"><td class="lbl">Total current assets</td><td class="num">79 900</td><td class="lbl"><strong>Total non-current liabilities</strong></td><td class="num">87 550</td></tr>
+        <tr><td class="lbl"></td><td class="num"></td><td class="lbl" colspan="2"><strong>Current liabilities</strong></td></tr>
+        <tr><td class="lbl"></td><td class="num"></td><td class="lbl">Short-term borrowings</td><td class="num">20 000</td></tr>
+        <tr><td class="lbl"></td><td class="num"></td><td class="lbl">Trade and other payables</td><td class="num">28 000</td></tr>
+        <tr><td class="lbl"></td><td class="num"></td><td class="lbl">Current tax payable</td><td class="num">3 000</td></tr>
+        <tr class="subtotal"><td class="lbl"></td><td class="num"></td><td class="lbl"><strong>Total current liabilities</strong></td><td class="num">51 000</td></tr>
+        <tr class="total"><td class="lbl"><strong>TOTAL ASSETS</strong></td><td class="num"><strong>204 850</strong></td><td class="lbl"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class="num"><strong>204 850</strong></td></tr>
       </table>
-      <p class="q-ru" style="margin-top:1rem"><strong>Вариант 2:</strong> Total Assets = 615 550 € (NCA 375 850 + CA 239 700)</p>
+    </div>
+
+    <p class="q-ru" style="margin-top:1.5rem"><strong>Exercise 1 — вариант 2 (6 pts)</strong> · Total Assets = 614 550 €</p>
+    <div class="open-block" style="box-shadow:none;overflow-x:auto">
+      <table class="sofp">
+        <tr><th colspan="2">ASSETS</th><th colspan="2">EQUITY &amp; LIABILITIES</th></tr>
+        <tr><td class="lbl" colspan="2"><strong>Non-current assets</strong></td><td class="lbl" colspan="2"><strong>Equity</strong></td></tr>
+        <tr><td class="lbl">Goodwill</td><td class="num">38 250</td><td class="lbl">Share capital</td><td class="num">153 000</td></tr>
+        <tr><td class="lbl">Other intangible</td><td class="num">25 500</td><td class="lbl">Retained earnings</td><td class="num">45 900</td></tr>
+        <tr><td class="lbl">Property, plant &amp; equipment</td><td class="num">311 100</td><td class="lbl"></td><td class="num"></td></tr>
+        <tr class="subtotal"><td class="lbl">Total non-current assets</td><td class="num">374 850</td><td class="lbl"><strong>Total equity</strong></td><td class="num">198 900</td></tr>
+        <tr><td class="lbl" colspan="2"><strong>Current assets</strong></td><td class="lbl" colspan="2"><strong>Non-current liabilities</strong></td></tr>
+        <tr><td class="lbl">Inventories</td><td class="num">112 200</td><td class="lbl">Long-term borrowings</td><td class="num">229 500</td></tr>
+        <tr><td class="lbl">Trade receivables</td><td class="num">71 400</td><td class="lbl">Deferred tax</td><td class="num">33 150</td></tr>
+        <tr><td class="lbl">Cash</td><td class="num">56 100</td><td class="lbl"></td><td class="num"></td></tr>
+        <tr class="subtotal"><td class="lbl">Total current assets</td><td class="num">239 700</td><td class="lbl"><strong>Total non-current liabilities</strong></td><td class="num">262 650</td></tr>
+        <tr><td class="lbl"></td><td class="num"></td><td class="lbl" colspan="2"><strong>Current liabilities</strong></td></tr>
+        <tr><td class="lbl"></td><td class="num"></td><td class="lbl">Short-term borrowings</td><td class="num">53 550</td></tr>
+        <tr><td class="lbl"></td><td class="num"></td><td class="lbl">Trade and other payables</td><td class="num">76 500</td></tr>
+        <tr><td class="lbl"></td><td class="num"></td><td class="lbl">Current tax payable</td><td class="num">22 950</td></tr>
+        <tr class="subtotal"><td class="lbl"></td><td class="num"></td><td class="lbl"><strong>Total current liabilities</strong></td><td class="num">153 000</td></tr>
+        <tr class="total"><td class="lbl"><strong>TOTAL ASSETS</strong></td><td class="num"><strong>614 550</strong></td><td class="lbl"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class="num"><strong>614 550</strong></td></tr>
+      </table>
     </div>
     """
 
@@ -961,7 +918,7 @@ def main():
                "Part 2 — Calculations",
                "ROE, repricing gap, duration — 3 points each",
                calc, scoring={"correct": 3, "wrong": 0, "max": 12},
-               rules_html='<div class="rules">3 балла за верный ответ. Штрафа за ошибку нет.</div>')
+               rules_html=guide_link + '<div class="rules">3 балла за верный ответ. Раскройте «📗 Решение» под каждым вопросом — там пошаговый расчёт.</div>')
 
     write_page("04_Sustainability.html",
                "Sustainability, SROI & Efficiency",
@@ -970,8 +927,9 @@ def main():
 
     write_page("05_Open_Questions.html",
                "Open questions & exercises",
-               "Open questions — sample answers after check",
-               [], open_items=open_items)
+               "Теория — краткие ответы сразу; задачи — кнопка «Показать решение»",
+               [], open_items=open_items,
+               rules_html=guide_link + '<div class="rules">Теория: краткий ответ под вопросом. Задачи: нажмите «Показать решение» для пошагового разбора.</div>')
 
     write_page("06_Part1_IFRS_2025.html",
                "Part 1 — IFRS (25/06/2025)",
@@ -993,13 +951,13 @@ def main():
     write_page("09_Statement_of_Financial_Position.html",
                "Statement of Financial Position",
                "Uniclam Group Corp. — classification exercise",
-               [], open_items=[open_items[8], open_items[9]],
+               [], open_items=[open_items[6], open_items[7]],
                extra_html=sofp_extra)
 
     write_page("10_Depreciation.html",
                "Depreciation — straight-line & reducing balance",
                "Asset $160k, 6 years, residual $28k",
-               [], open_items=[open_items[10], open_items[11]],
+               [], open_items=[open_items[11], open_items[12]],
                extra_html=dep_extra)
 
     write_page("11_Part1_Financial_Statements.html",
@@ -1015,6 +973,13 @@ def main():
                rules_html=guide_link + '<div class="rules">1 балл за верный ответ.</div>')
 
     print("Generated AccountingBanking tests in", ROOT)
+    import subprocess
+    build_script = ROOT / "build_all_tests.mjs"
+    if build_script.exists():
+        subprocess.run(["node", str(build_script)], cwd=ROOT, check=False)
+    en_patch = ROOT / "patch_en_priority.mjs"
+    if en_patch.exists():
+        subprocess.run(["node", str(en_patch)], cwd=ROOT, check=False)
 
 
 if __name__ == "__main__":
