@@ -6,6 +6,27 @@ import { fileURLToPath } from 'url';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 
+const EXERCISE3_DCF = {
+  title_ru: 'Exercise 3 (8 pts) — DCF Cassino SpA',
+  ru: 'Cassino SpA — DCF, WACC 5%, g 1%',
+  en: 'Evaluate Cassino SpA using DCF. WACC 5%, g 1%. Cash flows 2024–2028. Complete discount coefficients, DCFs, and W.',
+  sample_en: 'W ≈ 143,858 (sum of discounted cash flows). See page 13 for full table.',
+  howto_ru:
+    'Коэффициент = 1 / (1,05)^n\nDCF = Cash flow × коэффициент\n\n2024: 0,9524 → 23 810\n2025: 0,9070 → 27 211\n2026: 0,8638 → 30 234\n2027: 0,8227 → 31 263\n2028: 0,7835 → 31 341\n\nW = 143 858',
+  sample_ru: 'Полная таблица — стр. 13.',
+};
+
+const EXERCISE3_DEP = {
+  title_ru: 'Exercise 3 (8 pts) — Depreciation',
+  ru: 'Exercise 3 — амортизация: $160 000, 6 лет, остаточная $28 000',
+  en: 'Exercise 3 (8 points). Cost $160,000, life 6 years, residual $28,000. (a) Annual charge straight-line and reducing balance 15%. (b) 6-year schedule for each method.',
+  sample_en:
+    '(a) Straight-line: $22,000 per year. Reducing balance: 15% of carrying value each year. (b) Year 6 NBV = $28,000 (SL) or $60,344 (RB) — see page 10.',
+  howto_ru:
+    '(a) Straight-line: (160 000 − 28 000) / 6 = 22 000 $/год.\nReducing balance: dep = carrying × 15%.\n\n(b) Таблицы на стр. 10.',
+  sample_ru: 'Полные таблицы — на стр. 10.',
+};
+
 const SAMPLE_EN = {
   'Функции финансовой системы':
     'Collects savings, gives loans, shares risk, matches loan size and time, runs payments, prices information.',
@@ -25,10 +46,14 @@ const SAMPLE_EN = {
     'Total Assets = Total Equity & Liabilities = 614,550. See the filled table above.',
   'Exercise 2 — таблица (2024)':
     'Division A: Net Income 33,880. Division B: Net Income 14,840.',
+  'Exercise 3 (8 pts) — DCF Cassino SpA':
+    'W ≈ 143,858 (sum of discounted cash flows). See page 13 for full table.',
   'Exercise 2 — таблица (2025 tablet)':
     'Division A: Net Income 32,214. Division B: Net Income 126.',
   'Exercise 3 — production May':
     'Production in May = 87,000 units.',
+  'Exercise 3 (8 pts) — Depreciation':
+    '(a) Straight-line: $22,000 per year. Reducing balance: 15% of carrying value each year. (b) Year 6 NBV = $28,000 (SL) or $60,344 (RB) — see page 10.',
   'Depreciation — straight-line':
     'Annual depreciation = 22,000. After 6 years NBV = 28,000 (residual value).',
   'Depreciation — reducing balance 15%':
@@ -99,7 +124,16 @@ function enrichOpenItems(items) {
 function patchOpenItemsJson(html) {
   const m = html.match(/const OPEN_ITEMS = (\[[\s\S]*?\]);/);
   if (!m || m[1] === '[]') return html;
-  const items = enrichOpenItems(JSON.parse(m[1]));
+  let items = JSON.parse(m[1]);
+  if (!items.some((i) => i.title_ru === EXERCISE3_DCF.title_ru)) {
+    const idx = items.findIndex((i) => i.title_ru === 'Exercise 3 — production May');
+    items.splice(idx >= 0 ? idx : items.length, 0, EXERCISE3_DCF);
+  }
+  if (!items.some((i) => i.title_ru === EXERCISE3_DEP.title_ru)) {
+    const idx = items.findIndex((i) => i.title_ru === 'Depreciation — straight-line');
+    items.splice(idx >= 0 ? idx : items.length, 0, EXERCISE3_DEP);
+  }
+  items = enrichOpenItems(items);
   return html.replace(/const OPEN_ITEMS = \[[\s\S]*?\];/, `const OPEN_ITEMS = ${JSON.stringify(items)};`);
 }
 

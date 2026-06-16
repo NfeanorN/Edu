@@ -17,7 +17,7 @@ const TEST_FILES = [
   { file: '03_Part2_Calculations.html', title: '03 — Расчёты Part 2', desc: '4 MCQ · 3 балла' },
   { file: '04_Sustainability.html', title: '04 — Sustainability & SROI', desc: '3 MCQ' },
   { file: '09_Statement_of_Financial_Position.html', title: '09 — Statement of Financial Position', desc: 'SoFP + решения' },
-  { file: '10_Depreciation.html', title: '10 — Depreciation', desc: 'таблицы амортизации' },
+  { file: '10_Depreciation.html', title: '10 — Depreciation', desc: 'Exercise 3 (8 pts) + tables' },
   { file: '05_Open_Questions.html', title: '05 — Открытые вопросы', desc: 'теория + задачи' },
 ];
 
