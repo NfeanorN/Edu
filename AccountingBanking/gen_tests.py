@@ -225,7 +225,8 @@ INDEX = """<!doctype html>
       <li><a href="03_Part2_Calculations.html"><span class="title">03 — Расчёты Part 2</span><span class="desc">ROE, repricing gap, duration · 3 балла</span></a></li>
       <li><a href="04_Sustainability.html"><span class="title">04 — Sustainability &amp; SROI</span><span class="desc">3 MCQ</span></a></li>
       <li><a href="09_Statement_of_Financial_Position.html"><span class="title">09 — Statement of Financial Position</span><span class="desc">Uniclam Group Corp. · 2 варианта</span></a></li>
-      <li><a href="10_Depreciation.html"><span class="title">10 — Depreciation</span><span class="desc">Straight-line и reducing balance 15%</span></a></li>
+      <li><a href="10_Depreciation.html"><span class="title">10 — Depreciation</span><span class="desc">Exercise 3 (8 pts) · straight-line &amp; reducing balance</span></a></li>
+      <li><a href="13_Divisions_and_DCF.html"><span class="title">13 — Divisions &amp; DCF</span><span class="desc">Exercise 2 (8 pts) table + Cassino SpA DCF</span></a></li>
       <li><a href="05_Open_Questions.html"><span class="title">05 — Открытые вопросы</span><span class="desc">Теория — краткие ответы; задачи — пошаговые решения</span></a></li>
     </ul>
   </div>
@@ -552,13 +553,23 @@ def main():
         {"title_ru": "Exercise 2 — таблица (2025 tablet)", "ru": "Divisions: revenue 144k/120k; indirect/selling/adv/electricity/financial по правилам.",
          "en": "Division table — tablet version with advertising.",
          "sample_en": "Division A: Net Income 32,214. Division B: Net Income 126.",
-         "howto_ru": "Indirect 8 400 → по direct labour (28k:32k).\nSelling 24 000 и Advertising 25 000 → по revenue (144k:120k).\nElectricity 22 400 и Financial 30 000 → по raw materials (28k:32k).\n\nDivision A: Pre-tax = Revenue − все распределённые затраты = 46 020\n  Tax 30% = 13 806 → Net = 32 214\n\nDivision B: Pre-tax = 180 → Tax = 54 → Net = 126",
+         "howto_ru": "Шаг 1 — распределение общих затрат:\n  Indirect 8 400 × (direct labour дивизиона / 48)\n  Selling 24 000 × (revenue дивизиона / 264)\n  Advertising 25 000 × (revenue / 264)\n  Electricity 22 400 × (raw materials / 60)\n  Financial 30 000 × (raw materials / 60)\n\nDivision A:\n  Indirect = 8 400 × 16/48 = 2 800\n  Selling = 24 000 × 144/264 = 13 091\n  Advertising = 25 000 × 144/264 = 13 636\n  Electricity = 22 400 × 28/60 = 10 453\n  Financial = 30 000 × 28/60 = 14 000\n  Total costs = 16 000+2 800+28 000+13 091+10 453+14 000+13 636 = 97 980\n  Pre-tax = 144 000 − 97 980 = 46 020\n  Tax = 46 020 × 30% = 13 806\n  Net = 46 020 − 13 806 = 32 214\n\nDivision B:\n  Indirect = 5 600 | Selling = 10 909 | Advertising = 11 364\n  Electricity = 11 947 | Financial = 16 000\n  Total costs = 119 820\n  Pre-tax = 120 000 − 119 820 = 180\n  Tax = 180 × 30% = 54\n  Net = 180 − 54 = 126",
          "sample_ru": "A: Net 32 214. B: Net 126."},
+        {"title_ru": "Exercise 3 (8 pts) — DCF Cassino SpA", "ru": "Cassino SpA — DCF, WACC 5%, g 1%",
+         "en": "Evaluate Cassino SpA using DCF. WACC 5%, g 1%. Cash flows 2024–2028. Complete discount coefficients, DCFs, and W.",
+         "sample_en": "W ≈ 143,858 (sum of discounted cash flows). See page 13 for full table.",
+         "howto_ru": "Коэффициент = 1 / (1,05)^n\nDCF = Cash flow × коэффициент\n\n2024: 0,9524 → 23 810\n2025: 0,9070 → 27 211\n2026: 0,8638 → 30 234\n2027: 0,8227 → 31 263\n2028: 0,7835 → 31 341\n\nW = 143 858",
+         "sample_ru": "Полная таблица — стр. 13."},
         {"title_ru": "Exercise 3 — production May", "ru": "Omega: production May? Sales May 90k, June 80k, 30% ending inventory.",
          "en": "Budgeted production for May.",
          "sample_en": "Production in May = 87,000 units.",
          "howto_ru": "Формула: Production = Sales + Ending inventory − Beginning inventory\nEnding inv. = 30% × продажи следующего месяца\nBeginning inv. = 30% × продажи текущего месяца\n\nMay:\n  Ending = 0,3 × 80 000 = 24 000\n  Beginning = 0,3 × 90 000 = 27 000\n  Production = 90 000 + 24 000 − 27 000 = 87 000 units",
          "sample_ru": "Production May = 87 000 units"},
+        {"title_ru": "Exercise 3 (8 pts) — Depreciation", "ru": "Exercise 3 — амортизация: $160 000, 6 лет, остаточная $28 000",
+         "en": "Exercise 3 (8 points). Cost $160,000, life 6 years, residual $28,000. (a) Annual charge straight-line and reducing balance 15%. (b) 6-year schedule for each method.",
+         "sample_en": "(a) Straight-line: $22,000 per year. Reducing balance: 15% of carrying value each year. (b) Year 6 NBV = $28,000 (SL) or $60,344 (RB) — see page 10.",
+         "howto_ru": "(a) Straight-line: (160 000 − 28 000) / 6 = 22 000 $/год.\nReducing balance: dep = carrying × 15% (carrying = прошлый NBV).\n\n(b) Straight-line — каждый год dep 22 000, cost 160 000, accum растёт, NBV = 160 000 − accum.\nГод 6 NBV = 28 000 (= residual).\n\nReducing balance:\nГод 1: 160 000 × 15% = 24 000 → NBV 136 000\nГод 2: 136 000 × 15% = 20 400 → NBV 115 600\n… Год 6 NBV = 60 344",
+         "sample_ru": "Полные таблицы — на стр. 10."},
         {"title_ru": "Depreciation — straight-line", "ru": "Asset $160 000, life 6 years, residual $28 000 — build 6-year schedule (straight-line).",
          "en": "Straight-line depreciation schedule.",
          "sample_en": "Annual depreciation = 22,000. After 6 years NBV = 28,000 (residual value).",
@@ -885,10 +896,49 @@ def main():
     """
 
     dep_extra = guide_link + """
-    <div class="section-title">1. Straight-line method</div>
+    <style>
+    .exam-row {
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) minmax(300px, 1.2fr);
+      gap: 1.25rem;
+      align-items: start;
+      margin: 1rem 0 1.5rem;
+    }
+    .exam-photo {
+      margin: 0;
+      background: #fafafa;
+      border: 1px solid #e0e6ed;
+      border-radius: 10px;
+      padding: 0.5rem;
+    }
+    .exam-photo img { width: 100%; height: auto; border-radius: 6px; display: block; }
+    .exam-photo figcaption { font-size: 0.82rem; color: #666; text-align: center; margin-top: 0.5rem; }
+    @media (max-width: 820px) { .exam-row { grid-template-columns: 1fr; } }
+    </style>
+    <div class="section-title">Exercise 3 (8 pts) — your exam sheet + solution</div>
+    <div class="exam-row">
+      <figure class="exam-photo">
+        <img src="images/exam-depreciation-exercise3.png" alt="Exam Exercise 3 — Depreciation" />
+        <figcaption>Photo from exam · cost $160k, 6 years, residual $28k</figcaption>
+      </figure>
+      <div>
+        <p class="q-en"><strong>(a)</strong> Calculate the annual depreciation charge for each method.</p>
+        <div class="brief-answer" style="margin-top:0.5rem">
+          <div class="brief-label">Answer (a)</div>
+          <div class="brief-text"><strong>Straight-line:</strong> (160,000 − 28,000) ÷ 6 = <strong>$22,000</strong> every year.<br>
+          <strong>Reducing balance (15%):</strong> dep = 15% × carrying value (carrying goes down each year).</div>
+        </div>
+        <p class="q-en" style="margin-top:1rem"><strong>(b)</strong> Build a 6-year schedule: cost, accumulated depreciation, NBV.</p>
+        <div class="brief-answer">
+          <div class="brief-label">Answer (b)</div>
+          <div class="brief-text">Use the tables below. Year 6 NBV = <strong>$28,000</strong> (straight-line, equals residual) or <strong>$60,344</strong> (reducing balance).</div>
+        </div>
+      </div>
+    </div>
+    <div class="section-title">(b) Straight-line — 6-year schedule</div>
     <div class="open-block" style="box-shadow:none;overflow-x:auto">
       <table class="matrix">
-        <tr><th>Year</th><th>Carrying ($)</th><th>Dep. year ($)</th><th>Accum. dep. ($)</th><th>NBV ($)</th></tr>
+        <tr><th>Year</th><th>Cost ($)</th><th>Dep. year ($)</th><th>Accum. dep. ($)</th><th>NBV ($)</th></tr>
         <tr><td>1</td><td>160 000</td><td>22 000</td><td>22 000</td><td>138 000</td></tr>
         <tr><td>2</td><td>160 000</td><td>22 000</td><td>44 000</td><td>116 000</td></tr>
         <tr><td>3</td><td>160 000</td><td>22 000</td><td>66 000</td><td>94 000</td></tr>
@@ -897,7 +947,7 @@ def main():
         <tr><td>6</td><td>160 000</td><td>22 000</td><td>132 000</td><td>28 000</td></tr>
       </table>
     </div>
-    <div class="section-title">2. Reducing-balance method (15%)</div>
+    <div class="section-title">(b) Reducing balance 15% — 6-year schedule</div>
     <div class="open-block" style="box-shadow:none;overflow-x:auto">
       <table class="matrix">
         <tr><th>Year</th><th>Carrying ($)</th><th>Dep. year ($)</th><th>Accum. dep. ($)</th><th>NBV ($)</th></tr>
@@ -964,9 +1014,9 @@ def main():
                extra_html=sofp_extra)
 
     write_page("10_Depreciation.html",
-               "Depreciation — straight-line & reducing balance",
-               "Asset $160k, 6 years, residual $28k",
-               [], open_items=[open_items[11], open_items[12]],
+               "Depreciation — Exercise 3 (8 pts)",
+               "Exam photo + straight-line & reducing balance 15%",
+               [], open_items=[],
                extra_html=dep_extra)
 
     write_page("11_Part1_Financial_Statements.html",

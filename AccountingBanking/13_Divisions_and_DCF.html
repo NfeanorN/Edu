@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercise 2 &amp; 3 — Divisions + DCF Cassino</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .back a { color: #16a085; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 { color: #2c3e50; border-bottom: 4px solid #16a085; padding-bottom: 12px; }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .section-title { font-size: 1.15rem; color: #16a085; margin: 2rem 0 1rem; font-weight: 600; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .exam-row {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) minmax(280px, 1.2fr);
+      gap: 1.25rem;
+      align-items: start;
+      margin: 1rem 0 1.5rem;
+    }
+    .exam-photo {
+      margin: 0;
+      background: #fafafa;
+      border: 1px solid #e0e6ed;
+      border-radius: 10px;
+      padding: 0.5rem;
+    }
+    .exam-photo img { width: 100%; height: auto; border-radius: 6px; display: block; }
+    .exam-photo figcaption { font-size: 0.82rem; color: #666; text-align: center; margin-top: 0.5rem; }
+    @media (max-width: 820px) { .exam-row { grid-template-columns: 1fr; } }
+    .brief-answer {
+      margin: 0.65rem 0 0.85rem;
+      padding: 0.7rem 1rem;
+      background: #e8f8ef;
+      border-left: 4px solid #27ae60;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+    }
+    .brief-label { font-weight: 600; color: #1e7e45; font-size: 0.82rem; margin-bottom: 0.2rem; }
+    .open-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      overflow-x: auto;
+    }
+    table.data {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.82rem;
+    }
+    table.data th, table.data td {
+      border: 1px solid #ccc;
+      padding: 5px 8px;
+      text-align: right;
+    }
+    table.data th { background: #16a085; color: #fff; text-align: center; }
+    table.data td.lbl { text-align: left; font-weight: 600; }
+    table.data tr.tot td { font-weight: 700; background: #eefaf7; }
+    .formula {
+      background: #f4f8f7;
+      border-left: 4px solid #16a085;
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.9rem;
+      margin: 0.75rem 0;
+    }
+    .warn {
+      background: #fff8e6;
+      border-left: 4px solid #f39c12;
+      padding: 0.6rem 0.9rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem;
+      margin: 0.75rem 0;
+    }
+    ol.steps { margin: 0.5rem 0; padding-left: 1.25rem; }
+    ol.steps li { margin: 0.35rem 0; }
+    .calc-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1.25rem 0;
+      border: 1px solid #e8ecf1;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .calc-card h3 { margin: 0 0 0.75rem; color: #16a085; font-size: 1.05rem; }
+    .calc-line { font-family: Consolas, "Segoe UI", monospace; font-size: 0.88rem; margin: 0.25rem 0; }
+    .calc-sum { border-top: 2px solid #16a085; margin-top: 0.5rem; padding-top: 0.5rem; font-weight: 600; }
+    .calc-result {
+      background: #e8f8ef;
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      margin-top: 0.75rem;
+      font-weight: 600;
+      color: #1e7e45;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← Accounting &amp; Banking tests</a> · <a href="00_How_To_Solve.html">How to solve</a></p>
+    <h1>Exercise 2 &amp; 3 — exam solutions</h1>
+    <p class="sub">Division table (8 pts) + DCF Cassino SpA (8 pts)</p>
+
+    <div class="exam-row">
+      <figure class="exam-photo">
+        <img src="images/exam-exercises-2-3.png" alt="Exam Exercises 2 and 3" />
+        <figcaption>Your exam sheet — Exercise 2 &amp; 3</figcaption>
+      </figure>
+      <div>
+        <div class="brief-answer">
+          <div class="brief-label">Quick answers</div>
+          <div><strong>Ex.2:</strong> Division A Net Income <strong>32,214</strong> · Division B <strong>126</strong></div>
+          <div style="margin-top:0.4rem"><strong>Ex.3:</strong> <strong>W ≈ 143,858</strong> (sum of discounted cash flows)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div class="section-title">Exercise 2 (8 pts) — Division A &amp; B</div>
+    <p class="q-en">Allocate shared costs, then: Pre-tax profit = Revenue − all costs · Tax = 30% · Net Income = Pre-tax − Tax</p>
+
+    <div class="formula">
+      <strong>Formula for each shared cost:</strong><br>
+      Division share = Total cost × (Division base ÷ Total base)<br><br>
+      <strong>Then:</strong><br>
+      Pre-tax profit = Revenue − Direct labour − Indirect labour − Raw materials − Selling − Electricity − Financial − Advertising<br>
+      Tax = Pre-tax × 30%<br>
+      Net Income = Pre-tax − Tax
+    </div>
+
+    <p class="q-en"><strong>Step 1 — allocate shared costs (empty cells in exam table):</strong></p>
+    <ol class="steps">
+      <li><strong>Indirect labour</strong> (total 8,400) ÷ by Direct labour (16 + 32 = 48)<br>
+        A = 8,400 × 16/48 = <strong>2,800</strong> · B = 8,400 × 32/48 = <strong>5,600</strong></li>
+      <li><strong>Selling</strong> (total 24,000) ÷ by Revenue (144 + 120 = 264)<br>
+        A = 24,000 × 144/264 = <strong>13,091</strong> · B = 24,000 × 120/264 = <strong>10,909</strong></li>
+      <li><strong>Advertising</strong> (total 25,000) ÷ by Revenue<br>
+        A = 25,000 × 144/264 = <strong>13,636</strong> · B = 25,000 × 120/264 = <strong>11,364</strong></li>
+      <li><strong>Electricity</strong> (total 22,400) ÷ by Raw materials (28 + 32 = 60)<br>
+        A = 22,400 × 28/60 = <strong>10,453</strong> · B = 22,400 × 32/60 = <strong>11,947</strong></li>
+      <li><strong>Financial</strong> (total 30,000) ÷ by Raw materials<br>
+        A = 30,000 × 28/60 = <strong>14,000</strong> · B = 30,000 × 32/60 = <strong>16,000</strong></li>
+    </ol>
+
+    <!-- Division A full calc -->
+    <div class="calc-card">
+      <h3>Division A — full calculation</h3>
+      <p class="q-en">Revenue (given) = <strong>144,000</strong></p>
+      <p class="q-en">All costs (subtract from revenue):</p>
+      <div class="calc-line">Direct labour (given) .............. 16,000</div>
+      <div class="calc-line">Indirect labour .................... 2,800</div>
+      <div class="calc-line">Raw materials (given) .............. 28,000</div>
+      <div class="calc-line">Selling ............................ 13,091</div>
+      <div class="calc-line">Electricity ........................ 10,453</div>
+      <div class="calc-line">Financial .......................... 14,000</div>
+      <div class="calc-line">Advertising ........................ 13,636</div>
+      <div class="calc-line calc-sum">Total costs A = 16,000 + 2,800 + 28,000 + 13,091 + 10,453 + 14,000 + 13,636 = <strong>97,980</strong></div>
+      <div class="calc-line" style="margin-top:0.75rem"><strong>Pre-tax profit</strong> = Revenue − Total costs</div>
+      <div class="calc-line">= 144,000 − 97,980 = <strong>46,020</strong></div>
+      <div class="calc-line" style="margin-top:0.5rem"><strong>Tax (30%)</strong> = 46,020 × 0.30 = <strong>13,806</strong></div>
+      <div class="calc-line"><strong>Net Income</strong> = Pre-tax − Tax = 46,020 − 13,806 = <strong>32,214</strong></div>
+      <div class="calc-result">Division A: Pre-tax 46,020 → Tax 13,806 → Net Income 32,214</div>
+    </div>
+
+    <!-- Division B full calc -->
+    <div class="calc-card">
+      <h3>Division B — full calculation</h3>
+      <p class="q-en">Revenue (given) = <strong>120,000</strong></p>
+      <p class="q-en">All costs:</p>
+      <div class="calc-line">Direct labour (given) .............. 32,000</div>
+      <div class="calc-line">Indirect labour .................... 5,600</div>
+      <div class="calc-line">Raw materials (given) .............. 32,000</div>
+      <div class="calc-line">Selling ............................ 10,909</div>
+      <div class="calc-line">Electricity ........................ 11,947</div>
+      <div class="calc-line">Financial .......................... 16,000</div>
+      <div class="calc-line">Advertising ........................ 11,364</div>
+      <div class="calc-line calc-sum">Total costs B = 32,000 + 5,600 + 32,000 + 10,909 + 11,947 + 16,000 + 11,364 = <strong>119,820</strong></div>
+      <div class="calc-line" style="margin-top:0.75rem"><strong>Pre-tax profit</strong> = Revenue − Total costs</div>
+      <div class="calc-line">= 120,000 − 119,820 = <strong>180</strong></div>
+      <div class="calc-line" style="margin-top:0.5rem"><strong>Tax (30%)</strong> = 180 × 0.30 = <strong>54</strong></div>
+      <div class="calc-line"><strong>Net Income</strong> = Pre-tax − Tax = 180 − 54 = <strong>126</strong></div>
+      <div class="calc-result">Division B: Pre-tax 180 → Tax 54 → Net Income 126</div>
+    </div>
+
+    <p class="q-en"><strong>TOTAL row</strong> (add A + B): Pre-tax 46,200 · Tax 13,860 · Net Income 32,340</p>
+
+    <div class="open-block">
+      <table class="data">
+        <tr><th class="lbl">ITEMS</th><th>DIV. A</th><th>DIV. B</th><th>TOTAL</th></tr>
+        <tr><td class="lbl">REVENUE</td><td>144,000</td><td>120,000</td><td>264,000</td></tr>
+        <tr><td class="lbl">DIRECT LABOUR</td><td>16,000</td><td>32,000</td><td>48,000</td></tr>
+        <tr><td class="lbl">INDIRECT LABOUR</td><td>2,800</td><td>5,600</td><td>8,400</td></tr>
+        <tr><td class="lbl">RAW MATERIALS</td><td>28,000</td><td>32,000</td><td>60,000</td></tr>
+        <tr><td class="lbl">SELLING EXPENSES</td><td>13,091</td><td>10,909</td><td>24,000</td></tr>
+        <tr><td class="lbl">ELECTRICITY EXPENSES</td><td>10,453</td><td>11,947</td><td>22,400</td></tr>
+        <tr><td class="lbl">FINANCIAL COSTS</td><td>14,000</td><td>16,000</td><td>30,000</td></tr>
+        <tr><td class="lbl">ADVERTISING EXPENSES</td><td>13,636</td><td>11,364</td><td>25,000</td></tr>
+        <tr class="tot"><td class="lbl">PRE-TAX PROFIT</td><td>46,020</td><td>180</td><td>46,200</td></tr>
+        <tr><td class="lbl">TAXES (30%)</td><td>13,806</td><td>54</td><td>13,860</td></tr>
+        <tr class="tot"><td class="lbl">NET INCOME</td><td>32,214</td><td>126</td><td>32,340</td></tr>
+      </table>
+    </div>
+
+    <!-- Exercise 3 DCF -->
+    <div class="section-title">Exercise 3 (8 pts) — DCF Cassino SpA</div>
+    <p class="q-en"><strong>Given:</strong> WACC = 5% · g = 1% · Cash flows 2024–2028 as on exam sheet</p>
+
+    <div class="formula">
+      Discount coefficient (year n) = 1 ÷ (1 + WACC)<sup>n</sup><br>
+      Discounted cash flow = Cash flow × Discount coefficient<br>
+      <strong>W</strong> = sum of all discounted cash flows
+    </div>
+
+    <ol class="steps">
+      <li>2024 (year 1): 1/1.05 = <strong>0.9524</strong> → 25,000 × 0.9524 = <strong>23,810</strong></li>
+      <li>2025 (year 2): 1/1.05² = <strong>0.9070</strong> → 30,000 × 0.9070 = <strong>27,211</strong></li>
+      <li>2026 (year 3): 1/1.05³ = <strong>0.8638</strong> → 35,000 × 0.8638 = <strong>30,234</strong></li>
+      <li>2027 (year 4): 1/1.05⁴ = <strong>0.8227</strong> → 38,000 × 0.8227 = <strong>31,263</strong></li>
+      <li>2028 TV (year 5): 1/1.05⁵ = <strong>0.7835</strong> → 40,000 × 0.7835 = <strong>31,341</strong></li>
+    </ol>
+
+    <div class="open-block">
+      <table class="data">
+        <tr><th class="lbl"></th><th>2024</th><th>2025</th><th>2026</th><th>2027</th><th>2028 TV</th></tr>
+        <tr><td class="lbl">Cash flow</td><td>25,000</td><td>30,000</td><td>35,000</td><td>38,000</td><td>40,000</td></tr>
+        <tr><td class="lbl">Discount coefficient</td><td>0.9524</td><td>0.9070</td><td>0.8638</td><td>0.8227</td><td>0.7835</td></tr>
+        <tr class="tot"><td class="lbl">Discounted cash flows</td><td>23,810</td><td>27,211</td><td>30,234</td><td>31,263</td><td>31,341</td></tr>
+        <tr class="tot"><td class="lbl" colspan="2"><strong>W (enterprise value)</strong></td><td colspan="3"></td><td><strong>143,858</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="brief-answer">
+      <div class="brief-label">Answer</div>
+      <div><strong>W = 143,858</strong> (round to 143,860 if whole euros)</div>
+    </div>
+
+    <div class="warn">If your professor uses <strong>Gordon growth</strong> on the last cash flow: TV = 40,000 × 1.01 ÷ (5% − 1%) = 1,010,000, then discount 5 years → W ≈ 904,000. Use the method taught in class — most “fill the table” exams discount each given cash flow directly (answer above).</div>
+  </div>
+</body>
+</html>
