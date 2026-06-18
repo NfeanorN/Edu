@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Place Marketing — All Exams</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #2980b9; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #2980b9;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #2980b9;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 1.15rem;
+      color: #2980b9;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #2980b9; margin-bottom: 0.35rem; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #eef4fa; }
+  .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-en { font-size: 0.95rem; }
+    .opt-ru { font-size: 0.82rem; color: #777; }
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .open-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .open-block textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-top: 0.5rem;
+      padding: 0.65rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .sample {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: #eef5fc;
+      border-radius: 8px;
+      border-left: 3px solid #2980b9;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
+    table.matrix {
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0 auto;
+    }
+    table.matrix th, table.matrix td {
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      text-align: center;
+    }
+    table.matrix th { background: #2980b9; color: #fff; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #2980b9;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #1f6dad; }
+    button.secondary {
+      background: #fff;
+      color: #2980b9;
+      border: 2px solid #2980b9;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #2980b9;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+    .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
+    .answer-box {
+      margin-top: 0.85rem;
+      padding: 0.9rem 1rem;
+      background: #eef5fc;
+      border-radius: 8px;
+      border-left: 4px solid #2980b9;
+    }
+    .answer-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #2980b9;
+      margin-bottom: 0.5rem;
+    }
+    .answer-en { font-size: 0.95rem; white-space: pre-wrap; line-height: 1.55; }
+    .answer-ru {
+      font-size: 0.88rem;
+      color: #555;
+      margin-top: 0.55rem;
+      white-space: pre-wrap;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .practice-note {
+      margin-top: 0.75rem;
+      font-size: 0.88rem;
+      color: #666;
+    }
+    .practice-note summary {
+      cursor: pointer;
+      color: #2980b9;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .practice-note textarea {
+      width: 100%;
+      min-height: 88px;
+      margin-top: 0.35rem;
+      padding: 0.65rem;
+      border: 1px dashed #c5d4e3;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      resize: vertical;
+      background: #fafbfc;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Place Marketing — All Exams</h1>
+    <p class="sub">7 variants · 14 MCQ + 49 open questions · Univ. Cassino 2021–2022</p>
+    <div class="rules"><strong>All 7 exam variants</strong> on one page: 14 MCQ (Part I) + 28 brief (Part II) + 21 brief (Part III). MCQ grouped by variant — click <em>Check answers</em> to score Part I. Open questions: EN + RU sample answers below each item. · Все варианты на одной странице. MCQ проверяются кнопкой.</div>
+    <form id="test-form">
+      <div id="questions"></div>
+      
+      <div class="actions">
+        <button type="submit">Check answers / Проверить</button>
+        <button type="button" class="secondary" id="reset-btn">Reset / Сбросить</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = {"correct": 1, "wrong": 0, "max": null};
+    const QUESTIONS = [{"num": "Variant 01 · MCQ 1", "id": "v01_mcq1", "en": "Positioning is:", "ru": "Позиционирование (positioning) — это:", "options": [{"id": "a", "en": "a process in which a Company seeks to fix the product price", "ru": "процесс фиксации цены продукта"}, {"id": "b", "en": "a process in which a Company seeks to establish perceptions of its product offering that are consistent with customers' needs and preferences", "ru": "процесс формирования восприятия предложения в соответствии с потребностями клиентов"}, {"id": "c", "en": "a process in which a Company seeks to establish perceptions explaining the price and the quality of the product", "ru": "процесс объяснения цены и качества продукта"}], "correct": "b", "section": "Variant 01 — Part I (MCQ)"}, {"num": "Variant 01 · MCQ 2", "id": "v01_mcq2", "en": "Place Marketing is:", "ru": "Place Marketing — это:", "options": [{"id": "a", "en": "Company marketing applied on the territories", "ru": "корпоративный маркетинг, применённый к территориям"}, {"id": "b", "en": "The strategy of the Place", "ru": "стратегия места"}, {"id": "c", "en": "The activity, set of institutions and processes for creating, communicating, delivering and exchanging offerings of the place that have value for place stakeholders (target markets) and its community at large", "ru": "деятельность и процессы создания, коммуникации и обмена ценностными предложениями места для стейкхолдеров и сообщества"}], "correct": "c", "section": "Variant 01 — Part I (MCQ)"}, {"num": "Variant 02 · MCQ 1", "id": "v02_mcq1", "en": "__________ is about matching market opportunities to the organization's resources (what it can do) and objectives (what management wants to do).", "ru": "__________ — это согласование рыночных возможностей с ресурсами организации и её целями.", "options": [{"id": "a", "en": "Marketing communications", "ru": "Маркетинговые коммуникации"}, {"id": "b", "en": "Market research", "ru": "Исследование рынка"}, {"id": "c", "en": "Marketing strategy", "ru": "Маркетинговая стратегия"}, {"id": "d", "en": "Market segmentation", "ru": "Сегментация рынка"}], "correct": "c", "section": "Variant 02 — Part I (MCQ)"}, {"num": "Variant 02 · MCQ 2", "id": "v02_mcq2", "en": "The standardization of the offering is:", "ru": "Стандартизация предложения (offering) — это:", "options": [{"id": "a", "en": "the solution to \"sell\" your Place in the world", "ru": "решение «продать» место в мире"}, {"id": "b", "en": "the solution to \"sell\" your Place in your Country", "ru": "решение «продать» место в стране"}, {"id": "c", "en": "could be a solution in some situations", "ru": "может быть решением в некоторых ситуациях"}], "correct": "c", "section": "Variant 02 — Part I (MCQ)", "explain_ru": "Стандартизация не универсальное решение — зависит от целевого рынка и позиционирования."}, {"num": "Variant 03 · MCQ 1", "id": "v03_mcq1", "en": "A market orientation recognizes that:", "ru": "Рыночная ориентация признаёт, что:", "options": [{"id": "a", "en": "price is the most important variable for customers", "ru": "цена — главная переменная для клиентов"}, {"id": "b", "en": "market intelligence relating to current and future customer needs is important", "ru": "важна рыночная информация о текущих и будущих потребностях"}, {"id": "c", "en": "selling and marketing are essentially the same thing", "ru": "продажи и маркетинг — одно и то же"}, {"id": "d", "en": "sales depend predominantly on an aggressive sales force", "ru": "продажи зависят от агрессивного отдела продаж"}], "correct": "b", "section": "Variant 03 — Part I (MCQ)"}, {"num": "Variant 03 · MCQ 2", "id": "v03_mcq2", "en": "Place marketing analysis elements:", "ru": "Элементы анализа place marketing:", "options": [{"id": "a", "en": "Place identification, Swot analysis, Positioning, Strategy", "ru": "Идентификация места, SWOT, позиционирование, стратегия"}, {"id": "b", "en": "Place identification, Place reputation analysis, Marketing Mix, control", "ru": "Идентификация, репутация, marketing mix, контроль"}, {"id": "c", "en": "Place identification, Place reputation analysis, Assets analysis, Driver analysis, Swot analysis, Positioning, segmentation and targeting of the Place", "ru": "Идентификация, репутация, активы, драйверы, SWOT, позиционирование, сегментация и таргетинг"}], "correct": "c", "section": "Variant 03 — Part I (MCQ)", "explain_ru": "Полный цикл анализа включает активы, драйверы, репутацию, SWOT и STP."}, {"num": "Variant 04 · MCQ 1", "id": "v04_mcq1", "en": "Which of the following is not an element of the marketing mix?", "ru": "Что НЕ является элементом marketing mix?", "options": [{"id": "a", "en": "Distribution", "ru": "Distribution (место/дистрибуция)"}, {"id": "b", "en": "Product", "ru": "Product"}, {"id": "c", "en": "Target market", "ru": "Target market (целевой рынок)"}, {"id": "d", "en": "Pricing", "ru": "Pricing"}], "correct": "c", "section": "Variant 04 — Part I (MCQ)", "explain_ru": "Target market — результат STP, не элемент 4P."}, {"num": "Variant 04 · MCQ 2", "id": "v04_mcq2", "en": "Place marketing analysis elements:", "ru": "Элементы анализа place marketing:", "options": [{"id": "a", "en": "Place identification, Swot analysis, Positioning, Strategy", "ru": "Идентификация места, SWOT, позиционирование, стратегия"}, {"id": "b", "en": "Place identification, Place reputation analysis, Marketing Mix, control", "ru": "Идентификация, репутация, marketing mix, контроль"}, {"id": "c", "en": "Place identification, Place reputation analysis, Assets analysis, Driver analysis, Swot analysis, Positioning, segmentation and targeting of the Place", "ru": "Идентификация, репутация, активы, драйверы, SWOT, позиционирование, сегментация и таргетинг"}], "correct": "c", "section": "Variant 04 — Part I (MCQ)", "explain_ru": "Полный цикл анализа включает активы, драйверы, репутацию, SWOT и STP."}, {"num": "Variant 05 · MCQ 1", "id": "v05_mcq1", "en": "Four competing philosophies strongly influence the role of marketing and marketing activities within an organization. Which of the following is not a component of market orientation?", "ru": "Что НЕ является компонентом market orientation?", "options": [{"id": "a", "en": "Customer orientation.", "ru": "Customer orientation"}, {"id": "b", "en": "Profitability orientation.", "ru": "Profitability orientation"}, {"id": "c", "en": "Marketing orientation.", "ru": "Marketing orientation"}, {"id": "d", "en": "Competitor orientation.", "ru": "Competitor orientation"}], "correct": "b", "section": "Variant 05 — Part I (MCQ)", "explain_ru": "Market orientation: customer, competitor, interfunctional coordination — не «profitability orientation» как отдельный компонент."}, {"num": "Variant 05 · MCQ 2", "id": "v05_mcq2", "en": "Which one is right:", "ru": "Какое утверждение верно:", "options": [{"id": "a", "en": "The territory emerges as a place through the perception of an observer and the emergent characteristics of the place, which interact with each other.", "ru": "Территория становится местом через восприятие наблюдателя и эмерджентные характеристики места"}, {"id": "b", "en": "The territory is a place with specific features interacting with each other.", "ru": "Территория — это место с взаимодействующими характеристиками"}, {"id": "c", "en": "The territory emerges as a place through the efforts of a strong government body and by the stakeholders investments.", "ru": "Место возникает только через усилия власти и инвестиции стейкхолдеров"}], "correct": "a", "section": "Variant 05 — Part I (MCQ)"}, {"num": "Variant 07 · MCQ 1", "id": "v07_mcq1", "en": "In relationship marketing firms focus on __________ relationships with __________", "ru": "В relationship marketing фирмы фокусируются на __________ отношениях с __________", "options": [{"id": "a", "en": "short-term; customers and suppliers", "ru": "краткосрочных; клиентами и поставщиками"}, {"id": "b", "en": "long-term; customers and suppliers", "ru": "долгосрочных; клиентами и поставщиками"}, {"id": "c", "en": "short-term; customers", "ru": "краткосрочных; клиентами"}, {"id": "d", "en": "long-term; customers", "ru": "долгосрочных; клиентами"}], "correct": "b", "section": "Variant 07 — Part I (MCQ)"}, {"num": "Variant 07 · MCQ 2", "id": "v07_mcq2", "en": "It is the sum of beliefs, ideas, impressions that people have of a brand or a place", "ru": "Это сумма убеждений, идей и впечатлений о бренде или месте", "options": [{"id": "a", "en": "we are talking about identity", "ru": "речь об identity (идентичности)"}, {"id": "b", "en": "we are talking about image", "ru": "речь об image (имидже)"}, {"id": "c", "en": "we are talking about positioning", "ru": "речь о positioning"}], "correct": "b", "section": "Variant 07 — Part I (MCQ)", "explain_ru": "Image — восприятие аудитории; identity — то, что место о себе заявляет."}, {"num": "Variant 08 · MCQ 1", "id": "v08_mcq1", "en": "__________ is about matching market opportunities to the organization's resources (what it can do) and objectives (what management wants to do).", "ru": "__________ — это согласование рыночных возможностей с ресурсами организации и её целями.", "options": [{"id": "a", "en": "Marketing communications", "ru": "Маркетинговые коммуникации"}, {"id": "b", "en": "Market research", "ru": "Исследование рынка"}, {"id": "c", "en": "Marketing strategy", "ru": "Маркетинговая стратегия"}, {"id": "d", "en": "Market segmentation", "ru": "Сегментация рынка"}], "correct": "c", "section": "Variant 08 — Part I (MCQ)"}, {"num": "Variant 08 · MCQ 2", "id": "v08_mcq2", "en": "The standardization of the offering is:", "ru": "Стандартизация предложения (offering) — это:", "options": [{"id": "a", "en": "the solution to \"sell\" your Place in the world", "ru": "решение «продать» место в мире"}, {"id": "b", "en": "the solution to \"sell\" your Place in your Country", "ru": "решение «продать» место в стране"}, {"id": "c", "en": "could be a solution in some situations", "ru": "может быть решением в некоторых ситуациях"}], "correct": "c", "section": "Variant 08 — Part I (MCQ)", "explain_ru": "Стандартизация не универсальное решение — зависит от целевого рынка и позиционирования."}];
+    const OPEN_ITEMS = [{"part": "II", "label": "Variant 01 · II a", "title_ru": "Part II — Brief Answers (3 marks) — a", "en": "4Ps and limits", "ru": "4P и их ограничения в place marketing", "sample_en": "The 4Ps (product, price, place, promotion) are a classic framework, but for places the 'product' is fuzzy, 'price' is not only monetary, and distribution means territorial accessibility. Extended frameworks add people, partnerships, and co-creation.", "sample_ru": "4P (product, price, place, promotion) — классическая рамка, но для места «продукт» размыт, цена — не только денежная, distribution — доступность территории. Нужны доп. рамки: people, partnerships, co-creation."}, {"part": "II", "label": "Variant 01 · II b", "title_ru": "Part II — Brief Answers (3 marks) — b", "en": "Describe the role of public relations in place marketing", "ru": "Роль PR в place marketing", "sample_en": "PR builds the place's image and reputation, works with media and stakeholders, supports events and crisis communication. It complements advertising through trust and earned media.", "sample_ru": "PR формирует имидж и репутацию места, работает со СМИ и стейкхолдерами, поддерживает события и кризисные коммуникации. Дополняет рекламу — через доверие и earned media."}, {"part": "II", "label": "Variant 01 · II c", "title_ru": "Part II — Brief Answers (3 marks) — c", "en": "What is the meaning of \"value\" in marketing", "ru": "Значение «value» в маркетинге", "sample_en": "Value is the ratio of benefits (functional, emotional, social) to costs (money, time, risk). In place marketing, value differs for residents, tourists, and investors across segments.", "sample_ru": "Value = соотношение выгод (functional, emotional, social) и затрат (деньги, время, риск). В PM — ценность для резидентов, туристов, инвесторов, отличается у сегментов."}, {"part": "II", "label": "Variant 01 · II d", "title_ru": "Part II — Brief Answers (3 marks) — d", "en": "What the Town Centre Management scheme is?", "ru": "Что такое Town Centre Management (TCM)?", "sample_en": "TCM is a partnership model for managing a city centre: business, government, and citizens jointly improve attractiveness, safety, and events—often via a BID or local association.", "sample_ru": "TCM — партнёрская модель управления центром города: бизнес, власть, граждане совместно улучшают привлекательность, безопасность, события. Часто через BID или ассоциации."}, {"part": "II", "label": "Variant 01 · II 1", "title_ru": "Part III — Brief Answers (5 marks) — 1", "en": "Why the Place emerges by the territory?", "ru": "Почему Place возникает из territory?", "sample_en": "Territory is the physical/administrative base. Place is a socially constructed perception: meanings, identity, and the observer's experience. A place emerges from the interaction between territory and perception.", "sample_ru": "Territory — физическая/административная основа. Place — социально сконструированное восприятие: смыслы, идентичность, опыт наблюдателя. Место «рождается» из взаимодействия территории и восприятия."}, {"part": "II", "label": "Variant 01 · II 2", "title_ru": "Part III — Brief Answers (5 marks) — 2", "en": "Why it is difficult to define the \"price\" in Place Marketing?", "ru": "Почему сложно определить «цену» в place marketing?", "sample_en": "The 'price' of a place is multi-layered: cost of living, taxes, rent, plus non-monetary costs (competition, congestion). Benefits are not always monetised—so price is not money alone.", "sample_ru": "Цена места многослойна: стоимость жизни, налоги, аренда, но также нематериальные издержки (конкуренция, очереди). Выгоды не всегда монетизируются → price ≠ только money."}, {"part": "II", "label": "Variant 01 · II 3", "title_ru": "Part III — Brief Answers (5 marks) — 3", "en": "Describe the 'Living Labs' and their role", "ru": "Living Labs и их роль", "sample_en": "Living Labs are open co-creation platforms where users, government, and business test innovations in a real place context. In PM they support engagement, policy experiments, and faster implementation.", "sample_ru": "Living Labs — открытые площадки co-creation: пользователи, власть, бизнес тестируют инновации в реальном контексте места. Роль в PM: вовлечение, эксперименты политик, ускорение внедрения."}, {"part": "II", "label": "Variant 02 · II a", "title_ru": "Part II — Brief Answers (3 marks) — a", "en": "Please explain the passage from traditional marketing system toward marketing value co-creation driven.", "ru": "Переход от традиционного маркетинга к value co-creation driven", "sample_en": "Shift from one-way value transfer (firm → customer) to joint value creation with users and stakeholders. The place is shaped together with residents, visitors, and business.", "sample_ru": "От односторонней передачи ценности (firm → customer) к совместному созданию ценности с пользователями/стейкхолдерами. Место проектируется вместе с резидентами, туристами, бизнесом."}, {"part": "II", "label": "Variant 02 · II b", "title_ru": "Part II — Brief Answers (3 marks) — b", "en": "Market segmentation.", "ru": "Сегментация рынка", "sample_en": "Dividing the market into homogeneous groups (geography, motives, behaviour). In PM: tourists, investors, talent, residents—each with different value propositions.", "sample_ru": "Деление рынка на однородные группы (география, мотивы, поведение). В PM: сегменты — туристы, инвесторы, talent, резиденты; разные value propositions."}, {"part": "II", "label": "Variant 02 · II c", "title_ru": "Part II — Brief Answers (3 marks) — c", "en": "Why in place marketing the customer is called user?", "ru": "Почему в PM клиента называют user?", "sample_en": "The user actively consumes the place experience (living, mobility, services) and is often a co-producer. 'User' stresses ongoing engagement, not a one-off purchase.", "sample_ru": "Пользователь активно потребляет опыт места (проживание, мобильность, сервисы), часто co-producer. «User» подчёркивает вовлечённость, а не разовую покупку."}, {"part": "II", "label": "Variant 02 · II d", "title_ru": "Part II — Brief Answers (3 marks) — d", "en": "Why distribution is a critical factor to explain in Place Marketing?", "ru": "Почему distribution критичен в PM?", "sample_en": "Distribution means place accessibility: transport, connectivity, digital channels, infrastructure. Without accessibility the value proposition cannot reach target segments.", "sample_ru": "Distribution = доступность места: транспорт, connectivity, digital channels, инфраструктура. Без доступности ценностное предложение не достигает целевых сегментов."}, {"part": "II", "label": "Variant 02 · II 1", "title_ru": "Part III — Brief Answers (5 marks) — 1", "en": "Which is the meaning of 'Place as value proposition'?", "ru": "Что значит «Place as value proposition»?", "sample_en": "The place as a bundle of benefits for a segment: quality of life, opportunities, identity, services—not just attributes but a promise of value for a specific audience.", "sample_ru": "Место как пакет выгод для сегмента: качество жизни, возможности, идентичность, сервисы. Не только атрибуты, а обещание ценности для конкретной аудитории."}, {"part": "II", "label": "Variant 02 · II 2", "title_ru": "Part III — Brief Answers (5 marks) — 2", "en": "Which are critical factors for a successful Place Marketing strategy?", "ru": "Критические факторы успешной стратегии PM", "sample_en": "Strong vision, stakeholder leadership, alignment of Strategy–Substance–Symbolic, credible brand, measurable KPIs, sustainable funding, and co-creation.", "sample_ru": "Сильное видение, лидерство стейкхолдеров, согласованность Strategy–Substance–Symbolic, достоверный бренд, измеримые KPI, устойчивое финансирование, co-creation."}, {"part": "II", "label": "Variant 02 · II 3", "title_ru": "Part III — Brief Answers (5 marks) — 3", "en": "Why it is difficult to define the \"product\" in Place Marketing?", "ru": "Почему сложно определить «продукт» в PM?", "sample_en": "The place product is a hybrid: space, services, events, reputation, people. It is heterogeneous, co-produced, and changes over time—so there is no clear product boundary.", "sample_ru": "Продукт места — гибрид: пространство, услуги, события, репутация, люди. Неоднороден, совместно производится, меняется во времени → нет чёткой границы «продукта»."}, {"part": "II", "label": "Variant 03 · II a", "title_ru": "Part II — Brief Answers (3 marks) — a", "en": "Why place marketing is other than communication?", "ru": "Почему place marketing — не только коммуникация?", "sample_en": "PM includes planning, the place product/experience, partnerships, governance, and investment. Communication is only one tool; without substance the strategy fails.", "sample_ru": "PM включает планирование, продукт/опыт места, партнёрства, governance, инвестиции. Коммуникация лишь один инструмент; без substance стратегия не работает."}, {"part": "II", "label": "Variant 03 · II b", "title_ru": "Part II — Brief Answers (3 marks) — b", "en": "Marketing segmentation", "ru": "Сегментация в маркетинге", "sample_en": "Splitting the audience by shared characteristics or needs for targeting. In PM: by visit purpose, resident type, or investment motives.", "sample_ru": "Разделение аудитории по общим характеристикам/потребностям для таргетинга. В PM — по целям визита, типу резидента, инвестиционным мотивам."}, {"part": "II", "label": "Variant 03 · II c", "title_ru": "Part II — Brief Answers (3 marks) — c", "en": "Positioning", "ru": "Позиционирование", "sample_en": "Occupying a distinctive position in the target audience's mind versus competitors. For a place: a unique image and value promise.", "sample_ru": "Занятие отличительного места в сознании целевой аудитории относительно конкурентов. Для места — уникальный образ и обещание ценности."}, {"part": "II", "label": "Variant 03 · II d", "title_ru": "Part II — Brief Answers (3 marks) — d", "en": "Natural Shopping Center: strengths and weaknesses", "ru": "Natural Shopping Center: сильные и слабые стороны", "sample_en": "Strengths: authenticity, independent retail mix, experience. Weaknesses: harder coordination, funding challenges, competition from malls, parking/access issues.", "sample_ru": "Сильные: аутентичность, mix independent retail, experience. Слабые: координация сложнее, финансирование, конкуренция с malls, parking/access."}, {"part": "II", "label": "Variant 03 · II 1", "title_ru": "Part III — Brief Answers (5 marks) — 1", "en": "Describe how the Universities could adopt a 'onlife' approach and the relations with the place.", "ru": "Как университеты могут использовать onlife и связь с местом", "sample_en": "Onlife blends online and offline. Universities: hybrid learning, digital services plus campus/city as a living lab, local community engagement, and territorial branding.", "sample_ru": "Onlife — слияние online/offline. Университет: гибридное обучение, цифровые сервисы + кампус/город как living lab, вовлечение местного сообщества, бренд территории."}, {"part": "II", "label": "Variant 03 · II 2", "title_ru": "Part III — Brief Answers (5 marks) — 2", "en": "Which are relationships between Strategy + Substance + Symbolic actions?", "ru": "Связь Strategy, Substance и Symbolic actions", "sample_en": "Strategy sets direction and goals; Substance delivers real projects/infrastructure; Symbolic covers signs, events, and communication. They must align—symbols without substance erode trust.", "sample_ru": "Strategy — направление и цели; Substance — реальные проекты/инфраструктура; Symbolic — знаки, события, коммуникация. Должны быть согласованы: символы без substance → недоверие."}, {"part": "II", "label": "Variant 03 · II 3", "title_ru": "Part III — Brief Answers (5 marks) — 3", "en": "Nature and role of Key Performance Indicators in Town Centre Management.", "ru": "KPI в Town Centre Management", "sample_en": "KPIs track footfall, vacancy, safety, spend, satisfaction. They enable monitoring, partner accountability, plan adjustment, and proof of impact for funding.", "sample_ru": "KPI измеряют footfall, vacancy, safety, spend, satisfaction. Роль: мониторинг, accountability партнёров, корректировка плана, доказательство эффекта для финансирования."}, {"part": "II", "label": "Variant 04 · II a", "title_ru": "Part II — Brief Answers (3 marks) — a", "en": "What's about National Brand Index?", "ru": "National Brand Index", "sample_en": "An index of country perception across dimensions (culture, tourism, investment, etc.). Used to benchmark national brand performance and inform place branding policy.", "sample_ru": "Индекс восприятия страны по измерениям (culture, tourism, investment и др.). Используется для бенчмарка национального бренда и политики place branding."}, {"part": "II", "label": "Variant 04 · II b", "title_ru": "Part II — Brief Answers (3 marks) — b", "en": "Marketing researches", "ru": "Маркетинговые исследования", "sample_en": "Collecting data on place users/consumers: surveys, focus groups, flow analytics. Foundation for segmentation, positioning, and campaign evaluation.", "sample_ru": "Сбор данных о потребителях/пользователях места: опросы, фокус-группы, аналитика потоков. Основа для сегментации, позиционирования и оценки кампаний."}, {"part": "II", "label": "Variant 04 · II c", "title_ru": "Part II — Brief Answers (3 marks) — c", "en": "Targeting, positioning and segmentation", "ru": "Targeting, positioning and segmentation", "sample_en": "STP: segmentation → target segment choice → positioning for them. In PM applied separately to tourists, residents, and investors.", "sample_ru": "STP: сегментация → выбор целевых сегментов → позиционирование для них. В PM применяется к туристам, резидентам, инвесторам отдельно."}, {"part": "II", "label": "Variant 04 · II d", "title_ru": "Part II — Brief Answers (3 marks) — d", "en": "The Place Brand is:", "ru": "Place Brand — это:", "sample_en": "The set of associations and promises about a place; a managed image aligned with real experience. More than logo/slogan—it is equity in the audience's mind.", "sample_ru": "Совокупность ассоциаций и обещаний о месте; управляемый образ, согласованный с реальным опытом. Отличается от logo/slogan — это equity в сознании аудитории."}, {"part": "II", "label": "Variant 04 · II 1", "title_ru": "Part III — Brief Answers (5 marks) — 1", "en": "What's about Place Marketing value co-creation driven?", "ru": "Place Marketing value co-creation driven", "sample_en": "An approach where place value is created jointly with stakeholders (citizens, business, government). Planning, services, and brand are built through participation, not top-down.", "sample_ru": "Подход, где ценность места создаётся совместно со стейкхолдерами (граждане, бизнес, власть). Планирование, сервисы и бренд — через участие, а не top-down."}, {"part": "II", "label": "Variant 04 · II 2", "title_ru": "Part III — Brief Answers (5 marks) — 2", "en": "Describing the place marketing plan", "ru": "Place marketing plan", "sample_en": "A document covering analysis (SWOT, stakeholders), goals, segments, positioning, action mix, budget, KPIs, and governance. Links strategy to operations.", "sample_ru": "Документ: анализ (SWOT, stakeholders), цели, сегменты, positioning, mix действий, бюджет, KPI, governance. Связывает стратегию и операционные мероприятия."}, {"part": "II", "label": "Variant 04 · II 3", "title_ru": "Part III — Brief Answers (5 marks) — 3", "en": "What's about relation between technology-knowledge-information diffusion and engagement of the actors and Place Marketing (explain the matrix)", "ru": "Матрица: технология–знание–диффузия информации и вовлечённость", "sample_en": "Axes: information diffusion (low→high) and actor engagement. High diffusion + high engagement → co-creation and onlife; low → passive users. PM chooses tools by quadrant.", "sample_ru": "Ось диффузии (низкая→высокая) и вовлечённости акторов. Высокая диффузия + высокая engagement → co-creation и onlife; низкая → пассивные пользователи. PM выбирает инструменты по квадранту."}, {"part": "II", "label": "Variant 05 · II a", "title_ru": "Part II — Brief Answers (3 marks) — a", "en": "Which is the relationship between marketing and value?", "ru": "Связь маркетинга и value", "sample_en": "Marketing creates, communicates, and exchanges value. Focus on customer/user value: benefits minus costs. In PM, value differs across stakeholder groups.", "sample_ru": "Маркетинг создаёт, коммуницирует и обменивает value. Фокус на customer/user value: выгоды минус затраты. В PM — ценность для разных стейкхолдеров."}, {"part": "II", "label": "Variant 05 · II b", "title_ru": "Part II — Brief Answers (3 marks) — b", "en": "Describe the difficulties in SWOT analysis interpretation.", "ru": "Сложности интерпретации SWOT", "sample_en": "Subjectivity, static snapshots, mixing internal/external factors, list overload without priorities, ignoring S-O/W-T strategy links.", "sample_ru": "Субъективность, статичность, смешение internal/external, перегруз списками без приоритетов, игнорирование взаимосвязей S-O/W-T стратегий."}, {"part": "II", "label": "Variant 05 · II c", "title_ru": "Part II — Brief Answers (3 marks) — c", "en": "Describe the Town Centre Management's stages.", "ru": "Этапы Town Centre Management", "sample_en": "Typically: initiation/partnership → centre audit → vision and plan → projects (marketing, safety, events) → KPI monitoring → adjustment.", "sample_ru": "Обычно: инициация/партнёрство → аудит центра → vision и план → проекты (marketing, safety, events) → мониторинг KPI → корректировка."}, {"part": "II", "label": "Variant 05 · II d", "title_ru": "Part II — Brief Answers (3 marks) — d", "en": "What's about Business Improvement District.", "ru": "Business Improvement District (BID)", "sample_en": "A zone where businesses vote for an extra levy for improvements (cleaning, security, marketing). A TCM funding model involving the private sector.", "sample_ru": "Зона, где бизнес голосует за доп. налог/взнос для улучшений (уборка, security, marketing). Модель финансирования TCM с private sector."}, {"part": "II", "label": "Variant 05 · II 1", "title_ru": "Part III — Brief Answers (5 marks) — 1", "en": "Why it is suggested to include the 'education and/or training' in place marketing communication?", "ru": "Зачем включать education/training в коммуникацию PM?", "sample_en": "It attracts talent and investors, raises human capital, supports innovation and workforce quality—a key part of the place value proposition.", "sample_ru": "Привлекает talent и инвесторов, повышает human capital, поддерживает инновации и качество workforce — важный элемент value proposition места."}, {"part": "II", "label": "Variant 05 · II 2", "title_ru": "Part III — Brief Answers (5 marks) — 2", "en": "Describe the need to consider internal and external stakeholders in defining the place marketing strategy for a place.", "ru": "Внутренние и внешние стейкхолдеры в стратегии PM", "sample_en": "Internal: residents, business, government—legitimacy and delivery. External: tourists, investors, media—demand and image. Strategy fails without consensus and resources.", "sample_ru": "Внутренние: резиденты, бизнес, власть — легитимность и реализация. Внешние: туристы, инвесторы, media — спрос и имидж. Стратегия без консенсуса и ресурсов провалится."}, {"part": "II", "label": "Variant 05 · II 3", "title_ru": "Part III — Brief Answers (5 marks) — 3", "en": "Please explain the limits in writing a place marketing plan.", "ru": "Ограничения place marketing plan", "sample_en": "Multiple jurisdictions, political cycles, hard-to-measure 'product', stakeholder resistance, limited budgets, fast-changing trends, risk of over-promising.", "sample_ru": "Несколько юрисдикций, политические циклы, трудно измерить «продукт», сопротивление стейкхолдеров, ограниченный бюджет, быстрая смена трендов, риск over-promising."}, {"part": "II", "label": "Variant 07 · II a", "title_ru": "Part II — Brief Answers (3 marks) — a", "en": "The role of the micro-environment and the emergent context", "ru": "Роль микросреды и emergent context", "sample_en": "Micro-environment: competing places, stakeholders, service suppliers. Emergent context: unpredictable trends (crises, technology). PM must adapt to both.", "sample_ru": "Микросреда: конкуренты-места, stakeholders, suppliers услуг. Emergent context: непредсказуемые тренды (кризисы, технологии). PM должен адаптироваться к обоим."}, {"part": "II", "label": "Variant 07 · II b", "title_ru": "Part II — Brief Answers (3 marks) — b", "en": "How the demand in place marketing is composed?", "ru": "Из чего состоит спрос в place marketing?", "sample_en": "Demand comes from segments: tourism, residence, business, investment, education. It depends on motives, seasonality, competing places, and accessibility.", "sample_ru": "Спрос формируют сегменты: tourism, residence, business, investment, education. Зависит от мотивов, сезонности, конкурентных мест, доступности."}, {"part": "II", "label": "Variant 07 · II c", "title_ru": "Part II — Brief Answers (3 marks) — c", "en": "The relevance of the marketing plan in marketing strategy", "ru": "Роль marketing plan в стратегии", "sample_en": "The plan operationalises strategy: goals, actions, budget, timelines, KPIs. Without a plan, strategy remains a declaration.", "sample_ru": "План операционализирует стратегию: цели, действия, бюджет, сроки, KPI. Без плана стратегия остаётся декларацией."}, {"part": "II", "label": "Variant 07 · II d", "title_ru": "Part II — Brief Answers (3 marks) — d", "en": "Describe the positioning", "ru": "Опишите positioning", "sample_en": "Choosing a distinct value proposition in the minds of target users versus alternatives. For a place: key associations (e.g. innovation hub, heritage, lifestyle).", "sample_ru": "Выбор distinct value proposition в minds of target users vs alternatives. Для места — ключевые ассоциации (e.g. innovation hub, heritage, lifestyle)."}, {"part": "II", "label": "Variant 07 · II 1", "title_ru": "Part III — Brief Answers (5 marks) — 1", "en": "Explain the difference between place marketing demand driven and place marketing value co-creation driven.", "ru": "Demand driven vs value co-creation driven в PM", "sample_en": "Demand driven: the place is a product and marketing 'sells' the existing offer. Co-creation: users and stakeholders jointly shape the place experience and value.", "sample_ru": "Demand driven: место как продукт, маркетинг «продаёт» существующее предложение. Co-creation: пользователи и стейкхолдеры совместно формируют опыт и ценность места."}, {"part": "II", "label": "Variant 07 · II 2", "title_ru": "Part III — Brief Answers (5 marks) — 2", "en": "Place Marketing strategy: difficulties in the implementation.", "ru": "Сложности реализации стратегии PM", "sample_en": "Fragmented governance, conflicting interests, poor coordination, short political horizons, measurement difficulties, gap between brand promise and reality.", "sample_ru": "Фрагментация власти, конфликт интересов, нехватка координации, краткосрочный политический горизонт, сложность измерений, несоответствие brand и reality."}, {"part": "II", "label": "Variant 07 · II 3", "title_ru": "Part III — Brief Answers (5 marks) — 3", "en": "What the Place Branding is?", "ru": "Что такое Place Branding?", "sample_en": "Managing a territory's brand: identity, positioning, communication, and experience to build lasting positive associations and competitive advantage.", "sample_ru": "Управление брендом территории: идентичность, позиционирование, коммуникация, опыт, чтобы создать устойчивые положительные ассоциации и конкурентное преимущество."}, {"part": "II", "label": "Variant 08 · II a", "title_ru": "Part II — Brief Answers (3 marks) — a", "en": "Describe the SMART city concept.", "ru": "Концепция SMART city", "sample_en": "A city uses ICT and data to improve service efficiency (mobility, energy, governance), quality of life, and sustainability. In PM it is substance and a draw for talent/investors.", "sample_ru": "Город использует ICT/данные для эффективности услуг (mobility, energy, governance), качества жизни и устойчивости. В PM — элемент substance и привлекательности для talent/investors."}, {"part": "II", "label": "Variant 08 · II b", "title_ru": "Part II — Brief Answers (3 marks) — b", "en": "Market segmentation.", "ru": "Сегментация рынка", "sample_en": "Dividing place users into groups with different needs. Basis for differentiated value propositions and communication channels.", "sample_ru": "Разделение пользователей места на группы с разными потребностями. Основа для differentiated value propositions и каналов коммуникации."}, {"part": "II", "label": "Variant 08 · II c", "title_ru": "Part II — Brief Answers (3 marks) — c", "en": "Explain the concept of co-production.", "ru": "Концепция co-production", "sample_en": "The user takes part in producing the service/experience, not only consuming it. In PM: residents and business co-create events, services, and place image.", "sample_ru": "Пользователь участвует в производстве услуги/опыта (не только потребляет). В PM: жители и бизнес со-создают события, сервисы, имидж места."}, {"part": "II", "label": "Variant 08 · II d", "title_ru": "Part II — Brief Answers (3 marks) — d", "en": "Distribution in Place Marketing is a critical factor. Why?", "ru": "Почему distribution критичен в PM?", "sample_en": "Without physical and digital accessibility (transport, airports, broadband, wayfinding) target segments cannot access the value proposition.", "sample_ru": "Без физической и цифровой доступности (транспорт, аэропорты, broadband, wayfinding) целевые сегменты не получают value proposition."}, {"part": "II", "label": "Variant 08 · II 1", "title_ru": "Part III — Brief Answers (5 marks) — 1", "en": "Explain the role of the 5 change-generating forces affecting society, companies and territories/places.", "ru": "5 сил изменений для общества, компаний и территорий", "sample_en": "Typically: globalization, technology/digital, sustainability, demographics, governance/policy. They reshape demand for places and require PM strategy adaptation.", "sample_ru": "Обычно: globalization, technology/digital, sustainability, demographics, governance/policy. Меняют спрос на места и требуют адаптации PM стратегий."}, {"part": "II", "label": "Variant 08 · II 2", "title_ru": "Part III — Brief Answers (5 marks) — 2", "en": "Differences between territory and place.", "ru": "Различия territory и place", "sample_en": "Territory is a physical/administrative unit. Place is a socially constructed meaning and experience. Territory is necessary but not sufficient for place.", "sample_ru": "Territory — физико-административная единица. Place — социально-конструированный смысл и опыт. Territory necessary but not sufficient for place."}, {"part": "II", "label": "Variant 08 · II 3", "title_ru": "Part III — Brief Answers (5 marks) — 3", "en": "Why is it difficult to define the \"product\" in Place Marketing?", "ru": "Почему сложно определить product в PM?", "sample_en": "The product is a mix of attributes and experiences, public and private, changing over time and co-created by many actors.", "sample_ru": "Продукт — комплекс атрибутов и переживаний, публичных и частных, меняющийся во времени; co-created многими акторами."}];
+    const SNA_ITEMS = [];
+
+    const form = document.getElementById('test-form');
+    const container = document.getElementById('questions');
+    const resultsBox = document.getElementById('results');
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      let currentSection = '';
+      QUESTIONS.forEach((q) => {
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = q.section;
+          container.appendChild(h);
+        }
+        const card = document.createElement('div');
+        card.className = 'q';
+        card.dataset.id = q.id;
+        card.innerHTML = `
+          <div class="q-num">Вопрос ${q.num}</div>
+          <div class="q-en">${q.en}</div>
+          <div class="q-ru">${q.ru}</div>
+          <div class="opts">
+            ${q.options.map(o => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span>
+                  <div class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</div>
+                  <div class="opt-ru">${o.ru}</div>
+                </span>
+              </label>`).join('')}
+          </div>
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderOpen() {
+      if (!OPEN_ITEMS.length) return;
+      let currentPart = '';
+      OPEN_ITEMS.forEach((item, idx) => {
+        const part = item.part || 'II';
+        if (part !== currentPart) {
+          currentPart = part;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = part === 'III'
+            ? 'Part III — Brief Answers (5 marks) / Развёрнутые ответы'
+            : 'Part II — Brief Answers (3 marks) / Краткие ответы';
+          container.appendChild(h);
+        }
+        const ansEn = item.sample_en || '';
+        const ansRu = item.sample_ru || '';
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-num">${item.label ? part + ' ' + item.label : item.title_ru}</div>
+          <div class="q-en">${item.en}</div>
+          <div class="q-ru">${item.ru}</div>
+          <div class="answer-box">
+            <div class="answer-label">Sample answer / Эталонный ответ</div>
+            ${ansEn ? `<div class="answer-en">${ansEn}</div>` : ''}
+            ${ansRu ? `<div class="answer-ru">${ansRu}</div>` : ''}
+          </div>
+          <details class="practice-note">
+            <summary>Write your own answer / Свой ответ (optional)</summary>
+            <textarea name="open_${idx}" rows="4" placeholder="Compare with the sample above / Сравните с эталоном"></textarea>
+          </details>`;
+        container.appendChild(block);
+      });
+    }
+
+    function renderSna() {
+      if (!SNA_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'SNA — расчёты';
+      container.appendChild(h);
+      SNA_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <div class="feedback" hidden></div>`;
+        block.dataset.expected = item.expected;
+        block.dataset.accept = JSON.stringify(item.accept || []);
+        container.appendChild(block);
+      });
+    }
+
+    function normalize(val) {
+      return String(val || '').trim().toLowerCase().replace(/\\s+/g, ' ');
+    }
+
+    function checkSnaAnswer(expected, accept, user) {
+      const n = normalize(user);
+      if (!n) return null;
+      const variants = [expected, ...(accept || [])].map(normalize);
+      return variants.some(v => n === v || n.includes(v) || v.includes(n));
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const warnEl = document.getElementById('warn-text');
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        card.classList.remove('unanswered', 'correct', 'wrong');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = true;
+        fb.textContent = '';
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          lbl.classList.remove('result-opt');
+          lbl.style.background = '';
+          lbl.querySelector('input').disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove('visible');
+        warnEl.hidden = false;
+        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        const first = container.querySelector('.q.unanswered');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      warnEl.hidden = true;
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        const fb = card.querySelector('.feedback');
+        fb.hidden = false;
+        card.classList.remove('unanswered', 'correct', 'wrong');
+
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          return;
+        }
+
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add('correct');
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Correct / Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+        } else {
+          wrong++;
+          card.classList.add('wrong');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+        }
+
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          const inp = lbl.querySelector('input');
+          lbl.classList.add('result-opt');
+          if (inp.value === q.correct) lbl.style.background = '#e8f8ef';
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = '#fdecea';
+          inp.disabled = true;
+        });
+      });
+
+            container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
+        const block = fb.closest('.open-block');
+        if (!block.dataset.expected) return;
+        const inp = block.querySelector('input');
+        const ok = checkSnaAnswer(block.dataset.expected, JSON.parse(block.dataset.accept || '[]'), inp.value);
+        fb.hidden = false;
+        if (ok === null) {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        } else if (ok) {
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Correct / Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+        } else {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        }
+      });
+
+      const total = QUESTIONS.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
+
+      document.getElementById('score-text').textContent =
+        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+      document.getElementById('score-detail').textContent =
+        SCORING.correct !== 1 || SCORING.wrong !== 0
+          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
+          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+
+      resultsBox.classList.add('visible');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      form.reset();
+      resultsBox.classList.remove('visible');
+      document.getElementById('warn-text').hidden = true;
+      renderQuestions();
+      renderOpen();
+      renderSna();
+      
+    });
+
+    renderQuestions();
+    renderOpen();
+    renderSna();
+    
+  </script>
+</body>
+</html>

@@ -13,6 +13,7 @@ const STATIC_DIRS = [
   "HR",
   "HRM",
   "AccountingBanking",
+  "PlaceMarketing",
   "Avatar",
   "EPC_Champions_League_Final",
   "EPC_Extra_Class_Booking",
