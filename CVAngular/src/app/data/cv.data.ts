@@ -129,7 +129,7 @@ export const CV_PROFILE: CvProfile = {
   languages: [
     { name: 'Kazakh', level: 'Native' },
     { name: 'Russian', level: 'Native, full proficiency' },
-    { name: 'English', level: 'B1 / B1+ (intermediate: reading docs, work correspondence, everyday communication) · in progress' },
+    { name: 'English', level: 'B2 (reading docs, work correspondence, everyday communication) · in progress' },
     { name: 'Italian', level: 'Beginner · in progress' },
   ],
   additional:
