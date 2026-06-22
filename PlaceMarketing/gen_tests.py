@@ -58,7 +58,7 @@ def build_template() -> str:
           <div class="q-en">${{item.en}}</div>
           <div class="q-ru">${{item.ru}}</div>
           <div class="answer-box">
-            <div class="answer-label">Simple answer (B1 English) / Простой ответ</div>
+            <div class="answer-label">Sample answer / Эталонный ответ</div>
             ${{ansEn ? `<div class="answer-en">${{ansEn}}</div>` : ''}}
             ${{ansRu ? `<div class="answer-ru">${{ansRu}}</div>` : ''}}
           </div>
@@ -263,7 +263,7 @@ RULES = COMBINED_RULES = (
     '<div class="rules">'
     "<strong>All 7 exam variants</strong> on one page: 14 MCQ (Part I) + 28 brief (Part II) + 21 brief (Part III). "
     "MCQ grouped by variant — click <em>Check answers</em> to score Part I. "
-    "Open questions: simple B1 English answers visible below each item. "
+    "Open questions: sample answers visible below each item. "
     "· Все варианты на одной странице. MCQ проверяются кнопкой."
     "</div>"
 )

@@ -113,16 +113,5 @@ html = html.replace(
   /const OPEN_ITEMS = \[[\s\S]*?\];/,
   `const OPEN_ITEMS = ${JSON.stringify(tagged)};`,
 );
-if (!html.includes('Simple answer (B1 English)')) {
-  html = html.replace(
-    'Sample answer / Эталонный ответ',
-    'Simple answer (B1 English) / Простой ответ',
-  );
-}
-html = html.replace(
-  /Open questions: EN \+ RU sample answers below each item\./,
-  'Open questions: simple B1 English answers visible below each item.',
-);
-
 writeFileSync(join(ROOT, 'index.html'), html, 'utf8');
-console.log(`Updated index.html — ${tagged.length} open items with B1 answers`);
+console.log(`Updated index.html — ${tagged.length} open items`);
