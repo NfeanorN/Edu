@@ -339,8 +339,8 @@ def main():
     ]
     exam_01_open = [
         oq(PART_II, "a", "4Ps and limits", "4P и их ограничения в place marketing",
-           "4Ps = Product, Price, Place, Promotion. OK for a simple product in a shop. But a city is a service system — many things together (streets, culture, people). Price is not only money (also time, stress). Place = access/transport. So 4Ps are too simple: we need partners, stakeholders, and co-creation (Bruni: servicescape, servuction).",
-           "4P для простого товара. Город — сервисная система. Цена ≠ только деньги. Нужны партнёры и co-creation (servicescape, servuction)."),
+           "The 4Ps are Product, Price, Place, and Promotion. They work well for standard goods and services. A place is different: it is a complex service system (streets, culture, people, reputation). Price is not only money — it also includes time and stress. Place means access and transport. The 4Ps are too narrow; place marketing also needs partners, stakeholders, and value co-creation (servicescape, servuction).",
+           "4P подходят для обычных товаров и услуг. Место — сложная сервисная система. Цена ≠ только деньги. Нужны партнёры и co-creation (servicescape, servuction)."),
         oq(PART_II, "b", "Describe the role of public relations in place marketing",
            "Роль PR в place marketing",
            "PR builds trust in the place brand. It shares true stories (media, social media, local groups), not only paid ads. It spreads knowledge and culture. In co-creation, PR helps connect universities, citizens, and investors so people join place development.",
@@ -612,8 +612,8 @@ def main():
            "Territory = house (карта). Place = home (смысл). Границы place шире admin borders."),
         oq(PART_III, "3", 'Why is it difficult to define the "product" in Place Marketing?',
            "Почему сложно определить product в PM?",
-           "Place product = public + private mix (streets, shops, events, reputation, networks). Co-created by many actors. Always changing — unlike a simple product in a shop.",
-           "Продукт = public + private, co-created, меняется. Не как товар в магазине."),
+           "Place product = public + private mix (streets, shops, events, reputation, networks). Co-created by many actors. Always changing — not a single standard product like a phone or a car.",
+           "Продукт = public + private, co-created, меняется. Не один стандартный товар вроде телефона."),
     ]
 
     exams = [
