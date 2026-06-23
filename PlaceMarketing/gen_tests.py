@@ -231,7 +231,11 @@ def tag_mcq_for_combined(items: list, variant_id: str) -> list:
     for i, item in enumerate(items, 1):
         tagged = {**item}
         tagged["id"] = f"v{variant_id}_mcq{i}"
-        tagged["num"] = f"Variant {variant_id} · MCQ {i}"
+        qnum = item.get("num")
+        if isinstance(qnum, int):
+            tagged["num"] = f"Variant {variant_id} · Q{qnum}"
+        else:
+            tagged["num"] = f"Variant {variant_id} · MCQ {i}"
         tagged["section"] = f"Variant {variant_id} — Part I (MCQ)"
         out.append(tagged)
     return out
@@ -261,7 +265,7 @@ PART_III = "Part III — Brief Answers (5 marks)"
 
 RULES = COMBINED_RULES = (
     '<div class="rules">'
-    "<strong>All 7 exam variants</strong> on one page: 14 MCQ (Part I) + 28 brief (Part II) + 21 brief (Part III). "
+    "<strong>All exam variants</strong> on one page: MCQ (Part I) + brief open questions (Part II & III). "
     "MCQ grouped by variant — click <em>Check answers</em> to score Part I. "
     "Open questions: sample answers visible below each item. "
     "· Все варианты на одной странице. MCQ проверяются кнопкой."
@@ -616,6 +620,139 @@ def main():
            "Продукт = public + private, co-created, меняется. Не один стандартный товар вроде телефона."),
     ]
 
+    exam_09_mcq = [
+        q(10, "In place marketing, the 'Place' element of the marketing mix refers to:",
+          "В place marketing элемент «Place» в marketing mix — это:",
+          [
+              opt("a", "The positioning of a website in global search engines.",
+                  "Позиционирование сайта в поисковиках"),
+              opt("b", "The spatial context in which it is possible to enjoy the value proposition.",
+                  "Пространственный контекст, где можно получить value proposition"),
+              opt("c", "The way shops are organized in the city.",
+                  "Как организованы магазины в городе"),
+              opt("d", "The urban organization of TCM.",
+                  "Городская организация TCM"),
+          ], "b", PART_I,
+          explain_ru="Place = доступ и пространство, где пользователь получает ценность места (distribution)."),
+        q(11, "Caroli's first strategy (1999) foresees:",
+          "Первая стратегия Caroli (1999) предполагает:",
+          [
+              opt("a", "The abandonment of the current vocation to attract new industrial sectors.",
+                  "Отказ от текущей vocation ради новых отраслей"),
+              opt("b", "The optimization of existing resources by reinforcing the current territorial vocation.",
+                  "Оптимизацию ресурсов через усиление текущей территориальной vocation"),
+              opt("c", "The sale of natural resources to finance local public debt.",
+                  "Продажу природных ресурсов для погашения долга"),
+              opt("d", "Encouraging citizens to carry on their traditions.",
+                  "Сохранение традиций гражданами"),
+          ], "b", PART_I,
+          explain_ru="Стратегия 1 Caroli: не ломать specialization, а усилить существующую vocation территории."),
+        q(12, '"Friction between actors" occurs when:',
+          "«Friction between actors» возникает, когда:",
+          [
+              opt("a", "Individual goals are in strong conflict with the ultimate purpose of the place-system.",
+                  "Личные цели конфликтуют с общей целью place-system"),
+              opt("b", "Two people actively participate in living labs.",
+                  "Двое активно участвуют в living labs"),
+              opt("c", "Living labs do not work.",
+                  "Living labs не работают"),
+              opt("d", "Tourists and residents have the same interests.",
+                  "У туристов и жителей одинаковые интересы"),
+          ], "a", PART_I,
+          explain_ru="Трение — когда цели актора идут против общей цели системы места."),
+        q(13, 'According to the Viable Systems Approach (VSA), a system is "viable" if:',
+          "По VSA (Viable Systems Approach) система «viable», если:",
+          [
+              opt("a", "It possesses a high endowment of tangible resources.",
+                  "Много материальных ресурсов"),
+              opt("b", "It is isolated from global market dynamics to preserve its identity.",
+                  "Изолирована от глобального рынка"),
+              opt("c", "It is capable of surviving over time by adapting to changes in the context and environment.",
+                  "Может выживать, адаптируясь к изменениям среды"),
+              opt("d", "It possesses a high endowment of intangible resources.",
+                  "Много нематериальных ресурсов"),
+          ], "c", PART_I,
+          explain_ru="Viable = жизнеспособная система, которая адаптируется к изменениям."),
+        q(14, 'What characterizes Quadrant "b" (Medium technology, Medium relationship)?',
+          "Что характеризует квадрант «b» (средняя technology, средняя relationship)?",
+          [
+              opt("a", "A smart city evolving according to value co-creation.",
+                  "Smart city с value co-creation"),
+              opt("b", "Absence of operational territorial marketing.",
+                  "Отсутствие территориального маркетинга"),
+              opt("c", "A Demand-driven approach focused on satisfying a specific target.",
+                  "Demand-driven подход для конкретного target"),
+              opt("d", "A technological dictatorship that limits the real needs of residents.",
+                  "Технологическая диктатура"),
+          ], "c", PART_I,
+          explain_ru="Квадрант b (средняя tech + средние отношения) = demand-driven, продаём место целевой группе."),
+        q(15, 'What is the main risk of the presence of "free-riders" in a CCN project?',
+          "Главный риск «free-riders» в проекте CCN:",
+          [
+              opt("a", "The depletion of collective resources due to those who benefit from advantages without contributing.",
+                  "Истощение общих ресурсов: пользуются выгодами, но не вносят вклад"),
+              opt("b", "An excessive increase in commercial competition among shops in the same center.",
+                  "Рост конкуренции между магазинами"),
+              opt("c", "The closure of small independent shops in favor of extra-urban shopping malls.",
+                  "Закрытие малых магазинов из-за ТЦ"),
+              opt("d", "Excessive tax pressure on residential property owners.",
+                  "Высокие налоги на жильё"),
+          ], "a", PART_I,
+          explain_ru="Free-rider = получает пользу от общего проекта, но не платит/не участвует → ресурсы кончаются."),
+        q(16, 'Why does territorial innovation require "Inclusion"?',
+          "Почему территориальные инновации требуют Inclusion?",
+          [
+              opt("a", "Because it is a constraint imposed by the regulations and directives of the European Commission.",
+                  "Это требование Еврокомиссии"),
+              opt("b", "To increase the number of physical participants at technical and political tables.",
+                  "Чтобы больше людей сидело за столом переговоров"),
+              opt("c", "Because true innovation does not exist without the active and convinced participation of the system of actors.",
+                  "Настоящих инноваций нет без активного участия акторов системы"),
+              opt("d", "To multiply the decision-making autonomy of primary stakeholders and the government.",
+                  "Чтобы умножить автономию стейкхолдеров и власти"),
+          ], "c", PART_I,
+          explain_ru="Инновация на территории = co-creation; без включения акторов она не работает."),
+        q(17, "The role of the University in a place strategy is that of:",
+          "Роль университета в place strategy:",
+          [
+              opt("a", "Catalyst and provider of knowledge for the application of the marketing framework to marketing management.",
+                  "Катализатор знаний для marketing management"),
+              opt("b", "Catalyst and provider of knowledge for attracting investments.",
+                  "Катализатор знаний для привлечения инвестиций"),
+              opt("c", "Catalyst and provider of knowledge for brand development.",
+                  "Катализатор знаний для бренда"),
+              opt("d", "Catalyst and provider of value through the dissemination of knowledge, projects, and human capital.",
+                  "Катализатор ценности через знания, проекты и human capital"),
+          ], "d", PART_I,
+          explain_ru="Университет даёт знания, проекты, кадры — связь с местом (onlife/onplace)."),
+        q(18, 'What is meant by "Place Brand Equity"?',
+          "Что такое «Place Brand Equity»?",
+          [
+              opt("a", "The systematic result of the place's image and identity in the minds of stakeholders.",
+                  "Результат image и identity в головах стейкхолдеров"),
+              opt("b", "The total equity value expressed in euros of the city's brand.",
+                  "Стоимость бренда города в евро"),
+              opt("c", "The brand of the natural shopping center born from the TCM model.",
+                  "Бренд natural shopping center из TCM"),
+              opt("d", "The value of the total visitors to the city center.",
+                  "Число посетителей центра"),
+          ], "a", PART_I,
+          explain_ru="Brand equity места = накопленный образ (image + identity), не деньги на счёте."),
+        q(19, 'The concept of "Mutuality" implies that actors:',
+          "Концепция «Mutuality» означает, что акторы:",
+          [
+              opt("a", "Participate in the co-design of the marketing plan.",
+                  "Участвуют в co-design marketing plan"),
+              opt("b", "Help each other to overcome the economic crisis.",
+                  "Помогают друг другу пережить кризис"),
+              opt("c", "Work for a common ultimate purpose, sharing expectations, risks, and strategic results.",
+                  "Работают на общую цель, деля ожидания, риски и результаты"),
+              opt("d", "All possess the same annual income level and professional qualification.",
+                  "Имеют одинаковый доход и квалификацию"),
+          ], "c", PART_I,
+          explain_ru="Mutuality = общая финальная цель места; акторы разделяют риски и результаты."),
+    ]
+
     exams = [
         ("01", exam_01_mcq, exam_01_open),
         ("02", exam_02_mcq, exam_02_open),
@@ -624,16 +761,27 @@ def main():
         ("05", exam_05_mcq, exam_05_open),
         ("07", exam_07_mcq, exam_07_open),
         ("08", exam_08_mcq, exam_08_open),
+        ("09", exam_09_mcq, []),
     ]
 
     combined_mcq, combined_open = build_combined(exams)
+    n_variants = len(exams)
+    rules = (
+        '<div class="rules">'
+        f"<strong>{n_variants} exam variants</strong> on one page: {len(combined_mcq)} MCQ (Part I) "
+        f"+ {len(combined_open)} open questions (Part II & III). "
+        "MCQ grouped by variant — click <em>Check answers</em> to score Part I. "
+        "Open questions: sample answers visible below each item. "
+        "· Все варианты на одной странице. MCQ проверяются кнопкой."
+        "</div>"
+    )
     write_page(
         "index.html",
         "Place Marketing — All Exams",
-        f"7 variants · {len(combined_mcq)} MCQ + {len(combined_open)} open questions · Univ. Cassino 2021–2022",
+        f"{n_variants} variants · {len(combined_mcq)} MCQ + {len(combined_open)} open questions · Univ. Cassino",
         combined_mcq,
         combined_open,
-        RULES,
+        rules,
         scoring={"correct": 1, "wrong": 0, "max": None},
     )
 
