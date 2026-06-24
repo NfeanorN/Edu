@@ -3,99 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Externalities — Внешние эффекты</title>
+    <title>Externalities — Frank, Ch. 16</title>
     <style>
         body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #8e44ad; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #8e44ad; padding-left: 15px; }
-        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
-        p { margin: 15px 0; text-align: justify; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
-        th { background: linear-gradient(135deg, #8e44ad 0%, #6c3483 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        tr:hover { background-color: #f5eef8; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
-        ul, ol { margin: 15px 0; padding-left: 30px; }
-        li { margin: 10px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
-        .formula-box { background: #f5eef8; border-left: 4px solid #8e44ad; padding: 15px; margin: 20px 0; border-radius: 4px; }
-        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #8e44ad; text-decoration: none; }
+        h1 { color: #2c3e50; border-bottom: 4px solid #c0392b; padding-bottom: 15px; font-size: 2.1em; }
+        h2 { color: #34495e; margin-top: 40px; font-size: 1.5em; border-left: 5px solid #c0392b; padding-left: 15px; }
+        p { margin: 14px 0; }
+        .story { background: #fff8e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 18px 0; border-radius: 6px; }
+        .story::before { content: "📙 Frank (Ch. 16): "; font-weight: 700; color: #d68910; }
+        .key-box { background: #e8f8ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 18px 0; border-radius: 6px; }
+        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 20px 0; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .back a { color: #c0392b; text-decoration: none; }
+        .source { color: #666; margin-bottom: 20px; }
+    
+        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
+        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
+        .ru-foot p, .ru-foot li { margin: 6px 0; }
+        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
+
     </style>
 </head>
 <body>
-    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+    <p class="back"><a href="index.html">← Economics topics</a></p>
 
-    <h1>Externalities — Внешние эффекты</h1>
+    <h1>Externalities</h1>
+    <p class="source">Source: <strong>Frank, Ch. 16</strong> — «Externalities, Property Rights, and the Coase Theorem». All examples from the textbook.</p>
 
-    <h2>What is an Externality? / Что такое внешний эффект?</h2>
-    <p><strong>English:</strong> A cost or benefit that affects a third party not involved in the transaction. Market fails to account for social cost/benefit.</p>
-    <p><strong>Русский:</strong> Издержки или выгоды для третьей стороны, не участвующей в сделке. Рынок не учитывает общественные издержки/выгоды.</p>
+    <h2>1. What is an externality?</h2>
+    <p>An <strong>externality</strong> is a cost or benefit that falls on someone <strong>not involved in the transaction</strong>. The market price then does not reflect full social cost or benefit → <strong>too much</strong> of bad activities, <strong>too little</strong> of good ones.</p>
 
-    <table>
-        <tr><th>Type / Тип</th><th>Meaning / Значение</th><th>Example / Пример</th></tr>
-        <tr><td>Negative externality</td><td>Cost imposed on others</td><td>Pollution from factory</td></tr>
-        <tr><td>Positive externality</td><td>Benefit to others</td><td>Vaccination, education</td></tr>
-    </table>
+    <h2>2. Negative externality — example</h2>
+    <div class="story">A factory dumps smoke on neighbours. Private cost (to the firm) is less than <strong>social cost</strong> (private + harm to others). The firm produces <strong>more than is efficient</strong> — same logic as Frank's pollution and «taxing externalities» section (Ch. 16): policy can move quantity toward the social optimum.</div>
 
-    <hr>
+    <h2>3. Positive externality</h2>
+    <p>Vaccination or education creates benefits for others. Private demand is too low compared to <strong>social benefit</strong> → subsidies can help (Frank discusses public responses to externalities).</p>
 
-    <h2>Negative Externality / Отрицательный внешний эффект</h2>
-    <p>Private cost < Social cost. Market produces TOO MUCH. Solution: tax (Pigouvian tax) to internalize the externality.</p>
-    <p>Частные издержки < Общественные. Рынок производит СЛИШКОМ МНОГО. Решение: налог.</p>
+    <h2>4. Coase theorem (Ch. 16)</h2>
+    <p>If property rights are clear and bargaining is cheap, private parties can sometimes fix the externality themselves — e.g. neighbours pay the factory to filter smoke, or the factory compensates neighbours. Frank stresses <strong>transaction costs</strong>: in real life, bargaining often fails, so taxes or regulation may be needed.</p>
 
-    <div class="graph-box">
-        <pre>P
-  |
-  |  MSC (Social cost)
-  |   \
-  |    \  * P_social  ← Optimal (tax brings here)
-  |     \  |
-  |      \ | MPC (Private cost)
-  |       \|  \
-  |        *---*--- D
-  |        |   |
-  |     Q_opt  Q_market  (market produces too much)
-  |
-  0+----+----+----+----+ Q</pre>
-    </div>
-
-    <p><strong>Pigouvian tax</strong> = size of externality per unit. Shifts MPC up to MSC.</p>
-    <p><strong>Налог Пигу</strong> = величина внешнего эффекта на единицу.</p>
-
-    <hr>
-
-    <h2>Positive Externality / Положительный внешний эффект</h2>
-    <p>Private benefit < Social benefit. Market produces TOO LITTLE. Solution: subsidy.</p>
-    <p>Частная выгода < Общественная. Рынок производит СЛИШКОМ МАЛО. Решение: субсидия.</p>
+    <h2>5. Taxing externalities</h2>
+    <div class="story">Frank (Ch. 16, «Taxing Externalities»): a tax per unit of pollution raises private cost until it matches social cost — like a <strong>Pigouvian tax</strong>. Carbon tax example: make emitters pay for environmental harm so market quantity moves toward the efficient level.</div>
 
     <div class="graph-box">
-        <pre>P
-  |
-  |  MSB (Social benefit)
-  |   /
-  |  /  * P_opt  ← Subsidy raises Q
-  | /   |
-  |/    | S (MC)
-  |     |
-  |  *--*--- D (Private benefit)
-  |  |
-  |  Q_market  Q_opt
-  |
-  0+----+----+----+----+ Q</pre>
+        <svg class="svg-graph" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="210" x2="380" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="40" x2="340" y2="200" stroke="#3498db" stroke-width="2.5"/>
+            <line x1="60" y1="70" x2="340" y2="200" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,4"/>
+            <line x1="60" y1="200" x2="340" y2="40" stroke="#27ae60" stroke-width="2.5"/>
+            <circle cx="175" cy="125" r="5" fill="#8e44ad"/>
+            <circle cx="220" cy="108" r="5" fill="#f39c12"/>
+            <text x="160" y="118" font-size="11">Q market</text>
+            <text x="225" y="100" font-size="11">Q social</text>
+            <text x="18" y="28">P</text><text x="365" y="225">Q</text>
+        </svg>
+        <p style="text-align:center;font-size:0.9em;color:#555">Negative externality: market Q &gt; efficient Q (MSC &gt; MPC at market output).</p>
     </div>
 
-    <hr>
+    <div class="key-box">Private optimum: MB = MPC. Social optimum: MB = MSC. Deadweight loss triangle between the two quantities.</div>
 
-    <h2>Government Intervention / Вмешательство государства</h2>
-    <table>
-        <tr><th>Tool / Инструмент</th><th>Use / Применение</th></tr>
-        <tr><td>Tax</td><td>Negative externality — reduce quantity</td></tr>
-        <tr><td>Subsidy</td><td>Positive externality — increase quantity</td></tr>
-        <tr><td>Regulation</td><td>Limit pollution, mandate standards</td></tr>
-    </table>
+<div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Внешние эффекты</strong> (гл. 16): врез на третьих лиц. Отрицательные — перепроизводство (MSC&gt;MPC). Теорема Коуза при низких транзакционных издержках. Налоги на внешние эффекты, углеродный налог. Трагедия общин.</p></div>
 </body>
 </html>
