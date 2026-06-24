@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young Sheldon S02E04 — A Financial Secret and Fish Sauce — EN + RU</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 2rem;
+            color: #e8e6e3;
+            background: linear-gradient(135deg, #1a237e 0%, #283593 45%, #3949ab 100%);
+            min-height: 100vh;
+        }
+        .wrap { max-width: 760px; margin: 0 auto; }
+        .back { margin-bottom: 1.5rem; }
+        .back a { color: #ffeb3b; text-decoration: none; }
+        .back a:hover { text-decoration: underline; }
+        h1 {
+            color: #ffeb3b;
+            border-bottom: 4px solid #ffc107;
+            padding-bottom: 12px;
+            font-size: 1.5rem;
+        }
+        .meta { color: #c5cae9; font-size: 0.95rem; margin-top: 0.5rem; }
+        .hint { font-size: 0.9rem; color: #ffeb3b; margin-bottom: 1rem; }
+        .downloads {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1rem 0 1.5rem;
+        }
+        .downloads a {
+            padding: 0.45rem 0.9rem;
+            background: rgba(255,235,59,0.12);
+            border: 1px solid rgba(255,235,59,0.4);
+            border-radius: 8px;
+            color: #fff9c4;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .downloads a:hover { background: rgba(255,235,59,0.22); }
+        .subtitle-block {
+            margin: 0.85rem 0;
+            padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.06);
+            border-radius: 8px;
+            border-left: 4px solid rgba(255,193,7,0.55);
+        }
+        .subtitle-time {
+            font-size: 0.78rem;
+            color: #9fa8da;
+            font-variant-numeric: tabular-nums;
+            margin-bottom: 0.25rem;
+        }
+        .subtitle-text {
+            font-size: 1.06rem;
+            cursor: default;
+        }
+        .subtitle-text .word {
+            border-bottom: 1px dotted rgba(255,235,59,0.35);
+            cursor: help;
+            padding: 0 1px;
+        }
+        .subtitle-text .word:hover {
+            background: rgba(255,235,59,0.15);
+            border-radius: 2px;
+        }
+        .subtitle-ru {
+            margin-top: 0.45rem;
+            font-size: 0.95rem;
+            color: #e1bee7;
+        }
+        .source { margin-top: 2rem; font-size: 0.85rem; color: #9fa8da; }
+        .source a { color: #ffeb3b; }
+        .count { color: #c5cae9; font-size: 0.88rem; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="back"><a href="../index.html">← Все серии</a></div>
+        <h1>Season 2, Episode 4 — A Financial Secret and Fish Sauce</h1>
+        <p class="meta">Young Sheldon · Полные субтитры</p>
+        <p class="hint">Наведи на подчёркнутое слово — краткий перевод. Под каждой репликой — полный русский перевод.</p>
+        <p class="count" id="meta-count"></p>
+        <div class="downloads">
+            <a href="../subtitles/s02e04-en.srt" download="Young-Sheldon-S02E04-en.srt">Скачать EN (.srt)</a>
+            <a href="../subtitles/s02e04-ru.srt" download="Young-Sheldon-S02E04-ru.srt">Скачать RU (.srt)</a>
+            <a href="../subtitles/s02e04-en-ru.json" download="Young-Sheldon-S02E04-en-ru.json">JSON EN+RU</a>
+        </div>
+
+        <div id="subtitles"></div>
+
+        <p class="source">Источник: <a href="https://sheldon-kuraj-bambey.net/238-subtitles/2-season/4-episode" target="_blank" rel="noopener">sheldon-kuraj-bambey.net</a></p>
+    </div>
+    <script src="../subtitles/glossary-en-ru.js"></script>
+    <script src="../subtitles/s02e04-data.js"></script>
+    <script>
+        (function () {
+            var glossary = window.SHELDON_GLOSSARY || {};
+            function getTranslation(word) {
+                var key = word.toLowerCase().replace(/['']/g, "'");
+                var clean = key.replace(/[^a-z]/g, '');
+                return glossary[key] || glossary[clean] || '';
+            }
+            function wrapWord(w) {
+                if (!/^[\w']+$/i.test(w)) return document.createTextNode(w);
+                var span = document.createElement('span');
+                span.className = 'word';
+                span.textContent = w;
+                var t = getTranslation(w);
+                if (t) span.title = t;
+                return span;
+            }
+            function renderLine(text) {
+                var div = document.createElement('div');
+                var re = /[\w']+|[^\w\s]/g;
+                var m;
+                var lastIndex = 0;
+                while ((m = re.exec(text)) !== null) {
+                    if (m.index > lastIndex) div.appendChild(document.createTextNode(text.slice(lastIndex, m.index)));
+                    div.appendChild(wrapWord(m[0]));
+                    lastIndex = m.index + m[0].length;
+                }
+                if (lastIndex < text.length) div.appendChild(document.createTextNode(text.slice(lastIndex)));
+                return div;
+            }
+            var data = window.S02E04_FULL;
+            var container = document.getElementById('subtitles');
+            var meta = document.getElementById('meta-count');
+            if (data && data.entries && data.entries.length) {
+                meta.textContent = data.entries.length + ' реплик · ' + data.title;
+                data.entries.forEach(function (entry) {
+                    var block = document.createElement('div');
+                    block.className = 'subtitle-block';
+                    if (entry.start) {
+                        var timeDiv = document.createElement('div');
+                        timeDiv.className = 'subtitle-time';
+                        timeDiv.textContent = entry.start.replace(',', '.');
+                        block.appendChild(timeDiv);
+                    }
+                    var textDiv = document.createElement('div');
+                    textDiv.className = 'subtitle-text';
+                    textDiv.appendChild(renderLine(entry.text));
+                    block.appendChild(textDiv);
+                    if (entry.textRu) {
+                        var ruDiv = document.createElement('div');
+                        ruDiv.className = 'subtitle-ru';
+                        ruDiv.textContent = entry.textRu;
+                        block.appendChild(ruDiv);
+                    }
+                    container.appendChild(block);
+                });
+            } else {
+                container.innerHTML = '<p>Нет данных субтитров.</p>';
+            }
+        })();
+    </script>
+</body>
+</html>
