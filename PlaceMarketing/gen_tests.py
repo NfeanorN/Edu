@@ -154,6 +154,13 @@ def build_template() -> str:
         "    }}",
     )
     body = body.replace(
+        "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}",
+        "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}\n"
+        "    .exam-photo {{ max-width: 100%; margin: 1rem 0 1.5rem; }}\n"
+        "    .exam-photo img {{ width: 100%; height: auto; border-radius: 8px; border: 1px solid #e8ecf1; display: block; }}\n"
+        "    .exam-photo figcaption {{ font-size: 0.85rem; color: #666; margin-top: 0.5rem; text-align: center; }}",
+    )
+    body = body.replace(
         "fb.textContent = '✓ Верно';",
         "fb.innerHTML = '✓ Correct / Верно' + (q.explain_ru ? '<div class=\"explain\">' + q.explain_ru + '</div>' : '');",
     )
@@ -223,6 +230,11 @@ def write_page(filename, title, subtitle, questions, open_items=None, rules_html
             '<a href="index.html">← Back to tests / К списку тестов</a>',
             '<a href="../index.html">← Edu materials / К материалам</a>',
         )
+        text = text.replace(
+            '<p class="back"><a href="../index.html">← Edu materials / К материалам</a></p>',
+            '<p class="back"><a href="../index.html">← Edu materials / К материалам</a> · '
+            '<a href="10_Place_Marketing_Exam.html">Exam 19 MCQ / Экзамен</a></p>',
+        )
         p.write_text(text, encoding="utf-8")
 
 
@@ -265,10 +277,9 @@ PART_III = "Part III — Brief Answers (5 marks)"
 
 RULES = COMBINED_RULES = (
     '<div class="rules">'
-    "<strong>All exam variants</strong> on one page: MCQ (Part I) + brief open questions (Part II & III). "
-    "MCQ grouped by variant — click <em>Check answers</em> to score Part I. "
-    "Open questions: sample answers visible below each item. "
-    "· Все варианты на одной странице. MCQ проверяются кнопкой."
+    "<strong>All exam variants</strong> on one page: MCQ (Part I) only. "
+    "MCQ grouped by variant — click <em>Check answers</em> to score. "
+    "· Все варианты на одной странице, только MCQ."
     "</div>"
 )
 
@@ -753,6 +764,286 @@ def main():
           explain_ru="Mutuality = общая финальная цель места; акторы разделяют риски и результаты."),
     ]
 
+    exam_10_mcq = [
+        q(1, 'What does it mean to be an "intentional observer" in the context of perceiving complexity?',
+          "Что значит быть «intentional observer» при восприятии сложности?",
+          [
+              opt("a", "One who perceives and analyzes the system by coming into contact with it from a specific perspective.",
+                  "Тот, кто воспринимает и анализирует систему, вступая с ней в контакт с определённой позиции"),
+              opt("b", "A data analysis software that monitors tourist flows in an automated way.",
+                  "ПО для автоматического мониторинга туристических потоков"),
+              opt("c", "The policy maker who imposes a top-down vision without consulting stakeholders.",
+                  "Политик, навязывающий top-down видение без консультаций"),
+              opt("d", "A passive user who receives the value proposition without contributing to its definition.",
+                  "Пассивный пользователь, получающий value proposition без участия в её определении"),
+          ], "a", PART_I,
+          explain_ru="Intentional observer — активный наблюдатель с позиции, а не пассивный пользователь и не автоматика."),
+        q(2, 'What is the difference between "Place Image" and "Place Brand" according to Kavaratzis?',
+          "Разница между Place Image и Place Brand по Kavaratzis:",
+          [
+              opt("a", "There is no difference; they are interchangeable synonyms.",
+                  "Разницы нет, это синонимы"),
+              opt("b", "Image is the mental perception of users; the brand includes relationships and strategic actions.",
+                  "Image — ментальное восприятие; brand включает отношения и стратегические действия"),
+              opt("c", "Image is managed by the State, the brand is created exclusively by private entities.",
+                  "Image управляет государство, brand — только частный сектор"),
+              opt("d", "Image concerns tourists, the brand concerns only local residents.",
+                  "Image — для туристов, brand — только для жителей"),
+          ], "b", PART_I,
+          explain_ru="Kavaratzis: image = восприятие; brand шире — стратегия, отношения, действия."),
+        q(3, 'The local government as a "Movie Director" must:',
+          "Местная власть как «Movie Director» должна:",
+          [
+              opt("a", "Control every single word spoken by citizens.",
+                  "Контролировать каждое слово граждан"),
+              opt("b", "Replace local inhabitants with professional actors for promotional videos.",
+                  "Заменять жителей профессиональными актёрами в роликах"),
+              opt("c", "Exclusively produce documentaries on the ancient history of the place.",
+                  "Только снимать документалки об истории места"),
+              opt("d", "Encourage actors to suggest ideas and projects aligned with the general strategy.",
+                  "Поощрять акторов предлагать идеи и проекты в русле общей стратегии"),
+          ], "d", PART_I,
+          explain_ru="Режиссёр задаёт стратегию, но не диктует всё — акторы предлагают идеи в её рамках."),
+        q(4, 'Why does territorial innovation require "Inclusion"?',
+          "Почему территориальные инновации требуют Inclusion?",
+          [
+              opt("a", "Because true innovation does not exist without the active participation of the system of actors.",
+                  "Настоящих инноваций нет без активного участия системы акторов"),
+              opt("b", "Because it is a legal requirement imposed by European Commission directives.",
+                  "Это юридическое требование Еврокомиссии"),
+              opt("c", "To artificially increase the number of participants at technical roundtables.",
+                  "Чтобы искусственно увеличить число участников круглых столов"),
+              opt("d", "To reduce the decision-making power of marketing experts in favor of the crowd.",
+                  "Чтобы снизить власть маркетологов в пользу толпы"),
+          ], "a", PART_I,
+          explain_ru="Инновация = co-creation; без включения акторов она не работает."),
+        q(5, "The role of the University in a place strategy is that of:",
+          "Роль университета в place strategy:",
+          [
+              opt("a", "A simple provider of degrees detached from the real economy.",
+                  "Просто выдаёт дипломы, оторванные от экономики"),
+              opt("b", "A catalyst and provider of value through the dissemination of knowledge and projects.",
+                  "Катализатор ценности через распространение знаний и проектов"),
+              opt("c", "A censorship body for residents' critical opinions toward the government.",
+                  "Орган цензуры критики жителей к власти"),
+              opt("d", "A purely theoretical entity that must remain isolated from market dynamics.",
+                  "Чисто теоретическая сущность, изолированная от рынка"),
+          ], "b", PART_I,
+          explain_ru="Университет — катализатор знаний, проектов и human capital для территории."),
+        q(6, 'What is meant by "Place Brand Equity"?',
+          "Что такое «Place Brand Equity»?",
+          [
+              opt("a", "The asset value of historical buildings located in the city center.",
+                  "Стоимость исторических зданий в центре"),
+              opt("b", "The net profit generated by the commercial activities of a Natural Shopping Center.",
+                  "Чистая прибыль Natural Shopping Center"),
+              opt("c", "The systematic result of the place's image and identity in the minds of stakeholders.",
+                  "Системный результат image и identity в сознании стейкхолдеров"),
+              opt("d", "The number of annual visitors multiplied by the average per capita expenditure.",
+                  "Число посетителей × средние траты на человека"),
+          ], "c", PART_I,
+          explain_ru="Brand equity места — накопленный образ (image + identity), не деньги на счёте."),
+        q(7, 'The concept of "Mutuality" implies that actors:',
+          "Концепция «Mutuality» означает, что акторы:",
+          [
+              opt("a", "Are all related to one another.",
+                  "Все связаны друг с другом"),
+              opt("b", "Are obliged to sign a financial mutual assistance contract.",
+                  "Обязаны подписать договор взаимопомощи"),
+              opt("c", "All have the same income and education level.",
+                  "Имеют одинаковый доход и образование"),
+              opt("d", "Work for a common ultimate purpose, sharing expectations and results.",
+                  "Работают на общую цель, деля ожидания и результаты"),
+          ], "d", PART_I,
+          explain_ru="Mutuality = общая финальная цель места; акторы разделяют риски и результаты."),
+        q(8, 'The "Placement" lever in place marketing concerns:',
+          "Рычаг «Placement» в place marketing касается:",
+          [
+              opt("a", "The delivery channels of place marketing communication.",
+                  "Каналов коммуникации place marketing"),
+              opt("b", "The positioning of the place marketing strategy.",
+                  "Позиционирования стратегии place marketing"),
+              opt("c", "The spatial context where the user recognizes and enjoys the value proposition.",
+                  "Пространственного контекста, где пользователь получает value proposition"),
+              opt("d", "A strategic element of the marketing plan.",
+                  "Стратегического элемента marketing plan"),
+          ], "c", PART_I,
+          explain_ru="Placement = distribution: пространство/доступ, где пользователь получает ценность места."),
+        q(9, 'The "PESTEL" analysis in the marketing plan serves to monitor:',
+          "PESTEL-анализ в marketing plan служит для мониторинга:",
+          [
+              opt("a", "Elements of the marketing microenvironment.",
+                  "Элементов микросреды маркетинга"),
+              opt("b", "Direct competition between two commercial businesses on the same street.",
+                  "Прямой конкуренции двух магазинов на одной улице"),
+              opt("c", "The level of street cleanliness and maintenance of public gardens.",
+                  "Чистоты улиц и содержания парков"),
+              opt("d", "External Political, Economic, Social, Technological, Environmental, and Legal factors.",
+                  "Внешних политических, экономических, социальных, технологических, экологических и правовых факторов"),
+          ], "d", PART_I,
+          explain_ru="PESTEL = макросреда (внешние факторы), не микросреда."),
+        q(10, "What is the primary purpose of Town Centre Management (TCM) schemes?",
+          "Главная цель схем Town Centre Management (TCM)?",
+          [
+              opt("a", "To revitalize city centers through public-private partnerships.",
+                  "Ревитализация центров через public-private partnerships"),
+              opt("b", "To shift downtown commerce toward large shopping malls outside the city.",
+                  "Перенос торговли в ТЦ за городом"),
+              opt("c", "To eliminate the presence of independent shops in favor of an association.",
+                  "Устранение независимых магазинов ради ассоциации"),
+              opt("d", "To limit the installation of shopping centers in the city center.",
+                  "Ограничение ТЦ в центре города"),
+          ], "a", PART_I,
+          explain_ru="TCM = партнёрство власти, бизнеса и жителей для оживления центра."),
+        q(11, '"Big Data" in place marketing are useful because:',
+          "«Big Data» в place marketing полезны, потому что:",
+          [
+              opt("a", "They allow collecting information for the management of the municipality's strategy.",
+                  "Позволяют собирать данные для стратегии муниципалитета"),
+              opt("b", "They improve the understanding of social dynamics and markets through flow analysis.",
+                  "Улучшают понимание социальной динамики и рынков через анализ потоков"),
+              opt("c", "They reduce the need to interact with the real population.",
+                  "Снижают необходимость взаимодействия с населением"),
+              opt("d", "They allow automating completely the creation of the Place Image.",
+                  "Полностью автоматизируют создание Place Image"),
+          ], "b", PART_I,
+          explain_ru="Big Data помогают понять потоки и поведение, но не заменяют участие людей."),
+        q(12, 'What is the role of "Nudges" (gentle pushes) according to the sources?',
+          "Роль «Nudges» (мягких подталкиваний)?",
+          [
+              opt("a", "Non-monetary sanctions for those who do not respect the environment.",
+                  "Неденежные санкции за нарушение экологии"),
+              opt("b", "Orders issued by the municipality in relation to TCM.",
+                  "Приказы муниципалитета по TCM"),
+              opt("c", "Small informational stimuli to guide citizens toward virtuous and conscious behaviors.",
+                  "Небольшие информационные стимулы к добросовестному поведению"),
+              opt("d", "Advertising to attract tourists.",
+                  "Реклама для привлечения туристов"),
+          ], "c", PART_I,
+          explain_ru="Nudge = мягкий стимул (подсказка), а не штраф и не приказ."),
+        q(13, 'An "Adaptive" system in territorial marketing is a system that:',
+          "«Adaptive» система в территориальном маркетинге — это система, которая:",
+          [
+              opt("a", "Refuses to change to keep its historical image unaltered.",
+                  "Отказывается меняться ради исторического имиджа"),
+              opt("b", "Changes strategy every day based on feedback from social networks.",
+                  "Меняет стратегию каждый день по соцсетям"),
+              opt("c", "Is imposed by the central government without direct local consultation.",
+                  "Навязана центральной властью без консультаций"),
+              opt("d", "Follows rules shared by stakeholders to respond to environmental changes.",
+                  "Следует общим правилам стейкхолдеров и адаптируется к изменениям среды"),
+          ], "d", PART_I,
+          explain_ru="Adaptive (VSA) = жизнеспособная система, адаптирующаяся по общим правилам."),
+        q(14, 'In a marketing plan for a CCN, the "Safety" lever is measured through:',
+          "В marketing plan для CCN рычаг «Safety» измеряется через:",
+          [
+              opt("a", "The reduction of real crime and the improvement of users' perception of protection.",
+                  "Снижение реальной преступности и улучшение восприятия безопасности"),
+              opt("b", "It is a KPI and indicates the number of fines issued by the municipal police for parking violations.",
+                  "Число штрафов за парковку"),
+              opt("c", "The number of surveillance interventions arranged during the year.",
+                  "Число операций видеонаблюдения за год"),
+              opt("d", "The response speed of local police in the city.",
+                  "Скорость реакции полиции"),
+          ], "a", PART_I,
+          explain_ru="Safety = реальная безопасность + восприятие защиты пользователями."),
+        q(15, 'In a "Smart City", technology must be understood as:',
+          "В «Smart City» технологию следует понимать как:",
+          [
+              opt("a", "An ultimate goal of urban development to which privacy is sacrificed.",
+                  "Конечную цель развития, ради которой жертвуют privacy"),
+              opt("b", "A tool to optimize the co-creation of value and the well-being of citizens.",
+                  "Инструмент для co-creation ценности и благополучия граждан"),
+              opt("c", "An incidental cost to be eliminated to balance the municipal budget.",
+                  "Побочные расходы, которые надо убрать"),
+              opt("d", "A substitute for human skills in the political decision process.",
+                  "Замену человеческим навыкам в политических решениях"),
+          ], "b", PART_I,
+          explain_ru="Tech — средство для co-creation и wellbeing, не самоцель."),
+        q(16, 'In the "movie director" governance model, the role of government is:',
+          "В модели governance «movie director» роль власти:",
+          [
+              opt("a", "To write the strategy and objectives and suggest actions to the actors.",
+                  "Писать стратегию и цели и предлагать действия акторам"),
+              opt("b", "To passively monitor markets without intervening in the strategy.",
+                  "Пассивно наблюдать за рынками без вмешательства"),
+              opt("c", "To encourage actors to integrate knowledge for a common ultimate purpose.",
+                  "Поощрять акторов интегрировать знания ради общей цели"),
+              opt("d", "To manage the legal and bureaucratic aspects of the territory.",
+                  "Управлять только юридическими и бюрократическими аспектами"),
+          ], "a", PART_I,
+          explain_ru="Режиссёр задаёт стратегию, цели и направляет акторов — не пассивный наблюдатель."),
+        q(17, '"Co-production" differs from "co-creation" because:',
+          "«Co-production» отличается от «co-creation», потому что:",
+          [
+              opt("a", "It only concerns the experiential value-in-use of the final user.",
+                  "Касается только experiential value-in-use конечного пользователя"),
+              opt("b", "It implies the direct participation of the customer in the design or realization of the offering.",
+                  "Подразумевает прямое участие клиента в проектировании или реализации предложения"),
+              opt("c", "It is a process that partially excludes the public administration.",
+                  "Частично исключает public administration"),
+              opt("d", "It applies exclusively to services in the city.",
+                  "Применяется только к городским услугам"),
+          ], "b", PART_I,
+          explain_ru="Co-production = пользователь участвует в создании услуги; co-creation шире (вся система акторов)."),
+        q(18, 'The urban "Servicescape" concept problematizes the city as:',
+          "Концепция urban «Servicescape» рассматривает город как:",
+          [
+              opt("a", "A setting where the interaction among actors creates and perceives the service offering.",
+                  "Среду, где взаимодействие акторов создаёт и воспринимает услугу"),
+              opt("b", "A context in which the services of the city develop.",
+                  "Контекст развития городских услуг"),
+              opt("c", "A non-place devoid of identity and meaningful social relationships.",
+                  "Non-place без идентичности и социальных связей"),
+              opt("d", "An administrative structure aimed at managing public services.",
+                  "Административную структуру управления услугами"),
+          ], "a", PART_I,
+          explain_ru="Servicescape (Bitner) — физическая и социальная среда, где создаётся опыт услуги."),
+        q(19, '"Change Aversion" can be overcome through:',
+          "«Change Aversion» можно преодолеть через:",
+          [
+              opt("a", "Limits generated by those who hinder development.",
+                  "Ограничения для тех, кто мешает развитию"),
+              opt("b", "Proposing the replacement of downtown entrepreneurs not aligned with TCM.",
+                  "Замену предпринимателей, не согласных с TCM"),
+              opt("c", "The dissemination of knowledge and the involvement of stakeholders in the design process.",
+                  "Распространение знаний и вовлечение стейкхолдеров в проектирование"),
+              opt("d", "The total elimination of every existing rule in the territory.",
+                  "Полную отмену всех существующих правил"),
+          ], "c", PART_I,
+          explain_ru="Сопротивление изменениям снимают знания и участие в co-design, не принуждением."),
+    ]
+
+    exam_10_open = [
+        {
+            "part": "III",
+            "label": "1",
+            "title_ru": "Part III — Brief Answers (5 marks) — 1",
+            "en": "Place Branding and its Five Guiding Principles: Analyze the principles of Distinctiveness, Authenticity, Memorability, Co-creation, and Place Making. Explain how a territorial brand must be a promise supported by \"substance\" and \"symbolic actions\" in order to avoid degenerating into mere propaganda.",
+            "ru": "Place Branding и пять принципов: Distinctiveness, Authenticity, Memorability, Co-creation, Place Making. Как бренд территории должен быть обещанием, подкреплённым substance и symbolic actions.",
+            "sample_en": "The five principles guide a credible place brand:\n• Distinctiveness — the place must stand out vs competitors (unique assets, identity, positioning).\n• Authenticity — the promise must reflect real characteristics; fake or copied brands collapse when users visit.\n• Memorability — symbols, stories, and experiences must be easy to recall.\n• Co-creation — residents, firms, universities, and government build the brand together (participatory branding).\n• Place Making — physical/spatial transformation (public space, servicescape, events) that embodies the brand.\n\nA territorial brand is a promise of value (wellbeing, opportunity, identity). Substance = real projects: infrastructure, safety, services, jobs, quality of life. Symbolic actions = communication, logos, events, narratives. If symbolic actions run ahead of substance, the brand becomes propaganda (image ≠ reality). Strategy + substance + symbolic must align (Bruni).",
+            "sample_ru": "5 принципов: Distinctiveness (уникальность), Authenticity (правда о месте), Memorability (запоминаемость), Co-creation (участие акторов), Place Making (физическое воплощение). Бренд = обещание ценности. Substance — реальные проекты; symbolic — коммуникация и образ. Без substance остаётся пропаганда (image ≠ reality).",
+        },
+        {
+            "part": "III",
+            "label": "2",
+            "title_ru": "Part III — Brief Answers (5 marks) — 2",
+            "en": 'The "Strategic Narrative" in Territorial Marketing: Discuss the importance of building a collective narrative of a place. How can different actors tell different stories that converge toward a single system of shared values and meanings, and what role does "primary" communication (real actions) play in this process?',
+            "ru": "«Strategic Narrative» в территориальном маркетинге: коллективный нарратив места, сходящиеся истории акторов и роль primary communication.",
+            "sample_en": "A strategic narrative connects past, present, and future of the place into one meaningful story (heritage + innovation + community). It is not a single slogan: different actors (residents, retailers, university, government, tourists) tell different stories from their perspective, but they must converge on shared values and an ultimate purpose (e.g. wellbeing, sustainability, cultural vitality).\n\nCoordination happens through strategy, participatory workshops, and a common positioning. Primary communication = real actions and substance (new services, renovated spaces, safety, events delivered) — this is the most credible message. Secondary/symbolic communication (ads, social media) supports the narrative but cannot replace primary communication. Without primary communication, narratives stay empty marketing.",
+            "sample_ru": "Strategic narrative связывает прошлое, настоящее и будущее места. Разные акторы рассказывают свои истории, но сходятся в общих ценностях и ultimate purpose. Primary communication = реальные действия (substance); symbolic — только поддержка. Без primary narrative остаётся пустой PR.",
+        },
+        {
+            "part": "III",
+            "label": "3",
+            "title_ru": "Part III — Brief Answers (5 marks) — 3",
+            "en": "Town Centre Management (TCM) as a Network Strategy: Illustrate the frameworks of TCM and Natural Shopping Centers (CCN). Analyze the evolutionary stages of these partnerships (from Infancy to Maturity) and the structural difficulties related to collaboration between small independent retailers and the public sector.",
+            "ru": "TCM как сетевая стратегия: TCM и CCN (Natural Shopping Centers), стадии Infancy→Maturity, трудности сотрудничества малых ритейлеров и госсектора.",
+            "sample_en": "TCM is a network partnership among local government, businesses, and citizens to revitalize the town centre (events, marketing, safety, cleaning, digital). CCN (Centro Commerciale Naturale / Natural Shopping Center) frames the historic centre as an experiential shopping and living environment — not a mall, but a networked place product.\n\nEvolutionary stages:\n• Infancy — first meetings, weak trust, unclear roles, pilot projects.\n• Adolescence — conflicts, free-riders, stronger projects but unstable funding.\n• Maturity — shared vision, stable governance, KPIs, BID/extra fees, integrated marketing plan.\n\nStructural difficulties: independent retailers fear loss of autonomy; limited budgets vs suburban malls; distrust of public sector; change aversion; coordination costs; parking/access; difficulty excluding free-riders who benefit without paying.",
+            "sample_ru": "TCM — сеть власти, бизнеса, жителей для ревитализации центра. CCN — центр как experiential retail-среда. Стадии: Infancy (слабое доверие) → Adolescence (конфликты, free-riders) → Maturity (KPI, BID, устойчивое партнёрство). Трудности: автономия малых магазинов, мало денег, недоверие к власти, change aversion, free-riders.",
+        },
+    ]
+
     exams = [
         ("01", exam_01_mcq, exam_01_open),
         ("02", exam_02_mcq, exam_02_open),
@@ -762,30 +1053,66 @@ def main():
         ("07", exam_07_mcq, exam_07_open),
         ("08", exam_08_mcq, exam_08_open),
         ("09", exam_09_mcq, []),
+        ("10", exam_10_mcq, []),
     ]
 
-    combined_mcq, combined_open = build_combined(exams)
+    combined_mcq, _combined_open = build_combined(exams)
+    combined_open: list = []
     n_variants = len(exams)
     rules = (
         '<div class="rules">'
-        f"<strong>{n_variants} exam variants</strong> on one page: {len(combined_mcq)} MCQ (Part I) "
-        f"+ {len(combined_open)} open questions (Part II & III). "
-        "MCQ grouped by variant — click <em>Check answers</em> to score Part I. "
-        "Open questions: sample answers visible below each item. "
-        "· Все варианты на одной странице. MCQ проверяются кнопкой."
+        f"<strong>{n_variants} exam variants</strong> on one page: {len(combined_mcq)} MCQ (Part I). "
+        "Click <em>Check answers</em> to score. "
+        "· Все варианты на одной странице, только MCQ."
         "</div>"
     )
     write_page(
         "index.html",
         "Place Marketing — All Exams",
-        f"{n_variants} variants · {len(combined_mcq)} MCQ + {len(combined_open)} open questions · Univ. Cassino",
+        f"{n_variants} variants · {len(combined_mcq)} MCQ · Univ. Cassino",
         combined_mcq,
         combined_open,
         rules,
         scoring={"correct": 1, "wrong": 0, "max": None},
     )
 
+    exam_photos = """
+    <div class="section-title">Exam photos / Фото бланка</div>
+    <figure class="exam-photo">
+      <img src="images/exam-pm-mcq-1-10.png" alt="Place Marketing exam — MCQ 1–10" />
+      <figcaption>Part I — questions 1–10</figcaption>
+    </figure>
+    <figure class="exam-photo">
+      <img src="images/exam-pm-mcq-11-19.png" alt="Place Marketing exam — MCQ 11–19" />
+      <figcaption>Part I — questions 11–19</figcaption>
+    </figure>
+    """
+    write_page(
+        "10_Place_Marketing_Exam.html",
+        "Place Marketing — Экзамен",
+        "19 MCQ · Univ. Cassino",
+        exam_10_mcq,
+        [],
+        rules_html=(
+            '<div class="rules">'
+            "<strong>Place Marketing Exam</strong> — Part I: 19 MCQ (1 mark each). "
+            "Click <em>Check answers</em> to score. "
+            "· 19 MCQ, проверка кнопкой."
+            "</div>"
+        ),
+        extra_html=exam_photos,
+        scoring={"correct": 1, "wrong": 0, "max": 19},
+    )
+    dedicated = ROOT / "10_Place_Marketing_Exam.html"
+    text = dedicated.read_text(encoding="utf-8")
+    text = text.replace(
+        '<a href="index.html">← Back to tests / К списку тестов</a>',
+        '<a href="index.html">← All variants / Все варианты</a>',
+    )
+    dedicated.write_text(text, encoding="utf-8")
+
     print(f"Generated {ROOT / 'index.html'}")
+    print(f"Generated {dedicated}")
     import subprocess
     build_script = ROOT / "build_index.mjs"
     if build_script.exists():
