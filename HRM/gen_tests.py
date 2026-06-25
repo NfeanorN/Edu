@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 
 TEMPLATE = """<!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,8 +61,8 @@ TEMPLATE = """<!doctype html>
     .q.correct {{ border-color: #27ae60; background: #f6fff9; }}
     .q.wrong {{ border-color: #e74c3c; background: #fff8f8; }}
     .q-num {{ font-weight: 700; color: #7b4397; margin-bottom: 0.35rem; }}
-    .q-ru {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}
-    .q-en {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}
+    .q-en {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}
+    .q-ru {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}
     .opts {{ display: grid; gap: 0.45rem; }}
     label.opt {{
       display: flex;
@@ -75,8 +75,8 @@ TEMPLATE = """<!doctype html>
     label.opt:hover {{ background: #f3f0f7; }}
   .result-opt {{ cursor: default; }}
     label.opt input {{ margin-top: 0.25rem; flex-shrink: 0; }}
-    .opt-ru {{ font-size: 0.95rem; }}
-    .opt-en {{ font-size: 0.82rem; color: #777; }}
+    .opt-en {{ font-size: 0.95rem; }}
+    .opt-ru {{ font-size: 0.82rem; color: #777; }}
     .feedback {{
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -112,6 +112,16 @@ TEMPLATE = """<!doctype html>
       font-size: 0.9rem;
       white-space: pre-wrap;
     }}
+    .brief-answer {{
+      margin: 0.75rem 0;
+      padding: 0.75rem 0.9rem;
+      background: #e8f8ef;
+      border-radius: 8px;
+      border-left: 3px solid #27ae60;
+      font-size: 0.92rem;
+      white-space: pre-wrap;
+    }}
+    .brief-label {{ font-size: 0.8rem; font-weight: 600; color: #1e7e45; margin-bottom: 0.35rem; }}
     .matrix-wrap {{ overflow-x: auto; margin: 1rem 0; }}
     table.matrix {{
       border-collapse: collapse;
@@ -167,6 +177,9 @@ TEMPLATE = """<!doctype html>
     .warn {{ color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }}
     mark.correct-mark {{ background: #d5f5e3; padding: 0 4px; border-radius: 3px; }}
     mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}
+    .exam-photo {{ max-width: 100%; margin: 1rem 0 1.5rem; }}
+    .exam-photo img {{ width: 100%; height: auto; border-radius: 8px; border: 1px solid #e8ecf1; display: block; }}
+    .exam-photo figcaption {{ font-size: 0.85rem; color: #666; margin-top: 0.5rem; text-align: center; }}
   </style>
 </head>
 <body>
@@ -214,16 +227,16 @@ TEMPLATE = """<!doctype html>
         card.className = 'q';
         card.dataset.id = q.id;
         card.innerHTML = `
-          <div class="q-num">Вопрос ${{q.num}}</div>
-          <div class="q-ru">${{q.ru}}</div>
+          <div class="q-num">Question ${{q.num}}</div>
           <div class="q-en">${{q.en}}</div>
+          <div class="q-ru">${{q.ru}}</div>
           <div class="opts">
             ${{q.options.map(o => `
               <label class="opt">
                 <input type="radio" name="${{q.id}}" value="${{o.id}}" />
                 <span>
-                  <div class="opt-ru"><strong>${{o.id.toUpperCase()}})</strong> ${{o.ru}}</div>
-                  <div class="opt-en">${{o.en}}</div>
+                  <div class="opt-en"><strong>${{o.id.toUpperCase()}})</strong> ${{o.en}}</div>
+                  <div class="opt-ru">${{o.ru}}</div>
                 </span>
               </label>`).join('')}}
           </div>
@@ -236,18 +249,20 @@ TEMPLATE = """<!doctype html>
       if (!OPEN_ITEMS.length) return;
       const h = document.createElement('div');
       h.className = 'section-title';
-      h.textContent = 'Открытые вопросы';
+      h.textContent = 'Open questions';
       container.appendChild(h);
       OPEN_ITEMS.forEach((item, idx) => {{
         const block = document.createElement('div');
         block.className = 'open-block';
         block.innerHTML = `
-          <div class="q-num">${{item.title_ru}}</div>
-          <div class="q-ru">${{item.ru}}</div>
+          <div class="q-num">${{item.title_en || item.title_ru}}</div>
           <div class="q-en">${{item.en}}</div>
-          <textarea name="open_${{idx}}" placeholder="Ваш ответ..."></textarea>
-          <div class="sample" hidden></div>`;
-        block.querySelector('.sample').textContent = item.sample_ru;
+          <div class="q-ru">${{item.ru}}</div>
+          <div class="brief-answer"><div class="brief-label">Sample answer (EN)</div><div class="brief-text"></div></div>
+          <textarea name="open_${{idx}}" placeholder="Your answer..."></textarea>`;
+        const brief = block.querySelector('.brief-text');
+        const sampleRu = item.sample_en && item.sample_ru ? '\\n\\n—\\n\\n' + item.sample_ru : '';
+        brief.textContent = (item.sample_en || item.sample_ru || '') + sampleRu;
         container.appendChild(block);
       }});
     }}
@@ -256,15 +271,15 @@ TEMPLATE = """<!doctype html>
       if (!SNA_ITEMS.length) return;
       const h = document.createElement('div');
       h.className = 'section-title';
-      h.textContent = 'SNA — расчёты';
+      h.textContent = 'SNA — calculations';
       container.appendChild(h);
       SNA_ITEMS.forEach((item, idx) => {{
         const block = document.createElement('div');
         block.className = 'open-block';
         block.innerHTML = `
-          <div class="q-ru">${{item.ru}}</div>
           <div class="q-en">${{item.en}}</div>
-          <input type="text" name="sna_${{idx}}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <div class="q-ru">${{item.ru}}</div>
+          <input type="text" name="sna_${{idx}}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
           <div class="feedback" hidden></div>`;
         block.dataset.expected = item.expected;
         block.dataset.accept = JSON.stringify(item.accept || []);
@@ -355,8 +370,6 @@ TEMPLATE = """<!doctype html>
           inp.disabled = true;
         }});
       }});
-
-      container.querySelectorAll('.open-block .sample').forEach(el => {{ el.hidden = false; }});
 
       container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {{
         const block = fb.closest('.open-block');
@@ -462,7 +475,7 @@ INDEX = """<!doctype html>
     <ul class="topics">
       <li><a href="01_HRM_Practice_Test.html"><span class="title">01 — HRM Practice Test</span><span class="desc">27 MCQ + открытые вопросы и кейс Kendall Toy (PDF: HRM (2).pdf)</span></a></li>
       <li><a href="02_HRM_Exam_CFU6.html"><span class="title">02 — HRM Exam CFU 6</span><span class="desc">15 MCQ + открытый вопрос Herzberg ← <strong>Exam HR _DI</strong>, стр. 1–3</span></a></li>
-      <li><a href="03_Digital_Innovation_Exam_CFU6.html"><span class="title">03 — Digital Innovation Exam CFU 6</span><span class="desc">14 MCQ + SNA (матрица, расчёты, MCQ 16–20) ← <strong>Exam HR _DI</strong>, стр. 4–7</span></a></li>
+      <li><a href="03_Digital_Innovation_Exam_CFU6.html"><span class="title">03 — Digital Innovation Exam CFU 6</span><span class="desc">14 MCQ + open (network externalities) ← <strong>Exam DI CFU 6</strong>, Key A</span></a></li>
     </ul>
   </div>
 </body>
@@ -984,43 +997,88 @@ def main():
            opt("c", "Convergence occurs as both first and third stage", "Конвергенция — первый и третий этап"),
            opt("d", "Divergence is the first and third step, exploring problem and solutions", "Дивергенция — первый и третий этап (проблема и решения)"),
            opt("e", "None of the other answers is correct", none_ru)], "d", di_section),
-        q(9, "Considering Value Configuration Models, the Value Network:", "Value Network (модель конфигурации ценности):",
-          [opt("a", "Aims to investigate customer problems to propose solutions", "Исследует проблемы клиентов и предлагает решения"),
-           opt("b", "Facilitates relationships among customers; broad user base and safe connection flow", "Способствует связям между клиентами; нужна широкая база и безопасный поток"),
-           opt("c", "Every digital business is a Network Value model", "Любой digital-бизнес — это Value Network"),
-           opt("d", "Has problem solving as the core of its model", "«Решение проблем» в ядре модели"),
+        q(9, "According to the original Technology Acceptance Model (TAM), \"Perceived Ease of Use\" is defined as:",
+           "По оригинальной модели TAM, «Perceived Ease of Use» — это:",
+          [opt("a", "The degree to which a person believes that using a particular system would enhance his or her job performance",
+                "Степень, в которой человек считает, что система улучшит его работу"),
+           opt("b", "The degree to which a person believes that using a particular system would be free of effort",
+                "Степень, в которой человек считает, что системой легко пользоваться (без лишних усилий)"),
+           opt("c", "The degree to which a person believes that using a particular system would be fun",
+                "Степень, в которой использование системы кажется приятным"),
+           opt("d", "The degree to which a person believes that using a particular system would be easy to learn",
+                "Степень, в которой систему легко выучить"),
            opt("e", "None of the other answers is correct", none_ru)], "b", di_section),
-        q(10, "In Rogers's theory, system's norms refer to:", "Нормы системы (Rogers) — это:",
-          [opt("a", "Legally accepted behavior guiding members", "Юридически принятое поведение"),
-           opt("b", "Degree to which an individual can influence others' attitudes", "Степень влияния на отношения других"),
-           opt("c", "Patterned arrangements such as density and numerosity", "Структура связей и численность акторов"),
-           opt("d", "Tolerable behavior as a standard, although not legally binding", "Допустимое поведение-стандарт, не обязательное юридически"),
-           opt("e", "None of the other answers is correct", none_ru)], "d", di_section),
-        q(11, "The Internet is based on which communication protocol?", "Интернет основан на протоколе:",
-          [opt("a", "The World Wide Web protocol", "WWW"),
-           opt("b", "The SHA256 protocol", "SHA256"),
-           opt("c", "The TCP/IP protocol", "TCP/IP"),
-           opt("d", "Many protocols because of SEO algorithms", "Множество протоколов из-за SEO"),
+        q(10, "In the Lean Startup approach, an MVP:",
+           "В Lean Startup подходе MVP:",
+          [opt("a", "Is just a prototype — the sketch of the product the company is going to offer",
+                "Это только прототип / эскиз будущего продукта"),
+           opt("b", "Is used to ask competitors what they think of your product idea",
+                "Нужен, чтобы спросить конкурентов их мнение об идее"),
+           opt("c", "Is used to build an idea by exposing a fully functional product to the customers",
+                "Полностью готовый продукт для клиентов"),
+           opt("d", "Allows for testing an idea by exposing a fully functional version to the customers",
+                "Позволяет тестировать идею, показывая полностью готовую версию клиентам"),
+           opt("e", "Allows for testing an idea by exposing a fully functional version only after a huge initial investment",
+                "Полная версия только после больших затрат времени и денег"),
+           opt("f", "None of the other answers is correct", "Ни один из других ответов не верен")], "f", di_section),
+        q(11, "In the strategic alignment framework, the first divergent phase aims to:",
+           "В strategic alignment framework первая divergent-фаза направлена на то, чтобы:",
+          [opt("a", "Allow actors to identify their competitive advantage",
+                "Помочь акторам найти конкурентное преимущество"),
+           opt("b", "Allow actors to converge towards a common solution",
+                "Свести акторов к одному общему решению"),
+           opt("c", "Allow a set of actors to share their perspectives to create a set of shared ideas",
+                "Дать акторам обменяться взглядами и создать общие идеи"),
+           opt("d", "Allow a set of actors to share their shared ideas",
+                "Дать акторам поделиться уже общими идеями"),
+           opt("e", "Allow actors to share ideas by creating coalitions to manipulate the solution so consensus is not genuine",
+                "Создать коалиции для манипуляции решением"),
+           opt("f", "None of the other answers is correct", "Ни один из других ответов не верен")], "c", di_section),
+        q(12, "Encryption is the process of:",
+           "Шифрование (encryption) — это процесс:",
+          [opt("a", "Sending a message through a very trusted communication channel or messenger",
+                "Отправка сообщения через доверенный канал или курьера"),
+           opt("b", "Using a VPN in order to avoid data leaks",
+                "Использование VPN, чтобы избежать утечки данных"),
+           opt("c", "Scrambling the contents of a text/file so that it can't be read without the proper decryption key",
+                "Перемешивание текста/файла так, что без ключа расшифровки его нельзя прочитать"),
+           opt("d", "Hiding the message through an ancient technique; nowadays encryption is not used in digital systems",
+                "Скрытие сообщения древним способом; сейчас шифрование не используется"),
            opt("e", "None of the other answers is correct", none_ru)], "c", di_section),
-        q(12, "Which is NOT an advantage of cloud computing?", "Что НЕ является преимуществом облачных вычислений?",
+        q(13, "Which is NOT an advantage of using cloud computing services?",
+           "Что НЕ является преимуществом облачных вычислений?",
           [opt("a", "Instant scalability", "Мгновенная масштабируемость"),
            opt("b", "Pay per use", "Оплата по использованию"),
            opt("c", "Lower initial investment in hardware", "Меньше начальных инвестиций в железо"),
            opt("d", "Low dependence on the service provider", "Низкая зависимость от провайдера"),
            opt("e", "None of the other answers is correct", none_ru)], "d", di_section),
-        q(13, "Bitcoins are:", "Биткоины:",
-          [opt("a", "Inflationary by design in limited supply", "Инфляционные при ограниченном предложении"),
-           opt("b", "Based on a decentralized system", "Основаны на децентрализованной системе"),
-           opt("c", "Unlimited in supply", "Неограниченное предложение"),
-           opt("d", "Cryptocurrency backed in gold by the UN", "Криптовалюта, обеспеченная золотом ООН"),
-           opt("e", "None of the other answers is correct", none_ru)], "b", di_section),
         q(14, "Onlife describes:", "Onlife описывает:",
-          [opt("a", "Interactions between real world and social media endanger privacy", "Взаимодействие реального мира и соцсетей угрожает приватности"),
-           opt("b", "Real and digital world cannot be divided", "Реальный и цифровой мир нельзя разделить"),
-           opt("c", "Future where life solely exists in digital world through VR", "Будущее только в VR"),
-           opt("d", "Business model for selling digital objects in VR", "Бизнес-модель продажи цифровых объектов в VR"),
-           opt("e", "None of the previous answers is correct", none_ru)], "b", di_section),
+          [opt("a", "A condition where social media interactions mainly threaten privacy",
+                "Ситуацию, где соцсети в основном угрожают приватности"),
+           opt("b", "A future in which human life exists only in digital environments",
+                "Будущее, где жизнь существует только в цифровой среде"),
+           opt("c", "A condition where real and digital worlds become difficult to separate",
+                "Ситуацию, где реальный и цифровой мир трудно разделить"),
+           opt("d", "A business model for selling digital objects through online platforms",
+                "Бизнес-модель продажи цифровых объектов через онлайн-платформы"),
+           opt("e", "None of the previous answers is correct", none_ru)], "c", di_section),
     ]
+
+    di_open = [{
+        "title_en": "Open question 15 (5 points)",
+        "title_ru": "Открытый вопрос 15 (5 баллов)",
+        "ru": "i) Опишите концепцию network externalities. ii) Объясните, как эта концепция связана с цифровыми платформами и бизнес-моделями Value Network.",
+        "en": "Describe the concept of network externalities, and explain how this concept connects to digital platforms and Value Network business models.",
+        "sample_en": "Network externalities mean a product or platform becomes more valuable as more people use it (e.g. messaging apps, social networks, marketplaces).\n\nDigital platforms grow faster when they already have a large user base (winner-takes-all effect). This links to the Value Network model, where value comes from connections between users, not only from selling one product.",
+        "sample_ru": "Network externalities (сетевые внешние эффекты) — чем больше людей пользуется продуктом или платформой, тем ценнее он становится для каждого пользователя. Пример: мессенджер, соцсеть, маркетплейс.\n\nСвязь с цифровыми платформами: платформы растут быстрее, когда уже есть большая база пользователей (эффект «победитель получает всё»). Это близко к Value Network — модель, где ценность создаётся связями между пользователями, а не только продажей одного товара.",
+    }, {
+        "title_en": "Practice — Rogers diffusion & pricing",
+        "title_ru": "Практика — Rogers и ценообразование",
+        "en": "Using Rogers' theory of innovation diffusion, explain why launching a ChatGPT-like product only as a $20/month Pro plan would slow adoption compared to starting with a free tier.",
+        "ru": "Используя теорию диффузии инноваций Rogers, объясните, почему запуск ChatGPT-подобного продукта сразу только как Pro за $20/мес замедлит adoption по сравнению с бесплатным тарифом.",
+        "sample_en": "According to Rogers, diffusion depends on relative advantage, trialability, complexity, observability, and social spread through adopter categories. A ChatGPT-like product launched straight as a $20 Pro plan blocks trialability and observability, hides relative advantage, keeps diffusion stuck among innovators, and prevents word-of-mouth from reaching the early majority. A free version lowers the barrier, lets users try the product and see its value, and kick-starts social communication — only then does a paid Pro tier make sense for users who are already convinced.\n\nIn short: free = \"try it and tell others\"; $20 upfront = \"pay without knowing why\" → diffusion does not take off.",
+        "sample_ru": "По Rogers диффузия зависит от относительного преимущества, возможности попробовать (trialability), сложности, наблюдаемости результата и социального распространения через категории adopters.\n\nТолько Pro за $20 сразу: нельзя попробовать, не видно выгоды, diffusion застревает у innovators, word-of-mouth не доходит до early majority.\n\nБесплатная версия: низкий порог входа, пользователи пробуют и видят ценность, начинается социальная коммуникация — потом Pro логичен для тех, кто уже убеждён.\n\nКоротко: free = «попробуй и расскажи другим»; $20 сразу = «плати, не зная зачем» → diffusion не взлетает.",
+    }]
 
     sna_section = "SNA — MCQ"
     di_sna_mcq = [
@@ -1047,7 +1105,7 @@ def main():
            opt("b", "0.31", "0,31"),
            opt("c", "0.33", "0,33"),
            opt("d", "0.17", "0,17"),
-           opt("e", "None of the other answers is correct", none_ru)], "b", sna_section, "sna19"),
+           opt("e", "None of the other answers is correct", none_ru)], "a", sna_section, "sna19"),
         q(20, "Considering the values of Betweenness Centrality:", "Учитывая значения Betweenness Centrality:",
           [opt("a", "I has a higher value than G", "I имеет большее значение, чем G"),
            opt("b", "G has a higher value than F", "G имеет большее значение, чем F"),
@@ -1111,13 +1169,20 @@ def main():
                rules_html='<div class="rules">Экзамен: +1 за верный, −0,2 за неверный, 0 за пропуск. Максимум 15 баллов.</div>')
     created.append("02_HRM_Exam_CFU6.html")
 
+    di_exam_photo = """
+    <div class="section-title">Фото с экзамена (Key A — вопросы 9–15)</div>
+    <figure class="exam-photo">
+      <img src="images/exam-di-cfu6-open.png" alt="DI CFU 6 exam — questions 9–15" />
+      <figcaption>Бланк экзамена DI CFU 6 (вариант Key A)</figcaption>
+    </figure>
+    """
     write_page("03_Digital_Innovation_Exam_CFU6.html",
                "Digital Innovation — Экзамен CFU 6",
-               "Digital Innovation Exam CFU 6 — 14 MCQ + SNA / 14 MCQ + SNA",
-               di + di_sna_mcq, sna_items=sna_open,
-               scoring={"correct": 1, "wrong": -0.2, "max": 19},
-               rules_html='<div class="rules">Экзамен DI: +1 / −0,2 за MCQ (1–20). SNA-расчёты проверяются по эталону.</div>',
-               extra_html=matrix_html)
+               "Digital Innovation Exam CFU 6 — 14 MCQ + open question / 14 MCQ + открытый вопрос",
+               di, open_items=di_open,
+               scoring={"correct": 1, "wrong": -0.2, "max": 14},
+               rules_html='<div class="rules">Exam: +1 / −0.2 per MCQ (questions 1–14). Open question 15 — sample answer after check.</div>',
+               extra_html=di_exam_photo)
     created.append("03_Digital_Innovation_Exam_CFU6.html")
 
     print("Created files:")
