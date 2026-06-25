@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,8 +52,8 @@
     .q.correct { border-color: #27ae60; background: #f6fff9; }
     .q.wrong { border-color: #e74c3c; background: #fff8f8; }
     .q-num { font-weight: 700; color: #7b4397; margin-bottom: 0.35rem; }
-    .q-ru { font-size: 1.02rem; margin-bottom: 0.35rem; }
-    .q-en { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
     .opts { display: grid; gap: 0.45rem; }
     label.opt {
       display: flex;
@@ -66,8 +66,8 @@
     label.opt:hover { background: #f3f0f7; }
   .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
-    .opt-ru { font-size: 0.95rem; }
-    .opt-en { font-size: 0.82rem; color: #777; }
+    .opt-en { font-size: 0.95rem; }
+    .opt-ru { font-size: 0.82rem; color: #777; }
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -103,6 +103,16 @@
       font-size: 0.9rem;
       white-space: pre-wrap;
     }
+    .brief-answer {
+      margin: 0.75rem 0;
+      padding: 0.75rem 0.9rem;
+      background: #e8f8ef;
+      border-radius: 8px;
+      border-left: 3px solid #27ae60;
+      font-size: 0.92rem;
+      white-space: pre-wrap;
+    }
+    .brief-label { font-size: 0.8rem; font-weight: 600; color: #1e7e45; margin-bottom: 0.35rem; }
     .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
     table.matrix {
       border-collapse: collapse;
@@ -158,32 +168,25 @@
     .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
     mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
     mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+    .exam-photo { max-width: 100%; margin: 1rem 0 1.5rem; }
+    .exam-photo img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #e8ecf1; display: block; }
+    .exam-photo figcaption { font-size: 0.85rem; color: #666; margin-top: 0.5rem; text-align: center; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <p class="back"><a href="index.html">← К тестам HRM</a></p>
     <h1>Digital Innovation — Экзамен CFU 6</h1>
-    <p class="sub">Digital Innovation Exam CFU 6 — 14 MCQ + SNA / 14 MCQ + SNA</p>
-    <div class="rules">Экзамен DI: +1 / −0,2 за MCQ (1–20). SNA-расчёты проверяются по эталону.</div>
+    <p class="sub">Digital Innovation Exam CFU 6 — 14 MCQ + open question / 14 MCQ + открытый вопрос</p>
+    <div class="rules">Exam: +1 / −0.2 per MCQ (questions 1–14). Open question 15 — sample answer after check.</div>
     <form id="test-form">
       <div id="questions"></div>
       
-    <div class="section-title">SNA — матрица смежности (9 узлов A–I)</div>
-    <div class="matrix-wrap">
-      <table class="matrix">
-        <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th><th>I</th></tr>
-        <tr><th>A</th><td>—</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><th>B</th><td>3</td><td>—</td><td>1</td><td>3</td><td>1</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><th>C</th><td>1</td><td>1</td><td>—</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-        <tr><th>D</th><td>0</td><td>3</td><td>0</td><td>—</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
-        <tr><th>E</th><td>0</td><td>1</td><td>0</td><td>0</td><td>—</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
-        <tr><th>F</th><td>0</td><td>4</td><td>0</td><td>0</td><td>0</td><td>—</td><td>3</td><td>0</td><td>0</td></tr>
-        <tr><th>G</th><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>3</td><td>—</td><td>1</td><td>0</td></tr>
-        <tr><th>H</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>—</td><td>1</td></tr>
-        <tr><th>I</th><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>—</td></tr>
-      </table>
-    </div>
+    <div class="section-title">Фото с экзамена (Key A — вопросы 9–15)</div>
+    <figure class="exam-photo">
+      <img src="images/exam-di-cfu6-open.png" alt="DI CFU 6 exam — questions 9–15" />
+      <figcaption>Бланк экзамена DI CFU 6 (вариант Key A)</figcaption>
+    </figure>
     
       <div class="actions">
         <button type="submit">Проверить ответы</button>
@@ -197,10 +200,10 @@
     </div>
   </div>
   <script>
-    const SCORING = {"correct": 1, "wrong": -0.2, "max": 19};
-    const QUESTIONS = [{"num": 1, "id": "q1", "en": "Currently, Artificial Intelligence is at the stage of:", "ru": "ИИ сейчас находится на стадии:", "options": [{"id": "a", "en": "Artificial General Intelligence", "ru": "AGI (общий интеллект)"}, {"id": "b", "en": "Artificial Narrow Intelligence", "ru": "ANI (узкий интеллект)"}, {"id": "c", "en": "Artificial Super Intelligence", "ru": "ASI (сверхинтеллект)"}, {"id": "d", "en": "Artificial Natural Intelligence", "ru": "ANI (естественный)"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 2, "id": "q2", "en": "AI (Artificial Intelligence) is:", "ru": "ИИ (Artificial Intelligence) — это:", "options": [{"id": "a", "en": "Disruptive technology that emerged in November 2022 with ChatGPT", "ru": "Дисruptивная технология с ноября 2022 и ChatGPT"}, {"id": "b", "en": "Recognizes patterns and self-learns only if developer constantly checks", "ru": "Распознаёт паттерны только если разработчик постоянно проверяет"}, {"id": "c", "en": "Never going to evolve further", "ru": "Никогда не будет развиваться дальше"}, {"id": "d", "en": "Any device that perceives its environment and takes actions to maximize success at some goal", "ru": "Устройство, воспринимающее среду и действующее для достижения цели"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": "Digital Innovation — MCQ"}, {"num": 3, "id": "q3", "en": "According to Dooley (1997), complex adaptive organization is best suited for:", "ru": "По Dooley (1997), сложная адаптивная организация лучше для среды:", "options": [{"id": "a", "en": "Turbulent, low actor numerosity and low actor diversity", "ru": "Турбулентной с низкой численностью и разнообразием акторов"}, {"id": "b", "en": "One with infrequent technological changes", "ru": "С редкими технологическими изменениями"}, {"id": "c", "en": "Stable and predictable", "ru": "Стабильной и предсказуемой"}, {"id": "d", "en": "A stable and analyzable environment", "ru": "Стабильной и анализируемой"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "e", "section": "Digital Innovation — MCQ"}, {"num": 4, "id": "q4", "en": "Solving customer problems is a key activity in the:", "ru": "Решение проблем клиентов — ключевая активность в модели:", "options": [{"id": "a", "en": "Value network business model", "ru": "Value network"}, {"id": "b", "en": "Value shop business model", "ru": "Value shop"}, {"id": "c", "en": "Value chain business model", "ru": "Value chain"}, {"id": "d", "en": "Value co-creation business model", "ru": "Value co-creation"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 5, "id": "q5", "en": "A Blockchain is:", "ru": "Блокчейн — это:", "options": [{"id": "a", "en": "Based on Bitcoin — the two are not divisible", "ru": "Неразрывно связан с Bitcoin"}, {"id": "b", "en": "Built on independent blocks not related among themselves", "ru": "Независимые несвязанные блоки"}, {"id": "c", "en": "A ledger of facts replicated across several computers in a peer-to-peer structure", "ru": "Реестр фактов, реплицированный на нескольких компьютерах P2P"}, {"id": "d", "en": "Less robust when the number of nodes increases", "ru": "Менее устойчив при росте числа узлов"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "c", "section": "Digital Innovation — MCQ"}, {"num": 6, "id": "q6", "en": "According to Rogers (1983), innovation diffusion:", "ru": "По Rogers (1983), диффузия инноваций:", "options": [{"id": "a", "en": "Is a special kind of communication", "ru": "Особый вид коммуникации"}, {"id": "b", "en": "Individuals decide based on perceived usefulness and ease of use", "ru": "Автономное решение на основе полезности и простоты (TAM)"}, {"id": "c", "en": "Is socially determined with negligible influence of innovation characteristics", "ru": "Социально определена, характеристики инновации не важны"}, {"id": "d", "en": "Spreads faster in networks with structural equivalence", "ru": "Быстрее в сетях со structural equivalence"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "a", "section": "Digital Innovation — MCQ"}, {"num": 7, "id": "q7", "en": "The study of Dell'Acqua et al. (2023) suggests that:", "ru": "Исследование Dell'Acqua et al. (2023):", "options": [{"id": "a", "en": "Software engineering skills always associated with higher performance with AI", "ru": "Навыки разработки ПО всегда повышают результат с ИИ"}, {"id": "b", "en": "Software engineering skills associated with higher performance only for tasks within the AI capabilities frontier", "ru": "Навыки разработки повышают результат только для задач в пределах «границы возможностей ИИ»"}, {"id": "c", "en": "Prompt engineering always associated with higher performance", "ru": "Prompt engineering всегда повышает результат"}, {"id": "d", "en": "Domain skills will become increasingly relevant as AI cannot reproduce them", "ru": "Доменные навыки станут ещё важнее, т.к. ИИ их не воспроизводит"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 8, "id": "q8", "en": "In Design Thinking, within the double diamond framework:", "ru": "В double diamond design framework:", "options": [{"id": "a", "en": "Convergence is the first stage to align stakeholders on the problem", "ru": "Конвергенция — первый этап для согласования проблемы"}, {"id": "b", "en": "Divergence occurs first to identify potential solutions", "ru": "Дивергенция — первый этап для идей решений"}, {"id": "c", "en": "Convergence occurs as both first and third stage", "ru": "Конвергенция — первый и третий этап"}, {"id": "d", "en": "Divergence is the first and third step, exploring problem and solutions", "ru": "Дивергенция — первый и третий этап (проблема и решения)"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": "Digital Innovation — MCQ"}, {"num": 9, "id": "q9", "en": "Considering Value Configuration Models, the Value Network:", "ru": "Value Network (модель конфигурации ценности):", "options": [{"id": "a", "en": "Aims to investigate customer problems to propose solutions", "ru": "Исследует проблемы клиентов и предлагает решения"}, {"id": "b", "en": "Facilitates relationships among customers; broad user base and safe connection flow", "ru": "Способствует связям между клиентами; нужна широкая база и безопасный поток"}, {"id": "c", "en": "Every digital business is a Network Value model", "ru": "Любой digital-бизнес — это Value Network"}, {"id": "d", "en": "Has problem solving as the core of its model", "ru": "«Решение проблем» в ядре модели"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 10, "id": "q10", "en": "In Rogers's theory, system's norms refer to:", "ru": "Нормы системы (Rogers) — это:", "options": [{"id": "a", "en": "Legally accepted behavior guiding members", "ru": "Юридически принятое поведение"}, {"id": "b", "en": "Degree to which an individual can influence others' attitudes", "ru": "Степень влияния на отношения других"}, {"id": "c", "en": "Patterned arrangements such as density and numerosity", "ru": "Структура связей и численность акторов"}, {"id": "d", "en": "Tolerable behavior as a standard, although not legally binding", "ru": "Допустимое поведение-стандарт, не обязательное юридически"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": "Digital Innovation — MCQ"}, {"num": 11, "id": "q11", "en": "The Internet is based on which communication protocol?", "ru": "Интернет основан на протоколе:", "options": [{"id": "a", "en": "The World Wide Web protocol", "ru": "WWW"}, {"id": "b", "en": "The SHA256 protocol", "ru": "SHA256"}, {"id": "c", "en": "The TCP/IP protocol", "ru": "TCP/IP"}, {"id": "d", "en": "Many protocols because of SEO algorithms", "ru": "Множество протоколов из-за SEO"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "c", "section": "Digital Innovation — MCQ"}, {"num": 12, "id": "q12", "en": "Which is NOT an advantage of cloud computing?", "ru": "Что НЕ является преимуществом облачных вычислений?", "options": [{"id": "a", "en": "Instant scalability", "ru": "Мгновенная масштабируемость"}, {"id": "b", "en": "Pay per use", "ru": "Оплата по использованию"}, {"id": "c", "en": "Lower initial investment in hardware", "ru": "Меньше начальных инвестиций в железо"}, {"id": "d", "en": "Low dependence on the service provider", "ru": "Низкая зависимость от провайдера"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "d", "section": "Digital Innovation — MCQ"}, {"num": 13, "id": "q13", "en": "Bitcoins are:", "ru": "Биткоины:", "options": [{"id": "a", "en": "Inflationary by design in limited supply", "ru": "Инфляционные при ограниченном предложении"}, {"id": "b", "en": "Based on a decentralized system", "ru": "Основаны на децентрализованной системе"}, {"id": "c", "en": "Unlimited in supply", "ru": "Неограниченное предложение"}, {"id": "d", "en": "Cryptocurrency backed in gold by the UN", "ru": "Криптовалюта, обеспеченная золотом ООН"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 14, "id": "q14", "en": "Onlife describes:", "ru": "Onlife описывает:", "options": [{"id": "a", "en": "Interactions between real world and social media endanger privacy", "ru": "Взаимодействие реального мира и соцсетей угрожает приватности"}, {"id": "b", "en": "Real and digital world cannot be divided", "ru": "Реальный и цифровой мир нельзя разделить"}, {"id": "c", "en": "Future where life solely exists in digital world through VR", "ru": "Будущее только в VR"}, {"id": "d", "en": "Business model for selling digital objects in VR", "ru": "Бизнес-модель продажи цифровых объектов в VR"}, {"id": "e", "en": "None of the previous answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "Digital Innovation — MCQ"}, {"num": 16, "id": "sna16", "en": "What type of matrix is it?", "ru": "Какой тип матрицы представлен?", "options": [{"id": "a", "en": "One-mode, directed, weighted", "ru": "One-mode, directed, weighted"}, {"id": "b", "en": "One-mode, undirected, unweighted", "ru": "One-mode, undirected, unweighted"}, {"id": "c", "en": "One-mode, directed, unweighted", "ru": "One-mode, directed, unweighted"}, {"id": "d", "en": "Two-modes, undirected, weighted", "ru": "Two-modes, undirected, weighted"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "SNA — MCQ"}, {"num": 17, "id": "sna17", "en": "Emax is:", "ru": "Emax равен:", "options": [{"id": "a", "en": "72", "ru": "72"}, {"id": "b", "en": "36", "ru": "36"}, {"id": "c", "en": "81", "ru": "81"}, {"id": "d", "en": "56", "ru": "56"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "a", "section": "SNA — MCQ"}, {"num": 18, "id": "sna18", "en": "The network diameter is:", "ru": "Диаметр сети:", "options": [{"id": "a", "en": "3", "ru": "3"}, {"id": "b", "en": "4", "ru": "4"}, {"id": "c", "en": "5", "ru": "5"}, {"id": "d", "en": "6", "ru": "6"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "c", "section": "SNA — MCQ"}, {"num": 19, "id": "sna19", "en": "The network density is:", "ru": "Плотность сети (density):", "options": [{"id": "a", "en": "0.28", "ru": "0,28"}, {"id": "b", "en": "0.31", "ru": "0,31"}, {"id": "c", "en": "0.33", "ru": "0,33"}, {"id": "d", "en": "0.17", "ru": "0,17"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "SNA — MCQ"}, {"num": 20, "id": "sna20", "en": "Considering the values of Betweenness Centrality:", "ru": "Учитывая значения Betweenness Centrality:", "options": [{"id": "a", "en": "I has a higher value than G", "ru": "I имеет большее значение, чем G"}, {"id": "b", "en": "G has a higher value than F", "ru": "G имеет большее значение, чем F"}, {"id": "c", "en": "A has a higher value than D", "ru": "A имеет большее значение, чем D"}, {"id": "d", "en": "A has a higher value than B", "ru": "A имеет большее значение, чем B"}, {"id": "e", "en": "None of the other answers is correct", "ru": "Ни один из других ответов не верен"}], "correct": "b", "section": "SNA — MCQ"}];
-    const OPEN_ITEMS = [];
-    const SNA_ITEMS = [{"ru": "Узлы с наибольшей и наименьшей closeness centrality (укажите узлы и значения).", "en": "Node/s with the highest and lowest Closeness (nodes and values).", "expected": "B и G — 0.57; I — 0.31", "accept": ["b and g 0.57 i 0.31", "b g 0.57 i 0.31", "b & g 0.57 i 0.31"]}, {"ru": "Betweenness centrality узлов H, B, E и I.", "en": "Betweenness of H, B, E and I.", "expected": "H=7; B=13.5; E=3; I=0", "accept": ["h 7 b 13.5 e 3 i 0", "h=7 b=13.5 e=3 i=0"]}, {"ru": "Расстояние D(A,H) и D(D,H).", "en": "Distance between A and H, and between D and H.", "expected": "D(A,H)=4; D(D,H)=2", "accept": ["d(a,h)=4 d(d,h)=2", "a-h 4 d-h 2"]}, {"ru": "Если H — изолированный узел, какова плотность нового графа?", "en": "If H were an isolated node, what would be the density of the new graph?", "expected": "0.25", "accept": ["0,25", "density 0.25", "network density 0.25"]}];
+    const SCORING = {"correct": 1, "wrong": -0.2, "max": 14};
+    const QUESTIONS = [{"num":1,"id":"q1","en":"Currently, Artificial Intelligence is at the stage of:","ru":"ИИ сейчас находится на стадии:","options":[{"id":"a","en":"Artificial General Intelligence","ru":"AGI (общий интеллект)"},{"id":"b","en":"Artificial Narrow Intelligence","ru":"ANI (узкий интеллект)"},{"id":"c","en":"Artificial Super Intelligence","ru":"ASI (сверхинтеллект)"},{"id":"d","en":"Artificial Natural Intelligence","ru":"ANI (естественный)"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","section":"Digital Innovation — MCQ"},{"num":2,"id":"q2","en":"AI (Artificial Intelligence) is:","ru":"ИИ (Artificial Intelligence) — это:","options":[{"id":"a","en":"Disruptive technology that emerged in November 2022 with ChatGPT","ru":"Дисruptивная технология с ноября 2022 и ChatGPT"},{"id":"b","en":"Recognizes patterns and self-learns only if developer constantly checks","ru":"Распознаёт паттерны только если разработчик постоянно проверяет"},{"id":"c","en":"Never going to evolve further","ru":"Никогда не будет развиваться дальше"},{"id":"d","en":"Any device that perceives its environment and takes actions to maximize success at some goal","ru":"Устройство, воспринимающее среду и действующее для достижения цели"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"d","section":"Digital Innovation — MCQ"},{"num":3,"id":"q3","en":"According to Dooley (1997), complex adaptive organization is best suited for:","ru":"По Dooley (1997), сложная адаптивная организация лучше для среды:","options":[{"id":"a","en":"Turbulent, low actor numerosity and low actor diversity","ru":"Турбулентной с низкой численностью и разнообразием акторов"},{"id":"b","en":"One with infrequent technological changes","ru":"С редкими технологическими изменениями"},{"id":"c","en":"Stable and predictable","ru":"Стабильной и предсказуемой"},{"id":"d","en":"A stable and analyzable environment","ru":"Стабильной и анализируемой"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"e","section":"Digital Innovation — MCQ"},{"num":4,"id":"q4","en":"Solving customer problems is a key activity in the:","ru":"Решение проблем клиентов — ключевая активность в модели:","options":[{"id":"a","en":"Value network business model","ru":"Value network"},{"id":"b","en":"Value shop business model","ru":"Value shop"},{"id":"c","en":"Value chain business model","ru":"Value chain"},{"id":"d","en":"Value co-creation business model","ru":"Value co-creation"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","section":"Digital Innovation — MCQ"},{"num":5,"id":"q5","en":"A Blockchain is:","ru":"Блокчейн — это:","options":[{"id":"a","en":"Based on Bitcoin — the two are not divisible","ru":"Неразрывно связан с Bitcoin"},{"id":"b","en":"Built on independent blocks not related among themselves","ru":"Независимые несвязанные блоки"},{"id":"c","en":"A ledger of facts replicated across several computers in a peer-to-peer structure","ru":"Реестр фактов, реплицированный на нескольких компьютерах P2P"},{"id":"d","en":"Less robust when the number of nodes increases","ru":"Менее устойчив при росте числа узлов"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"c","section":"Digital Innovation — MCQ"},{"num":6,"id":"q6","en":"According to Rogers (1983), innovation diffusion:","ru":"По Rogers (1983), диффузия инноваций:","options":[{"id":"a","en":"Is a special kind of communication","ru":"Особый вид коммуникации"},{"id":"b","en":"Individuals decide based on perceived usefulness and ease of use","ru":"Автономное решение на основе полезности и простоты (TAM)"},{"id":"c","en":"Is socially determined with negligible influence of innovation characteristics","ru":"Социально определена, характеристики инновации не важны"},{"id":"d","en":"Spreads faster in networks with structural equivalence","ru":"Быстрее в сетях со structural equivalence"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","section":"Digital Innovation — MCQ"},{"num":7,"id":"q7","en":"The study of Dell'Acqua et al. (2023) suggests that:","ru":"Исследование Dell'Acqua et al. (2023):","options":[{"id":"a","en":"Software engineering skills always associated with higher performance with AI","ru":"Навыки разработки ПО всегда повышают результат с ИИ"},{"id":"b","en":"Software engineering skills associated with higher performance only for tasks within the AI capabilities frontier","ru":"Навыки разработки повышают результат только для задач в пределах «границы возможностей ИИ»"},{"id":"c","en":"Prompt engineering always associated with higher performance","ru":"Prompt engineering всегда повышает результат"},{"id":"d","en":"Domain skills will become increasingly relevant as AI cannot reproduce them","ru":"Доменные навыки станут ещё важнее, т.к. ИИ их не воспроизводит"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","section":"Digital Innovation — MCQ"},{"num":8,"id":"q8","en":"In Design Thinking, within the double diamond framework:","ru":"В double diamond design framework:","options":[{"id":"a","en":"Convergence is the first stage to align stakeholders on the problem","ru":"Конвергенция — первый этап для согласования проблемы"},{"id":"b","en":"Divergence occurs first to identify potential solutions","ru":"Дивергенция — первый этап для идей решений"},{"id":"c","en":"Convergence occurs as both first and third stage","ru":"Конвергенция — первый и третий этап"},{"id":"d","en":"Divergence is the first and third step, exploring problem and solutions","ru":"Дивергенция — первый и третий этап (проблема и решения)"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"d","section":"Digital Innovation — MCQ"},{"num":9,"id":"q9","en":"According to the original Technology Acceptance Model (TAM), \"Perceived Ease of Use\" is defined as:","ru":"По оригинальной модели TAM, «Perceived Ease of Use» — это:","correct":"b","section":"Digital Innovation — MCQ","options":[{"id":"a","en":"The degree to which a person believes that using a particular system would enhance his or her job performance","ru":"Степень, в которой человек считает, что система улучшит его работу"},{"id":"b","en":"The degree to which a person believes that using a particular system would be free of effort","ru":"Степень, в которой человек считает, что системой легко пользоваться (без лишних усилий)"},{"id":"c","en":"The degree to which a person believes that using a particular system would be fun","ru":"Степень, в которой использование системы кажется приятным"},{"id":"d","en":"The degree to which a person believes that using a particular system would be easy to learn","ru":"Степень, в которой систему легко выучить"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}]},{"num":10,"id":"q10","en":"In the Lean Startup approach, an MVP:","ru":"В Lean Startup подходе MVP:","correct":"f","section":"Digital Innovation — MCQ","options":[{"id":"a","en":"Is just a prototype — the sketch of the product the company is going to offer","ru":"Это только прототип / эскиз будущего продукта"},{"id":"b","en":"Is used to ask competitors what they think of your product idea","ru":"Нужен, чтобы спросить конкурентов их мнение об идее"},{"id":"c","en":"Is used to build an idea by exposing a fully functional product to the customers","ru":"Полностью готовый продукт для клиентов"},{"id":"d","en":"Allows for testing an idea by exposing a fully functional version to the customers","ru":"Позволяет тестировать идею, показывая полностью готовую версию клиентам"},{"id":"e","en":"Allows for testing an idea by exposing a fully functional version only after a huge initial investment","ru":"Полная версия только после больших затрат времени и денег"},{"id":"f","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}]},{"num":11,"id":"q11","en":"In the strategic alignment framework, the first divergent phase aims to:","ru":"В strategic alignment framework первая divergent-фаза направлена на то, чтобы:","correct":"c","section":"Digital Innovation — MCQ","options":[{"id":"a","en":"Allow actors to identify their competitive advantage","ru":"Помочь акторам найти конкурентное преимущество"},{"id":"b","en":"Allow actors to converge towards a common solution","ru":"Свести акторов к одному общему решению"},{"id":"c","en":"Allow a set of actors to share their perspectives to create a set of shared ideas","ru":"Дать акторам обменяться взглядами и создать общие идеи"},{"id":"d","en":"Allow a set of actors to share their shared ideas","ru":"Дать акторам поделиться уже общими идеями"},{"id":"e","en":"Allow actors to share ideas by creating coalitions to manipulate the solution so consensus is not genuine","ru":"Создать коалиции для манипуляции решением"},{"id":"f","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}]},{"num":12,"id":"q12","en":"Encryption is the process of:","ru":"Шифрование (encryption) — это процесс:","correct":"c","section":"Digital Innovation — MCQ","options":[{"id":"a","en":"Sending a message through a very trusted communication channel or messenger","ru":"Отправка сообщения через доверенный канал или курьера"},{"id":"b","en":"Using a VPN in order to avoid data leaks","ru":"Использование VPN, чтобы избежать утечки данных"},{"id":"c","en":"Scrambling the contents of a text/file so that it can't be read without the proper decryption key","ru":"Перемешивание текста/файла так, что без ключа расшифровки его нельзя прочитать"},{"id":"d","en":"Hiding the message through an ancient technique; nowadays encryption is not used in digital systems","ru":"Скрытие сообщения древним способом; сейчас шифрование не используется"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}]},{"num":13,"id":"q13","en":"Which is NOT an advantage of using cloud computing services?","ru":"Что НЕ является преимуществом облачных вычислений?","correct":"d","section":"Digital Innovation — MCQ","options":[{"id":"a","en":"Instant scalability","ru":"Мгновенная масштабируемость"},{"id":"b","en":"Pay per use","ru":"Оплата по использованию"},{"id":"c","en":"Lower initial investment in hardware","ru":"Меньше начальных инвестиций в железо"},{"id":"d","en":"Low dependence on the service provider","ru":"Низкая зависимость от провайдера"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}]},{"num":14,"id":"q14","en":"Onlife describes:","ru":"Onlife описывает:","correct":"c","section":"Digital Innovation — MCQ","options":[{"id":"a","en":"A condition where social media interactions mainly threaten privacy","ru":"Ситуацию, где соцсети в основном угрожают приватности"},{"id":"b","en":"A future in which human life exists only in digital environments","ru":"Будущее, где жизнь существует только в цифровой среде"},{"id":"c","en":"A condition where real and digital worlds become difficult to separate","ru":"Ситуацию, где реальный и цифровой мир трудно разделить"},{"id":"d","en":"A business model for selling digital objects through online platforms","ru":"Бизнес-модель продажи цифровых объектов через онлайн-платформы"},{"id":"e","en":"None of the previous answers is correct","ru":"Ни один из других ответов не верен"}]}];
+    const OPEN_ITEMS = [{"title_en":"Open question 15 (5 points)","title_ru":"Открытый вопрос 15 (5 баллов)","ru":"i) Опишите концепцию network externalities. ii) Объясните, как эта концепция связана с цифровыми платформами и бизнес-моделями Value Network.","en":"Describe the concept of network externalities, and explain how this concept connects to digital platforms and Value Network business models.","sample_en":"Network externalities mean a product or platform becomes more valuable as more people use it (e.g. messaging apps, social networks, marketplaces).\n\nDigital platforms grow faster when they already have a large user base (winner-takes-all effect). This links to the Value Network model, where value comes from connections between users, not only from selling one product.","sample_ru":"Network externalities (сетевые внешние эффекты) — чем больше людей пользуется продуктом или платформой, тем ценнее он становится для каждого пользователя. Пример: мессенджер, соцсеть, маркетплейс.\n\nСвязь с цифровыми платформами: платформы растут быстрее, когда уже есть большая база пользователей (эффект «победитель получает всё»). Это близко к Value Network — модель, где ценность создаётся связями между пользователями, а не только продажей одного товара."},{"title_en":"Practice — Rogers diffusion & pricing","title_ru":"Практика — Rogers и ценообразование","en":"Using Rogers' theory of innovation diffusion, explain why launching a ChatGPT-like product only as a $20/month Pro plan would slow adoption compared to starting with a free tier.","ru":"Используя теорию диффузии инноваций Rogers, объясните, почему запуск ChatGPT-подобного продукта сразу только как Pro за $20/мес замедлит adoption по сравнению с бесплатным тарифом.","sample_en":"According to Rogers, diffusion depends on relative advantage, trialability, complexity, observability, and social spread through adopter categories. A ChatGPT-like product launched straight as a $20 Pro plan blocks trialability and observability, hides relative advantage, keeps diffusion stuck among innovators, and prevents word-of-mouth from reaching the early majority. A free version lowers the barrier, lets users try the product and see its value, and kick-starts social communication — only then does a paid Pro tier make sense for users who are already convinced.\n\nIn short: free = \"try it and tell others\"; $20 upfront = \"pay without knowing why\" → diffusion does not take off.","sample_ru":"По Rogers диффузия зависит от относительного преимущества, возможности попробовать (trialability), сложности, наблюдаемости результата и социального распространения через категории adopters.\n\nТолько Pro за $20 сразу: нельзя попробовать, не видно выгоды, diffusion застревает у innovators, word-of-mouth не доходит до early majority.\n\nБесплатная версия: низкий порог входа, пользователи пробуют и видят ценность, начинается социальная коммуникация — потом Pro логичен для тех, кто уже убеждён.\n\nКоротко: free = «попробуй и расскажи другим»; $20 сразу = «плати, не зная зачем» → diffusion не взлетает."}];
+
 
     const form = document.getElementById('test-form');
     const container = document.getElementById('questions');
@@ -221,16 +224,16 @@
         card.className = 'q';
         card.dataset.id = q.id;
         card.innerHTML = `
-          <div class="q-num">Вопрос ${q.num}</div>
-          <div class="q-ru">${q.ru}</div>
+          <div class="q-num">Question ${q.num}</div>
           <div class="q-en">${q.en}</div>
+          <div class="q-ru">${q.ru}</div>
           <div class="opts">
             ${q.options.map(o => `
               <label class="opt">
                 <input type="radio" name="${q.id}" value="${o.id}" />
                 <span>
-                  <div class="opt-ru"><strong>${o.id.toUpperCase()})</strong> ${o.ru}</div>
-                  <div class="opt-en">${o.en}</div>
+                  <div class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</div>
+                  <div class="opt-ru">${o.ru}</div>
                 </span>
               </label>`).join('')}
           </div>
@@ -243,51 +246,22 @@
       if (!OPEN_ITEMS.length) return;
       const h = document.createElement('div');
       h.className = 'section-title';
-      h.textContent = 'Открытые вопросы';
+      h.textContent = 'Open questions';
       container.appendChild(h);
       OPEN_ITEMS.forEach((item, idx) => {
         const block = document.createElement('div');
         block.className = 'open-block';
         block.innerHTML = `
-          <div class="q-num">${item.title_ru}</div>
-          <div class="q-ru">${item.ru}</div>
+          <div class="q-num">${item.title_en || item.title_ru}</div>
           <div class="q-en">${item.en}</div>
-          <textarea name="open_${idx}" placeholder="Ваш ответ..."></textarea>
-          <div class="sample" hidden></div>`;
-        block.querySelector('.sample').textContent = item.sample_ru;
+          <div class="q-ru">${item.ru}</div>
+          <div class="brief-answer"><div class="brief-label">Sample answer (EN)</div><div class="brief-text"></div></div>
+          <textarea name="open_${idx}" placeholder="Your answer..."></textarea>`;
+        const brief = block.querySelector('.brief-text');
+        const sampleRu = item.sample_en && item.sample_ru ? '\n\n—\n\n' + item.sample_ru : '';
+        brief.textContent = (item.sample_en || item.sample_ru || '') + sampleRu;
         container.appendChild(block);
       });
-    }
-
-    function renderSna() {
-      if (!SNA_ITEMS.length) return;
-      const h = document.createElement('div');
-      h.className = 'section-title';
-      h.textContent = 'SNA — расчёты';
-      container.appendChild(h);
-      SNA_ITEMS.forEach((item, idx) => {
-        const block = document.createElement('div');
-        block.className = 'open-block';
-        block.innerHTML = `
-          <div class="q-ru">${item.ru}</div>
-          <div class="q-en">${item.en}</div>
-          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
-          <div class="feedback" hidden></div>`;
-        block.dataset.expected = item.expected;
-        block.dataset.accept = JSON.stringify(item.accept || []);
-        container.appendChild(block);
-      });
-    }
-
-    function normalize(val) {
-      return String(val || '').trim().toLowerCase().replace(/\s+/g, ' ');
-    }
-
-    function checkSnaAnswer(expected, accept, user) {
-      const n = normalize(user);
-      if (!n) return null;
-      const variants = [expected, ...(accept || [])].map(normalize);
-      return variants.some(v => n === v || n.includes(v) || v.includes(n));
     }
 
     form.addEventListener('submit', (e) => {
@@ -363,26 +337,6 @@
         });
       });
 
-      container.querySelectorAll('.open-block .sample').forEach(el => { el.hidden = false; });
-
-      container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
-        const block = fb.closest('.open-block');
-        if (!block.dataset.expected) return;
-        const inp = block.querySelector('input');
-        const ok = checkSnaAnswer(block.dataset.expected, JSON.parse(block.dataset.accept || '[]'), inp.value);
-        fb.hidden = false;
-        if (ok === null) {
-          fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
-        } else if (ok) {
-          fb.className = 'feedback ok';
-          fb.textContent = '✓ Верно';
-        } else {
-          fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
-        }
-      });
-
       const total = QUESTIONS.length;
       let score = correct * SCORING.correct + wrong * SCORING.wrong;
       if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
@@ -404,14 +358,10 @@
       document.getElementById('warn-text').hidden = true;
       renderQuestions();
       renderOpen();
-      renderSna();
-      
     });
 
     renderQuestions();
     renderOpen();
-    renderSna();
-    
   </script>
 </body>
 </html>
