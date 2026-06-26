@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Innovation — Practice Mega (82 MCQ)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #7b4397; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #7b4397;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #7b4397;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      font-size: 0.95rem;
+    }
+    .modes {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .mode-btn {
+      background: #fff;
+      border: 2px solid #e0e6ed;
+      color: #2c3e50;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .mode-btn.active { border-color: #7b4397; background: #f8f5fc; color: #7b4397; }
+    .filter-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .filter-row select {
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 0.95rem;
+      min-width: 200px;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      color: #7b4397;
+      margin: 1.75rem 0 0.75rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #7b4397; margin-bottom: 0.35rem; font-size: 0.9rem; }
+    .q-tag { font-size: 0.75rem; color: #888; font-weight: 500; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #f3f0f7; }
+    .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-en { font-size: 0.95rem; }
+    .opt-ru { font-size: 0.82rem; color: #777; }
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .tip { margin-top: 0.4rem; font-size: 0.88rem; color: #555; font-style: italic; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #7b4397;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #6a3784; }
+    button.secondary {
+      background: #fff;
+      color: #7b4397;
+      border: 2px solid #7b4397;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #7b4397;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+    #q-count { font-weight: 600; color: #7b4397; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back">
+      <a href="index.html">← HRM tests</a> ·
+      <a href="03_Digital_Innovation_Exam_CFU6.html">Exam CFU 6</a> ·
+      <a href="04_DI_Authors_Study.html">Authors</a>
+    </p>
+    <h1>Digital Innovation — Practice Mega</h1>
+    <p class="sub">82 MCQ · exam topics + authors · English first · shuffle & exam mode</p>
+    <div class="rules">
+      <strong>How to study:</strong> Start with <em>Exam mode (14 random)</em> — same length as the real test.
+      Scoring like exam: +1 / −0.2. Wrong answers show a memory tip.
+      Topics: AI, TAM/Rogers, value models, blockchain, platforms, BPM, Onlife, design/startup, tech basics.
+    </div>
+
+    <div class="modes">
+      <button type="button" class="mode-btn active" data-mode="all">All 82</button>
+      <button type="button" class="mode-btn" data-mode="exam14">Exam mode (14 random)</button>
+      <button type="button" class="mode-btn" data-mode="exam20">Sprint (20 random)</button>
+      <button type="button" class="mode-btn" data-mode="weak">Only wrong (after check)</button>
+    </div>
+
+    <div class="filter-row">
+      <label>Topic filter:
+        <select id="topic-filter">
+          <option value="">All topics</option>
+          <option value="AI">AI</option><option value="Adoption — Rogers">Adoption — Rogers</option><option value="Adoption — TAM">Adoption — TAM</option><option value="Adoption — UTAUT">Adoption — UTAUT</option><option value="Adoption — mix">Adoption — mix</option><option value="Value models">Value models</option><option value="Blockchain">Blockchain</option><option value="Platforms">Platforms</option><option value="BPM">BPM</option><option value="Onlife">Onlife</option><option value="Design & Startup">Design & Startup</option><option value="Tech basics">Tech basics</option><option value="Organization">Organization</option><option value="Industry 5.0">Industry 5.0</option><option value="Authors — traps">Authors — traps</option><option value="Exam drill">Exam drill</option>
+        </select>
+      </label>
+      <span id="q-count">Showing: 82 questions</span>
+    </div>
+
+    <form id="test-form">
+      <div id="questions"></div>
+      <div class="actions">
+        <button type="submit">Check answers</button>
+        <button type="button" class="secondary" id="shuffle-btn">Shuffle & new set</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = { correct: 1, wrong: -0.2, max: null };
+    const ALL_QUESTIONS = [{"num":1,"id":"p1","section":"AI","en":"Currently, Artificial Intelligence is at the stage of:","ru":"ИИ сейчас находится на стадии:","options":[{"id":"a","en":"Artificial General Intelligence (AGI)","ru":"AGI — общий интеллект"},{"id":"b","en":"Artificial Narrow Intelligence (ANI)","ru":"ANI — узкий интеллект"},{"id":"c","en":"Artificial Super Intelligence (ASI)","ru":"ASI — сверхинтеллект"},{"id":"d","en":"Artificial Natural Intelligence","ru":"«Естественный» интеллект"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"Сейчас везде ANI: ChatGPT узкий, не AGI."},{"num":2,"id":"p2","section":"AI","en":"AI (Artificial Intelligence) is best defined as:","ru":"ИИ лучше всего определяется как:","options":[{"id":"a","en":"A disruptive technology that started only in November 2022 with ChatGPT","ru":"Технология, появившаяся только с ChatGPT в 2022"},{"id":"b","en":"Software that learns only when a developer checks every output","ru":"ПО, которое учится только при проверке разработчиком"},{"id":"c","en":"Technology that will never evolve further","ru":"Технология, которая больше не развивается"},{"id":"d","en":"Any device that perceives its environment and acts to maximize success at a goal","ru":"Устройство, воспринимающее среду и действующее для цели"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"d","tip":"Классическое определение ИИ — цель + восприятие среды."},{"num":3,"id":"p3","section":"AI","en":"ChatGPT and similar large language models are examples of:","ru":"ChatGPT и похожие LLM — примеры:","options":[{"id":"a","en":"Artificial General Intelligence","ru":"AGI"},{"id":"b","en":"Artificial Narrow Intelligence","ru":"ANI — узкий ИИ"},{"id":"c","en":"Artificial Super Intelligence","ru":"ASI"},{"id":"d","en":"Non-AI statistical tools with no learning","ru":"Не-ИИ статистика без обучения"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"LLM = узкая задача (текст), не общий интеллект."},{"num":4,"id":"p4","section":"AI","en":"According to Dell'Acqua et al. (2023), software engineering skills are associated with higher performance with AI:","ru":"По Dell'Acqua et al. (2023), навыки разработки ПО повышают результат с ИИ:","options":[{"id":"a","en":"Always, for every type of task","ru":"Всегда, для любых задач"},{"id":"b","en":"Only for tasks within the AI capabilities frontier","ru":"Только для задач в пределах «границы возможностей ИИ»"},{"id":"c","en":"Never — domain skills matter more in all cases","ru":"Никогда — всегда важнее доменные навыки"},{"id":"d","en":"Only when prompt engineering is not used","ru":"Только без prompt engineering"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"Dell'Acqua = граница возможностей ИИ (frontier)."},{"num":5,"id":"p5","section":"AI","en":"Dell'Acqua et al. suggest that generative AI can:","ru":"Dell'Acqua et al.: генеративный ИИ может:","options":[{"id":"a","en":"Replace all human expertise immediately","ru":"Сразу заменить всю экспертизу людей"},{"id":"b","en":"Level performance by helping weaker performers improve","ru":"Выравнивать результат, помогая слабым сотрудникам"},{"id":"c","en":"Eliminate the need for any oversight","ru":"Убрать необходимость контроля"},{"id":"d","en":"Work best without any human input","ru":"Лучше работать без участия человека"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"🇷🇺 AI помогает слабым работать лучше (leveling)."},{"num":6,"id":"p6","section":"AI","en":"According to Handa et al. (2025), a key risk of generative AI is:","ru":"По Handa et al. (2025), ключевой риск генеративного ИИ:","options":[{"id":"a","en":"Hallucinations — confident but wrong outputs","ru":"Галлюцинации — уверенные, но неверные ответы"},{"id":"b","en":"AI never makes mistakes if trained well","ru":"ИИ не ошибается при хорошем обучении"},{"id":"c","en":"Human oversight is no longer needed","ru":"Контроль человека больше не нужен"},{"id":"d","en":"Usability has no effect on adoption","ru":"Удобство не влияет на adoption"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Handa = hallucinations + нужен human oversight."},{"num":7,"id":"p7","section":"AI","en":"Dellermann et al. (2019) argue that the best outcomes come from:","ru":"Dellermann et al. (2019): лучшие результаты даёт:","options":[{"id":"a","en":"Replacing humans entirely with AI","ru":"Полная замена людей ИИ"},{"id":"b","en":"Hybrid Intelligence — humans and AI working together","ru":"Hybrid Intelligence — человек + ИИ вместе"},{"id":"c","en":"Avoiding AI in all knowledge work","ru":"Отказ от ИИ в интеллектуальной работе"},{"id":"d","en":"Using AI only for entertainment","ru":"ИИ только для развлечений"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"Hybrid Intelligence = Dellermann."},{"num":8,"id":"p8","section":"AI","en":"Varone et al. (2025) warn that AI may cause:","ru":"Varone et al. (2025) предупреждают, что ИИ может вызвать:","options":[{"id":"a","en":"Deskilling — weakening of expertise over time","ru":"Deskilling — ослабление экспертизы со временем"},{"id":"b","en":"Perfect accuracy in all professional domains","ru":"Идеальную точность во всех сферах"},{"id":"c","en":"Elimination of all coordination problems","ru":"Исчезновение всех проблем координации"},{"id":"d","en":"Blockchain-level security in every app","ru":"Безопасность блокчейна в каждом приложении"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Varone = deskilling / leveling effect."},{"num":9,"id":"p9","section":"AI","en":"Crowston & Bolici (2025) focus on how AI changes:","ru":"Crowston & Bolici (2025) — как ИИ меняет:","options":[{"id":"a","en":"Organizational coordination and workflows","ru":"Координацию в организации и рабочие процессы"},{"id":"b","en":"Only hardware manufacturing costs","ru":"Только стоимость железа"},{"id":"c","en":"Blockchain mining difficulty","ru":"Сложность майнинга блокчейна"},{"id":"d","en":"Rogers' adopter categories","ru":"Категории adopters по Rogers"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"2025 Crowston = coordination + AI в workflows."},{"num":10,"id":"p10","section":"AI","en":"Crowston & Bolici (2019) emphasize that technology adoption increases when:","ru":"Crowston & Bolici (2019): adoption растёт, когда:","options":[{"id":"a","en":"Systems have good usability (HCI)","ru":"Системы удобны (HCI, usability)"},{"id":"b","en":"Systems are as complex as possible","ru":"Системы максимально сложны"},{"id":"c","en":"Users never see the interface","ru":"Пользователи не видят интерфейс"},{"id":"d","en":"Innovation has no observability","ru":"Инновация не наблюдаема"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"2019 Crowston = HCI + usability → adoption."},{"num":11,"id":"p11","section":"AI","en":"Which statement about prompt engineering and AI performance is most accurate (exam-style)?","ru":"Какое утверждение о prompt engineering вернее (стиль экзамена)?","options":[{"id":"a","en":"Prompt engineering always guarantees higher performance in every task","ru":"Prompt engineering всегда повышает результат в любой задаче"},{"id":"b","en":"Performance depends on task type and whether it is within the AI frontier","ru":"Зависит от задачи и границы возможностей ИИ"},{"id":"c","en":"Prompt engineering replaces the need for domain knowledge","ru":"Prompt engineering заменяет доменные знания"},{"id":"d","en":"Only software engineers can write prompts","ru":"Промпты пишут только разработчики"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"Не «always» — смотри Dell'Acqua и границу ИИ."},{"num":12,"id":"p12","section":"AI","en":"Which is NOT a typical characteristic of current (narrow) AI?","ru":"Что НЕ характерно для современного (узкого) ИИ?","options":[{"id":"a","en":"Pattern recognition on specific tasks","ru":"Распознавание паттернов в узких задачах"},{"id":"b","en":"Learning from data","ru":"Обучение на данных"},{"id":"c","en":"Human-level reasoning across all domains like a person","ru":"Человеческое мышление во всех сферах сразу"},{"id":"d","en":"Automation of repetitive cognitive tasks","ru":"Автоматизация рутинных когнитивных задач"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"c","tip":"AGI (все сферы) — это НЕ текущий ИИ."},{"num":13,"id":"p13","section":"Adoption — Rogers","en":"According to Rogers (1983), innovation diffusion is:","ru":"По Rogers (1983), диффузия инноваций — это:","options":[{"id":"a","en":"A special kind of communication through which an innovation spreads","ru":"Особый вид коммуникации, через который распространяется инновация"},{"id":"b","en":"An individual decision based only on perceived usefulness and ease of use (TAM)","ru":"Индивидуальное решение только по TAM"},{"id":"c","en":"A process with no social influence","ru":"Процесс без социального влияния"},{"id":"d","en":"Determined only by price, not perception","ru":"Определяется только ценой"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Rogers = communication + social spread. TAM = Davis."},{"num":14,"id":"p14","section":"Adoption — TAM","en":"In the original TAM, Perceived Ease of Use (PEOU) is:","ru":"В оригинальной TAM, Perceived Ease of Use (PEOU):","options":[{"id":"a","en":"The degree to which using a system would enhance job performance","ru":"Насколько система улучшит работу (это PU!)"},{"id":"b","en":"The degree to which using a system would be free of effort","ru":"Насколько системой легко пользоваться (без лишних усилий)"},{"id":"c","en":"The degree to which using a system would be fun","ru":"Насколько это весело"},{"id":"d","en":"The degree to which the system is cheap","ru":"Насколько система дешёвая"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"PEOU = free of effort. PU = job performance."},{"num":15,"id":"p15","section":"Adoption — TAM","en":"In the original TAM, Perceived Usefulness (PU) is:","ru":"В оригинальной TAM, Perceived Usefulness (PU):","options":[{"id":"a","en":"The degree to which a person believes using the system improves job performance","ru":"Насколько человек верит, что система улучшит работу"},{"id":"b","en":"The degree to which using the system is free of effort","ru":"Насколько легко пользоваться (это PEOU!)"},{"id":"c","en":"The degree to which friends use the system","ru":"Сколько друзей пользуются"},{"id":"d","en":"The degree to which the vendor advertises the system","ru":"Насколько активно рекламирует вендор"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"PU = performance. PEOU = easy to use."},{"num":16,"id":"p16","section":"Adoption — TAM","en":"The Technology Acceptance Model (TAM) was developed by:","ru":"Модель TAM разработана:","options":[{"id":"a","en":"Rogers (1983)","ru":"Rogers"},{"id":"b","en":"Davis (1981)","ru":"Davis"},{"id":"c","en":"Venkatesh et al. (2003) as the first version of TAM","ru":"Venkatesh как первая версия TAM"},{"id":"d","en":"Floridi (2015)","ru":"Floridi"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"Davis = TAM. Venkatesh = UTAUT."},{"num":17,"id":"p17","section":"Adoption — UTAUT","en":"Venkatesh et al. (2003) UTAUT emphasizes that technology acceptance is:","ru":"UTAUT (Venkatesh): принятие технологий:","options":[{"id":"a","en":"Purely individual with no social or organizational factors","ru":"Чисто индивидуальное, без социальных факторов"},{"id":"b","en":"Shaped by social influence and facilitating conditions","ru":"Зависит от социального влияния и условий организации"},{"id":"c","en":"Unrelated to organizational context","ru":"Не связано с организацией"},{"id":"d","en":"Based only on blockchain trust","ru":"Основано только на доверии к блокчейну"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"UTAUT = social + org factors."},{"num":18,"id":"p18","section":"Adoption — Rogers","en":"Rogers' diffusion theory includes adopter categories such as:","ru":"У Rogers есть категории adopters:","options":[{"id":"a","en":"Innovators, early adopters, early majority, late majority, laggards","ru":"Innovators → early adopters → majorities → laggards"},{"id":"b","en":"Only price-sensitive and price-insensitive buyers","ru":"Только чувствительные и нечувствительные к цене"},{"id":"c","en":"Managers, workers, customers, regulators only","ru":"Только менеджеры, работники, клиенты"},{"id":"d","en":"Cloud users and on-premise users","ru":"Только cloud и on-premise"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"5 категорий Rogers — классика экзамена."},{"num":19,"id":"p19","section":"Adoption — Rogers","en":"A free tier for a new AI product mainly supports Rogers' attribute of:","ru":"Бесплатный тариф для нового AI-продукта поддерживает атрибут Rogers:","options":[{"id":"a","en":"Trialability — ability to try before paying","ru":"Trialability — попробовать до оплаты"},{"id":"b","en":"Complexity — making the product harder to use","ru":"Complexity — усложнение"},{"id":"c","en":"Relative disadvantage","ru":"Относительный недостаток"},{"id":"d","en":"Non-observability","ru":"Ненаблюдаемость"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Free = trialability + observability → быстрее diffusion."},{"num":20,"id":"p20","section":"Adoption — Rogers","en":"Launching a ChatGPT-like product only as $20/month Pro (no free tier) mainly hurts:","ru":"Запуск только Pro $20/мес без free в основном мешает:","options":[{"id":"a","en":"Trialability and observability, slowing diffusion","ru":"Trialability и observability — diffusion тормозится"},{"id":"b","en":"Blockchain consensus mechanisms","ru":"Консенсусу блокчейна"},{"id":"c","en":"Value chain efficiency only","ru":"Только эффективности value chain"},{"id":"d","en":"Encryption key length","ru":"Длине ключа шифрования"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Плати сразу = нет try → застревает у innovators."},{"num":21,"id":"p21","section":"Adoption — Rogers","en":"Rogers lists innovation characteristics including:","ru":"Rogers перечисляет характеристики инновации:","options":[{"id":"a","en":"Relative advantage, compatibility, complexity, trialability, observability","ru":"Относит. преимущество, совместимость, сложность, trialability, observability"},{"id":"b","en":"Only encryption strength and cloud region","ru":"Только шифрование и регион cloud"},{"id":"c","en":"Only BPM culture and process maps","ru":"Только BPM-культура"},{"id":"d","en":"Only Bitcoin block size","ru":"Только размер блока Bitcoin"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"5 характеристик Rogers — выучи список."},{"num":22,"id":"p22","section":"Adoption — mix","en":"«Individuals decide based on perceived usefulness and ease of use» describes:","ru":"«Решение на основе полезности и простоты» — это:","options":[{"id":"a","en":"Rogers' diffusion of innovation (1983)","ru":"Rogers diffusion"},{"id":"b","en":"Davis' Technology Acceptance Model (TAM)","ru":"Davis TAM"},{"id":"c","en":"Nakamoto's Bitcoin whitepaper","ru":"Nakamoto Bitcoin"},{"id":"d","en":"Stabell & Fjeldstad value configurations","ru":"Stabell value models"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"PU + PEOU = Davis, НЕ Rogers!"},{"num":23,"id":"p23","section":"Adoption — mix","en":"«Innovations spread through social communication and influence» is central to:","ru":"«Инновации распространяются через социальное влияние» — это:","options":[{"id":"a","en":"Rogers (1983)","ru":"Rogers"},{"id":"b","en":"Davis TAM only","ru":"Только Davis TAM"},{"id":"c","en":"Encryption standards","ru":"Стандарты шифрования"},{"id":"d","en":"Lean Startup MVP definition","ru":"Определение MVP Lean Startup"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Social spread = Rogers."},{"num":24,"id":"p24","section":"Adoption — TAM","en":"According to TAM, users are more likely to adopt technology that is:","ru":"По TAM, пользователи чаще принимают технологию, которая:","options":[{"id":"a","en":"Perceived as useful AND easy to use","ru":"Воспринимается как полезная И удобная"},{"id":"b","en":"The most expensive option available","ru":"Самая дорогая на рынке"},{"id":"c","en":"Impossible to try before buying","ru":"Невозможно попробовать до покупки"},{"id":"d","en":"Hidden from colleagues (low observability)","ru":"Скрыта от коллег"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"TAM = useful + easy."},{"num":25,"id":"p25","section":"Value models","en":"Solving customer problems is a key activity in the:","ru":"Решение проблем клиентов — ключевая активность в:","options":[{"id":"a","en":"Value network business model","ru":"Value network"},{"id":"b","en":"Value shop business model","ru":"Value shop"},{"id":"c","en":"Value chain business model","ru":"Value chain"},{"id":"d","en":"Pure pipeline manufacturer with no clients","ru":"Чистый pipeline без клиентов"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"b","tip":"Shop = problem solving (консалтинг, больница)."},{"num":26,"id":"p26","section":"Value models","en":"Stabell & Fjeldstad (1998) identify three value configurations:","ru":"Stabell & Fjeldstad (1998): три конфигурации ценности:","options":[{"id":"a","en":"Value chain, value shop, value network","ru":"Chain, shop, network"},{"id":"b","en":"B2B, B2C, C2C only","ru":"Только B2B, B2C, C2C"},{"id":"c","en":"Cloud, on-premise, hybrid only","ru":"Только cloud, on-premise, hybrid"},{"id":"d","en":"Innovators, early adopters, laggards","ru":"Категории Rogers"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Chain / Shop / Network — три модели."},{"num":27,"id":"p27","section":"Value models","en":"The value chain model focuses on:","ru":"Value chain фокусируется на:","options":[{"id":"a","en":"Efficient production and delivery of products","ru":"Эффективное производство и доставка"},{"id":"b","en":"Mediating interactions between many users","ru":"Посредничество между пользователями (это network)"},{"id":"c","en":"Custom problem diagnosis for each client","ru":"Диагностика проблем клиента (это shop)"},{"id":"d","en":"Rogers' adopter categories","ru":"Категории Rogers"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Chain = factory, logistics, product."},{"num":28,"id":"p28","section":"Value models","en":"The value network model is closest to:","ru":"Value network ближе всего к:","options":[{"id":"a","en":"Platforms where value comes from connections between participants","ru":"Платформам, где ценность в связях участников"},{"id":"b","en":"A single assembly line with no external partners","ru":"Одной линии сборки без партнёров"},{"id":"c","en":"A consulting firm solving unique cases","ru":"Консалтингу (это shop)"},{"id":"d","en":"Ancient encryption techniques","ru":"Древнему шифрованию"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Network = платформа, маркетплейс, связи."},{"num":29,"id":"p29","section":"Value models","en":"Network externalities mean:","ru":"Network externalities (сетевые внешние эффекты) — это:","options":[{"id":"a","en":"A product becomes more valuable as more people use it","ru":"Продукт ценнее, когда им пользуется больше людей"},{"id":"b","en":"A product becomes less valuable with more users","ru":"Продукт теряет ценность с ростом пользователей"},{"id":"c","en":"Value depends only on production cost","ru":"Ценность только от себестоимости"},{"id":"d","en":"Externalities exist only in manufacturing chains","ru":"Только в производственных цепочках"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Открытый Q15: WhatsApp, Uber, соцсети."},{"num":30,"id":"p30","section":"Value models","en":"Fjeldstad & Snow (2018) argue that firms increasingly operate as:","ru":"Fjeldstad & Snow (2018): фирмы всё чаще работают как:","options":[{"id":"a","en":"Ecosystems and networks rather than only hierarchies","ru":"Экосистемы и сети, а не только иерархии"},{"id":"b","en":"Isolated value chains with no partners","ru":"Изолированные chain без партнёров"},{"id":"c","en":"Governments regulating encryption","ru":"Регуляторы шифрования"},{"id":"d","en":"Single-product shops only","ru":"Только value shop"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Ecosystems = Fjeldstad & Snow."},{"num":31,"id":"p31","section":"Value models","en":"The Business Model Canvas (BMC) is associated with:","ru":"Business Model Canvas связан с:","options":[{"id":"a","en":"Osterwalder & Pigneur","ru":"Osterwalder & Pigneur"},{"id":"b","en":"Nakamoto (2008)","ru":"Nakamoto"},{"id":"c","en":"Dooley (1997) only","ru":"Только Dooley"},{"id":"d","en":"Vom Brocke BPM culture","ru":"Vom Brocke BPM"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"BMC = Osterwalder."},{"num":32,"id":"p32","section":"Value models","en":"A hospital diagnosing and treating unique patient cases fits best:","ru":"Больница с уникальными случаями пациентов — это:","options":[{"id":"a","en":"Value shop","ru":"Value shop"},{"id":"b","en":"Value chain mass production","ru":"Value chain массовое производство"},{"id":"c","en":"Pure value network marketplace","ru":"Чистый value network маркетплейс"},{"id":"d","en":"Blockchain mining pool","ru":"Пул майнинга"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Shop = unique problem → solution."},{"num":33,"id":"p33","section":"Value models","en":"A car factory with standardized assembly is mainly:","ru":"Автозавод со стандартной сборкой — в основном:","options":[{"id":"a","en":"Value chain","ru":"Value chain"},{"id":"b","en":"Value shop","ru":"Value shop"},{"id":"c","en":"Value network platform","ru":"Value network платформа"},{"id":"d","en":"UTAUT model","ru":"UTAUT"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Chain = стандартный продукт, поток."},{"num":34,"id":"p34","section":"Value models","en":"Winner-takes-all dynamics on digital platforms relate most to:","ru":"Эффект «победитель получает всё» на платформах связан с:","options":[{"id":"a","en":"Network externalities and network effects","ru":"Network externalities / network effects"},{"id":"b","en":"BPM process redesign only","ru":"Только BPM redesign"},{"id":"c","en":"Double diamond convergence only","ru":"Только convergence double diamond"},{"id":"d","en":"Industry 1.0 mechanization","ru":"Industry 1.0"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Van Alstyne + network effects + Q15 open."},{"num":35,"id":"p35","section":"Blockchain","en":"A blockchain is:","ru":"Блокчейн — это:","options":[{"id":"a","en":"Inseparable from Bitcoin — they are the same thing","ru":"Неразрывно то же самое, что Bitcoin"},{"id":"b","en":"Independent blocks with no links between them","ru":"Независимые блоки без связей"},{"id":"c","en":"A ledger of facts replicated across computers in a peer-to-peer network","ru":"Реестр фактов, реплицированный в P2P-сети"},{"id":"d","en":"Less secure when more nodes join the network","ru":"Менее безопасен при росте узлов"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"c","tip":"Ledger + P2P + replication."},{"num":36,"id":"p36","section":"Blockchain","en":"Nakamoto (2008) is known for:","ru":"Nakamoto (2008) известен:","options":[{"id":"a","en":"Introducing Bitcoin and blockchain-based decentralized trust","ru":"Bitcoin и децентрализованное доверие через блокчейн"},{"id":"b","en":"Creating the Technology Acceptance Model","ru":"Созданием TAM"},{"id":"c","en":"Defining the Onlife concept","ru":"Концепцией Onlife"},{"id":"d","en":"Industry 5.0 human-centered manufacturing","ru":"Industry 5.0"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Nakamoto = Bitcoin + crypto trust."},{"num":37,"id":"p37","section":"Blockchain","en":"Zheng et al. (2018) emphasize that blockchain enables:","ru":"Zheng et al. (2018): блокчейн даёт:","options":[{"id":"a","en":"Secure distributed ledgers and transparent coordination","ru":"Безопасный distributed ledger и прозрачную координацию"},{"id":"b","en":"Central bank control of all transactions","ru":"Контроль всех транзакций центробанком"},{"id":"c","en":"Elimination of all cryptography","ru":"Отказ от криптографии"},{"id":"d","en":"Rogers' early majority adoption","ru":"Early majority по Rogers"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Zheng = distributed ledger + security."},{"num":38,"id":"p38","section":"Blockchain","en":"Trust in public blockchains is primarily created through:","ru":"Доверие в публичном блокчейне создаётся через:","options":[{"id":"a","en":"Cryptography and consensus among distributed nodes","ru":"Криптографию и консенсус узлов"},{"id":"b","en":"A single trusted CEO signing each block","ru":"Одного CEO, подписывающего блоки"},{"id":"c","en":"VPN connections only","ru":"Только VPN"},{"id":"d","en":"Perceived ease of use (PEOU)","ru":"PEOU из TAM"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Crypto + consensus, не банк."},{"num":39,"id":"p39","section":"Blockchain","en":"Which statement about blockchain is FALSE?","ru":"Какое утверждение о блокчейне ЛОЖНО?","options":[{"id":"a","en":"Blockchain can exist beyond Bitcoin applications","ru":"Блокчейн может использоваться не только для Bitcoin"},{"id":"b","en":"Blocks are cryptographically linked in a chain","ru":"Блоки криптографически связаны в цепочку"},{"id":"c","en":"Blockchain and Bitcoin are completely inseparable — no blockchain without Bitcoin","ru":"Блокчейн и Bitcoin абсолютно неразделимы"},{"id":"d","en":"Data is replicated across multiple nodes","ru":"Данные реплицируются на узлах"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"c","tip":"Exam trap: Bitcoin ≠ единственный блокчейн."},{"num":40,"id":"p40","section":"Blockchain","en":"Adding more honest nodes to a decentralized network generally:","ru":"Добавление честных узлов в децентрализованную сеть обычно:","options":[{"id":"a","en":"Increases robustness and security","ru":"Повышает устойчивость и безопасность"},{"id":"b","en":"Makes the ledger less robust (exam wrong answer)","ru":"Снижает устойчивость (ловушка экзамена)"},{"id":"c","en":"Removes the need for encryption","ru":"Убирает шифрование"},{"id":"d","en":"Stops all network externalities","ru":"Останавливает network externalities"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Больше узлов ≠ слабее (вариант d в Q5 — ловушка)."},{"num":41,"id":"p41","section":"Platforms","en":"Van Alstyne et al. (2016) argue that platforms grow mainly through:","ru":"Van Alstyne et al. (2016): платформы растут через:","options":[{"id":"a","en":"Network effects — more users create more value","ru":"Network effects — больше пользователей → больше ценности"},{"id":"b","en":"Eliminating all interactions between users","ru":"Устранение взаимодействий"},{"id":"c","en":"BPM process maps only","ru":"Только BPM-карты"},{"id":"d","en":"Making trialability impossible","ru":"Запрет trialability"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Van Alstyne = network effects."},{"num":42,"id":"p42","section":"Platforms","en":"Parker (2016) describes platforms as:","ru":"Parker (2016): платформы — это:","options":[{"id":"a","en":"Entities that orchestrate interactions and enable value creation","ru":"Оркестраторы взаимодействий и создания ценности"},{"id":"b","en":"Only hardware manufacturers","ru":"Только производители железа"},{"id":"c","en":"Only encryption algorithms","ru":"Только алгоритмы шифрования"},{"id":"d","en":"Only Rogers' laggards","ru":"Только laggards Rogers"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Parker = orchestrate interactions."},{"num":43,"id":"p43","section":"Platforms","en":"Uber and Airbnb are examples of:","ru":"Uber и Airbnb — примеры:","options":[{"id":"a","en":"Platform / value network businesses","ru":"Платформ / value network"},{"id":"b","en":"Traditional value chain manufacturers","ru":"Классический value chain"},{"id":"c","en":"Value shop consulting firms","ru":"Value shop консалтинг"},{"id":"d","en":"Non-digital onlife concepts","ru":"Не-цифровой onlife"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Маркетплейс/платформа = network."},{"num":44,"id":"p44","section":"Platforms","en":"A messaging app becomes more useful when your friends join. This illustrates:","ru":"Мессенджер полезнее, когда приходят друзья. Это:","options":[{"id":"a","en":"Direct network externality","ru":"Прямой network externality"},{"id":"b","en":"Value chain efficiency","ru":"Эффективность value chain"},{"id":"c","en":"BPM culture failure","ru":"Провал BPM-культуры"},{"id":"d","en":"Low observability in Rogers' model","ru":"Низкая observability Rogers"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Классический пример для open Q15."},{"num":45,"id":"p45","section":"Platforms","en":"Digital platforms often show winner-takes-all because:","ru":"Платформы часто «победитель получает всё», потому что:","options":[{"id":"a","en":"Users prefer the platform where others already are (network effects)","ru":"Пользователи идут туда, где уже есть другие (network effects)"},{"id":"b","en":"Cloud computing has zero vendor dependence","ru":"В cloud нет зависимости от провайдера"},{"id":"c","en":"Encryption is not used in digital systems","ru":"Шифрование не используется"},{"id":"d","en":"MVP must be fully functional on day one","ru":"MVP должен быть полностью готов"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Связка platforms + network externalities."},{"num":46,"id":"p46","section":"BPM","en":"BPM stands for:","ru":"BPM — это:","options":[{"id":"a","en":"Business Process Management","ru":"Business Process Management — управление бизнес-процессами"},{"id":"b","en":"Blockchain Payment Module","ru":"Blockchain Payment Module"},{"id":"c","en":"Basic Platform Marketing","ru":"Basic Platform Marketing"},{"id":"d","en":"Business Profit Maximization only","ru":"Только максимизация прибыли"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"BPM = процессы, не блокчейн."},{"num":47,"id":"p47","section":"BPM","en":"Dumas et al. (2018) argue that organizations improve through:","ru":"Dumas et al. (2018): организации улучшаются через:","options":[{"id":"a","en":"Continuous BPM and process redesign","ru":"Непрерывный BPM и redesign процессов"},{"id":"b","en":"Avoiding any process documentation","ru":"Отказ от описания процессов"},{"id":"c","en":"Rogers' laggard category only","ru":"Только категорию laggards"},{"id":"d","en":"Removing all culture from the workplace","ru":"Удаление культуры"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Dumas = optimize processes."},{"num":48,"id":"p48","section":"BPM","en":"Vom Brocke & Schmiedel (2011) stress that BPM success depends on:","ru":"Vom Brocke & Schmiedel (2011): успех BPM зависит от:","options":[{"id":"a","en":"Process-oriented organizational culture","ru":"Process-oriented culture — культуры процессов"},{"id":"b","en":"Having the most expensive software only","ru":"Только самого дорогого ПО"},{"id":"c","en":"Blockchain node count","ru":"Числа узлов блокчейна"},{"id":"d","en":"Eliminating all employee training","ru":"Отказа от обучения"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Culture = Vom Brocke. Processes = Dumas."},{"num":49,"id":"p49","section":"BPM","en":"Without the right culture, BPM initiatives often fail because:","ru":"Без правильной культуры BPM часто проваливается, потому что:","options":[{"id":"a","en":"People do not adopt process thinking — culture drives success","ru":"Люди не принимают процессное мышление"},{"id":"b","en":"Blockchain cannot encrypt process maps","ru":"Блокчейн не шифрует карты"},{"id":"c","en":"TAM PEOU is always zero","ru":"PEOU всегда ноль"},{"id":"d","en":"Onlife separates digital and physical worlds","ru":"Onlife разделяет миры"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"People determine BPM success."},{"num":50,"id":"p50","section":"Onlife","en":"Onlife describes:","ru":"Onlife описывает:","options":[{"id":"a","en":"A condition where social media only threatens privacy","ru":"Только угрозу приватности в соцсетях"},{"id":"b","en":"A future where life exists only in digital environments","ru":"Жизнь только в цифре"},{"id":"c","en":"A condition where real and digital worlds are hard to separate","ru":"Реальный и цифровой мир трудно разделить"},{"id":"d","en":"A business model for selling digital objects only","ru":"БМ продажи цифровых объектов"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"c","tip":"Floridi Onlife = слияние online/offline."},{"num":51,"id":"p51","section":"Onlife","en":"Floridi (2015) is associated with:","ru":"Floridi (2015) связан с:","options":[{"id":"a","en":"Onlife and the infosphere — digital embedded in everyday life","ru":"Onlife, infosphere — цифра в повседневной жизни"},{"id":"b","en":"Bitcoin mining algorithms","ru":"Алгоритмами майнинга Bitcoin"},{"id":"c","en":"UTAUT social influence constructs only","ru":"Только UTAUT"},{"id":"d","en":"Lean Startup MVP","ru":"MVP Lean Startup"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Floridi = Onlife + infosphere."},{"num":52,"id":"p52","section":"Onlife","en":"The infosphere (Floridi) refers to:","ru":"Infosphere (Floridi) — это:","options":[{"id":"a","en":"The environment of information and digital interactions we live in","ru":"Среда информации и цифровых взаимодействий"},{"id":"b","en":"Only the physical atmosphere of Earth","ru":"Только физическая атмосфера Земли"},{"id":"c","en":"A cloud pricing model","ru":"Модель ценообразования cloud"},{"id":"d","en":"A type of blockchain consensus","ru":"Тип консенсуса блокчейна"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Infosphere = информационная среда."},{"num":53,"id":"p53","section":"Onlife","en":"Which is NOT a correct description of Onlife?","ru":"Что НЕ является верным описанием Onlife?","options":[{"id":"a","en":"Online and offline life merge into one experience","ru":"Онлайн и оффлайн сливаются"},{"id":"b","en":"Digital technologies are embedded in everyday life","ru":"Цифра встроена в повседневность"},{"id":"c","en":"Humans will live exclusively in VR with no physical world","ru":"Люди живут только в VR без физического мира"},{"id":"d","en":"Hard to draw a sharp line between 'real' and 'digital'","ru":"Трудно провести границу real/digital"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"c","tip":"Onlife ≠ только цифра (это ловушка Q14-b)."},{"num":54,"id":"p54","section":"Design & Startup","en":"In Design Thinking's double diamond framework:","ru":"В double diamond (Design Thinking):","options":[{"id":"a","en":"Convergence is the first stage","ru":"Convergence — первый этап"},{"id":"b","en":"Divergence occurs first to find solutions only","ru":"Divergence только для решений в начале"},{"id":"c","en":"Convergence is both first and third stage","ru":"Convergence — первый и третий"},{"id":"d","en":"Divergence is the first and third step (problem and solutions)","ru":"Divergence — 1-й и 3-й (проблема и решения)"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"d","tip":"Diverge problem → converge → diverge solutions → converge."},{"num":55,"id":"p55","section":"Design & Startup","en":"In the double diamond, convergence typically happens:","ru":"В double diamond convergence обычно:","options":[{"id":"a","en":"As the second and fourth stages — narrowing options","ru":"На 2-м и 4-м этапах — сужение вариантов"},{"id":"b","en":"Only at the very beginning","ru":"Только в самом начале"},{"id":"c","en":"Never — only divergence exists","ru":"Никогда — только divergence"},{"id":"d","en":"Only after product launch","ru":"Только после запуска"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Converge = сузить выбор после diverge."},{"num":56,"id":"p56","section":"Design & Startup","en":"In Lean Startup, an MVP is best described as:","ru":"В Lean Startup MVP лучше описать как:","options":[{"id":"a","en":"Just a sketch with no customer exposure","ru":"Только эскиз без клиентов"},{"id":"b","en":"A tool to ask competitors for opinions","ru":"Опрос конкурентов"},{"id":"c","en":"A fully polished final product before any learning","ru":"Полностью готовый продукт до обучения"},{"id":"d","en":"A minimum version to test assumptions with real users — NOT any exam wrong options above","ru":"Минимальная версия для проверки гипотез — не варианты a–c"},{"id":"f","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"f","tip":"Exam Q10 answer F: все a–e неверны. MVP ≠ полный продукт."},{"num":57,"id":"p57","section":"Design & Startup","en":"Which is NOT what an MVP is for (Lean Startup)?","ru":"Для чего MVP НЕ предназначен (Lean Startup)?","options":[{"id":"a","en":"Testing business hypotheses with real customers","ru":"Проверка гипотез с клиентами"},{"id":"b","en":"Learning quickly with minimum effort","ru":"Быстрое обучение с минимумом усилий"},{"id":"c","en":"Building a fully functional product after huge investment before any test","ru":"Полный продукт после огромных вложений до теста"},{"id":"d","en":"Validated learning","ru":"Validated learning"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"c","tip":"MVP = learn fast, not big bang launch."},{"num":58,"id":"p58","section":"Design & Startup","en":"In the strategic alignment framework, the first divergent phase aims to:","ru":"В strategic alignment первая divergent-фаза:","options":[{"id":"a","en":"Let actors identify competitive advantage individually only","ru":"Только найти своё преимущество"},{"id":"b","en":"Force immediate consensus on one solution","ru":"Сразу один consensus"},{"id":"c","en":"Let actors share perspectives to create shared ideas","ru":"Обмен взглядами → общие идеи"},{"id":"d","en":"Create fake consensus through coalitions","ru":"Фальшивый consensus через коалиции"},{"id":"f","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"c","tip":"Q11 = share perspectives → shared ideas."},{"num":59,"id":"p59","section":"Design & Startup","en":"Strategic alignment divergent phases are about:","ru":"Divergent-фазы strategic alignment — про:","options":[{"id":"a","en":"Opening up diverse views before narrowing to alignment","ru":"Открыть разные взгляды до сужения к alignment"},{"id":"b","en":"Encrypting all stakeholder messages","ru":"Шифрование сообщений"},{"id":"c","en":"Skipping all stakeholder input","ru":"Пропуск мнения stakeholders"},{"id":"d","en":"Deploying blockchain miners","ru":"Запуск майнеров"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Diverge first = many ideas, then converge."},{"num":60,"id":"p60","section":"Tech basics","en":"Encryption is the process of:","ru":"Encryption (шифрование) — это:","options":[{"id":"a","en":"Sending a message through a trusted courier only","ru":"Отправка через доверенного курьера"},{"id":"b","en":"Using a VPN to avoid data leaks","ru":"Использование VPN"},{"id":"c","en":"Scrambling content so it cannot be read without the decryption key","ru":"Перемешивание данных — без ключа не прочитать"},{"id":"d","en":"An ancient technique not used in modern digital systems","ru":"Древний метод, сейчас не используется"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"c","tip":"Encryption = scramble + key."},{"num":61,"id":"p61","section":"Tech basics","en":"Which is NOT an advantage of cloud computing?","ru":"Что НЕ является преимуществом cloud?","options":[{"id":"a","en":"Instant scalability","ru":"Мгновенная масштабируемость"},{"id":"b","en":"Pay per use","ru":"Оплата по использованию"},{"id":"c","en":"Lower initial hardware investment","ru":"Меньше вложений в железо"},{"id":"d","en":"Low dependence on the service provider","ru":"Низкая зависимость от провайдера"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"d","tip":"Cloud = vendor lock-in риск. Q13 = d."},{"num":62,"id":"p62","section":"Tech basics","en":"A benefit of cloud computing is:","ru":"Преимущество cloud computing:","options":[{"id":"a","en":"Scaling resources up or down quickly","ru":"Быстрое масштабирование ресурсов"},{"id":"b","en":"Complete independence from any provider","ru":"Полная независимость от провайдера"},{"id":"c","en":"Elimination of all security concerns","ru":"Исчезновение всех рисков безопасности"},{"id":"d","en":"No need for encryption ever","ru":"Шифрование больше не нужно"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Scalability + pay-per-use = cloud pros."},{"num":63,"id":"p63","section":"Tech basics","en":"Using a VPN is:","ru":"Использование VPN — это:","options":[{"id":"a","en":"Not the same as encryption of message contents (exam trap)","ru":"Не то же самое, что шифрование содержимого (ловушка)"},{"id":"b","en":"The formal definition of encryption","ru":"Формальное определение encryption"},{"id":"c","en":"Identical to blockchain consensus","ru":"То же, что консенсус блокчейна"},{"id":"d","en":"The same as TAM perceived usefulness","ru":"То же, что PU в TAM"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"VPN ≠ encryption definition (Q12-b trap)."},{"num":64,"id":"p64","section":"Tech basics","en":"Decryption requires:","ru":"Для decryption (расшифровки) нужно:","options":[{"id":"a","en":"The proper key to reverse the scrambling","ru":"Правильный ключ для обратного преобразования"},{"id":"b","en":"Only a faster internet connection","ru":"Только быстрый интернет"},{"id":"c","en":"Rogers' early adopter status","ru":"Статус early adopter Rogers"},{"id":"d","en":"A value shop business model","ru":"Модель value shop"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Encrypt → decrypt with key."},{"num":65,"id":"p65","section":"Organization","en":"According to Dooley (1997), complex adaptive organizations fit:","ru":"По Dooley (1997), сложные адаптивные организации подходят:","options":[{"id":"a","en":"Turbulent environments with low diversity (exam wrong option)","ru":"Турбулентная среда с низким diversity (неверно)"},{"id":"b","en":"Stable, predictable, analyzable environments only","ru":"Только стабильная предсказуемая среда"},{"id":"c","en":"Environments with infrequent tech change only","ru":"Только редкие технологические изменения"},{"id":"d","en":"Stable and analyzable environments","ru":"Стабильная анализируемая среда"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"e","tip":"Q3 = E (none). CAO → turbulent, NOT stable."},{"num":66,"id":"p66","section":"Organization","en":"Complex adaptive organizations are best for:","ru":"Сложные адаптивные организации лучше для:","options":[{"id":"a","en":"Turbulent, changing environments with diversity","ru":"Турбулентной меняющейся среды с diversity"},{"id":"b","en":"Perfectly stable and predictable markets only","ru":"Только идеально стабильных рынков"},{"id":"c","en":"Environments with no actors","ru":"Среды без акторов"},{"id":"d","en":"Only regulated encryption standards","ru":"Только стандартов шифрования"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Помни: exam MCQ все варианты неверны, но идея = turbulent."},{"num":67,"id":"p67","section":"Industry 5.0","en":"Industry 5.0 (Leng et al.) emphasizes:","ru":"Industry 5.0 (Leng et al.) акцентирует:","options":[{"id":"a","en":"Human-centered collaboration with intelligent systems","ru":"Человеко-центричное сотрудничество с интеллектуальными системами"},{"id":"b","en":"Replacing all humans with robots","ru":"Замену всех людей роботами"},{"id":"c","en":"Eliminating all digital platforms","ru":"Устранение платформ"},{"id":"d","en":"Blockchain-only manufacturing","ru":"Производство только на блокчейне"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Industry 5.0 = human + tech together."},{"num":68,"id":"p68","section":"Industry 5.0","en":"Leng et al. (2022) contrast Industry 5.0 with purely automated Industry 4.0 by:","ru":"Leng et al. (2022): Industry 5.0 vs 4.0:","options":[{"id":"a","en":"Putting human well-being and collaboration at the center","ru":"Человек и well-being в центре"},{"id":"b","en":"Removing all human workers from factories","ru":"Удаление всех работников"},{"id":"c","en":"Banning AI and robotics","ru":"Запрет ИИ и роботов"},{"id":"d","en":"Focusing only on Bitcoin","ru":"Фокус только на Bitcoin"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"5.0 = human-centered, not human-less."},{"num":69,"id":"p69","section":"Authors — traps","en":"Who linked digital and physical life into the concept of Onlife?","ru":"Кто связал цифровую и физическую жизнь в Onlife?","options":[{"id":"a","en":"Floridi","ru":"Floridi"},{"id":"b","en":"Rogers","ru":"Rogers"},{"id":"c","en":"Nakamoto","ru":"Nakamoto"},{"id":"d","en":"Davis","ru":"Davis"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Onlife = Floridi."},{"num":70,"id":"p70","section":"Authors — traps","en":"Who should you cite for PU and PEOU?","ru":"Кого цитировать для PU и PEOU?","options":[{"id":"a","en":"Davis (TAM)","ru":"Davis (TAM)"},{"id":"b","en":"Rogers","ru":"Rogers"},{"id":"c","en":"Parker","ru":"Parker"},{"id":"d","en":"Zheng","ru":"Zheng"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"TAM = Davis. Diffusion = Rogers."},{"num":71,"id":"p71","section":"Authors — traps","en":"Who argued BPM needs process-oriented culture?","ru":"Кто: для BPM нужна process-oriented culture?","options":[{"id":"a","en":"Vom Brocke & Schmiedel","ru":"Vom Brocke & Schmiedel"},{"id":"b","en":"Dumas only — culture is irrelevant","ru":"Только Dumas — культура не важна"},{"id":"c","en":"Van Alstyne","ru":"Van Alstyne"},{"id":"d","en":"Handa","ru":"Handa"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Culture = Vom Brocke. Processes = Dumas."},{"num":72,"id":"p72","section":"Authors — traps","en":"Hybrid Intelligence is associated with:","ru":"Hybrid Intelligence связан с:","options":[{"id":"a","en":"Dellermann et al.","ru":"Dellermann et al."},{"id":"b","en":"Stabell & Fjeldstad","ru":"Stabell & Fjeldstad"},{"id":"c","en":"Osterwalder only","ru":"Только Osterwalder"},{"id":"d","en":"Dooley","ru":"Dooley"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Human + AI = Dellermann."},{"num":73,"id":"p73","section":"Authors — traps","en":"Network effects on platforms — primary author from course table:","ru":"Network effects на платформах — автор из таблицы:","options":[{"id":"a","en":"Van Alstyne et al.","ru":"Van Alstyne et al."},{"id":"b","en":"Davis","ru":"Davis"},{"id":"c","en":"Dumas","ru":"Dumas"},{"id":"d","en":"Floridi only for all platform topics","ru":"Только Floridi для всего"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Van Alstyne = network effects. Parker = orchestration."},{"num":74,"id":"p74","section":"Authors — traps","en":"Hallucinations and trust in AI — associated with:","ru":"Hallucinations и trust в AI —:","options":[{"id":"a","en":"Handa et al.","ru":"Handa et al."},{"id":"b","en":"Nakamoto","ru":"Nakamoto"},{"id":"c","en":"Leng","ru":"Leng"},{"id":"d","en":"Vom Brocke","ru":"Vom Brocke"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Handa = hallucinations + oversight."},{"num":75,"id":"p75","section":"Authors — traps","en":"Value Chain / Shop / Network typology:","ru":"Типология Chain / Shop / Network:","options":[{"id":"a","en":"Stabell & Fjeldstad","ru":"Stabell & Fjeldstad"},{"id":"b","en":"Rogers","ru":"Rogers"},{"id":"c","en":"Crowston & Bolici 2019 only","ru":"Только Crowston 2019"},{"id":"d","en":"Zheng","ru":"Zheng"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Три value models = Stabell & Fjeldstad."},{"num":76,"id":"p76","section":"Authors — traps","en":"Ecosystems and networks replacing pure hierarchies:","ru":"Экосистемы вместо чистых иерархий:","options":[{"id":"a","en":"Fjeldstad & Snow","ru":"Fjeldstad & Snow"},{"id":"b","en":"Davis","ru":"Davis"},{"id":"c","en":"Nakamoto","ru":"Nakamoto"},{"id":"d","en":"Dooley only","ru":"Только Dooley"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Ecosystems = Fjeldstad & Snow 2018."},{"num":77,"id":"p77","section":"Exam drill","en":"Rogers (1983) vs TAM: diffusion spreads mainly through:","ru":"Rogers vs TAM: diffusion распространяется через:","options":[{"id":"a","en":"Social communication about an innovation","ru":"Социальную коммуникацию об инновации"},{"id":"b","en":"Only individual PU and PEOU with no social channel","ru":"Только PU/PEOU без социального канала"},{"id":"c","en":"Blockchain proof-of-work","ru":"Proof-of-work блокчейна"},{"id":"d","en":"Cloud pay-per-use billing","ru":"Оплату cloud pay-per-use"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Частая путаница Rogers ↔ Davis на экзамене."},{"num":78,"id":"p78","section":"Exam drill","en":"A consultant firm helping each client with a unique strategy is:","ru":"Консалтинг с уникальной стратегией для каждого клиента:","options":[{"id":"a","en":"Value shop","ru":"Value shop"},{"id":"b","en":"Value chain","ru":"Value chain"},{"id":"c","en":"Value network platform","ru":"Value network"},{"id":"d","en":"Onlife","ru":"Onlife"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Shop = problem solving."},{"num":79,"id":"p79","section":"Exam drill","en":"If exam asks what slows ChatGPT-like adoption at $20/month only, think:","ru":"Если спрашивают, что тормозит adoption при $20/мес без free:","options":[{"id":"a","en":"Rogers — low trialability and observability","ru":"Rogers — низкая trialability и observability"},{"id":"b","en":"Blockchain — low node count","ru":"Блокчейн — мало узлов"},{"id":"c","en":"BMC — missing customer segment box","ru":"BMC — нет customer segment"},{"id":"d","en":"Encryption — weak AES key","ru":"Слабый ключ AES"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Связка open Rogers + MCQ adoption."},{"num":80,"id":"p80","section":"Exam drill","en":"Software skills + AI performance (Dell'Acqua) — wrong answer to avoid:","ru":"Dell'Acqua + software skills — ложный ответ:","options":[{"id":"a","en":"\"Always helps for every task\"","ru":"«Всегда помогает для любой задачи»"},{"id":"b","en":"\"Helps only within AI capabilities frontier\"","ru":"«Помогает в пределах границы ИИ»"},{"id":"c","en":"\"Depends on task type\"","ru":"«Зависит от типа задачи»"},{"id":"d","en":"\"Not always universal\"","ru":"«Не всегда универсально»"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"На экзамене «always» часто ловушка."},{"num":81,"id":"p81","section":"Exam drill","en":"Double diamond: first stage is divergence to explore:","ru":"Double diamond: первый этап divergence — исследовать:","options":[{"id":"a","en":"The problem space","ru":"Пространство проблемы"},{"id":"b","en":"Final marketing budget only","ru":"Только финальный бюджет"},{"id":"c","en":"Blockchain hash rate","ru":"Hash rate блокчейна"},{"id":"d","en":"Cloud provider contract","ru":"Контракт cloud-провайдера"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"1st diverge = problem, 3rd = solutions."},{"num":82,"id":"p82","section":"Exam drill","en":"Match: «More users → more value»","ru":"Сопоставь: «Больше пользователей → больше ценности»","options":[{"id":"a","en":"Network effects / network externalities","ru":"Network effects / externalities"},{"id":"b","en":"Value chain economies of scale only in factory","ru":"Только economies of scale на заводе"},{"id":"c","en":"BPM process-oriented culture","ru":"BPM culture"},{"id":"d","en":"PEOU in TAM","ru":"PEOU в TAM"},{"id":"e","en":"None of the other answers is correct","ru":"Ни один из других ответов не верен"}],"correct":"a","tip":"Ключ к Q15 open + Van Alstyne."}];
+    let activeQuestions = [...ALL_QUESTIONS];
+    let currentMode = "all";
+    let wrongIds = new Set();
+    let checked = false;
+
+    const form = document.getElementById("test-form");
+    const container = document.getElementById("questions");
+    const resultsBox = document.getElementById("results");
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function pickQuestions() {
+      const topic = document.getElementById("topic-filter").value;
+      let pool = topic ? ALL_QUESTIONS.filter((q) => q.section === topic) : [...ALL_QUESTIONS];
+
+      if (currentMode === "exam14") {
+        pool = shuffle(pool).slice(0, Math.min(14, pool.length));
+      } else if (currentMode === "exam20") {
+        pool = shuffle(pool).slice(0, Math.min(20, pool.length));
+      } else if (currentMode === "weak") {
+        if (!checked || wrongIds.size === 0) {
+          pool = shuffle([...ALL_QUESTIONS]).slice(0, 14);
+        } else {
+          pool = ALL_QUESTIONS.filter((q) => wrongIds.has(q.id));
+        }
+      }
+
+      activeQuestions = pool.map((q, i) => ({ ...q, displayNum: i + 1 }));
+      document.getElementById("q-count").textContent =
+        "Showing: " + activeQuestions.length + " questions" +
+        (topic ? " · " + topic : "") +
+        (currentMode === "exam14" ? " · exam mode" : currentMode === "exam20" ? " · sprint" : "");
+      renderQuestions();
+      resultsBox.classList.remove("visible");
+      document.getElementById("warn-text").hidden = true;
+      checked = false;
+    }
+
+    function renderQuestions() {
+      container.innerHTML = "";
+      let currentSection = "";
+      activeQuestions.forEach((q) => {
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement("div");
+          h.className = "section-title";
+          h.textContent = currentSection;
+          container.appendChild(h);
+        }
+        const card = document.createElement("div");
+        card.className = "q";
+        card.dataset.id = q.id;
+        card.innerHTML = `
+          <div class="q-num">Question ${q.displayNum} <span class="q-tag">· ${q.section}</span></div>
+          <div class="q-en">${q.en}</div>
+          <div class="q-ru">${q.ru}</div>
+          <div class="opts">
+            ${q.options.map((o) => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span>
+                  <div class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</div>
+                  <div class="opt-ru">${o.ru}</div>
+                </span>
+              </label>`).join("")}
+          </div>
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    document.querySelectorAll(".mode-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".mode-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentMode = btn.dataset.mode;
+        pickQuestions();
+      });
+    });
+
+    document.getElementById("topic-filter").addEventListener("change", pickQuestions);
+    document.getElementById("shuffle-btn").addEventListener("click", pickQuestions);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      wrongIds = new Set();
+      const warnEl = document.getElementById("warn-text");
+
+      activeQuestions.forEach((q) => {
+        const card = container.querySelector('[data-id="' + q.id + '"]');
+        const selected = form.querySelector('input[name="' + q.id + '"]:checked');
+        card.classList.remove("unanswered", "correct", "wrong");
+        const fb = card.querySelector(".feedback");
+        fb.hidden = true;
+        fb.innerHTML = "";
+        card.querySelectorAll("label.opt").forEach((lbl) => {
+          lbl.classList.remove("result-opt");
+          lbl.style.background = "";
+          lbl.querySelector("input").disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add("unanswered");
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove("visible");
+        warnEl.hidden = false;
+        warnEl.textContent = "Answer all questions (" + unanswered + " unanswered).";
+        const first = container.querySelector(".q.unanswered");
+        if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+      warnEl.hidden = true;
+      checked = true;
+
+      activeQuestions.forEach((q) => {
+        const card = container.querySelector('[data-id="' + q.id + '"]');
+        const selected = form.querySelector('input[name="' + q.id + '"]:checked');
+        const fb = card.querySelector(".feedback");
+        fb.hidden = false;
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add("correct");
+          fb.className = "feedback ok";
+          fb.innerHTML = "✓ Correct" + (q.tip ? '<div class="tip">' + q.tip + "</div>" : "");
+        } else {
+          wrong++;
+          wrongIds.add(q.id);
+          card.classList.add("wrong");
+          fb.className = "feedback bad";
+          fb.innerHTML =
+            '✗ Wrong. Yours: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            (q.tip ? '<div class="tip">' + q.tip + '</div>' : '');
+        }
+        card.querySelectorAll("label.opt").forEach((lbl) => {
+          const inp = lbl.querySelector("input");
+          lbl.classList.add("result-opt");
+          if (inp.value === q.correct) lbl.style.background = "#e8f8ef";
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = "#fdecea";
+          inp.disabled = true;
+        });
+      });
+
+      const total = activeQuestions.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      const examStyle = currentMode === "exam14" || total === 14;
+      if (examStyle) score = Math.max(0, Math.min(14, score));
+
+      document.getElementById("score-text").textContent =
+        "Result: " + correct + " / " + total + " (" + Math.round((correct / total) * 100) + "%)";
+      document.getElementById("score-detail").textContent =
+        "Points: " + score.toFixed(1) + " · Correct: " + correct + " · Wrong: " + wrong +
+        (examStyle ? " · Exam scale (max 14)" : "");
+
+      resultsBox.classList.add("visible");
+      resultsBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    document.getElementById("reset-btn").addEventListener("click", () => {
+      form.reset();
+      resultsBox.classList.remove("visible");
+      document.getElementById("warn-text").hidden = true;
+      wrongIds = new Set();
+      checked = false;
+      pickQuestions();
+    });
+
+    pickQuestions();
+  </script>
+</body>
+</html>
