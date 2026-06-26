@@ -1,384 +1,117 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Production & Cost (Short Run) — Frank Ch. 8–9</title>
+    <title>Production &amp; Short-Run Costs — Lec 11-11-2025</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 920px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #9b59b6; padding-bottom: 15px; margin-bottom: 10px; font-size: 2.1em; }
-        .source { color: #666; font-size: 0.95em; margin-bottom: 28px; }
-        h2 { color: #34495e; margin-top: 42px; margin-bottom: 18px; font-size: 1.55em; border-left: 5px solid #9b59b6; padding-left: 15px; }
-        h3 { color: #555; margin-top: 28px; margin-bottom: 12px; font-size: 1.2em; }
-        h4 { color: #555; margin-top: 20px; margin-bottom: 10px; font-size: 1.05em; }
-        p { margin: 14px 0; text-align: justify; }
-        .en { color: #555; font-style: italic; font-size: 0.94em; margin-top: -8px; margin-bottom: 14px; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 22px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-        th, td { border: 1px solid #ddd; padding: 11px 14px; text-align: left; }
-        th { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 38px 0; }
-        ul, ol { margin: 12px 0; padding-left: 28px; }
-        li { margin: 8px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 22px 0; }
-        .formula-box { background: #f5eef8; border-left: 4px solid #9b59b6; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .story-box { background: #fff9e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .example-box { background: #eef7ff; border-left: 4px solid #3498db; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .key-box { background: #e8f6ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .why-box { background: #fdf2f2; border-left: 4px solid #e74c3c; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .book-ref { display: inline-block; background: #eee; color: #555; font-size: 0.82em; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-style: normal; }
-        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; }
-        pre { background: #f8f8f8; padding: 16px; border-radius: 8px; border: 1px solid #e0e0e0; overflow-x: auto; font-size: 0.88em; line-height: 1.45; }
-        .back { margin-bottom: 20px; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; margin: 0; padding: 40px; color: #333; max-width: 860px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #9b59b6; padding-bottom: 12px; font-size: 1.9em; }
+        h2 { color: #34495e; margin-top: 32px; font-size: 1.25em; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        th, td { border: 1px solid #ccc; padding: 10px 12px; text-align: center; }
+        th { background: #9b59b6; color: white; }
+        th:first-child, td:first-child { text-align: left; }
+        .calc { font-family: Cambria, Georgia, serif; background: #f5eef8; padding: 12px 16px; margin: 10px 0; border-left: 4px solid #9b59b6; }
         .back a { color: #9b59b6; text-decoration: none; }
-        .back a:hover { text-decoration: underline; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
-        .fig-caption { text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; }
-        .kz { color: #555; font-size: 0.94em; padding: 6px 0 6px 12px; border-left: 3px solid #3498db; margin: 8px 0; }
-        .kz::before { content: "🇰🇿 KZ: "; font-weight: 700; color: #2980b9; }
-        .calc { font-family: Consolas, monospace; background: #fff; padding: 10px 14px; border-radius: 6px; margin: 10px 0; line-height: 1.6; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
+        .note { color: #666; font-size: 0.92em; }
+        .graph-box { border: 1px solid #ddd; padding: 16px; margin: 16px 0; }
+        .graph-caption { font-size: 0.9em; color: #555; margin: 0 0 10px; }
+        .graph-legend { font-size: 0.92em; margin: 12px 0 0; padding-left: 1.2rem; }
+        .graph-legend li { margin: 6px 0; }
+        .graph-legend .swatch { display: inline-block; width: 28px; height: 3px; vertical-align: middle; margin-right: 6px; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 12px auto; }
+        .ru-foot { margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed #bbb; font-size: 0.8rem; color: #666; }
     </style>
 </head>
 <body>
-    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a> · <a href="Frank_Study_Guide.html#tp-mp-ap">Frank Study Guide</a> · <a href="Cost_Long_Run_Explanation.html">Long Run Costs</a></p>
+    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Perfect_Competition_Explanation.html">Perfect Competition</a></p>
+    <h1>Production &amp; Short-Run Costs</h1>
+    <p class="note">Lec <strong>11-11-2025</strong> — Production (McGraw Hill).</p>
 
-    <h1>Production & Cost (Short Run) — Производство и издержки (краткосрочный период)</h1>
-    <p class="source">Источник: <strong>Robert H. Frank, <em>Microeconomics and Behavior</em>, 7th ed.</strong><br>
-    · <strong>Chapter 8</strong> — «Production» (стр. 241): TP, MP<sub>L</sub>, AP<sub>L</sub>, diminishing returns<br>
-    · <strong>Chapter 9</strong> — «Costs in the Short Run» (стр. 266–277): FC, VC, TC, AFC, AVC, ATC, MC</p>
+    <h2>1. Production function</h2>
+    <div class="calc"><strong>Q = F(K, L)</strong> — inputs → output. <strong>SR:</strong> K фиксирован, L — variable.</div>
+    <p><strong>Law of diminishing returns:</strong> при фиксированных других inputs, прирост Q от +1 L в конце концов падает.</p>
 
-    <!-- ========== 1. Short run ========== -->
-    <h2>1. Краткосрочный период — что фиксировано? <span class="book-ref">Ch. 8, p. 241</span></h2>
-    <p>Фрэнк упрощает: у фирмы два ресурса — <strong>труд L</strong> (рабочие) и <strong>капитал K</strong> (машины, цех, оборудование).</p>
-    <p class="en">Frank's simplest setup: two inputs — <strong>labour L</strong> and <strong>capital K</strong> (machines, space).</p>
-
-    <p>В <strong>краткосрочном периоде (short run)</strong> K <strong>фиксирован</strong>: новый завод за день не построишь. Но L <strong>переменен</strong> — можно нанять или уволить рабочих.</p>
-    <p class="en">In the <strong>short run</strong>, K is <strong>fixed</strong>; L is <strong>variable</strong> — hire or fire workers.</p>
-
-    <div class="story-box">
-        <p>«Short run» — не «завтра vs через год». Это: <strong>можно ли прямо сейчас изменить размер завода?</strong> Для пекарни — месяцы; для Boeing — годы. Но логика одна: K зафиксирован, L меняется.</p>
-        <p class="en">Short run is about whether you can change plant size <em>right now</em>, not calendar time.</p>
-    </div>
-
+    <h2>2. TP, MP, AP — числовой пример (лекция)</h2>
     <table>
-        <tr><th></th><th>Short Run (краткий)</th><th>Long Run (долгий) → <a href="Cost_Long_Run_Explanation.html">Ch. 9</a></th></tr>
-        <tr><td>K (капитал)</td><td><strong>Фиксирован</strong></td><td>Переменный</td></tr>
-        <tr><td>L (труд)</td><td>Переменный</td><td>Переменный</td></tr>
-        <tr><td>FC</td><td>Есть</td><td>Нет «застрявших» FC</td></tr>
-        <tr><td>Главный вопрос</td><td>Сколько производить при данном заводе?</td><td>Какой размер завода + комбинация (L, K)?</td></tr>
+        <tr><th>L</th><th>TP</th><th>MP<sub>L</sub></th><th>AP<sub>L</sub></th></tr>
+        <tr><td>0</td><td>0</td><td>—</td><td>—</td></tr>
+        <tr><td>1</td><td>5</td><td>5</td><td>5,0</td></tr>
+        <tr><td>2</td><td>15</td><td>10</td><td>7,5</td></tr>
+        <tr><td>3</td><td>28</td><td>13</td><td>9,3</td></tr>
+        <tr><td>4</td><td>40</td><td>12</td><td>10,0</td></tr>
+        <tr><td>5</td><td>50</td><td>10</td><td>10,0</td></tr>
     </table>
-
-    <div class="kz">Қысқа мерзімде K (зауыт, жабдық) өзгермейді — тек L (еңбек) артады немесе азаяды. Ұзақ мерзім — <a href="Cost_Long_Run_Explanation.html">Cost Long Run</a> бетінде.</div>
-
-    <hr>
-
-    <!-- ========== 2. TP, MP, AP ========== -->
-    <h2>2. Три «продукта»: TP, MP<sub>L</sub>, AP<sub>L</sub> <span class="book-ref">Ch. 8, p. 241</span></h2>
-    <p>Как меняется выпуск, когда мы добавляем рабочих при <strong>фиксированном K</strong>? Фрэнк вводит три понятия:</p>
-
-    <h4>1) Total Product TP (совокупный продукт)</h4>
-    <p>Сколько единиц продукции фирма производит при данном L. То же самое, что Q (выпуск).</p>
-    <div class="formula-box"><strong>TP = Q = f(L, K̄)</strong> &nbsp; (черта над K = K фиксирован)</div>
-
-    <h4>2) Marginal Product of Labour MP<sub>L</sub></h4>
-    <p>Дополнительный выпуск от <strong>ещё одного</strong> рабочего. «Marginal» = «следующий».</p>
-    <div class="formula-box"><strong>MP<sub>L</sub> = ΔQ / ΔL</strong></div>
-    <p>Пример: 5 рабочих → 50 деталей; 6 рабочих → 56 деталей. MP<sub>L</sub> 6-го = 56 − 50 = <strong>6 деталей</strong>.</p>
-    <p class="en">If 5 workers make 50 parts and 6 make 56, MP<sub>L</sub> of the 6th worker = 6 parts.</p>
-
-    <h4>3) Average Product of Labour AP<sub>L</sub></h4>
-    <p>Сколько единиц в среднем производит каждый рабочий.</p>
-    <div class="formula-box"><strong>AP<sub>L</sub> = Q / L</strong></div>
-    <p>6 рабочих → 56 деталей: AP<sub>L</sub> = 56/6 ≈ <strong>9,3 детали</strong> на рабочего.</p>
-
-    <hr>
-
-    <!-- ========== 3. Diminishing returns ========== -->
-    <h2>3. Закон убывающей отдачи (diminishing returns) <span class="book-ref">Ch. 8</span></h2>
-    <div class="key-box">
-        <strong>Главный закон Ch. 8:</strong> если продолжать добавлять переменный фактор (рабочих) к <strong>фиксированному</strong> капиталу (цех, машины), рано или поздно <strong>предельный продукт начнёт падать</strong>.
-        <p class="en" style="margin-top:10px;">Keep adding workers to a fixed shop floor → marginal product eventually falls.</p>
-    </div>
-
-    <div class="story-box">
-        <p><strong>Пример Frank — маленькая кухня.</strong> Вы нанимаете поваров (L), кухня (K) одна и та же:</p>
-        <table>
-            <tr><th>Поваров (L)</th><th>Блюд/час (Q)</th><th>MP последнего</th><th>Комментарий</th></tr>
-            <tr><td>1</td><td>10</td><td>10</td><td>—</td></tr>
-            <tr><td>2</td><td>25</td><td>15</td><td>Специализация: один режет, другой жарит 🚀</td></tr>
-            <tr><td>3</td><td>35</td><td>10</td><td>—</td></tr>
-            <tr><td>4</td><td>40</td><td>5</td><td>Начинают мешать друг другу</td></tr>
-            <tr><td>5</td><td>41</td><td>1</td><td>Тесно на кухне</td></tr>
-            <tr><td>6</td><td>38</td><td><strong>−3</strong></td><td>Кто-то уронил кастрюлю!</td></tr>
-        </table>
-        <p>Кухня (K) мала, поваров (L) слишком много → diminishing returns.</p>
-        <p class="en">One small kitchen (fixed K), too many cooks (L) → MP falls, eventually goes negative.</p>
-    </div>
-
-    <hr>
-
-    <!-- ========== 4. MP vs AP ========== -->
-    <h2>4. Связь MP и AP — правило для экзамена <span class="book-ref">Ch. 8</span></h2>
-    <ul>
-        <li>Пока <strong>MP &gt; AP</strong> → AP <strong>растёт</strong>.</li>
-        <li>Когда <strong>MP &lt; AP</strong> → AP <strong>падает</strong>.</li>
-        <li>⇒ <strong>MP пересекает AP точно в максимуме AP</strong>.</li>
-        <li><strong>TP достигает пика</strong>, когда <strong>MP = 0</strong>. Если MP &lt; 0 — TP падает (лишние рабочие мешают).</li>
-    </ul>
-
-    <div class="why-box">
-        <p><strong>Аналогия Frank — средний балл класса.</strong> Средний балл = 7. Приходит новый ученик:</p>
-        <ul>
-            <li>Его оценка (MP) = 9 → средний <strong>растёт</strong>.</li>
-            <li>Его оценка = 5 → средний <strong>падает</strong>.</li>
-            <li>Его оценка = 7 → средний <strong>на пике</strong> (не меняется).</li>
-        </ul>
-        <p>Новый ученик = marginal product. Класс = average product. Та же арифметика, что у MC и ATC в Ch. 9.</p>
-        <p class="en">New student's grade = MP. Class average = AP. Same logic as MC vs ATC later.</p>
-    </div>
+    <p>MP<sub>L</sub> = ΔTP/ΔL &nbsp;·&nbsp; AP<sub>L</sub> = TP/L. L=2→3: MP=13 (высокий); после L=4 MP падает.</p>
 
     <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+        <p class="graph-caption"><strong>График 1.</strong> TP, MP и AP. MP пересекает AP в максимуме AP.</p>
+        <svg class="svg-graph" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg">
+            <text x="120" y="22" text-anchor="middle" font-weight="700">TP</text>
+            <line x1="40" y1="40" x2="40" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="40" y1="250" x2="220" y2="250" stroke="#333" stroke-width="1.5"/>
+            <path d="M 40 250 Q 100 200 120 120 Q 150 60 200 50" stroke="#9b59b6" stroke-width="2.5" fill="none"/>
+            <text x="180" y="55" fill="#8e44ad">TP</text>
+            <text x="260" y="22" text-anchor="middle" font-weight="700">MP &amp; AP</text>
+            <line x1="260" y1="40" x2="260" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="260" y1="250" x2="440" y2="250" stroke="#333" stroke-width="1.5"/>
+            <path d="M 280 250 Q 340 80 380 100 Q 400 130 420 200" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="400" y="210" fill="#c0392b">MP</text>
+            <path d="M 280 250 Q 350 100 420 120" stroke="#3498db" stroke-width="2" fill="none"/>
+            <text x="400" y="115" fill="#2980b9">AP</text>
+            <circle cx="370" cy="118" r="4" fill="#27ae60"/>
+            <text x="376" y="112" font-size="9" fill="#27ae60">max AP</text>
+        </svg>
+        <ul class="graph-legend">
+            <li><span class="swatch" style="background:#9b59b6"></span><strong>TP</strong> — total product: сначала растёт ускоренно, потом замедляется (diminishing returns).</li>
+            <li><span class="swatch" style="background:#e74c3c"></span><strong>MP</strong> — наклон TP. Сначала растёт, потом падает.</li>
+            <li><span class="swatch" style="background:#3498db"></span><strong>AP</strong> — TP/L. Когда MP &gt; AP → AP растёт; MP &lt; AP → AP падает.</li>
+            <li><strong>Правило:</strong> MP = AP в максимуме AP (зелёная точка).</li>
+        </ul>
+    </div>
+
+    <h2>3. Правило распределения (slide 21)</h2>
+    <p>Добавляй следующую единицу input туда, где <strong>MP выше</strong> (пример: лодки east vs west).</p>
+
+    <h2>4. Short-run costs</h2>
+    <table>
+        <tr><th>Понятие</th><th>Формула</th></tr>
+        <tr><td>FC</td><td>Fixed — не зависит от Q</td></tr>
+        <tr><td>VC</td><td>Variable — зависит от Q</td></tr>
+        <tr><td>TC</td><td>FC + VC</td></tr>
+        <tr><td>AFC</td><td>FC/Q</td></tr>
+        <tr><td>AVC</td><td>VC/Q — slope луча к VC curve</td></tr>
+        <tr><td>ATC</td><td>TC/Q</td></tr>
+        <tr><td>MC</td><td>ΔTC/ΔQ — slope TC в точке Q</td></tr>
+    </table>
+
+    <div class="graph-box">
+        <p class="graph-caption"><strong>График 2.</strong> MC, ATC, AVC. MC пересекает AVC и ATC снизу в их минимумах.</p>
+        <svg class="svg-graph" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
             <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
-            <line x1="50" y1="230" x2="380" y2="230" stroke="#333" stroke-width="1.5"/>
-            <path d="M 60 220 Q 150 60 220 110 T 360 200" stroke="#2980b9" stroke-width="2.5" fill="none"/>
-            <path d="M 60 215 Q 200 80 340 175" stroke="#27ae60" stroke-width="2" fill="none"/>
-            <circle cx="200" cy="95" r="5" fill="#e74c3c"/>
-            <text x="55" y="40" font-size="12">MP, AP</text>
-            <text x="370" y="245" font-size="12">L</text>
-            <text x="100" y="75" fill="#2980b9" font-size="13">MP<tspan baseline-shift="sub" font-size="10">L</tspan></text>
-            <text x="280" y="130" fill="#27ae60" font-size="13">AP<tspan baseline-shift="sub" font-size="10">L</tspan></text>
-            <text x="208" y="88" font-size="11">max AP</text>
+            <line x1="50" y1="230" x2="390" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="30">Cost</text><text x="378" y="248">Q</text>
+            <path d="M 60 210 Q 180 60 360 90" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="330" y="85" fill="#c0392b">MC</text>
+            <path d="M 60 200 Q 200 100 360 110" stroke="#8e44ad" stroke-width="2" fill="none"/>
+            <text x="330" y="108" fill="#8e44ad">ATC</text>
+            <path d="M 60 205 Q 190 130 360 125" stroke="#3498db" stroke-width="2" fill="none"/>
+            <text x="330" y="130" fill="#2980b9">AVC</text>
+            <circle cx="200" cy="118" r="4" fill="#27ae60"/>
+            <text x="206" y="114" font-size="9">min ATC</text>
         </svg>
-        <p class="fig-caption">MP<sub>L</sub> пересекает AP<sub>L</sub> в максимуме AP; TP максимален при MP = 0</p>
-    </div>
-
-    <h3>Три стадии производства</h3>
-    <table>
-        <tr><th>Стадия</th><th>Условие</th><th>Смысл</th></tr>
-        <tr><td>I</td><td>MP &gt; AP, AP растёт</td><td>Специализация, растущая эффективность</td></tr>
-        <tr><td>II</td><td>MP &lt; AP, но MP &gt; 0</td><td><strong>Рациональная зона</strong> — diminishing returns, но выпуск ещё растёт</td></tr>
-        <tr><td>III</td><td>MP &lt; 0</td><td>Лишний труд <strong>снижает</strong> Q — неэффективно</td></tr>
-    </table>
-
-    <hr>
-
-    <!-- ========== 5. FC, VC, TC ========== -->
-    <h2>5. Откуда берутся издержки? FC, VC, TC <span class="book-ref">Ch. 9, p. 266</span></h2>
-    <p>Издержки — деньги, которые фирма тратит на ресурсы: зарплата (<strong>w·L</strong>), аренда оборудования (<strong>r·K</strong>), сырьё.</p>
-    <p class="en">Costs = money spent on inputs: wages w·L, equipment rental r·K, raw materials.</p>
-
-    <p>В краткосрочном периоде — два вида издержек:</p>
-
-    <h4>Fixed Cost FC (постоянные)</h4>
-    <p>Не зависят от Q. Аренда здания, аренда оборудования, страховка. При Q = 0 всё равно платите — как интернет-подписка $20/мес, пользуешься или нет.</p>
-    <p class="en">FC does not depend on output. Rent, lease, insurance — you pay even at Q = 0.</p>
-
-    <h4>Variable Cost VC (переменные)</h4>
-    <p>Растут с выпуском: больше Q → больше рабочих, сырья, электричества. При Q = 0 → VC = 0.</p>
-
-    <h4>Total Cost TC</h4>
-    <div class="formula-box"><strong>TC = FC + VC</strong></div>
-
-    <div class="example-box">
-        <h4>Числовой пример Frank — пекарня</h4>
-        <ul>
-            <li>Аренда магазина и оборудования → <strong>FC = $1 000/мес</strong></li>
-            <li>Мука, сахар, зарплата → <strong>$2 за багет</strong> (VC)</li>
+        <ul class="graph-legend">
+            <li><span class="swatch" style="background:#e74c3c"></span><strong>MC</strong> — marginal cost. Пересекает AVC и ATC в минимумах.</li>
+            <li><span class="swatch" style="background:#3498db"></span><strong>AVC</strong> — variable cost на единицу.</li>
+            <li><span class="swatch" style="background:#8e44ad"></span><strong>ATC</strong> = AVC + AFC. U-образная.</li>
+            <li><strong>Правило:</strong> MC &lt; ATC → ATC падает; MC &gt; ATC → ATC растёт.</li>
         </ul>
-        <p>Q = 500 багетов/мес:</p>
-        <div class="calc">FC = 1 000 &nbsp;|&nbsp; VC = 2 × 500 = 1 000 &nbsp;|&nbsp; TC = <strong>$2 000</strong></div>
-        <p>Q = 0 (закрыто на праздники):</p>
-        <div class="calc">FC = 1 000 (всё равно платим!) &nbsp;|&nbsp; VC = 0 &nbsp;|&nbsp; TC = <strong>$1 000</strong></div>
     </div>
 
-    <div class="key-box">
-        <strong>Большая идея Frank (SR):</strong> FC нельзя уменьшить, что бы вы ни делали — «застрявшие» деньги. По-английски — <strong>sunk costs</strong>. Это важно позже: «когда фирме закрыться?» (Ch. 10).
-        <p class="en">FC is stuck money — sunk costs. Matters for the shutdown decision later.</p>
-    </div>
+    <h2>5. Связь MP и MC (slide 31)</h2>
+    <div class="calc">Когда MP падает → MC растёт. MP и AP зеркалят MC и AVC.</div>
 
-    <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="20" x2="50" y2="210" stroke="#333" stroke-width="1.5"/>
-            <line x1="50" y1="210" x2="380" y2="210" stroke="#333" stroke-width="1.5"/>
-            <line x1="55" y1="80" x2="370" y2="80" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,3"/>
-            <path d="M 55 210 Q 150 120 280 70 T 370 45" stroke="#3498db" stroke-width="2.5" fill="none"/>
-            <path d="M 55 80 Q 150 130 280 130 T 370 125" stroke="#27ae60" stroke-width="2" fill="none"/>
-            <text x="300" y="40" fill="#3498db" font-size="13">TC = FC + VC</text>
-            <text x="300" y="95" fill="#27ae60" font-size="13">VC</text>
-            <text x="300" y="75" fill="#e74c3c" font-size="13">FC (горизонталь)</text>
-            <text x="18" y="35" font-size="12">$</text>
-            <text x="370" y="225" font-size="12">Q</text>
-            <text x="200" y="55" font-size="11" fill="#666">↑ FC = вертикальное расстояние TC − VC</text>
-        </svg>
-        <p class="fig-caption">При Q = 0: TC = FC, VC = 0. FC — постоянное расстояние между TC и VC.</p>
-    </div>
-
-    <hr>
-
-    <!-- ========== 6. AFC, AVC, ATC, MC ========== -->
-    <h2>6. Средние и предельные издержки <span class="book-ref">Ch. 9, p. 270</span></h2>
-    <p>TC, FC, VC — <strong>итоги</strong> за период. На практике важнее: «сколько стоит <strong>одна единица</strong> товара?»</p>
-
-    <table>
-        <tr><th>Показатель</th><th>Формула</th><th>Смысл (Frank)</th></tr>
-        <tr><td><strong>AFC</strong></td><td>FC / Q</td><td>Доля FC на единицу — <strong>всегда падает</strong> при росте Q</td></tr>
-        <tr><td><strong>AVC</strong></td><td>VC / Q</td><td>Переменные на единицу — обычно U-образная</td></tr>
-        <tr><td><strong>ATC</strong></td><td>TC / Q = AFC + AVC</td><td>Все издержки на единицу — U-образная</td></tr>
-        <tr><td><strong>MC</strong></td><td>ΔTC / ΔQ = ΔVC / ΔQ</td><td>Издержки на <strong>ещё одну</strong> единицу (самое важное!)</td></tr>
-    </table>
-
-    <p>ΔTC = ΔVC, потому что FC не меняется в SR.</p>
-    <p class="en">MC = ΔVC/ΔQ because FC is fixed — only VC changes when Q changes.</p>
-
-    <p>Пример AFC: FC = $1 000 → при Q = 100, AFC = $10/ед.; при Q = 1 000, AFC = $1/ед.</p>
-
-    <hr>
-
-    <!-- ========== 7. MC crosses at minima ========== -->
-    <h2>7. MC пересекает AVC и ATC в минимумах <span class="book-ref">Ch. 9 · Fig. 9.4</span></h2>
-    <p>Та же логика, что у MP и AP в Ch. 8:</p>
-
-    <div class="why-box">
-        <p>Средние издержки сейчас $10/ед. Производим ещё одну единицу:</p>
-        <ul>
-            <li>MC = $7 (&lt; среднего) → эта единица «дешевле обычного» → <strong>среднее падает</strong>.</li>
-            <li>MC = $15 (&gt; среднего) → «дороже обычного» → <strong>среднее растёт</strong>.</li>
-            <li>MC = $10 (= среднему) → среднее <strong>на пике</strong> (минимум ATC или AVC).</li>
-        </ul>
-        <p>⇒ <strong>MC пересекает AVC и ATC точно в их минимумах</strong> — не где-то ещё! (частая ошибка на экзамене)</p>
-        <p class="en">MC crosses AVC and ATC at their minima — nowhere else. Figure 9.4.</p>
-    </div>
-
-    <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="20" x2="50" y2="245" stroke="#333" stroke-width="1.5"/>
-            <line x1="50" y1="245" x2="400" y2="245" stroke="#333" stroke-width="1.5"/>
-            <path d="M 60 230 Q 160 70 240 100 T 380 45" stroke="#2980b9" stroke-width="2.5" fill="none"/>
-            <path d="M 60 225 Q 200 160 380 105" stroke="#27ae60" stroke-width="2" fill="none"/>
-            <path d="M 60 220 Q 230 130 380 85" stroke="#9b59b6" stroke-width="2" fill="none"/>
-            <circle cx="200" cy="145" r="5" fill="#e74c3c"/>
-            <circle cx="260" cy="118" r="5" fill="#e74c3c"/>
-            <text x="55" y="40" font-size="12">$/Q</text>
-            <text x="385" y="260" font-size="12">Q</text>
-            <text x="70" y="90" fill="#2980b9" font-size="13">MC</text>
-            <text x="340" y="115" fill="#27ae60" font-size="13">AVC</text>
-            <text x="340" y="80" fill="#9b59b6" font-size="13">ATC</text>
-            <text x="175" y="162" font-size="11">min AVC</text>
-            <text x="245" y="108" font-size="11">min ATC</text>
-        </svg>
-        <p class="fig-caption">Fig. 9.4: MC пересекает AVC и ATC снизу в точках их минимумов</p>
-    </div>
-
-    <ul>
-        <li><strong>min AVC</strong> обычно левее (при меньшем Q), чем <strong>min ATC</strong> — потому что ATC = AVC + AFC.</li>
-        <li><strong>AFC</strong> всегда падает → ATC и AVC сходятся при большом Q (AFC → 0).</li>
-        <li><strong>MC</strong> U-образная: сначала может падать (растущий MP), затем растёт (diminishing returns).</li>
-    </ul>
-
-    <hr>
-
-    <!-- ========== 8. Mirror image ========== -->
-    <h2>8. Издержки — «зеркало» производства <span class="book-ref">Ch. 9, p. 277</span></h2>
-    <p>Frank подчёркивает: <strong>costs are a mirror image of production</strong>. Если каждому рабочему платят одинаковую зарплату w:</p>
-    <div class="formula-box">
-        <strong>MC = w / MP<sub>L</sub></strong> &nbsp; и &nbsp; <strong>AVC = w / AP<sub>L</sub></strong>
-    </div>
-
-    <div class="why-box">
-        <p><strong>Почему MC = w / MP<sub>L</sub>?</strong></p>
-        <p>Один дополнительный рабочий стоит <strong>w</strong> долларов и производит <strong>MP<sub>L</sub></strong> дополнительных единиц.</p>
-        <p>⇒ Стоимость одной дополнительной единицы = w / MP<sub>L</sub> = <strong>MC</strong>.</p>
-        <p>Когда MP<sub>L</sub> падает (diminishing returns) → MC <strong>растёт</strong>. Вот почему MC U-образная.</p>
-        <p class="en">One worker costs w and adds MP<sub>L</sub> units → cost per extra unit = w/MP<sub>L</sub>. Falling MP → rising MC.</p>
-    </div>
-
-    <table>
-        <tr><th>Производство (Ch. 8)</th><th>Издержки (Ch. 9)</th></tr>
-        <tr><td>MP &gt; AP → AP растёт</td><td>MC &lt; ATC → ATC падает</td></tr>
-        <tr><td>MP &lt; AP → AP падает</td><td>MC &gt; ATC → ATC растёт</td></tr>
-        <tr><td>MP = AP → max AP</td><td>MC = ATC → min ATC</td></tr>
-        <tr><td>MP падает → diminishing returns</td><td>MC растёт → U-shape</td></tr>
-    </table>
-
-    <div class="kz">Шығындар — өндірудің «айнасы»: MP<sub>L</sub> төмендеген сайын MC өседі. w/MP<sub>L</sub> = MC формуласын жатта!</div>
-
-    <hr>
-
-    <!-- ========== 9. Numerical table ========== -->
-    <h2>9. Числовой пример: Q, TC, MC, ATC</h2>
-    <p>FC = $20 (постоянные). VC растёт с Q:</p>
-    <table>
-        <tr><th>Q</th><th>TC ($)</th><th>MC = ΔTC/ΔQ</th><th>ATC = TC/Q</th><th>Комментарий</th></tr>
-        <tr><td>0</td><td>20</td><td>—</td><td>—</td><td>Только FC</td></tr>
-        <tr><td>1</td><td>30</td><td>10</td><td>30</td><td></td></tr>
-        <tr><td>2</td><td>38</td><td>8</td><td>19</td><td>MC падает (растущий MP)</td></tr>
-        <tr><td>3</td><td>45</td><td>7</td><td>15</td><td></td></tr>
-        <tr><td>4</td><td>54</td><td>9</td><td>13.5</td><td>MC начинает расти</td></tr>
-        <tr><td>5</td><td>65</td><td>11</td><td>13</td><td></td></tr>
-        <tr><td>6</td><td>78</td><td>13</td><td>13</td><td>MC ≈ ATC → около min ATC</td></tr>
-        <tr><td>7</td><td>93</td><td>15</td><td>13.3</td><td>MC &gt; ATC → ATC растёт</td></tr>
-    </table>
-    <p>MC падает (Q 1→3), затем растёт. ATC падает, пока MC &lt; ATC, и растёт, когда MC &gt; ATC. Минимум ATC — где MC ≈ ATC (между Q=5 и Q=6).</p>
-
-    <hr>
-
-    <!-- ========== 10. AFC ========== -->
-    <h2>10. AFC — всегда падает</h2>
-    <div class="formula-box"><strong>AFC = FC / Q</strong></div>
-    <p>FC постоянна → при росте Q AFC <strong>всегда уменьшается</strong> (прямоугольная гипербола). Никогда не доходит до нуля, но стремится к нулю при большом Q.</p>
-    <p>ATC = AFC + AVC → при большом Q кривые ATC и AVC <strong>сближаются</strong> (AFC исчезает).</p>
-
-    <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="Complete short run cost curves">
-            <line x1="55" y1="25" x2="55" y2="265" stroke="#333" stroke-width="1.5"/>
-            <line x1="55" y1="265" x2="460" y2="265" stroke="#333" stroke-width="1.5"/>
-            <text x="18" y="30" font-size="12">$/Q</text>
-            <text x="445" y="282" font-size="12">Q</text>
-            <path d="M 70 240 Q 195 55 310 75 T 440 130" stroke="#2980b9" stroke-width="3" fill="none"/>
-            <text x="400" y="115" fill="#2980b9" font-size="13" font-weight="600">MC</text>
-            <path d="M 70 235 Q 240 115 420 95" stroke="#9b59b6" stroke-width="2.5" fill="none"/>
-            <text x="400" y="88" fill="#9b59b6" font-size="13" font-weight="600">ATC</text>
-            <path d="M 70 230 Q 210 145 420 120" stroke="#27ae60" stroke-width="2.5" fill="none"/>
-            <text x="400" y="138" fill="#27ae60" font-size="13" font-weight="600">AVC</text>
-            <path d="M 70 225 Q 150 200 440 175" stroke="#e67e22" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
-            <text x="380" y="168" fill="#e67e22" font-size="12">AFC ↓</text>
-            <circle cx="215" cy="148" r="5" fill="#e74c3c"/>
-            <circle cx="295" cy="108" r="5" fill="#e74c3c"/>
-            <text x="198" y="142" font-size="10" fill="#e74c3c">min AVC</text>
-            <text x="278" y="100" font-size="10" fill="#e74c3c">min ATC</text>
-        </svg>
-        <p class="fig-caption">Полная картина SR: MC, AVC, ATC (U-образные); AFC (всегда ↓); AFC = ATC − AVC</p>
-    </div>
-
-    <hr>
-
-    <!-- ========== 11. Exam ========== -->
-    <h2>11. Ключевое для экзамена</h2>
-    <div class="key-box">
-        <ol>
-            <li><strong>SR:</strong> K фиксирован, L переменен; есть FC.</li>
-            <li><strong>TP = Q = f(L, K̄)</strong>; MP<sub>L</sub> = ΔQ/ΔL; AP<sub>L</sub> = Q/L.</li>
-            <li><strong>Diminishing returns:</strong> больше L при фикс. K → MP<sub>L</sub> eventually падает (кухня + повара).</li>
-            <li><strong>MP пересекает AP в max AP</strong>; TP max при MP = 0.</li>
-            <li><strong>TC = FC + VC</strong>; при Q=0: TC = FC, VC = 0. FC = sunk costs.</li>
-            <li><strong>MC = ΔVC/ΔQ</strong> (FC не меняется).</li>
-            <li><strong>MC пересекает AVC и ATC в минимумах</strong> (Fig. 9.4) — та же логика, что MP и AP.</li>
-            <li><strong>MC = w/MP<sub>L</sub></strong>, <strong>AVC = w/AP<sub>L</sub></strong> — зеркало производства.</li>
-            <li><strong>AFC</strong> всегда падает; <strong>ATC = AFC + AVC</strong>.</li>
-            <li>Рациональная зона производства — <strong>стадия II</strong> (MP &gt; 0, MP &lt; AP).</li>
-        </ol>
-    </div>
-
-    <p class="back" style="margin-top: 40px;"><a href="index.html">← Economics topics</a> · <a href="Cost_Long_Run_Explanation.html">Long Run Costs (Ch. 9, p. 278+)</a> · <a href="Exam_Prep_Guide.html">Exam Prep Guide</a></p>
-
-<div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Краткосрочные издержки</strong> (Frank, гл. 8–9): K фиксирован. TP, MP_L, AP_L; убывающая отдача. FC+VC=TC; AFC, AVC, ATC, MC. MC пересекает AVC и ATC в минимумах (рис. 9.4). MC=w/MP_L.</p></div>
+    <div class="ru-foot"><p><strong>Кратко:</strong> Q=F(K,L). Diminishing returns. MP=ΔTP/ΔL, AP=TP/L. FC+VC=TC. MC пересекает AVC/ATC снизу. Распределяй input где MP max.</p></div>
 </body>
 </html>

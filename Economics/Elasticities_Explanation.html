@@ -3,76 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elasticities of Demand — Frank, Ch. 4</title>
+    <title>Elasticities — Lec 27-10-2025</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #e67e22; padding-bottom: 15px; font-size: 2.1em; }
-        h2 { color: #34495e; margin-top: 40px; font-size: 1.5em; border-left: 5px solid #e67e22; padding-left: 15px; }
-        p { margin: 14px 0; }
-        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
-        th, td { border: 1px solid #ddd; padding: 10px 12px; }
-        th { background: #e67e22; color: white; }
-        .formula-box { background: #fef5e7; border-left: 4px solid #e67e22; padding: 14px 18px; margin: 18px 0; border-radius: 6px; }
-        .story { background: #fff8e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 18px 0; border-radius: 6px; }
-        .story::before { content: "📙 Frank: "; font-weight: 700; color: #d68910; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 20px 0; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 0 auto; }
-        .back a { color: #e67e22; text-decoration: none; }
-        .source { color: #666; margin-bottom: 20px; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; margin: 0; padding: 40px; color: #333; max-width: 860px; margin: 0 auto; background: white; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 12px; font-size: 1.9em; }
+        h2 { color: #34495e; margin-top: 32px; font-size: 1.25em; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        th, td { border: 1px solid #ccc; padding: 10px 12px; }
+        th { background: #3498db; color: white; }
+        .calc { font-family: Cambria, Georgia, serif; background: #eef6fc; padding: 12px 16px; margin: 10px 0; border-left: 4px solid #3498db; }
+        .back a { color: #3498db; text-decoration: none; }
+        .note { color: #666; font-size: 0.92em; }
+        .graph-box { border: 1px solid #ddd; padding: 16px; margin: 16px 0; }
+        .graph-caption { font-size: 0.9em; color: #555; margin: 0 0 10px; }
+        .graph-legend { font-size: 0.92em; margin: 12px 0 0; padding-left: 1.2rem; }
+        .graph-legend li { margin: 6px 0; }
+        .graph-legend .swatch { display: inline-block; width: 28px; height: 3px; vertical-align: middle; margin-right: 6px; }
+        .svg-graph { max-width: 100%; height: auto; display: block; margin: 12px auto; }
+        .ru-foot { margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed #bbb; font-size: 0.8rem; color: #666; }
     </style>
 </head>
 <body>
-    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Demand_Explanation.html">Demand (Ch. 2)</a></p>
-
-    <h1>Elasticities of Demand</h1>
-    <p class="source">Source: <strong>Frank, Ch. 4</strong> — «Demand and Elasticity». Examples tie to the lobster market (Ch. 2) and monopoly pricing (Ch. 11: MR = P(1 − 1/|ε|)).</p>
+    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Demand_Explanation.html">Demand</a></p>
+    <h1>Price &amp; Income Elasticity</h1>
+    <p class="note">Lec <strong>27-10-2025</strong> — Individual and Market Demand.</p>
 
     <h2>1. Price elasticity of demand (PED)</h2>
-    <div class="formula-box"><strong>PED = (% ΔQ<sub>d</sub>) / (% ΔP)</strong> — always negative for normal goods; we often use |PED|.</div>
-    <table>
-        <tr><th>|PED|</th><th>Name</th><th>Meaning</th></tr>
-        <tr><td>&gt; 1</td><td>Elastic</td><td>Quantity reacts <strong>more</strong> than price (flatter D curve)</td></tr>
-        <tr><td>= 1</td><td>Unit elastic</td><td>Same % change in Q and P</td></tr>
-        <tr><td>&lt; 1</td><td>Inelastic</td><td>Quantity reacts <strong>less</strong> than price (steeper D)</td></tr>
-    </table>
+    <p>Насколько % меняется Q при +1% к цене.</p>
+    <div class="calc"><strong>ε = (ΔQ/Q) / (ΔP/P) = (P/Q) × (ΔQ/ΔP)</strong></div>
+    <p>Геометрически: <strong>ε = (P/Q) × (1 / slope of D)</strong> (point-slope method).</p>
 
-    <div class="story">Ch. 2 lobsters: if demand is elastic, a price cut raises total revenue (more buyers). Ch. 11: a monopolist never chooses the inelastic part of D because MR &lt; 0 there — cutting Q would raise revenue and save cost.</div>
+    <table>
+        <tr><th>|ε|</th><th>Тип</th><th>Пример (лекция)</th></tr>
+        <tr><td>&gt; 1</td><td><strong>Elastic</strong></td><td>+1% P → −2% Q (shelter)</td></tr>
+        <tr><td>= 1</td><td><strong>Unit elastic</strong></td><td>Пропорциональная реакция</td></tr>
+        <tr><td>&lt; 1</td><td><strong>Inelastic</strong></td><td>Слабая реакция Q</td></tr>
+    </table>
 
     <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="20" x2="50" y2="170" stroke="#333" stroke-width="1.5"/>
-            <line x1="50" y1="170" x2="400" y2="170" stroke="#333" stroke-width="1.5"/>
-            <line x1="70" y1="40" x2="350" y2="150" stroke="#3498db" stroke-width="2.5"/>
-            <text x="300" y="145" font-size="12">Elastic (flat)</text>
-            <line x1="230" y1="40" x2="280" y2="150" stroke="#e67e22" stroke-width="2.5"/>
-            <text x="285" y="100" font-size="12">Inelastic</text>
-            <text x="18" y="28">P</text><text x="385" y="185">Q</text>
+        <p class="graph-caption"><strong>График 1.</strong> Пологая D → elastic (|ε|&gt;1). Крутая D → inelastic (|ε|&lt;1).</p>
+        <svg class="svg-graph" viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="190" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="190" x2="410" y2="190" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="30">P</text><text x="398" y="208">Q</text>
+            <line x1="60" y1="40" x2="380" y2="170" stroke="#3498db" stroke-width="2.5"/>
+            <text x="300" y="165" fill="#2980b9">Elastic (flat)</text>
+            <line x1="220" y1="40" x2="280" y2="170" stroke="#e67e22" stroke-width="2.5"/>
+            <text x="285" y="110" fill="#d35400">Inelastic (steep)</text>
         </svg>
+        <ul class="graph-legend">
+            <li><span class="swatch" style="background:#3498db"></span><strong>Пологая D</strong> — малый |slope| → большой |ε| → elastic.</li>
+            <li><span class="swatch" style="background:#e67e22"></span><strong>Крутая D</strong> — большой |slope| → малый |ε| → inelastic.</li>
+        </ul>
     </div>
 
-    <h2>2. Income elasticity (YED)</h2>
-    <div class="formula-box"><strong>YED = (% ΔQ<sub>d</sub>) / (% ΔIncome)</strong></div>
+    <h2>2. Elasticity &amp; Total Expenditure (TR)</h2>
+    <div class="calc"><strong>Снижение цены ↑ TR</strong> тогда и только тогда, когда <strong>|ε| &gt; 1</strong> (elastic).</div>
     <table>
-        <tr><th>YED</th><th>Good type</th></tr>
-        <tr><td>&gt; 0</td><td>Normal good — buy more when income rises</td></tr>
-        <tr><td>&lt; 0</td><td>Inferior good — buy less when income rises</td></tr>
-        <tr><td>&gt; 1</td><td>Luxury</td></tr>
+        <tr><th>|ε|</th><th>P ↓</th><th>Total expenditure TR</th></tr>
+        <tr><td>&gt; 1</td><td>↓</td><td><strong>↑</strong> (Q растёт сильнее)</td></tr>
+        <tr><td>= 1</td><td>↓</td><td>без изменений</td></tr>
+        <tr><td>&lt; 1</td><td>↓</td><td><strong>↓</strong></td></tr>
     </table>
-    <div class="story">Ch. 2 (Figure 2.9): higher income shifts lobster demand right — normal good. Exam macro also uses YED; see <a href="Exam_Macro_Key_Questions.html#q4">Exam Q&amp;A</a>.</div>
 
-    <h2>3. Cross-price elasticity (XED)</h2>
-    <div class="formula-box"><strong>XED = (% ΔQ<sub>A</sub>) / (% ΔP<sub>B</sub>)</strong></div>
-    <div class="story">Ch. 2: crabs and lobsters are <strong>substitutes</strong> (XED &gt; 0) — if crab price rises, lobster demand shifts right. Butter with lobsters is a <strong>complement</strong> (XED &lt; 0).</div>
+    <h2>3. Determinants of PED (лекция)</h2>
+    <ul>
+        <li><strong>Substitution possibilities</strong> — нет заменителей → inelastic</li>
+        <li><strong>Direction of income effect</strong> — normal good обычно elasticнее inferior</li>
+        <li>Доля в бюджете, time horizon и др.</li>
+    </ul>
 
-    <h2>4. Elasticity and total revenue</h2>
-    <p><strong>Elastic:</strong> price ↓ → total revenue ↑. <strong>Inelastic:</strong> price ↓ → total revenue ↓. This is why monopolists care about |ε| (Ch. 11).</p>
+    <h2>4. Income elasticity (h)</h2>
+    <div class="calc"><strong>h = (ΔQ/Q) / (ΔIncome/Income)</strong></div>
+    <table>
+        <tr><th>h</th><th>Тип товара</th><th>Engel curve</th></tr>
+        <tr><td>0 &lt; h &lt; 1</td><td><strong>Necessity</strong> (food)</td><td>Растёт медленнее дохода</td></tr>
+        <tr><td>h &gt; 1</td><td><strong>Luxury</strong></td><td>Растёт быстрее дохода</td></tr>
+        <tr><td>h &lt; 0</td><td><strong>Inferior</strong></td><td>Q падает при росте дохода</td></tr>
+    </table>
 
-<div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Эластичность</strong> (Frank, гл. 4): PED = %ΔQ/%ΔP. |ε|&gt;1 эластичный, &lt;1 неэластичный. YED — нормальный/нижний товар. XED — заменители (+) и дополняющие (−). Связь с TR и монополией (MR и ε). Лобстеры и крабы — XED.</p></div>
+    <div class="graph-box">
+        <p class="graph-caption"><strong>График 2.</strong> Engel curves: зависимость Q от дохода при фиксированной цене.</p>
+        <svg class="svg-graph" viewBox="0 0 440 240" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="210" x2="410" y2="210" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="30">Q</text><text x="395" y="228">Income</text>
+            <path d="M 60 200 Q 200 120 380 60" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <text x="300" y="70" fill="#27ae60">Luxury h&gt;1</text>
+            <path d="M 60 190 L 380 100" stroke="#3498db" stroke-width="2.5" fill="none"/>
+            <text x="300" y="110" fill="#2980b9">Necessity 0&lt;h&lt;1</text>
+            <path d="M 60 80 L 380 180" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,3" fill="none"/>
+            <text x="300" y="175" fill="#c0392b">Inferior h&lt;0</text>
+        </svg>
+        <ul class="graph-legend">
+            <li><span class="swatch" style="background:#27ae60"></span><strong>Luxury</strong> — кривая выпуклая вверх: при росте дохода Q растёт быстрее.</li>
+            <li><span class="swatch" style="background:#3498db"></span><strong>Necessity</strong> — положительный, но пологий наклон (h&lt;1).</li>
+            <li><span class="swatch" style="background:#e74c3c"></span><strong>Inferior</strong> — Q падает при росте дохода (h&lt;0).</li>
+        </ul>
+    </div>
+
+    <div class="ru-foot"><p><strong>Кратко:</strong> ε=(P/Q)×(1/slope). |ε|&gt;1 → P↓ даёт TR↑. h: necessity 0–1, luxury &gt;1, inferior &lt;0.</p></div>
 </body>
 </html>
