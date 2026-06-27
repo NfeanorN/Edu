@@ -125,6 +125,44 @@
     .study-box p { margin: 0.35rem 0; font-size: 0.92rem; white-space: pre-wrap; }
     .study-box .en { color: #2c3e50; }
     .study-box .ru { color: #666; font-size: 0.88rem; margin-top: 0.5rem; }
+    .universal-open {
+      background: #fff8e6;
+      border: 3px solid #7b4397;
+      border-radius: 12px;
+      padding: 1.15rem 1.3rem;
+      margin: 0 0 1.5rem;
+      box-shadow: 0 4px 14px rgba(123, 67, 151, 0.15);
+    }
+    .universal-open h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+      color: #7b4397;
+    }
+    .universal-open .tag {
+      display: inline-block;
+      background: #7b4397;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 5px;
+      margin-bottom: 0.65rem;
+    }
+    .universal-open .text-en {
+      background: #fff;
+      border-left: 4px solid #7b4397;
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+      font-size: 0.93rem;
+      white-space: pre-wrap;
+      line-height: 1.65;
+      user-select: all;
+    }
+    .universal-open .text-ru {
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.65rem;
+    }
     .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
     table.matrix {
       border-collapse: collapse;
@@ -187,10 +225,19 @@
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← HRM tests</a> · <a href="04_DI_Authors_Study.html">Authors study</a> · <a href="05_DI_Practice_Mega.html">Practice mega</a> · <a href="06_DI_Exam_Photo_Style.html">Photo style</a></p>
+    <p class="back"><a href="index.html">← HRM tests</a> · <a href="08_DI_Open_Short_Answers.html"><strong>Open · карточки</strong></a> · <a href="05_DI_Practice_Mega.html">Practice mega</a> · <a href="06_DI_Exam_Photo_Style.html">Photo style</a></p>
+
+    <div class="universal-open" id="universal-open-box">
+      <span class="tag">OPEN · Q15</span>
+      <h2>Q15 на бланке</h2>
+      <p class="text-ru" style="margin:0"><strong>Q15 (фото):</strong> Describe <em>network externalities</em> + connect to <em>platforms</em> &amp; <em>Value Network</em>.<br>
+      <a href="08_DI_Open_Short_Answers.html"><strong>Мини-карточки для печати →</strong></a></p>
+    </div>
+
     <h1>Digital Innovation — Экзамен CFU 6</h1>
     <p class="sub">Digital Innovation Exam CFU 6 — 14 MCQ + open question / 14 MCQ + открытый вопрос</p>
-    <div class="rules">Exam: +1 / −0.2 per MCQ (questions 1–14). Open question 15 — sample answer after check.</div>
+    <div class="rules">Exam: +1 / −0.2 per MCQ (questions 1–14). Open question 15 — универсальный текст выше ↑</div>
+
     <div class="study-box" id="mvp-study">
       <h2>Lean Startup — MVP definition (learn this)</h2>
       <p class="en" id="mvp-def-en"></p>
@@ -279,8 +326,9 @@
       if (!OPEN_ITEMS.length) return;
       const h = document.createElement('div');
       h.className = 'section-title';
-      h.textContent = 'Open questions';
+      h.textContent = 'Open question 15 — practice';
       container.appendChild(h);
+
       OPEN_ITEMS.forEach((item, idx) => {
         const block = document.createElement('div');
         block.className = 'open-block';
@@ -288,11 +336,8 @@
           <div class="q-num">${item.title_en || item.title_ru}</div>
           <div class="q-en">${item.en}</div>
           <div class="q-ru">${item.ru}</div>
-          <div class="brief-answer"><div class="brief-label">Sample answer (EN)</div><div class="brief-text"></div></div>
+          <p class="q-ru" style="font-style:normal;color:#7b4397;font-weight:600">↑ Если не знаешь — пиши универсальный текст вверху страницы</p>
           <textarea name="open_${idx}" placeholder="Your answer..."></textarea>`;
-        const brief = block.querySelector('.brief-text');
-        const sampleRu = item.sample_en && item.sample_ru ? '\n\n—\n\n' + item.sample_ru : '';
-        brief.textContent = (item.sample_en || item.sample_ru || '') + sampleRu;
         container.appendChild(block);
       });
     }
