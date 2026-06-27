@@ -2,39 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Theory — Frank, Ch. 12</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #16a085; padding-bottom: 15px; margin-bottom: 10px; font-size: 2.1em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 18px; font-size: 1.55em; border-left: 5px solid #16a085; padding-left: 15px; }
-        p { margin: 14px 0; }
-        table { border-collapse: collapse; width: 100%; margin: 22px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-        th, td { border: 1px solid #ddd; padding: 11px 14px; text-align: center; }
-        th { background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%); color: white; }
-        .source { color: #666; font-size: 0.95em; margin-bottom: 24px; }
-        .story { background: #fff8e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .story::before { content: "📙 Frank (Ch. 12): "; font-weight: 700; color: #d68910; }
-        .key-box { background: #e8f8ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .key-box::before { content: "⭐ Exam: "; font-weight: 700; color: #1e7e45; }
-        .back a { color: #16a085; text-decoration: none; }
-        .payoff { font-size: 0.9em; color: #444; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Syllabus/06_Game_Theory.html">Syllabus #6</a> · <a href="Frank_Study_Guide_EN.html#oligopoly">Frank Ch. 13 oligopoly</a></p>
+<body class="nb-page nb-market">
+<div class="nb-sheet">
+<p class="back"><a href="index.html">← Economics topics</a> · <a href="Syllabus/06_Game_Theory.html">Syllabus #6</a> · <a href="Frank_Study_Guide_EN.html#oligopoly">Frank Ch. 13 oligopoly</a></p>
 
     <h1>Game Theory</h1>
     <p class="source">Source: <strong>Robert H. Frank, <em>Microeconomics and Behavior</em></strong>, Chapter 12 — «A Game-Theoretic Approach to Strategic Behavior». All examples below are from the textbook.</p>
 
     <h2>1. What is a game?</h2>
-    <p>A <strong>game</strong> has <strong>players</strong>, <strong>strategies</strong> (possible actions), and <strong>payoffs</strong> (outcomes). Your best move depends on what others do — this is <strong>strategic behaviour</strong>. Frank uses Ch. 12 before oligopoly (Ch. 13), where firms must guess rivals' reactions.</p>
+    <p class="nb-def">A <strong>game</strong> has <strong>players</strong>, <strong>strategies</strong> (possible actions), and <strong>payoffs</strong> (outcomes). Your best move depends on what others do — this is <strong>strategic behaviour</strong>. Frank uses Ch. 12 before oligopoly (Ch. 13), where firms must guess rivals' reactions.</p>
 
     <h2>2. Prisoner's Dilemma — Table 12.1</h2>
     <p>Two suspects are questioned separately. Each chooses <strong>Confess</strong> or <strong>Don't confess</strong>. Payoffs are years in prison (lower number = better for the player).</p>
@@ -59,5 +39,6 @@
     <p>See also: <a href="Market_Power_Explanation.html">Market Power</a> · <a href="Frank_Study_Guide_EN.html#oligopoly">Cournot / Bertrand / Stackelberg</a> · <a href="Syllabus/index.html">Syllabus (36 topics)</a></p>
 
 <div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Теория игр</strong> (гл. 12): дилемма заключённых, доминирующая стратегия, равновесие Нэша. Связь с олигополией — стимул сжульничать при сговоре. Последовательные и повторяющиеся игры — гл. 12.</p></div>
+</div>
 </body>
 </html>

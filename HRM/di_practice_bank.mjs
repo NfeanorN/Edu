@@ -297,7 +297,22 @@ export const BANK = [
     { id: "a", en: "Just a sketch with no customer exposure", ru: "Только эскиз без клиентов" },
     { id: "b", en: "A tool to ask competitors for opinions", ru: "Опрос конкурентов" },
     { id: "c", en: "A fully polished final product before any learning", ru: "Полностью готовый продукт до обучения" },
-    { id: "d", en: "A minimum version to test assumptions with real users — NOT any exam wrong options above", ru: "Минимальная версия для проверки гипотез — не варианты a–c" }, noneF], correct: "f", tip: "Exam Q10 answer F: все a–e неверны. MVP ≠ полный продукт." },
+    { id: "d", en: "A minimum version to test assumptions with real users — NOT any exam wrong options above", ru: "Минимальная версия для проверки гипотез — не варианты a–c" }, noneF], correct: "f", tip: "Exam 03 Q10 = F. Реальное определение Eric Ries — validated learning (см. фото Q10 = C)." },
+  { section: "Design & Startup", en: "Eric Ries (Lean Startup) defines an MVP as:", ru: "Eric Ries (Lean Startup) определяет MVP как:", options: [
+    { id: "a", en: "A version of a new product that allows a team to collect the maximum amount of validated learning about customers with the least effort", ru: "Версия продукта → максимум validated learning о клиентах с минимумом усилий" },
+    { id: "b", en: "A fully functional final product shown to customers after a huge investment", ru: "Полный продукт после огромных вложений" },
+    { id: "c", en: "Only a paper sketch with no customer contact", ru: "Только бумажный эскиз без клиентов" },
+    { id: "d", en: "A survey sent to competitors about your idea", ru: "Опрос конкурентов об идее" }, none], correct: "a", tip: "Выучи дословно: validated learning + least effort. Фото Q10 = этот вариант (C)." },
+  { section: "Design & Startup", en: "MVP stands for:", ru: "MVP расшифровывается как:", options: [
+    { id: "a", en: "Minimum Viable Product", ru: "Minimum Viable Product — минимально жизнеспособный продукт" },
+    { id: "b", en: "Maximum Value Proposition", ru: "Maximum Value Proposition" },
+    { id: "c", en: "Most Valuable Player", ru: "Most Valuable Player" },
+    { id: "d", en: "Minimum Viable Process", ru: "Minimum Viable Process" }, none], correct: "a", tip: "MVP = Minimum Viable Product (не process / не player)." },
+  { section: "Design & Startup", en: "The goal of an MVP in Lean Startup is:", ru: "Цель MVP в Lean Startup:", options: [
+    { id: "a", en: "Validated learning about customers with minimum effort", ru: "Validated learning о клиентах с минимумом усилий" },
+    { id: "b", en: "Launch a perfect product on day one", ru: "Идеальный продукт в первый день" },
+    { id: "c", en: "Beat competitors by copying their features", ru: "Победить конкурентов копированием фич" },
+    { id: "d", en: "Avoid talking to customers until the product is finished", ru: "Не говорить с клиентами до готовности" }, none], correct: "a", tip: "Learn fast from real users — не «perfect launch»." },
   { section: "Design & Startup", en: "Which is NOT what an MVP is for (Lean Startup)?", ru: "Для чего MVP НЕ предназначен (Lean Startup)?", options: [
     { id: "a", en: "Testing business hypotheses with real customers", ru: "Проверка гипотез с клиентами" },
     { id: "b", en: "Learning quickly with minimum effort", ru: "Быстрое обучение с минимумом усилий" },
