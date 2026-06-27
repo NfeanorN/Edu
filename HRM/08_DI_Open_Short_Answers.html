@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Open — листочки для печати</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #ddd; padding: 10px; }
+    .toolbar {
+      max-width: 21cm; margin: 0 auto 10px; font-size: 13px;
+      background: #fff; padding: 8px 12px; border-radius: 6px;
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+    }
+    .toolbar a { color: #7b4397; }
+    .toolbar button {
+      background: #7b4397; color: #fff; border: none; padding: 6px 14px;
+      border-radius: 5px; cursor: pointer; font-size: 13px; font-weight: 600;
+    }
+    .index { max-width: 21cm; margin: 0 auto 12px; background: #fff; padding: 8px 10px; border-radius: 6px; font-size: 10px; }
+    .index h1 { font-size: 13px; margin-bottom: 6px; }
+    .index table { width: 100%; border-collapse: collapse; }
+    .index th, .index td { border: 1px solid #eee; padding: 2px 5px; text-align: left; }
+    .index th { background: #7b4397; color: #fff; }
+
+    .slips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: flex-start;
+      max-width: 21cm;
+      margin: 0 auto;
+    }
+    .slip {
+      position: relative;
+      width: 3.6cm;
+      min-height: 4.8cm;
+      height: auto;
+      background: #fff;
+      border: 1px dashed #888;
+      padding: 1.5mm 7mm 1.5mm 1.8mm;
+      font-size: 5.2pt;
+      line-height: 1.22;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .slip .num {
+      position: absolute;
+      right: 1.2mm;
+      top: 0;
+      background: #7b4397;
+      color: #fff;
+      font-size: 5pt;
+      font-weight: 700;
+      padding: 0.2mm 1mm;
+      border-radius: 1px;
+      white-space: nowrap;
+    }
+    .slip .ru {
+      font-size: 5.2pt;
+      font-weight: 700;
+      color: #7b4397;
+      margin-bottom: 0.5mm;
+      padding-right: 0.5mm;
+    }
+    .slip .en {
+      font-size: 5.2pt;
+      color: #111;
+    }
+
+    @media print {
+      body { background: #fff; padding: 5mm; }
+      .toolbar, .index { display: none !important; }
+      .slips { gap: 4px; max-width: none; }
+      .slip { border-color: #aaa; }
+      @page { size: A4 portrait; margin: 8mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href="index.html">← HRM</a>
+    <span>15 карточек · 3.6 cm</span>
+    <button type="button" onclick="window.print()">🖨 Печать</button>
+  </div>
+  <div class="index">
+    <h1>Оглавление — 15 тем (на печати скрыто)</h1>
+    <table>
+      <tr><th>#</th><th>Вопрос (RU)</th></tr>
+      <tr><td>DI-1</td><td>Network externalities · Q15</td></tr>
+      <tr><td>DI-2</td><td>MVP · Lean Startup</td></tr>
+      <tr><td>DI-3</td><td>Rogers · diffusion &amp; free vs $20</td></tr>
+      <tr><td>DI-4</td><td>TAM · PU &amp; PEOU</td></tr>
+      <tr><td>DI-5</td><td>Onlife · Floridi</td></tr>
+      <tr><td>DI-6</td><td>Chain · Shop · Network</td></tr>
+      <tr><td>DI-7</td><td>Platform vs pipeline</td></tr>
+      <tr><td>DI-8</td><td>Double Diamond</td></tr>
+      <tr><td>DI-9</td><td>Agile vs Waterfall</td></tr>
+      <tr><td>DI-10</td><td>Blockchain</td></tr>
+      <tr><td>DI-11</td><td>Encryption</td></tr>
+      <tr><td>DI-12</td><td>BPM</td></tr>
+      <tr><td>DI-13</td><td>LLM hallucination</td></tr>
+      <tr><td>DI-14</td><td>Industry 5.0</td></tr>
+      <tr><td>DI-15</td><td>Dooley · CAO</td></tr>
+    </table>
+  </div>
+  <div class="slips">
+    <div class="slip">
+      <span class="num" style="top:0px">DI-1</span>
+      <div class="ru">Network externalities · Q15</div>
+      <div class="en">(i) Product becomes more valuable as more people use it (messenger, marketplace). (ii) Platforms grow via network effects (winner-take-all). Value Network (Stabell &amp; Fjeldstad) = value from linking users.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:5px">DI-2</span>
+      <div class="ru">MVP · Lean Startup</div>
+      <div class="en">(i) MVP = version that gives max validated learning about customers with min effort (Eric Ries). (ii) Build–Measure–Learn loop. Full product first = risk: big spend before demand is proven.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:10px">DI-3</span>
+      <div class="ru">Rogers · diffusion &amp; free vs $20</div>
+      <div class="en">(i) Diffusion = innovation spreads through communication in a social system (Rogers 1983). Attributes: relative advantage, compatibility, complexity, trialability, observability. Adopters: innovators → early majority → laggards.<br>(ii) Exam example: $20-only blocks trial → slow diffusion; free tier enables try + word-of-mouth → faster spread.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:15px">DI-4</span>
+      <div class="ru">TAM · PU &amp; PEOU</div>
+      <div class="en">TAM (Davis): Perceived Usefulness = belief system improves job performance. Perceived Ease of Use = belief system is free of effort. Both drive attitude and intention to use.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:20px">DI-5</span>
+      <div class="ru">Onlife · Floridi</div>
+      <div class="en">Onlife = online and offline are merged; asking «online or offline?» no longer makes sense. Digital layer is always part of everyday life (Floridi).</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:25px">DI-6</span>
+      <div class="ru">Chain · Shop · Network</div>
+      <div class="en">Value Chain = transform inputs into products (factory). Value Shop = solve unique client problems (hospital, consulting). Value Network = link interdependent users (platform, telecom).</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:30px">DI-7</span>
+      <div class="ru">Platform vs pipeline</div>
+      <div class="en">Pipeline firm makes product and sells step by step. Platform connects two sides (buyers/sellers) and gains value from network effects as users grow.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:35px">DI-8</span>
+      <div class="ru">Double Diamond</div>
+      <div class="en">Double Diamond: Discover (diverge) → Define (converge) → Develop (diverge) → Deliver (converge). Diverge = open options; converge = narrow choice.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:40px">DI-9</span>
+      <div class="ru">Agile vs Waterfall</div>
+      <div class="en">Waterfall = sequential phases (requirements → design → build → test). Agile = iterative sprints, frequent delivery, continuous feedback.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:45px">DI-10</span>
+      <div class="ru">Blockchain</div>
+      <div class="en">Blockchain = distributed ledger replicated on many nodes; blocks linked by cryptography. Proof of Work secures chain. Trust without central authority. ≠ Bitcoin alone.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:50px">DI-11</span>
+      <div class="ru">Encryption</div>
+      <div class="en">Encryption scrambles content so it cannot be read without the decryption key. Protects confidentiality. ≠ VPN (hides connection, not content).</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:55px">DI-12</span>
+      <div class="ru">BPM</div>
+      <div class="en">BPM = ongoing design, execution, monitoring and improvement of business processes. Needs process-oriented culture, not only software tools.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:60px">DI-13</span>
+      <div class="ru">LLM hallucination</div>
+      <div class="en">Hallucination = LLM outputs fluent but false/fabricated content (fake facts, citations). Model predicts words, not verified truth — human verification needed.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:65px">DI-14</span>
+      <div class="ru">Industry 5.0</div>
+      <div class="en">Industry 5.0 (Leng et al.) = human-centred collaboration with intelligent systems; well-being and sustainability, not automation alone.</div>
+    </div>
+    <div class="slip">
+      <span class="num" style="top:70px">DI-15</span>
+      <div class="ru">Dooley · CAO</div>
+      <div class="en">Complex adaptive organisation suits turbulent environments with diverse actors — not stable/predictable ones. MCQ trap: «stable» or «low diversity» = wrong; often answer E (none).</div>
+    </div>
+  </div>
+</body>
+</html>

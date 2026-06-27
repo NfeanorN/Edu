@@ -12,8 +12,7 @@ const questionsJson = JSON.stringify(
     id: "p" + (i + 1),
     section: q.section,
     en: q.en,
-    ru: q.ru,
-    options: q.options,
+    options: q.options.map((o) => ({ id: o.id, en: o.en })),
     correct: q.correct,
     tip: q.tip || "",
   }))
@@ -106,8 +105,7 @@ const html = `<!doctype html>
     .q.wrong { border-color: #e74c3c; background: #fff8f8; }
     .q-num { font-weight: 700; color: #7b4397; margin-bottom: 0.35rem; font-size: 0.9rem; }
     .q-tag { font-size: 0.75rem; color: #888; font-weight: 500; }
-    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
-    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.75rem; }
     .opts { display: grid; gap: 0.45rem; }
     label.opt {
       display: flex;
@@ -121,7 +119,6 @@ const html = `<!doctype html>
     .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
     .opt-en { font-size: 0.95rem; }
-    .opt-ru { font-size: 0.82rem; color: #777; }
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -186,7 +183,7 @@ const html = `<!doctype html>
       <a href="04_DI_Authors_Study.html">Authors</a>
     </p>
     <h1>Digital Innovation — Practice Mega</h1>
-    <p class="sub">${BANK.length} MCQ · exam topics + authors · English first · shuffle & exam mode</p>
+    <p class="sub">${BANK.length} MCQ · exam topics + authors · shuffle & exam mode</p>
     <div class="rules">
       <strong>How to study:</strong> Start with <em>Exam mode (14 random)</em> — same length as the real test.
       Scoring like exam: +1 / −0.2. Wrong answers show a memory tip.
@@ -289,15 +286,11 @@ const html = `<!doctype html>
         card.innerHTML = \`
           <div class="q-num">Question \${q.displayNum} <span class="q-tag">· \${q.section}</span></div>
           <div class="q-en">\${q.en}</div>
-          <div class="q-ru">\${q.ru}</div>
           <div class="opts">
             \${q.options.map((o) => \`
               <label class="opt">
                 <input type="radio" name="\${q.id}" value="\${o.id}" />
-                <span>
-                  <div class="opt-en"><strong>\${o.id.toUpperCase()})</strong> \${o.en}</div>
-                  <div class="opt-ru">\${o.ru}</div>
-                </span>
+                <span class="opt-en"><strong>\${o.id.toUpperCase()})</strong> \${o.en}</span>
               </label>\`).join("")}
           </div>
           <div class="feedback" hidden></div>\`;
