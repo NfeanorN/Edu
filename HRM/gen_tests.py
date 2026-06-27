@@ -61,8 +61,7 @@ TEMPLATE = """<!doctype html>
     .q.correct {{ border-color: #27ae60; background: #f6fff9; }}
     .q.wrong {{ border-color: #e74c3c; background: #fff8f8; }}
     .q-num {{ font-weight: 700; color: #7b4397; margin-bottom: 0.35rem; }}
-    .q-en {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}
-    .q-ru {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}
+    .q-en {{ font-size: 1.02rem; margin-bottom: 0.75rem; }}
     .opts {{ display: grid; gap: 0.45rem; }}
     label.opt {{
       display: flex;
@@ -76,7 +75,6 @@ TEMPLATE = """<!doctype html>
   .result-opt {{ cursor: default; }}
     label.opt input {{ margin-top: 0.25rem; flex-shrink: 0; }}
     .opt-en {{ font-size: 0.95rem; }}
-    .opt-ru {{ font-size: 0.82rem; color: #777; }}
     .feedback {{
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -229,15 +227,11 @@ TEMPLATE = """<!doctype html>
         card.innerHTML = `
           <div class="q-num">Question ${{q.num}}</div>
           <div class="q-en">${{q.en}}</div>
-          <div class="q-ru">${{q.ru}}</div>
           <div class="opts">
             ${{q.options.map(o => `
               <label class="opt">
                 <input type="radio" name="${{q.id}}" value="${{o.id}}" />
-                <span>
-                  <div class="opt-en"><strong>${{o.id.toUpperCase()}})</strong> ${{o.en}}</div>
-                  <div class="opt-ru">${{o.ru}}</div>
-                </span>
+                <span class="opt-en"><strong>${{o.id.toUpperCase()}})</strong> ${{o.en}}</span>
               </label>`).join('')}}
           </div>
           <div class="feedback" hidden></div>`;
@@ -255,14 +249,11 @@ TEMPLATE = """<!doctype html>
         const block = document.createElement('div');
         block.className = 'open-block';
         block.innerHTML = `
-          <div class="q-num">${{item.title_en || item.title_ru}}</div>
+          <div class="q-num">${{item.title_en || ('Open question ' + (idx + 1))}}</div>
           <div class="q-en">${{item.en}}</div>
-          <div class="q-ru">${{item.ru}}</div>
           <div class="brief-answer"><div class="brief-label">Sample answer (EN)</div><div class="brief-text"></div></div>
           <textarea name="open_${{idx}}" placeholder="Your answer..."></textarea>`;
-        const brief = block.querySelector('.brief-text');
-        const sampleRu = item.sample_en && item.sample_ru ? '\\n\\n—\\n\\n' + item.sample_ru : '';
-        brief.textContent = (item.sample_en || item.sample_ru || '') + sampleRu;
+        block.querySelector('.brief-text').textContent = item.sample_en || item.sample_ru || '';
         container.appendChild(block);
       }});
     }}
@@ -278,7 +269,6 @@ TEMPLATE = """<!doctype html>
         block.className = 'open-block';
         block.innerHTML = `
           <div class="q-en">${{item.en}}</div>
-          <div class="q-ru">${{item.ru}}</div>
           <input type="text" name="sna_${{idx}}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
           <div class="feedback" hidden></div>`;
         block.dataset.expected = item.expected;
@@ -424,11 +414,11 @@ TEMPLATE = """<!doctype html>
 """
 
 INDEX = """<!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HRM — Тесты / Human Resource Management</title>
+  <title>HRM — Tests</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -465,20 +455,31 @@ INDEX = """<!doctype html>
     }
     .title { font-weight: 600; font-size: 1.05rem; }
     .desc { color: #666; font-size: 0.88rem; margin-top: 4px; }
+    h2.section {
+      font-size: 1rem;
+      color: #7b4397;
+      margin: 1.75rem 0 0.5rem;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Human Resource Management</h1>
-    <p class="sub">Управление персоналом — интерактивные тесты с проверкой ответов и переводом на русский</p>
-    <p class="sub" style="font-size:0.92rem;margin-top:-0.75rem">Источник экзамена: <strong>Exam HR _DI (1).pdf</strong> — вопросы 1–15 (HRM) и 1–14 + SNA (DI)</p>
+    <p class="sub">Interactive tests · Exam HR _DI (1).pdf</p>
+
+    <h2 class="section">Digital Innovation — exam</h2>
     <ul class="topics">
-      <li><a href="01_HRM_Practice_Test.html"><span class="title">01 — HRM Practice Test</span><span class="desc">27 MCQ + открытые вопросы и кейс Kendall Toy (PDF: HRM (2).pdf)</span></a></li>
-      <li><a href="02_HRM_Exam_CFU6.html"><span class="title">02 — HRM Exam CFU 6</span><span class="desc">15 MCQ + открытый вопрос Herzberg ← <strong>Exam HR _DI</strong>, стр. 1–3</span></a></li>
-      <li><a href="03_Digital_Innovation_Exam_CFU6.html"><span class="title">03 — Digital Innovation Exam CFU 6</span><span class="desc">14 MCQ + open (network externalities) ← <strong>Exam DI CFU 6</strong>, Key A</span></a></li>
-      <li><a href="04_DI_Authors_Study.html"><span class="title">04 — DI Authors Study</span><span class="desc">20 authors — flashcards, table, quiz</span></a></li>
-      <li><a href="05_DI_Practice_Mega.html"><span class="title">05 — DI Practice Mega</span><span class="desc">80+ MCQ drill — exam mode, topics, memory tips</span></a></li>
-      <li><a href="06_DI_Exam_Photo_Style.html"><span class="title">06 — DI Exam Photo Style</span><span class="desc">5 sets — photo Q9–14 exact, PDF variant, traps</span></a></li>
+      <li><a href="08_DI_Open_Short_Answers.html"><span class="title">08 — Open · cheat cards (15)</span><span class="desc">Print · network externalities, Rogers, TAM…</span></a></li>
+      <li><a href="03_Digital_Innovation_Exam_CFU6.html"><span class="title">03 — Exam CFU 6</span><span class="desc">14 MCQ + open Q15 · Key A</span></a></li>
+      <li><a href="06_DI_Exam_Photo_Style.html"><span class="title">06 — Exam Photo Style</span><span class="desc">5 sets like the blank · Q9–14</span></a></li>
+      <li><a href="05_DI_Practice_Mega.html"><span class="title">05 — Practice Mega</span><span class="desc">85 MCQ · exam mode 14 random</span></a></li>
+    </ul>
+
+    <h2 class="section">HRM</h2>
+    <ul class="topics">
+      <li><a href="01_HRM_Practice_Test.html"><span class="title">01 — HRM Practice Test</span><span class="desc">27 MCQ + open · Kendall Toy</span></a></li>
+      <li><a href="02_HRM_Exam_CFU6.html"><span class="title">02 — HRM Exam CFU 6</span><span class="desc">15 MCQ + open Herzberg</span></a></li>
     </ul>
   </div>
 </body>
