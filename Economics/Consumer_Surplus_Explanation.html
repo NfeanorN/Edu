@@ -2,53 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consumer Surplus — Излишек потребителя</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #27ae60; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #27ae60; padding-left: 15px; }
-        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
-        p { margin: 15px 0; text-align: justify; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
-        th { background: linear-gradient(135deg, #27ae60 0%, #219a52 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        tr:hover { background-color: #e8f8f0; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
-        ul, ol { margin: 15px 0; padding-left: 30px; }
-        li { margin: 10px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
-        .formula-box { background: #e8f8f0; border-left: 4px solid #27ae60; padding: 15px; margin: 20px 0; border-radius: 4px; }
-        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #27ae60; text-decoration: none; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1.5rem auto; }
-        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
-        .svg-graph .demand { stroke: #27ae60; stroke-width: 2.5; fill: none; }
-        .svg-graph .supply { stroke: #2980b9; stroke-width: 2.5; fill: none; }
-        .svg-graph .cs-area { fill: rgba(39, 174, 96, 0.25); stroke: #27ae60; stroke-width: 1; }
-        .svg-graph .ps-area { fill: rgba(41, 128, 185, 0.25); stroke: #2980b9; stroke-width: 1; }
-        .svg-graph .eq-line { stroke: #e74c3c; stroke-width: 1; stroke-dasharray: 5,4; }
-        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; fill: #2c3e50; }
-        .svg-graph .label-cs { fill: #1e8449; font-weight: 600; }
-        .svg-graph .label-ps { fill: #1a5276; font-weight: 600; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+<body class="nb-page nb-market">
+<div class="nb-sheet">
+<p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
 
     <h1>Consumer Surplus — Излишек потребителя</h1>
 
     <h2>Definition / Определение</h2>
-    <p><strong>Consumer surplus (CS)</strong> is the difference between what consumers are <strong>willing to pay</strong> for a good (their maximum willingness to pay, or reservation price) and what they <strong>actually pay</strong> (the market price). It measures the net benefit to consumers from participating in the market.</p>
+    <p class="nb-def"><strong>Consumer surplus (CS)</strong> is the difference between what consumers are <strong>willing to pay</strong> for a good (their maximum willingness to pay, or reservation price) and what they <strong>actually pay</strong> (the market price). It measures the net benefit to consumers from participating in the market.</p>
     <p><strong>Излишек потребителя (CS)</strong> — разница между тем, что потребители <strong>готовы заплатить</strong> за товар (максимальная готовность платить), и тем, что они <strong>фактически платят</strong> (рыночная цена). Это выигрыш потребителей от обмена.</p>
 
     <div class="formula-box">
@@ -157,5 +122,6 @@
 <p>CS = ∫(WTP − P)dQ from 0 to Q* = triangle under D above price. <strong>Total surplus</strong> = CS + PS. Monopoly reduces CS vs competition.</p>
 
 <div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Излишек потребителя</strong> = WTP − фактическая цена; на графике — треугольник под D и над P. Frank, рис. 5.4. <strong>Резервационная цена</strong> пограничного покупателя = высота D. Общий излишек = CS + PS. Монополия уменьшает CS.</p></div>
+</div>
 </body>
 </html>

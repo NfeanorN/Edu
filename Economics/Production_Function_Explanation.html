@@ -2,67 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Production Function — Производственная функция (Frank, Ch. 8)</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.85; margin: 0; padding: 40px; color: #333; max-width: 920px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #9b59b6; padding-bottom: 15px; margin-bottom: 10px; font-size: 2.1em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 18px; font-size: 1.55em; border-left: 5px solid #9b59b6; padding-left: 15px; }
-        h3 { color: #555; margin-top: 26px; margin-bottom: 12px; font-size: 1.2em; }
-        p { margin: 14px 0; text-align: justify; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 22px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-        th, td { border: 1px solid #ddd; padding: 11px 14px; text-align: left; vertical-align: top; }
-        th { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 36px 0; }
-        ul, ol { margin: 14px 0; padding-left: 28px; }
-        li { margin: 8px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 20px 0; }
-        .formula-box { background: #f5eef8; border-left: 4px solid #9b59b6; padding: 14px 18px; margin: 18px 0; border-radius: 4px; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #9b59b6; text-decoration: none; }
-        .back a:hover { text-decoration: underline; }
-        .source { color: #666; font-size: 0.95em; margin-bottom: 24px; }
-        .book-ref { display: inline-block; background: #eee; color: #555; font-size: 0.82em; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-style: normal; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
-        .fig-caption { text-align: center; font-size: 0.9em; color: #555; margin: 8px 0 4px; line-height: 1.55; }
-        .key-box { background: #e8f8ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .key-box::before { content: "⭐ Экзамен / Exam: "; font-weight: 700; color: #1e7e45; }
-        .story { background: #fff8e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .story::before { content: "📖 Пример Frank / Example: "; font-weight: 700; color: #d68910; }
-        .en { color: #555; font-size: 0.95em; padding: 8px 0 8px 14px; border-left: 3px solid #5b8def; margin: 8px 0 14px; font-style: italic; }
-        .en::before { content: "EN: "; font-weight: 700; color: #3a6cdc; font-style: normal; }
-        .warn-box { background: #fdf2f2; border-left: 4px solid #e74c3c; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .simple-box { background: #f0f4ff; border-left: 4px solid #5b8def; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .simple-box::before { content: "💡 Простыми словами / In plain words: "; font-weight: 700; color: #3a6cdc; display: block; margin-bottom: 8px; }
-        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; font-size: 0.92em; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Production_Cost_Short_Run_Explanation.html">Production &amp; Cost (SR)</a> · <a href="Frank_Study_Guide.html#tp-mp-ap">Frank Ch. 8</a></p>
+<body class="nb-page nb-firm">
+<div class="nb-sheet">
+<p class="back"><a href="index.html">← Economics topics</a> · <a href="Production_Cost_Short_Run_Explanation.html">Production &amp; Cost (SR)</a> · <a href="Frank_Study_Guide.html#tp-mp-ap">Frank Ch. 8</a></p>
 
     <h1>Production Function — Производственная функция</h1>
     <p class="source">Источник: <strong>Frank, Ch. 8</strong> — «Production». Все примеры из учебника: кухня с поварами, детали на заводе.</p>
 
     <div class="simple-box">
         <strong>Одной фразой:</strong> производственная функция отвечает на вопрос — <em>«Если у меня столько-то работников и столько-то оборудования, сколько я смогу произвести?»</em>
-        <p class="en" style="margin-bottom:0;border:none;padding-left:0;font-style:normal;">In one sentence: the production function answers — <em>“If I have this many workers and this much equipment, how much can I produce?”</em></p>
+        <p class="nb-en" style="margin-bottom:0;border:none;padding-left:0;font-style:normal;">In one sentence: the production function answers — <em>“If I have this many workers and this much equipment, how much can I produce?”</em></p>
     </div>
 
     <!-- ===== 1 ===== -->
     <h2>1. Зачем это нужно? <span class="book-ref">Ch. 8</span></h2>
-    <p>У любой фирмы есть <strong>ресурсы</strong> (люди, машины, помещение) и <strong>результат</strong> — сколько товара она выпустила. Производственная функция — это <strong>связь между ресурсами и выпуском</strong>.</p>
-    <p class="en">Every firm has inputs (people, machines, space) and output (how much it makes). The production function is the link between inputs and output.</p>
+    <p class="nb-def">У любой фирмы есть <strong>ресурсы</strong> (люди, машины, помещение) и <strong>результат</strong> — сколько товара она выпустила. Производственная функция — это <strong>связь между ресурсами и выпуском</strong>.</p>
+    <p class="nb-en">Every firm has inputs (people, machines, space) and output (how much it makes). The production function is the link between inputs and output.</p>
 
     <p>Пример из Frank: маленькая <strong>кухня</strong>. Кухня и плита — это <strong>капитал K</strong> (не меняется в краткосрочном периоде). <strong>Повара</strong> — это <strong>труд L</strong> (можно нанять больше или меньше). Вопрос: сколько <strong>блюд в час (Q)</strong> получится?</p>
-    <p class="en">Frank's example: a small kitchen. The kitchen and stove = capital K (fixed in the short run). Cooks = labour L (you can hire more or fewer). Question: how many dishes per hour (Q)?</p>
+    <p class="nb-en">Frank's example: a small kitchen. The kitchen and stove = capital K (fixed in the short run). Cooks = labour L (you can hire more or fewer). Question: how many dishes per hour (Q)?</p>
 
     <hr>
 
@@ -80,14 +42,14 @@
         <p><strong>Краткосрочный период (SR):</strong> K <strong>не меняется</strong> → пишут <strong>Q = f(L, K̄)</strong> (K с чертой = зафиксирован)</p>
         <p><strong>Долгосрочный период (LR):</strong> можно менять и L, и K → см. <a href="Cost_Long_Run_Explanation.html">Ch. 9</a></p>
     </div>
-    <p class="en">Short run: K is fixed (one kitchen, fixed size). Long run: you can build a bigger kitchen or buy more ovens.</p>
+    <p class="nb-en">Short run: K is fixed (one kitchen, fixed size). Long run: you can build a bigger kitchen or buy more ovens.</p>
 
     <div class="warn-box">
         <strong>Не путай два разных закона!</strong><br>
         · <strong>Убывающая отдача (Ch. 8, SR):</strong> кухня одна (K фикс.), нанимаешь всё больше поваров → каждый <em>новый</em> повар добавляет всё меньше блюд.<br>
-        <p class="en" style="margin:8px 0 0;border:none;padding:0;font-style:normal;color:#555;">Diminishing returns (SR): one fixed kitchen, hire more cooks → each extra cook adds fewer dishes.</p>
+        <p class="nb-en" style="margin:8px 0 0;border:none;padding:0;font-style:normal;color:#555;">Diminishing returns (SR): one fixed kitchen, hire more cooks → each extra cook adds fewer dishes.</p>
         · <strong>Масштаб возврата (Ch. 9, LR):</strong> удвоить <em>и</em> поваров, <em>и</em> печи → Q вырастет в 2 раза? больше? меньше? См. <a href="Exam_Prep_Guide.html#t1">Exam #1</a>.<br>
-        <p class="en" style="margin:8px 0 0;border:none;padding:0;font-style:normal;color:#555;">Returns to scale (LR): double both cooks and ovens — does Q double, more than double, or less?</p>
+        <p class="nb-en" style="margin:8px 0 0;border:none;padding:0;font-style:normal;color:#555;">Returns to scale (LR): double both cooks and ovens — does Q double, more than double, or less?</p>
     </div>
 
     <hr>
@@ -96,7 +58,7 @@
     <h2>3. Три числа, которые нужно знать: TP, MP, AP <span class="book-ref">Ch. 8</span></h2>
 
     <p>Не пугайся букв. Это просто <strong>три способа посмотреть на один и тот же выпуск</strong>:</p>
-    <p class="en">Don't fear the letters. These are just three ways to look at the same output.</p>
+    <p class="nb-en">Don't fear the letters. These are just three ways to look at the same output.</p>
 
     <table>
         <tr><th>Название</th><th>English</th><th>Формула</th><th>О чём спрашиваем?</th></tr>
@@ -125,7 +87,7 @@
         5 рабочих → 50 деталей. 6 рабочих → 56 деталей.<br>
         · MP 6-го рабочего = 56 − 50 = <strong>6</strong> (он добавил 6 деталей, не 56!)<br>
         · AP при 6 рабочих = 56 ÷ 6 ≈ <strong>9,3</strong> детали на человека
-        <p class="en" style="margin-top:10px;border:none;padding:0;font-style:normal;">5 workers → 50 parts. 6 workers → 56 parts. MP of the 6th = 6 (not 56!). AP at L=6 = 56/6 ≈ 9.3 parts per worker.</p>
+        <p class="nb-en" style="margin-top:10px;border:none;padding:0;font-style:normal;">5 workers → 50 parts. 6 workers → 56 parts. MP of the 6th = 6 (not 56!). AP at L=6 = 56/6 ≈ 9.3 parts per worker.</p>
     </div>
 
     <hr>
@@ -133,7 +95,7 @@
     <!-- ===== 4 ===== -->
     <h2>4. Главный пример — кухня Frank <span class="book-ref">Ch. 8</span></h2>
     <p>Одна маленькая кухня (K фиксирован). Смотрим, что происходит, когда нанимаем поваров:</p>
-    <p class="en">One small kitchen (K fixed). What happens as we hire more cooks?</p>
+    <p class="nb-en">One small kitchen (K fixed). What happens as we hire more cooks?</p>
 
     <table>
         <tr><th>Поваров (L)</th><th>Блюд/час (Q)</th><th>MP<br><small>прирост от последнего</small></th><th>AP<br><small>Q ÷ L</small></th><th>Что происходит / What happens</th></tr>
@@ -147,7 +109,7 @@
 
     <div class="simple-box">
         <strong>Вывод из таблицы:</strong> сначала каждый новый повар <strong>много помогает</strong> (MP = 15). Потом — всё меньше (MP = 5, 1). А шестой повар <strong>вредит</strong> (MP = −3): блюд стало <em>меньше</em>, чем было с пятью.
-        <p class="en" style="margin-bottom:0;border:none;padding-left:0;font-style:normal;">At first each cook helps a lot. Then less and less. The 6th cook hurts: output drops from 41 to 38.</p>
+        <p class="nb-en" style="margin-bottom:0;border:none;padding-left:0;font-style:normal;">At first each cook helps a lot. Then less and less. The 6th cook hurts: output drops from 41 to 38.</p>
     </div>
 
     <hr>
@@ -155,12 +117,12 @@
     <!-- ===== 5 ===== -->
     <h2>5. Закон убывающей отдачи <span class="book-ref">Ch. 8</span></h2>
     <p><strong>Простыми словами:</strong> если площадь кухни не растёт, а поваров становится всё больше — рано или поздно <strong>каждый следующий повар добавляет меньше</strong>, чем предыдущий. Это и есть <strong>law of diminishing returns</strong>.</p>
-    <p class="en">In plain words: if the kitchen stays the same size but you keep hiring cooks, eventually each new cook adds less than the one before. That's diminishing returns.</p>
+    <p class="nb-en">In plain words: if the kitchen stays the same size but you keep hiring cooks, eventually each new cook adds less than the one before. That's diminishing returns.</p>
 
     <div class="key-box">
         Главное правило Ch. 8 (только для <strong>краткосрочного</strong> периода, когда K фиксирован):<br>
         <strong>+1 работник при фиксированном K → MP в итоге падает.</strong>
-        <p class="en" style="margin:8px 0 0;font-style:normal;color:#333;">Main rule: add workers to fixed capital → marginal product eventually falls.</p>
+        <p class="nb-en" style="margin:8px 0 0;font-style:normal;color:#333;">Main rule: add workers to fixed capital → marginal product eventually falls.</p>
     </div>
 
     <p>Последовательность на графике <strong>TP</strong> (сколько всего блюд):</p>
@@ -169,7 +131,7 @@
         <li>Когда MP = 0 → TP на <strong>максимуме</strong> (ещё один повар ничего не добавляет)</li>
         <li>Когда MP &lt; 0 → TP <strong>падает</strong> (лишний повар мешает)</li>
     </ol>
-    <p class="en">While MP &gt; 0, total output rises. At MP = 0, output is max. If MP &lt; 0, total output falls.</p>
+    <p class="nb-en">While MP &gt; 0, total output rises. At MP = 0, output is max. If MP &lt; 0, total output falls.</p>
 
     <div class="graph-box">
         <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="TP curve">
@@ -199,7 +161,7 @@
         · Оценка <strong>5</strong> (MP &lt; AP) → средний балл <strong>падает</strong><br>
         · Оценка <strong>7</strong> (MP = AP) → средний <strong>на пике</strong><br><br>
         <strong>Новый ученик = MP</strong> (последний работник). <strong>Класс = AP</strong> (средний на всех).
-        <p class="en" style="margin-top:10px;border:none;padding:0;font-style:normal;">Class average = 7. New student with grade 9 pulls average up (MP &gt; AP). Grade 5 pulls it down (MP &lt; AP). New student = MP, class = AP.</p>
+        <p class="nb-en" style="margin-top:10px;border:none;padding:0;font-style:normal;">Class average = 7. New student with grade 9 pulls average up (MP &gt; AP). Grade 5 pulls it down (MP &lt; AP). New student = MP, class = AP.</p>
     </div>
 
     <table>
@@ -235,7 +197,7 @@
         <tr><td><strong>III</strong></td><td>Лишние люди — MP &lt; 0, выпуск падает / Too many — MP &lt; 0, output falls</td></tr>
     </table>
     <p>Фирма обычно работает в <strong>стадии II</strong> — не слишком мало и не слишком много работников.</p>
-    <p class="en">Firms usually operate in Stage II — not too few, not too many workers.</p>
+    <p class="nb-en">Firms usually operate in Stage II — not too few, not too many workers.</p>
 
     <hr>
 
@@ -243,13 +205,13 @@
     <h2>7. Связь с издержками: MP и MC <span class="book-ref">Ch. 9</span></h2>
 
     <p><strong>Простыми словами:</strong> если последний повар делает мало блюд (MP маленький), то <strong>каждое новое блюдо «дорого» в труде</strong> → предельные издержки MC растут. Производство и издержки — две стороны одной медали.</p>
-    <p class="en">If the last cook adds few dishes (low MP), each extra dish costs a lot in labour → marginal cost MC rises. Production and costs are two sides of the same coin.</p>
+    <p class="nb-en">If the last cook adds few dishes (low MP), each extra dish costs a lot in labour → marginal cost MC rises. Production and costs are two sides of the same coin.</p>
 
     <div class="formula-box">
         <p><strong>MC = w / MP</strong> &nbsp; (w = зарплата за единицу труда / wage per unit of labour)</p>
         <p><strong>AVC = w / AP</strong></p>
         <p>MP большой → MC маленький · MP падает → MC растёт → кривые U-образные</p>
-        <p class="en" style="margin-top:8px;font-style:normal;color:#555;">High MP → low MC. Falling MP → rising MC. That's why cost curves are U-shaped.</p>
+        <p class="nb-en" style="margin-top:8px;font-style:normal;color:#555;">High MP → low MC. Falling MP → rising MC. That's why cost curves are U-shaped.</p>
     </div>
 
     <div class="graph-box">
@@ -273,11 +235,11 @@
     <!-- ===== 8 ===== -->
     <h2>8. Долгосрочный период — вкратце <span class="book-ref">Ch. 9</span></h2>
     <p>Когда можно <strong>расширить кухню</strong> или купить больше печей — меняются и L, и K. Один и тот же выпуск (100 пирогов) можно получить по-разному: много пекарей + мало печей, или наоборот.</p>
-    <p class="en">When you can expand the kitchen or buy more ovens — both L and K change. Same output (100 pies) can come from many bakers + few ovens, or the reverse.</p>
+    <p class="nb-en">When you can expand the kitchen or buy more ovens — both L and K change. Same output (100 pies) can come from many bakers + few ovens, or the reverse.</p>
 
     <div class="story">
         Frank — пекарня: <strong>100 пирогов/день</strong> = либо <strong>10 пекарей + 2 печи</strong>, либо <strong>3 пекаря + 5 печей</strong>. Это одна и та же «высота» — изокванта Q = 100.
-        <p class="en" style="margin-top:8px;border:none;padding:0;font-style:normal;">100 pies/day = either 10 bakers + 2 ovens, or 3 bakers + 5 ovens — same isoquant Q = 100.</p>
+        <p class="nb-en" style="margin-top:8px;border:none;padding:0;font-style:normal;">100 pies/day = either 10 bakers + 2 ovens, or 3 bakers + 5 ovens — same isoquant Q = 100.</p>
     </div>
     <p>→ Подробно: <a href="Cost_Long_Run_Explanation.html">Cost Long Run (изокванты)</a></p>
 
@@ -289,11 +251,12 @@
         MP &gt; AP → AP растёт · MP пересекает AP в max AP · MP = 0 → max TP<br>
         Убывающая отдача: +L при фикс. K → MP падает<br>
         MC = w/MP · Стадия II — рабочая зона фирмы
-        <p class="en" style="margin-top:10px;font-style:normal;color:#333;">TP = total · MP = last worker's addition · AP = Q/L. Diminishing returns when K fixed. Stage II = normal operating zone.</p>
+        <p class="nb-en" style="margin-top:10px;font-style:normal;color:#333;">TP = total · MP = last worker's addition · AP = Q/L. Diminishing returns when K fixed. Stage II = normal operating zone.</p>
     </div>
 
     <p>See also: <a href="Production_Cost_Short_Run_Explanation.html">Production &amp; Cost (SR)</a> · <a href="Cost_Long_Run_Explanation.html">Cost Long Run</a> · <a href="PPF_Explanation.html">PPF</a></p>
 
 <div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Производственная функция</strong> (гл. 8): кухня — повара при фиксированной кухне. TP, MP, AP; убывающая отдача труда в КП. Отдача от масштаба — в ДП (гл. 9). MC = w/MP.</p></div>
+</div>
 </body>
 </html>

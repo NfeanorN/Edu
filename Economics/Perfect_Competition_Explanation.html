@@ -2,62 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfect Competition — Совершенная конкуренция (Frank Ch. 10)</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 920px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #27ae60; padding-bottom: 15px; margin-bottom: 10px; font-size: 2.1em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 18px; font-size: 1.55em; border-left: 5px solid #27ae60; padding-left: 15px; }
-        h3 { color: #555; margin-top: 26px; margin-bottom: 12px; font-size: 1.2em; }
-        p { margin: 14px 0; text-align: justify; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 22px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-        th, td { border: 1px solid #ddd; padding: 11px 14px; text-align: left; }
-        th { background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 36px 0; }
-        ul, ol { margin: 14px 0; padding-left: 28px; }
-        li { margin: 8px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 20px 0; }
-        .formula-box { background: #e8f8f0; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 18px 0; border-radius: 4px; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #27ae60; text-decoration: none; }
-        .back a:hover { text-decoration: underline; }
-        .source { color: #666; font-size: 0.95em; margin-bottom: 24px; }
-        .book-ref { display: inline-block; background: #eee; color: #555; font-size: 0.82em; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-style: normal; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
-        .graph-legend { font-size: 0.92em; margin: 12px 0 0; padding: 0; }
-        .graph-legend li { margin: 6px 0; }
-        .graph-legend .swatch { display: inline-block; width: 28px; height: 3px; vertical-align: middle; margin-right: 6px; }
-        .graph-legend .box { display: inline-block; width: 14px; height: 14px; vertical-align: middle; margin-right: 6px; border: 1px solid #999; }
-        .graph-caption { font-size: 0.9em; color: #555; margin: 0 0 10px; }
-        .lecture-ref { background: #eef8ff; border-left: 4px solid #3498db; padding: 10px 14px; margin: 14px 0; font-size: 0.93em; }
-        .key-box { background: #e8f8ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .key-box::before { content: "⭐ Экзамен / Exam: "; font-weight: 700; color: #1e7e45; }
-        .story { background: #fff8e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .story::before { content: "📖 Пример Frank / Example: "; font-weight: 700; color: #d68910; }
-        .en { color: #555; font-size: 0.95em; padding: 8px 0 8px 14px; border-left: 3px solid #5b8def; margin: 8px 0 14px; font-style: italic; }
-        .en::before { content: "EN: "; font-weight: 700; color: #3a6cdc; font-style: normal; }
-        .warn-box { background: #fdf2f2; border-left: 4px solid #e74c3c; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; font-size: 0.92em; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Frank_Study_Guide.html#profit-max">Frank Ch. 10</a> · <a href="Exam_Prep_Guide.html#t15">Exam #15</a> · <a href="Monopoly_Explanation.html">Monopoly (Ch. 11)</a></p>
+<body class="nb-page nb-firm">
+<div class="nb-sheet">
+<p class="back"><a href="index.html">← Economics topics</a> · <a href="Frank_Study_Guide.html#profit-max">Frank Ch. 10</a> · <a href="Exam_Prep_Guide.html#t15">Exam #15</a> · <a href="Monopoly_Explanation.html">Monopoly (Ch. 11)</a></p>
 
     <h1>Perfect Competition — Совершенная конкуренция</h1>
     <p class="source">Источники: <strong>Lec 24-11-2025</strong> &amp; <strong>Lec 28-11-2025</strong> (McGraw Hill, Perfect Competition) · <strong>Earl &amp; Wakeley, Ch. 7</strong> (Fig. 7.2–7.5) · <strong>Google Drawings</strong> — long-run supply · Frank Ch. 10 (доп.).</p>
     <div class="lecture-ref"><strong>Lec 24:</strong> 4 условия, MR = MC. <strong>Lec 28:</strong> shutdown, SR/LR supply, producer surplus, entry/exit, LR equilibrium P = SMC = LMC = ATC = LAC.</div>
 
     <h2>1. Что это? Условия <span class="book-ref">Ch. 10 · Exam #15</span></h2>
-    <p><strong>Совершенная конкуренция</strong> — рынок с <strong>тысячами одинаковых мелких фирм</strong>. Каждая фирма — «капля в океане»: не может влиять на цену → <strong>price taker</strong> (ценополучатель).</p>
-    <p class="en">Perfect competition: many identical small firms, homogeneous product, free entry and exit, perfect information. Each firm takes the market price as given.</p>
+    <p class="nb-def"><strong>Совершенная конкуренция</strong> — рынок с <strong>тысячами одинаковых мелких фирм</strong>. Каждая фирма — «капля в океане»: не может влиять на цену → <strong>price taker</strong> (ценополучатель).</p>
+    <p class="nb-en">Perfect competition: many identical small firms, homogeneous product, free entry and exit, perfect information. Each firm takes the market price as given.</p>
 
     <table>
         <tr><th>Условие (Lec 24)</th><th>Смысл</th></tr>
@@ -126,7 +85,7 @@
         <li><strong>P &lt; MC</strong> → ещё одна единица снижает прибыль → производить меньше</li>
         <li><strong>P = MC</strong> → оптимум q*</li>
     </ul>
-    <p class="en">Produce while P &gt; MC; stop where P = MC. Same MB = MC logic as Frank Figure 1.1.</p>
+    <p class="nb-en">Produce while P &gt; MC; stop where P = MC. Same MB = MC logic as Frank Figure 1.1.</p>
 
     <div class="story">Frank (Figure 10.2): рыночная цена <strong>P = $20</strong>. Горизонталь P = 20 пересекает MC при <strong>q* = 260</strong> → фирма производит 260 единиц. Если P вырастет до $25 — точка пересечения сдвигается вверх по MC → q* больше.</div>
 
@@ -388,5 +347,6 @@
     <p>See also: <a href="Supply_Explanation.html">Supply</a> · <a href="Demand_Explanation.html">Demand</a> · <a href="Production_Cost_Short_Run_Explanation.html">Costs (Ch. 9)</a> · <a href="Frank_Study_Guide.html#shutdown">Frank Study Guide — shutdown</a> · <a href="Exam_Prep_Guide.html#t15">Exam Prep #15</a></p>
 
 <div class="ru-foot"><h3>🇷🇺 Кратко</h3><p>4 условия (Lec 24). SR: P=MC above min AVC; shutdown если P&lt;AVC. LR: P=SMC=LMC=ATC=LAC, π=0. Google Drawings: D→D₁, P 5→8€, q 20→22, потом вход → P→5. Earl: xz=SR supply, yz=LR supply. LRS constant/increasing cost.</p></div>
+</div>
 </body>
 </html>

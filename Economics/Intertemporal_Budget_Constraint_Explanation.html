@@ -2,41 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intertemporal Budget Constraint — Nisticò lecture</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; margin: 0; padding: 40px; color: #333; max-width: 820px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 3px solid #e74c3c; padding-bottom: 12px; margin-bottom: 20px; font-size: 1.9em; }
-        h2 { color: #34495e; margin-top: 32px; margin-bottom: 12px; font-size: 1.25em; }
-        p { margin: 10px 0; }
-        strong { color: #2c3e50; }
-        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
-        th, td { border: 1px solid #ccc; padding: 10px 12px; text-align: left; }
-        th { background: #e74c3c; color: white; font-weight: 600; }
-        tr:nth-child(even) { background: #fafafa; }
-        hr { border: none; border-top: 2px solid #eee; margin: 28px 0; }
-        .step { background: #fff; border: 1px solid #ddd; border-left: 4px solid #e74c3c; padding: 14px 18px; margin: 16px 0; }
-        .calc { font-family: Cambria, Georgia, serif; font-size: 1.05em; background: #fafafa; padding: 12px 16px; margin: 10px 0; border: 1px solid #e8e8e8; }
-        .back { margin-bottom: 16px; }
-        .back a { color: #e74c3c; text-decoration: none; }
-        .note { color: #666; font-size: 0.92em; margin-bottom: 20px; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 12px auto; }
-        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
-        .svg-graph .budget-line { stroke: #e74c3c; stroke-width: 2.5; fill: none; }
-        .svg-graph .budget-line-alt { stroke-width: 2; fill: none; stroke-dasharray: 6,4; }
-        .svg-graph .guide { stroke: #999; stroke-width: 1; fill: none; stroke-dasharray: 3,3; }
-        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #2c3e50; }
-        .graph-box { border: 1px solid #ddd; padding: 16px; margin: 16px 0; }
-        .graph-legend { font-size: 0.92em; margin: 12px 0 0; padding: 0; }
-        .graph-legend li { margin: 6px 0; }
-        .graph-legend .swatch { display: inline-block; width: 28px; height: 3px; vertical-align: middle; margin-right: 6px; }
-        .graph-legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; margin-right: 6px; }
-        .graph-caption { font-size: 0.9em; color: #555; margin: 8px 0 0; }
-        .ru-foot { margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed #bbb; font-size: 0.8rem; color: #666; }
-    </style>
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Syllabus/08_Intertemporal_Budget.html">Syllabus #8</a></p>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+<p class="back"><a href="index.html">← Economics topics</a> · <a href="Syllabus/08_Intertemporal_Budget.html">Syllabus #8</a></p>
 
     <h1>Intertemporal Budget Constraint</h1>
     <p class="note">По лекции Sergio Nisticò — Economics for Business (26.06.2026). Только шаги и числа с доски.</p>
@@ -48,7 +20,7 @@
         <tr><td>Доход</td><td><strong>M₁</strong></td><td><strong>M₂</strong></td></tr>
         <tr><td>Потребление</td><td><strong>C₁</strong></td><td><strong>C₂</strong></td></tr>
     </table>
-    <p>Ставка <strong>r</strong> — «цена времени»:</p>
+    <p class="nb-def">Ставка <strong>r</strong> — «цена времени»:</p>
     <table>
         <tr><th>Направление</th><th>Множитель</th><th>Пример при r = 20%</th></tr>
         <tr><td>Сегодня → завтра</td><td><strong>1 + r</strong></td><td>1.2</td></tr>
@@ -273,5 +245,6 @@
     <p>The intertemporal budget constraint equates the present value of consumption to the present value of income: <strong>C₁ + C₂/(1+r) = M₁ + M₂/(1+r)</strong>. With M₁=2,500, M₂=4,200 and r=20%, lifetime PV is <strong>6,000</strong>. The slope is <strong>−(1+r)</strong>: 1€ of present consumption costs 1.20€ of future consumption. If r falls, the line rotates around the endowment; if M₁ rises, it shifts outward in parallel. When the allocation violates the rule, the consumer should reallocate toward the period with higher MU/P — here, borrow if C₁ is too low relative to C₂, or save if C₁ is too high.</p>
 
     <div class="ru-foot"><p><strong>Кратко:</strong> C₁ + C₂/(1+r) = M₁ + M₂/(1+r). Пример: 2500 + 4200/1.2 = 6000. r↓ → поворот вокруг E. M₁↑ → параллельный сдвиг. B = C₁−M₁, S = M₁−C₁.</p></div>
+</div>
 </body>
 </html>

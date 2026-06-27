@@ -1,108 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goods Market & Multiplier — Рынок товаров и мультипликатор</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #3498db; padding-left: 15px; }
-        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
-        p { margin: 15px 0; text-align: justify; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
-        th { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        tr:hover { background-color: #e8f4f8; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
-        ul, ol { margin: 15px 0; padding-left: 30px; }
-        li { margin: 10px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
-        .formula-box { background: #e8f4fc; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; border-radius: 4px; }
-        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #3498db; text-decoration: none; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
+    <link rel="stylesheet" href="notebook-style.css">
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a> · <a href="Consumption_Function_Explanation.html">Consumption Function (#11, #30)</a></p>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Consumption_Function_Explanation.html">Consumption Function</a></p>
 
     <h1>Goods Market & Multiplier — Рынок товаров и мультипликатор</h1>
 
-    <h2>Equilibrium in Goods Market / Равновесие на рынке товаров</h2>
-    <p><strong>English:</strong> Equilibrium when planned spending (demand) = output (supply). Y = Z (planned aggregate demand).</p>
-    <p><strong>Русский:</strong> Равновесие, когда планируемые расходы = выпуск. Y = Z.</p>
+    <div class="nb-def"><strong>Равновесие</strong> на рынке товаров: планируемые расходы Z = выпуск Y (<span class="hl">Y = Z</span>).</div>
+    <p class="nb-en">Equilibrium in the goods market when planned aggregate spending equals output: Y = Z.</p>
 
-    <h3>Components of Demand / Компоненты спроса</h3>
-    <div class="formula-box">
-        <p><strong>Z = C + I + G + X - M</strong></p>
-        <p>C = Consumption, I = Investment, G = Gov't spending, X = Exports, M = Imports</p>
-        <p>В закрытой экономике: Z = C + I + G</p>
+    <div class="nb-formula">
+        Z = C + I + G + (X − M)
+        <div class="var-list">
+            Z — planned aggregate demand &nbsp;|&nbsp; C — consumption &nbsp;|&nbsp; I — investment<br>
+            G — government spending &nbsp;|&nbsp; X — exports &nbsp;|&nbsp; M — imports<br>
+            Closed economy: Z = C + I + G
+        </div>
+    </div>
+
+    <h2>Функция потребления</h2>
+    <div class="nb-formula">
+        C = c₀ + c₁Y
+        <div class="var-list">
+            c₀ — autonomous consumption &nbsp;|&nbsp; c₁ — MPC (marginal propensity to consume), 0 &lt; c₁ &lt; 1
+        </div>
+    </div>
+    <p class="nb-en">Consumption function: C = c₀ + c₁Y, where c₀ is autonomous consumption and c₁ is the MPC.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="240" x2="370" y2="240" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="30" x2="50" y2="240" stroke="#333" stroke-width="1.5"/>
+            <text x="25" y="35" font-size="12">Z, C</text>
+            <text x="355" y="258" font-size="12">Y</text>
+            <!-- 45° line -->
+            <line x1="50" y1="240" x2="340" y2="50" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
+            <text x="300" y="70" font-size="11" fill="#999">Y = Z (45°)</text>
+            <!-- Z line -->
+            <line x1="50" y1="200" x2="340" y2="80" stroke="#3498db" stroke-width="2.5"/>
+            <text x="345" y="78" font-size="12" fill="#3498db" font-weight="600">Z</text>
+            <!-- equilibrium -->
+            <circle cx="195" cy="140" r="5" fill="#e74c3c"/>
+            <line stroke="#ccc" stroke-dasharray="3,3" x1="50" y1="140" x2="195" y2="140"/>
+            <line stroke="#ccc" stroke-dasharray="3,3" x1="195" y1="140" x2="195" y2="240"/>
+            <text x="200" y="135" font-size="11" fill="#e74c3c" font-weight="600">E</text>
+            <text x="185" y="255" font-size="11">Y*</text>
+        </svg>
+        <p class="fig-caption">Равновесие E — пересечение линии Z и 45° (Y = Z)</p>
     </div>
 
     <hr>
 
-    <h2>Consumption Function / Функция потребления</h2>
-    <p>→ Полное объяснение: <a href="Consumption_Function_Explanation.html"><strong>Consumption Function</strong></a> (C = c₀ + c₁Y, MPC, график, Exam #30).</p>
-    <div class="formula-box">
-        <p><strong>C = c₀ + c₁Y</strong></p>
-        <p>c₀ = autonomous consumption (when Y=0)</p>
-        <p>c₁ = marginal propensity to consume (MPC) — fraction of extra income spent (0 < c₁ < 1)</p>
+    <h2>Мультипликатор</h2>
+    <div class="nb-def">Рост автономных расходов (G, I, c₀) вызывает <span class="hl">больший</span> рост равновесного Y — эффект мультипликатора.</div>
+    <p class="nb-en">An increase in autonomous spending leads to a larger increase in equilibrium output — the multiplier effect.</p>
+
+    <div class="nb-formula">
+        Multiplier = 1 / (1 − c₁) = 1 / (1 − MPC)
+        <div class="var-list">
+            ΔY = Multiplier × ΔG &nbsp;|&nbsp; MPS = 1 − MPC
+        </div>
     </div>
 
-    <div class="graph-box">
-        <pre>C
-  |
-  |        / C = c₀ + c₁Y
-  |       /
-  |      /
-  |     /
-  | c₀ *
-  |
-  0+----+----+----+----+ Y
-    45° line: Y = Z</pre>
+    <div class="nb-arrows">
+        <ul>
+            <li>ΔG ↑ <span class="arr">→</span> доход ↑ <span class="arr">→</span> C ↑ <span class="arr">→</span> доход ↑ <span class="arr">→</span> … <span class="arr">→</span> ΔY &gt; ΔG</li>
+            <li>MPC ↑ <span class="arr">→</span> multiplier ↑</li>
+            <li>MPC ↓ (больше сбережений) <span class="arr">→</span> multiplier ↓ <span class="arr">→</span> Y ↓</li>
+        </ul>
     </div>
 
-    <hr>
+    <div class="nb-why">Каждый доллар госрасходов создаёт доход → часть тратится (MPC) → новый доход → … Геометрическая сумма = 1/(1−MPC).</div>
 
-    <h2>The Multiplier / Мультипликатор</h2>
-    <p>An increase in autonomous spending (G, I, or c₀) leads to a LARGER increase in equilibrium Y. Why? More spending → more income → more consumption → more income...</p>
-
-    <div class="formula-box">
-        <p><strong>Multiplier = 1 / (1 - c₁) = 1 / (1 - MPC)</strong></p>
-        <p>If MPC = 0.8, multiplier = 5. ΔG = 10 → ΔY = 50</p>
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="240" x2="370" y2="240" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="30" x2="50" y2="240" stroke="#333" stroke-width="1.5"/>
+            <text x="355" y="258" font-size="12">Y</text>
+            <line x1="50" y1="240" x2="340" y2="50" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
+            <!-- Z old -->
+            <line x1="50" y1="210" x2="300" y2="100" stroke="#3498db" stroke-width="2" opacity="0.5"/>
+            <text x="305" y="98" font-size="11" fill="#3498db" opacity="0.7">Z</text>
+            <!-- Z new after ΔG -->
+            <line x1="50" y1="180" x2="340" y2="60" stroke="#2980b9" stroke-width="2.5"/>
+            <text x="345" y="58" font-size="11" fill="#2980b9" font-weight="600">Z'</text>
+            <circle cx="165" cy="155" r="4" fill="#e74c3c" opacity="0.6"/>
+            <text x="120" y="150" font-size="10">Y₀</text>
+            <circle cx="230" cy="115" r="5" fill="#e74c3c"/>
+            <text x="235" y="110" font-size="11" fill="#e74c3c" font-weight="600">Y₁</text>
+            <line stroke="#27ae60" stroke-width="2" x1="165" y1="250" x2="230" y2="250" marker-end="url(#arr-m)"/>
+            <text x="190" y="268" text-anchor="middle" font-size="11" fill="#27ae60" font-weight="600">ΔY</text>
+            <defs><marker id="arr-m" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#27ae60"/></marker></defs>
+        </svg>
+        <p class="fig-caption">ΔG сдвигает Z вверх → новое равновесие Y₁; ΔY = multiplier × ΔG</p>
     </div>
 
-    <div class="graph-box">
-        <pre>Z
-  |       Z' (after ΔG)
-  |      /
-  |     /  * New equilibrium
-  |    /
-  |   /  * Old equilibrium
-  |  /  Z
-  | /
-  |
-  0+----+----+----+----+ Y
-       Y₀  Y₁
-       ↑   ↑
-    ΔY = multiplier × ΔG</pre>
+    <div class="nb-example">
+        <p class="step">MPC = c₁ = 0.8 → Multiplier = 1/(1−0.8) = 1/0.2 = 5</p>
+        <p class="step">ΔG = $10 млрд → ΔY = 5 × 10 = $50 млрд</p>
+        <p class="step">Round 1: G↑10 → Y↑10; Round 2: C↑8 → Y↑8; Round 3: C↑6.4 → … Sum = 10×(1+0.8+0.64+…) = 50</p>
+        <p class="ans">Multiplier = 5; ΔY = $50 млрд</p>
     </div>
 
-    <hr>
+    <h2>Парадокс бережливости</h2>
+    <div class="nb-def">Если все сберегают больше (MPC ↓), совокупный спрос падает <span class="hl">→ Y падает</span> — сбережения могут не вырасти.</div>
+    <p class="nb-en">Paradox of thrift: if everyone saves more, aggregate demand falls and GDP may fall — total savings may not increase.</p>
 
-    <h2>Paradox of Thrift / Парадокс бережливости</h2>
-    <p>If everyone saves more (c₁ falls), aggregate demand falls → Y falls → savings may not increase. In recession, more saving can worsen the downturn.</p>
-    <p>Если все сберегают больше → совокупный спрос падает → ВВП падает.</p>
+    <div class="nb-key">
+        <ul>
+            <li>Равновесие: <strong>Y = Z = C + I + G + (X−M)</strong></li>
+            <li>C = c₀ + c₁Y; график 45° для Y = Z</li>
+            <li>Multiplier = <strong>1/(1−MPC)</strong>; ΔY = multiplier × Δ(autonomous spending)</li>
+            <li>MPC ↑ → multiplier ↑; paradox of thrift при recession</li>
+        </ul>
+    </div>
 
-<div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Мультипликатор</strong>: ΔY = (1/(1−MPC))×ΔG. Парадокс бережливости: рост MPS → меньше мультипликатор. Равновесие Y=AE на графике 45°. Кейнсианская модель товарного рынка.</p></div>
+    <div class="nb-conclusion">Кейнсианская модель товарного рынка: Y = Z на графике 45°. Мультипликатор усиливает fiscal policy. Больше сбережений → меньше MPC → меньше Y.</div>
+</div>
 </body>
 </html>

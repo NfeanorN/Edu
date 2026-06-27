@@ -2,43 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fiscal & Monetary Policy — Фискальная и денежно-кредитная политика</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #27ae60; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #27ae60; padding-left: 15px; }
-        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
-        p { margin: 15px 0; text-align: justify; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
-        th { background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        tr:hover { background-color: #e8f8f0; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
-        ul, ol { margin: 15px 0; padding-left: 30px; }
-        li { margin: 10px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
-        .formula-box { background: #e8f8f0; border-left: 4px solid #27ae60; padding: 15px; margin: 20px 0; border-radius: 4px; }
-        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #27ae60; text-decoration: none; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+<p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
 
     <h1>Fiscal & Monetary Policy — Фискальная и денежно-кредитная политика</h1>
 
     <h2>Fiscal Policy / Фискальная политика</h2>
-    <p><strong>English:</strong> Government use of spending (G) and taxes (T) to influence aggregate demand and stabilize the economy.</p>
+    <p class="nb-def"><strong>English:</strong> Government use of spending (G) and taxes (T) to influence aggregate demand and stabilize the economy.</p>
     <p><strong>Русский:</strong> Использование государственных расходов и налогов для влияния на совокупный спрос.</p>
 
     <table>
@@ -48,17 +23,13 @@
     </table>
 
     <div class="graph-box">
-        <pre>Recession: G↑ or T↓ → AD shifts right → Y↑, u↓
-  |
-AD'|      /
-   |     /
-AD |    /   * New eq
-   |   /
-   |  * Old eq (recession)
-   |
-   0+----+----+----+ Y
-
-Inflation: G↓ or T↑ → AD shifts left → Y↓, π↓</pre>
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Phillips curve">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="370" y2="230" stroke="#333" stroke-width="1.5"/>
+            <path d="M 70 50 Q 200 130 350 210" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="22" y="30" font-size="12">π</text>
+            <text x="340" y="248" font-size="12">u</text>
+        </svg>
     </div>
 
     <hr>
@@ -87,17 +58,11 @@ Inflation: G↓ or T↑ → AD shifts left → Y↓, π↓</pre>
     <p>In the short run, the central bank influences the <strong>money supply (M)</strong>. Demand for money <strong>L(Y, i)</strong> depends on income Y (↑Y → more demand for transactions) and interest rate i (↑i → opportunity cost of holding money → less demand). Equilibrium: <strong>M = L(Y, i)</strong> determines i for given Y and M.</p>
     <p>Центральный банк задаёт <strong>предложение денег (M)</strong>. Спрос на деньги L(Y, i): растёт с Y, падает с i. Равновесие M = L(Y, i) определяет ставку i.</p>
     <div class="graph-box">
-        <pre>i (interest rate)
-  |
-  |  M (supply of money, vertical)
-  |  |
-  |  |  *  ← equilibrium i*
-  |  | / \
-  |  |/   \  L(Y,i) = demand for money
-  |  *     \   (downward: higher i → less L)
-  |  |      \
-  |
-  0+----+----+----+----+ M, L (quantity of money)</pre>
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Graph">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="370" y2="230" stroke="#333" stroke-width="1.5"/>
+            <path d="M 70 200 Q 200 100 350 60" stroke="#3498db" stroke-width="2.5" fill="none"/>
+        </svg>
     </div>
     <p><strong>Central bank raises M</strong> → supply of money shifts right → i falls. <strong>Central bank reduces M</strong> → i rises. In practice, many central banks set a <strong>policy rate</strong> (e.g. key rate) and adjust M to achieve it.</p>
     <p>Рост M → ставка i падает. Снижение M → i растёт. На практике ЦБ часто задаёт <strong>ключевую ставку</strong> и подстраивает под неё предложение денег.</p>
@@ -115,15 +80,11 @@ Inflation: G↓ or T↑ → AD shifts left → Y↓, π↓</pre>
     </table>
 
     <div class="graph-box">
-        <pre>i
-  |  LM     LM'
-  |   \    /
-  |    \  /   Expansionary: M↑ → LM right → i↓, Y↑
-  |     \/
-  |      *---*
-  |     / \   IS
-  |
-  0+----+----+----+ Y</pre>
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Graph">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="370" y2="230" stroke="#333" stroke-width="1.5"/>
+            <path d="M 70 200 Q 200 100 350 60" stroke="#3498db" stroke-width="2.5" fill="none"/>
+        </svg>
     </div>
 
     <hr>
@@ -135,5 +96,6 @@ Inflation: G↓ or T↑ → AD shifts left → Y↓, π↓</pre>
     </ul>
 
 <div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Фискальная политика</strong>: G, T → сдвиг IS. <strong>Денежная</strong>: M, r → LM. ЦБ: инфляция ~2%, продажа облигаций → M↓, r↑. Координация политик в кризис и рецессию.</p></div>
+</div>
 </body>
 </html>

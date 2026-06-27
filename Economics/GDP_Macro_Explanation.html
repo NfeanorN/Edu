@@ -1,244 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDP — Nisticò lecture</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; margin: 0; padding: 40px; color: #333; max-width: 860px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 12px; margin-bottom: 20px; font-size: 1.9em; }
-        h2 { color: #34495e; margin-top: 32px; margin-bottom: 12px; font-size: 1.25em; }
-        p { margin: 10px 0; }
-        strong { color: #2c3e50; }
-        table { border-collapse: collapse; width: 100%; margin: 16px 0; }
-        th, td { border: 1px solid #ccc; padding: 10px 12px; text-align: left; }
-        th { background: #3498db; color: white; font-weight: 600; }
-        tr:nth-child(even) { background: #fafafa; }
-        hr { border: none; border-top: 2px solid #eee; margin: 28px 0; }
-        .calc { font-family: Cambria, Georgia, serif; font-size: 1.05em; background: #f0f7fc; padding: 12px 16px; margin: 10px 0; border-left: 4px solid #3498db; }
-        .result { font-size: 1.15em; font-weight: 600; color: #2980b9; margin: 16px 0; }
-        .back { margin-bottom: 16px; }
-        .back a { color: #3498db; text-decoration: none; }
-        .note { color: #666; font-size: 0.92em; margin-bottom: 20px; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 12px auto; }
-        .graph-box { border: 1px solid #ddd; padding: 16px; margin: 16px 0; }
-        .graph-caption { font-size: 0.9em; color: #555; margin: 0 0 10px; }
-        .graph-legend { font-size: 0.92em; margin: 12px 0 0; padding: 0; }
-        .graph-legend li { margin: 6px 0; }
-        .graph-legend .swatch { display: inline-block; width: 28px; height: 3px; vertical-align: middle; margin-right: 6px; }
-        .graph-legend .box { display: inline-block; width: 14px; height: 14px; vertical-align: middle; margin-right: 6px; border: 1px solid #999; }
-        .ru-foot { margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed #bbb; font-size: 0.8rem; color: #666; }
-    </style>
+    <title>GDP — ВВП (Nisticò)</title>
+    <link rel="stylesheet" href="notebook-style.css">
 </head>
-<body>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
     <p class="back"><a href="index.html">← Economics topics</a></p>
 
-    <h1>Gross Domestic Product (GDP)</h1>
-    <p class="note">По лекции Sergio Nisticò — Economics for Business (26.06.2026). Слайд «Gross Domestic Product»: steel + car.</p>
+    <h1>Gross Domestic Product (GDP) — ВВП</h1>
 
-    <h2>1. Определение</h2>
-    <p><strong>GDP</strong> = total market value of all <strong>final</strong> goods and services produced in a country in a given period.</p>
-    <p><strong>ВВП</strong> = стоимость всех <strong>конечных</strong> товаров и услуг, произведённых в стране за период. Промежуточные товары (steel) в GDP <strong>не суммируем отдельно</strong>.</p>
+    <div class="nb-def"><strong>GDP</strong> = рыночная стоимость всех <span class="hl">конечных</span> товаров и услуг, произведённых в стране за период.</div>
+    <p class="nb-en">GDP = total market value of all final goods and services produced in a country in a given period.</p>
+
+    <h2>Три подхода к измерению ВВП</h2>
+    <ol class="nb-list">
+        <li><strong>Production</strong> (производственный) — сумма <span class="hl">добавленной стоимости</span> или стоимость конечных товаров.</li>
+        <li><strong>Income</strong> (доходный) — зарплаты + рента + проценты + <span class="hl">прибыль</span>.</li>
+        <li><strong>Expenditure</strong> (расходный) — сумма всех расходов на конечную продукцию.</li>
+    </ol>
+    <p class="nb-en">Three equivalent approaches: production (value added), income (factor payments), expenditure (C + I + G + net exports).</p>
+
+    <div class="nb-formula">
+        Y = C + I + G + (X − IM)
+        <div class="var-list">
+            Y — GDP (выпуск) &nbsp;|&nbsp; C — потребление &nbsp;|&nbsp; I — инвестиции<br>
+            G — госрасходы &nbsp;|&nbsp; X — экспорт &nbsp;|&nbsp; IM — импорт &nbsp;|&nbsp; (X − IM) — чистый экспорт
+        </div>
+    </div>
+    <p class="nb-en">Expenditure approach: GDP equals consumption plus investment plus government spending plus net exports.</p>
 
     <hr>
 
-    <h2>2. Таблица со слайда</h2>
+    <h2>Номинальный vs реальный ВВП</h2>
+    <div class="nb-def"><strong>Номинальный ВВП</strong> — по <span class="hl">текущим ценам</span>; <strong>реальный ВВП</strong> — по <span class="hl">ценам базового года</span> (реальный объём).</div>
+    <p class="nb-en">Nominal GDP uses current prices; real GDP uses constant base-year prices to measure physical output.</p>
+
+    <div class="nb-formula">
+        P<sub>t</sub> = Nominal GDP / Real GDP &nbsp;× 100 &nbsp;&nbsp;(дефлятор ВВП)
+        <div class="var-list">
+            P<sub>t</sub> — GDP deflator in year t &nbsp;|&nbsp; base year P = 100
+        </div>
+    </div>
+    <p class="nb-en">GDP deflator = (Nominal GDP / Real GDP) × 100. Real GDP = Nominal GDP / deflator.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Цены ↑, объём тот же <span class="arr">→</span> номинальный ВВП ↑, реальный ВВП <strong>без изменений</strong></li>
+            <li>Объём ↑, цены те же <span class="arr">→</span> оба ВВП ↑</li>
+            <li>Дефлятор ↑ <span class="arr">→</span> инфляция в экономике в целом</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>Расширение и рецессия</h2>
+    <div class="nb-def"><strong>Expansion</strong> — рост реального ВВП; <strong>recession</strong> — спад реального ВВП <span class="hl">два квартала подряд</span>.</div>
+    <p class="nb-en">Business cycle: expansion = rising real GDP; recession = falling real GDP for two consecutive quarters.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="170" x2="450" y2="170" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="30" x2="50" y2="170" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="35" font-size="12">Y</text>
+            <text x="440" y="188" font-size="12">t</text>
+            <path d="M 50 140 Q 120 60 190 80 Q 260 100 330 50 Q 400 30 450 70" fill="none" stroke="#3498db" stroke-width="2.5"/>
+            <circle cx="190" cy="80" r="4" fill="#27ae60"/>
+            <text x="175" y="70" font-size="10" fill="#27ae60">Peak</text>
+            <circle cx="330" cy="50" r="4" fill="#27ae60"/>
+            <text x="300" y="42" font-size="10" fill="#27ae60">Peak</text>
+            <text x="230" y="130" font-size="10" fill="#e74c3c">Recession</text>
+            <text x="100" y="100" font-size="10" fill="#3498db">Expansion</text>
+            <text x="360" y="95" font-size="10" fill="#3498db">Expansion</text>
+        </svg>
+        <p class="fig-caption">Деловой цикл: пики (peak), спады (recession), фазы расширения (expansion)</p>
+        <p class="slope-note">Смотрим на <strong>реальный</strong> ВВП, не номинальный!</p>
+    </div>
+
+    <hr>
+
+    <h2>Пример Nisticò: steel + car</h2>
+    <p>Промежуточный товар (steel) в ВВП <strong>не суммируем отдельно</strong> — только конечный продукт (cars).</p>
+    <p class="nb-en">Intermediate goods (steel) are not counted separately in GDP — only the final good (cars).</p>
+
     <table>
-        <tr><th></th><th>Steel company (Firm 1)</th><th>Car company (Firm 2)</th></tr>
-        <tr><td><strong>Revenues from sales</strong></td><td>$100</td><td>$200</td></tr>
-        <tr><td><strong>Expenses</strong></td><td>$80 (wages)</td><td>$170</td></tr>
-        <tr><td>&nbsp;&nbsp;— wages</td><td>$80</td><td>$70</td></tr>
-        <tr><td>&nbsp;&nbsp;— steel purchases</td><td>—</td><td>$100</td></tr>
-        <tr><td><strong>Profit</strong></td><td>$20</td><td>$30</td></tr>
+        <tr><th></th><th>Steel Co. (Firm 1)</th><th>Car Co. (Firm 2)</th></tr>
+        <tr><td>Revenue</td><td>$100</td><td>$200</td></tr>
+        <tr><td>Wages</td><td>$80</td><td>$70</td></tr>
+        <tr><td>Steel purchases</td><td>—</td><td>$100</td></tr>
+        <tr><td>Profit</td><td>$20</td><td>$30</td></tr>
     </table>
 
-    <hr>
-
-    <h2>3. Схема потоков (как на лекции)</h2>
-
-    <div class="graph-box">
-        <p class="graph-caption"><strong>График 1.</strong> Кто кому что продаёт. Сталь — <em>промежуточный</em> товар (внутри цепочки). Машина — <em>конечный</em> продукт (доходит до рынка).</p>
+    <div class="nb-graph">
         <svg class="svg-graph" viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg">
-            <!-- Firm 1 box -->
             <rect x="30" y="80" width="130" height="90" fill="#e8f4fc" stroke="#3498db" stroke-width="2" rx="4"/>
             <text x="95" y="108" text-anchor="middle" font-weight="600" font-size="13">Firm 1</text>
             <text x="95" y="126" text-anchor="middle" font-size="11">Steel Co.</text>
             <text x="95" y="148" text-anchor="middle" font-size="10" fill="#555">Revenue $100</text>
-            <text x="95" y="162" text-anchor="middle" font-size="10" fill="#555">Profit $20</text>
-
-            <!-- Firm 2 box -->
             <rect x="280" y="80" width="130" height="90" fill="#e8f4fc" stroke="#3498db" stroke-width="2" rx="4"/>
             <text x="345" y="108" text-anchor="middle" font-weight="600" font-size="13">Firm 2</text>
             <text x="345" y="126" text-anchor="middle" font-size="11">Car Co.</text>
             <text x="345" y="148" text-anchor="middle" font-size="10" fill="#555">Revenue $200</text>
-            <text x="345" y="162" text-anchor="middle" font-size="10" fill="#555">Profit $30</text>
-
-            <!-- Market box -->
             <rect x="500" y="80" width="100" height="90" fill="#e8f8ef" stroke="#27ae60" stroke-width="2" rx="4"/>
             <text x="550" y="118" text-anchor="middle" font-weight="600" font-size="13">Market</text>
-            <text x="550" y="138" text-anchor="middle" font-size="11">(покупатели)</text>
             <text x="550" y="158" text-anchor="middle" font-size="10" fill="#1e7e45">final good</text>
-
-            <!-- Workers F1 -->
-            <rect x="30" y="220" width="90" height="50" fill="#fff8e6" stroke="#f39c12" stroke-width="1.5" rx="3"/>
-            <text x="75" y="242" text-anchor="middle" font-size="11">Workers</text>
-            <text x="75" y="258" text-anchor="middle" font-size="10" fill="#555">Firm 1</text>
-
-            <!-- Workers F2 -->
-            <rect x="300" y="220" width="90" height="50" fill="#fff8e6" stroke="#f39c12" stroke-width="1.5" rx="3"/>
-            <text x="345" y="242" text-anchor="middle" font-size="11">Workers</text>
-            <text x="345" y="258" text-anchor="middle" font-size="10" fill="#555">Firm 2</text>
-
-            <!-- Arrow: steel intermediate -->
             <line x1="160" y1="115" x2="278" y2="115" stroke="#e67e22" stroke-width="2.5" marker-end="url(#arr-o)"/>
             <text x="219" y="105" text-anchor="middle" font-size="11" fill="#d35400" font-weight="600">steel $100</text>
-            <text x="219" y="132" text-anchor="middle" font-size="9" fill="#d35400">промежуточный товар</text>
-
-            <!-- Arrow: cars final -->
+            <text x="219" y="132" text-anchor="middle" font-size="9" fill="#d35400">промежуточный</text>
             <line x1="410" y1="125" x2="498" y2="125" stroke="#27ae60" stroke-width="2.5" marker-end="url(#arr-g)"/>
             <text x="454" y="115" text-anchor="middle" font-size="11" fill="#1e7e45" font-weight="600">cars $200</text>
-            <text x="454" y="142" text-anchor="middle" font-size="9" fill="#1e7e45">конечный продукт → GDP</text>
-
-            <!-- Wages F1 -->
-            <line x1="75" y1="220" x2="75" y2="170" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-y)"/>
-            <text x="82" y="198" font-size="10" fill="#d68910">wages $80</text>
-
-            <!-- Wages F2 -->
-            <line x1="345" y1="220" x2="345" y2="170" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-y)"/>
-            <text x="352" y="198" font-size="10" fill="#d68910">wages $70</text>
-
-            <!-- Wrong double count crossed -->
+            <text x="454" y="142" text-anchor="middle" font-size="9" fill="#1e7e45">конечный → GDP</text>
             <text x="95" y="42" font-size="11" fill="#c0392b" text-decoration="line-through">$100 + $200 = $300 ✗</text>
-            <text x="95" y="58" font-size="10" fill="#c0392b">double counting!</text>
-
-            <!-- Correct -->
             <text x="400" y="42" font-size="12" fill="#27ae60" font-weight="600">GDP = $200 ✓</text>
-            <text x="400" y="58" font-size="10" fill="#27ae60">только конечный продукт</text>
-
             <defs>
                 <marker id="arr-o" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#e67e22"/></marker>
                 <marker id="arr-g" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#27ae60"/></marker>
-                <marker id="arr-y" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f39c12"/></marker>
             </defs>
         </svg>
-        <ul class="graph-legend">
-            <li><span class="box" style="background:#e8f4fc;border-color:#3498db"></span><strong>Синие блоки</strong> — Firm 1 (steel) и Firm 2 (car). Цифры revenue и profit из таблицы слайда.</li>
-            <li><span class="swatch" style="background:#e67e22"></span><strong>Оранжевая стрелка ($100)</strong> — продажа стали от Firm 1 к Firm 2. Это <strong>промежуточный</strong> товар: в GDP отдельно не считаем.</li>
-            <li><span class="swatch" style="background:#27ae60"></span><strong>Зелёная стрелка ($200)</strong> — продажа машин на рынок. Это <strong>конечный</strong> продукт → именно он входит в GDP (production approach).</li>
-            <li><span class="swatch" style="background:#f39c12;border-top:1px dashed #f39c12;height:0"></span><strong>Жёлтые пунктиры</strong> — выплата зарплат ($80 и $70) работникам. Эти суммы войдут в income approach.</li>
-            <li><span class="box" style="background:#e8f8ef;border-color:#27ae60"></span><strong>Зелёный блок Market</strong> — конечный спрос. GDP с точки зрения production = $200 (цена машин).</li>
-            <li><strong>Зачёркнутое $300</strong> — ошибка double counting: нельзя сложить $100 стали + $200 машин.</li>
-        </ul>
+        <p class="fig-caption">Оранжевая стрелка — промежуточный товар; зелёная — конечный продукт в GDP</p>
     </div>
 
-    <hr>
-
-    <h2>4. Два подхода → один ответ GDP = $200</h2>
-    <p class="result">GDP = $200 — both from the viewpoint of <strong>Production</strong> and <strong>Income</strong> (как на слайде).</p>
-
-    <div class="graph-box">
-        <p class="graph-caption"><strong>График 2.</strong> Слева — production (value added). Справа — income (wages + profit). Оба дают $200.</p>
+    <div class="nb-graph">
         <svg class="svg-graph" viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg">
-            <!-- divider -->
             <line x1="310" y1="20" x2="310" y2="300" stroke="#ddd" stroke-width="2" stroke-dasharray="6,4"/>
             <text x="155" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="#2980b9">PRODUCTION</text>
             <text x="465" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="#8e44ad">INCOME</text>
-
-            <!-- Production: Firm 1 VA -->
             <rect x="40" y="70" width="100" height="50" fill="#aed6f1" stroke="#2980b9" stroke-width="1.5"/>
-            <text x="90" y="92" text-anchor="middle" font-size="11" font-weight="600">Firm 1</text>
-            <text x="90" y="108" text-anchor="middle" font-size="10">VA = $100</text>
-            <text x="90" y="140" text-anchor="middle" font-size="9" fill="#555">$100 − $0 inputs</text>
-
-            <!-- Production: Firm 2 VA -->
+            <text x="90" y="92" text-anchor="middle" font-size="11" font-weight="600">Firm 1 VA</text>
+            <text x="90" y="108" text-anchor="middle" font-size="10">$100</text>
             <rect x="40" y="160" width="100" height="50" fill="#aed6f1" stroke="#2980b9" stroke-width="1.5"/>
-            <text x="90" y="182" text-anchor="middle" font-size="11" font-weight="600">Firm 2</text>
-            <text x="90" y="198" text-anchor="middle" font-size="10">VA = $100</text>
-            <text x="90" y="230" text-anchor="middle" font-size="9" fill="#555">$200 − $100 steel</text>
-
-            <!-- Production sum -->
-            <line x1="90" y1="120" x2="90" y2="160" stroke="#2980b9" stroke-width="1.5"/>
-            <text x="175" y="130" font-size="10" fill="#2980b9">+</text>
-            <rect x="130" y="250" width="120" height="40" fill="#2980b9" stroke="#1f618d" stroke-width="2" rx="3"/>
-            <text x="190" y="268" text-anchor="middle" font-size="12" fill="white" font-weight="700">GDP = $200</text>
-            <text x="190" y="282" text-anchor="middle" font-size="9" fill="#d6eaf8">$100 + $100</text>
-            <line x1="90" y1="210" x2="90" y2="250" stroke="#2980b9" stroke-width="1.5"/>
-            <line x1="90" y1="250" x2="130" y2="270" stroke="#2980b9" stroke-width="1.5"/>
-
-            <!-- Alternative production: final good only -->
-            <rect x="40" y="55" width="220" height="22" fill="none" stroke="#27ae60" stroke-width="1" stroke-dasharray="4,3" rx="2"/>
-            <text x="150" y="70" text-anchor="middle" font-size="9" fill="#27ae60">или: final good cars = $200</text>
-
-            <!-- Income: wages -->
+            <text x="90" y="182" text-anchor="middle" font-size="11" font-weight="600">Firm 2 VA</text>
+            <text x="90" y="198" text-anchor="middle" font-size="10">$100</text>
+            <rect x="130" y="250" width="120" height="40" fill="#2980b9" rx="3"/>
+            <text x="190" y="275" text-anchor="middle" font-size="12" fill="white" font-weight="700">GDP = $200</text>
             <rect x="360" y="70" width="110" height="55" fill="#fdebd0" stroke="#f39c12" stroke-width="1.5"/>
-            <text x="415" y="92" text-anchor="middle" font-size="11" font-weight="600">Wages</text>
-            <text x="415" y="110" text-anchor="middle" font-size="10">$80 + $70</text>
-            <text x="415" y="128" text-anchor="middle" font-size="11" font-weight="600">= $150</text>
-
-            <!-- Income: profit -->
+            <text x="415" y="100" text-anchor="middle" font-size="11" font-weight="600">Wages $150</text>
             <rect x="360" y="150" width="110" height="55" fill="#e8daef" stroke="#8e44ad" stroke-width="1.5"/>
-            <text x="415" y="172" text-anchor="middle" font-size="11" font-weight="600">Profit</text>
-            <text x="415" y="190" text-anchor="middle" font-size="10">$20 + $30</text>
-            <text x="415" y="208" text-anchor="middle" font-size="11" font-weight="600">= $50</text>
-
-            <!-- Income sum -->
-            <line x1="415" y1="125" x2="415" y2="150" stroke="#8e44ad" stroke-width="1.5"/>
-            <text x="490" y="140" font-size="10" fill="#8e44ad">+</text>
-            <rect x="360" y="250" width="120" height="40" fill="#8e44ad" stroke="#6c3483" stroke-width="2" rx="3"/>
-            <text x="420" y="268" text-anchor="middle" font-size="12" fill="white" font-weight="700">GDP = $200</text>
-            <text x="420" y="282" text-anchor="middle" font-size="9" fill="#e8daef">$150 + $50</text>
-            <line x1="415" y1="205" x2="415" y2="250" stroke="#8e44ad" stroke-width="1.5"/>
-
-            <!-- equals sign between panels -->
+            <text x="415" y="180" text-anchor="middle" font-size="11" font-weight="600">Profit $50</text>
+            <rect x="360" y="250" width="120" height="40" fill="#8e44ad" rx="3"/>
+            <text x="420" y="275" text-anchor="middle" font-size="12" fill="white" font-weight="700">GDP = $200</text>
             <text x="310" y="275" text-anchor="middle" font-size="22" fill="#27ae60" font-weight="700">=</text>
         </svg>
-        <ul class="graph-legend">
-            <li><strong>Левая колонка (Production)</strong> — считаем <em>добавленную стоимость</em> (value added) каждой фирмы:
-                <ul>
-                    <li>Firm 1: revenue $100 − промежуточные закупки $0 = <strong>VA $100</strong></li>
-                    <li>Firm 2: revenue $200 − steel $100 = <strong>VA $100</strong></li>
-                    <li>Сумма VA = <strong>GDP $200</strong>. Эквивалентно: только цена конечного товара (машины $200).</li>
-                </ul>
-            </li>
-            <li><strong>Правая колонка (Income)</strong> — считаем все доходы от производства:
-                <ul>
-                    <li><span class="box" style="background:#fdebd0;border-color:#f39c12"></span> <strong>Wages</strong> (жёлтый): $80 + $70 = <strong>$150</strong></li>
-                    <li><span class="box" style="background:#e8daef;border-color:#8e44ad"></span> <strong>Profit</strong> (фиолетовый): $20 + $30 = <strong>$50</strong></li>
-                    <li>Сумма = <strong>GDP $200</strong></li>
-                </ul>
-            </li>
-            <li><strong>Знак «=» посередине</strong> — оба подхода дают один и тот же GDP (как написано на слайде лектора).</li>
+        <p class="fig-caption">Production: VA $100+$100; Income: wages $150 + profit $50 — оба = $200</p>
+    </div>
+
+    <div class="nb-why">Три подхода дают один ответ, потому что каждый доллар расходов = доллар дохода = доллар добавленной стоимости. Double counting ($100 steel + $200 cars) — ошибка.</div>
+
+    <div class="nb-example">
+        <p class="step"><strong>Production:</strong> VA Firm 1 = $100 − $0 = $100; VA Firm 2 = $200 − $100 = $100 → GDP = $100 + $100 = $200</p>
+        <p class="step"><strong>Income:</strong> Wages $80+$70 = $150; Profit $20+$30 = $50 → GDP = $150 + $50 = $200</p>
+        <p class="step"><strong>Expenditure:</strong> покупатели тратят C = $200 на машины → GDP = $200</p>
+        <p class="step"><strong>Deflator:</strong> если Nominal = $220, Real = $200 → P<sub>t</sub> = 220/200 × 100 = 110</p>
+        <p class="ans">GDP = $200 (все три подхода) ✓</p>
+    </div>
+
+    <div class="nb-key">
+        <ul>
+            <li>Только <strong>конечные</strong> товары — не промежуточные</li>
+            <li>Production = Income = Expenditure = <strong>Y = C + I + G + (X − IM)</strong></li>
+            <li>Реальный ВВП — объём; номинальный — текущие цены</li>
+            <li>Дефлятор P<sub>t</sub> = Nominal / Real × 100</li>
+            <li>Recession = ↓ реального ВВП 2 квартала подряд</li>
         </ul>
     </div>
 
-    <hr>
-
-    <h2>5. Расчёты по шагам</h2>
-
-    <div class="calc">
-        <p><strong>Production approach</strong></p>
-        <p>Способ A — только final good: GDP = cars sold = <strong>$200</strong></p>
-        <p>Способ B — value added: ($100 − $0) + ($200 − $100) = $100 + $100 = <strong>$200</strong></p>
-    </div>
-
-    <div class="calc">
-        <p><strong>Income approach</strong></p>
-        <p>Firm 1: wages $80 + profit $20 = $100</p>
-        <p>Firm 2: wages $70 + profit $30 = $100</p>
-        <p>GDP = $100 + $100 = <strong>$200</strong></p>
-        <p>Или: total wages $150 + total profit $50 = <strong>$200</strong></p>
-    </div>
-
-    <hr>
-
-    <h2>6. Три способа измерения (кратко)</h2>
-    <table>
-        <tr><th>Approach</th><th>Formula / logic</th><th>В нашем примере</th></tr>
-        <tr><td><strong>Production</strong></td><td>Final goods or sum of value added</td><td>Cars $200</td></tr>
-        <tr><td><strong>Income</strong></td><td>Wages + Rent + Interest + Profit</td><td>$150 + $50 = $200</td></tr>
-        <tr><td><strong>Expenditure</strong></td><td>Y = C + I + G + (X − M)</td><td>C = $200 (покупка машин)</td></tr>
-    </table>
-
-    <div class="ru-foot"><p><strong>Кратко:</strong> Сталь $100 — промежуточный товар (Firm 1 → Firm 2). Машины $200 — конечный → GDP. Production: VA $100+$100 или cars $200. Income: wages $150 + profit $50. Не складывать $100+$200.</p></div>
+    <div class="nb-conclusion">Сталь $100 — промежуточный товар; машины $200 — конечный → GDP = $200. Не складывать $100+$200. Три подхода (production, income, expenditure) эквивалентны.</div>
+</div>
 </body>
 </html>

@@ -1,186 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rational Choice — Рациональный выбор (Frank, Ch. 1 &amp; 3)</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #8e44ad; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #8e44ad; padding-left: 15px; }
-        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
-        p { margin: 15px 0; text-align: justify; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
-        th { background: linear-gradient(135deg, #8e44ad 0%, #6c3483 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
-        ul { margin: 15px 0; padding-left: 30px; }
-        li { margin: 10px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
-        .formula-box { background: #f3eef8; border-left: 4px solid #8e44ad; padding: 15px; margin: 20px 0; border-radius: 4px; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #8e44ad; text-decoration: none; }
-        .part { background: #8e44ad; color: white; padding: 10px 18px; border-radius: 6px; font-weight: 600; margin: 35px 0 20px; font-size: 1.05em; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
-        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
-        .svg-graph .budget { stroke: #e74c3c; stroke-width: 2.5; fill: none; }
-        .svg-graph .ic { stroke: #27ae60; stroke-width: 2.5; fill: none; }
-        .svg-graph .ic-low, .svg-graph .ic-high { stroke: #95a5a6; stroke-width: 1.8; fill: none; stroke-dasharray: 6,4; }
-        .svg-graph .guide { stroke: #999; stroke-width: 1; fill: none; stroke-dasharray: 4,3; }
-        .svg-graph .u-curve { stroke: #8e44ad; stroke-width: 2.5; fill: none; }
-        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
-        .fig-caption { text-align: center; font-size: 0.9em; color: #555; margin: 8px 0 4px; line-height: 1.55; }
-        .key-box { background: #e8f8ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .key-box::before { content: "⭐ Экзамен / Exam: "; font-weight: 700; color: #1e7e45; }
-        .story { background: #fff8e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .story::before { content: "📖 Пример / Example: "; font-weight: 700; color: #d68910; }
-        .en { color: #555; font-size: 0.95em; padding: 8px 0 8px 14px; border-left: 3px solid #5b8def; margin: 8px 0 14px; font-style: italic; }
-        .en::before { content: "EN: "; font-weight: 700; color: #3a6cdc; font-style: normal; }
-        .lang-switch { display: inline-block; margin-left: 14px; padding: 4px 12px; background: #5b8def; color: white !important; border-radius: 6px; font-size: 0.9em; text-decoration: none; }
-        .source { color: #666; font-size: 0.95em; margin-bottom: 24px; }
-        .book-ref { display: inline-block; background: #eee; color: #555; font-size: 0.82em; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-style: normal; }
-        .warn-not-in-book { background: #fff3cd; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
+    <link rel="stylesheet" href="notebook-style.css">
 </head>
-<body>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
     <p class="back">
         <a href="index.html">← Economics topics / К темам по экономике</a>
-        <a href="Rational_Choice_Explanation_EN.html" class="lang-switch">🇬🇧 English-only</a>
+        · <a href="Rational_Choice_Explanation_EN.html">English-only</a>
     </p>
 
-    <h1>Rational Choice — Рациональный выбор<br><span style="font-size:0.55em;font-weight:400;color:#666">Frank, Ch. 1 &amp; 3 — RU + EN</span></h1>
-    <p class="source">Источник: <strong>Robert H. Frank, <em>Microeconomics and Behavior</em>, 7th ed.</strong> — Chapter 1 (cost-benefit principle, Figure 1.1) и Chapter 3 «Rational Consumer Choice» (бюджетное ограничение, кривые безразличия, лучший доступный набор). Все примеры и цифры — только из учебника.</p>
+    <h1>Rational Choice — Рациональный выбор</h1>
+    <p>Frank, Ch. 1 &amp; 3 — RU + EN · <em>Microeconomics and Behavior</em>, 7th ed.</p>
 
-    <p>Frank описывает <strong>рациональный выбор</strong> в двух связанных рамках: (1) общий принцип «действуй, пока MB ≥ MC» (Ch. 1); (2) модель потребителя с двумя товарами — <strong>жильё (shelter)</strong> и <strong>еда (food)</strong> — при доходе M = $100/нед. (Ch. 3).</p>
-    <p class="en">Frank frames rational choice via the cost-benefit principle (Ch. 1) and the shelter–food consumer model with M = $100/wk (Ch. 3). All numbers below are from the textbook.</p>
+    <div class="nb-def">
+        Frank описывает <strong>рациональный выбор</strong> в двух рамках: (1) принцип «действуй, пока MB ≥ MC» (Ch. 1); (2) модель потребителя shelter + food при M = $100/нед. (Ch. 3).
+    </div>
+    <div class="nb-en">Frank frames rational choice via the cost-benefit principle (Ch. 1) and the shelter–food consumer model with M = $100/wk (Ch. 3). All numbers below are from the textbook.</div>
 
-    <div class="part">Часть I — Cost-Benefit Principle / Принцип затраты–выгода (Ch. 1)</div>
+    <hr>
 
-    <h2>1. Cost-Benefit Principle / Принцип затраты–выгода <span class="book-ref">Ch. 1, Figure 1.1</span></h2>
-    <p>Оптимальный объём любой <strong>непрерывно изменяющейся</strong> деятельности — там, где <strong>предельная выгода MB = предельные издержки MC</strong>.</p>
-    <p class="en">The optimal amount of any continuously variable activity is where <strong>marginal benefit MB equals marginal cost MC</strong> (Figure 1.1).</p>
+    <h2>Часть I — Cost-Benefit Principle (Ch. 1)</h2>
 
-    <div class="story">Frank (Figure 1.1): MB разговора падает с длительностью; MC постоянна на уровне <strong>4¢/min</strong>. Оптимум — <strong>400 minutes/month</strong>, где MB пересекает MC.</div>
+    <div class="nb-def">
+        Оптимальный объём любой <strong>непрерывно изменяющейся</strong> деятельности — там, где <strong>MB = MC</strong>.
+    </div>
+    <div class="nb-en">The optimal amount of any continuously variable activity is where <strong>marginal benefit MB equals marginal cost MC</strong> (Figure 1.1).</div>
 
-    <div class="graph-box">
+    <div class="nb-example">
+        <div class="step">Frank (Figure 1.1): MB разговора падает с длительностью</div>
+        <div class="step">MC постоянна на уровне <strong>4¢/min</strong></div>
+        <div class="ans">Оптимум — <strong>400 minutes/month</strong>, где MB пересекает MC</div>
+    </div>
+    <div class="nb-en">Frank Figure 1.1: MB of talking falls with duration; MC is constant at 4¢/min. Optimum at 400 min/month where MB = MC.</div>
+
+    <div class="nb-graph">
         <svg class="svg-graph" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="Figure 1.1 MB=MC">
-            <line class="axis" x1="50" y1="20" x2="50" y2="210"/>
-            <line class="axis" x1="50" y1="210" x2="380" y2="210"/>
-            <path class="u-curve" d="M 70 45 Q 200 100 350 195" stroke="#2980b9" stroke-width="2.5" fill="none"/>
-            <line stroke="#e74c3c" stroke-width="2.5" x1="50" y1="120" x2="360" y2="120"/>
+            <line x1="50" y1="20" x2="50" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="210" x2="380" y2="210" stroke="#333" stroke-width="1.5"/>
+            <path d="M 70 45 Q 200 100 350 195" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <line x1="50" y1="120" x2="360" y2="120" stroke="#e74c3c" stroke-width="2.5"/>
             <circle cx="200" cy="120" r="5" fill="#8e44ad"/>
-            <text x="18" y="24">¢/min</text>
-            <text x="365" y="225">min/month</text>
-            <text x="22" y="124">MC=4</text>
-            <text x="188" y="225">400</text>
-            <text x="355" y="200" fill="#2980b9">MB</text>
-            <text x="365" y="115" fill="#e74c3c">MC</text>
+            <text x="18" y="24" font-size="13">¢/min</text>
+            <text x="365" y="225" font-size="13">min/month</text>
+            <text x="22" y="124" font-size="12">MC = 4</text>
+            <text x="188" y="225" font-size="12">400</text>
+            <text x="355" y="200" fill="#2980b9" font-size="12">MB</text>
+            <text x="365" y="115" fill="#e74c3c" font-size="12">MC</text>
         </svg>
-        <p class="fig-caption">Figure 1.1 (Frank): оптимум при MB = MC. На рынке потребителя MB последней единицы = MU, MC = P.</p>
+        <p class="graph-caption">Figure 1.1 (Frank): оптимум при MB = MC. На рынке потребителя MB последней единицы = MU, MC = P.</p>
     </div>
 
     <hr>
 
-    <div class="part">Часть II — Rational Consumer Choice / Рациональный потребитель (Ch. 3)</div>
+    <h2>Часть II — Rational Consumer Choice (Ch. 3)</h2>
 
-    <h2>2. Rational Consumer <span class="book-ref">Ch. 3</span></h2>
-    <p><strong>Рациональный потребитель</strong> выбирает <strong>лучший доступный набор (best feasible bundle)</strong> — касание бюджетной линии и самой высокой достижимой IC (Figure 3.15).</p>
-    <p class="en">A rational consumer picks the best feasible bundle — tangency of budget line and highest reachable indifference curve.</p>
-
-    <h2>3. Utility Function <span class="book-ref">Ch. 3, Appendix</span></h2>
-    <p>Frank (Appendix): <strong>U(F, S) = F · S</strong>, где F — food (lb/wk), S — shelter (sq yd/wk).</p>
-    <div class="story">F = 4, S = 3 → U = <strong>12 utils/wk</strong>. F = 8, S = 6 → U = <strong>48 utils/wk</strong>. Наборы (4,3) и (3,4) дают U = 12 — одна IC.</div>
-    <div class="formula-box">
-        <p>Для U = FS: <strong>MU<sub>F</sub> = S</strong>, <strong>MU<sub>S</sub> = F</strong></p>
+    <h3>Рациональный потребитель</h3>
+    <div class="nb-def">
+        <strong>Рациональный потребитель</strong> выбирает <strong>лучший доступный набор (best feasible bundle)</strong> — касание бюджетной линии и самой высокой достижимой IC (Figure 3.15).
     </div>
+    <div class="nb-en">A rational consumer picks the best feasible bundle — tangency of budget line and highest reachable indifference curve.</div>
 
-    <h2>4. Indifference Curves <span class="book-ref">Ch. 3, Figure 3.15</span></h2>
-    <p>IC для food и shelter: I<sub>3</sub> &gt; I<sub>2</sub> &gt; I<sub>1</sub>. Свойства из Ch. 3: нисходящие, выпуклы, не пересекаются; MRS убывает.</p>
+    <h3>Функция полезности (Appendix)</h3>
+    <div class="nb-formula">
+        U(F, S) = F · S
+        <div class="var-list">
+            F — food (lb/wk) · S — shelter (sq yd/wk) · MU<sub>F</sub> = S · MU<sub>S</sub> = F
+        </div>
+    </div>
+    <div class="nb-example">
+        <div class="step">F = 4, S = 3 → U = <strong>12 utils/wk</strong></div>
+        <div class="step">F = 8, S = 6 → U = <strong>48 utils/wk</strong></div>
+        <div class="ans">Наборы (4,3) и (3,4) дают U = 12 — одна IC</div>
+    </div>
+    <div class="nb-en">For U = FS: MU<sub>F</sub> = S, MU<sub>S</sub> = F. Bundles (4,3) and (3,4) both yield U = 12 — same indifference curve.</div>
 
-    <div class="graph-box">
+    <h3>Кривые безразличия (Figure 3.15)</h3>
+    <p>IC для food и shelter: I<sub>3</sub> &gt; I<sub>2</sub> &gt; I<sub>1</sub>. Свойства: нисходящие, выпуклые, не пересекаются; MRS убывает.</p>
+    <div class="nb-en">Indifference curves I₃ &gt; I₂ &gt; I₁. Properties: downward sloping, convex, non-intersecting; MRS diminishes.</div>
+
+    <div class="nb-graph">
         <svg class="svg-graph" viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" aria-label="Indifference curves">
-            <line class="axis" x1="55" y1="25" x2="55" y2="250"/>
-            <line class="axis" x1="55" y1="250" x2="430" y2="250"/>
-            <path class="ic-low" d="M 75 225 Q 160 145 340 70"/>
-            <path class="ic" d="M 75 195 Q 175 120 360 95"/>
-            <path class="ic" d="M 75 160 Q 195 95 390 110"/>
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="430" y2="250" stroke="#333" stroke-width="1.5"/>
+            <path d="M 75 225 Q 160 145 340 70" stroke="#95a5a6" stroke-width="1.8" stroke-dasharray="6,4" fill="none"/>
+            <path d="M 75 195 Q 175 120 360 95" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <path d="M 75 160 Q 195 95 390 110" stroke="#27ae60" stroke-width="2.5" fill="none"/>
             <text x="355" y="68" fill="#95a5a6" font-size="11">IC₁</text>
             <text x="355" y="98" fill="#27ae60" font-size="11" font-weight="600">IC₂</text>
             <text x="355" y="118" fill="#27ae60" font-size="11" font-weight="600">IC₃</text>
             <text x="20" y="30" font-size="13">Food ↑</text>
             <text x="415" y="268" font-size="13">Shelter →</text>
-            <text x="270" y="200" font-size="11" fill="#8e44ad">MRS = MU<sub>S</sub>/MU<sub>F</sub></text>
+            <text x="250" y="200" font-size="11" fill="#8e44ad">MRS = MU<sub>S</sub>/MU<sub>F</sub></text>
         </svg>
-        <p class="fig-caption">Кривые безразличия (Ch. 3). В оптимуме MRS = P<sub>S</sub>/P<sub>F</sub>.</p>
+        <p class="graph-caption">Кривые безразличия (Ch. 3). В оптимуме MRS = P<sub>S</sub>/P<sub>F</sub>.</p>
     </div>
 
-    <h2>5. Budget Constraint <span class="book-ref">Ch. 3</span></h2>
-    <div class="formula-box">
-        <p><strong>M = $100/wk</strong>, P<sub>S</sub> = <strong>$5/sq yd</strong>, P<sub>F</sub> = <strong>$10/lb</strong></p>
-        <p><strong>5S + 10F = 100</strong> · slope = <strong>−1/2</strong></p>
-        <p>K = (20, 0) shelter · L = (0, 10) food</p>
+    <h3>Бюджетное ограничение</h3>
+    <div class="nb-formula">
+        M = $100/нед. · P<sub>S</sub> = $5/sq yd · P<sub>F</sub> = $10/lb<br>
+        <strong>5S + 10F = 100</strong> · slope = <strong>−1/2</strong><br>
+        K = (20, 0) shelter · L = (0, 10) food
     </div>
     <p>Наборы: <strong>A = (5, 7)</strong>, <strong>B = (3, 8)</strong>, на линии <strong>E = (12, 4)</strong>, под линией <strong>D = (5, 4)</strong>.</p>
-    <p class="en">Textbook bundles A, B, E, D — see <a href="Budget_Constraint_Explanation.html">Budget Constraint</a>.</p>
+    <div class="nb-en">Textbook bundles A, B, E, D — see <a href="Budget_Constraint_Explanation.html">Budget Constraint</a>.</div>
 
-    <div class="graph-box">
+    <div class="nb-graph">
         <svg class="svg-graph" viewBox="0 0 440 260" xmlns="http://www.w3.org/2000/svg" aria-label="Budget constraint">
-            <line class="axis" x1="55" y1="25" x2="55" y2="230"/>
-            <line class="axis" x1="55" y1="230" x2="410" y2="230"/>
-            <path class="budget" d="M 55 35 L 390 230"/>
+            <line x1="55" y1="25" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="230" x2="410" y2="230" stroke="#333" stroke-width="1.5"/>
+            <path d="M 55 35 L 390 230" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
             <text x="20" y="30" font-size="13">Food ↑</text>
             <text x="395" y="248" font-size="13">Shelter →</text>
             <text x="35" y="40" font-size="11">L: 10 lb</text>
             <text x="375" y="248" font-size="11">K: 20 sq yd</text>
             <text x="130" y="120" fill="#e74c3c" font-size="12" font-weight="600">5S + 10F = 100</text>
         </svg>
-        <p class="fig-caption">Бюджетная линия Frank (Ch. 3): slope = −P<sub>S</sub>/P<sub>F</sub> = −1/2.</p>
+        <p class="graph-caption">Бюджетная линия Frank (Ch. 3): slope = −P<sub>S</sub>/P<sub>F</sub> = −1/2.</p>
     </div>
 
-    <h2>6. Consumer Equilibrium <span class="book-ref">Ch. 3, Figure 3.15</span></h2>
-    <div class="formula-box">
-        <p style="font-size:1.15em"><strong>MRS = P<sub>S</sub> / P<sub>F</sub> = 1/2</strong></p>
-        <p>Best affordable bundle <strong>F</strong>: tangency IC and budget.</p>
-        <p><strong>MU<sub>F</sub>/P<sub>F</sub> = MU<sub>S</sub>/P<sub>S</sub></strong> (Appendix)</p>
+    <h3>Равновесие потребителя (Figure 3.15)</h3>
+    <div class="nb-formula">
+        MRS = P<sub>S</sub> / P<sub>F</sub> = <strong>1/2</strong><br>
+        MU<sub>F</sub>/P<sub>F</sub> = MU<sub>S</sub>/P<sub>S</sub> (Appendix)
     </div>
+    <div class="nb-en">Consumer equilibrium: MRS = P<sub>S</sub>/P<sub>F</sub> = 1/2, or MU per dollar equal across goods.</div>
 
-    <div class="graph-box">
+    <div class="nb-graph">
         <svg class="svg-graph" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" aria-label="Consumer equilibrium">
-            <line class="axis" x1="55" y1="25" x2="55" y2="270"/>
-            <line class="axis" x1="55" y1="270" x2="430" y2="270"/>
-            <path class="budget" d="M 55 40 L 400 270"/>
-            <path class="ic" d="M 80 210 Q 185 135 375 105"/>
+            <line x1="55" y1="25" x2="55" y2="270" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="270" x2="430" y2="270" stroke="#333" stroke-width="1.5"/>
+            <path d="M 55 40 L 400 270" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <path d="M 80 210 Q 185 135 375 105" stroke="#27ae60" stroke-width="2.5" fill="none"/>
             <circle cx="228" cy="148" r="7" fill="#8e44ad" stroke="#fff" stroke-width="1.5"/>
             <text x="238" y="144" font-weight="700" fill="#8e44ad" font-size="13">F</text>
             <text x="20" y="30" font-size="13">Food ↑</text>
             <text x="415" y="288" font-size="13">Shelter →</text>
             <text x="300" y="200" fill="#8e44ad" font-size="11" font-weight="600">MRS = 1/2</text>
         </svg>
-        <p class="fig-caption">Figure 3.15: точка F — лучший доступный набор. E на бюджете, но не оптимум, если MRS ≠ 1/2.</p>
+        <p class="graph-caption">Figure 3.15: точка F — лучший доступный набор. E на бюджете, но не оптимум, если MRS ≠ 1/2.</p>
     </div>
 
-    <div class="story">Frank (Figure 3.15): в точке E наклон IC = 1/4 &lt; 1/2 = наклон бюджета — выгодно сдвинуться к F (больше food, меньше shelter).</div>
+    <div class="nb-example">
+        <div class="step">Frank (Figure 3.15): в точке E наклон IC = 1/4 &lt; 1/2 = наклон бюджета</div>
+        <div class="ans">Выгодно сдвинуться к F — больше food, меньше shelter</div>
+    </div>
+    <div class="nb-en">At point E, IC slope = 1/4 &lt; budget slope 1/2 — consumer gains by moving toward F (more food, less shelter).</div>
 
-    <div class="key-box">Ch. 1: <strong>MB = MC</strong>. Ch. 3: <strong>MRS = P<sub>S</sub>/P<sub>F</sub></strong> или <strong>MU<sub>F</sub>/P<sub>F</sub> = MU<sub>S</sub>/P<sub>S</sub></strong> при M = $100, P<sub>S</sub> = $5, P<sub>F</sub> = $10.</div>
+    <div class="nb-key">
+        Ch. 1: <strong>MB = MC</strong> (400 min, MC = 4¢). Ch. 3: <strong>MRS = P<sub>S</sub>/P<sub>F</sub> = 1/2</strong> или <strong>MU<sub>F</sub>/P<sub>F</sub> = MU<sub>S</sub>/P<sub>S</sub></strong> при M = $100, P<sub>S</sub> = $5, P<sub>F</sub> = $10. U(F,S) = F×S.
+    </div>
 
     <hr>
 
-    <div class="part" id="part2">Intertemporal choice — не в Frank</div>
+    <h2>Intertemporal choice — не в Frank</h2>
     <div class="warn-not-in-book">
         <p><strong>Важно:</strong> Frank <strong>не содержит</strong> двухпериодной модели (C₁, C₂, r). Для экзамена (Topic 8): <a href="Exam_Prep_Guide.html#t8">Exam Prep</a>, <a href="Intertemporal_Budget_Constraint_Explanation.html">Intertemporal Budget Constraint</a>.</p>
-        <p class="en">Intertemporal consumer choice is not in Frank. See exam materials above — no non-textbook examples on this page.</p>
     </div>
+    <div class="nb-en">Intertemporal consumer choice is not in Frank. See exam materials above — no non-textbook examples on this page.</div>
 
-    <p>See also: <a href="Frank_Study_Guide.html">Frank Study Guide</a> · <a href="Budget_Constraint_Explanation.html">Budget Constraint</a> · <a href="Exam_Prep_Guide.html#t16">Exam Prep — Rational spending rule</a></p>
+    <p>См. также: <a href="Frank_Study_Guide.html">Frank Study Guide</a> · <a href="Budget_Constraint_Explanation.html">Budget Constraint</a> · <a href="Exam_Prep_Guide.html#t16">Exam Prep — Rational spending rule</a></p>
 
-<div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Рациональный выбор</strong> Frank: гл. 1 — MB=MC (рис. 1.1, 400 мин); гл. 3 — shelter/food, M=$100, MU/P равны, MRS=P_S/P_F. U(F,S)=F×S. Касание бюджета и кривой безразличия (рис. 3.15).</p></div>
+    <div class="nb-conclusion">
+        Рациональный выбор Frank: гл. 1 — MB = MC (рис. 1.1, 400 мин); гл. 3 — shelter/food, M = $100, MU/P равны, MRS = P<sub>S</sub>/P<sub>F</sub>. Касание бюджета и кривой безразличия (рис. 3.15).
+    </div>
+</div>
 </body>
 </html>

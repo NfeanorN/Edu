@@ -2,45 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Market Power & Pricing — Рыночная власть и ценообразование</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 900px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #e74c3c; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.2em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 20px; font-size: 1.6em; border-left: 5px solid #e74c3c; padding-left: 15px; }
-        h3 { color: #555; margin-top: 30px; margin-bottom: 15px; font-size: 1.3em; }
-        p { margin: 15px 0; text-align: justify; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 25px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
-        th { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        tr:hover { background-color: #ffeaea; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 40px 0; }
-        ul, ol { margin: 15px 0; padding-left: 30px; }
-        li { margin: 10px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 20px; margin: 20px 0; }
-        .formula-box { background: #ffeaea; border-left: 4px solid #e74c3c; padding: 15px; margin: 20px 0; border-radius: 4px; }
-        pre { background-color: #f8f8f8; padding: 20px; border-radius: 8px; border: 2px solid #e0e0e0; margin: 20px 0; font-family: monospace; font-size: 0.9em; line-height: 1.4; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #e74c3c; text-decoration: none; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
-        .svg-graph .axis { stroke: #333; stroke-width: 1.5; fill: none; }
-        .svg-graph .demand { stroke: #27ae60; stroke-width: 2.5; fill: none; }
-        .svg-graph .supply, .svg-graph .mc { stroke: #2980b9; stroke-width: 2.5; fill: none; }
-        .svg-graph .mr { stroke: #e74c3c; stroke-width: 2; fill: none; stroke-dasharray: 4,3; }
-        .svg-graph .dwl-area { fill: rgba(231, 76, 60, 0.2); stroke: #e74c3c; stroke-width: 1; }
-        .svg-graph text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #2c3e50; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
+<body class="nb-page nb-market">
+<div class="nb-sheet">
+<p class="back"><a href="index.html">← Economics topics / К темам по экономике</a></p>
 
     <h1>Market Power & Pricing — Рыночная власть и ценообразование</h1>
 
@@ -56,7 +24,7 @@
     <hr>
 
     <h2>Perfect Competition / Совершенная конкуренция</h2>
-    <p>→ Полное объяснение: <a href="Perfect_Competition_Explanation.html"><strong>Perfect Competition</strong></a> (Frank Ch. 10, Exam #15 — P=MC, shutdown, LR).</p>
+    <p class="nb-def">→ Полное объяснение: <a href="Perfect_Competition_Explanation.html"><strong>Perfect Competition</strong></a> (Frank Ch. 10, Exam #15 — P=MC, shutdown, LR).</p>
     <p><strong>Perfect competition</strong> is a market structure where many firms sell an identical product, there is free entry and exit, and each firm is a <strong>price taker</strong> — it cannot influence the market price.</p>
     <p><strong>Совершенная конкуренция</strong> — много фирм, одинаковый товар, свободный вход и выход, каждая фирма — <strong>price taker</strong> (не может влиять на цену).</p>
 
@@ -75,17 +43,21 @@
     <p>Рыночный спрос нисходящий. Спрос для отдельной фирмы — <strong>горизонтальная линия</strong> на уровне рыночной цены P.</p>
 
     <div class="graph-box">
-        <pre>Market / Рынок                    Single firm / Одна фирма
-  P                              P
-  |   S                           |
-  |   \                           |  P* ___________ D = MR (horizontal)
-  |    \   P*                     |     |
-  |     \   *                     |     |  firm is price taker
-  |      \ / \  D                 |     |
-  |       *   \                   |     |
-  |      / \   \                  |     |
-  0+----+---+---+---- Q           0+----+---+---+---- q
-         Q*                              q* (firm's output)</pre>
+        <svg class="svg-graph" viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" aria-label="Market vs firm">
+            <text x="90" y="22" font-size="13" font-weight="600">Market</text>
+            <text x="350" y="22" font-size="13" font-weight="600">Single firm</text>
+            <line x1="30" y1="240" x2="250" y2="240" stroke="#333" stroke-width="1.5"/>
+            <line x1="30" y1="40" x2="30" y2="240" stroke="#333" stroke-width="1.5"/>
+            <line x1="280" y1="240" x2="500" y2="240" stroke="#333" stroke-width="1.5"/>
+            <line x1="280" y1="40" x2="280" y2="240" stroke="#333" stroke-width="1.5"/>
+            <path d="M 40 200 L 230 80" stroke="#3498db" stroke-width="2" fill="none"/>
+            <path d="M 40 80 L 230 200" stroke="#e67e22" stroke-width="2" fill="none"/>
+            <circle cx="135" cy="140" r="5" fill="#e74c3c"/>
+            <line x1="290" y1="120" x2="490" y2="120" stroke="#2980b9" stroke-width="2.5"/>
+            <text x="200" y="75" font-size="11">D</text>
+            <text x="200" y="210" font-size="11">S</text>
+            <text x="400" y="115" font-size="11">D = MR = P*</text>
+        </svg>
     </div>
 
     <h3>Profit maximization / Максимизация прибыли</h3>
@@ -97,21 +69,16 @@
     </div>
 
     <div class="graph-box">
-        <pre>P, Cost
-  |
-  |     MC
-  |    /
-  |   /  * P = MC  ← profit-max output q*
-  |  /  /|
-  | /  / |
-  |/  /  |  ATC
-  |  /   |   \
-  *--+----+----\___  profit (if P > ATC) or loss (if P < ATC)
-  |  P   q*   \
-  |  |         \
-  |__|__________\_________________ D = MR = P
-  |
-  0+----+----+----+----+ q</pre>
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="P=MC">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="370" y2="230" stroke="#333" stroke-width="1.5"/>
+            <path d="M 60 200 L 200 80 L 340 60" stroke="#e67e22" stroke-width="2" fill="none"/>
+            <path d="M 60 180 Q 200 120 340 100" stroke="#8e44ad" stroke-width="2" fill="none"/>
+            <line x1="60" y1="130" x2="370" y2="130" stroke="#2980b9" stroke-width="2"/>
+            <circle cx="200" cy="130" r="5" fill="#e74c3c"/>
+            <text x="22" y="30" font-size="12">P</text>
+            <text x="340" y="248" font-size="12">q</text>
+        </svg>
     </div>
 
     <h3>Short run vs long run / Краткосрочный и долгосрочный период</h3>
@@ -126,18 +93,11 @@
     <p>Предложение фирмы (краткосрочное) — участок <strong>MC выше AVC</strong>. Ниже min AVC фирма закрывается. Рыночное предложение — сумма предложений всех фирм.</p>
 
     <div class="graph-box">
-        <pre>P
-  |
-  |     MC (firm's supply above AVC)
-  |    /
-  |   /  shutdown if P < min AVC
-  |  /  /
-  | /  /
-  |/  /  AVC
-  |  /
-  | /
-  |/
-  0+----+----+----+ q</pre>
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Graph">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="370" y2="230" stroke="#333" stroke-width="1.5"/>
+            <path d="M 70 200 Q 200 100 350 60" stroke="#3498db" stroke-width="2.5" fill="none"/>
+        </svg>
     </div>
 
     <h3>Efficiency / Эффективность</h3>
@@ -234,5 +194,6 @@
 <tr><td>Oligopoly</td><td>Few</td><td>Between</td></tr></table>
 
 <div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Рыночная власть</strong>: способность держать P выше MC. Структуры: конкуренция, монополия, олигополия (Cournot, Bertrand, Stackelberg — гл. 13). Mark-up связан с эластичностью спроса.</p></div>
+</div>
 </body>
 </html>

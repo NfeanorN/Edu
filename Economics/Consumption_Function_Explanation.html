@@ -1,195 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consumption Function — Функция потребления (Exam #11, #30)</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 920px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 15px; margin-bottom: 10px; font-size: 2.1em; }
-        h2 { color: #34495e; margin-top: 40px; margin-bottom: 18px; font-size: 1.55em; border-left: 5px solid #3498db; padding-left: 15px; }
-        h3 { color: #555; margin-top: 26px; margin-bottom: 12px; font-size: 1.2em; }
-        p { margin: 14px 0; text-align: justify; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 22px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-        th, td { border: 1px solid #ddd; padding: 11px 14px; text-align: left; }
-        th { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 36px 0; }
-        ul, ol { margin: 14px 0; padding-left: 28px; }
-        li { margin: 8px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 20px 0; }
-        .formula-box { background: #e8f4fc; border-left: 4px solid #3498db; padding: 14px 18px; margin: 18px 0; border-radius: 4px; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #3498db; text-decoration: none; }
-        .back a:hover { text-decoration: underline; }
-        .source { color: #666; font-size: 0.95em; margin-bottom: 24px; }
-        .exam-ref { display: inline-block; background: #eee; color: #555; font-size: 0.82em; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-style: normal; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
-        .fig-caption { text-align: center; font-size: 0.9em; color: #555; margin: 8px 0 4px; line-height: 1.55; }
-        .key-box { background: #e8f8ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .key-box::before { content: "⭐ Экзамен / Exam: "; font-weight: 700; color: #1e7e45; }
-        .story { background: #fff8e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        .story::before { content: "📖 Пример / Example: "; font-weight: 700; color: #d68910; }
-        .en { color: #555; font-size: 0.95em; padding: 8px 0 8px 14px; border-left: 3px solid #5b8def; margin: 8px 0 14px; font-style: italic; }
-        .en::before { content: "EN: "; font-weight: 700; color: #3a6cdc; font-style: normal; }
-        .warn-box { background: #fdf2f2; border-left: 4px solid #e74c3c; padding: 14px 18px; margin: 20px 0; border-radius: 6px; }
-        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; font-size: 0.92em; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
+    <link rel="stylesheet" href="notebook-style.css">
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Goods_Market_Multiplier_Explanation.html">Multiplier (#28)</a> · <a href="Exam_Prep_Guide.html#t11">Exam Prep #11</a> · <a href="Exam_Prep_Guide.html#t30">#30</a></p>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Goods_Market_Multiplier_Explanation.html">Multiplier (#28)</a> · <a href="Exam_Prep_Guide.html#t11">Exam #11</a> · <a href="Exam_Prep_Guide.html#t30">#30</a></p>
 
     <h1>Consumption Function — Функция потребления</h1>
-    <p class="source">Источник: <strong>Exam Prep Guide</strong> — Topics <a href="Exam_Prep_Guide.html#t11">#11</a> (MPC, MPS), <a href="Exam_Prep_Guide.html#t30">#30</a> (наклон C(Y) = MPC). <strong>Не в Frank</strong> (микро: MU/P, бюджетное ограничение — см. <a href="Rational_Choice_Explanation.html">Rational Choice</a>). Макро: потребление зависит от <strong>дохода Y</strong>.</p>
 
-    <h2>1. Что это? <span class="exam-ref">Exam #11</span></h2>
-    <p><strong>Функция потребления</strong> показывает, сколько домохозяйства <strong>тратят (C)</strong> при данном <strong>совокупном доходе (Y)</strong>. В краткосрочной Keynesian модели:</p>
+    <div class="nb-def"><strong>Consumption (C)</strong> — траты домохозяйств на товары и услуги. Зависит от <span class="hl">располагаемого дохода</span> Y<sub>D</sub> (доход после налогов).</div>
+    <p class="nb-en">Consumption depends mainly on disposable income Y<sub>D</sub> — income after taxes. When disposable income rises, consumption rises too.</p>
 
-    <div class="formula-box">
-        <p><strong>C = c₀ + c₁Y</strong></p>
-        <p><strong>c₀</strong> = autonomous consumption (автономное потребление) — траты при Y = 0 (минимум на еду, жильё и т.д.)</p>
-        <p><strong>c₁</strong> = marginal propensity to consume <strong>MPC</strong> — доля <em>дополнительного</em> дохода, которую тратят (0 &lt; c₁ &lt; 1)</p>
-    </div>
-    <p class="en">Consumption rises with income. Autonomous part c₀ is spending independent of current Y; each extra euro of income adds MPC × € to consumption.</p>
-
-    <hr>
-
-    <h2>2. MPC и MPS <span class="exam-ref">Exam #11</span></h2>
-    <table>
-        <tr><th>Понятие</th><th>Формула</th><th>Смысл</th></tr>
-        <tr><td><strong>MPC</strong> (marginal propensity to consume)</td><td>MPC = ΔC / ΔY = c₁</td><td>Сколько из <em>ещё одного</em> € дохода уйдёт на потребление</td></tr>
-        <tr><td><strong>MPS</strong> (marginal propensity to save)</td><td>MPS = ΔS / ΔY</td><td>Сколько из доп. € дохода уйдёт на сбережения</td></tr>
-    </table>
-
-    <div class="formula-box">
-        <p><strong>MPC + MPS = 1</strong></p>
-        <p>Каждый дополнительный € дохода либо тратится, либо сберегается.</p>
+    <div class="nb-formula">
+        Y<sub>D</sub> = Y − T
+        <div class="var-list">
+            Y — income (доход) &nbsp;|&nbsp; T — taxes (налоги) &nbsp;|&nbsp; Y<sub>D</sub> — disposable income (располагаемый доход)
+        </div>
     </div>
 
-    <div class="story">Exam Prep: <strong>MPC = 0,8</strong> → из каждых +€100 дохода люди тратят <strong>€80</strong>, сберегают <strong>€20</strong> (MPS = 0,2).</div>
+    <div class="nb-formula">
+        C = c₀ + c₁ · Y<sub>D</sub>
+        <div class="var-list">
+            <strong>c₀</strong> — autonomous consumption: траты даже при Y = 0 (еда, жильё)<br>
+            <strong>c₁</strong> — MPC (marginal propensity to consume): доля <em>дополнительного</em> дохода на потребление<br>
+            <strong>0 &lt; c₁ &lt; 1</strong> — часть доп. дохода тратят, часть сберегают
+        </div>
+    </div>
+    <p class="nb-en">Behavioral equation: shows how consumers change spending when income changes. Slope = MPC = c₁.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Y<sub>D</sub> ↑ <span class="arr">→</span> C ↑</li>
+            <li>Налоги T ↑ <span class="arr">→</span> Y<sub>D</sub> ↓ <span class="arr">→</span> C ↓</li>
+            <li>MPC + MPS = 1 (каждый доп. € либо тратится, либо сберегается)</li>
+        </ul>
+    </div>
+
+    <div class="nb-why">Больше людей работают и получают доход → больше трат → выше C. Налоги «съедают» доход → меньше Y<sub>D</sub> → меньше C.</div>
 
     <hr>
 
-    <h2>3. Числовой пример: C = 100 + 0,8Y</h2>
-    <p>Используем <strong>c₀ = 100</strong> и <strong>c₁ = MPC = 0,8</strong> из Exam Prep (#11).</p>
-
-    <table>
-        <tr><th>Y (доход)</th><th>C = 100 + 0,8Y</th><th>S = Y − C</th><th>ΔC при росте Y</th></tr>
-        <tr><td>0</td><td>100</td><td>−100*</td><td>—</td></tr>
-        <tr><td>500</td><td>500</td><td>0</td><td>—</td></tr>
-        <tr><td>1 000</td><td>900</td><td>100</td><td>—</td></tr>
-        <tr><td>1 100</td><td>980</td><td>120</td><td><strong>+80</strong> (ΔY=100 → ΔC=80)</td></tr>
-        <tr><td>2 000</td><td>1 700</td><td>300</td><td>—</td></tr>
-    </table>
-    <p><em>*При Y=0 автономное c₀=100 — упрощение модели (dissaving / кредит).</em></p>
-    <p>При <strong>Y = 500</strong>: C = Y → <strong>break-even income</strong> (точка, где сбережения = 0). Формула: Y* = c₀ / (1 − c₁) = 100 / 0,2 = <strong>500</strong>.</p>
-
-    <hr>
-
-    <h2>4. График C(Y) <span class="exam-ref">Exam #30</span></h2>
-    <p>Ось X — доход <strong>Y</strong>, ось Y — потребление <strong>C</strong>. Линия <strong>C = c₀ + c₁Y</strong> начинается в точке <strong>(0, c₀)</strong> и идёт вверх с наклоном <strong>MPC = c₁</strong>.</p>
-    <p class="en">Slope of the consumption function = MPC. Not the same as the budget-line slope in micro (−P<sub>x</sub>/P<sub>y</sub>) — Exam Topic #30.</p>
-
-    <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="Consumption function C(Y)">
+    <h2>График C(Y<sub>D</sub>) <span class="exam-ref">Exam #30</span></h2>
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="Consumption function">
             <defs>
                 <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
             </defs>
             <line x1="55" y1="25" x2="55" y2="285" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
             <line x1="55" y1="285" x2="450" y2="285" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
             <text x="18" y="30" font-size="13">C</text>
-            <text x="435" y="305" font-size="13">Y</text>
-            <!-- 45° line C=Y -->
+            <text x="420" y="305" font-size="13">Y<sub>D</sub></text>
             <line x1="55" y1="285" x2="400" y2="40" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
             <text x="360" y="55" font-size="11" fill="#999">45° (C = Y)</text>
-            <!-- C = 100 + 0.8Y scaled: at Y=0 C=100 -> y=245; at Y=400 C=420 off chart - use Y max ~350 -->
-            <!-- Map: Y 0-400 -> x 55-400; C 0-400 -> y 285-55. C=100 at y=245, C=400 at y=55 -->
             <line x1="55" y1="245" x2="400" y2="75" stroke="#3498db" stroke-width="2.5"/>
-            <text x="300" y="95" fill="#3498db" font-size="13" font-weight="600">C = c₀ + c₁Y</text>
+            <text x="280" y="95" fill="#3498db" font-size="13" font-weight="600">C = c₀ + c₁Y<sub>D</sub></text>
             <circle cx="55" cy="245" r="6" fill="#e67e22"/>
-            <text x="62" y="240" font-size="11" fill="#e67e22">c₀=100</text>
-            <!-- Break-even Y=500 off scale - show concept at intersection if we extend -->
-            <circle cx="230" cy="165" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
-            <text x="238" y="160" font-size="11" fill="#27ae60">C = Y</text>
-            <line x1="230" y1="165" x2="230" y2="285" stroke="#aaa" stroke-dasharray="3,3"/>
-            <text x="215" y="300" font-size="11">Y*</text>
-            <!-- slope annotation -->
+            <text x="62" y="240" font-size="11" fill="#e67e22">c₀</text>
             <line x1="120" y1="210" x2="200" y2="170" stroke="#8e44ad" stroke-width="2"/>
-            <text x="145" y="205" font-size="11" fill="#8e44ad">slope = MPC</text>
-            <text x="205" y="175" font-size="10" fill="#8e44ad">= 0,8</text>
+            <text x="145" y="205" font-size="11" fill="#8e44ad">slope = c₁ = MPC</text>
         </svg>
-        <p class="fig-caption"><strong>C(Y):</strong> intercept = c₀; наклон = MPC. Пересечение с 45° (C=Y) — доход, при котором S=0. Ниже Y* люди «тратят больше дохода» (dissaving).</p>
+        <p class="slope-note">positive slope — линия идёт вверх</p>
+        <p class="fig-caption">Intercept = c₀ на оси C. Наклон = MPC. На экзамене не путать с бюджетной линией микро (−P<sub>x</sub>/P<sub>y</sub>).</p>
     </div>
+
+    <div class="nb-example">
+        <p class="step">Income Y = $100, Taxes T = $10 → Y<sub>D</sub> = 100 − 10 = <strong>90</strong></p>
+        <p class="step">c₀ = $20, c₁ = 0,8 (тратят 80% доп. дохода)</p>
+        <p class="step">C = c₀ + c₁ · Y<sub>D</sub> = 20 + 0,8 × 90 = 20 + 72</p>
+        <p class="ans">C = $92</p>
+    </div>
+    <p class="nb-en">Example: Y=100, T=10 → Y_D=90; c₀=20, MPC=0.8 → C = 20 + 72 = 92.</p>
 
     <hr>
 
-    <h2>5. Не путать наклоны! <span class="exam-ref">Exam #30</span></h2>
-    <div class="warn-box">
-        <strong>Три разных графика — три разных наклона:</strong>
-        <table style="margin:12px 0 0; box-shadow:none;">
-            <tr><th>График</th><th>Наклон</th><th>MPC?</th></tr>
-            <tr><td>Бюджетное ограничение (2 товара, Frank)</td><td>−P<sub>x</sub>/P<sub>y</sub></td><td><strong>Нет</strong></td></tr>
-            <tr><td><strong>Функция потребления C(Y)</strong></td><td><strong>MPC = c₁</strong></td><td><strong>Да</strong></td></tr>
-            <tr><td>Линия AE = C + I + G</td><td>MPC (если I, G фикс.)</td><td><strong>Да</strong> → мультипликатор</td></tr>
-        </table>
-    </div>
-    <p>На экзамене часто подставляют MPC туда, где нужен −P<sub>x</sub>/P<sub>y</sub>, или наоборот. Проверяй оси: <strong>C vs Y</strong> — это макро; <strong>X vs Y</strong> (два товара) — микро.</p>
-
-    <hr>
-
-    <h2>6. Сдвиги функции потребления</h2>
-    <p>Изменение <strong>c₁ (MPC)</strong> → <strong>поворот</strong> линии (круче/площе). Изменение <strong>c₀</strong> → <strong>параллельный сдвиг</strong> вверх/вниз.</p>
+    <h2>MPC и MPS <span class="exam-ref">Exam #11</span></h2>
     <table>
-        <tr><th>Что изменилось</th><th>Эффект на графике</th><th>Пример</th></tr>
-        <tr><td><strong>c₀ ↑</strong></td><td>C сдвигается вверх при любом Y</td><td>Налоговые выплаты, оптимизм, рост богатства</td></tr>
-        <tr><td><strong>c₀ ↓</strong></td><td>C сдвигается вниз</td><td>Страх рецессии, рост долгов</td></tr>
-        <tr><td><strong>c₁ (MPC) ↓</strong></td><td>Линия становится <strong>площе</strong></td><td>Люди сберегают больше из доп. дохода</td></tr>
-        <tr><td><strong>c₁ (MPC) ↑</strong></td><td>Линия <strong>круче</strong></td><td>Больше тратят из каждого € дохода</td></tr>
+        <tr><th>Понятие</th><th>Формула</th><th>Смысл</th></tr>
+        <tr><td><strong>MPC</strong></td><td>ΔC / ΔY = c₁</td><td>Доля доп. € на потребление</td></tr>
+        <tr><td><strong>MPS</strong></td><td>ΔS / ΔY</td><td>Доля доп. € на сбережения</td></tr>
     </table>
-    <p>Рост c₀ или c₁ → больше C при том же Y → выше совокупный спрос Z → через <strong>мультипликатор</strong> растёт Y. См. <a href="Goods_Market_Multiplier_Explanation.html">Goods Market &amp; Multiplier</a>.</p>
-
-    <hr>
-
-    <h2>7. C в модели равновесия</h2>
-    <p>В закрытой экономике <strong>планируемый спрос</strong>:</p>
-    <div class="formula-box">
-        <p><strong>Z = C + I + G</strong> &nbsp; (X − M в открытой)</p>
-        <p>Подставляем C = c₀ + c₁Y:</p>
-        <p><strong>Z = c₀ + c₁Y + I + G</strong></p>
-        <p>Равновесие: <strong>Y = Z</strong> → Y = c₀ + c₁Y + I + G → решение даёт <strong>Y*</strong>.</p>
-    </div>
-    <p>Линия <strong>AE = Z(Y)</strong> параллельна C(Y), но выше на <strong>I + G</strong> (если I, G не зависят от Y). Наклон AE = MPC → определяет <strong>мультипликатор</strong> = 1/(1−MPC).</p>
-
-    <div class="story">Exam Prep (#11, #28): MPC=0,8 → multiplier=5. ΔG=€10 млрд → ΔY=€50 млрд. Round 1: +10 G; Round 2: +8 C; Round 3: +6,4 C… Сумма = 10×(1+0,8+0,64+…) = 10/0,2 = 50.</div>
-
-    <hr>
-
-    <h2>8. Парадокс бережливости (кратко)</h2>
-    <p>Если все хотят сберегать больше → <strong>MPC падает</strong> → C при каждом Y ниже → Z падает → через мультипликатор <strong>Y падает</strong>. В итоге сбережения могут <strong>не вырасти</strong> (падение дохода съедает желаемые сбережения). Подробнее — <a href="Goods_Market_Multiplier_Explanation.html">Paradox of thrift</a>.</p>
-
-    <hr>
-
-    <h2>9. Связь с другими темами</h2>
-    <ul>
-        <li><strong>Микро (Frank):</strong> потребитель выбирает товары при MU/P — не то же самое, что C(Y). <a href="Rational_Choice_Explanation.html">Rational Choice</a></li>
-        <li><strong>Межвременной выбор:</strong> C зависит также от Y<sup>e</sup>, богатства, r — <a href="Intertemporal_Budget_Constraint_Explanation.html">Intertemporal Budget</a> (Exam #8)</li>
-        <li><strong>Мультипликатор:</strong> <a href="Goods_Market_Multiplier_Explanation.html">Goods Market &amp; Multiplier</a> · <a href="Exam_Prep_Guide.html#t28">Exam #28</a></li>
-        <li><strong>IS-LM:</strong> кривая IS строится из Z(Y) — <a href="IS_LM_Explanation.html">IS-LM</a></li>
-    </ul>
-
-    <div class="key-box">
-        <strong>C = c₀ + c₁Y</strong> · MPC = c₁ = ΔC/ΔY · MPS = 1 − MPC · MPC + MPS = 1<br>
-        Наклон C(Y) = MPC (не −P<sub>x</sub>/P<sub>y</sub>!) · Break-even: C=Y → Y* = c₀/(1−c₁)<br>
-        Multiplier = 1/(1−MPC) = 1/MPS · ΔY = multiplier × Δ(c₀, G, I…)
+    <div class="nb-formula">MPC + MPS = 1 &nbsp;|&nbsp; Multiplier = 1 / (1 − MPC) = 1 / MPS</div>
+    <div class="nb-example">
+        <p class="step">MPC = 0,8 → из +€100 дохода тратят €80, сберегают €20</p>
+        <p class="step">Multiplier = 1 / 0,2 = <strong>5</strong> → ΔG = €10 млрд → ΔY ≈ €50 млрд</p>
     </div>
 
-<div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Функция потребления</strong> C=c₀+c₁Y (макро). c₀ — автономное потребление при Y=0. MPC=c₁ — наклон. MPS=1−MPC. Связь с мультипликатором 1/(1−MPC).</p></div>
+    <hr>
+
+    <h2>C в модели равновесия</h2>
+    <div class="nb-formula">
+        Z = c₀ + c₁Y + I + G &nbsp;→&nbsp; Y = Z &nbsp;→&nbsp; Y* = (c₀ + I + G) / (1 − c₁)
+        <div class="var-list">Упрощение: Y вместо Y<sub>D</sub> (T в G или фикс.). Наклон AE = MPC.</div>
+    </div>
+    <p>→ <a href="Goods_Market_Multiplier_Explanation.html">Goods Market &amp; Multiplier</a> · <a href="IS_LM_Explanation.html">IS-LM</a></p>
+
+    <div class="nb-key">
+        C = c₀ + c₁Y<sub>D</sub> · Y<sub>D</sub> = Y − T · MPC = c₁ = slope · MPS = 1 − MPC<br>
+        Break-even C = Y → Y* = c₀ / (1 − c₁) · Multiplier = 1/(1−MPC)
+    </div>
+
+    <div class="nb-conclusion">Функция потребления — поведенческое уравнение: как меняются траты при изменении дохода. c₀ — базовые траты; c₁ (MPC) — наклон. Налоги снижают Y<sub>D</sub> и C. На экзамене: не путать наклон C(Y) с бюджетной линией Frank.</div>
+</div>
 </body>
 </html>

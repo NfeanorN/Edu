@@ -2,71 +2,32 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cost Functions (Long Run) — Издержки в долгосрочном периоде (Frank, Ch. 9)</title>
-    <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.8; margin: 0; padding: 40px; color: #333; max-width: 920px; margin: 0 auto; background: white; }
-        h1 { color: #2c3e50; border-bottom: 4px solid #9b59b6; padding-bottom: 15px; margin-bottom: 10px; font-size: 2.1em; }
-        .source { color: #666; font-size: 0.95em; margin-bottom: 28px; }
-        h2 { color: #34495e; margin-top: 42px; margin-bottom: 18px; font-size: 1.55em; border-left: 5px solid #9b59b6; padding-left: 15px; }
-        h3 { color: #555; margin-top: 28px; margin-bottom: 12px; font-size: 1.2em; }
-        h4 { color: #555; margin-top: 20px; margin-bottom: 10px; font-size: 1.05em; }
-        p { margin: 14px 0; text-align: justify; }
-        .en { color: #555; font-style: italic; font-size: 0.94em; margin-top: -8px; margin-bottom: 14px; }
-        strong { color: #2c3e50; font-weight: 600; }
-        table { border-collapse: collapse; width: 100%; margin: 22px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-        th, td { border: 1px solid #ddd; padding: 11px 14px; text-align: left; }
-        th { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        hr { border: none; border-top: 3px solid #ecf0f1; margin: 38px 0; }
-        ul, ol { margin: 12px 0; padding-left: 28px; }
-        li { margin: 8px 0; }
-        .graph-box { background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; padding: 18px; margin: 22px 0; }
-        .formula-box { background: #f5eef8; border-left: 4px solid #9b59b6; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .story-box { background: #fff9e6; border-left: 4px solid #f39c12; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .example-box { background: #eef7ff; border-left: 4px solid #3498db; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .key-box { background: #e8f6ef; border-left: 4px solid #27ae60; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .why-box { background: #fdf2f2; border-left: 4px solid #e74c3c; padding: 14px 18px; margin: 20px 0; border-radius: 4px; }
-        .book-ref { display: inline-block; background: #eee; color: #555; font-size: 0.82em; padding: 2px 8px; border-radius: 4px; margin-left: 6px; font-style: normal; }
-        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; }
-        pre { background: #f8f8f8; padding: 16px; border-radius: 8px; border: 1px solid #e0e0e0; overflow-x: auto; font-size: 0.88em; line-height: 1.45; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #9b59b6; text-decoration: none; }
-        .back a:hover { text-decoration: underline; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 1rem auto; }
-        .fig-caption { text-align: center; font-size: 0.9em; color: #666; margin-top: 8px; }
-        .kz { color: #555; font-size: 0.94em; padding: 6px 0 6px 12px; border-left: 3px solid #3498db; margin: 8px 0; }
-        .kz::before { content: "🇰🇿 KZ: "; font-weight: 700; color: #2980b9; }
-        .calc { font-family: Consolas, monospace; background: #fff; padding: 10px 14px; border-radius: 6px; margin: 10px 0; line-height: 1.6; }
-    
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-
-    </style>
 </head>
-<body>
-    <p class="back"><a href="index.html">← Economics topics / К темам по экономике</a> · <a href="Frank_Study_Guide.html#lr-costs">Frank Study Guide</a> · <a href="Production_Cost_Short_Run_Explanation.html">Short Run Costs</a></p>
+<body class="nb-page nb-firm">
+<div class="nb-sheet">
+<p class="back"><a href="index.html">← Economics topics / К темам по экономике</a> · <a href="Frank_Study_Guide.html#lr-costs">Frank Study Guide</a> · <a href="Production_Cost_Short_Run_Explanation.html">Short Run Costs</a></p>
 
     <h1>Cost Functions (Long Run) — Издержки в долгосрочном периоде</h1>
     <p class="source">Источник: <strong>Robert H. Frank, <em>Microeconomics and Behavior</em>, 7th ed.</strong>, Chapter 9 — «Production and Cost in the Long Run» (стр. 278–286). Примеры, графики и логика — из учебника. Обозначения: в книге <strong>LAC</strong> (long-run average cost) и <strong>SAC</strong> (short-run average cost); ниже также используется привычное <strong>LRAC</strong> / <strong>SR ATC</strong>.</p>
 
     <!-- ========== 1. SR vs LR ========== -->
     <h2>1. Что меняется в долгосрочном периоде? <span class="book-ref">Ch. 9, p. 278</span></h2>
-    <p>В <strong>краткосрочном периоде</strong> (см. <a href="Production_Cost_Short_Run_Explanation.html">Short Run Costs</a>) хотя бы один фактор <strong>фиксирован</strong> — обычно капитал K (размер цеха, оборудование). Есть постоянные издержки FC; фирма решает только «сколько производить» при данном заводе.</p>
-    <p class="en">In the <strong>short run</strong>, at least one input is fixed (typically capital K). Fixed costs FC exist; the firm chooses output given its plant size.</p>
+    <p class="nb-def">В <strong>краткосрочном периоде</strong> (см. <a href="Production_Cost_Short_Run_Explanation.html">Short Run Costs</a>) хотя бы один фактор <strong>фиксирован</strong> — обычно капитал K (размер цеха, оборудование). Есть постоянные издержки FC; фирма решает только «сколько производить» при данном заводе.</p>
+    <p class="nb-en">In the <strong>short run</strong>, at least one input is fixed (typically capital K). Fixed costs FC exist; the firm chooses output given its plant size.</p>
 
     <p>В <strong>долгосрочном периоде</strong> у фирмы достаточно времени, чтобы изменить <strong>всё</strong>: построить новый цех, купить станки, переехать в другой город. <strong>Все факторы переменные</strong> — FC в экономическом смысле «застрявших» издержек больше нет.</p>
-    <p class="en">In the <strong>long run</strong> the firm has enough time to change <strong>everything</strong>: build a new shop, buy machines, relocate. <strong>All inputs are variable</strong> — no fixed costs in the economic sense.</p>
+    <p class="nb-en">In the <strong>long run</strong> the firm has enough time to change <strong>everything</strong>: build a new shop, buy machines, relocate. <strong>All inputs are variable</strong> — no fixed costs in the economic sense.</p>
 
     <div class="story-box">
         <p>«Short run» и «long run» — не «завтра vs через 10 лет». Это вопрос: <strong>можно ли прямо сейчас изменить размер завода?</strong> Для пекарни — месяцы; для Boeing — годы. Но логика одна: в SR завод дан, в LR — выбираем.</p>
-        <p class="en">Short vs long run is not calendar time — it's whether you can change plant size <em>right now</em>.</p>
+        <p class="nb-en">Short vs long run is not calendar time — it's whether you can change plant size <em>right now</em>.</p>
     </div>
 
     <p><strong>Главный вопрос долгосрочного периода (Frank):</strong> какая комбинация труда L и капитала K даёт желаемый выпуск Q при <strong>наименьших затратах</strong>?</p>
-    <p class="en"><strong>The firm's main long-run question:</strong> which combination of L and K produces the desired Q at the <strong>lowest cost</strong>?</p>
+    <p class="nb-en"><strong>The firm's main long-run question:</strong> which combination of L and K produces the desired Q at the <strong>lowest cost</strong>?</p>
 
     <div class="kz">Ұзақ мерзімде барлық факторлар өзгереді — зауыттың өлшемін, технологияны, L мен K қосындысын таңдай аласыз. Негізгі сұрақ: берілген Q үшін ең арзан (L, K) комбинациясы қандай?</div>
 
@@ -75,7 +36,7 @@
     <!-- ========== 2. Isoquant ========== -->
     <h2>2. Инструмент 1: изокванта (isoquant) <span class="book-ref">Ch. 9, p. 278</span></h2>
     <p><strong>Изокванта</strong> — «кривая равного выпуска». Все точки на ней дают <strong>один и тот же Q</strong>, но с разными комбинациями L и K.</p>
-    <p class="en">An <strong>isoquant</strong> is an "equal-output curve". All points on it yield the <strong>same Q</strong> with different mixes of L and K.</p>
+    <p class="nb-en">An <strong>isoquant</strong> is an "equal-output curve". All points on it yield the <strong>same Q</strong> with different mixes of L and K.</p>
 
     <div class="story-box">
         <p><strong>Пример из книги — пекарня.</strong> Чтобы выпекать <strong>100 пирогов в день</strong>, можно:</p>
@@ -85,7 +46,7 @@
             <li>И множество вариантов между ними.</li>
         </ul>
         <p>Все эти комбинации лежат на <strong>одной изокванте «Q = 100 пирогов»</strong>.</p>
-        <p class="en"><strong>Book example — bakery.</strong> To bake 100 pies/day: 10 bakers + 2 ovens, or 3 bakers + 5 ovens, or anything in between — all on the same isoquant Q = 100.</p>
+        <p class="nb-en"><strong>Book example — bakery.</strong> To bake 100 pies/day: 10 bakers + 2 ovens, or 3 bakers + 5 ovens, or anything in between — all on the same isoquant Q = 100.</p>
     </div>
 
     <h3>Свойства изоквант</h3>
@@ -95,7 +56,7 @@
         <li>Изокванты <strong>не пересекаются</strong>.</li>
         <li>Наклон изокванты = <strong>MRTS</strong> (marginal rate of technical substitution) = MP<sub>L</sub> / MP<sub>K</sub>.</li>
     </ul>
-    <p class="en">Isoquants are convex toward the origin; higher isoquant = more output; slope = MRTS = MP<sub>L</sub>/MP<sub>K</sub>.</p>
+    <p class="nb-en">Isoquants are convex toward the origin; higher isoquant = more output; slope = MRTS = MP<sub>L</sub>/MP<sub>K</sub>.</p>
 
     <div class="graph-box">
         <svg class="svg-graph" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +81,7 @@
     <!-- ========== 3. Isocost ========== -->
     <h2>3. Инструмент 2: изокоста (isocost) <span class="book-ref">Ch. 9, p. 279</span></h2>
     <p><strong>Изокоста</strong> — «линия равной стоимости». Все точки на ней стоят <strong>одинаковую сумму</strong> C.</p>
-    <p class="en">An <strong>isocost</strong> is an "equal-cost line". All points on it cost the same total amount C.</p>
+    <p class="nb-en">An <strong>isocost</strong> is an "equal-cost line". All points on it cost the same total amount C.</p>
 
     <p>Пусть <strong>w</strong> — заработная плата ($/рабочий), <strong>r</strong> — стоимость аренды капитала ($/ед. K). Тогда:</p>
     <div class="formula-box">
@@ -131,7 +92,7 @@
         <strong>K = (C / r) − (w / r) · L</strong> &nbsp;→&nbsp; прямая с наклоном <strong>−w/r</strong>
     </div>
     <p>Чем дороже труд (выше w), тем <strong>круче</strong> изокоста. Изокосты, расположенные дальше от начала координат, — при <strong>большем бюджете</strong> C.</p>
-    <p class="en">Slope = <strong>−w/r</strong>. Higher w → steeper isocost. Farther from origin → larger budget.</p>
+    <p class="nb-en">Slope = <strong>−w/r</strong>. Higher w → steeper isocost. Farther from origin → larger budget.</p>
 
     <div class="graph-box">
         <svg class="svg-graph" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
@@ -153,7 +114,7 @@
     <!-- ========== 4. Optimal combination ========== -->
     <h2>4. Оптимальная комбинация ресурсов <span class="book-ref">Ch. 9, p. 280 · Fig. 9.10</span></h2>
     <p>Фирма хочет произвести заданное Q при <strong>минимальных затратах</strong>. Стратегия: остаться на нужной изокванте, но коснуться <strong>самой нижней</strong> (самой дешёвой) изокосты.</p>
-    <p class="en">Produce a given Q at minimum cost: stay on the required isoquant, touch the <strong>lowest possible</strong> isocost.</p>
+    <p class="nb-en">Produce a given Q at minimum cost: stay on the required isoquant, touch the <strong>lowest possible</strong> isocost.</p>
 
     <p>Геометрически — <strong>точка касания</strong> изокванты и изокосты (рис. 9.10 в книге).</p>
 
@@ -191,7 +152,7 @@
             <li>$1 на капитал → прирост выпуска <strong>MP<sub>K</sub>/r</strong> единиц.</li>
         </ul>
         <p>В оптимуме эти «выпуски на доллар» <strong>равны</strong>. Если нет — перекладываем деньги на более выгодный фактор и получаем тот же Q дешевле (или больше Q за те же деньги).</p>
-        <p class="en">At the optimum, output per dollar spent on labour equals output per dollar spent on capital. Otherwise you could reallocate and do better.</p>
+        <p class="nb-en">At the optimum, output per dollar spent on labour equals output per dollar spent on capital. Otherwise you could reallocate and do better.</p>
     </div>
 
     <div class="example-box">
@@ -202,7 +163,7 @@
             <li>Точка касания с той же изоквантой смещается <strong>вверх и влево</strong>.</li>
             <li>Фирма использует <strong>больше K, меньше L</strong> — заменяет подорожавший труд более дешёвым (относительно) капиталом (роботами).</li>
         </ol>
-        <p class="en">When w rises, the isocost steepens; the tangency shifts up-left → more K, less L. Substitute away from pricier labour.</p>
+        <p class="nb-en">When w rises, the isocost steepens; the tangency shifts up-left → more K, less L. Substitute away from pricier labour.</p>
         <div class="kz">Жалақы (w) өскенде: w/r артады → изокоста тіклеу → сол Q үшін капитал (K) көбейіп, еңбек (L) азаяды. Бұл Frank-тің «замена факторов» мысалы.</div>
     </div>
 
@@ -211,7 +172,7 @@
     <!-- ========== 5. Returns to scale ========== -->
     <h2>5. Отдача от масштаба (returns to scale) <span class="book-ref">Ch. 9</span></h2>
     <p><strong>Отдача от масштаба (RTS)</strong> — долгосрочное свойство производственной функции Q = f(L, K). Вопрос: что происходит с Q, если <strong>все</strong> факторы увеличить в k раз?</p>
-    <p class="en">Returns to scale: what happens to output when <strong>all inputs</strong> are scaled up by factor k? This is long-run — not "one more worker with fixed plant" (that's diminishing returns in the SR).</p>
+    <p class="nb-en">Returns to scale: what happens to output when <strong>all inputs</strong> are scaled up by factor k? This is long-run — not "one more worker with fixed plant" (that's diminishing returns in the SR).</p>
 
     <table>
         <tr><th>Тип RTS</th><th>Условие (k = 2)</th><th>LRAC / LAC</th><th>Интуиция (Frank)</th></tr>
@@ -251,7 +212,7 @@
     <h2>6. LAC (LRAC) — огибающая краткосрочных SAC <span class="book-ref">Ch. 9, p. 286 · Fig. 9.13</span></h2>
     <p>В краткосрочном периоде предприятие <strong>каждого размера</strong> имеет свою кривую SAC (SR ATC). В долгосрочном — фирма может выбрать <strong>любой</strong> размер завода.</p>
     <p><strong>LAC</strong> (long-run average cost, LRAC) — кривая, показывающая <strong>минимально возможный ATC</strong> при идеально выбранном размере для каждого Q.</p>
-    <p class="en">Each plant size has its own SAC. LAC shows the <strong>lowest possible average cost</strong> at the optimally chosen size for each output level.</p>
+    <p class="nb-en">Each plant size has its own SAC. LAC shows the <strong>lowest possible average cost</strong> at the optimally chosen size for each output level.</p>
 
     <p>Геометрически LAC — <strong>«оболочка» (envelope)</strong> всех SAC <strong>снизу</strong> (рис. 9.13). Каждая SAC касается LAC <strong>только в одной точке</strong> — там, где этот размер завода оптимален для данного Q.</p>
 
@@ -288,30 +249,30 @@
 
     <h3>Minimum Efficient Scale (MES)</h3>
     <p><strong>MES</strong> — минимальный выпуск Q, при котором LAC достигает своего <strong>минимума</strong>. Ниже MES фирма ещё не полностью использовала economies of scale; выше MES — возможны diseconomies (если LAC растёт).</p>
-    <p class="en">MES = smallest output at which LAC is minimized. Below MES → still gaining scale economies; above → possible diseconomies.</p>
+    <p class="nb-en">MES = smallest output at which LAC is minimized. Below MES → still gaining scale economies; above → possible diseconomies.</p>
 
     <hr>
 
     <!-- ========== 7. Three shapes → industry ========== -->
     <h2>7. Три формы LAC → три типа отраслей <span class="book-ref">Ch. 9, p. 286</span></h2>
     <p>Фрэнк подчёркивает: <strong>форма LAC предсказывает структуру отрасли</strong>. Это «большая идея» главы 9.</p>
-    <p class="en"><strong>The big idea of Ch. 9:</strong> the shape of LAC <strong>predicts</strong> what kind of industry we will see.</p>
+    <p class="nb-en"><strong>The big idea of Ch. 9:</strong> the shape of LAC <strong>predicts</strong> what kind of industry we will see.</p>
 
     <h4>1) LAC падает — economies of scale</h4>
     <p>Более крупная фирма производит <strong>дешевле</strong>, чем меньшая. Чем больше — тем дешевле unit cost.</p>
     <p><strong>Отрасль:</strong> если одна фирма вырастает огромной, её издержки ниже любого конкурента → вытесняет всех → <strong>монополия или олигополия</strong>.</p>
     <p><strong>Примеры из книги:</strong> электричество, водоснабжение, газораспределение. Прокладывать вторую трубопроводную сеть параллельно первой — расточительство → <strong>естественные монополии</strong> (см. <a href="Monopoly_Explanation.html">Monopoly, Ch. 11</a>).</p>
-    <p class="en">Falling LAC → one big firm beats rivals on cost → monopoly/oligopoly. Examples: electricity, water, gas — "natural monopolies".</p>
+    <p class="nb-en">Falling LAC → one big firm beats rivals on cost → monopoly/oligopoly. Examples: electricity, water, gas — "natural monopolies".</p>
 
     <h4>2) LAC растёт — diseconomies of scale</h4>
     <p>Более крупная фирма работает <strong>хуже</strong>: слишком много управления, бюрократии, потери связи с клиентом.</p>
     <p><strong>Отрасль:</strong> крупные фирмы нерентабельны → отрасль полна <strong>мелких фирм</strong>, близко к совершенной конкуренции.</p>
     <p><strong>Примеры из книги:</strong> парикмахерские, рестораны, ремонтные мастерские. Огромный ресторан часто хуже маленького «домашнего».</p>
-    <p class="en">Rising LAC → big firms unprofitable → many small firms. Examples: hair salons, restaurants, repair shops.</p>
+    <p class="nb-en">Rising LAC → big firms unprofitable → many small firms. Examples: hair salons, restaurants, repair shops.</p>
 
     <h4>3) LAC плоская — constant returns to scale</h4>
     <p>Размер не имеет значения — unit cost одинаков. В отрасли могут сосуществовать и мелкие, и крупные фирмы.</p>
-    <p class="en">Flat LAC → size doesn't matter; mix of small and large firms possible.</p>
+    <p class="nb-en">Flat LAC → size doesn't matter; mix of small and large firms possible.</p>
 
     <div class="key-box">
         <strong>Большая идея Frank, Ch. 9:</strong><br>
@@ -334,7 +295,7 @@
         <strong>LRTC = LAC × Q</strong> &nbsp;(минимально возможный TC в long run)
     </div>
     <p><strong>LRMC</strong> = ΔLRTC / ΔQ — наклон LRTC; дополнительные издержки на ещё одну единицу при оптимальной корректировке <strong>всех</strong> факторов.</p>
-    <p class="en">LRTC = minimum total cost at each Q with optimal input mix. LRMC = slope of LRTC.</p>
+    <p class="nb-en">LRTC = minimum total cost at each Q with optimal input mix. LRMC = slope of LRTC.</p>
 
     <p>Та же логика, что и в SR (Frank, p. 270):</p>
     <ul>
@@ -383,7 +344,7 @@
         <li><strong>Бюрократия</strong> — медленные решения, red tape.</li>
         <li><strong>Мотивация</strong> — работники менее связаны с целями фирмы.</li>
     </ul>
-    <p class="en">Frank's examples for rising LAC: too much management, bureaucracy — a huge restaurant is often worse than a small home-style one.</p>
+    <p class="nb-en">Frank's examples for rising LAC: too much management, bureaucracy — a huge restaurant is often worse than a small home-style one.</p>
 
     <hr>
 
@@ -420,5 +381,6 @@
     <p class="back" style="margin-top: 40px;"><a href="index.html">← Economics topics</a> · <a href="Exam_Prep_Guide.html">Exam Prep Guide</a> · <a href="Monopoly_Explanation.html">Monopoly (natural monopoly → Ch. 11)</a></p>
 
 <div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Долгосрочные издержки</strong> (гл. 9): изокванты, изокосты C=wL+rK, MRTS=w/r. LRAC — огибающая SR ATC. RTS и форма LRAC → монополия vs много мелких. Пекарня Frank — масштабирование печей и пекарей.</p></div>
+</div>
 </body>
 </html>
