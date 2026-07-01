@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Determinants &amp; Price Controls — Сдвиги D/S и контроль цен</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Costs_Law_SD_Explanation.html">← Costs &amp; Law of S&amp;D</a></p>
+
+    <h1>Determinants &amp; Price Controls</h1>
+    <p style="color:#666;font-size:0.92em;">Frank Ch. 2, Fig. 2.9 · movement vs shift · ceiling &amp; floor</p>
+
+    <div class="nb-def"><strong>Movement along</strong> curve — изменилась <span class="hl">собственная цена P</span>. <strong>Shift</strong> — изменился другой фактор → вся кривая D или S сдвигается.</div>
+    <p class="nb-en">Movement along the curve = own price changed. Shift = another factor changed → entire D or S curve moves.</p>
+
+    <hr>
+
+    <h2>Demand shifts / Сдвиги спроса D</h2>
+    <table>
+        <tr><th>Фактор<span class="en-cell">Factor</span></th><th>Изменение<span class="en-cell">Change</span></th><th>D<span class="en-cell">D</span></th></tr>
+        <tr><td>Income (normal good)</td><td>Income ↑<span class="en-cell">Income up</span></td><td>→ right</td></tr>
+        <tr><td>Substitute price</td><td>Substitute ↑<span class="en-cell">Crabs more expensive</span></td><td>→ right (lobsters)</td></tr>
+        <tr><td>Complement price</td><td>Complement ↑<span class="en-cell">Butter more expensive</span></td><td>→ left</td></tr>
+        <tr><td>Tastes / preferences</td><td>More popular<span class="en-cell">More popular</span></td><td>→ right</td></tr>
+        <tr><td>Number of buyers</td><td>More buyers<span class="en-cell">More buyers</span></td><td>→ right</td></tr>
+    </table>
+    <p class="nb-en">Income up → D right for normal goods. Substitute price up → D right. Complement price up → D left.</p>
+
+    <h2>Supply shifts / Сдвиги предложения S</h2>
+    <table>
+        <tr><th>Фактор<span class="en-cell">Factor</span></th><th>Изменение<span class="en-cell">Change</span></th><th>S<span class="en-cell">S</span></th></tr>
+        <tr><td>Technology</td><td>Improved<span class="en-cell">Better tech</span></td><td>→ right</td></tr>
+        <tr><td>Input costs (wages, raw)</td><td>Costs ↑<span class="en-cell">Higher costs</span></td><td>→ left</td></tr>
+        <tr><td>Number of sellers</td><td>More firms<span class="en-cell">More firms</span></td><td>→ right</td></tr>
+        <tr><td>Weather / shocks</td><td>Bad harvest<span class="en-cell">Bad weather</span></td><td>→ left</td></tr>
+    </table>
+    <p class="nb-en">Better technology → S right. Higher input costs → S left. More sellers → S right.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Demand shift right">
+            <line x1="55" y1="25" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="230" x2="380" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="12">P</text>
+            <text x="365" y="248" font-size="12">Q</text>
+            <line x1="90" y1="55" x2="310" y2="205" stroke="#3498db" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="280" y="200" fill="#3498db" font-size="10">D</text>
+            <line x1="130" y1="55" x2="350" y2="205" stroke="#3498db" stroke-width="2.5"/>
+            <text x="320" y="200" fill="#3498db" font-size="11">D'</text>
+            <line x1="70" y1="210" x2="340" y2="50" stroke="#e67e22" stroke-width="2.5"/>
+            <text x="320" y="60" fill="#e67e22" font-size="11">S</text>
+            <circle cx="195" cy="132" r="5" fill="#27ae60"/>
+            <circle cx="235" cy="118" r="5" fill="#f39c12"/>
+            <text x="200" y="125" font-size="9">E</text>
+            <text x="240" y="112" font-size="9">E'</text>
+        </svg>
+        <p class="fig-caption">D → D' (income ↑): новое равновесие E' — выше Q*, выше P*<span class="en-cell">Demand shifts right → higher Q* and P*.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>Price ceiling / Потолок цены (maximum price)</h2>
+    <div class="nb-def"><strong>Price ceiling</strong> — <span class="hl">максимальная</span> legal цена <strong>ниже P*</strong> → <strong>shortage</strong> (дефицит): Q_D &gt; Q_S.</div>
+    <p class="nb-en">A price ceiling is a legal maximum price set below equilibrium → shortage: quantity demanded exceeds quantity supplied.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Price ceiling">
+            <line x1="55" y1="25" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="230" x2="380" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="70" y1="55" x2="340" y2="210" stroke="#3498db" stroke-width="2.5"/>
+            <line x1="70" y1="210" x2="340" y2="50" stroke="#e67e22" stroke-width="2.5"/>
+            <circle cx="205" cy="130" r="4" fill="#999"/>
+            <text x="212" y="128" font-size="9">P*</text>
+            <line x1="55" y1="175" x2="380" y2="175" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,4"/>
+            <text x="22" y="179" font-size="10" fill="#e74c3c">P_ceiling</text>
+            <line x1="175" y1="175" x2="175" y2="230" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="255" y1="175" x2="255" y2="230" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="158" y="248" font-size="9">Q_S</text>
+            <text x="248" y="248" font-size="9">Q_D</text>
+            <text x="200" y="195" font-size="10" fill="#e74c3c">shortage</text>
+        </svg>
+        <p class="fig-caption">Ceiling ниже P* → shortage (Q_D &gt; Q_S)<span class="en-cell">Binding ceiling below equilibrium creates shortage.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>Price floor / Пол цены (minimum price)</h2>
+    <div class="nb-def"><strong>Price floor</strong> — <span class="hl">минимальная</span> legal цена <strong>выше P*</strong> → <strong>surplus</strong> (избыток): Q_S &gt; Q_D.</div>
+    <p class="nb-en">A price floor is a legal minimum price set above equilibrium → surplus: quantity supplied exceeds quantity demanded.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Price floor">
+            <line x1="55" y1="25" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="230" x2="380" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="70" y1="55" x2="340" y2="210" stroke="#3498db" stroke-width="2.5"/>
+            <line x1="70" y1="210" x2="340" y2="50" stroke="#e67e22" stroke-width="2.5"/>
+            <circle cx="205" cy="130" r="4" fill="#999"/>
+            <line x1="55" y1="85" x2="380" y2="85" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,4"/>
+            <text x="22" y="89" font-size="10" fill="#e74c3c">P_floor</text>
+            <line x1="155" y1="85" x2="155" y2="230" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="275" y1="85" x2="275" y2="230" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="138" y="248" font-size="9">Q_D</text>
+            <text x="268" y="248" font-size="9">Q_S</text>
+            <text x="190" y="105" font-size="10" fill="#e74c3c">surplus</text>
+        </svg>
+        <p class="fig-caption">Floor выше P* → surplus (Q_S &gt; Q_D)<span class="en-cell">Binding floor above equilibrium creates surplus.</span></p>
+    </div>
+
+    <div class="nb-key">
+        Own P change = movement · Other factor = shift · Ceiling below P* = shortage · Floor above P* = surplus
+    </div>
+    <p class="nb-en">Own price → movement along curve. Other factors → shift. Ceiling below P* → shortage. Floor above P* → surplus.</p>
+
+    <div class="nb-conclusion">Сдвиг D или S меняет P* и Q*. Потолок цены (ниже равновесия) → дефицит. Пол цены (выше равновесия) → избыток.</div>
+    <p class="nb-en">Shifts change equilibrium. Price ceiling → shortage. Price floor → surplus.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="Supply_Demand_Algebra_Explanation.html">Algebra of S&amp;D →</a></p>
+</div>
+</body>
+</html>
