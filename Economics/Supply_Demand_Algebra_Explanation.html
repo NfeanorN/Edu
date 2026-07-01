@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra of S&amp;D — Алгебра спроса и предложения</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Supply_Demand_Shifts_Explanation.html">← Shifts &amp; Price Controls</a></p>
+
+    <h1>Algebra of Supply &amp; Demand</h1>
+    <p style="color:#666;font-size:0.92em;">Linear D and S · solve for P* and Q* · exam algebra</p>
+
+    <div class="nb-def">Если спрос и предложение заданы <span class="hl">линейными уравнениями</span>, равновесие: приравнять P из D и S → найти <strong>Q*</strong>, затем <strong>P*</strong>.</div>
+    <p class="nb-en">With linear demand and supply equations, set them equal to find Q*, then plug back for P*.</p>
+
+    <div class="nb-formula">
+        Demand: P = a − bQ &nbsp;|&nbsp; Supply: P = c + dQ &nbsp;|&nbsp; Equilibrium: a − bQ = c + dQ
+        <div class="var-list">Q* = (a − c) / (b + d) · then P* from either equation</div>
+    </div>
+    <p class="nb-en">General: Q* = (a − c)/(b + d). Substitute into demand or supply for P*.</p>
+
+    <hr>
+
+    <h2>Exam example / Пример с экзамена</h2>
+    <div class="nb-formula">
+        D: P = 10 − Q &nbsp;&nbsp;·&nbsp;&nbsp; S: P = 2 + 3Q
+    </div>
+    <p class="nb-en">Demand P = 10 − Q. Supply P = 2 + 3Q.</p>
+
+    <div class="nb-example">
+        <p class="step"><strong>Step 1:</strong> Set D = S &nbsp;→&nbsp; 10 − Q = 2 + 3Q</p>
+        <p class="step"><strong>Step 2:</strong> 10 − 2 = 3Q + Q &nbsp;→&nbsp; 8 = 4Q</p>
+        <p class="step"><strong>Step 3:</strong> Q* = 8 / 4 = <strong>2</strong></p>
+        <p class="step"><strong>Step 4:</strong> P* = 10 − 2 = <strong>8</strong> &nbsp;(or P* = 2 + 3×2 = 8)</p>
+        <p class="ans">Equilibrium: Q* = 2, P* = 8</p>
+    </div>
+    <p class="nb-en">10 − Q = 2 + 3Q → Q* = 2. P* = 10 − 2 = 8. Check: 2 + 3(2) = 8 ✓</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Algebra equilibrium Q=2 P=8">
+            <line x1="55" y1="25" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="230" x2="380" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="12">P</text>
+            <text x="365" y="248" font-size="12">Q</text>
+            <line x1="70" y1="50" x2="310" y2="230" stroke="#3498db" stroke-width="2.5"/>
+            <text x="280" y="220" fill="#3498db" font-size="11">P=10−Q</text>
+            <line x1="70" y1="210" x2="310" y2="50" stroke="#e67e22" stroke-width="2.5"/>
+            <text x="280" y="60" fill="#e67e22" font-size="11">P=2+3Q</text>
+            <circle cx="205" cy="130" r="6" fill="#e74c3c"/>
+            <line x1="55" y1="130" x2="205" y2="130" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="205" y1="130" x2="205" y2="230" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="22" y="134" font-size="11">P*=8</text>
+            <text x="198" y="248" font-size="11">Q*=2</text>
+        </svg>
+        <p class="fig-caption">D: P=10−Q · S: P=2+3Q · пересечение (2, 8)<span class="en-cell">Equilibrium at Q*=2, P*=8.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>Second form: Q as function of P</h2>
+    <div class="nb-example">
+        <p class="step">Sometimes D: Q = 10 − P &nbsp; and &nbsp; S: Q = 2 + 0.5P</p>
+        <p class="step">Set Q equal: 10 − P = 2 + 0.5P → 8 = 1.5P → P* = 16/3 ≈ 5.33</p>
+        <p class="ans">Same logic — set quantities equal at equilibrium</p>
+    </div>
+    <p class="nb-en">You may get Q = f(P) instead of P = f(Q). Set Q_D = Q_S and solve for P*.</p>
+
+    <div class="nb-key">
+        Exam steps: (1) write D and S · (2) set equal · (3) solve Q* · (4) plug for P* · (5) check in both equations
+    </div>
+    <p class="nb-en">Exam: write equations, set equal, solve Q*, find P*, verify.</p>
+
+    <div class="nb-conclusion">Алгебра S&amp;D: приравняй P (или Q) из D и S → Q*, P*. Пример: P=10−Q и P=2+3Q → Q*=2, P*=8.</div>
+    <p class="nb-en">Set demand equal to supply, solve for Q* and P*. Example: P=10−Q and P=2+3Q gives Q*=2, P*=8.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="index.html">← К оглавлению</a></p>
+</div>
+</body>
+</html>

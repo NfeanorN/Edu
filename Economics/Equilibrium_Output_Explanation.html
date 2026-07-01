@@ -68,6 +68,8 @@
     <hr>
 
     <h2>ZZ line / Линия спроса Z</h2>
+    <div class="nb-def"><strong>Z</strong> — совокупный спрос: <span class="hl">Z = C + I + G</span>. <strong>ZZ</strong> — это та же величина Z, но нарисованная <strong>линией на графике</strong> (спрос при разных уровнях дохода Y). Двойная Z — просто подпись кривой, не новая переменная.</div>
+    <p class="nb-en">Z = aggregate demand (C + I + G). ZZ is the demand line on the Keynesian cross — just a label for the Z curve, not a separate variable.</p>
     <div class="nb-formula">
         Z = C + I + G &nbsp;→&nbsp; Z = c₀ + c₁Y + I + G
         <div class="var-list">
@@ -78,24 +80,94 @@
 
     <hr>
 
-    <h2>Multiplier / Мультипликатор</h2>
-    <div class="nb-def"><strong>Multiplier</strong> — число, на которое умножается автономный спрос, чтобы получить ΔY.</div>
-    <p class="nb-en">The multiplier is the number that multiplies autonomous spending to get the change in output.</p>
+    <h2>Multiplier / Мультипликатор — простыми словами</h2>
+
+    <div class="nb-def"><strong>Мультипликатор</strong> отвечает на один вопрос: если государство (или бизнес) потратит <strong>+€1</strong> «сверху», на сколько в итоге вырастет выпуск <strong>ΔY</strong>? Ответ: <span class="hl">больше, чем €1</span> — потому что эти деньги снова становятся чьим-то доходом, и люди часть дохода снова тратят.</div>
+    <p class="nb-en">The multiplier answers: if autonomous spending rises by €1, by how much does total output Y rise? Answer: by more than €1 — that spending becomes someone else's income, and they spend part of it again.</p>
+
+    <div class="nb-why">
+        <strong>Главная идея:</strong> €1 государственных расходов → €1 дохода у людей → они тратят MPC×€1 → новый доход → снова траты → … Пока экономика не придёт к новому равновесию, где <strong>Y = Z</strong>.
+    </div>
+    <p class="nb-en">Core idea: €1 of G → €1 income → people spend MPC×€1 → more income → more spending → … until a new equilibrium Y = Z is reached.</p>
+
+    <h3>Пример по раундам / Round-by-round story</h3>
+    <p>Допустим: <strong>MPC = c₁ = 0,8</strong> (из каждого дополнительного €1 дохода люди тратят 80¢). Правительство увеличивает <strong>G на €10 млрд</strong>.</p>
+    <p class="nb-en">Suppose MPC = 0.8. Government raises G by €10 billion.</p>
+
+    <table>
+        <tr><th>Раунд<span class="en-cell">Round</span></th><th>Что происходит<span class="en-cell">What happens</span></th><th>Прирост спроса<span class="en-cell">Δ spending</span></th></tr>
+        <tr><td><strong>1</strong></td><td>Государство платит €10 за дороги, школы…<span class="en-cell">Government spends €10bn on G</span></td><td><strong>+10</strong></td></tr>
+        <tr><td><strong>2</strong></td><td>Рабочие и фирмы получили €10 дохода → тратят 80%<span class="en-cell">Workers/firms earn €10 → spend 80%</span></td><td><strong>+8</strong> (0,8×10)</td></tr>
+        <tr><td><strong>3</strong></td><td>Новый доход €8 → снова тратят 80%<span class="en-cell">New income €8 → spend 80% again</span></td><td><strong>+6,4</strong> (0,8×8)</td></tr>
+        <tr><td><strong>4</strong></td><td>И так далее…<span class="en-cell">And so on…</span></td><td>+5,12 · +4,1 · …</td></tr>
+        <tr><td><strong>Σ</strong></td><td><strong>Итого ΔY</strong><span class="en-cell">Total change in output</span></td><td><strong>10 + 8 + 6,4 + … = 50</strong></td></tr>
+    </table>
+    <p class="nb-en">Round 1: +10 G. Round 2: recipients spend 0.8×10 = 8 on C. Round 3: 0.8×8 = 6.4 … Sum = 50 billion total ΔY.</p>
+
+    <div class="nb-example">
+        <p class="step"><strong>ΔG = +€10 млрд</strong>, но <strong>ΔY = +€50 млрд</strong> — в 5 раз больше!</p>
+        <p class="step">Число <strong>5</strong> — это и есть <strong>multiplier</strong> при MPC = 0,8.</p>
+        <p class="ans">Формула: Multiplier = 1 / (1 − 0,8) = 1 / 0,2 = <strong>5</strong> · ΔY = 5 × ΔG = 5 × 10 = <strong>50</strong></p>
+    </div>
+    <p class="nb-en">ΔG = €10bn but ΔY = €50bn — five times more. The number 5 is the multiplier when MPC = 0.8.</p>
+
+    <h3>Откуда формула 1/(1 − MPC)?</h3>
+    <div class="nb-formula">
+        10 + 8 + 6,4 + 5,12 + … = 10 × (1 + 0,8 + 0,64 + 0,512 + …)
+        <div class="var-list">Сумма бесконечного ряда: 1 + 0,8 + 0,8² + … = 1 / (1 − 0,8) = <strong>5</strong></div>
+    </div>
+    <p class="nb-en">Each round you multiply by MPC again. The infinite sum 1 + 0.8 + 0.8² + … = 1/(1−0.8) = 5. In general: Multiplier = 1/(1 − MPC).</p>
 
     <div class="nb-formula">
-        Multiplier = 1 / (1 − c₁) = 1 / (1 − MPC)
+        Multiplier = 1 / (1 − c₁) = 1 / (1 − MPC) = 1 / MPS
     </div>
+    <p class="nb-en">MPS = marginal propensity to save = 1 − MPC. What you don't spend, you save — so the multiplier depends on how much leaks out of the spending chain as savings.</p>
 
-    <div class="nb-why">Рост автономных расходов сдвигает ZZ вверх → фирмы увеличивают производство → доход растёт → потребление растёт → … → новый более высокий Y. Это <strong>multiplier effect</strong>.</div>
-    <p class="nb-en">Higher autonomous spending shifts ZZ up → firms produce more → income rises → consumption rises → economy reaches a new higher output. This is the multiplier effect.</p>
-
+    <h3>На графике / On the graph</h3>
     <div class="nb-arrows">
         <ul>
-            <li>c₁ (MPC) ↑ <span class="arr">→</span> multiplier ↑ (больше c₁ → больше мультипликатор)</li>
-            <li>c₁ ↓ <span class="arr">→</span> multiplier ↓</li>
+            <li><strong>G ↑</strong> <span class="arr">→</span> линия <strong>ZZ сдвигается вверх</strong> (больше автономного спроса)</li>
+            <li>Сначала <strong>Y &lt; Z</strong> (спрос больше выпуска) <span class="arr">→</span> фирмы увеличивают производство</li>
+            <li><strong>Y ↑</strong> <span class="arr">→</span> <strong>C ↑</strong> (по функции C = c₀ + c₁Y) <span class="arr">→</span> <strong>Z ↑</strong> ещё</li>
+            <li>Шаги A → B → C на графике — это раунды мультипликатора, пока снова не <strong>Y = Z</strong></li>
         </ul>
     </div>
-    <p class="nb-en">Higher MPC → larger multiplier. Lower MPC → smaller multiplier.</p>
+    <p class="nb-en">G up → ZZ shifts up. Demand exceeds output → firms produce more → income rises → consumption rises → Z rises again → steps A→B→C until new equilibrium Y = Z.</p>
+
+    <h3>Почему MPC важен?</h3>
+    <table>
+        <tr><th>MPC (c₁)<span class="en-cell">MPC</span></th><th>MPS<span class="en-cell">MPS</span></th><th>Multiplier<span class="en-cell">Multiplier</span></th><th>Смысл<span class="en-cell">Meaning</span></th></tr>
+        <tr><td>0,9</td><td>0,1</td><td><strong>10</strong></td><td>Тратят почти всё → деньги быстро ходят по кругу<span class="en-cell">Spend almost all → big ripple effect</span></td></tr>
+        <tr><td>0,8</td><td>0,2</td><td><strong>5</strong></td><td>Пример выше<span class="en-cell">Example above</span></td></tr>
+        <tr><td>0,5</td><td>0,5</td><td><strong>2</strong></td><td>Половину кладут в сбережения → слабее эффект<span class="en-cell">Half saved → weaker effect</span></td></tr>
+    </table>
+    <p class="nb-en">Higher MPC → people spend more of each extra euro → money circulates more → larger multiplier. Lower MPC → more saved → smaller multiplier.</p>
+
+    <h3>FAQ — частые вопросы</h3>
+
+    <div class="nb-example">
+        <p class="step"><strong>Q.</strong> Что такое ZZ?</p>
+        <p class="ans"><strong>A:</strong> Линия <strong>совокупного спроса Z</strong> на кейнсианском кресте. Z = C + I + G. Наклон = MPC. Пересечение ZZ с 45° — равновесие Y = Z.</p>
+    </div>
+    <p class="nb-en"><strong>A:</strong> ZZ is the aggregate demand line on the Keynesian cross. Z = C + I + G. Slope = MPC. Intersection with 45° line = equilibrium Y = Z.</p>
+
+    <div class="nb-example">
+        <p class="step"><strong>Q.</strong> Что такое MPC?</p>
+        <p class="ans"><strong>A:</strong> <strong>MPC</strong> = marginal propensity to consume = <strong>c₁</strong> — какую долю <em>дополнительного</em> дохода люди тратят. MPC = 0,8 → из +€100 дохода тратят €80. Подробнее: <a href="Consumption_Function_Explanation.html">Consumption Function</a>.</p>
+    </div>
+    <p class="nb-en"><strong>A:</strong> MPC = c₁ = share of extra income that is spent. MPC = 0.8 → spend €80 of each extra €100. See Consumption Function page.</p>
+
+    <div class="nb-example">
+        <p class="step"><strong>Q.</strong> Почему ΔY больше, чем ΔG?</p>
+        <p class="ans"><strong>A:</strong> Потому что G — только <strong>первый раунд</strong>. Дальше доход → потребление → новый доход → … Мультипликатор «раздувает» начальный шок.</p>
+    </div>
+    <p class="nb-en"><strong>A:</strong> G is only round 1. Then income triggers consumption, which triggers more income — the multiplier amplifies the initial shock.</p>
+
+    <div class="nb-example">
+        <p class="step"><strong>Q.</strong> Что такое autonomous spending?</p>
+        <p class="ans"><strong>A:</strong> Траты, которые <strong>не зависят от текущего Y</strong>: c₀ (базовое потребление), I (инвестиции), G (госрасходы). Именно их рост <strong>сдвигает ZZ вверх</strong> и запускает мультипликатор.</p>
+    </div>
+    <p class="nb-en"><strong>A:</strong> Spending independent of current income: c₀, I, G. A rise in autonomous spending shifts ZZ up and starts the multiplier process.</p>
 
     <hr>
 
@@ -117,10 +189,10 @@
     <p class="nb-en">MPC = 0.8 → multiplier = 5. ΔG = $1bn → ΔY = $5bn through successive rounds of spending.</p>
 
     <div class="nb-key">
-        Y = Z · 45° line: Y on both axes · ZZ: intercept = autonomous spending, slope = c₁<br>
-        Multiplier = 1/(1−MPC) · Y = multiplier × (c₀+I+G−c₁T) · ΔY &gt; ΔG
+        Y = Z · ZZ = линия спроса Z(Y) · 45° = где Y на обеих осях<br>
+        Multiplier = 1/(1−MPC) · ΔY = multiplier × Δ(autonomous spending) · ΔY &gt; ΔG
     </div>
-    <p class="nb-en">Equilibrium: Y = Z. Multiplier amplifies autonomous spending. Higher MPC → bigger multiplier.</p>
+    <p class="nb-en">Equilibrium Y = Z. ZZ = demand line. Multiplier = 1/(1−MPC). Change in output = multiplier × change in autonomous spending. ΔY exceeds the initial ΔG because consumption follows in later rounds.</p>
 
     <div class="nb-conclusion">Равновесный выпуск зависит от <strong>автономного спроса</strong> и <strong>мультипликатора</strong>. На графике — пересечение ZZ и 45°. Следующие темы из конспекта: S = I, деньги, IS-LM.</div>
     <p class="nb-en">Equilibrium output depends on autonomous spending and the multiplier. On the graph: intersection of ZZ and the 45° line. Next: S = I, money market, IS-LM.</p>
