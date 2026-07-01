@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LM Curve &amp; Fiscal Policy — Кривая LM</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="IS_Curve_Explanation.html">← IS Curve</a></p>
+
+    <h1>LM Curve &amp; Fiscal Policy</h1>
+    <p style="color:#666;font-size:0.92em;">Money market equilibrium / Равновесие на денежном рынке</p>
+
+    <div class="nb-def">Кривая <strong>LM</strong> — все (Y, i), при которых <span class="hl">M^s = M^d</span>: M = $Y · L(i).</div>
+    <p class="nb-en">The LM curve shows all (Y, i) where the money market clears: M^s = M^d = $Y · L(i).</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Y ↑ <span class="arr">→</span> $Y ↑ <span class="arr">→</span> M^d ↑ <span class="arr">→</span> при фикс. M^s: i ↑</li>
+            <li>LM <strong>восходящая</strong>: больше Y требует выше i<span class="en-cell">Upward-sloping LM</span></li>
+        </ul>
+    </div>
+    <p class="nb-en">Higher output → higher nominal income → higher money demand → higher i for given M^s.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="25" y="30" font-size="12">i ↑</text>
+            <text x="400" y="268" font-size="12">Y</text>
+            <line x1="70" y1="240" x2="400" y2="70" stroke="#3498db" stroke-width="2.5"/>
+            <text x="360" y="85" fill="#3498db" font-size="12">LM</text>
+            <line x1="70" y1="70" x2="370" y2="220" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="330" y="225" fill="#e74c3c" font-size="12">IS</text>
+            <line x1="120" y1="70" x2="420" y2="220" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="380" y="215" fill="#e74c3c" font-size="11">IS'</text>
+            <circle cx="238" cy="154" r="6" fill="#27ae60"/>
+            <text x="221" y="147" font-size="11" fill="#27ae60">A</text>
+            <circle cx="262" cy="141" r="6" fill="#f39c12"/>
+            <text x="269" y="137" font-size="11" fill="#f39c12">B</text>
+        </svg>
+        <p class="fig-caption">G↑ → IS сдвигается <strong>вправо</strong> → A→B на LM: Y↑ и i↑<span class="en-cell">Expansionary fiscal: IS shifts right; new equilibrium B has higher Y and i.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>Fiscal Policy on IS-LM / Фискальная политика</h2>
+
+    <h3>Expansionary fiscal (G ↑ or T ↓)</h3>
+    <div class="nb-arrows">
+        <ul>
+            <li>IS shifts <strong>right</strong></li>
+            <li>Y ↑ and i ↑ (crowding out частично: i↑ → I↓)</li>
+        </ul>
+    </div>
+    <p class="nb-en">Expansionary fiscal: IS shifts right → output and interest rate both rise. Higher i may reduce private investment (crowding out).</p>
+
+    <h3>Contractionary fiscal (G ↓ or T ↑)</h3>
+    <div class="nb-arrows">
+        <ul>
+            <li>IS shifts <strong>left</strong></li>
+            <li>Y ↓ and i ↓</li>
+        </ul>
+    </div>
+    <p class="nb-en">Contractionary fiscal: IS left → Y and i both fall.</p>
+
+    <table>
+        <tr><th>Policy<span class="en-cell">Policy</span></th><th>IS<span class="en-cell">IS shift</span></th><th>Y<span class="en-cell">Output</span></th><th>i<span class="en-cell">Rate</span></th></tr>
+        <tr><td>G ↑ / T ↓</td><td>→ right</td><td>↑</td><td>↑</td></tr>
+        <tr><td>G ↓ / T ↑</td><td>→ left</td><td>↓</td><td>↓</td></tr>
+    </table>
+    <p class="nb-en">More government spending raises Y but also i. Less spending lowers both.</p>
+
+    <div class="nb-why">
+        <strong>Crowding out:</strong> G↑ → Y↑ → M^d↑ → i↑ → I↓ частично компенсирует рост Y.
+    </div>
+    <p class="nb-en">Crowding out: fiscal expansion raises i, which dampens private investment.</p>
+
+    <div class="nb-key">
+        LM: M^s = M^d · upward slope · fiscal → IS shift · G↑: Y↑ i↑ (crowding out)
+    </div>
+    <p class="nb-en">LM upward. Fiscal policy shifts IS only. Expansion raises Y and i.</p>
+
+    <div class="nb-conclusion">LM — денежный рынок. Фискальная политика сдвигает IS: G↑ → Y↑ и i↑.</div>
+    <p class="nb-en">LM = money market equilibrium. Fiscal policy shifts IS: more G raises Y and i.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="IS_LM_Monetary_Policy_Explanation.html">13. IS-LM &amp; Monetary →</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive — Economics</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: #333; line-height: 1.6; }
+        h1 { font-size: 1.4rem; }
+        a { color: #3498db; }
+        ul { padding-left: 1.2rem; }
+        li { margin: 4px 0; }
+        .note { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body>
+    <p><a href="../index.html">← Назад к Economics</a></p>
+    <h1>Архив старых страниц</h1>
+    <p class="note">Эти страницы убраны с главной — учимся по одной теме. Файлы сохранены здесь.</p>
+    <ul id="list"></ul>
+    <script>
+        const files = [
+            'Budget_Constraint_Explanation.html',
+            'Consumer_Surplus_Explanation.html',
+            'Consumption_Function_Explanation.html',
+            'Cost_Long_Run_Explanation.html',
+            'Demand_Explanation.html',
+            'Elasticities_Explanation.html',
+            'Exam_Macro_Key_Questions.html',
+            'Externalities_Explanation.html',
+            'Fiscal_Monetary_Policy_Explanation.html',
+            'Game_Theory_Explanation.html',
+            'GDP_Macro_Explanation.html',
+            'Goods_Market_Multiplier_Explanation.html',
+            'Intertemporal_Budget_Constraint_Explanation.html',
+            'IS_LM_Explanation.html',
+            'Marginal_Utility_RSR_Explanation.html',
+            'Market_Power_Explanation.html',
+            'Monopoly_Explanation.html',
+            'Okun_Phillips_Explanation.html',
+            'Okun_Phillips_Explanation_EN.html',
+            'Open_Economy_Explanation.html',
+            'Opportunity_Cost_Explanation.html',
+            'Perfect_Competition_Explanation.html',
+            'PPF_Explanation.html',
+            'Price_Discrimination_Explanation.html',
+            'Production_Cost_Short_Run_Explanation.html',
+            'Production_Function_Explanation.html',
+            'Rational_Choice_Explanation.html',
+            'Rational_Choice_Explanation_EN.html',
+            'Supply_Demand_Taxes_Explanation.html',
+            'Supply_Explanation.html',
+            'Unemployment_Inflation_Explanation.html',
+        ];
+        document.getElementById('list').innerHTML = files.map(f =>
+            `<li><a href="${f}">${f.replace(/_Explanation\.html$/, '').replace(/_/g, ' ')}</a></li>`
+        ).join('');
+    </script>
+</body>
+</html>

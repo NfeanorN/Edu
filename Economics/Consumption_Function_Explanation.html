@@ -3,107 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consumption Function — Функция потребления (Exam #11, #30)</title>
+    <title>Consumption Function — Функция потребления</title>
     <link rel="stylesheet" href="notebook-style.css">
 </head>
 <body class="nb-page nb-macro">
 <div class="nb-sheet">
-    <p class="back"><a href="index.html">← Economics topics</a> · <a href="Goods_Market_Multiplier_Explanation.html">Multiplier (#28)</a> · <a href="Exam_Prep_Guide.html#t11">Exam #11</a> · <a href="Exam_Prep_Guide.html#t30">#30</a></p>
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Time_Horizons_Explanation.html">← Short / Medium / Long run</a></p>
 
     <h1>Consumption Function — Функция потребления</h1>
+    <p style="color:#666;font-size:0.92em;">Macro course (Keynes / Blanchard) · <strong>не</strong> Frank Ch. 3 (там consumption = один потребитель, микро)</p>
 
-    <div class="nb-def"><strong>Consumption (C)</strong> — траты домохозяйств на товары и услуги. Зависит от <span class="hl">располагаемого дохода</span> Y<sub>D</sub> (доход после налогов).</div>
-    <p class="nb-en">Consumption depends mainly on disposable income Y<sub>D</sub> — income after taxes. When disposable income rises, consumption rises too.</p>
+    <hr>
 
+    <h2>FAQ — Questions &amp; Answers / Частые вопросы</h2>
+
+    <div class="nb-example">
+        <p class="step"><strong>Q1.</strong> What is consumption at all? / Что такое consumption вообще?</p>
+        <p class="ans"><strong>A:</strong> <strong>C</strong> — все траты <strong>домохозяйств</strong> на товары и услуги (еда, аренда, телефон…). Это буква <strong>C</strong> в <strong>GDP = C + I + G + (X − IM)</strong>. Обычно самая большая часть ВВП. Не путать с <strong>I</strong> (фирмы) и с микро Frank (один потребитель, food + shelter).</p>
+    </div>
+    <p class="nb-en"><strong>A:</strong> Consumption (C) is total household spending on goods and services — the C in GDP. Usually the largest GDP component. Not investment (firms) and not Frank micro (one consumer's budget).</p>
+
+    <div class="nb-example">
+        <p class="step"><strong>Q2.</strong> What is gonna happen after recession? / Что будет после рецессии?</p>
+        <p class="ans"><strong>A:</strong> <strong>В рецессии:</strong> GDP и доход Y ↓ → Y<sub>D</sub> ↓ → <strong>C ↓</strong> (вниз по линии C). Меньше трат → меньше спрос Z → Y падает ещё (мультипликатор). <strong>После рецессии (recovery):</strong> Y ↑ → Y<sub>D</sub> ↑ → <strong>C ↑</strong> → Z ↑ → Y ↑. Та же линия C(Y), но точка снова выше.</p>
+    </div>
+    <p class="nb-en"><strong>A:</strong> In a recession: income falls → consumption falls along the C line → demand falls → output falls further. After recession (recovery): income rises → consumption rises → demand and output recover. Same consumption line — you move down in recession, back up in recovery.</p>
+
+    <div class="nb-example">
+        <p class="step"><strong>Q3.</strong> What happens to consumption if there is no income? / Что с C, если дохода нет?</p>
+        <p class="ans"><strong>A:</strong> При <strong>Y<sub>D</sub> = 0</strong>: <strong>C = c₀</strong> (autonomous consumption). Люди всё равно тратят на еду и жильё — за счёт <strong>сбережений</strong>, <strong>кредита</strong> или <strong>пособий</strong>. На графике линия начинается на оси C в точке <strong>c₀</strong>, не в нуле. Долго без дохода нельзя — сбережения кончатся.</p>
+    </div>
+    <p class="nb-en"><strong>A:</strong> If disposable income is zero: C = c₀ only. People still spend on basics, financed by past savings, borrowing, or transfers. On the graph the line starts at c₀ on the C-axis. Not sustainable forever — wealth runs out.</p>
+
+    <p style="font-size:0.9em;color:#666;margin-top:1rem;">Подробнее ниже ↓ · Details below ↓</p>
+
+    <hr>
+
+    <h2 id="faq-q1">Q1 — What is consumption at all? / Что такое consumption?</h2>
+    <div class="nb-def"><strong>Consumption (C)</strong> в макро — это <span class="hl">все траты домохозяйств</span> на товары и услуги за период (еда, аренда, телефон, поездки…). Это буква <strong>C</strong> в формуле ВВП.</div>
+    <p class="nb-en">In macroeconomics, consumption (C) is total household spending on goods and services — the C in GDP = C + I + G + (X − IM). It is usually the largest part of GDP.</p>
+
+    <table>
+        <tr><th>Термин<span class="en-cell">Term</span></th><th>Что это<span class="en-cell">What it is</span></th><th>Не путать с<span class="en-cell">Not the same as</span></th></tr>
+        <tr><td><strong>C</strong> (consumption)</td><td>Траты семей<span class="en-cell">Household spending</span></td><td>I (фирмы), G (государство)</td></tr>
+        <tr><td><strong>Saving</strong></td><td>Доход минус траты: S = Y<sub>D</sub> − C<span class="en-cell">Income not spent</span></td><td>Не входит в C</td></tr>
+        <tr><td><strong>Frank Ch. 3 «consumption»</strong></td><td>Один человек, food + shelter<span class="en-cell">Micro — one consumer</span></td><td>≠ макро C всей страны</td></tr>
+    </table>
+    <p class="nb-en">Macro C = all households together. Micro (Frank) = one consumer's budget line. Same word, different models.</p>
+
+    <div class="nb-why">
+        <strong>Зачем функция C(Y)?</strong> Кейнс: люди тратят в основном от <strong>текущего дохода</strong>. Если знаем Y (и налоги T), можем предсказать C — а C — главная часть спроса Z = C + I + G.
+    </div>
+    <p class="nb-en">Keynes: spending depends mainly on current income. The consumption function lets us predict C from income — and C is the biggest part of aggregate demand Z.</p>
+
+    <hr>
+
+    <h2 id="faq-q2">Q2 — What happens after a recession? / Что после рецессии?</h2>
+    <div class="nb-def"><strong>Recession</strong> — выпуск и доход <span class="hl">падают</span> (GDP ↓). Люди теряют работу → Y ↓ → Y<sub>D</sub> ↓ → <strong>C ↓</strong> (движение <strong>вниз</strong> по линии потребления).</div>
+    <p class="nb-en">In a recession, output and income fall. Unemployment rises → income falls → disposable income falls → consumption falls — a move down along the consumption function.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li><strong>В рецессии:</strong> Y ↓ <span class="arr">→</span> Y<sub>D</sub> ↓ <span class="arr">→</span> C ↓ <span class="arr">→</span> Z ↓ <span class="arr">→</span> Y ↓ ещё (мультипликатор)</li>
+            <li><strong>После / recovery:</strong> Y ↑ <span class="arr">→</span> Y<sub>D</sub> ↑ <span class="arr">→</span> C ↑ <span class="arr">→</span> Z ↑ <span class="arr">→</span> Y ↑ (экономика отскакивает)</li>
+            <li>Меньше дохода <span class="arr">→</span> меньше трат <span class="arr">→</span> меньше спрос <span class="arr">→</span> меньше производство — порочный круг вниз</li>
+        </ul>
+    </div>
+    <p class="nb-en">Recession chain: lower Y → lower C → lower demand Z → lower Y again (multiplier). Recovery reverses the chain: higher income → higher consumption → higher output.</p>
+
+    <div class="nb-example">
+        <p class="step">Было: Y = 100, T = 10, c₀ = 20, c₁ = 0,8 → Y<sub>D</sub> = 90 → C = 92</p>
+        <p class="step">Recession: Y падает до <strong>70</strong> → Y<sub>D</sub> = 60</p>
+        <p class="step">C = 20 + 0,8 × 60 = 20 + 48 = <strong>68</strong> (было 92 — траты упали на $24)</p>
+        <p class="step">Recovery: Y снова <strong>100</strong> → C снова <strong>92</strong></p>
+        <p class="ans">Рецессия = точка ниже на той же линии C(Y). Восстановление = обратно вверх по линии.</p>
+    </div>
+    <p class="nb-en">Recession: Y falls from 100 to 70 → C falls from 92 to 68. Recovery: when Y returns to 100, C returns to 92. Same line — different points.</p>
+
+    <hr>
+
+    <h2 id="faq-q3">Q3 — What if there is no income? / Если дохода нет (Y = 0)?</h2>
+    <div class="nb-def">Даже при <span class="hl">Y<sub>D</sub> = 0</span> люди всё равно <strong>что-то тратят</strong> — это <strong>c₀</strong> (autonomous consumption): еда, жильё, базовые нужды.</div>
+    <p class="nb-en">Even at zero disposable income, people still spend something — that is c₀ (autonomous consumption): food, rent, basic needs.</p>
+
+    <div class="nb-formula">
+        Y<sub>D</sub> = 0 &nbsp;→&nbsp; C = c₀ + c₁ · 0 = <strong>c₀</strong>
+        <div class="var-list">c₀ &gt; 0 — линия потребления <strong>не начинается в нуле</strong>, а выше оси Y<sub>D</sub></div>
+    </div>
+    <p class="nb-en">If disposable income is zero, C equals c₀ only. The consumption line intercepts the C-axis at c₀, not at the origin.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Откуда деньги при Y = 0? <span class="arr">→</span> <strong>сбережения прошлых лет</strong> (wealth)</li>
+            <li>или <span class="arr">→</span> <strong>кредит / займы</strong></li>
+            <li>или <span class="arr">→</span> <strong>гос. трансферы</strong> (пособия) — в модели часто внутри c₀ или в G/T</li>
+        </ul>
+    </div>
+    <p class="nb-en">With no income, people finance c₀ from past savings, borrowing, or government transfers. Long-run Y = 0 is not sustainable — wealth runs out.</p>
+
+    <div class="nb-example">
+        <p class="step">c₀ = $20, c₁ = 0,8</p>
+        <p class="step">Потерял работу: Y = 0, T = 0 → Y<sub>D</sub> = 0</p>
+        <p class="step">C = 20 + 0,8 × 0 = <strong>$20</strong> (живёт за счёт сбережений)</p>
+        <p class="step">Нашёл работу: Y = 100, T = 10 → Y<sub>D</sub> = 90</p>
+        <p class="ans">C = 20 + 0,8 × 90 = <strong>$92</strong> — потребление выросло с доходом</p>
+    </div>
+    <p class="nb-en">Example: at Y_D = 0, C = c₀ = $20 (drawing on savings). When income returns to 90, C rises to $92.</p>
+
+    <div class="nb-key">
+        Recession: Y↓ → C↓ (along C line) · Recovery: Y↑ → C↑ · c₀ = траты при Y=0 (savings/credit) · C = biggest part of Z
+    </div>
+    <p class="nb-en">Recession lowers C via lower income. Recovery raises C. c₀ = spending at zero income. C is the largest part of aggregate demand.</p>
+
+    <hr>
+
+    <h2>Disposable income / Располагаемый доход</h2>
     <div class="nb-formula">
         Y<sub>D</sub> = Y − T
         <div class="var-list">
-            Y — income (доход) &nbsp;|&nbsp; T — taxes (налоги) &nbsp;|&nbsp; Y<sub>D</sub> — disposable income (располагаемый доход)
+            <strong>Y</strong> — income (доход) &nbsp;|&nbsp; <strong>T</strong> — taxes (налоги) &nbsp;|&nbsp; <strong>Y<sub>D</sub></strong> — disposable income
         </div>
     </div>
+    <p class="nb-en">Disposable income = income minus taxes.</p>
 
+    <hr>
+
+    <h2>Consumption function / Поведенческое уравнение</h2>
     <div class="nb-formula">
-        C = c₀ + c₁ · Y<sub>D</sub>
+        C = C(Y<sub>D</sub>) &nbsp;&nbsp;→&nbsp;&nbsp; C = c₀ + c₁ · Y<sub>D</sub>
         <div class="var-list">
-            <strong>c₀</strong> — autonomous consumption: траты даже при Y = 0 (еда, жильё)<br>
-            <strong>c₁</strong> — MPC (marginal propensity to consume): доля <em>дополнительного</em> дохода на потребление<br>
-            <strong>0 &lt; c₁ &lt; 1</strong> — часть доп. дохода тратят, часть сберегают
+            Поведенческое уравнение — показывает, как потребители меняют траты при изменении дохода
         </div>
     </div>
-    <p class="nb-en">Behavioral equation: shows how consumers change spending when income changes. Slope = MPC = c₁.</p>
+    <p class="nb-en">It's a behavioral equation because it shows how consumers change their spending when income changes.</p>
+
+    <table>
+        <tr><th>Символ<span class="en-cell">Symbol</span></th><th>Название<span class="en-cell">Name</span></th><th>Смысл<span class="en-cell">Meaning</span></th></tr>
+        <tr><td><strong>c₀</strong></td><td>Autonomous consumption</td><td>Траты <strong>даже при нулевом доходе</strong> (еда, жильё)<span class="en-cell">Spending even at zero income (food, housing)</span></td></tr>
+        <tr><td><strong>c₁</strong></td><td>MPC</td><td>Какую долю <strong>дополнительного</strong> дохода люди тратят<span class="en-cell">Share of extra income that people spend</span></td></tr>
+    </table>
+    <p class="nb-en">c₀ = autonomous consumption (baseline spending). c₁ = MPC = marginal propensity to consume (slope of the consumption line).</p>
+
+    <div class="nb-def"><strong>0 &lt; c₁ &lt; 1</strong> — люди тратят часть доп. дохода и <span class="hl">сберегают остальное</span>.</div>
+    <p class="nb-en">People spend some of their extra income and save the rest. 0 &lt; c₁ &lt; 1.</p>
+
+    <hr>
+
+    <h2>График C = c₀ + c₁Y<sub>D</sub> / Graph of C = c₀ + c₁Y<sub>D</sub></h2>
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="Consumption function C equals c0 plus c1 times YD">
+            <line x1="55" y1="25" x2="55" y2="285" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="285" x2="450" y2="285" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="30" font-size="13" fill="#333">C</text>
+            <text x="400" y="305" font-size="13" fill="#333">Y</text>
+            <text x="418" y="305" font-size="9" fill="#333">D</text>
+            <!-- C = c0 + c1*YD : intercept c0 on C-axis, slope c1 -->
+            <line x1="55" y1="245" x2="420" y2="80" stroke="#3498db" stroke-width="3"/>
+            <text x="250" y="95" fill="#3498db" font-size="12" font-weight="600">C = c&#8320; + c&#8321;Y&#7522;</text>
+            <circle cx="55" cy="245" r="7" fill="#e67e22"/>
+            <text x="64" y="242" font-size="11" fill="#e67e22">c&#8320;</text>
+            <line x1="130" y1="205" x2="210" y2="165" stroke="#8e44ad" stroke-width="2.5"/>
+            <text x="145" y="198" font-size="11" fill="#8e44ad">slope = c&#8321;</text>
+            <text x="200" y="295" font-size="10" fill="#27ae60">positive slope (MPC)</text>
+        </svg>
+        <p class="fig-caption">Начало на оси C = c₀ · Наклон = MPC = c₁<span class="en-cell">Intercept on C-axis = c₀ · Slope = MPC = c₁</span></p>
+    </div>
 
     <div class="nb-arrows">
         <ul>
             <li>Y<sub>D</sub> ↑ <span class="arr">→</span> C ↑</li>
             <li>Налоги T ↑ <span class="arr">→</span> Y<sub>D</sub> ↓ <span class="arr">→</span> C ↓</li>
-            <li>MPC + MPS = 1 (каждый доп. € либо тратится, либо сберегается)</li>
         </ul>
     </div>
-
-    <div class="nb-why">Больше людей работают и получают доход → больше трат → выше C. Налоги «съедают» доход → меньше Y<sub>D</sub> → меньше C.</div>
+    <p class="nb-en">Higher income → higher consumption. Higher taxes → lower disposable income → lower consumption.</p>
 
     <hr>
 
-    <h2>График C(Y<sub>D</sub>) <span class="exam-ref">Exam #30</span></h2>
-    <div class="nb-graph">
-        <svg class="svg-graph" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="Consumption function">
-            <defs>
-                <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
-            </defs>
-            <line x1="55" y1="25" x2="55" y2="285" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
-            <line x1="55" y1="285" x2="450" y2="285" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
-            <text x="18" y="30" font-size="13">C</text>
-            <text x="420" y="305" font-size="13">Y<sub>D</sub></text>
-            <line x1="55" y1="285" x2="400" y2="40" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
-            <text x="360" y="55" font-size="11" fill="#999">45° (C = Y)</text>
-            <line x1="55" y1="245" x2="400" y2="75" stroke="#3498db" stroke-width="2.5"/>
-            <text x="280" y="95" fill="#3498db" font-size="13" font-weight="600">C = c₀ + c₁Y<sub>D</sub></text>
-            <circle cx="55" cy="245" r="6" fill="#e67e22"/>
-            <text x="62" y="240" font-size="11" fill="#e67e22">c₀</text>
-            <line x1="120" y1="210" x2="200" y2="170" stroke="#8e44ad" stroke-width="2"/>
-            <text x="145" y="205" font-size="11" fill="#8e44ad">slope = c₁ = MPC</text>
-        </svg>
-        <p class="slope-note">positive slope — линия идёт вверх</p>
-        <p class="fig-caption">Intercept = c₀ на оси C. Наклон = MPC. На экзамене не путать с бюджетной линией микро (−P<sub>x</sub>/P<sub>y</sub>).</p>
-    </div>
-
+    <h2>Пример из конспекта / Example from notes</h2>
     <div class="nb-example">
-        <p class="step">Income Y = $100, Taxes T = $10 → Y<sub>D</sub> = 100 − 10 = <strong>90</strong></p>
-        <p class="step">c₀ = $20, c₁ = 0,8 (тратят 80% доп. дохода)</p>
+        <p class="step">Income Y = $100 · Taxes T = $10</p>
+        <p class="step">Y<sub>D</sub> = 100 − 10 = <strong>90</strong></p>
+        <p class="step">c₀ = $20 (траты даже без дохода)</p>
+        <p class="step">c₁ = 0,8 (тратят 80% доп. дохода)</p>
         <p class="step">C = c₀ + c₁ · Y<sub>D</sub> = 20 + 0,8 × 90 = 20 + 72</p>
         <p class="ans">C = $92</p>
     </div>
-    <p class="nb-en">Example: Y=100, T=10 → Y_D=90; c₀=20, MPC=0.8 → C = 20 + 72 = 92.</p>
+    <p class="nb-en">Y = $100, T = $10 → Y<sub>D</sub> = 90 · c₀ = $20 · c₁ = 0.8 · C = 20 + 0.8 × 90 = 20 + 72 = $92.</p>
 
-    <hr>
-
-    <h2>MPC и MPS <span class="exam-ref">Exam #11</span></h2>
-    <table>
-        <tr><th>Понятие</th><th>Формула</th><th>Смысл</th></tr>
-        <tr><td><strong>MPC</strong></td><td>ΔC / ΔY = c₁</td><td>Доля доп. € на потребление</td></tr>
-        <tr><td><strong>MPS</strong></td><td>ΔS / ΔY</td><td>Доля доп. € на сбережения</td></tr>
-    </table>
-    <div class="nb-formula">MPC + MPS = 1 &nbsp;|&nbsp; Multiplier = 1 / (1 − MPC) = 1 / MPS</div>
-    <div class="nb-example">
-        <p class="step">MPC = 0,8 → из +€100 дохода тратят €80, сберегают €20</p>
-        <p class="step">Multiplier = 1 / 0,2 = <strong>5</strong> → ΔG = €10 млрд → ΔY ≈ €50 млрд</p>
-    </div>
-
-    <hr>
-
-    <h2>C в модели равновесия</h2>
     <div class="nb-formula">
-        Z = c₀ + c₁Y + I + G &nbsp;→&nbsp; Y = Z &nbsp;→&nbsp; Y* = (c₀ + I + G) / (1 − c₁)
-        <div class="var-list">Упрощение: Y вместо Y<sub>D</sub> (T в G или фикс.). Наклон AE = MPC.</div>
+        MPC + MPS = 1 &nbsp;|&nbsp; MPS = 1 − c₁
+        <div class="var-list">MPC = c₁ = ΔC/ΔY · MPS — доля доп. дохода на сбережения · при c₁=0,8 → MPS=0,2</div>
     </div>
-    <p>→ <a href="Goods_Market_Multiplier_Explanation.html">Goods Market &amp; Multiplier</a> · <a href="IS_LM_Explanation.html">IS-LM</a></p>
+    <p class="nb-en">MPC + MPS = 1 · MPS = 1 − c₁ · MPC = c₁ = ΔC/ΔY · If c₁ = 0.8, then MPS = 0.2.</p>
 
     <div class="nb-key">
-        C = c₀ + c₁Y<sub>D</sub> · Y<sub>D</sub> = Y − T · MPC = c₁ = slope · MPS = 1 − MPC<br>
-        Break-even C = Y → Y* = c₀ / (1 − c₁) · Multiplier = 1/(1−MPC)
+        Y<sub>D</sub> = Y − T · C = c₀ + c₁Y<sub>D</sub> · c₀ = автономное потребление · c₁ = MPC = slope<br>
+        0 &lt; c₁ &lt; 1 · Пример: Y=100, T=10 → C=$92
     </div>
+    <p class="nb-en">Y<sub>D</sub> = Y − T · C = c₀ + c₁Y<sub>D</sub> · c₀ = autonomous consumption · c₁ = MPC = slope · 0 &lt; c₁ &lt; 1 · Example: Y=100, T=10 → C=$92.</p>
 
-    <div class="nb-conclusion">Функция потребления — поведенческое уравнение: как меняются траты при изменении дохода. c₀ — базовые траты; c₁ (MPC) — наклон. Налоги снижают Y<sub>D</sub> и C. На экзамене: не путать наклон C(Y) с бюджетной линией Frank.</div>
+    <div class="nb-conclusion">Consumption — траты всех домохозяйств (C в ВВП). C = c₀ + c₁Y<sub>D</sub>: при Y=0 тратишь c₀ (сбережения/кредит); при рецессии Y↓ → C↓; при recovery C растёт с доходом. Не путать с микро Frank.</div>
+    <p class="nb-en">Consumption is total household spending in GDP. C = c₀ + c₁Y_D: at zero income you still spend c₀; in a recession lower Y lowers C; in recovery C rises with income. Do not confuse with Frank micro consumer theory.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="Equilibrium_Output_Explanation.html">7. Equilibrium Output →</a></p>
 </div>
 </body>
 </html>

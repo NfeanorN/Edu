@@ -1,85 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okun's Law & Phillips Curve — Закон Оукена и Филлипс (Exam)</title>
+    <title>Okun &amp; Phillips — Оукен и Филлипс</title>
+    <link rel="stylesheet" href="notebook-style.css">
 </head>
 <body class="nb-page nb-macro">
 <div class="nb-sheet">
-<p class="back">
-        <a href="index.html">← Economics topics / К темам по экономике</a>
-        <a href="Okun_Phillips_Explanation_EN.html" class="lang-switch">🇬🇧 English-only</a>
-    </p>
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Inflation_Explanation.html">← Inflation</a></p>
 
-    <h1>Okun's Law &amp; Phillips Curve — Закон Оукена и кривая Филлипса<br><span style="font-size:0.5em;font-weight:400;color:#666">RU + EN — макро (не в Frank)</span></h1>
-
-    <p class="source">Основной учебник курса — <strong>Robert H. Frank, <em>Microeconomics and Behavior</em>, 7th ed.</strong> (микро). <strong>Okun и Phillips — не в Frank.</strong> Ниже — макро для экзамена: закон Оукена (ВВП ↔ безработица) и кривая Филлипса (инфляция ↔ безработица), Topic 31 в <a href="Exam_Prep_Guide.html#t31">Exam Prep</a>.</p>
+    <h1>Okun's Law &amp; Phillips Curve</h1>
+    <p style="color:#666;font-size:0.92em;">Закон Оукена и кривая Филлипса — две разные связи в макро.</p>
+    <p class="nb-en">Okun's law and the Phillips curve are two different macro relationships.</p>
 
     <hr>
 
     <h2>Okun's Law / Закон Оукена</h2>
 
-    <div class="nb-def">Okun's law: когда экономика <span class="hl">растёт</span>, безработица <span class="hl">падает</span>. Когда рецессия — безработица растёт.</div>
-    <p class="nb-en">Okun's law says that when the economy grows, unemployment falls. When GDP grows, unemployment goes down.</p>
+    <div class="nb-def">Okun's law: когда экономика <span class="hl">растёт</span>, безработица <span class="hl">падает</span>.</div>
+    <p class="nb-en">Okun's law says that when the economy grows, unemployment falls.</p>
 
     <div class="nb-arrows">
         <ul>
-            <li>u ↑ <span class="arr">→</span> Y ↓ (рост безработицы → меньше рост выпуска)</li>
-            <li>u ↓ <span class="arr">→</span> Y ↑ (меньше безработицы → больше рост выпуска)</li>
+            <li>u ↑ <span class="arr">→</span> Y ↓ (больше безработица → меньше рост выпуска)</li>
+            <li>u ↓ <span class="arr">→</span> Y ↑ (меньше безработица → больше рост выпуска)</li>
         </ul>
     </div>
+    <p class="nb-en">u rises → Y falls (more unemployment → less output growth). u falls → Y rises (less unemployment → more output growth).</p>
 
     <div class="nb-why">Больше людей работают → больше товаров и услуг → GDP растёт. Меньше людей работают → меньше производство → GDP падает.</div>
+    <p class="nb-en">More people working → more output → GDP increases. Fewer people working → less production → GDP decreases.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="13">u ↑</text>
+            <text x="380" y="268" font-size="13">Y (growth)</text>
+            <line x1="80" y1="60" x2="400" y2="220" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="320" y="210" font-size="11" fill="#e74c3c" font-weight="600">negative slope</text>
+        </svg>
+        <p class="fig-caption">Okun: ось u и рост Y — отрицательный наклон<span class="en-cell">Okun: u axis vs Y growth — negative slope</span></p>
+    </div>
 
     <div class="nb-example">
         <p class="step">10 workers → GDP = 100</p>
         <p class="step">20 workers → GDP = 200</p>
         <p class="step">5 workers → GDP = 50</p>
     </div>
+    <p class="nb-en">10 workers → GDP = 100 · 20 workers → GDP = 200 · 5 workers → GDP = 50. When GDP grows, unemployment goes down.</p>
 
     <div class="nb-formula">
-        (Y − Y*) / Y* ≈ −2 × (u − u<sub>n</sub>) &nbsp;|&nbsp; правило «1 к 2»
-        <div class="var-list">+1 pp безработицы ≈ ВВП на 2% ниже потенциала · Y* = potential GDP · u<sub>n</sub> = natural rate</div>
+        Правило «1 к 2» (экзамен): +1 pp безработицы ≈ ВВП на 2% ниже потенциала
+        <div class="var-list">(Y − Y*) / Y* ≈ −2 × (u − u<sub>n</sub>) · связь <strong>Y ↔ u</strong>, не инфляция!</div>
     </div>
-
-    <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" aria-label="Okun's Law">
-            <defs>
-                <marker id="arr-o" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
-            </defs>
-            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5" marker-end="url(#arr-o)"/>
-            <line x1="55" y1="250" x2="450" y2="250" stroke="#333" stroke-width="1.5" marker-end="url(#arr-o)"/>
-            <text x="18" y="30" font-size="13">Δu ↑</text>
-            <text x="380" y="268" font-size="13">рост ВВП g →</text>
-            <text x="200" y="18" font-size="12" fill="#666">(изменение безработицы / change in unemployment)</text>
-            <!-- Okun line: high growth -> negative delta u -->
-            <line x1="80" y1="70" x2="420" y2="210" stroke="#e67e22" stroke-width="2.5"/>
-            <text x="350" y="200" fill="#e67e22" font-size="12" font-weight="600">Okun</text>
-            <circle cx="350" cy="95" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
-            <text x="300" y="88" font-size="11" fill="#27ae60">boom: g↑, Δu↓</text>
-            <circle cx="150" cy="195" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
-            <text x="95" y="188" font-size="11" fill="#e74c3c">recession: g↓, Δu↑</text>
-            <line x1="250" y1="250" x2="250" y2="140" stroke="#aaa" stroke-dasharray="3,3"/>
-            <text x="238" y="268" font-size="10" fill="#666">g*</text>
-        </svg>
-        <p class="fig-caption"><strong>Okun:</strong> быстрый рост ВВП → безработица <strong>падает</strong> (Δu &lt; 0). Рецессия → безработица <strong>растёт</strong>.<br>
-        <strong>EN:</strong> Strong GDP growth → unemployment falls. Recession → unemployment rises.</p>
-    </div>
-
-    <table>
-        <tr><th></th><th>Okun's Law</th><th>Phillips Curve</th></tr>
-        <tr><td><strong>Связь / Link</strong></td><td><strong>Y (GDP)</strong> ↔ <strong>u</strong></td><td><strong>π (inflation)</strong> ↔ <strong>u</strong></td></tr>
-        <tr><td><strong>Вопрос / Question</strong></td><td>Рост экономики снижает u? / Does growth cut unemployment?</td><td>Trade-off π и u? / Inflation vs unemployment?</td></tr>
-        <tr><td><strong>На экзамене</strong></td><td>«1 pp u → ~2% output gap»</td><td>SR: отриц. наклон; LR: вертикаль (#31)</td></tr>
-    </table>
-
-    <p>→ После рецессии: Y↑ → u↓ (Okun). Связь с <a href="Exam_Macro_Key_Questions.html#q6">recovery</a> · <a href="GDP_Macro_Explanation.html">GDP Macro</a></p>
+    <p class="nb-en">Exam rule of thumb: +1 percentage point of unemployment ≈ GDP 2% below potential. (Y − Y*) / Y* ≈ −2 × (u − u<sub>n</sub>). This links Y and u — not inflation!</p>
 
     <hr>
 
-    <h2>Phillips Curve / Кривая Филлипса <span class="exam-ref">Exam #31</span></h2>
+    <h2>Phillips Curve / Кривая Филлипса</h2>
 
     <div class="nb-def">Phillips curve — связь между <span class="hl">безработицей u</span> и <span class="hl">инфляцией π</span>.</div>
     <p class="nb-en">The Phillips curve shows the relationship between unemployment and inflation rate.</p>
@@ -90,79 +71,46 @@
             <li>u ↑ <span class="arr">→</span> π ↓ (больше безработица → ниже инфляция)</li>
         </ul>
     </div>
+    <p class="nb-en">u falls → π rises (less unemployment → higher inflation). u rises → π falls (more unemployment → lower inflation).</p>
 
-    <div class="nb-why">Безработица падает → у людей больше работы и денег → цены растут → инфляция растёт.</div>
+    <div class="nb-why">Безработица падает → у людей больше работы и денег → цены растут → inflation rate растёт.</div>
+    <p class="nb-en">Unemployment decreases → people have more jobs and money → prices go up → inflation rate increases.</p>
 
-    <p><strong>Short-run Phillips curve (SRPC):</strong> отрицательный наклон — trade-off π ↔ u.</p>
-
-    <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" aria-label="Short-run Phillips curve">
-            <defs>
-                <marker id="arr-p" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
-            </defs>
-            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5" marker-end="url(#arr-p)"/>
-            <line x1="55" y1="250" x2="410" y2="250" stroke="#333" stroke-width="1.5" marker-end="url(#arr-p)"/>
-            <text x="22" y="30" font-size="13">π ↑</text>
-            <text x="390" y="268" font-size="13">u →</text>
-            <path d="M 80 55 Q 220 130 380 215" stroke="#2980b9" stroke-width="2.5" fill="none"/>
-            <text x="300" y="200" fill="#2980b9" font-size="12" font-weight="600">SR Phillips</text>
-            <circle cx="140" cy="85" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
-            <circle cx="320" cy="195" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
-            <text x="148" y="80" fill="#e74c3c" font-size="11">A: низкая u, высокая π</text>
-            <text x="248" y="210" fill="#27ae60" font-size="11">B: высокая u, низкая π</text>
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="30" font-size="12">π ↑</text>
+            <text x="390" y="268" font-size="12">u →</text>
+            <path d="M 80 55 Q 220 130 380 215" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="300" y="200" font-size="11" fill="#e74c3c" font-weight="600">negative</text>
+            <text x="300" y="55" fill="#2980b9" font-size="12">SR Phillips</text>
         </svg>
-        <p class="slope-note">negative slope / отрицательный наклон</p>
+        <p class="fig-caption">Краткосрочная кривая Филлипса: отрицательный наклон (trade-off π ↔ u)<span class="en-cell">Short-run Phillips curve: negative slope (trade-off between π and u)</span></p>
     </div>
 
     <hr>
 
-    <h2>Long-run Phillips Curve / Долгосрочная кривая Филлипса</h2>
-    <p><strong>Long-run Phillips curve:</strong> <strong>вертикальная</strong> при natural rate u<sub>n</sub>. Нет постоянного trade-off — только expected inflation π<sup>e</sup> сдвигает SR curve.</p>
-    <p class="nb-en">Long-run Phillips curve: vertical at the natural rate u<sub>n</sub>. No permanent trade-off; only expected inflation π<sup>e</sup> shifts the short-run curve.</p>
-
-    <div class="graph-box">
-        <svg class="svg-graph" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg" aria-label="SR and LR Phillips curve">
-            <defs>
-                <marker id="arr-pl" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
-            </defs>
-            <line x1="55" y1="25" x2="55" y2="275" stroke="#333" stroke-width="1.5" marker-end="url(#arr-pl)"/>
-            <line x1="55" y1="275" x2="430" y2="275" stroke="#333" stroke-width="1.5" marker-end="url(#arr-pl)"/>
-            <text x="22" y="30" font-size="13">π ↑</text>
-            <text x="410" y="292" font-size="13">u →</text>
-            <line x1="230" y1="25" x2="230" y2="275" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="7,4"/>
-            <text x="238" y="45" fill="#e74c3c" font-size="12" font-weight="600">LRPC</text>
-            <text x="238" y="292" fill="#e74c3c" font-size="11">u<sub>n</sub></text>
-            <path d="M 75 55 Q 210 135 385 220" stroke="#2980b9" stroke-width="2.5" fill="none"/>
-            <text x="340" y="205" fill="#2980b9" font-size="12" font-weight="600">SRPC₁</text>
-            <path d="M 75 95 Q 210 175 385 245" stroke="#2980b9" stroke-width="2" fill="none" stroke-dasharray="6,4" opacity="0.85"/>
-            <text x="340" y="248" fill="#2980b9" font-size="11">SRPC₂ (π<sup>e</sup>↑)</text>
-            <line x1="300" y1="175" x2="300" y2="215" stroke="#e67e22" stroke-width="2" marker-end="url(#arr-pl)"/>
-            <text x="308" y="200" fill="#e67e22" font-size="10">stagflation: SR ↑</text>
-        </svg>
-        <p class="fig-caption"><strong>SR + LR:</strong> SR — отрицательный наклон; LR — вертикаль при u = u<sub>n</sub>. SRPC₂ — сдвиг вверх.<br><strong>EN:</strong> SR negative slope; LR vertical at u<sub>n</sub>.</p>
-    </div>
-
-    <hr>
-
-    <h2>Stagflation / Стагфляция</h2>
-    <p><strong>Stagflation (1970s):</strong> supply shock (oil) → SR Phillips shifts <strong>up</strong> → одновременно π↑ и u↑ (positive correlation in data, but curve shifted).</p>
-    <p class="nb-en">Stagflation: a supply shock shifts the short-run Phillips curve up — both inflation and unemployment rise. This is a shift of the curve, not movement along the original SR curve.</p>
-
+    <h2>Не путать! / Don't mix them up</h2>
     <table>
-        <tr><th>Кривая / Curve</th><th>Наклон / Slope</th><th>Смысл / Meaning (Exam Prep #31)</th></tr>
-        <tr><td><strong>SR Phillips (SRPC)</strong></td><td>Отрицательный</td><td>Краткосрочный trade-off π ↔ u</td></tr>
-        <tr><td><strong>LR Phillips (LRPC)</strong></td><td>Вертикальный (u = u<sub>n</sub>)</td><td>Нет постоянного trade-off; π<sup>e</sup> сдвигает SR</td></tr>
-        <tr><td><strong>Stagflation</strong></td><td>SR сдвигается вверх</td><td>Нефтяной шок 1970-х: π↑ и u↑</td></tr>
+        <tr><th><span class="en-cell">Topic</span></th><th>Okun</th><th>Phillips</th></tr>
+        <tr><td><strong>Связь</strong><span class="en-cell">Link</span></td><td><strong>Y</strong> (GDP) ↔ <strong>u</strong></td><td><strong>π</strong> (inflation) ↔ <strong>u</strong></td></tr>
+        <tr><td><strong>Вопрос</strong><span class="en-cell">Question</span></td><td>Рост экономики снижает u?<span class="en-cell">Does growth lower u?</span></td><td>Trade-off между π и u?<span class="en-cell">Trade-off between π and u?</span></td></tr>
+        <tr><td><strong>График</strong><span class="en-cell">Graph</span></td><td>u vs рост Y<span class="en-cell">u vs Y growth</span></td><td>π vs u</td></tr>
     </table>
+    <p class="nb-en">Okun links GDP and unemployment. Phillips links inflation and unemployment. Different axes, different story.</p>
 
-    <div class="key-box">
-        <strong>Okun:</strong> Y↑ → u↓ · правило 1 pp u ≈ 2% output gap · (Y−Y*)/Y* ≈ −2(u−u<sub>n</sub>)<br>
-        <strong>Phillips SR:</strong> u ↓ → π ↑ (отрицательный наклон). <strong>LR:</strong> вертикаль при u = u<sub>n</sub>. <strong>Stagflation</strong> = SR shifts up.
+    <div class="nb-key">
+        <strong>Okun:</strong> Y↑ → u↓ · правило 1:2 · больше работников → больше GDP<br>
+        <strong>Phillips SR:</strong> u↓ → π↑ · u↑ → π↓ · отрицательный наклон<br>
+        Okun = Y и u · Phillips = π и u
     </div>
+    <p class="nb-en">Okun: Y up → u down · 1:2 rule · more workers → more GDP. Phillips SR: u down → π up · u up → π down · negative slope. Okun = Y and u · Phillips = π and u.</p>
 
-    <p>See also: <a href="Frank_Study_Guide.html">Frank Study Guide</a> (micro) · <a href="Unemployment_Inflation_Explanation.html">Unemployment &amp; Inflation</a> · <a href="Exam_Prep_Guide.html#t31">Exam Prep — Topic 31</a> · <a href="Okun_Phillips_Explanation_EN.html">🇬🇧 English-only</a></p>
+    <div class="nb-conclusion">Оукен — про рост экономики и безработицу. Филлипс — про инфляцию и безработицу. На экзамене смотри на оси графика, чтобы не перепутать.</div>
+    <p class="nb-en">Okun is about economic growth and unemployment. Phillips is about inflation and unemployment. On the exam, check the graph axes so you don't mix them up.</p>
 
-    <div class="nb-conclusion">Okun: рост GDP → u↓ (правило 1:2). Phillips SR: u↓ → π↑ (trade-off). Phillips LR: вертикаль при u<sub>n</sub> — нет постоянного trade-off. Stagflation = SR сдвигается вверх.</div>
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="Time_Horizons_Explanation.html">5. Short / Medium / Long run →</a></p>
 </div>
 </body>
 </html>

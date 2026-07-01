@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Constraint — Бюджетное ограничение</title>
+    <link rel="stylesheet" href="../notebook-style.css">
+</head>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+    <h1>Budget Constraint — Бюджетное ограничение</h1>
+
+    <div class="nb-def">
+        <strong>Бюджетное ограничение</strong> — все комбинации товаров, которые потребитель может купить при данных ценах и доходе.
+    </div>
+    <div class="nb-en"><strong>Budget constraint</strong> shows all combinations of goods you can afford with your income at given prices.</div>
+
+    <div class="nb-why">
+        Доход ограничен. Бюджетная линия — граница: на линии весь доход потрачен, под линией — остаток, над линией — недоступно.
+    </div>
+    <div class="nb-en">Income is limited. On the budget line you spend all income; below — money left over; above — unaffordable.</div>
+
+    <hr>
+
+    <h2>Формула бюджетной линии</h2>
+    <div class="nb-formula">
+        I = P₁·Q₁ + P₂·Q₂
+        <div class="var-list">
+            I — доход (income) · P₁, P₂ — цены · Q₁, Q₂ — количества
+        </div>
+    </div>
+    <div class="nb-en">Income equals price times quantity for Good 1 plus price times quantity for Good 2.</div>
+
+    <hr>
+
+    <h2>Пример: яблоки и апельсины</h2>
+    <div class="nb-example">
+        <div class="step">I = $100 · P₁ (яблоки) = $2 · P₂ (апельсины) = $4</div>
+        <div class="step">Только яблоки: 100 ÷ 2 = <strong>50</strong> · Только апельсины: 100 ÷ 4 = <strong>25</strong></div>
+        <div class="step">20 яблок: (100 − 40) ÷ 4 = <strong>15 апельсинов</strong></div>
+        <div class="ans">Уравнение: 2Q₁ + 4Q₂ = 100</div>
+    </div>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" aria-label="Budget line apples oranges">
+            <line x1="50" y1="20" x2="50" y2="200" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="200" x2="300" y2="200" stroke="#333" stroke-width="1.5"/>
+            <path d="M 50 20 L 310 200" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <circle cx="50" cy="20" r="4" fill="#27ae60"/>
+            <circle cx="310" cy="200" r="4" fill="#27ae60"/>
+            <text x="28" y="18" font-size="13">Q₂ (25)</text>
+            <text x="285" y="212" font-size="13">Q₁ (50)</text>
+            <text x="150" y="115" font-size="11" fill="#e74c3c">2Q₁ + 4Q₂ = 100</text>
+        </svg>
+        <p class="graph-caption">Пересечения с осями: (50, 0) и (0, 25).</p>
+    </div>
+    <div class="nb-en">I = $100, apples $2, oranges $4. Intercepts: 50 apples or 25 oranges. Equation: 2Q₁ + 4Q₂ = 100.</div>
+
+    <hr>
+
+    <h2>Frank: жильё и еда (Ch. 3)</h2>
+    <div class="nb-formula">
+        M = $100/нед. · P<sub>S</sub> = $5/кв.м · P<sub>F</sub> = $10/фунт<br>
+        <strong>5S + 10F = 100</strong> · slope = <strong>−1/2</strong>
+        <div class="var-list">
+            K = (20, 0) — только жильё · L = (0, 10) — только еда
+        </div>
+    </div>
+    <div class="nb-en">Frank Ch. 3: M = $100/wk, shelter $5/sq yd, food $10/lb. Intercepts K = (20, 0), L = (0, 10). Bundles A = (5,7), B = (3,8), E = (12,4) on line, D = (5,4) below.</div>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" aria-label="Shelter and food budget">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="410" y2="250" stroke="#333" stroke-width="1.5"/>
+            <path d="M 55 35 L 390 250" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <circle cx="55" cy="35" r="5" fill="#3498db"/>
+            <text x="18" y="38" font-size="11" font-weight="600">L (0,10)</text>
+            <circle cx="390" cy="250" r="5" fill="#3498db"/>
+            <text x="365" y="268" font-size="11" font-weight="600">K (20,0)</text>
+            <circle cx="228" cy="148" r="5" fill="#27ae60"/>
+            <text x="234" y="144" font-size="11" font-weight="600">E (12,4)</text>
+            <circle cx="138" cy="198" r="5" fill="#95a5a6"/>
+            <text x="144" y="194" font-size="11">D (5,4)</text>
+            <text x="18" y="30" font-size="13">Food ↑</text>
+            <text x="395" y="268" font-size="13">Shelter →</text>
+        </svg>
+        <p class="graph-caption">E на линии (доход исчерпан). D под линией — доход не полностью потрачен.</p>
+    </div>
+
+    <div class="nb-formula">
+        Slope = −(P<sub>S</sub>/P<sub>F</sub>) = −5/10 = <strong>−1/2</strong><br>
+        |slope| = альтернативная стоимость +1 ед. жилья в единицах еды
+    </div>
+
+    <hr>
+
+    <h2>Точки относительно линии</h2>
+    <table>
+        <tr><th>Положение</th><th>Значение</th></tr>
+        <tr><td><strong>На линии</strong></td><td>Весь доход потрачен</td></tr>
+        <tr><td><strong>Под линией</strong></td><td>Доход не исчерпан (сбережения)</td></tr>
+        <tr><td><strong>Над линией</strong></td><td>Недоступно (стоит больше дохода)</td></tr>
+    </table>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="Affordable region">
+            <line x1="50" y1="20" x2="50" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="210" x2="330" y2="210" stroke="#333" stroke-width="1.5"/>
+            <path d="M 50 30 L 310 210" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <polygon points="50,30 50,210 310,210" fill="rgba(39,174,96,0.12)"/>
+            <circle cx="120" cy="80" r="5" fill="#c0392b"/>
+            <text x="128" y="76" font-size="11" fill="#c0392b">недоступно</text>
+            <text x="140" y="175" font-size="11" fill="#27ae60">доступно</text>
+            <text x="28" y="18" font-size="13">Q₂</text>
+            <text x="318" y="222" font-size="13">Q₁</text>
+        </svg>
+        <p class="graph-caption">Зелёная зона — доступные наборы. Над линией — недоступно.</p>
+    </div>
+    <div class="nb-en">On the line: all income spent. Below: affordable with savings. Above: cannot afford.</div>
+
+    <hr>
+
+    <h2>Наклон = альтернативная стоимость</h2>
+    <div class="nb-formula">
+        Slope = −P₁/P₂ = −2/4 = <strong>−0.5</strong>
+    </div>
+    <div class="nb-arrows">
+        <ul>
+            <li>+1 яблоко <span class="arr">→</span> −0.5 апельсина</li>
+            <li>+1 апельсин <span class="arr">→</span> −2 яблока</li>
+        </ul>
+    </div>
+    <div class="nb-en">Slope = −(Price of Good 1)/(Price of Good 2). Trade-off between the two goods.</div>
+
+    <hr>
+
+    <h2>Как меняется бюджетная линия</h2>
+
+    <h3>Доход ↑ или ↓ — параллельный сдвиг</h3>
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="Income shift">
+            <line x1="50" y1="20" x2="50" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="210" x2="330" y2="210" stroke="#333" stroke-width="1.5"/>
+            <path d="M 50 50 L 280 210" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4" fill="none"/>
+            <text x="200" y="175" font-size="11" fill="#999">I = $100</text>
+            <path d="M 50 30 L 310 210" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="250" y="130" font-size="11" fill="#e74c3c">I = $120</text>
+            <text x="28" y="18" font-size="13">Q₂</text>
+            <text x="318" y="222" font-size="13">Q₁</text>
+        </svg>
+        <p class="graph-caption">Рост дохода → сдвиг наружу. Наклон не меняется (цены те же).</p>
+    </div>
+    <div class="nb-example">
+        <div class="step">I: $100 → $120: 50→60 яблок или 25→30 апельсинов</div>
+        <div class="ans">Параллельный сдвиг — slope тот же</div>
+    </div>
+    <div class="nb-en">Income increase shifts the line outward in parallel; slope unchanged because prices did not change.</div>
+
+    <h3>Цена товара 1 ↑ — поворот внутрь</h3>
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="Price rotation">
+            <line x1="50" y1="20" x2="50" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="210" x2="330" y2="210" stroke="#333" stroke-width="1.5"/>
+            <path d="M 50 50 L 310 210" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4" fill="none"/>
+            <text x="250" y="140" font-size="11" fill="#999">P₁ = $2</text>
+            <path d="M 50 50 L 205 210" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="140" y="175" font-size="11" fill="#e74c3c">P₁ = $4</text>
+            <circle cx="50" cy="50" r="4" fill="#3498db"/>
+            <text x="28" y="18" font-size="13">Q₂</text>
+            <text x="318" y="222" font-size="13">Q₁</text>
+        </svg>
+        <p class="graph-caption">Цена яблок ↑: поворот вокруг перехвата по Q₂. Макс. Q₁: 50 → 25.</p>
+    </div>
+    <div class="nb-en">When price of Good 1 rises, the line rotates inward around the Good 2 intercept; slope changes.</div>
+
+    <h3>Обе цены ↑ пропорционально</h3>
+    <div class="nb-arrows">
+        <ul>
+            <li>Обе цены ×2 <span class="arr">→</span> как доход ÷2</li>
+            <li>Линия сдвигается <strong>параллельно внутрь</strong>, slope тот же</li>
+        </ul>
+    </div>
+    <div class="nb-en">If both prices rise by the same percentage, it is like income fell — parallel inward shift.</div>
+
+    <hr>
+
+    <h2>Сводная таблица</h2>
+    <table>
+        <tr><th>Изменение</th><th>Эффект</th><th>Наклон?</th></tr>
+        <tr><td>Доход ↑</td><td>Сдвиг наружу</td><td>Нет</td></tr>
+        <tr><td>Доход ↓</td><td>Сдвиг внутрь</td><td>Нет</td></tr>
+        <tr><td>P₁ ↑</td><td>Поворот внутрь вокруг Q₂</td><td>Да</td></tr>
+        <tr><td>P₁ ↓</td><td>Поворот наружу вокруг Q₂</td><td>Да</td></tr>
+        <tr><td>Обе цены ↑ пропорционально</td><td>Параллельный сдвиг внутрь</td><td>Нет</td></tr>
+    </table>
+
+    <div class="nb-example">
+        <div class="step">$200/нед.: кино $10, ресторан $20</div>
+        <div class="step">Макс. кино: 20 · Макс. обедов: 10 · 5 кино → 7.5 обедов</div>
+        <div class="step">Доход $300 → сдвиг наружу · Билет $15 → поворот внутрь</div>
+    </div>
+
+    <div class="nb-key">
+        <ul>
+            <li>P<sub>S</sub>·S + P<sub>F</sub>·F = M — все доступные наборы</li>
+            <li>Наклон = −P<sub>S</sub>/P<sub>F</sub> = альтернативная стоимость</li>
+            <li>Frank: (20,0) и (0,10); сдвиг при росте M; поворот при изменении цены</li>
+        </ul>
+    </div>
+
+    <div class="nb-conclusion">
+        Бюджетная линия — граница доступного. Доход меняет положение (параллельно), цена одного товара — наклон (поворот). Наклон всегда равен отношению цен с минусом.
+    </div>
+</div>
+</body>
+</html>

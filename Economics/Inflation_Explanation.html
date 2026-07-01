@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflation — Инфляция</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Unemployment_Explanation.html">← Unemployment</a></p>
+
+    <h1>Inflation — Инфляция</h1>
+
+    <div class="nb-def"><strong>Inflation</strong> — цены <span class="hl">растут</span> со временем.</div>
+    <p class="nb-en">Inflation means prices go up over time.</p>
+
+    <div class="nb-def"><strong>Inflation rate</strong> — показывает, <span class="hl">как быстро</span> растут цены.</div>
+    <p class="nb-en">The inflation rate shows how fast prices increase.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li><strong>Inflation</strong> = prices <span class="hl">increase</span> ↑</li>
+            <li><strong>Deflation</strong> = prices <span class="hl">decrease</span> ↓</li>
+        </ul>
+    </div>
+    <p class="nb-en">Inflation = prices rise. Deflation = prices fall.</p>
+
+    <p>GDP Deflator и CPI помогают <strong>измерить инфляцию</strong>.</p>
+    <p class="nb-en">The GDP Deflator and CPI help measure inflation.</p>
+
+    <hr>
+
+    <h2>GDP Deflator / Дефлятор ВВП</h2>
+    <div class="nb-def">Дефлятор ВВП измеряет изменение цен <span class="hl">всех товаров и услуг</span>, произведённых в стране.</div>
+    <p class="nb-en">GDP deflator measures changes in the prices of all goods and services produced in a country.</p>
+
+    <div class="nb-formula">
+        P<sub>t</sub> = (Nominal GDP / Real GDP) × 100 = $Y<sub>t</sub> / Y<sub>t</sub>
+        <div class="var-list">P<sub>t</sub> — GDP deflator в году t · Nominal = по текущим ценам · Real = по ценам базового года</div>
+    </div>
+
+    <hr>
+
+    <h2>Consumer Price Index (CPI) / ИПЦ</h2>
+    <div class="nb-def"><strong>CPI</strong> — важный показатель <span class="hl">инфляции</span> и изменения <span class="hl">стоимости жизни</span>.</div>
+    <p class="nb-en">The Consumer Price Index (CPI) is an important measure of inflation and changes in the cost of living.</p>
+
+    <div class="nb-formula">
+        CPI = (Cost of market basket in current year / Cost in base year) × 100
+        <div class="var-list">market basket — фиксированная корзина потребительских товаров (еда, жильё, транспорт…)</div>
+    </div>
+
+    <table>
+        <tr><th><span class="en-cell">Measure</span></th><th>GDP Deflator</th><th>CPI</th></tr>
+        <tr><td><strong>Что измеряет</strong><span class="en-cell">What it measures</span></td><td>Цены <strong>всех</strong> товаров в GDP<span class="en-cell">Prices of all goods in GDP</span></td><td>Цены <strong>потребительской</strong> корзины<span class="en-cell">Prices of the consumer basket</span></td></tr>
+        <tr><td><strong>Корзина</strong><span class="en-cell">Basket</span></td><td>Меняется (что производят)<span class="en-cell">Changes (what is produced)</span></td><td>Фиксированная<span class="en-cell">Fixed</span></td></tr>
+        <tr><td><strong>Для чего</strong><span class="en-cell">Used for</span></td><td>Nominal → Real GDP<span class="en-cell">Converting nominal to real GDP</span></td><td>Стоимость жизни, зарплаты<span class="en-cell">Cost of living, wages</span></td></tr>
+    </table>
+    <p class="nb-en">Deflator = all GDP goods. CPI = fixed consumer basket. Both track inflation but can differ slightly.</p>
+
+    <hr>
+
+    <h2>График: CPI vs GDP Deflator inflation / CPI vs GDP Deflator chart</h2>
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="30" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="230" x2="470" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="35" font-size="12">π %</text>
+            <text x="450" y="248" font-size="12">year</text>
+            <text x="80" y="248" font-size="9" fill="#666">1960</text>
+            <text x="160" y="248" font-size="9" fill="#666">1962</text>
+            <text x="240" y="248" font-size="9" fill="#666">1964</text>
+            <text x="320" y="248" font-size="9" fill="#666">1966</text>
+            <text x="400" y="248" font-size="9" fill="#666">1968</text>
+            <path d="M 80 180 L 160 165 L 240 140 L 320 115 L 400 100" fill="none" stroke="#333" stroke-width="2.5"/>
+            <text x="410" y="95" font-size="11" fill="#333">GDP deflator</text>
+            <path d="M 80 175 L 160 155 L 240 125 L 320 95 L 400 80" fill="none" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="8,4"/>
+            <text x="410" y="75" font-size="11" fill="#e74c3c">CPI inflation</text>
+        </svg>
+        <p class="fig-caption">Обе линии растут вместе, но CPI (красная) часто чуть выше deflator (чёрная)<span class="en-cell">Both lines rise together, but CPI (red) is often slightly above the deflator (black)</span></p>
+    </div>
+
+    <div class="nb-formula">
+        π = [(P₂ − P₁) / P₁] × 100%
+        <div class="var-list">π — inflation rate · P₁ — уровень цен в период 1 · P₂ — в период 2</div>
+    </div>
+
+    <div class="nb-example">
+        <p class="step">Цена корзины в 2020: P₁ = 100 (база)</p>
+        <p class="step">Цена корзины в 2021: P₂ = 105</p>
+        <p class="step">π = (105 − 100) / 100 × 100 = <strong>5%</strong></p>
+        <p class="ans">Inflation rate = 5%</p>
+    </div>
+    <p class="nb-en">Basket price in 2020: P₁ = 100 (base) · In 2021: P₂ = 105 · π = (105 − 100) / 100 × 100 = 5%.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>π &gt; 0 <span class="arr">→</span> inflation (цены растут)</li>
+            <li>π &lt; 0 <span class="arr">→</span> deflation (цены падают)</li>
+            <li>CPI ↑ <span class="arr">→</span> дороже жить (cost of living ↑)</li>
+        </ul>
+    </div>
+    <p class="nb-en">π &gt; 0 → inflation (prices rise). π &lt; 0 → deflation (prices fall). CPI rises → cost of living increases.</p>
+
+    <div class="nb-key">
+        Inflation = цены ↑ · Deflation = цены ↓ · π = % изменение цен<br>
+        GDP Deflator = Nominal/Real (все товары GDP) · CPI = потребительская корзина<br>
+        ЦБ обычно цель ~2% inflation
+    </div>
+    <p class="nb-en">Inflation = prices up · Deflation = prices down · π = % price change · GDP Deflator = Nominal/Real (all GDP goods) · CPI = consumer basket · Central banks often target ~2% inflation.</p>
+
+    <div class="nb-conclusion">Инфляция — рост общего уровня цен. Измеряем через GDP deflator (вся экономика) или CPI (жизнь потребителя). Inflation rate показывает скорость роста цен.</div>
+    <p class="nb-en">Inflation is a rise in the overall price level. We measure it with the GDP deflator (whole economy) or CPI (consumer life). The inflation rate shows how fast prices grow.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="Okun_Phillips_Explanation.html">4. Okun &amp; Phillips →</a></p>
+</div>
+</body>
+</html>

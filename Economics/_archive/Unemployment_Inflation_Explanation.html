@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unemployment & Inflation — Безработица и инфляция</title>
+    <link rel="stylesheet" href="../notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="back"><a href="../index.html">← Economics topics</a></p>
+
+    <h1>Unemployment & Inflation — Безработица и инфляция</h1>
+
+    <!-- ========== UNEMPLOYMENT ========== -->
+    <h2>Безработица (Unemployment)</h2>
+
+    <div class="nb-def"><strong>Employed (N)</strong> — работает (полная или частичная занятость); <strong>Unemployed (U)</strong> — без работы, <span class="hl">ищет работу</span>, готов начать.</div>
+    <p class="nb-en">Employed = working; unemployed = not working, actively searching, and available to work.</p>
+
+    <div class="nb-formula">
+        L = N + U &nbsp;&nbsp;|&nbsp;&nbsp; u = (U / L) × 100%
+        <div class="var-list">
+            L — labor force (рабочая сила) &nbsp;|&nbsp; N — employed &nbsp;|&nbsp; U — unemployed &nbsp;|&nbsp; u — unemployment rate
+        </div>
+    </div>
+    <p class="nb-en">Labor force L = employed + unemployed. Unemployment rate u = (U / L) × 100%.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+            <rect x="60" y="40" width="300" height="180" fill="#f0f7ff" stroke="#3498db" stroke-width="2" rx="6"/>
+            <text x="210" y="65" text-anchor="middle" font-weight="700" font-size="14">L (Labor Force)</text>
+            <rect x="80" y="85" width="170" height="115" fill="#d5f5e3" stroke="#27ae60" stroke-width="1.5" rx="4"/>
+            <text x="165" y="115" text-anchor="middle" font-weight="600" font-size="13">N (Employed)</text>
+            <text x="165" y="140" text-anchor="middle" font-size="12" fill="#555">e.g. 950 000</text>
+            <rect x="260" y="85" width="80" height="115" fill="#fadbd8" stroke="#e74c3c" stroke-width="1.5" rx="4"/>
+            <text x="300" y="115" text-anchor="middle" font-weight="600" font-size="13">U</text>
+            <text x="300" y="140" text-anchor="middle" font-size="12" fill="#555">50 000</text>
+            <text x="210" y="200" text-anchor="middle" font-size="13" fill="#c0392b" font-weight="600">u = U/L = 50/1000 = 5%</text>
+        </svg>
+        <p class="fig-caption">Рабочая сила L делится на занятых N и безработных U</p>
+    </div>
+
+    <h3>Типы безработицы</h3>
+    <ol class="nb-list">
+        <li><strong>Frictional</strong> — между работами, поиск (естественная текучка).</li>
+        <li><strong>Structural</strong> — несоответствие навыков, отраслевой спад.</li>
+        <li><strong>Cyclical</strong> — из-за рецессии, низкий спрос.</li>
+    </ol>
+    <p class="nb-en">Frictional = between jobs; structural = skills mismatch; cyclical = due to recession.</p>
+
+    <div class="nb-def"><strong>Natural rate u<sub>n</sub></strong> = frictional + structural (без cyclical).</div>
+    <p class="nb-en">Natural unemployment rate = frictional + structural only (no cyclical component).</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Recession <span class="arr">→</span> cyclical U ↑ <span class="arr">→</span> u ↑</li>
+            <li>u &gt; u<sub>n</sub> <span class="arr">→</span> выходное gap (рецессия)</li>
+            <li>u &lt; u<sub>n</sub> <span class="arr">→</span> перегрев экономики</li>
+        </ul>
+    </div>
+
+    <div class="nb-example">
+        <p class="step">L = 1 000 000, N = 950 000 → U = L − N = 50 000</p>
+        <p class="step">u = (50 000 / 1 000 000) × 100 = 5%</p>
+        <p class="ans">u = 5%</p>
+    </div>
+
+    <hr>
+
+    <!-- ========== INFLATION ========== -->
+    <h2>Инфляция (Inflation)</h2>
+
+    <div class="nb-def"><strong>Inflation</strong> — рост общего уровня цен; <strong>deflation</strong> — <span class="hl">падение</span> общего уровня цен.</div>
+    <p class="nb-en">Inflation = rise in the general price level; deflation = fall in the general price level.</p>
+
+    <div class="nb-formula">
+        π = [(P₂ − P₁) / P₁] × 100%
+        <div class="var-list">
+            π — inflation rate &nbsp;|&nbsp; P₁ — price level in period 1 &nbsp;|&nbsp; P₂ — price level in period 2
+        </div>
+    </div>
+
+    <h3>CPI vs GDP Deflator</h3>
+    <table>
+        <tr><th></th><th>CPI (ИПЦ)</th><th>GDP Deflator</th></tr>
+        <tr><td>Корзина</td><td>Фиксированная (потребительские товары)</td><td>Все товары в GDP</td></tr>
+        <tr><td>Формула</td><td>(Cost basket<sub>t</sub> / Cost basket<sub>base</sub>) × 100</td><td>(Nominal GDP / Real GDP) × 100</td></tr>
+        <tr><td>Использование</td><td>Стоимость жизни, индексация зарплат</td><td>Deflate nominal GDP → real GDP</td></tr>
+    </table>
+    <p class="nb-en">CPI uses a fixed consumer basket; GDP deflator covers all goods in GDP. CPI for cost of living; deflator for converting nominal to real GDP.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="190" x2="450" y2="190" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="30" x2="50" y2="190" stroke="#333" stroke-width="1.5"/>
+            <text x="25" y="35" font-size="12">P, π</text>
+            <text x="440" y="208" font-size="12">Time</text>
+            <!-- CPI line -->
+            <path d="M 60 160 L 150 140 L 240 120 L 330 100 L 420 85" fill="none" stroke="#3498db" stroke-width="2.5"/>
+            <text x="425" y="88" font-size="11" fill="#3498db" font-weight="600">CPI</text>
+            <!-- GDP deflator line -->
+            <path d="M 60 165 L 150 148 L 240 128 L 330 108 L 420 95" fill="none" stroke="#e67e22" stroke-width="2.5" stroke-dasharray="6,3"/>
+            <text x="425" y="98" font-size="11" fill="#e67e22" font-weight="600">Deflator</text>
+            <!-- inflation zone -->
+            <rect x="280" y="55" width="130" height="30" fill="rgba(231,76,60,0.15)" rx="4"/>
+            <text x="345" y="74" text-anchor="middle" font-size="10" fill="#c0392b">High inflation</text>
+            <!-- deflation hint -->
+            <text x="80" y="175" font-size="10" fill="#27ae60">Normal</text>
+        </svg>
+        <p class="fig-caption">CPI (синий) и GDP deflator (оранжевый) — оба растут при инфляции, но могут расходиться</p>
+        <p class="slope-note">CPI фиксирует корзину; deflator отражает текущий состав GDP</p>
+    </div>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>π &gt; 0 <span class="arr">→</span> inflation (цены растут)</li>
+            <li>π &lt; 0 <span class="arr">→</span> deflation (цены падают)</li>
+            <li>CPI ↑ <span class="arr">→</span> real wage = nominal wage / CPI ↓</li>
+        </ul>
+    </div>
+
+    <div class="nb-why">CPI лучше для жизни потребителя (фиксированная корзина); deflator — для всей экономики и пересчёта ВВП. Оба измеряют инфляцию, но охват разный.</div>
+
+    <div class="nb-example">
+        <p class="step">CPI base year = 100; year 2 CPI = 105 → π = (105−100)/100 × 100 = 5%</p>
+        <p class="step">Nominal GDP = $110B, Real GDP = $100B → Deflator = 110/100 × 100 = 110</p>
+        <p class="step">Nominal wage $50 000, CPI = 125 → Real wage = 50 000/1.25 = $40 000</p>
+        <p class="ans">Inflation 5%; deflator 110; real wage $40 000</p>
+    </div>
+
+    <div class="nb-key">
+        <ul>
+            <li><strong>L = N + U</strong>, <strong>u = U/L × 100%</strong></li>
+            <li>Frictional, structural, cyclical; natural rate u<sub>n</sub></li>
+            <li>Inflation vs deflation: π &gt; 0 vs π &lt; 0</li>
+            <li>CPI — потребительская корзина; deflator = Nominal/Real × 100</li>
+            <li>Real wage = Nominal wage / CPI</li>
+        </ul>
+    </div>
+
+    <div class="nb-conclusion">Безработица: u = U/L, три типа, natural rate без cyclical. Инфляция: рост цен (π), deflation — падение. CPI для жизни, deflator для GDP.</div>
+</div>
+</body>
+</html>

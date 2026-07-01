@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monetary-Fiscal Policy Mix — Комбинация политик</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="IS_LM_Monetary_Policy_Explanation.html">← IS-LM &amp; Monetary</a></p>
+
+    <h1>Monetary-Fiscal Policy Mix</h1>
+    <p style="color:#666;font-size:0.92em;">Combine policies to hit specific Y and i targets / Комбинация для целевых Y и i</p>
+
+    <div class="nb-def">Можно комбинировать политики: например <span class="hl">T ↑</span> (сдерживание) + <span class="hl">M^s ↑</span> (стимул) → <strong>Y unchanged</strong>, но <strong>i ↓</strong>.</div>
+    <p class="nb-en">Policy mix: e.g. raise taxes (contractionary fiscal) plus increase money supply (expansionary monetary) → keep Y the same but lower i.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="25" y="30" font-size="12">i ↑</text>
+            <text x="400" y="268" font-size="12">Y</text>
+            <line x1="70" y1="70" x2="400" y2="240" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="360" y="235" fill="#e74c3c" font-size="11">IS</text>
+            <line x1="70" y1="240" x2="400" y2="70" stroke="#3498db" stroke-width="2.5"/>
+            <text x="360" y="85" fill="#3498db" font-size="11">LM</text>
+            <!-- T↑ → IS left (d=40) -->
+            <line x1="30" y1="70" x2="360" y2="240" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="55" y="250" fill="#e74c3c" font-size="10">IS' (T↑)</text>
+            <!-- M↑ → LM down (e=21, matched so C has same Y as A) -->
+            <line x1="70" y1="261" x2="400" y2="91" stroke="#3498db" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="75" y="278" fill="#3498db" font-size="10">LM' (M↑)</text>
+            <line x1="235" y1="155" x2="235" y2="250" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="235" cy="155" r="6" fill="#27ae60"/>
+            <text x="218" y="148" font-size="11" fill="#27ae60">A</text>
+            <circle cx="235" cy="176" r="6" fill="#f39c12"/>
+            <text x="242" y="172" font-size="11" fill="#f39c12">C</text>
+            <text x="248" y="215" font-size="10" fill="#666">Y same</text>
+            <text x="195" y="168" font-size="10" fill="#666">i↓</text>
+        </svg>
+        <p class="fig-caption">T↑ → IS влево · M↑ → LM вниз-вправо · C: Y = Y_A, i ниже<span class="en-cell">Tax hike shifts IS left; money expansion shifts LM down/right — same Y, lower i at C.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>Example from notebook / Пример из конспекта</h2>
+    <div class="nb-arrows">
+        <ul>
+            <li><strong>T ↑</strong> (налоги) <span class="arr">→</span> IS shifts <strong>left</strong> <span class="arr">→</span> Y ↓, i ↓</li>
+            <li><strong>M^s ↑</strong> (CB buys bonds) <span class="arr">→</span> LM shifts <strong>right</strong> <span class="arr">→</span> Y ↑, i ↓</li>
+            <li><strong>Together:</strong> effects on Y offset → <strong>Y unchanged</strong>, net effect: <strong>i ↓</strong></li>
+        </ul>
+    </div>
+    <p class="nb-en">Higher taxes shift IS left (lower Y, lower i). More money shifts LM right (higher Y, lower i). Combined: Y stays, i falls.</p>
+
+    <hr>
+
+    <h2>Why use a mix? / Зачем микс?</h2>
+    <div class="nb-why">
+        <ul style="margin:0;padding-left:1.2em;">
+            <li>Снизить deficit / сдержать inflation expectations (T↑)</li>
+            <li>Поддержать инвестиции через низкий i (M↑)</li>
+            <li>Избежать crowding out при чисто fiscal expansion</li>
+        </ul>
+    </div>
+    <p class="nb-en">Mix can tighten fiscal side while keeping output stable and cutting interest rates to support investment.</p>
+
+    <table>
+        <tr><th>Instrument<span class="en-cell">Tool</span></th><th>Shift<span class="en-cell">Shift</span></th><th>Typical Y<span class="en-cell">Y</span></th><th>Typical i<span class="en-cell">i</span></th></tr>
+        <tr><td>G ↑ / T ↓</td><td>IS →</td><td>↑</td><td>↑</td></tr>
+        <tr><td>G ↓ / T ↑</td><td>IS ←</td><td>↓</td><td>↓</td></tr>
+        <tr><td>M^s ↑ (buy bonds)</td><td>LM →</td><td>↑</td><td>↓</td></tr>
+        <tr><td>M^s ↓ (sell bonds)</td><td>LM ←</td><td>↓</td><td>↑</td></tr>
+        <tr><td><strong>T↑ + M↑</strong></td><td>IS← + LM→</td><td>≈ same</td><td><strong>↓</strong></td></tr>
+    </table>
+    <p class="nb-en">Full table of individual and combined policy effects on Y and i.</p>
+
+    <div class="nb-key">
+        Policy mix: offsetting IS and LM shifts · goal: target Y and i separately · T↑ + M↑ → Y same, i↓
+    </div>
+    <p class="nb-en">Governments combine fiscal and monetary tools to hit both output and interest-rate goals.</p>
+
+    <div class="nb-conclusion">Комбинация политик даёт больше степеней свободы: можно держать Y и менять i (или наоборот).</div>
+    <p class="nb-en">Policy mix adds flexibility: hold output constant while lowering the interest rate, or achieve other Y–i combinations.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Макро-блок 2 завершён · <a href="index.html">← К оглавлению</a></p>
+</div>
+</body>
+</html>

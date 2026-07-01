@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumption Function — Функция потребления (Exam #11, #30)</title>
+    <link rel="stylesheet" href="../notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="back"><a href="../index.html">← Economics topics</a> · <a href="Goods_Market_Multiplier_Explanation.html">Multiplier (#28)</a> · <a href="Exam_Prep_Guide.html#t11">Exam #11</a> · <a href="Exam_Prep_Guide.html#t30">#30</a></p>
+
+    <h1>Consumption Function — Функция потребления</h1>
+
+    <div class="nb-def"><strong>Consumption (C)</strong> — траты домохозяйств на товары и услуги. Зависит от <span class="hl">располагаемого дохода</span> Y<sub>D</sub> (доход после налогов).</div>
+    <p class="nb-en">Consumption depends mainly on disposable income Y<sub>D</sub> — income after taxes. When disposable income rises, consumption rises too.</p>
+
+    <div class="nb-formula">
+        Y<sub>D</sub> = Y − T
+        <div class="var-list">
+            Y — income (доход) &nbsp;|&nbsp; T — taxes (налоги) &nbsp;|&nbsp; Y<sub>D</sub> — disposable income (располагаемый доход)
+        </div>
+    </div>
+
+    <div class="nb-formula">
+        C = c₀ + c₁ · Y<sub>D</sub>
+        <div class="var-list">
+            <strong>c₀</strong> — autonomous consumption: траты даже при Y = 0 (еда, жильё)<br>
+            <strong>c₁</strong> — MPC (marginal propensity to consume): доля <em>дополнительного</em> дохода на потребление<br>
+            <strong>0 &lt; c₁ &lt; 1</strong> — часть доп. дохода тратят, часть сберегают
+        </div>
+    </div>
+    <p class="nb-en">Behavioral equation: shows how consumers change spending when income changes. Slope = MPC = c₁.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Y<sub>D</sub> ↑ <span class="arr">→</span> C ↑</li>
+            <li>Налоги T ↑ <span class="arr">→</span> Y<sub>D</sub> ↓ <span class="arr">→</span> C ↓</li>
+            <li>MPC + MPS = 1 (каждый доп. € либо тратится, либо сберегается)</li>
+        </ul>
+    </div>
+
+    <div class="nb-why">Больше людей работают и получают доход → больше трат → выше C. Налоги «съедают» доход → меньше Y<sub>D</sub> → меньше C.</div>
+
+    <hr>
+
+    <h2>График C(Y<sub>D</sub>) <span class="exam-ref">Exam #30</span></h2>
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" aria-label="Consumption function">
+            <defs>
+                <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker>
+            </defs>
+            <line x1="55" y1="25" x2="55" y2="285" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+            <line x1="55" y1="285" x2="450" y2="285" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+            <text x="18" y="30" font-size="13">C</text>
+            <text x="420" y="305" font-size="13">Y<sub>D</sub></text>
+            <line x1="55" y1="285" x2="400" y2="40" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+            <text x="360" y="55" font-size="11" fill="#999">45° (C = Y)</text>
+            <line x1="55" y1="245" x2="400" y2="75" stroke="#3498db" stroke-width="2.5"/>
+            <text x="280" y="95" fill="#3498db" font-size="13" font-weight="600">C = c₀ + c₁Y<sub>D</sub></text>
+            <circle cx="55" cy="245" r="6" fill="#e67e22"/>
+            <text x="62" y="240" font-size="11" fill="#e67e22">c₀</text>
+            <line x1="120" y1="210" x2="200" y2="170" stroke="#8e44ad" stroke-width="2"/>
+            <text x="145" y="205" font-size="11" fill="#8e44ad">slope = c₁ = MPC</text>
+        </svg>
+        <p class="slope-note">positive slope — линия идёт вверх</p>
+        <p class="fig-caption">Intercept = c₀ на оси C. Наклон = MPC. На экзамене не путать с бюджетной линией микро (−P<sub>x</sub>/P<sub>y</sub>).</p>
+    </div>
+
+    <div class="nb-example">
+        <p class="step">Income Y = $100, Taxes T = $10 → Y<sub>D</sub> = 100 − 10 = <strong>90</strong></p>
+        <p class="step">c₀ = $20, c₁ = 0,8 (тратят 80% доп. дохода)</p>
+        <p class="step">C = c₀ + c₁ · Y<sub>D</sub> = 20 + 0,8 × 90 = 20 + 72</p>
+        <p class="ans">C = $92</p>
+    </div>
+    <p class="nb-en">Example: Y=100, T=10 → Y_D=90; c₀=20, MPC=0.8 → C = 20 + 72 = 92.</p>
+
+    <hr>
+
+    <h2>MPC и MPS <span class="exam-ref">Exam #11</span></h2>
+    <table>
+        <tr><th>Понятие</th><th>Формула</th><th>Смысл</th></tr>
+        <tr><td><strong>MPC</strong></td><td>ΔC / ΔY = c₁</td><td>Доля доп. € на потребление</td></tr>
+        <tr><td><strong>MPS</strong></td><td>ΔS / ΔY</td><td>Доля доп. € на сбережения</td></tr>
+    </table>
+    <div class="nb-formula">MPC + MPS = 1 &nbsp;|&nbsp; Multiplier = 1 / (1 − MPC) = 1 / MPS</div>
+    <div class="nb-example">
+        <p class="step">MPC = 0,8 → из +€100 дохода тратят €80, сберегают €20</p>
+        <p class="step">Multiplier = 1 / 0,2 = <strong>5</strong> → ΔG = €10 млрд → ΔY ≈ €50 млрд</p>
+    </div>
+
+    <hr>
+
+    <h2>C в модели равновесия</h2>
+    <div class="nb-formula">
+        Z = c₀ + c₁Y + I + G &nbsp;→&nbsp; Y = Z &nbsp;→&nbsp; Y* = (c₀ + I + G) / (1 − c₁)
+        <div class="var-list">Упрощение: Y вместо Y<sub>D</sub> (T в G или фикс.). Наклон AE = MPC.</div>
+    </div>
+    <p>→ <a href="Goods_Market_Multiplier_Explanation.html">Goods Market &amp; Multiplier</a> · <a href="IS_LM_Explanation.html">IS-LM</a></p>
+
+    <div class="nb-key">
+        C = c₀ + c₁Y<sub>D</sub> · Y<sub>D</sub> = Y − T · MPC = c₁ = slope · MPS = 1 − MPC<br>
+        Break-even C = Y → Y* = c₀ / (1 − c₁) · Multiplier = 1/(1−MPC)
+    </div>
+
+    <div class="nb-conclusion">Функция потребления — поведенческое уравнение: как меняются траты при изменении дохода. c₀ — базовые траты; c₁ (MPC) — наклон. Налоги снижают Y<sub>D</sub> и C. На экзамене: не путать наклон C(Y) с бюджетной линией Frank.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../notebook-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marginal Utility &amp; Rational Spending Rule — MU и RSR</title>
+</head>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+<p class="back">
+        <a href="../index.html">← Economics topics</a> ·
+        <a href="Syllabus/12_Marginal_Utility.html">Syllabus #12</a> ·
+        <a href="Syllabus/16_Rational_Spending_Rule.html">Syllabus #16</a> ·
+        <a href="Exam_Prep_Guide.html#t16">Exam Prep</a>
+    </p>
+
+    <h1>Marginal Utility &amp; Rational Spending Rule</h1>
+    <p class="book-ref">Source: Robert H. Frank, <em>Microeconomics and Behavior</em> — Ch. 1 (marginal benefit, Figure 1.1) and Ch. 3 (rational consumer choice, Appendix, Figure 3.15). Shelter &amp; food example: M = $100/wk, P<sub>S</sub> = $5/sq yd, P<sub>F</sub> = $10/lb.</p>
+
+    <div class="exam-q">
+        <strong>Exam questions covered:</strong>
+        <ol style="margin:0.5rem 0 0;">
+            <li>Define total and marginal utility (enjoyment / satisfaction).</li>
+            <li>What is the economic meaning of MU / P?</li>
+            <li>Define the rational spending rule (RSR). What should a rational consumer do if the actual allocation does not comply with RSR?</li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <h2>1. Total utility (TU) / Совокупная полезность</h2>
+    <p class="nb-def"><strong>Total utility</strong> is the <strong>overall satisfaction, enjoyment, or benefit</strong> that a consumer receives from consuming a given quantity of a good or a bundle of goods.</p>
+    <p><strong>Совокупная полезность (TU)</strong> — общее удовлетворение от потребления заданного количества товара или набора товаров.</p>
+
+    <p>Frank (Ch. 3, Appendix) assigns a number <strong>U</strong> (utils) to each bundle. Example utility function for food F and shelter S:</p>
+    <div class="formula-box">
+        <p><strong>U(F, S) = F × S</strong> (utils per week)</p>
+        <ul style="margin:0.5rem 0 0;">
+            <li>F = 4 lb, S = 3 sq yd → <strong>U = 12 utils</strong></li>
+            <li>F = 8 lb, S = 6 sq yd → <strong>U = 48 utils</strong> (higher total utility)</li>
+        </ul>
+    </div>
+    <p>As you consume more (moving to higher indifference curves), <strong>total utility rises</strong> — but each extra unit typically adds <em>less</em> than the previous one (diminishing marginal utility).</p>
+
+    <hr>
+
+    <h2>2. Marginal utility (MU) / Предельная полезность</h2>
+    <p><strong>Marginal utility (MU)</strong> is the <strong>extra satisfaction (enjoyment)</strong> from consuming <strong>one additional unit</strong> of a good, holding other consumption constant.</p>
+    <p><strong>Предельная полезность (MU)</strong> — прирост удовлетворения от <strong>ещё одной единицы</strong> товара.</p>
+
+    <div class="formula-box">
+        <p><strong>MU<sub>x</sub> = ΔU / Δx</strong> &nbsp; (or ∂U/∂x for small changes)</p>
+        <p>For <strong>U(F, S) = F × S</strong>: &nbsp; <strong>MU<sub>F</sub> = S</strong>, &nbsp; <strong>MU<sub>S</sub> = F</strong></p>
+        <p>At (F=4, S=3): MU<sub>F</sub> = 3, MU<sub>S</sub> = 4.</p>
+    </div>
+
+    <h3>Diminishing marginal utility / Убывающая MU</h3>
+    <p>Typically, each successive unit adds <strong>less</strong> extra satisfaction than the previous one. Frank (Ch. 1, Figure 1.1): the <strong>marginal benefit</strong> of talking on the phone falls as you talk longer — same idea as diminishing MU for goods.</p>
+    <p>Обычно каждая следующая единица добавляет <strong>меньше</strong> удовлетворения, чем предыдущая.</p>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="55" y1="20" x2="55" y2="190"/>
+            <line class="axis" x1="55" y1="190" x2="380" y2="190"/>
+            <path class="tu" d="M 70 170 Q 180 120 320 55"/>
+            <text x="325" y="58" fill="#8e44ad">TU</text>
+            <text x="18" y="24">Utility</text>
+            <text x="365" y="205">Quantity Q</text>
+            <text x="200" y="205" font-size="11" fill="#666">flattens as MU → 0</text>
+        </svg>
+        <svg class="svg-graph" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="55" y1="20" x2="55" y2="190"/>
+            <line class="axis" x1="55" y1="190" x2="380" y2="190"/>
+            <path class="mu" d="M 70 45 Q 200 100 340 175"/>
+            <text x="345" y="178" fill="#e74c3c">MU</text>
+            <text x="18" y="24">MU</text>
+            <text x="365" y="205">Quantity Q</text>
+            <text x="200" y="205" font-size="11" fill="#666">diminishing MU</text>
+        </svg>
+        <p style="margin:0.5rem 0 0;font-size:0.95em;">TU rises but at a decreasing rate; MU falls as quantity increases.</p>
+    </div>
+
+    <h3>Water vs diamonds (exam intuition)</h3>
+    <p>Water has <strong>high total utility</strong> (life depends on it), but the <strong>marginal utility of the next glass</strong> is low when you are not thirsty. Diamonds have high MU per unit but a very high price. Rational choice compares <strong>MU per euro</strong>, not raw MU alone.</p>
+
+    <hr>
+
+    <h2>3. Economic meaning of MU / P</h2>
+    <div class="formula-box">
+        <p style="font-size:1.1em"><strong>MU<sub>x</sub> / P<sub>x</sub> = marginal utility per euro spent on good x</strong></p>
+    </div>
+
+    <table>
+        <tr><th>Interpretation</th><th>Meaning / RU</th></tr>
+        <tr><td><strong>“Bang for the buck”</strong></td><td>Extra satisfaction from the <strong>last €</strong> spent on good x / полезность на последний €</td></tr>
+        <tr><td><strong>Compare goods</strong></td><td>Lets you compare goods with different prices / сравнение товаров с разными ценами</td></tr>
+        <tr><td><strong>At optimum</strong></td><td>All goods have the same MU/P = λ (marginal utility of income) / на оптимуме MU/P одинаковы</td></tr>
+        <tr><td><strong>Link to Ch. 1</strong></td><td>For the consumer, MB of the last unit = MU; MC of buying it = P → optimum where <strong>MU = P</strong> in marginal terms, or <strong>MU/P = 1</strong> per good in common units</td></tr>
+    </table>
+
+    <div class="key-box">You do <strong>NOT</strong> maximize MU of one good. You equalize <strong>MU/P across all goods</strong>. High MU alone does not mean “buy more” if the price is also high.</div>
+
+    <hr>
+
+    <h2>4. Rational Spending Rule (RSR) / Правило рациональных расходов</h2>
+    <p>A <strong>rational consumer</strong> with a fixed budget allocates spending so that the <strong>last euro</strong> spent on each good yields the <strong>same marginal utility</strong>:</p>
+
+    <div class="formula-box">
+        <p style="font-size:1.15em"><strong>MU<sub>x</sub> / P<sub>x</sub> = MU<sub>y</sub> / P<sub>y</sub> = … = λ</strong></p>
+        <p>Plus: budget is <strong>fully spent</strong> (for an interior optimum on the budget line).</p>
+        <hr style="border:none;border-top:1px dashed #ccc;margin:12px 0">
+        <p><strong>Frank (Ch. 3) — shelter S and food F:</strong></p>
+        <p style="font-size:1.1em"><strong>MU<sub>S</sub> / P<sub>S</sub> = MU<sub>F</sub> / P<sub>F</sub></strong></p>
+        <p>Equivalently at the optimum (Figure 3.15): <strong>MRS<sub>S,F</sub> = P<sub>S</sub> / P<sub>F</sub> = 5/10 = 1/2</strong></p>
+    </div>
+
+    <p>Geometrically: the best affordable bundle is where the <strong>budget line is tangent</strong> to the highest reachable indifference curve (Frank, Figure 3.15).</p>
+
+    <hr>
+
+    <h2>5. If allocation does NOT satisfy RSR — what to do?</h2>
+
+    <h3>Case A: MU<sub>x</sub>/P<sub>x</sub> &gt; MU<sub>y</sub>/P<sub>y</sub></h3>
+    <p>Good x gives <strong>more satisfaction per euro</strong> than good y.</p>
+    <p><strong>Rational action:</strong></p>
+    <ol>
+        <li><strong>Buy more x</strong> → MU<sub>x</sub> falls (diminishing MU)</li>
+        <li><strong>Buy less y</strong> → MU<sub>y</sub> rises</li>
+        <li>Continue reallocating until <strong>MU<sub>x</sub>/P<sub>x</sub> = MU<sub>y</sub>/P<sub>y</sub></strong></li>
+    </ol>
+
+    <h3>Case B: MU<sub>x</sub>/P<sub>x</sub> &lt; MU<sub>y</sub>/P<sub>y</sub></h3>
+    <p><strong>Rational action:</strong> buy <strong>less x</strong>, <strong>more y</strong>, until MU/P is equalized.</p>
+
+    <h3>Frank numeric example (Ch. 3)</h3>
+    <div class="formula-box">
+        <p>Suppose at the current bundle:</p>
+        <p><strong>MU<sub>F</sub> / P<sub>F</sub> = 8 / 10 = 0.8</strong></p>
+        <p><strong>MU<sub>S</sub> / P<sub>S</sub> = 3 / 5 = 0.6</strong></p>
+        <p>0.8 &gt; 0.6 → food gives more utils per dollar → buy <strong>more food</strong>, <strong>less shelter</strong> until the two ratios are equal.</p>
+    </div>
+
+    <div class="story" style="background:#fff8e6;border-left:4px solid #f39c12;padding:14px 18px;border-radius:6px;margin:20px 0">
+        <strong>Textbook (Figure 3.15):</strong> at a point on the budget line where IC slope (MRS) = 1/4 but budget slope = P<sub>S</sub>/P<sub>F</sub> = 1/2, the consumer should trade shelter for food until MRS = 1/2.
+    </div>
+
+    <table>
+        <tr><th>Situation</th><th>What is “wrong”</th><th>Rational adjustment</th></tr>
+        <tr><td>MU<sub>F</sub>/P<sub>F</sub> &gt; MU<sub>S</sub>/P<sub>S</sub></td><td>Last € on food buys more satisfaction</td><td>↑ Food, ↓ Shelter</td></tr>
+        <tr><td>MU<sub>F</sub>/P<sub>F</sub> &lt; MU<sub>S</sub>/P<sub>S</sub></td><td>Last € on shelter buys more satisfaction</td><td>↓ Food, ↑ Shelter</td></tr>
+        <tr><td>MU/P equal, budget not spent</td><td>Could reach higher IC</td><td>Spend remaining income on goods with highest MU/P</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>6. Exam trap — “When is MU maximized?”</h2>
+    <div class="warn-box">
+        <p><strong>Do not confuse three different ideas:</strong></p>
+        <ul style="margin:0.5rem 0 0;">
+            <li><strong>MU of one good</strong> — highest on the <strong>first unit</strong>; then falls (diminishing MU). You do not “maximize MU” in the consumer optimum.</li>
+            <li><strong>Total utility U</strong> — maximum when <strong>MU = 0</strong> (one more unit adds nothing; beyond that MU &lt; 0 and U falls).</li>
+            <li><strong>Consumer optimum with a budget</strong> — not max MU, but <strong>equal MU/P</strong> across goods + budget exhausted.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>Short exam answer (EN)</h2>
+    <div class="formula-box">
+        <p><strong>Total utility</strong> is total satisfaction from a consumption level. <strong>Marginal utility</strong> is the extra satisfaction from one more unit. <strong>MU/P</strong> is marginal satisfaction per euro — the return on the last euro spent on each good. The <strong>rational spending rule</strong> requires MU<sub>x</sub>/P<sub>x</sub> = MU<sub>y</sub>/P<sub>y</sub> = λ with the budget exhausted. If MU<sub>x</sub>/P<sub>x</sub> &gt; MU<sub>y</sub>/P<sub>y</sub>, buy more x and less y until ratios are equal; if MU<sub>x</sub>/P<sub>x</sub> &lt; MU<sub>y</sub>/P<sub>y</sub>, do the opposite.</p>
+    </div>
+
+    <p>See also: <a href="Rational_Choice_Explanation_EN.html">Rational Choice (Frank Ch. 1 &amp; 3)</a> · <a href="Budget_Constraint_Explanation.html">Budget Constraint</a> · <a href="Exam_Prep_Guide.html#t16">Exam Prep #16 &amp; #22</a></p>
+
+    <div class="ru-foot">
+        <h3>🇷🇺 Кратко по-русски</h3>
+        <p><strong>TU</strong> — вся полезность; <strong>MU</strong> — от +1 единицы; <strong>MU/P</strong> — полезность на последний €. <strong>RSR:</strong> MUₓ/Pₓ = MUᵧ/Pᵧ. Если не выполняется — перераспределяй бюджет от товара с низким MU/P к товару с высоким MU/P. Пример Frank: 8/10 &gt; 3/5 → больше food, меньше shelter.</p>
+    </div>
+</div>
+</body>
+</html>

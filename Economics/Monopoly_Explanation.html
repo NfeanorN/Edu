@@ -1,87 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monopoly &amp; Imperfect Competition — Earl Ch. 7</title>
+    <title>Monopoly &amp; Profit-Max Price — Монополия и цена (Frank, Ch. 11)</title>
+    <link rel="stylesheet" href="notebook-style.css">
 </head>
-<body class="nb-page nb-market">
+<body class="nb-page nb-firm">
 <div class="nb-sheet">
-<p class="back"><a href="index.html">← Economics topics</a> · <a href="Perfect_Competition_Explanation.html">Perfect Competition</a></p>
-    <h1>Monopoly &amp; Imperfect Competition</h1>
-    <p class="note"><strong>Earl &amp; Wakeley, Ch. 7</strong> — «How can the firm set the right price?» (Fig. 7.5–7.8).</p>
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Long_Run_Cost_Function_Explanation.html">← Long Run Cost</a></p>
 
-    <h2>1. Общая формула прибыли</h2>
-    <div class="calc"><strong>π = TR − TC</strong> &nbsp;·&nbsp; TR = P × Q &nbsp;·&nbsp; TC = TFC + TVC = ATC × Q</div>
+    <h1>Monopoly — How to Find Profit-Max Price</h1>
+    <p style="color:#666;font-size:0.92em;">Frank, Ch. 11 · одна фирма = весь рынок · price maker</p>
 
-    <h2>2. Три полюса industry structure</h2>
-    <table>
-        <tr><th>Структура</th><th>Фирм</th><th>Цена</th><th>LR profit</th></tr>
-        <tr><td><strong>Perfect competition</strong></td><td>Очень много</td><td>Price taker</td><td>π = 0 (normal)</td></tr>
-        <tr><td><strong>Pure monopoly</strong></td><td>Одна (= отрасль)</td><td>Price maker</td><td>π &gt; 0 возможна (барьеры)</td></tr>
-        <tr><td><strong>Imperfect competition</strong></td><td>Несколько</td><td>Некоторая власть</td><td>Между двумя полюсами</td></tr>
-    </table>
+    <div class="nb-def"><strong>Monopoly</strong> — одна фирма = вся отрасль, <span class="hl">нет близких заменителей</span>, барьеры входа. Спрос фирмы = <strong>рыночный D</strong> (нисходящий). Фирма сама выбирает цену.</div>
+    <p class="nb-en">Monopoly: one firm is the whole industry, no close substitutes, barriers to entry. The firm's demand is the market demand curve (downward-sloping). The firm is a price maker.</p>
 
-    <h2>3. Pure monopoly (Earl §7.4.2)</h2>
-    <ul>
-        <li>Одна фирма = вся отрасль</li>
-        <li>Нет близких заменителей</li>
-        <li><strong>Барьеры входа</strong> — новые конкуренты не входят</li>
-        <li>Спрос для фирмы = <strong>рыночный D</strong> (нисходящий)</li>
-        <li><strong>MR &lt; P</strong> (каждая доп. единица снижает цену на всех)</li>
-        <li>Оптимум: <strong>MR = MC</strong> → P &gt; MC → <strong>DWL</strong></li>
-    </ul>
+    <div class="nb-formula">
+        π = TR − TC = (P × Q) − TC &nbsp;|&nbsp; maximize profit
+        <div class="var-list">TR — total revenue · TC — total cost · P — price · Q — quantity</div>
+    </div>
+    <p class="nb-en">Profit = total revenue minus total cost. The firm chooses Q (and P) to maximize π.</p>
 
-    <div class="graph-box">
-        <p class="graph-caption"><strong>График 1.</strong> Монополия (Earl Fig. 7.6): MR = MC → Q<sub>m</sub>, затем цена с D.</p>
-        <svg class="svg-graph" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="20" x2="50" y2="250" stroke="#333" stroke-width="1.5"/>
-            <line x1="50" y1="250" x2="390" y2="250" stroke="#333" stroke-width="1.5"/>
-            <text x="20" y="30">P</text><text x="378" y="268">Q</text>
-            <line x1="55" y1="50" x2="350" y2="220" stroke="#27ae60" stroke-width="2.5"/>
-            <text x="300" y="215" fill="#27ae60">D</text>
-            <line x1="55" y1="80" x2="300" y2="220" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,3"/>
-            <text x="250" y="200" fill="#c0392b">MR</text>
-            <path d="M 55 220 Q 180 80 340 100" stroke="#2980b9" stroke-width="2.5" fill="none"/>
-            <text x="310" y="95" fill="#2980b9">MC</text>
-            <circle cx="200" cy="165" r="5" fill="#8e44ad"/>
-            <line x1="200" y1="165" x2="200" y2="250" stroke="#999" stroke-dasharray="3,3"/>
-            <line x1="50" y1="120" x2="200" y2="120" stroke="#999" stroke-dasharray="3,3"/>
-            <text x="205" y="160" fill="#8e44ad" font-weight="600">Qm</text>
-            <text x="20" y="124" font-size="11">Pm</text>
-            <circle cx="260" cy="155" r="4" fill="#27ae60" opacity="0.6"/>
-            <line x1="260" y1="155" x2="260" y2="250" stroke="#27ae60" stroke-dasharray="3,3" opacity="0.6"/>
-            <text x="265" y="170" font-size="9" fill="#1e7e45">Qc (comp.)</text>
-            <path d="M 200 120 L 260 155 L 200 220 L 200 120 Z" fill="#e74c3c" opacity="0.15"/>
-            <text x="215" y="200" font-size="9" fill="#c0392b">DWL</text>
-        </svg>
-        <ul class="graph-legend">
-            <li><span class="swatch" style="background:#27ae60"></span><strong>D</strong> — рыночный спрос. Фирма = отрасль.</li>
-            <li><span class="swatch" style="background:#e74c3c"></span><strong>MR</strong> — ниже D. MR = MC → Q<sub>m</sub>.</li>
-            <li><span class="swatch" style="background:#2980b9"></span><strong>MC</strong> — marginal cost.</li>
-            <li><strong>P<sub>m</sub></strong> — с D при Q<sub>m</sub>. <strong>P<sub>m</sub> &gt; MC</strong> → не allocative efficient.</li>
-            <li><strong>DWL</strong> (красная зона) — потеря welfare vs конкуренция (Q<sub>c</sub>).</li>
+    <hr>
+
+    <h2>Why MR &lt; P? / Почему MR &lt; P?</h2>
+    <div class="nb-def">Чтобы продать <span class="hl">ещё одну</span> единицу, монополист снижает цену <strong>на все</strong> проданные единицы → <strong>MR &lt; P</strong>.</div>
+    <p class="nb-en">To sell one more unit, the monopolist must lower the price on all units sold — so marginal revenue is less than price.</p>
+
+    <div class="nb-example">
+        <p class="step">Frank, Ch. 11: 10 units at P = $100 → TR = $1000</p>
+        <p class="step">11 units at P = $95 → TR = $1045</p>
+        <p class="step">ΔTR = $45 → <strong>MR of 11th unit = $45</strong>, not $95</p>
+        <p class="ans">MR = P − (lost revenue on previous units)</p>
+    </div>
+    <p class="nb-en">Frank Ch. 11: 10 units at $100 → TR = $1000. 11 units at $95 → TR = $1045. MR on the 11th unit = $45, not $95.</p>
+
+    <hr>
+
+    <h2>Profit-max rule / Правило максимума прибыли</h2>
+    <div class="nb-key">
+        <strong>Step 1:</strong> MR = MC → find Q* &nbsp;·&nbsp;
+        <strong>Step 2:</strong> read P* from demand D at Q* &nbsp;·&nbsp;
+        <strong>Never</strong> produce where |ε| &lt; 1 (inelastic D)
+    </div>
+    <p class="nb-en">Step 1: set MR = MC to find Q*. Step 2: read P* from the demand curve at Q*. Never produce on the inelastic part of demand (|ε| &lt; 1).</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>MR &gt; MC <span class="arr">→</span> produce more (extra unit adds profit)</li>
+            <li>MR &lt; MC <span class="arr">→</span> produce less</li>
+            <li>MR = MC <span class="arr">→</span> <strong>Q*</strong> · then P* from D</li>
+            <li>Competition: P = MR → rule becomes <strong>P = MC</strong></li>
         </ul>
     </div>
+    <p class="nb-en">If MR &gt; MC, produce more. If MR &lt; MC, produce less. At MR = MC you have Q*; then read P* from demand. Under perfect competition, P = MR, so P = MC.</p>
 
-    <h2>4. Imperfect competition (Earl §7.4.3)</h2>
-    <p class="nb-def">Несколько фирм, дифференциация, <strong>strategic interdependence</strong> (Cournot и др.). Издержки выше, чем при perfect competition. Примеры: retail, brand manufacturers.</p>
+    <hr>
 
-    <h2>5. Price discrimination (Earl Fig. 7.8)</h2>
-    <p>Монополист может брать <strong>разные цены</strong> с разных групп (1st degree = каждый платит reservation price). Требует: market power + сегментация + no arbitrage.</p>
+    <h2>Linear demand / Линейный спрос (Fig. 11.5)</h2>
+    <div class="nb-formula">
+        If P = a − bQ &nbsp;→&nbsp; MR = a − 2bQ
+        <div class="var-list">MR has same intercept as D, but <strong>twice the slope</strong> (twice as steep)</div>
+    </div>
+    <p class="nb-en">If demand is P = a − bQ, then MR = a − 2bQ. Same vertical intercept, twice the slope of D.</p>
 
-    <h2>6. vs Perfect competition</h2>
+    <hr>
+
+    <h2>Graph: MR = MC → Q*, then P* / График</h2>
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="12">P ↑</text>
+            <text x="400" y="268" font-size="12">Q</text>
+            <!-- D: P=10 at Q=0 to P=0 at Q=10 -->
+            <line x1="70" y1="50" x2="370" y2="250" stroke="#27ae60" stroke-width="2.5"/>
+            <text x="330" y="240" fill="#27ae60" font-size="12">D</text>
+            <!-- MR: P=10 at Q=0 to MR=0 at Q=5 -->
+            <line x1="70" y1="50" x2="220" y2="250" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="175" y="240" fill="#e74c3c" font-size="11">MR</text>
+            <!-- MC = 2 horizontal -->
+            <line x1="70" y1="210" x2="370" y2="210" stroke="#3498db" stroke-width="2.5"/>
+            <text x="375" y="214" fill="#3498db" font-size="11">MC=2</text>
+            <!-- Q* = 4: MR=MC -->
+            <circle cx="190" cy="210" r="6" fill="#8e44ad"/>
+            <text x="198" y="206" font-size="11" fill="#8e44ad" font-weight="600">Q*</text>
+            <line x1="190" y1="210" x2="190" y2="250" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+            <!-- P* = 6 from D -->
+            <circle cx="190" cy="130" r="5" fill="#f39c12"/>
+            <line x1="55" y1="130" x2="190" y2="130" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="190" y1="130" x2="190" y2="210" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <text x="22" y="134" font-size="11" fill="#f39c12">P*=6</text>
+            <!-- Qc under competition P=MC -->
+            <circle cx="310" cy="210" r="4" fill="#27ae60" opacity="0.7"/>
+            <line x1="310" y1="210" x2="310" y2="250" stroke="#27ae60" stroke-width="1" stroke-dasharray="3,3" opacity="0.7"/>
+            <text x="316" y="248" font-size="9" fill="#1e7e45">Qc=8</text>
+            <!-- DWL triangle -->
+            <polygon points="190,130 310,210 190,210" fill="#e74c3c" opacity="0.12"/>
+            <text x="230" y="175" font-size="10" fill="#c0392b">DWL</text>
+        </svg>
+        <p class="fig-caption">MR = MC → Q* = 4 · затем P* с кривой D · P* &gt; MC → DWL vs конкуренция (Qc)<span class="en-cell">MR = MC gives Q* = 4; read P* = 6 from D. P* &gt; MC → deadweight loss vs competition at Qc = 8.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>Worked example / Числовой пример (экзамен)</h2>
+    <div class="nb-example">
+        <p class="step"><strong>Given:</strong> P = 10 − Q &nbsp;·&nbsp; MC = 2 (constant)</p>
+        <p class="step">MR = 10 − 2Q</p>
+        <p class="step">MR = MC: &nbsp; 10 − 2Q = 2 &nbsp;→&nbsp; 2Q = 8 &nbsp;→&nbsp; <strong>Q* = 4</strong></p>
+        <p class="step">P* from D: &nbsp; P = 10 − 4 = <strong>6</strong></p>
+        <p class="step">π = (P* − MC) × Q* = (6 − 2) × 4 = <strong>16</strong> &nbsp;(if MC = ATC)</p>
+        <p class="ans">Monopoly: Q* = 4, P* = 6 · Competition (P = MC): Qc = 8, P = 2</p>
+    </div>
+    <p class="nb-en">Given P = 10 − Q and MC = 2. MR = 10 − 2Q. Set MR = MC → Q* = 4. P* = 6. Profit = (6−2)×4 = 16. Under competition P = MC → Qc = 8, P = 2.</p>
+
+    <hr>
+
+    <h2>Monopoly vs perfect competition / Сравнение</h2>
     <table>
-        <tr><th></th><th>Competition</th><th>Monopoly</th></tr>
-        <tr><td>Demand фирмы</td><td>Горизонтальная (P*)</td><td>Нисходящая D</td></tr>
-        <tr><td>MR</td><td>MR = P</td><td>MR &lt; P</td></tr>
-        <tr><td>Оптимум</td><td>P = MC</td><td>MR = MC, P &gt; MC</td></tr>
-        <tr><td>LR π</td><td>0</td><td>&gt; 0 при барьерах</td></tr>
-        <tr><td>Entry</td><td>Свободный</td><td>Заблокирован</td></tr>
+        <tr><th><span class="en-cell">Item</span></th><th>Perfect competition<span class="en-cell">Perfect competition</span></th><th>Monopoly<span class="en-cell">Monopoly</span></th></tr>
+        <tr><td><strong>Firm demand</strong></td><td>Horizontal (price taker)<span class="en-cell">Horizontal — price taker</span></td><td>Downward D = market demand<span class="en-cell">Downward — market demand</span></td></tr>
+        <tr><td><strong>MR</strong></td><td>MR = P</td><td>MR &lt; P</td></tr>
+        <tr><td><strong>Profit max</strong></td><td>P = MC</td><td>MR = MC, then P from D</td></tr>
+        <tr><td><strong>Price vs MC</strong></td><td>P = MC</td><td>P &gt; MC → markup</td></tr>
+        <tr><td><strong>Output</strong></td><td>Qc (higher)<span class="en-cell">Higher output</span></td><td>Q* &lt; Qc (restrict output)<span class="en-cell">Lower output</span></td></tr>
+        <tr><td><strong>LR profit</strong></td><td>π = 0<span class="en-cell">Zero economic profit</span></td><td>π &gt; 0 possible<span class="en-cell">Positive profit possible</span></td></tr>
     </table>
+    <p class="nb-en">Monopoly produces less than competition, charges a higher price, and can earn long-run profit due to entry barriers.</p>
 
-    <div class="ru-foot"><p><strong>Кратко:</strong> Monopoly = 1 фирма, MR&lt;P, MR=MC, P&gt;MC, DWL. Imperfect = несколько фирм, interdependence. Earl Ch.7 — pricing framework.</p></div>
+    <div class="nb-why">
+        <strong>Why DWL?</strong> Монополист ограничивает Q, чтобы держать P высоким. Единицы между Q* и Qc принесли бы пользу &gt; MC, но не производятся.
+    </div>
+    <p class="nb-en">Deadweight loss: the monopolist restricts output to keep price high. Units between Q* and Qc would benefit consumers more than they cost to produce, but are not made.</p>
+
+    <div class="nb-key">
+        Exam checklist: (1) MR = MC → Q* · (2) P* from D · (3) π = (P−ATC)×Q · (4) linear: P=a−bQ → MR=a−2bQ · (5) never inelastic region
+    </div>
+    <p class="nb-en">Exam: MR = MC for Q*; read P* from demand; profit = (P−ATC)×Q; for linear demand MR = a−2bQ; do not produce where demand is inelastic.</p>
+
+    <div class="nb-conclusion">Монополия: MR = MC → Q*, затем P* с D. MR &lt; P, поэтому P* &gt; MC. Меньше выпуска, выше цена, чем при конкуренции.</div>
+    <p class="nb-en">Monopoly: find Q* where MR = MC, then read P* from demand. Because MR &lt; P, we get P* &gt; MC — less output and a higher price than under competition.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="Long_Run_Cost_Function_Explanation.html">← Long Run Cost</a> · <a href="index.html">Economics index</a></p>
 </div>
 </body>
 </html>

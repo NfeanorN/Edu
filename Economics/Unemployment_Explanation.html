@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unemployment Rate — Уровень безработицы</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="GDP_Macro_Explanation.html">← GDP</a></p>
+
+    <h1>The Unemployment Rate — Уровень безработицы</h1>
+
+    <div class="nb-def"><strong>Employment (N)</strong> — число людей, у которых <span class="hl">есть работа</span>.</div>
+    <p class="nb-en">Employment = the number of people who have a job.</p>
+
+    <div class="nb-def"><strong>Unemployment (U)</strong> — нет работы, но человек <span class="hl">ищет работу</span>.</div>
+    <p class="nb-en">Unemployment = people who don't have a job but are looking for one.</p>
+
+    <div class="nb-def"><strong>Labor force (L)</strong> — сумма занятых и безработных.</div>
+    <p class="nb-en">Labor force = employment + unemployment.</p>
+
+    <div class="nb-formula">
+        L = N + U
+        <div class="var-list">L — labor force (рабочая сила) · N — employed (занятые) · U — unemployed (безработные)</div>
+    </div>
+
+    <div class="nb-def"><strong>Unemployment rate (u)</strong> — доля безработных в рабочей силе.</div>
+    <p class="nb-en">The unemployment rate is the ratio of unemployed to the labor force.</p>
+
+    <div class="nb-formula">
+        u = U / L &nbsp;&nbsp;× 100%
+        <div class="var-list">unemployment rate = unemployment / labor force</div>
+    </div>
+
+    <hr>
+
+    <h2>График: занятость во времени / Employment over time</h2>
+    <p>На графике ниже — число <strong>занятых (N)</strong> по годам. В точке <strong>0</strong> — рецессия: занятость резко падает → безработица растёт.</p>
+    <p class="nb-en">The graph shows employment (N) over time. At year 0, a recession hits — employment drops sharply → unemployment rises.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="30" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="450" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="35" font-size="12">N</text>
+            <text x="430" y="268" font-size="12">time</text>
+            <text x="18" y="248" font-size="9" fill="#666">6100</text>
+            <text x="18" y="200" font-size="9" fill="#666">6300</text>
+            <text x="18" y="155" font-size="9" fill="#666">6500</text>
+            <text x="18" y="110" font-size="9" fill="#666">6700</text>
+            <text x="18" y="65" font-size="9" fill="#666">6900</text>
+            <text x="75" y="268" font-size="10" fill="#666">−4</text>
+            <text x="130" y="268" font-size="10" fill="#666">−3</text>
+            <text x="185" y="268" font-size="10" fill="#666">−2</text>
+            <text x="240" y="268" font-size="10" fill="#666">−1</text>
+            <text x="295" y="268" font-size="10" fill="#666">0</text>
+            <text x="350" y="268" font-size="10" fill="#666">+2</text>
+            <text x="405" y="268" font-size="10" fill="#666">+4</text>
+            <path d="M 75 75 L 130 70 L 185 85 L 240 100 L 295 230 L 350 120 L 405 80" fill="none" stroke="#e74c3c" stroke-width="2.5"/>
+            <circle cx="295" cy="230" r="5" fill="#e74c3c"/>
+            <text x="305" y="225" font-size="10" fill="#e74c3c">recession</text>
+            <text x="350" y="105" font-size="10" fill="#27ae60">recovery</text>
+        </svg>
+        <p class="slope-note">N ↓ в рецессии → U ↑ → u ↑<span class="en-cell">N falls in recession → U rises → u rises</span></p>
+        <p class="fig-caption">Занятость падает → безработица растёт (обратная связь)<span class="en-cell">Employment falls → unemployment rises (inverse link)</span></p>
+    </div>
+
+    <div class="nb-arrows">
+        <ul>
+            <li><strong>Высокий u</strong> <span class="arr">→</span> много людей без работы</li>
+            <li><strong>Низкий u</strong> <span class="arr">→</span> у большинства есть работа</li>
+            <li>Recession <span class="arr">→</span> N ↓ <span class="arr">→</span> U ↑ <span class="arr">→</span> u ↑</li>
+        </ul>
+    </div>
+    <p class="nb-en">High u → many people without jobs. Low u → most people employed. Recession → N falls → U rises → u rises.</p>
+
+    <div class="nb-example">
+        <p class="step">L = 1 000 000 человек в рабочей силе</p>
+        <p class="step">N = 950 000 (заняты) → U = L − N = <strong>50 000</strong></p>
+        <p class="step">u = 50 000 / 1 000 000 × 100 = <strong>5%</strong></p>
+        <p class="ans">u = 5%</p>
+    </div>
+    <p class="nb-en">L = 1,000,000 in the labor force · N = 950,000 employed → U = 50,000 · u = 50,000 / 1,000,000 × 100 = 5%.</p>
+
+    <div class="nb-why">Безработица растёт, когда компании увольняют или не нанимают (рецессия, низкий спрос). Падает, когда экономика растёт и фирмы нанимают больше людей.</div>
+    <p class="nb-en">Unemployment rises when firms lay off workers or stop hiring (recession, weak demand). It falls when the economy grows and firms hire more people.</p>
+
+    <div class="nb-key">
+        N = занятые · U = безработные (ищут работу) · L = N + U<br>
+        u = U / L · Высокий u = плохо для людей · Связь с GDP: рецессия → u ↑
+    </div>
+    <p class="nb-en">N = employed · U = unemployed (seeking work) · L = N + U · u = U / L · High u hurts workers · Link to GDP: recession → u rises.</p>
+
+    <div class="nb-conclusion">Unemployment rate показывает, сколько людей <strong>ищут работу, но не могут её найти</strong>. Считаем только тех, кто в рабочей силе (L) — не считаем студентов и пенсионеров, которые не ищут работу.</div>
+    <p class="nb-en">The unemployment rate shows how many people are looking for work but cannot find it. We count only those in the labor force (L) — not students or retirees who are not job-seeking.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="Inflation_Explanation.html">3. Inflation →</a></p>
+</div>
+</body>
+</html>

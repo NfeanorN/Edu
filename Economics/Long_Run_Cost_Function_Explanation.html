@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Run Cost Function — Долгосрочная функция издержек (Frank, Ch. 9)</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-firm">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a></p>
+
+    <h1>Long Run Cost Function — Долгосрочная функция издержек</h1>
+
+    <div class="nb-def"><strong>Long-run cost function (LRTC)</strong> — минимальные издержки при каждом выпуске Q, когда фирма может свободно менять <span class="hl">все факторы</span> (труд L и капитал K).</div>
+    <p class="nb-en">LRTC(Q) = minimum total cost at each output level when all inputs are variable.</p>
+
+    <hr>
+
+    <h2>1. Short run vs long run / Краткий vs долгий период</h2>
+    <table>
+        <tr><th><span class="en-cell">Comparison</span></th><th>Short run</th><th>Long run</th></tr>
+        <tr><td><strong>Факторы</strong><span class="en-cell">Inputs</span></td><td>Хотя бы один фиксирован (обычно K)<span class="en-cell">At least one fixed (usually K)</span></td><td><strong>Все переменные</strong><span class="en-cell"><strong>All variable</strong></span></td></tr>
+        <tr><td><strong>Вопрос</strong><span class="en-cell">Question</span></td><td>Сколько произвести при данном заводе?<span class="en-cell">How much to produce with given plant?</span></td><td>Какой mix (L, K) и какой размер завода?<span class="en-cell">Which mix (L, K) and plant size?</span></td></tr>
+    </table>
+    <p class="nb-en">In the long run there are no fixed inputs — the firm picks the cheapest way to produce each Q.</p>
+
+    <hr>
+
+    <h2>2. Главный график (как у профессора) / Main graph (as in lecture)</h2>
+    <p>Оси: <strong>Q</strong> (выпуск) по горизонтали, <strong>LRTC</strong> (общие издержки) по вертикали.</p>
+    <p class="nb-en">Axes: Q (output) on the horizontal axis, LRTC (total cost) on the vertical axis.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" aria-label="LRTC and returns to scale">
+            <line x1="60" y1="30" x2="60" y2="300" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="300" x2="440" y2="300" stroke="#333" stroke-width="1.5"/>
+            <text x="25" y="35" font-size="13">LRTC</text>
+            <text x="420" y="318" font-size="13">Q</text>
+            <line x1="60" y1="300" x2="400" y2="60" stroke="#333" stroke-width="2"/>
+            <text x="350" y="95" font-size="12" font-weight="600">constant RTS</text>
+            <text x="355" y="110" font-size="10" fill="#666">(прямая 45°)</text>
+            <path d="M 60 300 Q 200 200 400 60" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <text x="220" y="175" fill="#27ae60" font-size="12" font-weight="600">increasing RTS</text>
+            <text x="200" y="192" fill="#27ae60" font-size="10">(ниже прямой)</text>
+            <path d="M 60 300 Q 180 260 400 60" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="250" y="255" fill="#e74c3c" font-size="12" font-weight="600">decreasing RTS</text>
+            <text x="235" y="272" fill="#e74c3c" font-size="10">(выше прямой)</text>
+            <circle cx="400" cy="60" r="5" fill="#8e44ad"/>
+            <text x="408" y="55" font-size="10" fill="#8e44ad">Q*</text>
+        </svg>
+        <p class="fig-caption">Все три линии начинаются в (0,0) и сходятся в точке Q* на прямой constant returns<span class="en-cell">All three curves start at (0,0) and meet at Q* on the constant-returns line</span></p>
+    </div>
+
+    <table>
+        <tr><th>Линия<span class="en-cell">Curve</span></th><th>Отдача от масштаба (RTS)<span class="en-cell">Returns to scale</span></th><th>Что значит<span class="en-cell">Meaning</span></th></tr>
+        <tr><td><strong>Прямая (диагональ)</strong><span class="en-cell"><strong>Diagonal line</strong></span></td><td>Constant</td><td>Удвоили факторы → выпуск ×2, издержки ×2<span class="en-cell">Double inputs → output ×2, costs ×2</span></td></tr>
+        <tr><td><strong>Кривая ниже</strong><span class="en-cell"><strong>Curve below</strong></span></td><td>Increasing</td><td>Удвоили факторы → выпуск <strong>больше</strong> ×2 → unit cost <strong>падает</strong><span class="en-cell">Double inputs → output <strong>more than</strong> ×2 → unit cost <strong>falls</strong></span></td></tr>
+        <tr><td><strong>Кривая выше</strong><span class="en-cell"><strong>Curve above</strong></span></td><td>Decreasing</td><td>Удвоили факторы → выпуск <strong>меньше</strong> ×2 → unit cost <strong>растёт</strong><span class="en-cell">Double inputs → output <strong>less than</strong> ×2 → unit cost <strong>rises</strong></span></td></tr>
+    </table>
+    <p class="nb-en">Diagonal = constant returns. Curve below = economies of scale. Curve above = diseconomies of scale.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>LRTC <strong>ниже</strong> прямой <span class="arr">→</span> <strong>LAC ↓</strong> (economies of scale)</li>
+            <li>LRTC <strong>выше</strong> прямой <span class="arr">→</span> <strong>LAC ↑</strong> (diseconomies of scale)</li>
+            <li>LRTC <strong>на</strong> прямой <span class="arr">→</span> <strong>LAC</strong> постоянна</li>
+        </ul>
+    </div>
+    <p class="nb-en">LRTC below the line → LAC falls (economies of scale). LRTC above → LAC rises (diseconomies). LRTC on the line → LAC constant.</p>
+
+    <div class="nb-why">При increasing RTS крупная фирма производит дешевле на единицу (специализация, опт). При decreasing RTS слишком большая фирма неэффективна (бюрократия, координация).</div>
+    <p class="nb-en">With increasing RTS, a larger firm has lower unit cost (specialization, bulk buying). With decreasing RTS, an oversized firm is inefficient (bureaucracy, coordination).</p>
+
+    <hr>
+
+    <h2>3. Формулы / Formulas</h2>
+    <div class="nb-formula">
+        LRTC(Q) = min (w·L + r·K) &nbsp; при &nbsp; Q = f(L, K)
+        <div class="var-list">w — зарплата · r — цена капитала · выбираем самую дешёвую пару (L, K)</div>
+    </div>
+    <p class="nb-en">LRTC(Q) = minimum of w·L + r·K subject to Q = f(L, K). Choose the cheapest (L, K) pair.</p>
+    <div class="nb-formula">
+        LAC = LRTC / Q
+        <div class="var-list">LAC — long-run average cost (средние издержки в долгом периоде)</div>
+    </div>
+    <p class="nb-en">LAC = LRTC / Q — long-run average cost per unit of output.</p>
+
+    <h3>Returns to scale (удвоили все факторы, k = 2) / Returns to scale (double all inputs)</h3>
+    <table>
+        <tr><th>Тип<span class="en-cell">Type</span></th><th>Условие<span class="en-cell">Condition</span></th><th>LRTC на графике<span class="en-cell">LRTC on graph</span></th></tr>
+        <tr><td><strong>Increasing</strong></td><td>f(2L, 2K) &gt; 2·f(L, K)</td><td>Ниже прямой<span class="en-cell">Below diagonal</span></td></tr>
+        <tr><td><strong>Constant</strong></td><td>f(2L, 2K) = 2·f(L, K)</td><td>На прямой<span class="en-cell">On diagonal</span></td></tr>
+        <tr><td><strong>Decreasing</strong></td><td>f(2L, 2K) &lt; 2·f(L, K)</td><td>Выше прямой<span class="en-cell">Above diagonal</span></td></tr>
+    </table>
+    <p class="nb-en">Increasing RTS: doubling inputs more than doubles output (below line). Constant: exactly doubles. Decreasing: less than doubles (above line).</p>
+
+    <hr>
+
+    <h2>4. Пример — пекарня (Frank) / Example — bakery (Frank)</h2>
+    <div class="nb-example">
+        <p class="step">1 печь + 2 пекаря = <strong>100</strong> пирогов/день</p>
+        <p class="step">Удваиваем всё: 2 печи + 4 пекаря</p>
+        <p class="step">250 пирогов → <strong>increasing RTS</strong> (ниже прямой, LAC падает)</p>
+        <p class="step">200 пирогов → <strong>constant RTS</strong> (на прямой)</p>
+        <p class="step">150 пирогов → <strong>decreasing RTS</strong> (выше прямой, LAC растёт)</p>
+    </div>
+    <p class="nb-en">1 oven + 2 bakers = 100 pies/day. Double all: 2 ovens + 4 bakers → 250 pies = increasing RTS; 200 = constant; 150 = decreasing.</p>
+
+    <hr>
+
+    <h2>5. От формы LAC — к структуре отрасли / From LAC shape to industry structure</h2>
+    <div class="nb-arrows">
+        <ul>
+            <li>LAC <strong>падает</strong> <span class="arr">→</span> крупная фирма дешевле → <strong>монополия</strong> (электричество, вода)</li>
+            <li>LAC <strong>растёт</strong> <span class="arr">→</span> мелкие фирмы лучше → <strong>много салонов, ресторанов</strong></li>
+            <li>LAC <strong>плоская</strong> <span class="arr">→</span> размер не важен</li>
+        </ul>
+    </div>
+    <p class="nb-en">Falling LAC → big firm is cheaper → monopoly (utilities, water). Rising LAC → small firms better → many salons, restaurants. Flat LAC → size doesn't matter.</p>
+
+    <div class="nb-key">
+        LRTC = min cost при всех переменных факторах · Прямая 45° = constant RTS<br>
+        Ниже прямой = increasing RTS = LAC↓ · Выше = decreasing RTS = LAC↑<br>
+        LAC = LRTC / Q · Frank Ch. 9
+    </div>
+    <p class="nb-en">LRTC = min cost with all inputs variable · 45° line = constant RTS · Below = increasing RTS = LAC down · Above = decreasing RTS = LAC up · LAC = LRTC / Q · Frank Ch. 9.</p>
+
+    <div class="nb-conclusion">Долгосрочная функция издержек показывает, сколько стоит произвести Q при оптимальном выборе L и K. График с прямой и двумя кривыми — это отдача от масштаба: ниже прямой = дешевле расти, выше = дороже расти.</div>
+    <p class="nb-en">The long-run cost function shows the cost of producing Q with the optimal choice of L and K. The graph with a line and two curves shows returns to scale: below the line = cheaper to grow, above = costlier to grow.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="Monopoly_Explanation.html">Monopoly &amp; Profit-Max Price →</a></p>
+</div>
+</body>
+</html>
