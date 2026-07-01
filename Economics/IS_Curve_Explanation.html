@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS Curve &amp; Liquidity Trap — Кривая IS</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Money_Market_Explanation.html">← Money Market</a></p>
+
+    <h1>IS Curve — Goods Market Equilibrium</h1>
+    <p style="color:#666;font-size:0.92em;">Investment–Saving / Равновесие на рынке товаров при разных i</p>
+
+    <div class="nb-def">Кривая <strong>IS</strong> — все комбинации (Y, i), при которых <span class="hl">рынок товаров в равновесии</span>: Y = C + I + G.</div>
+    <p class="nb-en">The IS curve shows all (Y, i) pairs where the goods market is in equilibrium: Y = C + I + G.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>i ↓ <span class="arr">→</span> I ↑ (дешевле заимствовать) <span class="arr">→</span> Z ↑ <span class="arr">→</span> Y ↑</li>
+            <li>i ↑ <span class="arr">→</span> I ↓ <span class="arr">→</span> Y ↓</li>
+        </ul>
+    </div>
+    <p class="nb-en">Lower interest rate → investment rises → demand rises → output rises. IS slopes downward.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="25" y="30" font-size="12">i ↑</text>
+            <text x="400" y="268" font-size="12">Y</text>
+            <line x1="80" y1="70" x2="400" y2="240" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="360" y="235" fill="#e74c3c" font-size="12">IS</text>
+            <circle cx="200" cy="130" r="5" fill="#27ae60"/>
+            <text x="208" y="128" font-size="10" fill="#27ae60">A</text>
+        </svg>
+        <p class="fig-caption">IS — нисходящая: i↓ → I↑ → Y↑<span class="en-cell">Downward-sloping IS: lower i raises Y via investment.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>What shifts IS? / Сдвиги IS</h2>
+    <table>
+        <tr><th>Сдвиг<span class="en-cell">Shift</span></th><th>Причина<span class="en-cell">Cause</span></th><th>IS</th></tr>
+        <tr><td>G ↑ или T ↓</td><td>Expansionary fiscal<span class="en-cell">More spending / less taxes</span></td><td>→ right</td></tr>
+        <tr><td>G ↓ или T ↑</td><td>Contractionary fiscal<span class="en-cell">Austerity</span></td><td>→ left</td></tr>
+        <tr><td>Confidence ↑</td><td>I ↑ at each i<span class="en-cell">Business optimism</span></td><td>→ right</td></tr>
+    </table>
+    <p class="nb-en">Higher G or lower T shifts IS right. Lower G or higher T shifts IS left.</p>
+
+    <hr>
+
+    <h2>Liquidity Trap / Ловушка ликвидности</h2>
+    <div class="nb-def">Когда <span class="hl">i ≈ 0</span>, люди держат только деньги — дополнительная M не снижает i. IS может быть <strong>вертикальной</strong> внизу.</div>
+    <p class="nb-en">Liquidity trap: at i ≈ 0, extra money does not lower i further. People prefer cash to bonds.</p>
+
+    <div class="nb-why">
+        <strong>Why?</strong> При i = 0 bonds не дают дохода → все держат money → M^d горизонтальна → OMO не работает.
+    </div>
+    <p class="nb-en">At zero interest, bonds yield nothing — everyone holds money. Monetary policy loses traction.</p>
+
+    <div class="nb-key">
+        IS: goods market eq. · slope ↓ (i↓→Y↑) · fiscal shifts IS · liquidity trap: i≈0, M ineffective
+    </div>
+    <p class="nb-en">IS = goods equilibrium. Downward slope. Fiscal policy shifts IS. Trap at zero bound.</p>
+
+    <div class="nb-conclusion">IS связывает Y и i через инвестиции. Фискальная политика сдвигает IS; при i=0 — ловушка ликвидности.</div>
+    <p class="nb-en">IS links Y and i through investment. Fiscal policy shifts IS; at i=0 we hit the liquidity trap.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="LM_Fiscal_Policy_Explanation.html">12. LM &amp; Fiscal Policy →</a></p>
+</div>
+</body>
+</html>

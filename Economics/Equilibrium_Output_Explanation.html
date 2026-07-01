@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilibrium Output — Равновесный выпуск (Keynesian cross)</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Consumption_Function_Explanation.html">← Consumption Function</a></p>
+
+    <h1>The Determination of Equilibrium Output — Равновесный выпуск</h1>
+
+    <div class="nb-def"><strong>Цель:</strong> найти уровень выпуска, где <span class="hl">Z = Y</span> (спрос = производство).</div>
+    <p class="nb-en">Goal: find the level of output where planned demand Z equals production Y.</p>
+
+    <div class="nb-formula">
+        Y = Z &nbsp;&nbsp;(равновесие на рынке товаров)
+        <div class="var-list">
+            Y — output / income (выпуск / доход) · Z — aggregate demand (совокупный спрос)
+        </div>
+    </div>
+    <p class="nb-en">Equilibrium condition: production Y equals demand Z.</p>
+
+    <hr>
+
+    <h2>График Keynesian cross / Кейnesian cross</h2>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="285" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="285" x2="450" y2="285" stroke="#333" stroke-width="1.5"/>
+            <text x="12" y="30" font-size="12">Z, Y</text>
+            <text x="430" y="305" font-size="12">Income Y</text>
+            <!-- 45° line -->
+            <line x1="55" y1="285" x2="420" y2="50" stroke="#999" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="350" y="75" font-size="11" fill="#999">45° slope = 1</text>
+            <!-- ZZ demand -->
+            <line x1="55" y1="230" x2="420" y2="95" stroke="#3498db" stroke-width="2.5"/>
+            <text x="400" y="88" font-size="12" fill="#3498db" font-weight="600">ZZ (Demand)</text>
+            <circle cx="55" cy="230" r="4" fill="#e67e22"/>
+            <text x="62" y="225" font-size="10" fill="#e67e22">Autonomous spending</text>
+            <!-- equilibrium A = 45° ∩ ZZ -->
+            <circle cx="256" cy="155" r="6" fill="#e74c3c"/>
+            <text x="264" y="150" font-size="11" fill="#e74c3c" font-weight="600">A</text>
+            <text x="264" y="165" font-size="10" fill="#e74c3c">Y = Z</text>
+            <!-- multiplier steps along 45° -->
+            <circle cx="290" cy="132" r="4" fill="#8e44ad"/>
+            <text x="296" y="129" font-size="9">B</text>
+            <circle cx="322" cy="111" r="4" fill="#8e44ad"/>
+            <text x="328" y="108" font-size="9">C</text>
+            <path d="M 256 155 L 290 132 L 322 111 L 352 93" fill="none" stroke="#8e44ad" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <text x="360" y="100" font-size="10" fill="#27ae60">+ΔG → new Y</text>
+        </svg>
+        <p class="fig-caption">Точка A — равновесие (ZZ и 45°). Сдвиг ZZ вверх → шаги A→B→C… → новый более высокий Y.<span class="en-cell">Point A = equilibrium (ZZ and 45°). ZZ shifts up → steps A→B→C… → new higher Y.</span></p>
+    </div>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Y ↑ <span class="arr">→</span> D ↑ (demand растёт с доходом)</li>
+            <li>Y ↓ <span class="arr">→</span> D ↓</li>
+        </ul>
+    </div>
+    <p class="nb-en">Y up → demand up. Y down → demand down.</p>
+
+    <hr>
+
+    <h2>ZZ line / Линия спроса Z</h2>
+    <div class="nb-formula">
+        Z = C + I + G &nbsp;→&nbsp; Z = c₀ + c₁Y + I + G
+        <div class="var-list">
+            <strong>Autonomous spending</strong> — траты, не зависящие от Y (c₀, I, G)<span class="en-cell">Spending that does not depend on income</span>
+        </div>
+    </div>
+    <p class="nb-en">ZZ line starts at autonomous spending on the vertical axis. Slope = MPC = c₁.</p>
+
+    <hr>
+
+    <h2>Multiplier / Мультипликатор</h2>
+    <div class="nb-def"><strong>Multiplier</strong> — число, на которое умножается автономный спрос, чтобы получить ΔY.</div>
+    <p class="nb-en">The multiplier is the number that multiplies autonomous spending to get the change in output.</p>
+
+    <div class="nb-formula">
+        Multiplier = 1 / (1 − c₁) = 1 / (1 − MPC)
+    </div>
+
+    <div class="nb-why">Рост автономных расходов сдвигает ZZ вверх → фирмы увеличивают производство → доход растёт → потребление растёт → … → новый более высокий Y. Это <strong>multiplier effect</strong>.</div>
+    <p class="nb-en">Higher autonomous spending shifts ZZ up → firms produce more → income rises → consumption rises → economy reaches a new higher output. This is the multiplier effect.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>c₁ (MPC) ↑ <span class="arr">→</span> multiplier ↑ (больше c₁ → больше мультипликатор)</li>
+            <li>c₁ ↓ <span class="arr">→</span> multiplier ↓</li>
+        </ul>
+    </div>
+    <p class="nb-en">Higher MPC → larger multiplier. Lower MPC → smaller multiplier.</p>
+
+    <hr>
+
+    <h2>Формула равновесного Y / Equilibrium output formula</h2>
+    <div class="nb-formula">
+        Y = [1 / (1 − c₁)] × (c₀ + I + G − c₁T)
+        <div class="var-list">
+            <strong>1/(1−c₁)</strong> = multiplier · <strong>(c₀ + I + G − c₁T)</strong> = autonomous spending (с налогами)
+        </div>
+    </div>
+    <p class="nb-en">Y = multiplier × autonomous spending. Taxes reduce disposable income → reduce demand via −c₁T.</p>
+
+    <div class="nb-example">
+        <p class="step">c₁ = 0,8 → multiplier = 1 / 0,2 = <strong>5</strong></p>
+        <p class="step">ΔG = +$1 млрд (autonomous spending ↑)</p>
+        <p class="step">ΔY = 5 × $1 = <strong>$5 млрд</strong></p>
+        <p class="ans">Round 1: +1 G · Round 2: +0,8 C · Round 3: +0,64 C … Sum = 5</p>
+    </div>
+    <p class="nb-en">MPC = 0.8 → multiplier = 5. ΔG = $1bn → ΔY = $5bn through successive rounds of spending.</p>
+
+    <div class="nb-key">
+        Y = Z · 45° line: Y on both axes · ZZ: intercept = autonomous spending, slope = c₁<br>
+        Multiplier = 1/(1−MPC) · Y = multiplier × (c₀+I+G−c₁T) · ΔY &gt; ΔG
+    </div>
+    <p class="nb-en">Equilibrium: Y = Z. Multiplier amplifies autonomous spending. Higher MPC → bigger multiplier.</p>
+
+    <div class="nb-conclusion">Равновесный выпуск зависит от <strong>автономного спроса</strong> и <strong>мультипликатора</strong>. На графике — пересечение ZZ и 45°. Следующие темы из конспекта: S = I, деньги, IS-LM.</div>
+    <p class="nb-en">Equilibrium output depends on autonomous spending and the multiplier. On the graph: intersection of ZZ and the 45° line. Next: S = I, money market, IS-LM.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="Savings_Investment_Explanation.html">8. S = I &amp; Paradox of Savings →</a></p>
+</div>
+</body>
+</html>

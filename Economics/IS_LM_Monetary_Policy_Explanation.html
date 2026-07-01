@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS-LM Equilibrium &amp; Monetary Policy</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="LM_Fiscal_Policy_Explanation.html">← LM &amp; Fiscal</a></p>
+
+    <h1>IS-LM Equilibrium &amp; Monetary Policy</h1>
+
+    <div class="nb-def">Точка <strong>A</strong> — пересечение IS и LM: одновременное равновесие на <span class="hl">рынке товаров</span> и <span class="hl">денежном рынке</span>.</div>
+    <p class="nb-en">Point A = intersection of IS and LM: goods market and money market both in equilibrium.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="25" y="30" font-size="12">i ↑</text>
+            <text x="400" y="268" font-size="12">Y</text>
+            <!-- IS: downward -->
+            <line x1="70" y1="70" x2="400" y2="240" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="360" y="235" fill="#e74c3c" font-size="12">IS</text>
+            <!-- LM original -->
+            <line x1="70" y1="240" x2="400" y2="70" stroke="#3498db" stroke-width="2.5"/>
+            <text x="360" y="85" fill="#3498db" font-size="12">LM</text>
+            <!-- LM' after M↑: parallel shift down in i (= larger svg y) -->
+            <line x1="70" y1="261" x2="400" y2="91" stroke="#3498db" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="90" y="278" fill="#3498db" font-size="11">LM'</text>
+            <!-- A = IS ∩ LM, B = IS ∩ LM' -->
+            <circle cx="235" cy="155" r="6" fill="#27ae60"/>
+            <text x="218" y="148" font-size="11" fill="#27ae60">A</text>
+            <circle cx="269" cy="172" r="6" fill="#f39c12"/>
+            <text x="276" y="168" font-size="11" fill="#f39c12">B</text>
+        </svg>
+        <p class="fig-caption">CB buys bonds → M^s↑ → LM сдвигается <strong>вниз-вправо</strong> → A→B: Y↑ i↓<span class="en-cell">Expansionary monetary: LM shifts down/right; new equilibrium B has higher Y, lower i.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>Monetary Policy / Денежно-кредитная политика</h2>
+
+    <h3>Expansionary (CB buys bonds, M^s ↑)</h3>
+    <div class="nb-arrows">
+        <ul>
+            <li>CB buys bonds <span class="arr">→</span> M^s ↑ <span class="arr">→</span> LM shifts <strong>down</strong> (вниз-вправо)</li>
+            <li>Y ↑ and i ↓</li>
+        </ul>
+    </div>
+    <p class="nb-en">Central bank buys bonds → money supply up → LM shifts right → output rises, interest rate falls.</p>
+
+    <h3>Contractionary (CB sells bonds, M^s ↓)</h3>
+    <div class="nb-arrows">
+        <ul>
+            <li>CB sells bonds <span class="arr">→</span> M^s ↓ <span class="arr">→</span> LM shifts <strong>left</strong></li>
+            <li>Y ↓ and i ↑</li>
+        </ul>
+    </div>
+    <p class="nb-en">Central bank sells bonds → M down → LM left → Y falls, i rises.</p>
+
+    <table>
+        <tr><th>Policy<span class="en-cell">Policy</span></th><th>CB action<span class="en-cell">Action</span></th><th>LM<span class="en-cell">LM</span></th><th>Y<span class="en-cell">Y</span></th><th>i<span class="en-cell">i</span></th></tr>
+        <tr><td>Expansionary</td><td>Buy bonds<span class="en-cell">OMO buy</span></td><td>→ right</td><td>↑</td><td>↓</td></tr>
+        <tr><td>Contractionary</td><td>Sell bonds<span class="en-cell">OMO sell</span></td><td>→ left</td><td>↓</td><td>↑</td></tr>
+    </table>
+    <p class="nb-en">Monetary expansion: buy bonds, LM right, Y up i down. Contraction: opposite.</p>
+
+    <hr>
+
+    <h2>IS-LM summary / Сводка</h2>
+    <table>
+        <tr><th>Curve<span class="en-cell">Curve</span></th><th>Market<span class="en-cell">Market</span></th><th>Slope<span class="en-cell">Slope</span></th><th>Shifted by<span class="en-cell">Shifts</span></th></tr>
+        <tr><td><strong>IS</strong></td><td>Goods<span class="en-cell">Goods</span></td><td>↓</td><td>G, T, confidence<span class="en-cell">Fiscal</span></td></tr>
+        <tr><td><strong>LM</strong></td><td>Money<span class="en-cell">Money</span></td><td>↑</td><td>M^s (OMO)<span class="en-cell">Monetary</span></td></tr>
+    </table>
+    <p class="nb-en">IS = goods market, downward. LM = money market, upward. Fiscal shifts IS; monetary shifts LM.</p>
+
+    <div class="nb-key">
+        A = IS ∩ LM · CB buy → LM right → Y↑ i↓ · CB sell → LM left → Y↓ i↑
+    </div>
+    <p class="nb-en">Equilibrium at intersection. Expansionary monetary policy boosts Y and cuts i.</p>
+
+    <div class="nb-conclusion">IS-LM: A — общее равновесие. Монетарная политика сдвигает LM; покупка облигаций стимулирует Y и снижает i.</div>
+    <p class="nb-en">IS-LM equilibrium at A. Monetary policy shifts LM; bond purchases raise Y and lower i.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="Policy_Mix_Explanation.html">14. Policy Mix →</a></p>
+</div>
+</body>
+</html>

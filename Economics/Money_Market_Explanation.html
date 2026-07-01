@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Market — Денежный рынок и ставка i*</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Money_OMO_Explanation.html">← Money &amp; OMO</a></p>
+
+    <h1>Money Demand, Money Supply &amp; Equilibrium Interest Rate</h1>
+
+    <div class="nb-def">На денежном рынке <span class="hl">M^s = M^d</span> определяет равновесную ставку <strong>i*</strong>.</div>
+    <p class="nb-en">On the money market, M^s = M^d determines the equilibrium interest rate i*.</p>
+
+    <div class="nb-formula">
+        M = $Y · L(i)
+        <div class="var-list">
+            $Y — nominal income (P × Y) · L(i) — money demand (↓ when i ↑)
+        </div>
+    </div>
+    <p class="nb-en">M = nominal income × money demand function L(i). L decreases when interest rate rises.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="25" y="30" font-size="12">i ↑</text>
+            <text x="400" y="268" font-size="12">M</text>
+            <line x1="220" y1="25" x2="220" y2="250" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="228" y="45" font-size="11" fill="#e74c3c">M^s</text>
+            <line x1="70" y1="55" x2="380" y2="235" stroke="#3498db" stroke-width="2.5"/>
+            <text x="320" y="220" fill="#3498db" font-size="12">M^d</text>
+            <circle cx="220" cy="142" r="6" fill="#27ae60"/>
+            <text x="228" y="139" font-size="11" fill="#27ae60">A: i*</text>
+        </svg>
+        <p class="fig-caption">M^s — вертикальная (задаёт ЦБ). M^d — ↓ при i↑. A = равновесие.<span class="en-cell">M^s vertical (CB). M^d downward-sloping. A = equilibrium i*.</span></p>
+    </div>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>i ↑ <span class="arr">→</span> M^d ↓ (дороже держать cash, лучше bonds)</li>
+            <li>i ↓ <span class="arr">→</span> M^d ↑</li>
+            <li>M^s = M^d <span class="arr">→</span> equilibrium i</li>
+        </ul>
+    </div>
+    <p class="nb-en">Higher i → less money demand. Lower i → more money demand. M^s = M^d at equilibrium.</p>
+
+    <hr>
+
+    <h2>Shifts / Сдвиги</h2>
+
+    <h3>M^s ↑ (CB buys bonds)</h3>
+    <div class="nb-arrows">
+        <ul>
+            <li>CB buys bonds <span class="arr">→</span> M^s ↑ <span class="arr">→</span> i ↓</li>
+        </ul>
+    </div>
+    <p class="nb-en">Central bank buys bonds → money supply increases → people have more money → interest rate decreases.</p>
+
+    <h3>$Y ↑ (nominal income)</h3>
+    <div class="nb-arrows">
+        <ul>
+            <li>$Y ↑ <span class="arr">→</span> M^d ↑ (больше транзакций) <span class="arr">→</span> M^s same <span class="arr">→</span> i ↑</li>
+        </ul>
+    </div>
+    <p class="nb-en">Nominal income up → people hold more money → money demand shifts right → i rises.</p>
+
+    <hr>
+
+    <h2>Banks &amp; Central bank money / Банки</h2>
+    <div class="nb-def">Банки: <strong>deposits</strong>, <strong>reserves</strong> (наличные + счёт в ЦБ), <strong>loans</strong>.</div>
+    <p class="nb-en">Banks receive deposits, keep reserves, and make loans. Bonds pay interest.</p>
+
+    <div class="nb-formula">
+        H^d = θ · M^d = θ · $Y · L(i) &nbsp;&nbsp;|&nbsp;&nbsp; θ = reserve ratio
+        <div class="var-list">H^d — demand for central bank money · θ (theta) — % deposits kept as reserves</div>
+    </div>
+    <p class="nb-en">Demand for reserves = θ × money demand. More deposits → more reserves needed.</p>
+
+    <div class="nb-key">
+        M^s vertical · M^d ↓ with i · M = $Y·L(i) · CB buy bonds → M↑ i↓ · $Y↑ → i↑
+    </div>
+    <p class="nb-en">Money supply fixed by CB. Demand slopes down. Nominal income shifts demand.</p>
+
+    <div class="nb-conclusion">Денежный рынок: ЦБ задаёт M^s, спрос L(i) зависит от i и $Y. Равновесие → i*.</div>
+    <p class="nb-en">Money market: CB sets M^s, demand depends on i and nominal income. Equilibrium gives i*.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая: <a href="IS_Curve_Explanation.html">11. IS Curve →</a></p>
+</div>
+</body>
+</html>

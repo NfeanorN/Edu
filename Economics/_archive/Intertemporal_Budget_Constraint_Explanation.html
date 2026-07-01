@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../notebook-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intertemporal Budget Constraint — Nisticò lecture</title>
+</head>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+<p class="back"><a href="../index.html">← Economics topics</a> · <a href="Syllabus/08_Intertemporal_Budget.html">Syllabus #8</a></p>
+
+    <h1>Intertemporal Budget Constraint</h1>
+    <p class="note">По лекции Sergio Nisticò — Economics for Business (26.06.2026). Только шаги и числа с доски.</p>
+
+    <h2>1. Два периода</h2>
+    <table>
+        <tr><th></th><th>t = 0</th><th>t = 1</th></tr>
+        <tr><td>Год (пример)</td><td>2024</td><td>2025</td></tr>
+        <tr><td>Доход</td><td><strong>M₁</strong></td><td><strong>M₂</strong></td></tr>
+        <tr><td>Потребление</td><td><strong>C₁</strong></td><td><strong>C₂</strong></td></tr>
+    </table>
+    <p class="nb-def">Ставка <strong>r</strong> — «цена времени»:</p>
+    <table>
+        <tr><th>Направление</th><th>Множитель</th><th>Пример при r = 20%</th></tr>
+        <tr><td>Сегодня → завтра</td><td><strong>1 + r</strong></td><td>1.2</td></tr>
+        <tr><td>Завтра → сегодня (discount)</td><td><strong>1 / (1 + r)</strong></td><td>1/1.2</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>2. Бюджетное ограничение</h2>
+    <div class="calc"><strong>C₁ + C₂ / (1 + r) = M₁ + M₂ / (1 + r)</strong></div>
+    <p>Или в future-value форме: <strong>(1 + r)·C₁ + C₂ = M₁(1 + r) + M₂</strong></p>
+    <p>На графике (C₁ по X, C₂ по Y): наклон = <strong>−(1 + r)</strong>. Точка E = (M₁, M₂) — потребляем доход каждого периода, без рынка кредита.</p>
+
+    <hr>
+
+    <h2>3. Числовой пример (экзамен)</h2>
+  <p><strong>Дано:</strong> M₁ = 2 500€, M₂ = 4 200€, r = 20% → 1 + r = <strong>1.2</strong></p>
+
+    <div class="step">
+        <p><strong>Шаг 1 — уравнение бюджета (PV):</strong></p>
+        <div class="calc">C₁ + C₂/1.2 = 2 500 + 4 200/1.2 = 2 500 + 3 500 = <strong>6 000€</strong></div>
+        <p><strong>Шаг 2 — для графика:</strong> C₂ = 7 200 − 1.2·C₁</p>
+        <p><strong>Шаг 3 — opportunity cost:</strong> +1€ к C₁ сегодня → −1.20€ к C₂ завтра (наклон −1.2).</p>
+    </div>
+
+    <table>
+        <tr><th>Точка</th><th>C₁</th><th>C₂</th><th>Смысл</th></tr>
+        <tr><td><strong>E</strong></td><td>2 500</td><td>4 200</td><td>Ни сберегаем, ни занимаем</td></tr>
+        <tr><td>max C₁</td><td>6 000</td><td>0</td><td>Вся PV сегодня</td></tr>
+        <tr><td>max C₂</td><td>0</td><td>7 200</td><td>Всё сберегаем в t=0</td></tr>
+    </table>
+
+    <div class="graph-box">
+        <p class="graph-caption"><strong>График 1.</strong> Ось X = C₁ (потребление сегодня, t=0). Ось Y = C₂ (потребление завтра, t=1). Каждая точка на красной линии — допустимая пара (C₁, C₂), у которой PV потребления = 6 000€.</p>
+        <svg class="svg-graph" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arr-r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e74c3c"/></marker>
+            </defs>
+            <!-- axes -->
+            <line class="axis" x1="58" y1="20" x2="58" y2="300"/>
+            <line class="axis" x1="58" y1="300" x2="460" y2="300"/>
+            <text x="20" y="24" font-weight="600">C₂</text>
+            <text x="20" y="38" font-size="10" fill="#666">(t=1, завтра)</text>
+            <text x="448" y="318" font-weight="600">C₁</text>
+            <text x="420" y="332" font-size="10" fill="#666">(t=0, сегодня)</text>
+            <!-- tick labels -->
+            <text x="38" y="304" font-size="10">0</text>
+            <text x="28" y="44" font-size="10">7200</text>
+            <text x="28" y="152" font-size="10">4200</text>
+            <text x="182" y="316" font-size="10">2500</text>
+            <text x="378" y="316" font-size="10">6000</text>
+            <!-- budget line: (0,7200) to (6000,0) -->
+            <path class="budget-line" d="M 58 40 L 458 300"/>
+            <text x="300" y="210" font-size="10" fill="#c0392b">бюджетная линия</text>
+            <text x="300" y="224" font-size="10" fill="#c0392b">C₂ = 7200 − 1.2·C₁</text>
+            <!-- slope triangle -->
+            <line x1="300" y1="180" x2="380" y2="180" stroke="#e74c3c" stroke-width="1.2" stroke-dasharray="4,3"/>
+            <line x1="380" y1="180" x2="380" y2="276" stroke="#e74c3c" stroke-width="1.2" stroke-dasharray="4,3"/>
+            <text x="318" y="174" font-size="9" fill="#c0392b">+1 C₁</text>
+            <text x="386" y="232" font-size="9" fill="#c0392b">−1.2 C₂</text>
+            <text x="392" y="248" font-size="9" fill="#c0392b">slope = −1.2</text>
+            <!-- intercept top: max C₂ -->
+            <circle cx="58" cy="40" r="4" fill="#e74c3c" stroke="#c0392b"/>
+            <line class="guide" x1="58" y1="40" x2="58" y2="300"/>
+            <text x="64" y="36" font-size="9" fill="#c0392b">(0; 7200)</text>
+            <text x="64" y="48" font-size="9" fill="#666">max C₂: всё сберегаем</text>
+            <!-- intercept right: max C₁ -->
+            <circle cx="458" cy="300" r="4" fill="#e74c3c" stroke="#c0392b"/>
+            <line class="guide" x1="458" y1="300" x2="458" y2="300"/>
+            <text x="400" y="288" font-size="9" fill="#c0392b">(6000; 0)</text>
+            <text x="388" y="276" font-size="9" fill="#666">max C₁: вся PV сегодня</text>
+            <!-- endowment E -->
+            <circle cx="225" cy="148" r="6" fill="#27ae60" stroke="#1e8449" stroke-width="1.5"/>
+            <line class="guide" x1="225" y1="148" x2="225" y2="300"/>
+            <line class="guide" x1="58" y1="148" x2="225" y2="148"/>
+            <text x="231" y="142" fill="#27ae60" font-weight="600">E</text>
+            <text x="231" y="156" font-size="10">(2500; 4200)</text>
+            <text x="231" y="168" font-size="9" fill="#666">endowment: M₁, M₂</text>
+            <text x="214" y="312" font-size="9" fill="#27ae60">M₁=2500</text>
+            <text x="28" y="152" font-size="9" fill="#27ae60">M₂=4200</text>
+        </svg>
+        <ul class="graph-legend">
+            <li><span class="swatch" style="background:#e74c3c"></span><strong>Красная линия</strong> — бюджетное ограничение. Все точки, где C₁ + C₂/1.2 = 6 000.</li>
+            <li><span class="dot" style="background:#27ae60"></span><strong>Точка E (зелёная)</strong> — endowment (M₁, M₂). Потребляем свой доход в каждом периоде: не занимаем и не сберегаем.</li>
+            <li><span class="swatch" style="background:#999;border-top:1px dashed #999;height:0"></span><strong>Серые пунктиры от E</strong> — проекции на оси: показывают M₁ = 2 500 на оси C₁ и M₂ = 4 200 на оси C₂.</li>
+            <li><span class="dot" style="background:#e74c3c"></span><strong>Верхняя точка (0; 7200)</strong> — C₁ = 0: откладываем весь M₁ под 20%, в t=1 получаем M₂ + M₁×1.2 = 7 200.</li>
+            <li><span class="dot" style="background:#e74c3c"></span><strong>Правая точка (6000; 0)</strong> — C₂ = 0: тратим всю PV (6 000) сегодня, занимая против будущего дохода.</li>
+            <li><strong>Наклон −1.2</strong> — opportunity cost: +1€ к C₁ сегодня → −1.20€ к C₂ завтра.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>4. Что меняется? (ceteris paribus)</h2>
+
+    <div class="step">
+        <p><strong>(i) r падает до 10%</strong> — линия <strong>поворачивается вокруг E</strong> (M₁, M₂ не меняются):</p>
+        <div class="calc">C₁ + C₂/1.1 = 2 500 + 4 200/1.1 ≈ <strong>6 318€</strong></div>
+        <p>Наклон −1.1 (положе). Заём дешевле → рационально <strong>C₁↑, C₂↓</strong>.</p>
+    </div>
+
+    <div class="step">
+        <p><strong>(ii) M₁ растёт до 3 000€</strong> (r = 20%) — линия сдвигается <strong>параллельно наружу</strong>, E′ = (3 000; 4 200):</p>
+        <div class="calc">3 000 + 4 200/1.2 = <strong>6 500€</strong></div>
+        <p>Больше богатство → при нормальных благах <strong>C₁↑ и C₂↑</strong>.</p>
+    </div>
+
+    <div class="graph-box">
+        <p class="graph-caption"><strong>График 2.</strong> Три бюджетные линии. Базовая (r=20%) — серая. При падении r линия <em>поворачивается вокруг E</em>. При росте M₁ — <em>параллельный сдвиг</em> (наклон тот же).</p>
+        <svg class="svg-graph" viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arr-p" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#9b59b6"/></marker>
+            </defs>
+            <line class="axis" x1="58" y1="20" x2="58" y2="300"/>
+            <line class="axis" x1="58" y1="300" x2="460" y2="300"/>
+            <text x="20" y="24" font-weight="600">C₂</text>
+            <text x="448" y="318" font-weight="600">C₁</text>
+            <!-- base r=20% -->
+            <path d="M 58 40 L 458 300" stroke="#bbb" stroke-width="2.5" fill="none"/>
+            <text x="350" y="255" font-size="10" fill="#999">база: r=20%</text>
+            <text x="350" y="269" font-size="9" fill="#999">PV = 6000, slope −1.2</text>
+            <!-- (i) r=10% - rotates around E, flatter -->
+            <path class="budget-line-alt" stroke="#3498db" d="M 58 62 L 460 300"/>
+            <text x="60" y="58" font-size="10" fill="#3498db">(i) r=10%</text>
+            <text x="60" y="72" font-size="9" fill="#3498db">поворот вокруг E</text>
+            <text x="60" y="84" font-size="9" fill="#3498db">PV≈6318, slope −1.1</text>
+            <!-- (ii) M1=3000 - parallel shift -->
+            <path class="budget-line-alt" stroke="#9b59b6" d="M 88 40 L 460 300"/>
+            <text x="260" y="90" font-size="10" fill="#9b59b6">(ii) M₁=3000</text>
+            <text x="260" y="104" font-size="9" fill="#9b59b6">параллельный сдвиг</text>
+            <text x="260" y="118" font-size="9" fill="#9b59b6">PV=6500, slope −1.2</text>
+            <!-- E and E' -->
+            <circle cx="225" cy="148" r="5" fill="#27ae60" stroke="#1e8449"/>
+            <text x="231" y="144" font-size="10" fill="#27ae60" font-weight="600">E (2500; 4200)</text>
+            <circle cx="258" cy="148" r="5" fill="#27ae60" stroke="#1e8449"/>
+            <line class="guide" x1="225" y1="148" x2="258" y2="148"/>
+            <text x="264" y="160" font-size="10" fill="#27ae60" font-weight="600">E′ (3000; 4200)</text>
+            <!-- rotation hint arc at E -->
+            <path d="M 248 148 A 24 24 0 0 0 232 128" stroke="#3498db" stroke-width="1" fill="none" stroke-dasharray="3,2"/>
+            <text x="250" y="130" font-size="9" fill="#3498db">r↓</text>
+            <!-- parallel shift arrow -->
+            <line x1="225" y1="200" x2="258" y2="200" stroke="#9b59b6" stroke-width="1.5" marker-end="url(#arr-p)"/>
+            <text x="221" y="216" font-size="9" fill="#9b59b6">M₁↑</text>
+        </svg>
+        <ul class="graph-legend">
+            <li><span class="swatch" style="background:#bbb"></span><strong>Серая линия</strong> — исходная бюджетная линия: M₁=2 500, M₂=4 200, r=20%. Проходит через E.</li>
+            <li><span class="swatch" style="background:#3498db"></span><strong>Синяя линия (i)</strong> — r падает до 10%. M₁ и M₂ не меняются → линия <strong>вращается вокруг E</strong>, становится положе (slope −1.1). Горизонтальный intercept растёт (≈6 318), вертикальный падает.</li>
+            <li><span class="swatch" style="background:#9b59b6"></span><strong>Фиолетовая линия (ii)</strong> — M₁ растёт до 3 000, r=20%. Наклон тот же (−1.2) → <strong>параллельный сдвиг наружу</strong>. Endowment переезжает в E′ = (3 000; 4 200).</li>
+            <li><span class="dot" style="background:#27ae60"></span><strong>E</strong> — старая точка наделённости. <strong>E′</strong> — новая, только M₁ вырос.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>5. Заём и сбережение</h2>
+    <div class="calc"><strong>B = C₁ − M₁</strong> (borrow) &nbsp;·&nbsp; <strong>S = M₁ − C₁</strong> (save/lend)</div>
+
+    <table>
+        <tr><th></th><th>C₁</th><th>C₂</th><th>Расчёт</th></tr>
+        <tr><td><strong>E</strong></td><td>2 500</td><td>4 200</td><td>—</td></tr>
+        <tr><td><strong>Borrow</strong> (C₁ = 3 000)</td><td>3 000</td><td>3 600</td><td>B = 500; отдаём 500×1.2 = <strong>600</strong> в t=1</td></tr>
+        <tr><td><strong>Lend</strong> (C₁ = 2 000)</td><td>2 000</td><td>4 800</td><td>S = 500; получаем 500×1.2 = <strong>600</strong> в t=1</td></tr>
+    </table>
+
+    <div class="graph-box">
+        <p class="graph-caption"><strong>График 3.</strong> Три точки на одной бюджетной линии. E — без рынка кредита. B — заёмник (C₁ &gt; M₁). L — кредитор (C₁ &lt; M₁). Пунктиры показывают, сколько «берём» или «отдаём» в каждом периоде.</p>
+        <svg class="svg-graph" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+            <line class="axis" x1="58" y1="20" x2="58" y2="300"/>
+            <line class="axis" x1="58" y1="300" x2="460" y2="300"/>
+            <text x="20" y="24" font-weight="600">C₂</text>
+            <text x="448" y="318" font-weight="600">C₁</text>
+            <text x="28" y="152" font-size="9" fill="#666">4200</text>
+            <text x="214" y="316" font-size="9">2500</text>
+            <text x="247" y="316" font-size="9">3000</text>
+            <text x="180" y="316" font-size="9">2000</text>
+            <!-- budget line -->
+            <path class="budget-line" d="M 58 40 L 458 300"/>
+            <text x="310" y="200" font-size="10" fill="#c0392b">бюджетная линия</text>
+            <!-- E -->
+            <circle cx="225" cy="148" r="6" fill="#27ae60" stroke="#1e8449" stroke-width="1.5"/>
+            <line class="guide" x1="225" y1="148" x2="225" y2="300"/>
+            <line class="guide" x1="58" y1="148" x2="225" y2="148"/>
+            <text x="231" y="142" fill="#27ae60" font-weight="600">E</text>
+            <text x="231" y="156" font-size="10">(2500; 4200)</text>
+            <text x="231" y="170" font-size="9" fill="#666">C₁=M₁, C₂=M₂</text>
+            <!-- B borrow -->
+            <circle cx="258" cy="170" r="6" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+            <line class="guide" x1="225" y1="170" x2="258" y2="170" stroke="#e74c3c" stroke-width="1.2"/>
+            <line class="guide" x1="258" y1="170" x2="258" y2="148" stroke="#e74c3c" stroke-width="1.2"/>
+            <text x="264" y="166" fill="#c0392b" font-weight="600">B</text>
+            <text x="264" y="180" font-size="10">(3000; 3600)</text>
+            <text x="228" y="186" font-size="9" fill="#c0392b">B=500 →</text>
+            <text x="264" y="136" font-size="9" fill="#c0392b">−600 C₂</text>
+            <text x="264" y="148" font-size="9" fill="#c0392b">(отдаём с %)</text>
+            <!-- L lend -->
+            <circle cx="191" cy="127" r="6" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+            <line class="guide" x1="191" y1="127" x2="225" y2="127" stroke="#3498db" stroke-width="1.2"/>
+            <line class="guide" x1="191" y1="127" x2="191" y2="148" stroke="#3498db" stroke-width="1.2"/>
+            <text x="120" y="123" fill="#2980b9" font-weight="600">L</text>
+            <text x="120" y="137" font-size="10">(2000; 4800)</text>
+            <text x="193" y="119" font-size="9" fill="#2980b9">← S=500</text>
+            <text x="120" y="151" font-size="9" fill="#2980b9">+600 C₂</text>
+            <text x="120" y="163" font-size="9" fill="#2980b9">(процент)</text>
+            <!-- region labels -->
+            <text x="240" y="250" font-size="9" fill="#c0392b" opacity="0.8">зона заёмщика</text>
+            <text x="240" y="262" font-size="9" fill="#c0392b" opacity="0.8">C₁ &gt; M₁</text>
+            <text x="80" y="250" font-size="9" fill="#2980b9" opacity="0.8">зона кредитора</text>
+            <text x="80" y="262" font-size="9" fill="#2980b9" opacity="0.8">C₁ &lt; M₁</text>
+        </svg>
+        <ul class="graph-legend">
+            <li><span class="swatch" style="background:#e74c3c"></span><strong>Красная линия</strong> — бюджетное ограничение (та же, что на гр. 1).</li>
+            <li><span class="dot" style="background:#27ae60"></span><strong>E (зелёная)</strong> — endowment (2 500; 4 200). Не пользуемся кредитным рынком.</li>
+            <li><span class="dot" style="background:#e74c3c"></span><strong>B (красная)</strong> — заёмник. C₁ = 3 000 &gt; M₁ → <strong>B = C₁ − M₁ = 500</strong>. Горизонтальный пунктир = сколько заняли сегодня. Вертикальный вниз = −600 к C₂ (500×1.2 процентов).</li>
+            <li><span class="dot" style="background:#3498db"></span><strong>L (синяя)</strong> — кредитор. C₁ = 2 000 &lt; M₁ → <strong>S = M₁ − C₁ = 500</strong>. Горизонтальный пунктир = отдаём 500 сегодня. Вертикальный вверх = +600 к C₂ (доход от сбережения).</li>
+            <li><strong>Правило:</strong> точки <em>правее</em> E на линии — заём; <em>левее</em> E — сбережение/кредит.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>Exam answer (EN)</h2>
+    <p>The intertemporal budget constraint equates the present value of consumption to the present value of income: <strong>C₁ + C₂/(1+r) = M₁ + M₂/(1+r)</strong>. With M₁=2,500, M₂=4,200 and r=20%, lifetime PV is <strong>6,000</strong>. The slope is <strong>−(1+r)</strong>: 1€ of present consumption costs 1.20€ of future consumption. If r falls, the line rotates around the endowment; if M₁ rises, it shifts outward in parallel. When the allocation violates the rule, the consumer should reallocate toward the period with higher MU/P — here, borrow if C₁ is too low relative to C₂, or save if C₁ is too high.</p>
+
+    <div class="ru-foot"><p><strong>Кратко:</strong> C₁ + C₂/(1+r) = M₁ + M₂/(1+r). Пример: 2500 + 4200/1.2 = 6000. r↓ → поворот вокруг E. M₁↑ → параллельный сдвиг. B = C₁−M₁, S = M₁−C₁.</p></div>
+</div>
+</body>
+</html>

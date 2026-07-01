@@ -3,170 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDP — ВВП (Nisticò)</title>
+    <title>GDP — ВВП (Macroeconomic)</title>
     <link rel="stylesheet" href="notebook-style.css">
 </head>
 <body class="nb-page nb-macro">
 <div class="nb-sheet">
-    <p class="back"><a href="index.html">← Economics topics</a></p>
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a></p>
 
-    <h1>Gross Domestic Product (GDP) — ВВП</h1>
+    <h1>Macroeconomic — GDP (ВВП)</h1>
 
-    <div class="nb-def"><strong>GDP</strong> = рыночная стоимость всех <span class="hl">конечных</span> товаров и услуг, произведённых в стране за период.</div>
-    <p class="nb-en">GDP = total market value of all final goods and services produced in a country in a given period.</p>
-
-    <h2>Три подхода к измерению ВВП</h2>
-    <ol class="nb-list">
-        <li><strong>Production</strong> (производственный) — сумма <span class="hl">добавленной стоимости</span> или стоимость конечных товаров.</li>
-        <li><strong>Income</strong> (доходный) — зарплаты + рента + проценты + <span class="hl">прибыль</span>.</li>
-        <li><strong>Expenditure</strong> (расходный) — сумма всех расходов на конечную продукцию.</li>
-    </ol>
-    <p class="nb-en">Three equivalent approaches: production (value added), income (factor payments), expenditure (C + I + G + net exports).</p>
-
-    <div class="nb-formula">
-        Y = C + I + G + (X − IM)
-        <div class="var-list">
-            Y — GDP (выпуск) &nbsp;|&nbsp; C — потребление &nbsp;|&nbsp; I — инвестиции<br>
-            G — госрасходы &nbsp;|&nbsp; X — экспорт &nbsp;|&nbsp; IM — импорт &nbsp;|&nbsp; (X − IM) — чистый экспорт
-        </div>
-    </div>
-    <p class="nb-en">Expenditure approach: GDP equals consumption plus investment plus government spending plus net exports.</p>
+    <div class="nb-def"><strong>GDP</strong> (Gross Domestic Product) — общая стоимость всех <span class="hl">товаров и услуг</span>, произведённых в стране.</div>
+    <p class="nb-en">GDP is the total value of all goods and services produced in a country.</p>
 
     <hr>
 
-    <h2>Номинальный vs реальный ВВП</h2>
-    <div class="nb-def"><strong>Номинальный ВВП</strong> — по <span class="hl">текущим ценам</span>; <strong>реальный ВВП</strong> — по <span class="hl">ценам базового года</span> (реальный объём).</div>
-    <p class="nb-en">Nominal GDP uses current prices; real GDP uses constant base-year prices to measure physical output.</p>
+    <h2>3 approaches to GDP / 3 подхода</h2>
+    <ol class="nb-list">
+        <li>Стоимость <strong>конечных</strong> товаров и услуг за период.<span class="en-cell">Value of final goods and services over the period.</span></li>
+        <li>Сумма <strong>добавленной стоимости</strong> в экономике за период.<span class="en-cell">Sum of value added in the economy over the period.</span></li>
+        <li>Сумма <strong>доходов</strong> в экономике за период (зарплаты, прибыль, рента…).<span class="en-cell">Sum of all incomes in the economy (wages, profit, rent…).</span></li>
+    </ol>
+    <p class="nb-en">Three approaches: final goods value, value added, total income — all give the same GDP.</p>
 
-    <div class="nb-formula">
-        P<sub>t</sub> = Nominal GDP / Real GDP &nbsp;× 100 &nbsp;&nbsp;(дефлятор ВВП)
-        <div class="var-list">
-            P<sub>t</sub> — GDP deflator in year t &nbsp;|&nbsp; base year P = 100
-        </div>
-    </div>
-    <p class="nb-en">GDP deflator = (Nominal GDP / Real GDP) × 100. Real GDP = Nominal GDP / deflator.</p>
+    <hr>
+
+    <h2>2 types of GDP / 2 типа ВВП</h2>
+    <table>
+        <tr><th>Тип<span class="en-cell">Type</span></th><th>Определение<span class="en-cell">Definition</span></th></tr>
+        <tr><td><strong>Nominal GDP</strong></td><td>ВВП по <span class="hl">текущим ценам</span><span class="en-cell">GDP at current prices</span></td></tr>
+        <tr><td><strong>Real GDP</strong></td><td>ВВП по <span class="hl">ценам базового года</span><span class="en-cell">GDP at base-year prices</span></td></tr>
+    </table>
+    <p class="nb-en">Nominal GDP uses current prices. Real GDP uses base-year prices (real output).</p>
 
     <div class="nb-arrows">
         <ul>
-            <li>Цены ↑, объём тот же <span class="arr">→</span> номинальный ВВП ↑, реальный ВВП <strong>без изменений</strong></li>
-            <li>Объём ↑, цены те же <span class="arr">→</span> оба ВВП ↑</li>
-            <li>Дефлятор ↑ <span class="arr">→</span> инфляция в экономике в целом</li>
+            <li><strong>Expansion</strong> — экономика растёт, GDP ↑</li>
+            <li><strong>Recession</strong> — экономика замедляется, GDP ↓</li>
         </ul>
     </div>
-
-    <hr>
-
-    <h2>Расширение и рецессия</h2>
-    <div class="nb-def"><strong>Expansion</strong> — рост реального ВВП; <strong>recession</strong> — спад реального ВВП <span class="hl">два квартала подряд</span>.</div>
-    <p class="nb-en">Business cycle: expansion = rising real GDP; recession = falling real GDP for two consecutive quarters.</p>
+    <p class="nb-en">Expansion = economy grows, GDP rises. Recession = economy slows, GDP falls.</p>
 
     <div class="nb-graph">
-        <svg class="svg-graph" viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="170" x2="450" y2="170" stroke="#333" stroke-width="1.5"/>
+        <svg class="svg-graph" viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="170" x2="430" y2="170" stroke="#333" stroke-width="1.5"/>
             <line x1="50" y1="30" x2="50" y2="170" stroke="#333" stroke-width="1.5"/>
-            <text x="20" y="35" font-size="12">Y</text>
-            <text x="440" y="188" font-size="12">t</text>
-            <path d="M 50 140 Q 120 60 190 80 Q 260 100 330 50 Q 400 30 450 70" fill="none" stroke="#3498db" stroke-width="2.5"/>
-            <circle cx="190" cy="80" r="4" fill="#27ae60"/>
-            <text x="175" y="70" font-size="10" fill="#27ae60">Peak</text>
-            <circle cx="330" cy="50" r="4" fill="#27ae60"/>
-            <text x="300" y="42" font-size="10" fill="#27ae60">Peak</text>
-            <text x="230" y="130" font-size="10" fill="#e74c3c">Recession</text>
-            <text x="100" y="100" font-size="10" fill="#3498db">Expansion</text>
-            <text x="360" y="95" font-size="10" fill="#3498db">Expansion</text>
+            <text x="20" y="35" font-size="12">GDP</text>
+            <text x="420" y="188" font-size="12">time</text>
+            <path d="M 50 140 Q 130 70 210 85 Q 290 100 360 45 Q 400 35 430 65" fill="none" stroke="#3498db" stroke-width="2.5"/>
+            <text x="110" y="95" font-size="11" fill="#3498db">Expansion</text>
+            <text x="240" y="125" font-size="11" fill="#e74c3c">Recession</text>
+            <text x="370" y="55" font-size="11" fill="#3498db">Expansion</text>
         </svg>
-        <p class="fig-caption">Деловой цикл: пики (peak), спады (recession), фазы расширения (expansion)</p>
-        <p class="slope-note">Смотрим на <strong>реальный</strong> ВВП, не номинальный!</p>
+        <p class="fig-caption">Expansion = рост GDP · Recession = падение GDP<span class="en-cell">Expansion = GDP growth · Recession = GDP decline</span></p>
     </div>
 
     <hr>
 
-    <h2>Пример Nisticò: steel + car</h2>
-    <p>Промежуточный товар (steel) в ВВП <strong>не суммируем отдельно</strong> — только конечный продукт (cars).</p>
-    <p class="nb-en">Intermediate goods (steel) are not counted separately in GDP — only the final good (cars).</p>
-
-    <table>
-        <tr><th></th><th>Steel Co. (Firm 1)</th><th>Car Co. (Firm 2)</th></tr>
-        <tr><td>Revenue</td><td>$100</td><td>$200</td></tr>
-        <tr><td>Wages</td><td>$80</td><td>$70</td></tr>
-        <tr><td>Steel purchases</td><td>—</td><td>$100</td></tr>
-        <tr><td>Profit</td><td>$20</td><td>$30</td></tr>
-    </table>
-
-    <div class="nb-graph">
-        <svg class="svg-graph" viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg">
-            <rect x="30" y="80" width="130" height="90" fill="#e8f4fc" stroke="#3498db" stroke-width="2" rx="4"/>
-            <text x="95" y="108" text-anchor="middle" font-weight="600" font-size="13">Firm 1</text>
-            <text x="95" y="126" text-anchor="middle" font-size="11">Steel Co.</text>
-            <text x="95" y="148" text-anchor="middle" font-size="10" fill="#555">Revenue $100</text>
-            <rect x="280" y="80" width="130" height="90" fill="#e8f4fc" stroke="#3498db" stroke-width="2" rx="4"/>
-            <text x="345" y="108" text-anchor="middle" font-weight="600" font-size="13">Firm 2</text>
-            <text x="345" y="126" text-anchor="middle" font-size="11">Car Co.</text>
-            <text x="345" y="148" text-anchor="middle" font-size="10" fill="#555">Revenue $200</text>
-            <rect x="500" y="80" width="100" height="90" fill="#e8f8ef" stroke="#27ae60" stroke-width="2" rx="4"/>
-            <text x="550" y="118" text-anchor="middle" font-weight="600" font-size="13">Market</text>
-            <text x="550" y="158" text-anchor="middle" font-size="10" fill="#1e7e45">final good</text>
-            <line x1="160" y1="115" x2="278" y2="115" stroke="#e67e22" stroke-width="2.5" marker-end="url(#arr-o)"/>
-            <text x="219" y="105" text-anchor="middle" font-size="11" fill="#d35400" font-weight="600">steel $100</text>
-            <text x="219" y="132" text-anchor="middle" font-size="9" fill="#d35400">промежуточный</text>
-            <line x1="410" y1="125" x2="498" y2="125" stroke="#27ae60" stroke-width="2.5" marker-end="url(#arr-g)"/>
-            <text x="454" y="115" text-anchor="middle" font-size="11" fill="#1e7e45" font-weight="600">cars $200</text>
-            <text x="454" y="142" text-anchor="middle" font-size="9" fill="#1e7e45">конечный → GDP</text>
-            <text x="95" y="42" font-size="11" fill="#c0392b" text-decoration="line-through">$100 + $200 = $300 ✗</text>
-            <text x="400" y="42" font-size="12" fill="#27ae60" font-weight="600">GDP = $200 ✓</text>
-            <defs>
-                <marker id="arr-o" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#e67e22"/></marker>
-                <marker id="arr-g" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#27ae60"/></marker>
-            </defs>
-        </svg>
-        <p class="fig-caption">Оранжевая стрелка — промежуточный товар; зелёная — конечный продукт в GDP</p>
+    <h2>GDP formula / Формула ВВП</h2>
+    <div class="nb-formula">
+        GDP = C + I + G + (X − IM)
+        <div class="var-list">
+            <strong>C</strong> — Consumption: траты потребителей (самая большая часть GDP)<br>
+            <strong>I</strong> — Investment: траты на будущее производство<br>
+            <strong>G</strong> — Government spending: траты государства на товары и услуги<br>
+            <strong>X</strong> — Exports: то, что <span class="hl">произвели</span> в стране и продали за рубеж<br>
+            <strong>IM</strong> — Imports: то, что <span class="hl">не произвели</span> здесь, а купили из-за рубежа
+        </div>
     </div>
+    <p class="nb-en">C = consumption · I = investment · G = government · X = exports (produced here) · IM = imports (not produced here).</p>
 
-    <div class="nb-graph">
-        <svg class="svg-graph" viewBox="0 0 620 320" xmlns="http://www.w3.org/2000/svg">
-            <line x1="310" y1="20" x2="310" y2="300" stroke="#ddd" stroke-width="2" stroke-dasharray="6,4"/>
-            <text x="155" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="#2980b9">PRODUCTION</text>
-            <text x="465" y="40" text-anchor="middle" font-weight="700" font-size="14" fill="#8e44ad">INCOME</text>
-            <rect x="40" y="70" width="100" height="50" fill="#aed6f1" stroke="#2980b9" stroke-width="1.5"/>
-            <text x="90" y="92" text-anchor="middle" font-size="11" font-weight="600">Firm 1 VA</text>
-            <text x="90" y="108" text-anchor="middle" font-size="10">$100</text>
-            <rect x="40" y="160" width="100" height="50" fill="#aed6f1" stroke="#2980b9" stroke-width="1.5"/>
-            <text x="90" y="182" text-anchor="middle" font-size="11" font-weight="600">Firm 2 VA</text>
-            <text x="90" y="198" text-anchor="middle" font-size="10">$100</text>
-            <rect x="130" y="250" width="120" height="40" fill="#2980b9" rx="3"/>
-            <text x="190" y="275" text-anchor="middle" font-size="12" fill="white" font-weight="700">GDP = $200</text>
-            <rect x="360" y="70" width="110" height="55" fill="#fdebd0" stroke="#f39c12" stroke-width="1.5"/>
-            <text x="415" y="100" text-anchor="middle" font-size="11" font-weight="600">Wages $150</text>
-            <rect x="360" y="150" width="110" height="55" fill="#e8daef" stroke="#8e44ad" stroke-width="1.5"/>
-            <text x="415" y="180" text-anchor="middle" font-size="11" font-weight="600">Profit $50</text>
-            <rect x="360" y="250" width="120" height="40" fill="#8e44ad" rx="3"/>
-            <text x="420" y="275" text-anchor="middle" font-size="12" fill="white" font-weight="700">GDP = $200</text>
-            <text x="310" y="275" text-anchor="middle" font-size="22" fill="#27ae60" font-weight="700">=</text>
-        </svg>
-        <p class="fig-caption">Production: VA $100+$100; Income: wages $150 + profit $50 — оба = $200</p>
+    <div class="nb-why">Импорт мы вычитаем: эти товары уже учтены в C, I или G, но произведены не у нас. Экспорт добавляем: произведено у нас, но не в C/I/G внутри страны.</div>
+    <p class="nb-en">We subtract imports because those goods are already counted in C, I, or G but were not produced domestically. We add exports because they are produced here but not part of domestic C/I/G.</p>
+
+    <hr>
+
+    <h2>GDP Deflator / Дефлятор ВВП</h2>
+    <div class="nb-def">В году t: <strong>P<sub>t</sub></strong> — отношение номинального ВВП к реальному.</div>
+    <p class="nb-en">In year t, P<sub>t</sub> is the ratio of nominal GDP to real GDP.</p>
+    <div class="nb-formula">
+        P<sub>t</sub> = Nominal GDP / Real GDP = $Y<sub>t</sub> / Y<sub>t</sub>
     </div>
+    <p class="nb-en">GDP deflator measures overall price level. Nominal GDP / Real GDP.</p>
 
-    <div class="nb-why">Три подхода дают один ответ, потому что каждый доллар расходов = доллар дохода = доллар добавленной стоимости. Double counting ($100 steel + $200 cars) — ошибка.</div>
-
-    <div class="nb-example">
-        <p class="step"><strong>Production:</strong> VA Firm 1 = $100 − $0 = $100; VA Firm 2 = $200 − $100 = $100 → GDP = $100 + $100 = $200</p>
-        <p class="step"><strong>Income:</strong> Wages $80+$70 = $150; Profit $20+$30 = $50 → GDP = $150 + $50 = $200</p>
-        <p class="step"><strong>Expenditure:</strong> покупатели тратят C = $200 на машины → GDP = $200</p>
-        <p class="step"><strong>Deflator:</strong> если Nominal = $220, Real = $200 → P<sub>t</sub> = 220/200 × 100 = 110</p>
-        <p class="ans">GDP = $200 (все три подхода) ✓</p>
+    <div class="nb-arrows">
+        <ul>
+            <li>P<sub>t</sub> ↑ <span class="arr">→</span> цены в экономике в целом растут (инфляция)</li>
+            <li>Real GDP = Nominal GDP / P<sub>t</sub></li>
+        </ul>
     </div>
+    <p class="nb-en">P<sub>t</sub> rises → overall prices rise (inflation). Real GDP = Nominal GDP divided by P<sub>t</sub>.</p>
+
+    <hr>
+
+    <h2>Exports &amp; Imports</h2>
+    <p><strong>Exports (X)</strong> — товары и услуги, <strong>произведённые в стране</strong> и проданные за рубеж.</p>
+    <p class="nb-en">Exports (X) = goods and services produced domestically and sold abroad.</p>
+    <p><strong>Imports (IM)</strong> — товары и услуги, <strong>купленные из других стран</strong> (не произведены здесь).</p>
+    <p class="nb-en">Imports (IM) = goods and services bought from other countries (not produced here).</p>
 
     <div class="nb-key">
-        <ul>
-            <li>Только <strong>конечные</strong> товары — не промежуточные</li>
-            <li>Production = Income = Expenditure = <strong>Y = C + I + G + (X − IM)</strong></li>
-            <li>Реальный ВВП — объём; номинальный — текущие цены</li>
-            <li>Дефлятор P<sub>t</sub> = Nominal / Real × 100</li>
-            <li>Recession = ↓ реального ВВП 2 квартала подряд</li>
-        </ul>
+        GDP = C + I + G + (X − IM) · 3 подхода дают один ответ · Nominal = текущие цены · Real = базовый год<br>
+        P<sub>t</sub> = Nominal / Real · Expansion ↑GDP · Recession ↓GDP
     </div>
+    <p class="nb-en">GDP = C + I + G + (X − IM) · Three approaches, one answer · Nominal = current prices · Real = base year · P<sub>t</sub> = Nominal / Real · Expansion raises GDP · Recession lowers GDP.</p>
 
-    <div class="nb-conclusion">Сталь $100 — промежуточный товар; машины $200 — конечный → GDP = $200. Не складывать $100+$200. Три подхода (production, income, expenditure) эквивалентны.</div>
+    <div class="nb-conclusion">ВВП — главный показатель макро: сколько страна произвела. Формула расходов C+I+G+(X−IM). Номинальный vs реальный — с ценами или без. Дефлятор связывает их.</div>
+    <p class="nb-en">GDP is the main macro indicator: how much the country produced. Expenditure formula C+I+G+(X−IM). Nominal vs real — with or without price changes. The deflator links them.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">Следующая тема: <a href="Unemployment_Explanation.html">2. Unemployment →</a></p>
 </div>
 </body>
 </html>

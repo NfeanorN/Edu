@@ -314,3 +314,34 @@ body.nb-market { --nb-accent: #e67e22; }
   text-decoration: none;
 }
 .lang-switch:hover { text-decoration: underline; }
+
+.lang-bar {
+  font-size: 0.88em;
+  color: var(--nb-muted);
+  margin: 0 0 16px;
+  padding: 8px 12px;
+  background: #f0f4ff;
+  border-radius: 6px;
+}
+
+.en-cell {
+  display: block;
+  color: #3a6cdc;
+  font-style: italic;
+  font-size: 0.88em;
+  margin-top: 2px;
+  font-weight: normal;
+}
+.nb-page th .en-cell {
+  display: block;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.82em;
+  font-weight: normal;
+}
+.fig-caption .en-cell {
+  margin-top: 4px;
+}
+.nb-page ol.nb-list li .en-cell {
+  display: block;
+  margin-top: 4px;
+}

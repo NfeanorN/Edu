@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../notebook-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Q&amp;A — Consumption, CB, IS-LM / Экзамен: ключевые вопросы</title>
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+<p class="back"><a href="../index.html">← Economics topics</a> · <a href="Exam_Prep_Guide.html">Exam Prep Guide</a> · <a href="Consumption_Function_Explanation.html">Consumption Function</a> · <a href="IS_LM_Explanation.html">IS-LM</a></p>
+
+    <h1>Exam Q&amp;A — Consumption, CB, IS-LM</h1>
+    <p class="source">Сборник типовых экзаменационных вопросов. Макро — <strong>Exam Prep</strong> (#11, #25, #26, #30). Доходная эластичность — <a href="Elasticities_Explanation.html">Elasticities</a>. Микро-потребление (Frank) — <a href="Rational_Choice_Explanation.html">Rational Choice</a>.</p>
+
+    <div class="toc">
+        <strong>Содержание / Contents</strong>
+        <ol>
+            <li><a href="#q1">Что такое потребление (C)?</a></li>
+            <li><a href="#q2">Функция потребления C(Y)</a></li>
+            <li><a href="#q3">Что с C, если нет дохода (Y = 0)?</a></li>
+            <li><a href="#q4">Доходная эластичность спроса (YED)</a></li>
+            <li><a href="#q5">ЦБ продаёт облигации — что происходит?</a></li>
+            <li><a href="#q6">Что будет после рецессии?</a></li>
+            <li><a href="#q7">IS-LM: числовой пример (найти Y* и i*)</a></li>
+        </ol>
+    </div>
+
+    <!-- ===== Q1 ===== -->
+    <h2 id="q1">1. Что такое потребление (C)?</h2>
+    <div class="qa-q">What is consumption at all? / Что такое потребление?</div>
+
+    <p class="nb-def"><strong>Макроэкономика (экзамен):</strong> <strong>C (consumption)</strong> — расходы домохозяйств на <strong>товары и услуги</strong>: еда, аренда, одежда, транспорт, услуги. Крупнейшая часть ВВП.</p>
+    <div class="formula-box">
+        <p><strong>Y = C + I + G + NX</strong> &nbsp; (закрытая: Y = C + I + G)</p>
+        <p>C = household spending · I = investment · G = government spending · NX = exports − imports</p>
+    </div>
+    <p class="nb-en">In macro, C is total household spending on final goods and services — a component of aggregate demand.</p>
+
+    <div class="warn-box">
+        <strong>Не путать с микро (Frank):</strong> там потребитель <strong>выбирает корзину товаров</strong> при MU/P = MU/P и бюджетном ограничении — это <em>индивидуальный</em> выбор. Макро C(Y) — <em>совокупные</em> траты всех домохозяйств от дохода Y.
+    </div>
+
+    <hr>
+
+    <!-- ===== Q2 ===== -->
+    <h2 id="q2">2. Функция потребления</h2>
+    <div class="qa-q">Consumption function — что это и как записать?</div>
+
+    <div class="formula-box">
+        <p><strong>C = c₀ + c₁Y</strong> <span class="exam-ref">Exam #11</span></p>
+        <p><strong>c₀</strong> — autonomous consumption (автономное потребление)</p>
+        <p><strong>c₁ = MPC</strong> — marginal propensity to consume (0 &lt; c₁ &lt; 1)</p>
+        <p><strong>MPS = 1 − MPC</strong> — marginal propensity to save</p>
+    </div>
+
+    <table>
+        <tr><th>Понятие</th><th>Формула</th><th>Смысл</th></tr>
+        <tr><td>MPC</td><td>ΔC / ΔY = c₁</td><td>Доля <em>дополнительного</em> дохода на траты</td></tr>
+        <tr><td>MPS</td><td>ΔS / ΔY</td><td>Доля доп. дохода на сбережения</td></tr>
+        <tr><td>Наклон C(Y)</td><td>= MPC</td><td>Exam #30 — не −P<sub>x</sub>/P<sub>y</sub>!</td></tr>
+    </table>
+
+    <div class="story">Exam Prep: MPC = 0,8 → +€100 дохода → +€80 потребления, +€20 сбережений.</div>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" aria-label="Consumption function">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="30" font-size="13">C</text>
+            <text x="405" y="268" font-size="13">Y</text>
+            <line x1="55" y1="250" x2="380" y2="70" stroke="#999" stroke-dasharray="6,4"/>
+            <text x="340" y="85" font-size="11" fill="#999">C = Y (45°)</text>
+            <line x1="55" y1="220" x2="400" y2="90" stroke="#16a085" stroke-width="2.5"/>
+            <text x="300" y="105" fill="#16a085" font-size="12" font-weight="600">C = c₀ + c₁Y</text>
+            <circle cx="55" cy="220" r="5" fill="#e67e22"/>
+            <text x="62" y="215" font-size="11" fill="#e67e22">c₀</text>
+            <text x="200" y="175" font-size="10" fill="#8e44ad">slope = MPC</text>
+        </svg>
+        <p class="fig-caption">Функция потребления: начинается в c₀, наклон = MPC. Подробнее — <a href="Consumption_Function_Explanation.html">Consumption Function</a>.</p>
+    </div>
+
+    <hr>
+
+    <!-- ===== Q3 ===== -->
+    <h2 id="q3">3. Что с потреблением, если нет дохода (Y = 0)?</h2>
+    <div class="qa-q">What happens to consumption if there is no income?</div>
+
+    <div class="key-box"><strong>C = c₀ &gt; 0</strong> — потребление не обнуляется. Люди тратят на базовые нужды из <strong>сбережений, кредита, трансфертов</strong> (пенсия, пособия).</div>
+
+    <table>
+        <tr><th>Y</th><th>C = 100 + 0,8Y</th><th>S = Y − C</th><th>Интерпретация</th></tr>
+        <tr><td><strong>0</strong></td><td><strong>100</strong></td><td>−100</td><td><strong>Dissaving</strong> — живут «в долг» / за счёт накоплений</td></tr>
+        <tr><td>500</td><td>500</td><td>0</td><td>Break-even: C = Y, S = 0</td></tr>
+        <tr><td>1 000</td><td>900</td><td>+100</td><td>Сберегают €100</td></tr>
+    </table>
+
+    <div class="formula-box">
+        <p>Break-even income (где C = Y): &nbsp; <strong>Y* = c₀ / (1 − c₁)</strong></p>
+        <p>Пример: 100 / (1 − 0,8) = <strong>500</strong></p>
+    </div>
+    <p class="nb-en">At Y = 0, consumption equals autonomous c₀, not zero. Households dissave or borrow to cover basic spending.</p>
+
+    <hr>
+
+    <!-- ===== Q4 ===== -->
+    <h2 id="q4">4. Доходная эластичность спроса (YED)</h2>
+    <div class="qa-q">Income elasticity of demand — формула и типы товаров</div>
+
+    <div class="formula-box">
+        <p><strong>YED = (% change in Q<sub>d</sub>) / (% change in Income)</strong></p>
+        <p>YED = (% ΔQ) / (% ΔY)</p>
+    </div>
+
+    <table>
+        <tr><th>YED</th><th>Тип товара</th><th>Пример</th></tr>
+        <tr><td><strong>&gt; 0</strong></td><td>Normal good (нормальный)</td><td>Доход ↑ → покупаем больше</td></tr>
+        <tr><td><strong>&lt; 0</strong></td><td>Inferior good (низший)</td><td>Доход ↑ → покупаем меньше (лапша быстрого приготовления)</td></tr>
+        <tr><td><strong>&gt; 1</strong></td><td>Luxury (роскошь)</td><td>Спрос растёт быстрее дохода</td></tr>
+        <tr><td><strong>0 &lt; YED &lt; 1</strong></td><td>Necessity (необходимость)</td><td>Спрос растёт медленнее дохода (хлеб, коммуналка)</td></tr>
+    </table>
+
+    <div class="story">Доход +10%, спрос на рестораны +15% → YED = 15/10 = <strong>1,5</strong> (luxury). Доход +10%, спрос на хлеб +3% → YED = <strong>0,3</strong> (necessity).</div>
+    <p class="nb-en">YED tells how demand responds to income changes — separate from price elasticity (PED).</p>
+    <p>→ <a href="Elasticities_Explanation.html">Elasticities of Demand</a> (section 2)</p>
+
+    <hr>
+
+    <!-- ===== Q5 ===== -->
+    <h2 id="q5">5. ЦБ продаёт облигации — что происходит?</h2>
+    <div class="qa-q">What happens if the central bank sells bonds?</div>
+
+    <p><strong>Open market operation (OMO)</strong> — Exam Prep #25:</p>
+    <ol>
+        <li>ЦБ <strong>продаёт</strong> государственные облигации</li>
+        <li>Банки / домохозяйства <strong>платят деньги</strong> ЦБ</li>
+        <li><strong>M ↓</strong> — деньги изъяты из экономики</li>
+        <li>Денежный рынок: предложение денег сдвигается <strong>влево</strong></li>
+        <li><strong>i ↑</strong> — ставка растёт</li>
+        <li><strong>I ↓</strong> (кредит дороже) · <strong>C ↓</strong> (выгоднее сберегать)</li>
+        <li><strong>AD ↓</strong> → через мультипликатор <strong>Y ↓</strong></li>
+    </ol>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="CB sells bonds IS-LM">
+            <line x1="55" y1="25" x2="55" y2="270" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="270" x2="450" y2="270" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="13">i ↑</text>
+            <text x="435" y="288" font-size="13">Y</text>
+            <path d="M 80 50 Q 220 130 400 230" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="350" y="220" fill="#2980b9" font-size="12" font-weight="600">IS</text>
+            <path d="M 80 200 L 280 120 L 400 50" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <path d="M 120 220 L 240 155 L 360 85" stroke="#e74c3c" stroke-width="2" fill="none" stroke-dasharray="8,4"/>
+            <text x="300" y="75" fill="#e74c3c" font-size="12">LM → LM′ (M↓)</text>
+            <circle cx="240" cy="155" r="6" fill="#8e44ad" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="300" cy="115" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="248" y="148" font-size="10" fill="#8e44ad">E₀</text>
+            <text x="308" y="108" font-size="10" fill="#27ae60">E₁</text>
+            <text x="60" y="295" font-size="10" fill="#666">Продажа облигаций: LM влево → i↑, Y↓</text>
+        </svg>
+        <p class="fig-caption">Продажа облигаций = <strong>contractionary monetary policy</strong>. Обратное: покупка облигаций → M↑ → i↓ → Y↑.</p>
+    </div>
+
+    <div class="key-box">
+        CB <strong>sells</strong> bonds → M↓ → i↑ → I↓, C↓ → Y↓<br>
+        CB <strong>buys</strong> bonds → M↑ → i↓ → I↑, C↑ → Y↑
+    </div>
+    <p>→ <a href="Fiscal_Monetary_Policy_Explanation.html">Fiscal &amp; Monetary Policy</a> · <a href="Exam_Prep_Guide.html#t19">Exam #19, #25</a></p>
+
+    <hr>
+
+    <!-- ===== Q6 ===== -->
+    <h2 id="q6">6. Что будет после рецессии?</h2>
+    <div class="qa-q">What is going to happen after a recession?</div>
+
+    <p><strong>Рецессия</strong> — Y ниже потенциального, высокая <strong>циклическая безработица</strong>, слабый спрос. После рецессии (восстановление):</p>
+
+    <table>
+        <tr><th>Переменная</th><th>Типичное движение</th><th>Почему</th></tr>
+        <tr><td><strong>Y (GDP)</strong></td><td>↑ к потенциальному уровню</td><td>Стимул спроса, мультипликатор</td></tr>
+        <tr><td><strong>u (unemployment)</strong></td><td>↓</td><td>Циклическая безработица снижается</td></tr>
+        <tr><td><strong>C</strong></td><td>↑</td><td>Больше дохода, больше уверенности</td></tr>
+        <tr><td><strong>I</strong></td><td>↑</td><td>Ниже i, лучшие ожидания</td></tr>
+        <tr><td><strong>π (inflation)</strong></td><td>может ↑ (краткосрочно)</td><td>Кривая Филлипса: u↓ → давление на цены</td></tr>
+    </table>
+
+    <p><strong>Закон Оукена (Okun):</strong> при восстановлении Y↑ → u↓ (обратная связь). Правило: 1 pp безработицы ≈ 2% output gap. → <a href="Okun_Phillips_Explanation.html">Okun &amp; Phillips</a></p>
+    <p class="nb-en">Okun's Law: as Y recovers, unemployment falls. Rule of thumb: 1 pp u ≈ 2% output gap.</p>
+
+    <p><strong>Политика восстановления (expansionary):</strong></p>
+    <ul>
+        <li><strong>Фискальная:</strong> G↑, T↓ → IS вправо → Y↑</li>
+        <li><strong>Денежная:</strong> M↑, i↓ → LM вправо → Y↑</li>
+    </ul>
+
+    <div class="warn-box">
+        <strong>Парадокс бережливости:</strong> если все сберегают больше (MPC↓) во время спада → AD↓ → Y падает ещё сильнее → сбережения могут <em>не вырасти</em>. См. <a href="Goods_Market_Multiplier_Explanation.html">Multiplier</a>.
+    </div>
+    <p class="nb-en">Recovery: GDP and consumption rise, unemployment falls. Governments often use expansionary fiscal and monetary policy to speed this up.</p>
+
+    <hr>
+
+    <!-- ===== Q7 ===== -->
+    <h2 id="q7">7. IS-LM: числовой пример (найти Y* и i*)</h2>
+    <div class="qa-q">IS-LM — given data, find equilibrium Y and interest rate i</div>
+
+    <p><strong>Алгоритм (Exam #26):</strong> всегда два шага — вывести <strong>IS</strong>, записать <strong>LM</strong>, решить систему.</p>
+
+    <h3>Дано</h3>
+    <div class="formula-box">
+        <p><strong>C = 50 + 0.75Y</strong> · <strong>I = 200 − 20i</strong> · <strong>G = 50</strong></p>
+        <p><strong>M = 200</strong> · <strong>L = 0.25Y − 5i</strong></p>
+    </div>
+
+    <h3>Шаг 1 — IS (рынок товаров: Y = C + I + G)</h3>
+    <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Graph">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="370" y2="230" stroke="#333" stroke-width="1.5"/>
+            <path d="M 70 200 Q 200 100 350 60" stroke="#3498db" stroke-width="2.5" fill="none"/>
+        </svg>
+
+    <h3>Шаг 2 — LM (денежный рынок: M = L)</h3>
+    <pre><strong>LM:  200 = 0.25Y − 5i</strong></pre>
+
+    <h3>Шаг 3 — подстановка</h3>
+    <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Graph">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="370" y2="230" stroke="#333" stroke-width="1.5"/>
+            <path d="M 70 200 Q 200 100 350 60" stroke="#3498db" stroke-width="2.5" fill="none"/>
+        </svg>
+
+    <p><strong>Проверка LM:</strong> 0,25 × 880 − 5 × 4 = 220 − 20 = 200 ✓</p>
+
+    <h3>Если ЦБ продаёт облигации (M: 200 → 150)</h3>
+    <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-label="Graph">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="370" y2="230" stroke="#333" stroke-width="1.5"/>
+            <path d="M 70 200 Q 200 100 350 60" stroke="#3498db" stroke-width="2.5" fill="none"/>
+        </svg>
+
+    <div class="graph-box">
+        <svg class="svg-graph" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" aria-label="IS-LM equilibrium numerical">
+            <line x1="50" y1="20" x2="50" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="250" x2="400" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="28" font-size="12">i</text>
+            <text x="385" y="268" font-size="12">Y</text>
+            <path d="M 80 220 Q 220 120 380 40" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <text x="320" y="55" fill="#2980b9" font-size="12" font-weight="600">IS</text>
+            <path d="M 80 40 Q 200 100 380 220" stroke="#e67e22" stroke-width="2.5" fill="none"/>
+            <text x="320" y="210" fill="#e67e22" font-size="12" font-weight="600">LM</text>
+            <circle cx="230" cy="118" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="238" y="112" font-size="11" fill="#27ae60">(880, 4)</text>
+            <line x1="230" y1="118" x2="230" y2="250" stroke="#aaa" stroke-dasharray="3,3"/>
+            <line x1="50" y1="118" x2="230" y2="118" stroke="#aaa" stroke-dasharray="3,3"/>
+            <text x="210" y="265" font-size="11">Y*=880</text>
+            <text x="18" y="124" font-size="11">i*=4</text>
+        </svg>
+        <p class="fig-caption">Равновесие IS ∩ LM: <strong>Y* = 880</strong>, <strong>i* = 4</strong>. Полный разбор — <a href="IS_LM_Explanation.html">IS-LM Model</a>.</p>
+    </div>
+
+    <div class="key-box">
+        <strong>IS-LM cheat sheet:</strong><br>
+        1) IS из Y = C + I + G → выразить Y через i<br>
+        2) LM из M = L(Y, i)<br>
+        3) Подставить → i* → Y*<br>
+        4) Всегда проверить подстановкой в LM
+    </div>
+
+    <hr>
+
+    <h2>Ссылки / See also</h2>
+    <ul>
+        <li><a href="Consumption_Function_Explanation.html">Consumption Function</a> — C(Y), MPC, график</li>
+        <li><a href="Goods_Market_Multiplier_Explanation.html">Goods Market &amp; Multiplier</a> — мультипликатор, парадокс бережливости</li>
+        <li><a href="IS_LM_Explanation.html">IS-LM Model</a> — кривые, политика, числа</li>
+        <li><a href="Fiscal_Monetary_Policy_Explanation.html">Fiscal &amp; Monetary Policy</a> — OMO, ставка i</li>
+        <li><a href="Elasticities_Explanation.html">Elasticities</a> — YED, PED, XED</li>
+        <li><a href="Exam_Prep_Guide.html">Exam Prep Guide</a> — все 34 темы</li>
+    </ul>
+
+<div class="ru-foot"><h3>🇷🇺 По-русски</h3><p><strong>Экзамен макро:</strong> C при Y=0 = c₀; YED нормальный/нижний/роскошь; ЦБ продаёт облигации → r↑, Y↓; после рецессии — разрыв, политика стимула; IS-LM — подставить и найти Y*, i*.</p></div>
+</div>
+</body>
+</html>
