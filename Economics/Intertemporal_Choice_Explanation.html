@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intertemporal Choice — Межвременной выбор</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Budget_Constraint_Explanation.html">← Budget Constraint</a></p>
+
+    <h1>Intertemporal Choice — Межвременной выбор</h1>
+    <p class="source">consumption bundles · intertemporal budget constraint · present &amp; future value</p>
+
+    <hr>
+
+    <h2>1. Intertemporal consumption bundles / Межвременные наборы</h2>
+    <div class="nb-def">Межвременной набор — комбинация <span class="hl">текущего потребления C₁</span> и <span class="hl">будущего потребления C₂</span>. Каждая точка на графике — один возможный вариант «сколько тратить сейчас vs потом».</div>
+    <p class="nb-en">Intertemporal consumption bundles show combinations of current consumption (C₁) and future consumption (C₂). Each point on the graph is one possible combination.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Потребляешь <strong>меньше</strong> сегодня <span class="arr">→</span> можешь потреблять <strong>больше</strong> завтра (save)</li>
+            <li>Потребляешь <strong>больше</strong> сегодня <span class="arr">→</span> будешь потреблять <strong>меньше</strong> завтра (borrow)</li>
+        </ul>
+    </div>
+    <p class="nb-en">If people consume less today, they can consume more in the future. If they consume more today, they consume less in the future.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" aria-label="Intertemporal consumption bundles">
+            <line x1="60" y1="25" x2="60" y2="255" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="255" x2="390" y2="255" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="30" font-size="12">C₂</text>
+            <text x="12" y="44" font-size="9" fill="#666">(future)</text>
+            <text x="360" y="275" font-size="12">C₁</text>
+            <text x="330" y="288" font-size="9" fill="#666">(current)</text>
+            <circle cx="215" cy="120" r="6" fill="#e74c3c"/>
+            <text x="223" y="115" font-size="11" fill="#e74c3c" font-weight="600">E</text>
+            <line x1="60" y1="120" x2="215" y2="120" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="215" y1="120" x2="215" y2="255" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="30" y="124" font-size="9">6000</text>
+            <text x="130" y="120" font-size="9" fill="#666">одна возможная</text>
+            <text x="130" y="132" font-size="9" fill="#666">комбинация</text>
+            <text x="180" y="272" font-size="9">3000</text>
+            <text x="90" y="245" font-size="9" fill="#666">C₁ (current consumption)</text>
+        </svg>
+        <p class="fig-caption">Каждая точка = один набор (C₁, C₂): сколько тратим сейчас и сколько остаётся на будущее.<span class="en-cell">Each point is one bundle of current consumption C₁ and future consumption C₂.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>2. Intertemporal budget constraint / Межвременное бюджетное ограничение</h2>
+    <div class="nb-def"><strong>IBC</strong> показывает, как люди <span class="hl">распределяют деньги между «сейчас» и «потом»</span> — сколько тратить и сберегать во времени.</div>
+    <p class="nb-en">The intertemporal budget constraint shows how people choose to spend and save money over time.</p>
+
+    <table>
+        <tr><th>Символ<span class="en-cell">Symbol</span></th><th>Значение<span class="en-cell">Meaning</span></th></tr>
+        <tr><td><strong>C₁</strong></td><td>Потребление в период 1 (сегодня)<span class="en-cell">Current consumption</span></td></tr>
+        <tr><td><strong>C₂</strong></td><td>Потребление в период 2 (будущее)<span class="en-cell">Future consumption</span></td></tr>
+        <tr><td><strong>M₁</strong></td><td>Доход в первом периоде<span class="en-cell">Income in period 1</span></td></tr>
+        <tr><td><strong>M₂</strong></td><td>Доход во втором периоде<span class="en-cell">Income in period 2</span></td></tr>
+        <tr><td><strong>r</strong></td><td>Ставка процента («цена времени»)<span class="en-cell">Interest rate</span></td></tr>
+    </table>
+
+    <div class="nb-formula">
+        C₁ + C₂/(1+r) = M₁ + M₂/(1+r)
+        <div class="var-list"><strong>Наклон линии = −(1+r)</strong> · Точка E = (M₁, M₂) — endowment (наделённость): тратим ровно свой доход, без займа и сбережений</div>
+    </div>
+    <p class="nb-en">Slope = −(1+r). Point E = (M₁, M₂) is the endowment point, where the person spends exactly their income each period.</p>
+
+    <div class="nb-why">Наклон <strong>−(1+r)</strong> означает: если потратить +1€ <em>сегодня</em>, придётся отказаться от <strong>(1+r)€</strong> <em>завтра</em>. Линия наклонена вниз, потому что больше потребления сегодня = меньше потребления в будущем.</div>
+    <p class="nb-en">Slope = −(1+r): spending 1€ today leaves you (1+r)€ less in the future. The budget line is downward sloping because consuming more today means consuming less in future.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" aria-label="Intertemporal budget line">
+            <line x1="60" y1="25" x2="60" y2="270" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="270" x2="390" y2="270" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="30" font-size="12">C₂</text>
+            <text x="30" y="44" font-size="9" fill="#666">(future)</text>
+            <text x="370" y="290" font-size="12">C₁</text>
+            <text x="345" y="303" font-size="9" fill="#666">(current)</text>
+            <line x1="60" y1="45" x2="360" y2="270" stroke="#3498db" stroke-width="2.5"/>
+            <text x="60" y="40" font-size="10" fill="#3498db">M₂+M₁(1+r)</text>
+            <text x="10" y="40" font-size="9" fill="#666">max C₂</text>
+            <text x="300" y="288" font-size="9" fill="#3498db">M₁+M₂/(1+r)</text>
+            <circle cx="180" cy="157" r="6" fill="#27ae60"/>
+            <text x="188" y="152" font-size="11" fill="#27ae60" font-weight="600">E</text>
+            <text x="188" y="167" font-size="9" fill="#27ae60">(M₁, M₂)</text>
+            <line x1="60" y1="157" x2="180" y2="157" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="180" y1="157" x2="180" y2="270" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="30" y="161" font-size="9">M₂</text>
+            <text x="172" y="288" font-size="9">M₁</text>
+            <text x="235" y="200" font-size="10" fill="#e74c3c">slope = −(1+r)</text>
+        </svg>
+        <p class="fig-caption">Ось X = C₁ (сейчас), ось Y = C₂ (будущее). Наклон −(1+r). E = endowment.<span class="en-cell">Vertical intercept = max future consumption if all income saved; horizontal = max current consumption if all future income borrowed.</span></p>
+    </div>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Верхняя точка (C₁ = 0): <strong>max future consumption</strong> — всё сберегли, получаем M₂ + M₁(1+r)</li>
+            <li>Правая точка (C₂ = 0): <strong>max current consumption</strong> — весь будущий доход заняли и потратили сегодня</li>
+        </ul>
+    </div>
+    <p class="nb-en">Top point shows maximum future consumption if all income is saved. Right point shows maximum current consumption if all future income is borrowed and spent today.</p>
+
+    <hr>
+
+    <h2>3. Present value / Приведённая (текущая) стоимость</h2>
+    <div class="nb-def"><strong>Present value (PV)</strong> — <span class="hl">стоимость будущих денег сегодня</span>. Будущие деньги «дисконтируем», делим на (1+r).</div>
+    <p class="nb-en">Present value is the value of future money today.</p>
+
+    <div class="nb-formula">
+        PV = FV / (1+r)ⁿ
+        <div class="var-list">Пример IBC: C₁ = M₁ + M₂/(1+r) — весь будущий доход, приведённый к сегодня</div>
+    </div>
+    <p class="nb-en">PV = FV / (1+r)ⁿ. n = number of periods. Future money is worth less today because of interest.</p>
+
+    <h2>4. Future value / Будущая стоимость</h2>
+    <div class="nb-def"><strong>Future value (FV)</strong> — <span class="hl">стоимость сегодняшних денег в будущем</span>. Сегодняшние деньги растут на (1+r).</div>
+    <p class="nb-en">Future value is the value of today's money in the future.</p>
+
+    <div class="nb-formula">
+        FV = PV × (1+r)
+        <div class="var-list">Пример IBC: C₂ = M₂ + M₁(1+r) — весь текущий доход, перенесённый в будущее</div>
+    </div>
+    <p class="nb-en">FV = PV × (1+r). Today's money grows with interest.</p>
+
+    <table>
+        <tr><th>Обозначение<span class="en-cell">Symbol</span></th><th>Значение<span class="en-cell">Meaning</span></th></tr>
+        <tr><td><strong>FV</strong></td><td>Future value — будущая стоимость</td></tr>
+        <tr><td><strong>PV</strong></td><td>Present value — текущая стоимость</td></tr>
+        <tr><td><strong>r</strong></td><td>Interest rate — ставка процента</td></tr>
+    </table>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Сберегаешь сегодня <span class="arr">→</span> потребляешь больше в будущем (за счёт процентов)</li>
+            <li>Занимаешь сейчас <span class="arr">→</span> тратишь больше сейчас, но меньше потом</li>
+        </ul>
+    </div>
+    <p class="nb-en">If people save today, they can consume more in the future because of interest. If they borrow now, they can spend more now but less later.</p>
+
+    <hr>
+
+    <h2>5. Числовой пример / Numerical example</h2>
+    <div class="nb-example">
+        <p class="step">Дано: M₁ = 2500€, M₂ = 4200€, r = 20% → (1+r) = 1,2</p>
+        <p class="step">PV дохода: C₁ + C₂/1,2 = 2500 + 4200/1,2 = 2500 + 3500 = <strong>6000€</strong></p>
+        <p class="step">FV дохода: 2500 × 1,2 + 4200 = 3000 + 4200 = <strong>7200€</strong></p>
+        <p class="step">Наклон линии: −(1+r) = <strong>−1,2</strong></p>
+        <p class="ans">max C₁ = 6000 (всё сегодня) · max C₂ = 7200 (всё в будущее) · E = (2500, 4200)</p>
+    </div>
+    <p class="nb-en">With M₁=2500, M₂=4200, r=20%: PV of income = 6000, FV = 7200, slope = −1.2.</p>
+
+    <div class="nb-key">
+        Bundle = (C₁, C₂) · IBC: C₁ + C₂/(1+r) = M₁ + M₂/(1+r) · slope = −(1+r) · E = (M₁,M₂) · PV = FV/(1+r) · FV = PV(1+r)
+    </div>
+    <p class="nb-en">Key: intertemporal bundle, budget constraint, slope −(1+r), endowment E, present and future value formulas.</p>
+
+    <div class="nb-conclusion">Межвременной выбор: как распределить потребление между «сейчас» (C₁) и «потом» (C₂). Ставка r связывает периоды: PV дисконтирует будущее, FV наращивает настоящее. Наклон бюджетной линии = −(1+r).</div>
+    <p class="nb-en">Intertemporal choice allocates consumption between present and future. The interest rate links periods via present and future value. Budget line slope = −(1+r).</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="index.html">← К оглавлению</a></p>
+</div>
+</body>
+</html>

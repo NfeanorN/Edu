@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elasticity of Demand — Эластичность спроса</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Supply_Demand_Algebra_Explanation.html">← Algebra of S&amp;D</a></p>
+
+    <h1>Elasticity of Demand — Эластичность спроса</h1>
+    <p class="source">PED · types · total expenditure · income elasticity · cross-price elasticity</p>
+
+    <hr>
+
+    <h2>1. Price elasticity of demand (PED) / Ценовая эластичность</h2>
+    <div class="nb-def"><strong>PED</strong> — на сколько <span class="hl">процентов</span> меняется величина спроса Q при изменении цены на <span class="hl">1%</span>.</div>
+    <p class="nb-en">Price elasticity of demand is the percentage change in quantity demanded that results from a 1% change in price.</p>
+
+    <div class="nb-formula">
+        PED = %ΔQ_D / %ΔP = (ΔQ/Q) ÷ (ΔP/P)
+        <div class="var-list">%ΔQ_D — % изменение объёма спроса · %ΔP — % изменение цены</div>
+    </div>
+
+    <div class="nb-why">Эластичность <strong>отрицательна</strong>, потому что цена и количество меняются в <strong>противоположных</strong> направлениях (закон спроса): P↑ → Q↓. Поэтому обычно смотрят на <strong>|PED|</strong> (модуль).</div>
+    <p class="nb-en">Elasticity is negative because price and quantity move in opposite directions (law of demand). We usually compare the absolute value |PED|.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Main logic: P ↑ <span class="arr">→</span> Q_D ↓</li>
+            <li>P ↓ <span class="arr">→</span> Q_D ↑</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>2. Types of price elasticity / Типы</h2>
+    <table>
+        <tr><th>Тип<span class="en-cell">Type</span></th><th>|PED|</th><th>Смысл<span class="en-cell">Meaning</span></th><th>Примеры<span class="en-cell">Examples</span></th></tr>
+        <tr><td><strong>Elastic</strong><span class="en-cell">Эластичный</span></td><td>&gt; 1</td><td>Q меняется <strong>сильнее</strong> цены; покупатели очень чувствительны<span class="en-cell">Quantity changes more than price</span></td><td>luxury goods, Coca-Cola/Pepsi, косметика</td></tr>
+        <tr><td><strong>Unit elastic</strong><span class="en-cell">Единичный</span></td><td>= 1</td><td>Q и P меняются на <strong>одинаковый %</strong><span class="en-cell">Same percentage change</span></td><td>граничный случай</td></tr>
+        <tr><td><strong>Inelastic</strong><span class="en-cell">Неэластичный</span></td><td>&lt; 1</td><td>Q меняется <strong>слабее</strong> цены; покупатели не очень чувствительны<span class="en-cell">Quantity changes less than price</span></td><td>medicine, electricity, oil</td></tr>
+    </table>
+    <p class="nb-en">|PED| &gt; 1 elastic, |PED| = 1 unit elastic, |PED| &lt; 1 inelastic. Note the sign is negative, so on the number line elastic is more negative (further from 0).</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 90" xmlns="http://www.w3.org/2000/svg" aria-label="Elasticity number line">
+            <line x1="30" y1="45" x2="410" y2="45" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="40" x2="60" y2="50" stroke="#333"/>
+            <line x1="150" y1="40" x2="150" y2="50" stroke="#333"/>
+            <line x1="240" y1="40" x2="240" y2="50" stroke="#333"/>
+            <line x1="330" y1="40" x2="330" y2="50" stroke="#333"/>
+            <text x="52" y="68" font-size="12">−3</text>
+            <text x="142" y="68" font-size="12">−2</text>
+            <text x="232" y="68" font-size="12">−1</text>
+            <text x="325" y="68" font-size="12">0</text>
+            <text x="70" y="30" font-size="11" fill="#27ae60">← Elastic (|ε|&gt;1)</text>
+            <text x="235" y="30" font-size="11" fill="#e74c3c">Inelastic (|ε|&lt;1) →</text>
+            <text x="205" y="30" font-size="10" fill="#8e44ad">unit</text>
+        </svg>
+        <p class="fig-caption">При −1 — unit elastic. Левее (−2, −3) — elastic. Правее (к 0) — inelastic.<span class="en-cell">At −1 unit elastic; more negative = elastic; closer to 0 = inelastic.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>3. Пять крайних случаев / Five graph cases</h2>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 200" xmlns="http://www.w3.org/2000/svg" aria-label="Perfectly elastic and inelastic">
+            <line x1="40" y1="20" x2="40" y2="170" stroke="#333" stroke-width="1.5"/>
+            <line x1="40" y1="170" x2="200" y2="170" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="24" font-size="11">P</text>
+            <text x="188" y="188" font-size="11">Q</text>
+            <line x1="40" y1="70" x2="195" y2="70" stroke="#3498db" stroke-width="3"/>
+            <text x="150" y="62" font-size="10" fill="#3498db">D</text>
+            <text x="60" y="120" font-size="10">Perfectly elastic</text>
+            <text x="60" y="134" font-size="10">PED = ∞</text>
+
+            <line x1="260" y1="20" x2="260" y2="170" stroke="#333" stroke-width="1.5"/>
+            <line x1="260" y1="170" x2="420" y2="170" stroke="#333" stroke-width="1.5"/>
+            <text x="240" y="24" font-size="11">P</text>
+            <text x="408" y="188" font-size="11">Q</text>
+            <line x1="330" y1="25" x2="330" y2="170" stroke="#3498db" stroke-width="3"/>
+            <text x="335" y="40" font-size="10" fill="#3498db">D</text>
+            <text x="300" y="120" font-size="10">Perfectly inelastic</text>
+            <text x="300" y="134" font-size="10">PED = 0</text>
+        </svg>
+        <p class="fig-caption">Слева: горизонтальная D → PED = ∞ (Q меняется бесконечно). Справа: вертикальная D → PED = 0 (Q не меняется, напр. medicine).<span class="en-cell">Horizontal D → perfectly elastic. Vertical D → perfectly inelastic (quantity doesn't change).</span></p>
+    </div>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 200" xmlns="http://www.w3.org/2000/svg" aria-label="Elastic vs inelastic slopes">
+            <line x1="40" y1="20" x2="40" y2="170" stroke="#333" stroke-width="1.5"/>
+            <line x1="40" y1="170" x2="200" y2="170" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="24" font-size="11">P</text>
+            <text x="188" y="188" font-size="11">Q</text>
+            <line x1="50" y1="45" x2="190" y2="90" stroke="#3498db" stroke-width="2.5"/>
+            <text x="120" y="70" font-size="10" fill="#3498db">D</text>
+            <text x="70" y="130" font-size="10">Flat D → elastic</text>
+            <text x="70" y="144" font-size="10">|PED| &gt; 1</text>
+
+            <line x1="260" y1="20" x2="260" y2="170" stroke="#333" stroke-width="1.5"/>
+            <line x1="260" y1="170" x2="420" y2="170" stroke="#333" stroke-width="1.5"/>
+            <text x="240" y="24" font-size="11">P</text>
+            <text x="408" y="188" font-size="11">Q</text>
+            <line x1="290" y1="30" x2="340" y2="165" stroke="#3498db" stroke-width="2.5"/>
+            <text x="345" y="120" font-size="10" fill="#3498db">D</text>
+            <text x="300" y="60" font-size="10">Steep D → inelastic</text>
+            <text x="300" y="74" font-size="10">|PED| &lt; 1</text>
+        </svg>
+        <p class="fig-caption">Пологая D → elastic. Крутая D → inelastic. (Unit elastic — промежуточный случай, PED = 1.)<span class="en-cell">Flatter demand = more elastic; steeper = more inelastic.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>4. Elasticity &amp; total expenditure / Эластичность и выручка</h2>
+    <div class="nb-formula">
+        Total expenditure: TE = P × Q
+        <div class="var-list">TE (total expenditure / total revenue) — сколько всего тратят покупатели = выручка продавцов</div>
+    </div>
+    <p class="nb-en">Total expenditure (also total revenue) = price × quantity.</p>
+
+    <table>
+        <tr><th>Эластичность<span class="en-cell">Elasticity</span></th><th>P ↓ (цена падает)<span class="en-cell">Price falls</span></th><th>TE<span class="en-cell">Total expenditure</span></th></tr>
+        <tr><td>PED &gt; 1 (elastic)</td><td>P ↓</td><td><strong>↑</strong> (Q растёт сильнее)</td></tr>
+        <tr><td>PED &lt; 1 (inelastic)</td><td>P ↓</td><td><strong>↓</strong> (Q растёт слабо)</td></tr>
+        <tr><td>PED = 1 (unit)</td><td>P ↓</td><td>no change (не меняется)</td></tr>
+    </table>
+    <p class="nb-en">If demand is elastic, cutting price raises total expenditure (quantity gain beats price loss). If inelastic, cutting price lowers it. If unit elastic, no change.</p>
+
+    <div class="nb-why">TE = P × Q. При <strong>elastic</strong> спросе снижение цены компенсируется сильным ростом Q → выручка растёт. При <strong>inelastic</strong> — Q растёт слабо, снижение цены «съедает» выручку.</div>
+    <p class="nb-en">Reduction in expenditure comes from the lower price; increase comes from extra sales. Which wins depends on elasticity.</p>
+
+    <hr>
+
+    <h2>5. Income elasticity of demand / Доходная эластичность</h2>
+    <div class="nb-def"><strong>Income elasticity (η)</strong> — на сколько % меняется Q при изменении <span class="hl">дохода</span> на 1%.</div>
+    <p class="nb-en">Income elasticity of demand: percentage change in quantity demanded from a 1% change in income.</p>
+
+    <div class="nb-formula">
+        η = (ΔQ/Q) ÷ (ΔY/Y)
+    </div>
+
+    <table>
+        <tr><th>η</th><th>Тип товара<span class="en-cell">Good type</span></th><th>Смысл<span class="en-cell">Meaning</span></th></tr>
+        <tr><td>0 &lt; η &lt; 1</td><td><strong>Necessity</strong><span class="en-cell">Предмет первой необходимости</span></td><td>Q растёт медленнее дохода (food)</td></tr>
+        <tr><td>η &gt; 1</td><td><strong>Luxury</strong><span class="en-cell">Роскошь</span></td><td>Q растёт быстрее дохода</td></tr>
+        <tr><td>η &lt; 0</td><td><strong>Inferior</strong><span class="en-cell">Низший товар</span></td><td>Q падает при росте дохода</td></tr>
+    </table>
+    <p class="nb-en">Normal goods: η &gt; 0 (necessity 0–1, luxury &gt; 1). Inferior goods: η &lt; 0 — demand falls as income rises.</p>
+
+    <hr>
+
+    <h2>6. Cross-price elasticity / Перекрёстная эластичность</h2>
+    <div class="nb-def"><strong>Cross-price elasticity</strong> — на сколько % меняется спрос на <span class="hl">товар A</span> при изменении цены <span class="hl">товара B</span> на 1%. Показывает связь <strong>двух разных товаров</strong>.</div>
+    <p class="nb-en">Cross-price elasticity measures the % change in quantity demanded of one good caused by a 1% change in the price of another good — it shows the relationship between two goods.</p>
+
+    <table>
+        <tr><th>Тип<span class="en-cell">Type</span></th><th>Знак<span class="en-cell">Sign</span></th><th>Логика<span class="en-cell">Logic</span></th><th>Примеры<span class="en-cell">Examples</span></th></tr>
+        <tr><td><strong>Substitutes</strong><span class="en-cell">Заменители</span></td><td><strong>positive (+)</strong></td><td>P(B) ↑ → спрос на A ↑<span class="en-cell">Price of B up → demand for A up</span></td><td>Coca-Cola &amp; Pepsi · butter &amp; margarine · beef &amp; pork</td></tr>
+        <tr><td><strong>Complements</strong><span class="en-cell">Дополняющие</span></td><td><strong>negative (−)</strong></td><td>P(B) ↑ → спрос на A ↓<span class="en-cell">Price of B up → demand for A down</span></td><td>car &amp; gasoline · coffee &amp; sugar</td></tr>
+    </table>
+    <p class="nb-en">Substitutes: positive cross-price elasticity (if one gets pricier, buyers switch to the other). Complements: negative (goods used together).</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Substitutes: P(Pepsi) ↑ <span class="arr">→</span> спрос на Coca-Cola ↑ (+)</li>
+            <li>Complements: P(gasoline) ↑ <span class="arr">→</span> спрос на cars ↓ (−)</li>
+        </ul>
+    </div>
+
+    <div class="nb-key">
+        PED = %ΔQ/%ΔP (negative) · |PED|&gt;1 elastic, &lt;1 inelastic · TE = P×Q (elastic: P↓→TE↑) · η = %ΔQ/%ΔY (luxury&gt;1, inferior&lt;0) · cross: substitutes (+), complements (−)
+    </div>
+    <p class="nb-en">Key: price elasticity sign and size, effect on total expenditure, income elasticity types, cross-price for substitutes/complements.</p>
+
+    <div class="nb-conclusion">Эластичность = % реакция Q на 1% изменение цены/дохода/цены другого товара. Определяет: как реагируют покупатели, что будет с выручкой, тип товара и связь товаров.</div>
+    <p class="nb-en">Elasticity links percentage changes in price, income, or another good's price to the quantity response.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="index.html">← К оглавлению</a></p>
+</div>
+</body>
+</html>
