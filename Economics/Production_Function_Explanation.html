@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="notebook-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Производственная функция — Production Function</title>
+</head>
+<body class="nb-page nb-firm">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="MRS_Explanation.html">← MRS</a></p>
+
+    <h1>Производственная функция</h1>
+    <p class="source">Frank, гл. 8 · Production</p>
+
+    <div class="nb-def"><strong>Производственная функция</strong> — ответ на вопрос: <span class="hl">«Если у меня столько работников и столько оборудования — сколько я произведу?»</span></div>
+    <p class="nb-en">Production function: given inputs (labour, capital), how much output Q can the firm produce?</p>
+
+    <hr>
+
+    <h2>1. Три буквы: L, K, Q</h2>
+    <table>
+        <tr><th>Буква</th><th>Что это</th><th>Пример (кухня Frank)</th></tr>
+        <tr><td><strong>L</strong></td><td>Труд (labour)</td><td>Повара — можно нанять больше или меньше</td></tr>
+        <tr><td><strong>K</strong></td><td>Капитал (capital)</td><td>Кухня, плита, станки — «оборудование»</td></tr>
+        <tr><td><strong>Q</strong></td><td>Выпуск (output)</td><td>Блюда в час, детали, пироги</td></tr>
+    </table>
+    <p class="nb-en">L = labour, K = capital, Q = output.</p>
+
+    <div class="nb-formula">
+        <strong>Q = F(L, K)</strong> — из труда и капитала получается выпуск
+    </div>
+    <p class="nb-en">The production function links inputs (L, K) to output Q.</p>
+
+    <hr>
+
+    <h2>2. Краткий vs долгий период</h2>
+    <table>
+        <tr><th></th><th>Краткий период (SR)</th><th>Долгий период (LR)</th></tr>
+        <tr><td><strong>Что можно менять</strong></td><td>Только <strong>L</strong> (нанять/уволить)</td><td>И <strong>L</strong>, и <strong>K</strong> (расширить цех, купить печи)</td></tr>
+        <tr><td><strong>Запись</strong></td><td>Q = f(L, <strong>K̄</strong>) — K зафиксирован</td><td>Q = F(L, K)</td></tr>
+        <tr><td><strong>Главный вопрос</strong></td><td>Что если +1 работник? → <a href="Diminishing_Returns_Explanation.html">убывающая отдача</a></td><td>Что если всё ×2? → <a href="Returns_to_Scale_Explanation.html">отдача от масштаба</a></td></tr>
+    </table>
+    <p class="nb-en">Short run: K fixed, L variable. Long run: both can change.</p>
+
+    <div class="key-box"><strong>Не путай!</strong> «+1 повар при той же кухне» (SR) и «удвоить и поваров, и кухню» (LR) — это разные вопросы.</div>
+
+    <hr>
+
+    <h2>3. TP, MP, AP — три способа смотреть на выпуск</h2>
+    <table>
+        <tr><th></th><th>Формула</th><th>Простыми словами</th></tr>
+        <tr>
+            <td><strong>TP</strong><br>Total Product</td>
+            <td>Q</td>
+            <td><strong>Сколько всего</strong> произведено<br><em>«6 поваров — сколько блюд за час?»</em></td>
+        </tr>
+        <tr>
+            <td><strong>MP</strong><br>Marginal Product</td>
+            <td>MP = ΔQ / ΔL</td>
+            <td><strong>Сколько добавит последний</strong> работник<br><em>«6-й повар — +сколько блюд?»</em></td>
+        </tr>
+        <tr>
+            <td><strong>AP</strong><br>Average Product</td>
+            <td>AP = Q / L</td>
+            <td><strong>Сколько в среднем</strong> на одного<br><em>«56 блюд ÷ 6 поваров ≈ 9,3»</em></td>
+        </tr>
+    </table>
+    <p class="nb-en">TP = total output · MP = extra from last worker · AP = output per worker.</p>
+
+    <div class="nb-example">
+        <p class="step">5 рабочих → 50 деталей</p>
+        <p class="step">6 рабочих → 56 деталей</p>
+        <p class="ans">MP 6-го = 56 − 50 = <strong>6</strong> (не 56!) · AP = 56 ÷ 6 ≈ <strong>9,3</strong></p>
+    </div>
+    <p class="nb-en">MP of the 6th worker = 6 (the addition), not 56 (the total).</p>
+
+    <hr>
+
+    <h2>4. Пример из конспекта — Figure 10.1</h2>
+    <p>K зафиксирован: <strong>Q = F(K₀, L)</strong>. Данные Frank (Figure 10.1):</p>
+
+    <table>
+        <tr><th>L</th><th>Q</th><th>MP</th><th></th></tr>
+        <tr><td>1</td><td>4</td><td>4</td><td></td></tr>
+        <tr><td>2</td><td>14</td><td>+10</td><td>MP растёт</td></tr>
+        <tr><td>3</td><td>27</td><td>+13</td><td></td></tr>
+        <tr><td>4</td><td>43</td><td><strong>+16</strong></td><td>MP max</td></tr>
+        <tr><td>5</td><td>58</td><td>+15</td><td>diminishing ↓</td></tr>
+        <tr><td>6</td><td>72</td><td>+14</td><td></td></tr>
+        <tr><td>7</td><td>81</td><td>+9</td><td></td></tr>
+        <tr><td>8</td><td>86</td><td>+5</td><td></td></tr>
+    </table>
+    <p class="nb-en">Figure 10.1: MP peaks at L=4, then falls — diminishing marginal returns.</p>
+    <p>→ Подробнее с графиком и MC → <a href="Diminishing_Returns_Explanation.html">Law of Diminishing Returns</a></p>
+
+    <hr>
+
+    <h2>5. Пример Frank — кухня (K фиксирован)</h2>
+    <p>Одна маленькая кухня. Нанимаем поваров:</p>
+
+    <table>
+        <tr><th>L<br>поваров</th><th>Q<br>блюд/час</th><th>MP<br>прирост</th><th>AP<br>Q÷L</th><th>Что происходит</th></tr>
+        <tr><td>1</td><td>10</td><td>10</td><td>10,0</td><td>Один — медленно</td></tr>
+        <tr><td>2</td><td>25</td><td><strong>+15</strong></td><td>12,5</td><td>Специализация: один режет, другой жарит</td></tr>
+        <tr><td>3</td><td>35</td><td>+10</td><td>11,7</td><td>Ещё помогает, но меньше</td></tr>
+        <tr><td>4</td><td>40</td><td>+5</td><td>10,0</td><td>Тесно</td></tr>
+        <tr><td>5</td><td>41</td><td>+1</td><td>8,2</td><td>Почти некуда встать</td></tr>
+        <tr><td>6</td><td><strong>38</strong></td><td><strong>−3</strong></td><td>6,3</td><td>Слишком много — Q упал</td></tr>
+    </table>
+
+    <div class="story">Сначала каждый новый повар <strong>много помогает</strong> (MP = 15). Потом — всё меньше. Шестой повар <strong>мешает</strong> (MP = −3): блюд стало меньше, чем с пятью.</div>
+    <p class="nb-en">Marginal product rises at first (specialization), then falls — diminishing returns. Too many workers can even reduce total output.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 260" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="230" x2="410" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="30" font-size="13">Q (TP)</text>
+            <text x="395" y="248" font-size="13">L</text>
+            <path d="M 70 210 Q 180 70 280 85 T 400 160" stroke="#9b59b6" stroke-width="2.5" fill="none"/>
+            <circle cx="280" cy="85" r="5" fill="#e74c3c"/>
+            <text x="288" y="80" font-size="10" fill="#e74c3c">max TP</text>
+            <text x="330" y="145" font-size="9" fill="#c0392b">MP &lt; 0 → TP падает</text>
+        </svg>
+        <p class="fig-cap">Кривая TP: растёт → максимум → может упасть, если MP &lt; 0</p>
+    </div>
+
+    <p>Подробнее про закон убывающей отдачи → <a href="Diminishing_Returns_Explanation.html">Law of Diminishing Returns</a></p>
+
+    <hr>
+
+    <h2>6. MP и AP — аналогия со средним баллом</h2>
+    <div class="nb-example">
+        <p class="step">Средний балл класса AP = 7</p>
+        <p class="step">Новый ученик с оценкой <strong>9</strong> (MP &gt; AP) → средний <strong>растёт</strong></p>
+        <p class="step">Новый с оценкой <strong>5</strong> (MP &lt; AP) → средний <strong>падает</strong></p>
+        <p class="ans">Новый ученик = <strong>MP</strong> · Класс в среднем = <strong>AP</strong></p>
+    </div>
+    <p class="nb-en">New student = marginal product. Class average = average product. MP &gt; AP pulls AP up; MP &lt; AP pulls AP down.</p>
+
+    <table>
+        <tr><th>Если…</th><th>Тогда…</th></tr>
+        <tr><td>MP &gt; AP</td><td>AP растёт</td></tr>
+        <tr><td>MP &lt; AP</td><td>AP падает</td></tr>
+        <tr><td>MP = AP</td><td>AP на максимуме</td></tr>
+        <tr><td>MP = 0</td><td>TP на максимуме</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>7. Связь с издержками — MC = w / MP</h2>
+    <div class="nb-formula">
+        <strong>MC = w / MP</strong> &nbsp;·&nbsp; <strong>AVC = w / AP</strong><br>
+        MP большой → MC маленький · MP падает → MC растёт
+    </div>
+    <p class="nb-en">If each worker adds little (low MP), each extra unit of output is costly → MC rises. That's why cost curves are U-shaped.</p>
+    <p>MP падает → MC растёт → U-образная MC. Подробнее → <a href="Diminishing_Returns_Explanation.html">Diminishing Returns + MC graph</a></p>
+    <p>→ <a href="Long_Run_Cost_Function_Explanation.html">Long Run Cost Function</a></p>
+
+    <hr>
+
+    <h2>8. Шпаргалка</h2>
+    <ul>
+        <li><strong>Q = F(L, K)</strong> — ресурсы → выпуск</li>
+        <li><strong>SR:</strong> K фикс., меняем L → TP, MP, AP</li>
+        <li><strong>MP</strong> = прирост от последнего · <strong>AP</strong> = Q ÷ L</li>
+        <li>MP &gt; AP → AP растёт · MP = 0 → max TP</li>
+        <li>SR: убывающая отдача · LR: отдача от масштаба</li>
+    </ul>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="MRS_Explanation.html">← MRS</a> · <a href="Diminishing_Returns_Explanation.html">Diminishing Returns →</a></p>
+</div>
+</body>
+</html>

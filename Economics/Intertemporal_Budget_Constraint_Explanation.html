@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intertemporal Budget Constraint — Межвременное бюджетное ограничение</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Intertemporal_Choice_Explanation.html">← Intertemporal Choice (bundles)</a></p>
+
+    <h1>Intertemporal Budget Constraint — Межвременное бюджетное ограничение</h1>
+    <p class="source">Frank Ch. 5 · Fig. 5.13–5.17 · PV &amp; FV · slope −(1+r) · save / borrow</p>
+
+    <div class="nb-def"><strong>IBC</strong> показывает, как человек <span class="hl">распределяет потребление во времени</span>: сколько тратить <strong>сегодня (C₁)</strong> и <strong>завтра (C₂)</strong>, если можно сберегать или занимать под процент <strong>r</strong>.</div>
+    <p class="nb-en">The intertemporal budget constraint shows how people choose to spend and save money over time — between current consumption C₁ and future consumption C₂.</p>
+
+    <hr>
+
+    <h2>Variables / Переменные</h2>
+    <table>
+        <tr><th>Символ<span class="en-cell">Symbol</span></th><th>Значение<span class="en-cell">Meaning</span></th></tr>
+        <tr><td><strong>C₁</strong></td><td>Потребление сегодня (period 1)<span class="en-cell">Current consumption</span></td></tr>
+        <tr><td><strong>C₂</strong></td><td>Потребление в будущем (period 2)<span class="en-cell">Future consumption</span></td></tr>
+        <tr><td><strong>M₁</strong></td><td>Доход в период 1<span class="en-cell">Income in period 1</span></td></tr>
+        <tr><td><strong>M₂</strong></td><td>Доход в период 2<span class="en-cell">Income in period 2</span></td></tr>
+        <tr><td><strong>r</strong></td><td>Ставка процента — «цена времени»<span class="en-cell">Interest rate — price of time</span></td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Main equation / Главное уравнение</h2>
+    <div class="nb-formula">
+        C₁ + C₂/(1+r) = M₁ + M₂/(1+r)
+        <div class="var-list">PV-форма: приведённая стоимость потребления = приведённая стоимость дохода</div>
+    </div>
+    <p class="nb-en">Present-value form: the PV of consumption equals the PV of lifetime income.</p>
+
+    <div class="nb-formula">
+        C₁(1+r) + C₂ = M₁(1+r) + M₂
+        <div class="var-list">FV-форма: то же самое, но всё в «завтрашних» деньгах</div>
+    </div>
+    <p class="nb-en">Future-value form: same budget constraint expressed in tomorrow's dollars.</p>
+
+    <div class="nb-formula">
+        C₂ = [M₁(1+r) + M₂] − (1+r)·C₁
+        <div class="var-list"><strong>Наклон = −(1+r)</strong> · Вертикальный intercept (C₁=0): <strong>M₁(1+r) + M₂</strong> = max C₂ · Горизонтальный (C₂=0): <strong>M₁ + M₂/(1+r)</strong> = max C₁</div>
+    </div>
+    <p class="nb-en">Slope = −(1+r). +1€ of C₁ today costs (1+r)€ of C₂ tomorrow. Vertical intercept = max future consumption if all income is saved. Horizontal intercept = max current consumption if all future income is borrowed today.</p>
+
+    <hr>
+
+    <h2>Graph / График бюджетной линии</h2>
+    <div class="nb-why">Линия <strong>наклонена вниз</strong>: больше потребления сегодня → меньше завтра. Точка <strong>E = (M₁, M₂)</strong> — endowment: тратишь ровно свой доход каждый период, без займа и сбережений.</div>
+    <p class="nb-en">The budget line slopes downward. Point E = (M₁, M₂) is the endowment — you consume exactly your income in each period with no borrowing or saving.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" aria-label="Intertemporal budget constraint">
+            <line x1="65" y1="25" x2="65" y2="285" stroke="#333" stroke-width="1.5"/>
+            <line x1="65" y1="285" x2="430" y2="285" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="12">C₂</text>
+            <text x="18" y="44" font-size="9" fill="#666">future con.</text>
+            <text x="405" y="305" font-size="12">C₁</text>
+            <text x="375" y="318" font-size="9" fill="#666">current con.</text>
+            <!-- budget line: (0,12000) to (10000,0) scaled -->
+            <line x1="65" y1="45" x2="415" y2="285" stroke="#3498db" stroke-width="2.5"/>
+            <!-- top intercept -->
+            <circle cx="65" cy="45" r="4" fill="#e74c3c"/>
+            <text x="72" y="42" font-size="9" fill="#e74c3c">(0; 12000)</text>
+            <text x="72" y="54" font-size="8" fill="#666">max C₂: save all</text>
+            <!-- right intercept -->
+            <circle cx="415" cy="285" r="4" fill="#e74c3c"/>
+            <text x="355" y="278" font-size="9" fill="#e74c3c">(10000; 0)</text>
+            <text x="340" y="268" font-size="8" fill="#666">max C₁: borrow all</text>
+            <!-- endowment E -->
+            <circle cx="215" cy="165" r="6" fill="#27ae60"/>
+            <text x="222" y="160" font-size="11" fill="#27ae60" font-weight="600">E</text>
+            <text x="222" y="174" font-size="9" fill="#27ae60">(M₁, M₂)</text>
+            <line x1="65" y1="165" x2="215" y2="165" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="215" y1="165" x2="215" y2="285" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="28" y="169" font-size="9">6000</text>
+            <text x="205" y="300" font-size="9">5000</text>
+            <!-- slope triangle -->
+            <line x1="280" y1="120" x2="340" y2="120" stroke="#e74c3c" stroke-width="1.2" stroke-dasharray="4,3"/>
+            <line x1="340" y1="120" x2="340" y2="192" stroke="#e74c3c" stroke-width="1.2" stroke-dasharray="4,3"/>
+            <text x="295" y="115" font-size="9" fill="#e74c3c">+1 C₁</text>
+            <text x="346" y="160" font-size="9" fill="#e74c3c">−1.2 C₂</text>
+            <text x="350" y="210" font-size="10" fill="#e74c3c">slope = −(1+r)</text>
+        </svg>
+        <p class="fig-caption">Пример: M₁=5000, M₂=6000, r=20% → slope = −1,2 · E = (5000; 6000)<span class="en-cell">Example: M₁=5000, M₂=6000, r=20%. Slope −(1+r). Endowment at (M₁, M₂).</span></p>
+    </div>
+
+    <div class="nb-arrows">
+        <ul>
+            <li><strong>C₁ = 0</strong> <span class="arr">→</span> max C₂ = M₁(1+r) + M₂ — всё сберегли сегодня</li>
+            <li><strong>C₂ = 0</strong> <span class="arr">→</span> max C₁ = M₁ + M₂/(1+r) — всё потратили сегодня (заняли будущий доход)</li>
+            <li>Точки <strong>левее E</strong> на линии <span class="arr">→</span> save (C₁ &lt; M₁)</li>
+            <li>Точки <strong>правее E</strong> <span class="arr">→</span> borrow (C₁ &gt; M₁)</li>
+        </ul>
+    </div>
+    <p class="nb-en">Left of E on the line = saver (C₁ &lt; M₁). Right of E = borrower (C₁ &gt; M₁).</p>
+
+    <hr>
+
+    <h2>Present value &amp; Future value / PV и FV</h2>
+
+    <div class="nb-def"><strong>Present value (PV)</strong> — стоимость <span class="hl">будущих денег сегодня</span>. <strong>Future value (FV)</strong> — стоимость <span class="hl">сегодняшних денег в будущем</span>.</div>
+    <p class="nb-en">PV = value of future money today. FV = value of today's money in the future.</p>
+
+    <div class="nb-formula">
+        PV = FV / (1+r)ⁿ &nbsp;&nbsp;·&nbsp;&nbsp; FV = PV × (1+r)
+        <div class="var-list">n = число периодов · r = interest rate</div>
+    </div>
+
+    <table>
+        <tr><th>Форма IBC<span class="en-cell">IBC form</span></th><th>Max C₁ (C₂=0)<span class="en-cell">Max current</span></th><th>Max C₂ (C₁=0)<span class="en-cell">Max future</span></th></tr>
+        <tr><td><strong>PV</strong>: C₁ + C₂/(1+r) = …</td><td>M₁ + M₂/(1+r)</td><td>— (удобнее FV)</td></tr>
+        <tr><td><strong>FV</strong>: C₁(1+r) + C₂ = …</td><td>—</td><td>M₁(1+r) + M₂</td></tr>
+    </table>
+    <p class="nb-en">Use PV form for max C₁ today. Use FV form for max C₂ in the future.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>Сберегаешь сегодня <span class="arr">→</span> C₂ выше (проценты)</li>
+            <li>Занимаешь сейчас <span class="arr">→</span> C₁ выше, но C₂ ниже (отдаёшь с процентами)</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>Save &amp; Borrow / Сбережение и заём</h2>
+    <div class="nb-formula">
+        B = C₁ − M₁ &nbsp;(borrow) &nbsp;·&nbsp; S = M₁ − C₁ &nbsp;(save/lend)
+        <div class="var-list">B &gt; 0 → занял B сегодня · S &gt; 0 → отложил S сегодня · в period 2: отдаёшь B(1+r) или получаешь S(1+r)</div>
+    </div>
+    <p class="nb-en">Borrowing B = C₁ − M₁. Saving S = M₁ − C₁. In period 2 you repay B(1+r) or receive S(1+r).</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" aria-label="Save and borrow on budget line">
+            <line x1="65" y1="25" x2="65" y2="285" stroke="#333" stroke-width="1.5"/>
+            <line x1="65" y1="285" x2="430" y2="285" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="12">C₂</text>
+            <text x="405" y="305" font-size="12">C₁</text>
+            <line x1="65" y1="45" x2="415" y2="285" stroke="#3498db" stroke-width="2.5"/>
+            <!-- E endowment -->
+            <circle cx="215" cy="165" r="6" fill="#27ae60"/>
+            <text x="222" y="160" font-size="10" fill="#27ae60" font-weight="600">E</text>
+            <text x="222" y="174" font-size="9">(5000; 6000)</text>
+            <!-- L lend: C1=4000 -->
+            <circle cx="175" cy="133" r="6" fill="#3498db"/>
+            <text x="100" y="128" font-size="10" fill="#2980b9" font-weight="600">L</text>
+            <text x="100" y="142" font-size="9">(4000; 7200)</text>
+            <line x1="175" y1="133" x2="215" y2="133" stroke="#3498db" stroke-width="1.2"/>
+            <text x="178" y="125" font-size="8" fill="#3498db">S=1000</text>
+            <!-- B borrow: C1=6000 -->
+            <circle cx="255" cy="197" r="6" fill="#e74c3c"/>
+            <text x="262" y="192" font-size="10" fill="#c0392b" font-weight="600">B</text>
+            <text x="262" y="206" font-size="9">(6000; 4800)</text>
+            <line x1="215" y1="197" x2="255" y2="197" stroke="#e74c3c" stroke-width="1.2"/>
+            <text x="218" y="190" font-size="8" fill="#e74c3c">B=1000</text>
+            <text x="80" y="260" font-size="9" fill="#2980b9">save zone: C₁ &lt; M₁</text>
+            <text x="280" y="260" font-size="9" fill="#c0392b">borrow zone: C₁ &gt; M₁</text>
+        </svg>
+        <p class="fig-caption">E — endowment · L — кредитор (save) · B — заёмщик (borrow)<span class="en-cell">E = endowment. L = lender (left of E). B = borrower (right of E).</span></p>
+    </div>
+
+    <div class="nb-why"><strong>Patient</strong> (терпеливый) — save: C₁ &lt; M₁, больше C₂. <strong>Impatient</strong> (нетерпеливый) — borrow: C₁ &gt; M₁, меньше C₂. Frank Fig. 5.17.</div>
+    <p class="nb-en">A patient person saves (consumes less than income today). An impatient person borrows (consumes more than income today).</p>
+
+    <hr>
+
+    <h2>Worked example / Числовой пример (конспект + Frank)</h2>
+
+    <h3>Example A — notebook (M₁=5000, M₂=6000, r=20%)</h3>
+    <div class="nb-example">
+        <p class="step">(1+r) = 1,2</p>
+        <p class="step">PV: C₁ + C₂/1,2 = 5000 + 6000/1,2 = 5000 + 5000 = <strong>10 000</strong></p>
+        <p class="step">FV: 1,2·C₁ + C₂ = 6000 + 6000 = <strong>12 000</strong></p>
+        <p class="step">Уравнение линии: C₂ = 12 000 − 1,2·C₁ · slope = <strong>−1,2</strong></p>
+        <p class="step">E = (5000; 6000) · max C₁ = 10 000 · max C₂ = 12 000</p>
+        <p class="ans">Borrow B=1000 → (6000; 4800): отдаёшь 1000×1,2 = 1200 в period 2</p>
+    </div>
+    <p class="nb-en">Notebook example: PV lifetime income = 10,000. FV = 12,000. Slope −1.2. Endowment (5000, 6000).</p>
+
+    <h3>Example B — Frank Ch. 5 (M₁=$50 000, M₂=$60 000, r=20%)</h3>
+    <div class="nb-example">
+        <p class="step">PV: 50 000 + 60 000/1,2 = 50 000 + 50 000 = <strong>$100 000</strong></p>
+        <p class="step">FV: 50 000×1,2 + 60 000 = <strong>$120 000</strong></p>
+        <p class="step">max C₁ = $100 000 · max C₂ = $120 000 · E = ($50 000; $60 000)</p>
+        <p class="ans">Same logic — only numbers are larger</p>
+    </div>
+    <p class="nb-en">Frank Ch. 5: same formulas with M₁=$50,000, M₂=$60,000, r=20%. PV = $100,000, FV = $120,000.</p>
+
+    <hr>
+
+    <h2>What shifts the line? / Что сдвигает линию?</h2>
+    <table>
+        <tr><th>Изменение<span class="en-cell">Change</span></th><th>Эффект<span class="en-cell">Effect</span></th><th>Тип<span class="en-cell">Type</span></th></tr>
+        <tr><td><strong>r ↓</strong> (ставка падает)</td><td>Линия <strong>поворачивается вокруг E</strong>, становится положе (|slope| меньше)<span class="en-cell">Rotates around endowment; flatter</span></td><td>Заём дешевле → рационально C₁↑, C₂↓</td></tr>
+        <tr><td><strong>M₁ ↑</strong> (доход period 1 растёт)</td><td><strong>Параллельный сдвиг</strong> наружу, E переезжает<span class="en-cell">Parallel shift outward</span></td><td>Больше богатство → обычно C₁↑ и C₂↑</td></tr>
+        <tr><td><strong>M₂ ↑</strong></td><td>Параллельный сдвиг наружу<span class="en-cell">Parallel shift outward</span></td><td>Больше будущий доход → больше PV</td></tr>
+    </table>
+    <p class="nb-en">Lower r → rotation around E (cheaper borrowing). Higher M₁ or M₂ → parallel outward shift (more lifetime wealth).</p>
+
+    <div class="nb-key">
+        IBC: C₁ + C₂/(1+r) = M₁ + M₂/(1+r) · slope = −(1+r) · E = (M₁,M₂) · max C₁ = M₁+M₂/(1+r) · max C₂ = M₁(1+r)+M₂ · B=C₁−M₁ · S=M₁−C₁ · PV=FV/(1+r)
+    </div>
+    <p class="nb-en">Key formulas: PV and FV forms, slope −(1+r), intercepts, endowment E, borrow/save, PV and FV.</p>
+
+    <div class="nb-conclusion">Межвременное бюджетное ограничение связывает C₁ и C₂ через ставку r. Наклон −(1+r): +1€ сегодня = −(1+r)€ завтра. E = (M₁,M₂). Левее E — save, правее — borrow.</div>
+    <p class="nb-en">The intertemporal budget constraint links C₁ and C₂ via r. Slope −(1+r). Endowment E. Left of E = save, right = borrow.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="Intertemporal_Choice_Explanation.html">← Intertemporal Choice (bundles)</a> · <a href="Budget_Constraint_Explanation.html">Budget Constraint (2 goods) →</a></p>
+</div>
+</body>
+</html>
