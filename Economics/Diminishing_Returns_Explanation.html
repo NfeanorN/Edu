@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Закон убывающей отдачи</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-firm">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Production_Function_Explanation.html">← Production Function</a></p>
+
+    <h1>Закон убывающей отдачи</h1>
+    <p class="source">Frank, гл. 8 · Figure 10.1</p>
+
+    <div class="nb-def">Есть <strong>одна кухня и один гриль</strong> (не меняются). Ты нанимаешь всё больше поваров. Сначала каждый новый повар <strong>много помогает</strong>. Потом — <strong>всё меньше</strong>. Вот это и есть закон убывающей отдачи.</div>
+    <p class="nb-en">One fixed kitchen, one grill. Hire more cooks — each new cook helps less and less. That's diminishing returns.</p>
+
+    <hr>
+
+    <h2>1. Главное — одной фразой</h2>
+    <p><strong>Больше workers → больше выпуска.</strong> Но если машины и площадь <em>не растут</em>, то каждый следующий worker добавляет <strong>всё меньше</strong> новых бургеров.</p>
+    <p class="nb-en">More workers still means more output — but each extra worker adds fewer and fewer burgers when space and equipment stay the same.</p>
+
+    <div class="key-box"><strong>Важно:</strong> выпуск <em>не обязательно падает</em>. Он растёт, но <strong>всё медленнее</strong>. 81 бургер → 86 бургеров — рост есть, просто маленький (+5).</div>
+
+    <hr>
+
+    <h2>2. Пример: нанимаем поваров по одному</h2>
+    <p>Гриль один. Смотрим, сколько бургеров в час и <strong>сколько добавил именно последний повар</strong>:</p>
+
+    <table>
+        <tr>
+            <th>Поваров</th>
+            <th>Всего бургеров<br>(Q)</th>
+            <th>Добавил<br>последний</th>
+            <th>Простыми словами</th>
+        </tr>
+        <tr><td>1</td><td>4</td><td>4</td><td>Один — мало</td></tr>
+        <tr><td>2</td><td>14</td><td><strong>+10</strong></td><td>Второй сильно помог</td></tr>
+        <tr><td>3</td><td>27</td><td><strong>+13</strong></td><td>Ещё лучше</td></tr>
+        <tr><td>4</td><td>43</td><td><strong>+16</strong></td><td>Максимум — лучший «прирост»</td></tr>
+        <tr><td>5</td><td>58</td><td>+15</td><td>Уже чуть хуже</td></tr>
+        <tr><td>6</td><td>72</td><td>+14</td><td>Ещё хуже</td></tr>
+        <tr><td>7</td><td>81</td><td>+9</td><td>Мало добавил</td></tr>
+        <tr><td>8</td><td>86</td><td>+5</td><td>Почти толку нет — тесно</td></tr>
+    </table>
+    <p class="fig-cap">«Добавил последний» = новый минус старый. Например: 58 − 43 = +15</p>
+    <p class="nb-en">Last column = how many burgers the newest cook added. 58 − 43 = 15 from the 5th cook.</p>
+
+    <div class="nb-example">
+        <p class="step">4 повара → 43 бургера. Наняли 5-го → стало 58</p>
+        <p class="step">5-й повар добавил: 58 − 43 = <strong>15</strong> бургеров</p>
+        <p class="step">7-й повар добавил: 81 − 72 = <strong>9</strong> — уже меньше</p>
+        <p class="ans">После 4-го повара каждый новый добавляет <strong>меньше</strong>: 15 → 14 → 9 → 5. Это и есть закон.</p>
+    </div>
+
+    <hr>
+
+    <h2>3. Что значит MP (marginal product)</h2>
+    <p>Колонка «добавил последний» — это и есть <strong>MP</strong> (предельный продукт). Просто другое название для «прироста от последнего worker».</p>
+    <p class="nb-en">MP = marginal product = extra output from the last worker = Q now − Q before.</p>
+
+    <div class="nb-formula">MP = новый выпуск − старый выпуск &nbsp; (при +1 worker)</div>
+
+    <hr>
+
+    <h2>4. График — кривая «выпрямляется»</h2>
+    <p>По оси X — число workers. По оси Y — всего бургеров (Q). Кривая идёт вверх, но после 4-го повара становится <strong>положе</strong> — рост замедляется.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="30" x2="50" y2="220" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="220" x2="390" y2="220" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="40" font-size="12">Q</text>
+            <text x="20" y="55" font-size="9" fill="#666">бургеры</text>
+            <text x="360" y="238" font-size="12">L</text>
+            <text x="340" y="252" font-size="9" fill="#666">повара</text>
+            <!-- simple smooth curve -->
+            <path d="M 85 205 Q 150 120 200 95 Q 280 70 360 45" stroke="#c0392b" stroke-width="3" fill="none"/>
+            <!-- key points only -->
+            <circle cx="85" cy="205" r="4" fill="#c0392b"/>
+            <text x="75" y="198" font-size="9">1 повар</text>
+            <circle cx="200" cy="95" r="5" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="175" y="88" font-size="9" fill="#27ae60">4 повара — пик</text>
+            <circle cx="360" cy="45" r="4" fill="#c0392b"/>
+            <text x="330" y="38" font-size="9">8 поваров</text>
+            <!-- arrow showing flattening -->
+            <path d="M 280 75 L 340 55" stroke="#27ae60" stroke-width="1.5"/>
+            <text x="250" y="130" font-size="10" fill="#27ae60">здесь кривая положе —</text>
+            <text x="250" y="143" font-size="10" fill="#27ae60">diminishing returns</text>
+            <text x="100" y="160" font-size="10" fill="#666">здесь круче —</text>
+            <text x="100" y="173" font-size="10" fill="#666">каждый помогает больше</text>
+        </svg>
+        <p class="fig-cap">Q растёт всегда ↑ · но кривая «ломается» — после 4 поваров рост замедляется</p>
+    </div>
+
+    <hr>
+
+    <h2>5. Почему так?</h2>
+    <div class="story">
+        <strong>1 повар</strong> — один на всю кухню, медленно.<br>
+        <strong>2–3 повара</strong> — один жарит, другой собирает бургер → быстрее.<br>
+        <strong>4 повара</strong> — ещё ок, но уже тесно.<br>
+        <strong>7–8 поваров</strong> — мешают друг другу, гриль один → каждый новый почти ничего не добавляет.
+    </div>
+    <p class="nb-en">Specialization helps at first. Then fixed grill and space limit how much each extra cook can add.</p>
+
+    <hr>
+
+    <h2>6. Формула MC</h2>
+    <div class="nb-formula">
+        <strong>MC = w / MP</strong><br>
+        w = зарплата одного worker (за час)<br>
+        MP = сколько бургеров добавил последний worker
+    </div>
+    <p class="nb-en">MC = wage / marginal product. Cost of one more unit = pay for the worker divided by how many units they add.</p>
+
+    <div class="nb-example">
+        <p class="step">Зарплата повара <strong>w = $80</strong> за час</p>
+        <p class="step">4-й повар добавил <strong>MP = 16</strong> бургеров</p>
+        <p class="step">MC = 80 ÷ 16 = <strong>$5</strong> за один бургер</p>
+        <p class="step">8-й повар добавил <strong>MP = 5</strong> бургеров</p>
+        <p class="ans">MC = 80 ÷ 5 = <strong>$16</strong> за один бургер — в 3 раза дороже!</p>
+    </div>
+
+    <p><strong>Логика:</strong> MP большой → на один бургер «уходит» мало труда → MC маленькая. MP маленький → тот же повар дорогой, а бургеров мало → MC большая.</p>
+    <p class="nb-en">High MP → low MC. Low MP → high MC. They move in opposite directions.</p>
+
+    <p>Ещё одна формула (для средних издержек): <strong>AVC = w / AP</strong>, где AP = Q ÷ L (бургеров на одного повара в среднем).</p>
+
+    <hr>
+
+    <h2>7. Почему MC — U-образная</h2>
+    <p>Сначала MP растёт → MC падает. Потом MP падает → MC растёт. Минимум MC — там, где MP максимален (4-й повар).</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg">
+            <line x1="40" y1="170" x2="330" y2="170" stroke="#333" stroke-width="1.5"/>
+            <line x1="40" y1="170" x2="40" y2="30" stroke="#333" stroke-width="1.5"/>
+            <text x="15" y="45" font-size="11">MC</text>
+            <text x="280" y="188" font-size="11">Q</text>
+            <path d="M 60 80 Q 180 150 300 50" stroke="#c0392b" stroke-width="2.5" fill="none"/>
+            <text x="170" y="140" font-size="11" font-weight="600" fill="#c0392b">MC</text>
+            <circle cx="180" cy="130" r="5" fill="#27ae60"/>
+            <text x="188" y="125" font-size="9" fill="#27ae60">минимум</text>
+            <text x="55" y="95" font-size="9" fill="#666">мало поваров —</text>
+            <text x="55" y="107" font-size="9" fill="#666">бургер дорогой</text>
+            <text x="240" y="65" font-size="9" fill="#666">много поваров —</text>
+            <text x="240" y="77" font-size="9" fill="#666">бургер снова дорогой</text>
+        </svg>
+        <p class="fig-cap">MC = стоимость ещё одного бургера · минимум там, где повар добавляет больше всего (4-й)</p>
+    </div>
+
+    <hr>
+
+    <h2>8. Только краткий период (short run)</h2>
+    <p>Закон работает, когда <strong>гриль/цех не меняется</strong>, а ты только нанимаешь людей.</p>
+    <p>Если построить вторую кухню — это уже <strong>долгий период</strong> → другая тема: <a href="Returns_to_Scale_Explanation.html">Returns to Scale</a>.</p>
+    <p class="nb-en">Short run = fixed capital, variable labour. Long run = can expand the kitchen too.</p>
+
+    <hr>
+
+    <h2>Шпаргалка</h2>
+    <ul>
+        <li>Гриль один, workers больше → Q растёт, но всё медленнее</li>
+        <li>«Добавил последний» = <strong>MP</strong></li>
+        <li>После пика (4 повара) MP падает → diminishing returns</li>
+        <li><strong>MC = w / MP</strong> · MP падает → MC растёт</li>
+        <li>Только short run</li>
+    </ul>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="Production_Function_Explanation.html">← Production Function</a> · <a href="Returns_to_Scale_Explanation.html">Returns to Scale →</a></p>
+</div>
+</body>
+</html>

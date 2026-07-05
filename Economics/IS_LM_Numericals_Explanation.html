@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IS-LM Numericals — Найти Y* и i* (exam algebra)</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-macro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком или в таблице</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Policy_Mix_Explanation.html">← Policy Mix</a></p>
+
+    <h1>IS-LM Numericals — Найти Y* и i*</h1>
+    <p class="source">Exam Topic #26 · two equations, two unknowns · goods market + money market</p>
+
+    <div class="nb-def"><strong>Задача на экзамене:</strong> даны функции <span class="hl">C, I, G</span> (товарный рынок) и <span class="hl">M, L</span> (денежный рынок) → найти равновесные <strong>Y*</strong> (выпуск) и <strong>i*</strong> (процентная ставка).</div>
+    <p class="nb-en">Typical exam problem: given consumption, investment, government spending and money supply/demand — find equilibrium output Y* and interest rate i*.</p>
+
+    <div class="nb-key">
+        Алгоритм: (1) вывести <strong>IS</strong> из Y = C + I + G · (2) записать <strong>LM</strong> из M = L · (3) подставить → <strong>i*</strong> → <strong>Y*</strong> · (4) проверить в LM
+    </div>
+    <p class="nb-en">Algorithm: derive IS, write LM, substitute to find i* then Y*, then check LM.</p>
+
+    <hr>
+
+    <h2>Step 0 — What IS and LM mean / Что такое IS и LM</h2>
+    <table>
+        <tr><th>Кривая<span class="en-cell">Curve</span></th><th>Рынок<span class="en-cell">Market</span></th><th>Условие<span class="en-cell">Condition</span></th><th>Наклон<span class="en-cell">Slope</span></th></tr>
+        <tr><td><strong>IS</strong></td><td>Товары (goods)<span class="en-cell">Goods market</span></td><td>Y = C + I + G</td><td>i↓ → Y↑ (нисходящая)</td></tr>
+        <tr><td><strong>LM</strong></td><td>Деньги (money)<span class="en-cell">Money market</span></td><td>M = L(Y, i)</td><td>Y↑ → i↑ (восходящая)</td></tr>
+    </table>
+    <p class="nb-en">IS = goods market equilibrium. LM = money market equilibrium. Equilibrium = intersection → (Y*, i*).</p>
+
+    <hr>
+
+    <h2>Exam example / Стандартный пример с экзамена</h2>
+
+    <h3>Given / Дано</h3>
+    <div class="nb-formula">
+        C = 50 + 0,75Y &nbsp;·&nbsp; I = 200 − 20i &nbsp;·&nbsp; G = 50
+        <div class="var-list">M = 200 (money supply) · L = 0,25Y − 5i (money demand) · i = interest rate (%)</div>
+    </div>
+    <p class="nb-en">Consumption C = 50 + 0.75Y. Investment I = 200 − 20i. G = 50. M = 200. L = 0.25Y − 5i.</p>
+
+    <hr>
+
+    <h2>Step 1 — Derive IS (goods market)</h2>
+    <div class="nb-def">IS: подставляем C, I, G в <span class="hl">Y = C + I + G</span> и выражаем Y через i.</div>
+    <p class="nb-en">Start from Y = C + I + G and substitute to get Y as a function of i.</p>
+
+    <div class="nb-example">
+        <p class="step">Y = 50 + 0,75Y + 200 − 20i + 50</p>
+        <p class="step">Y = 300 + 0,75Y − 20i</p>
+        <p class="step">Y − 0,75Y = 300 − 20i</p>
+        <p class="step">0,25Y = 300 − 20i</p>
+        <p class="step">Y = 300 / 0,25 − 20 / 0,25 · i</p>
+        <p class="ans"><strong>IS: Y = 1200 − 80i</strong></p>
+    </div>
+    <p class="nb-en">Collect Y terms: 0.25Y = 300 − 20i → Y = 1200 − 80i. Higher i → lower Y (downward IS).</p>
+
+    <div class="nb-why">Коэффициент при i отрицательный → IS нисходящая: выше ставка → меньше I → меньше Y.</div>
+    <p class="nb-en">Negative coefficient on i means IS slopes down: higher interest rate reduces investment and output.</p>
+
+    <hr>
+
+    <h2>Step 2 — Write LM (money market)</h2>
+    <div class="nb-def">LM: <span class="hl">M = L</span> — предложение денег = спрос на деньги.</div>
+    <p class="nb-en">Money market equilibrium: money supply M equals money demand L.</p>
+
+    <div class="nb-example">
+        <p class="step">200 = 0,25Y − 5i</p>
+        <p class="ans"><strong>LM: 0,25Y − 5i = 200</strong> &nbsp;(или Y = 800 + 20i)</p>
+    </div>
+    <p class="nb-en">LM: 0.25Y − 5i = 200. Equivalently Y = 800 + 20i (upward slope in Y–i space).</p>
+
+    <hr>
+
+    <h2>Step 3 — Solve simultaneously / Решаем систему</h2>
+    <div class="nb-def">Подставляем <strong>IS</strong> в <strong>LM</strong> (или наоборот) → одно уравнение с одной неизвестной <strong>i</strong>.</div>
+    <p class="nb-en">Substitute IS into LM to solve for i*, then plug back for Y*.</p>
+
+    <div class="nb-example">
+        <p class="step">Подставляем Y = 1200 − 80i в LM:</p>
+        <p class="step">200 = 0,25(1200 − 80i) − 5i</p>
+        <p class="step">200 = 300 − 20i − 5i</p>
+        <p class="step">200 = 300 − 25i</p>
+        <p class="step">−100 = −25i</p>
+        <p class="step"><strong>i* = 4</strong></p>
+        <p class="step">Y* = 1200 − 80(4) = 1200 − 320</p>
+        <p class="ans"><strong>Y* = 880 &nbsp;·&nbsp; i* = 4</strong></p>
+    </div>
+    <p class="nb-en">Substitute Y = 1200 − 80i into LM → i* = 4. Then Y* = 1200 − 320 = 880.</p>
+
+    <hr>
+
+    <h2>Step 4 — Check / Проверка</h2>
+    <div class="nb-example">
+        <p class="step"><strong>LM:</strong> 0,25 × 880 − 5 × 4 = 220 − 20 = <strong>200</strong> ✓</p>
+        <p class="step"><strong>IS:</strong> C + I + G = 50 + 0,75(880) + 200 − 20(4) + 50 = 50 + 660 + 200 − 80 + 50 = <strong>880</strong> ✓</p>
+        <p class="ans">Оба рынка сбалансированы → ответ верный</p>
+    </div>
+    <p class="nb-en">Always verify by plugging Y* and i* back into LM (and IS if time allows).</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" aria-label="IS-LM equilibrium numerical">
+            <line x1="55" y1="25" x2="55" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="250" x2="420" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="12">i</text>
+            <text x="400" y="268" font-size="12">Y</text>
+            <line x1="80" y1="220" x2="380" y2="40" stroke="#2980b9" stroke-width="2.5"/>
+            <text x="320" y="55" fill="#2980b9" font-size="12" font-weight="600">IS</text>
+            <line x1="80" y1="40" x2="380" y2="220" stroke="#e67e22" stroke-width="2.5"/>
+            <text x="320" y="210" fill="#e67e22" font-size="12" font-weight="600">LM</text>
+            <circle cx="230" cy="118" r="7" fill="#27ae60"/>
+            <text x="238" y="112" font-size="11" fill="#27ae60" font-weight="600">E</text>
+            <line x1="230" y1="118" x2="230" y2="250" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="55" y1="118" x2="230" y2="118" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="210" y="265" font-size="11">Y*=880</text>
+            <text x="18" y="122" font-size="11">i*=4</text>
+        </svg>
+        <p class="fig-caption">Равновесие E: IS ∩ LM → Y* = 880, i* = 4<span class="en-cell">Equilibrium at intersection of IS and LM curves.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>If IS is already given / Если IS уже дан одной строкой</h2>
+    <div class="nb-def">Иногда на экзамене дают уже упрощённое уравнение — сначала <span class="hl">приведи к виду Y = … − …i</span>.</div>
+    <p class="nb-en">Sometimes the exam gives a simplified IS equation — rearrange it first.</p>
+
+    <div class="nb-example">
+        <p class="step">Дано: Y = 500 + 0,5Y − 10i (ещё не финальный IS!)</p>
+        <p class="step">Y − 0,5Y = 500 − 10i → 0,5Y = 500 − 10i</p>
+        <p class="step"><strong>IS: Y = 1000 − 20i</strong></p>
+        <p class="step">LM: 200 = 0,25Y − 5i</p>
+        <p class="step">200 = 0,25(1000 − 20i) − 5i = 250 − 5i − 5i = 250 − 10i</p>
+        <p class="step">−50 = −10i → <strong>i* = 5</strong></p>
+        <p class="ans">Y* = 1000 − 20(5) = <strong>900</strong></p>
+    </div>
+    <p class="nb-en">First simplify Y = 500 + 0.5Y − 10i to Y = 1000 − 20i, then substitute into LM → i* = 5, Y* = 900.</p>
+
+    <hr>
+
+    <h2>Bonus — M changes (monetary policy) / Если меняется M</h2>
+    <div class="nb-def">Если ЦБ <strong>продаёт облигации</strong> → <span class="hl">M↓</span> → LM сдвигается влево → новые Y* и i* (IS та же).</div>
+    <p class="nb-en">If the central bank sells bonds, M falls, LM shifts left — solve with the same IS but new M.</p>
+
+    <div class="nb-example">
+        <p class="step">IS без изменений: Y = 1200 − 80i</p>
+        <p class="step">M падает: 200 → <strong>150</strong> → новая LM: 150 = 0,25Y − 5i</p>
+        <p class="step">150 = 0,25(1200 − 80i) − 5i = 300 − 20i − 5i = 300 − 25i</p>
+        <p class="step">−150 = −25i → <strong>i* = 6</strong> (было 4 — ставка выросла)</p>
+        <p class="ans">Y* = 1200 − 80(6) = <strong>720</strong> (было 880 — выпуск упал)</p>
+    </div>
+    <p class="nb-en">Contractionary monetary policy: M 200→150. New equilibrium i*=6 (up), Y*=720 (down). Same IS, new LM.</p>
+
+    <div class="nb-arrows">
+        <ul>
+            <li>CB sells bonds <span class="arr">→</span> M↓ <span class="arr">→</span> LM left <span class="arr">→</span> i↑, Y↓</li>
+            <li>CB buys bonds <span class="arr">→</span> M↑ <span class="arr">→</span> LM right <span class="arr">→</span> i↓, Y↑</li>
+            <li>G↑ <span class="arr">→</span> IS right <span class="arr">→</span> Y↑, i↑ (fiscal expansion)</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>Exam cheat sheet / Шпаргалка</h2>
+    <table>
+        <tr><th>Шаг<span class="en-cell">Step</span></th><th>Действие<span class="en-cell">Action</span></th></tr>
+        <tr><td>1</td><td>Y = C + I + G → собрать Y слева → <strong>IS: Y = a − bi</strong></td></tr>
+        <tr><td>2</td><td>M = L(Y,i) → <strong>LM: kY − hi = M</strong></td></tr>
+        <tr><td>3</td><td>Подставить IS в LM → <strong>i*</strong></td></tr>
+        <tr><td>4</td><td>Подставить i* в IS → <strong>Y*</strong></td></tr>
+        <tr><td>5</td><td>Проверить: 0,25Y* − 5i* = M ?</td></tr>
+    </table>
+
+    <div class="nb-key">
+        IS from Y=C+I+G · LM from M=L · solve 2×2 · answer (Y*, i*) · check LM · if M or G changes → new LM or IS, solve again
+    </div>
+    <p class="nb-en">Key: derive IS and LM, solve the system, verify in LM. Policy shocks change M (LM) or G (IS).</p>
+
+    <div class="nb-conclusion">IS-LM numerics = две линии, два неизвестных. IS из товарного рынка, LM из денежного. Пересечение → Y* и i*. Пример: Y*=880, i*=4.</div>
+    <p class="nb-en">IS-LM numerics: two equations, two unknowns. Derive IS from goods market, LM from money market. Intersection gives Y* and i*.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="Policy_Mix_Explanation.html">← Policy Mix</a> · <a href="index.html">К оглавлению</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Externalities — внешние эффекты</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-market">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Monopoly_Explanation.html">← Monopoly</a></p>
+
+    <h1>Externalities — внешние эффекты</h1>
+    <p class="source">Frank, гл. 16 · конспект</p>
+
+    <div class="nb-def"><strong>Externality</strong> — внешняя выгода или внешний <strong>издержка</strong> от какой-то деятельности, которые получают <span class="hl">третьи лица</span> (bystanders), а не те, кто покупает/продаёт.</div>
+    <p class="nb-en">An externality is an external cost or benefit of an activity that falls on people not involved in the transaction.</p>
+
+    <hr>
+
+    <h2>1. Два типа</h2>
+    <table>
+        <tr><th>Тип</th><th>Кто страдает / выигрывает</th><th>Пример</th></tr>
+        <tr>
+            <td><strong>Negative externality</strong><br>отрицательный</td>
+            <td><strong>External cost</strong> — вред третьим лицам</td>
+            <td>Завод дымит — страдают соседи</td>
+        </tr>
+        <tr>
+            <td><strong>Positive externality</strong><br>положительный</td>
+            <td><strong>External benefit</strong> — польза третьим</td>
+            <td>Прививка — защищает и других</td>
+        </tr>
+    </table>
+    <p class="nb-en">Negative = external cost on bystanders. Positive = external benefit to bystanders.</p>
+
+    <hr>
+
+    <h2>2. Сколько производят на рынке?</h2>
+    <table>
+        <tr><th></th><th>Negative</th><th>Positive</th></tr>
+        <tr>
+            <td><strong>Рынок делает</strong></td>
+            <td><strong>Слишком много</strong> Q</td>
+            <td><strong>Слишком мало</strong> Q</td>
+        </tr>
+        <tr>
+            <td><strong>Почему</strong></td>
+            <td>Фирма не платит за вред соседям → дешевле для неё → выпускает больше</td>
+            <td>Покупатель не получает всю пользу обществу → спрос ниже → выпускают меньше</td>
+        </tr>
+    </table>
+    <p class="nb-en">Negative externality → overproduction. Positive externality → underproduction.</p>
+
+    <div class="key-box"><strong>Важно:</strong> negative → <em>too much</em> · positive → <em>too little</em>. (Не путать с макро MPC — это другая аббревиатура!)</div>
+
+    <hr>
+
+    <h2>3. Четыре буквы — не путать с макро!</h2>
+    <p>Здесь <strong>MPC</strong> = Marginal <strong>Private</strong> Cost, не «marginal propensity to consume» из макро.</p>
+    <p class="nb-en">Here MPC = marginal private cost, not marginal propensity to consume from macro.</p>
+
+    <table>
+        <tr><th>Буквы</th><th>Русский</th><th>Кто чувствует</th></tr>
+        <tr>
+            <td><strong>MPC</strong></td>
+            <td>предельные <strong>частные</strong> издержки</td>
+            <td>Только производитель / покупатель в сделке</td>
+        </tr>
+        <tr>
+            <td><strong>MSC</strong></td>
+            <td>предельные <strong>общественные</strong> издержки</td>
+            <td>Вся society = частные + вред третьим</td>
+        </tr>
+        <tr>
+            <td><strong>MPB</strong></td>
+            <td>предельная <strong>частная</strong> выгода</td>
+            <td>Только тот, кто покупает/пользуется</td>
+        </tr>
+        <tr>
+            <td><strong>MSB</strong></td>
+            <td>предельная <strong>общественная</strong> выгода</td>
+            <td>Вся society = частная + польза третьим</td>
+        </tr>
+    </table>
+
+    <div class="nb-formula">
+        MSC = MPC + external <strong>cost</strong> &nbsp; (negative externality)<br>
+        MSB = MPB + external <strong>benefit</strong> &nbsp; (positive externality)
+    </div>
+    <p class="nb-en">MSC = MPC + marginal external cost · MSB = MPB + marginal external benefit.</p>
+
+    <hr>
+
+    <h2>4. График (negative externality)</h2>
+    <p>Оси: <strong>Price</strong> (цена и издержки) · <strong>Q</strong> (выпуск).</p>
+    <p>На графике: цена для покупателя + издержки для <strong>3rd persons</strong> (bystanders).</p>
+    <p class="nb-en">Axes: price/cost vs quantity. Social curves include harm or benefit to bystanders.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="210" x2="380" y2="210" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="28" font-size="12">P</text>
+            <text x="365" y="225" font-size="12">Q</text>
+            <line x1="60" y1="200" x2="340" y2="40" stroke="#27ae60" stroke-width="2.5"/>
+            <text x="300" y="55" font-size="10" fill="#27ae60">MB / MSB</text>
+            <line x1="60" y1="40" x2="340" y2="200" stroke="#3498db" stroke-width="2.5"/>
+            <text x="280" y="195" font-size="10" fill="#3498db">MPC</text>
+            <line x1="60" y1="70" x2="340" y2="200" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,4"/>
+            <text x="280" y="175" font-size="10" fill="#e74c3c">MSC</text>
+            <circle cx="175" cy="125" r="5" fill="#8e44ad"/>
+            <text x="155" y="118" font-size="10">Q market</text>
+            <circle cx="220" cy="108" r="5" fill="#f39c12"/>
+            <text x="228" y="102" font-size="10">Q social</text>
+        </svg>
+        <p class="fig-cap">Negative: MSC выше MPC → рынок Q <strong>больше</strong>, чем нужно обществу</p>
+    </div>
+
+    <div class="nb-example">
+        <p class="step">Частный оптимум: MB = MPC</p>
+        <p class="step">Общественный оптимум: MB = MSC</p>
+        <p class="ans">Q market &gt; Q social → лишний выпуск → deadweight loss</p>
+    </div>
+    <p class="nb-en">Private optimum: MB = MPC. Social optimum: MB = MSC. Market produces too much when MSC &gt; MPC.</p>
+
+    <hr>
+
+    <h2>5. Что делать?</h2>
+    <ul>
+        <li><strong>Negative</strong> → налог (Pigouvian tax) — поднять частные издержки до MSC</li>
+        <li><strong>Positive</strong> → субсидия — поднять частную выгоду до MSB</li>
+        <li><strong>Coase</strong> — если права ясны и договориться дёшево, иногда без государства</li>
+    </ul>
+    <p class="nb-en">Tax negative externalities · subsidize positive ones · Coase theorem if bargaining is cheap.</p>
+
+    <hr>
+
+    <h2>Шпаргалка</h2>
+    <ul>
+        <li>Externality = cost/benefit for <strong>3rd persons</strong></li>
+        <li>Negative → too much Q · Positive → too little Q</li>
+        <li>MSC = MPC + external cost · MSB = MPB + external benefit</li>
+        <li>MPC здесь ≠ macro MPC (propensity to consume)</li>
+    </ul>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="Nash_Equilibrium_Explanation.html">← Nash</a> · <a href="Costs_Law_SD_Explanation.html">Costs &amp; S&amp;D →</a></p>
+</div>
+</body>
+</html>

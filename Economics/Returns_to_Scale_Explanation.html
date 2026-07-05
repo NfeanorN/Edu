@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTS и economies of scale</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-firm">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Long_Run_Cost_Function_Explanation.html">← График LTC</a></p>
+
+    <h1>RTS — отдача от масштаба</h1>
+    <p class="source">Frank, гл. 9 · конспект</p>
+
+    <div class="nb-def"><strong>RTS</strong> — удвоил <strong>всё</strong> (печи + людей) — выпуск вырос в 2 раза, <strong>больше</strong> чем в 2, или <strong>меньше</strong>?</div>
+    <p class="nb-en">Returns to scale (RTS): double all inputs — does output double, more than double, or less?</p>
+
+    <table>
+        <tr><th>Тип</th><th>Удвоил всё → выпуск</th></tr>
+        <tr><td><strong>Increasing</strong></td><td>больше чем ×2 (например ×2.5)</td></tr>
+        <tr><td><strong>Constant</strong></td><td>ровно ×2</td></tr>
+        <tr><td><strong>Decreasing</strong></td><td>меньше чем ×2 (например ×1.5)</td></tr>
+    </table>
+    <p class="nb-en">Increasing: output &gt; ×2 · Constant: output = ×2 · Decreasing: output &lt; ×2.</p>
+
+    <p>≠ diminishing returns (+1 повар, печь та же). → <a href="Diminishing_Returns_Explanation.html">Diminishing Returns</a></p>
+    <p class="nb-en">Not the same as diminishing returns (short run: +1 worker, fixed oven).</p>
+
+    <hr>
+
+    <h2>Economies of scale — экономия от масштаба</h2>
+    <p>Простыми словами: <strong>чем больше производишь — тем дешевле один товар</strong> (average cost падает).</p>
+    <p class="nb-en">Economies of scale: the more you produce, the lower the average cost per unit.</p>
+
+    <div class="nb-example">
+        <p class="step">Q = 1 000 → <strong>$12</strong> за штуку (точка S)</p>
+        <p class="step">Q = 2 000 → <strong>$8</strong> за штуку (точка M)</p>
+        <p class="step">Q = 5 000 → <strong>$4</strong> за штуку (точка L)</p>
+        <p class="ans">Больше выпуск → ниже cost per unit</p>
+    </div>
+    <p class="nb-en">More output → lower cost per unit (S $12 → M $8 → L $4).</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="30" x2="50" y2="190" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="190" x2="380" y2="190" stroke="#333" stroke-width="1.5"/>
+            <text x="15" y="40" font-size="10">$/шт</text>
+            <text x="350" y="205" font-size="10">Q</text>
+            <path d="M 80 50 Q 200 100 360 160" stroke="#2980b9" stroke-width="2.5" fill="none"/>
+            <circle cx="100" cy="55" r="4" fill="#e74c3c"/><text x="70" y="48" font-size="8">S $12</text>
+            <circle cx="180" cy="95" r="4" fill="#e74c3c"/><text x="150" y="88" font-size="8">M $8</text>
+            <circle cx="340" cy="155" r="4" fill="#e74c3c"/><text x="300" y="148" font-size="8">L $4</text>
+        </svg>
+        <p class="fig-cap">Average cost падает при росте Q — economies of scale<span class="en-cell">Average cost falls as output grows.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>График LRAC (U-образная)</h2>
+    <div class="key-box"><strong>LRAC</strong> = <strong>LAC</strong> = одно и то же. <strong>L</strong>ong-<strong>R</strong>un <strong>A</strong>verage <strong>C</strong>ost = долгосрочные <strong>средние</strong> издержки = <strong>LTC ÷ Q</strong> ($ за один пирог).</div>
+    <p class="nb-en">LRAC and LAC are the same: long-run average cost = LTC ÷ Q = cost per unit of output.</p>
+    <p>Ось Y = <strong>cost per unit</strong> ($ за штуку). Ось X = output (Q).</p>
+    <p class="nb-en">Y-axis = cost per unit · X-axis = output Q · U-shaped long-run average cost (LRAC).</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="30" x2="50" y2="200" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="200" x2="390" y2="200" stroke="#333" stroke-width="1.5"/>
+            <text x="15" y="40" font-size="10">$/unit</text>
+            <text x="360" y="215" font-size="10">Q</text>
+            <path d="M 70 60 Q 180 170 210 170 Q 240 170 350 70" stroke="#333" stroke-width="2.5" fill="none"/>
+            <path d="M 70 60 Q 140 120 210 170" stroke="#e67e22" stroke-width="3" fill="none"/>
+            <path d="M 210 170 L 280 170" stroke="#2980b9" stroke-width="3"/>
+            <path d="M 280 170 Q 320 120 350 70" stroke="#5dade2" stroke-width="3" fill="none"/>
+            <text x="100" y="100" font-size="9" fill="#e67e22">economies of scale</text>
+            <text x="100" y="112" font-size="8" fill="#e67e22">increasing RTS · AC↓</text>
+            <text x="215" y="188" font-size="8" fill="#2980b9">constant RTS</text>
+            <text x="290" y="100" font-size="9" fill="#5dade2">diseconomies</text>
+            <text x="290" y="112" font-size="8" fill="#5dade2">decreasing RTS · AC↑</text>
+            <text x="195" y="165" font-size="8" fill="#666">min efficient scale</text>
+        </svg>
+        <p class="fig-cap">Слева дешевеет · посередине flat · справа дорожает<span class="en-cell">Left: AC falls · middle: flat · right: AC rises.</span></p>
+    </div>
+
+    <table>
+        <tr><th>Участок</th><th>RTS</th><th>Что происходит</th></tr>
+        <tr><td>Слева ↓</td><td>increasing</td><td>Растёшь — один товар дешевле</td></tr>
+        <tr><td>Дно —</td><td>constant</td><td>Цена за штуку не меняется</td></tr>
+        <tr><td>Справа ↑</td><td>decreasing</td><td>Слишком большая фирма — дороже</td></tr>
+    </table>
+    <p class="nb-en">Left = increasing RTS (economies of scale) · flat bottom = constant RTS · right = decreasing RTS (diseconomies of scale).</p>
+
+    <hr>
+
+    <h2>Примеры из конспекта ($200 вложил)</h2>
+    <table>
+        <tr><th>RTS</th><th>Выпуск</th><th>$ за штуку</th></tr>
+        <tr><td><strong>Increasing</strong></td><td>1000 шт</td><td>200÷1000 = <strong>$0.20</strong></td></tr>
+        <tr><td><strong>Constant</strong></td><td>200 шт</td><td>200÷200 = <strong>$1.00</strong></td></tr>
+        <tr><td><strong>Decreasing</strong></td><td>120 шт</td><td>200÷120 = <strong>$1.60</strong></td></tr>
+    </table>
+    <p>Одинаковые $200 — но чем больше выпуск при increasing RTS, тем <strong>дешевле</strong> каждая штука.</p>
+    <p class="nb-en">Same $200 invested — with increasing RTS you get more units, so cost per unit is lowest ($0.20 vs $1.00 vs $1.60).</p>
+
+    <div class="key-box">
+        RTS = про выпуск при ×2 всего<br>
+        Economies of scale = один товар дешевле при росте Q<br>
+        График LTC с лекции → <a href="Long_Run_Cost_Function_Explanation.html">три линии</a>
+    </div>
+    <p class="nb-en">RTS = output when scaling all inputs · economies of scale = falling unit cost · see LTC lecture graph.</p>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="Long_Run_Cost_Function_Explanation.html">← График LTC</a> · <a href="Diminishing_Returns_Explanation.html">Diminishing Returns →</a></p>
+</div>
+</body>
+</html>
