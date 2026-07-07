@@ -119,6 +119,213 @@
 
     <hr>
 
+    <h2>График: AFC, ATC, MC / Cost curves</h2>
+    <p><strong>Оси:</strong> <strong>Cost</strong> ($ за единицу) · <strong>Quantity</strong> (Q).</p>
+    <p>Чтобы найти <strong>прибыль</strong>: π = (P* − <strong>ATC</strong>) × Q*.</p>
+    <p class="nb-en">Profit = (P* − ATC) × Q*. You need the cost curves on the graph.</p>
+
+    <table>
+        <tr><th>Кривая</th><th>Формула</th><th>На графике</th></tr>
+        <tr><td><strong>AFC</strong></td><td>FC / Q</td><td>Всегда падает (постоянные издержки «размазываются»)</td></tr>
+        <tr><td><strong>AVC</strong></td><td>VC / Q</td><td>U-образная</td></tr>
+        <tr><td><strong>ATC</strong></td><td>TC / Q = AVC + AFC</td><td>U-образная, выше AVC</td></tr>
+        <tr><td><strong>MC</strong></td><td>ΔTC / ΔQ</td><td>Пересекает ATC <strong>снизу</strong> в минимуме ATC</td></tr>
+    </table>
+    <p class="nb-en">AFC = fixed cost per unit, always falls. ATC = AVC + AFC. MC crosses ATC at its minimum.</p>
+
+    <div class="key-box">
+        <strong>Кто куда идёт:</strong><br>
+        · <strong>AFC</strong> — <em>всегда</em> сверху вниз ↘ (чем больше Q, тем меньше FC/Q)<br>
+        · <strong>AVC, ATC, MC</strong> — <strong>U-образные</strong>: сначала ↘ вниз, потом ↗ вверх<br>
+        · <strong>MC</strong> пересекает ATC <strong>снизу</strong> ровно в минимуме ATC
+    </div>
+    <p class="nb-en">AFC always falls. AVC, ATC, MC are U-shaped: fall then rise. MC crosses ATC at minimum ATC from below.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="25" x2="55" y2="270" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="270" x2="430" y2="270" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="35" font-size="13" font-weight="600">Cost</text>
+            <text x="18" y="48" font-size="9" fill="#666">$/unit</text>
+            <text x="365" y="288" font-size="13" font-weight="600">Quantity</text>
+            <!-- AFC: always down (high left → low right) -->
+            <path d="M 65 45 L 400 245" stroke="#95a5a6" stroke-width="2" stroke-dasharray="6,4" fill="none"/>
+            <text x="340" y="230" font-size="11" fill="#95a5a6">AFC ↘</text>
+            <!-- AVC: U-shape - down then up -->
+            <path d="M 65 95 Q 150 200 230 205 Q 310 208 405 115" stroke="#3498db" stroke-width="2" fill="none"/>
+            <text x="100" y="130" font-size="9" fill="#3498db">↘</text>
+            <text x="370" y="108" font-size="11" fill="#3498db">AVC</text>
+            <!-- ATC: U above AVC -->
+            <path d="M 65 75 Q 160 195 240 192 Q 320 188 405 105" stroke="#8e44ad" stroke-width="2.5" fill="none"/>
+            <text x="100" y="110" font-size="9" fill="#8e44ad">↘</text>
+            <text x="370" y="98" font-size="12" fill="#8e44ad" font-weight="600">ATC</text>
+            <!-- MC: U, steeper, min left of ATC min -->
+            <path d="M 65 110 Q 140 215 210 200 Q 290 185 405 90" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="370" y="82" font-size="12" fill="#e74c3c" font-weight="600">MC</text>
+            <!-- min ATC - MC crosses here from below -->
+            <circle cx="240" cy="192" r="5" fill="#27ae60"/>
+            <text x="248" y="188" font-size="9" fill="#27ae60">min ATC</text>
+            <circle cx="210" cy="200" r="4" fill="#e74c3c"/>
+            <text x="175" y="215" font-size="8" fill="#e74c3c">min MC</text>
+            <!-- Q* = 4 on left (falling) part of ATC -->
+            <line x1="155" y1="270" x2="155" y2="25" stroke="#f39c12" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="142" y="285" font-size="10" fill="#f39c12">Q*=4</text>
+            <circle cx="155" cy="168" r="4" fill="#f39c12"/>
+            <text x="162" y="165" font-size="9" fill="#f39c12">ATC</text>
+            <!-- P* = 6 -->
+            <line x1="55" y1="145" x2="155" y2="145" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <text x="22" y="149" font-size="10" fill="#f39c12">P*=6</text>
+            <!-- profit rectangle -->
+            <rect x="55" y="145" width="100" height="23" fill="#f39c12" opacity="0.2" stroke="#f39c12" stroke-width="1"/>
+            <text x="70" y="160" font-size="9" fill="#d68910">π=(6−ATC)×4</text>
+            <text x="280" y="250" font-size="9" fill="#666">слева: кривые ↘</text>
+            <text x="280" y="262" font-size="9" fill="#666">справа: кривые ↗</text>
+        </svg>
+        <p class="fig-caption">AFC только падает · AVC/ATC/MC = U · при Q*=4 ATC ещё на нисходящей части · π = (P*−ATC)×Q*</p>
+    </div>
+    <p class="nb-en">AFC always declines. ATC is U-shaped above AVC. At Q*=4 and P*=6, profit is the shaded rectangle (P*−ATC)×Q*.</p>
+
+    <hr>
+
+    <h2>График: LRTC — как в конспекте</h2>
+
+    <div class="key-box">
+        <strong>Два разных графика — не путать!</strong><br>
+        · <strong>P – Q</strong> (выше): цена, спрос D, MR, <strong>MC горизонтальна</strong><br>
+        · <strong>Cost – Quantity</strong> (ниже): <strong>LRTC</strong> — сколько $ <em>всего</em> потратили
+    </div>
+    <p class="nb-en">Two graphs: P–Q for demand/MR/MC · Cost–Quantity for LRTC (total $ spent).</p>
+
+    <p>Если <strong>MC = 2</strong> (постоянна, как на графике P–Q), то:</p>
+    <div class="nb-formula">LRTC = MC × Q = 2Q &nbsp;→&nbsp; <strong>прямая из (0,0)</strong></div>
+    <p class="nb-en">Constant MC = 2 → LRTC = 2Q → straight line from the origin.</p>
+
+    <div class="story">
+        <strong>Почему TC может быть 0, если MC = 2?</strong><br><br>
+        <strong>MC</strong> — это не «стартовая плата». Это цена <em>ещё одной</em> единицы:<br>
+        · Q = 0 → ничего не произвели → потратили <strong>$0</strong><br>
+        · Q = 1 → добавили 1 штуку по $2 → TC = <strong>$2</strong><br>
+        · Q = 4 → 4 × $2 = <strong>$8</strong><br><br>
+        MC = 2 — это <strong>наклон</strong> линии TC (сколько добавляет каждая единица), а не точка на оси при Q=0.
+    </div>
+    <p class="nb-en">MC is not a starting fee — it's the cost of one more unit. At Q=0, total cost is $0. MC=2 is the slope of the TC line, not the intercept.</p>
+
+    <div class="key-box">
+        <strong>Когда TC НЕ начинается с нуля?</strong><br>
+        Если есть <strong>fixed costs (FC)</strong> — аренда, оборудование — то при Q=0 уже потратили FC.<br>
+        Тогда: <strong>TC = FC + MC×Q</strong> — линия начинается <strong>выше</strong> нуля на оси Cost.<br><br>
+        <strong>LRTC (long run)</strong> часто рисуют из (0,0), потому что в долгом периоде <em>все</em> издержки переменные — FC нет.
+    </div>
+    <p class="nb-en">With fixed costs: TC = FC + MC×Q, line starts above zero. Long-run LRTC often starts at origin because there are no fixed costs in the long run.</p>
+
+    <div class="nb-example">
+        <p class="step">Q = 4 → LRTC = 2 × 4 = <strong>$8</strong> всего</p>
+        <p class="step">Q = 8 → LRTC = 2 × 8 = <strong>$16</strong> всего</p>
+        <p class="ans">Наклон линии LRTC = MC = <strong>2</strong></p>
+    </div>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+            <!-- grid like notebook -->
+            <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8ecf0" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect x="55" y="25" width="355" height="265" fill="url(#grid)"/>
+            <!-- axes -->
+            <line x1="55" y1="25" x2="55" y2="290" stroke="#333" stroke-width="2"/>
+            <line x1="55" y1="290" x2="410" y2="290" stroke="#333" stroke-width="2"/>
+            <text x="20" y="40" font-size="14" font-weight="600">Cost</text>
+            <text x="20" y="55" font-size="9" fill="#666">$ total</text>
+            <text x="360" y="308" font-size="14" font-weight="600">Quantity</text>
+            <!-- LRTC line from origin: slope MC=2, scale Q 0-10 maps to x, Cost 0-20 maps to y -->
+            <!-- (55,290) = (0,0), (410,290) = Q=10, y=290-13*cost_per_unit -->
+            <line x1="55" y1="290" x2="380" y2="55" stroke="#8e44ad" stroke-width="3"/>
+            <text x="300" y="100" font-size="13" fill="#8e44ad" font-weight="600">LRTC</text>
+            <text x="300" y="115" font-size="10" fill="#8e44ad">slope = MC = 2</text>
+            <!-- point Q=4, Cost=8 -->
+            <line x1="187" y1="290" x2="187" y2="186" stroke="#999" stroke-dasharray="4,3"/>
+            <line x1="55" y1="186" x2="187" y2="186" stroke="#999" stroke-dasharray="4,3"/>
+            <circle cx="187" cy="186" r="5" fill="#27ae60"/>
+            <text x="193" y="182" font-size="10" fill="#27ae60">(4, $8)</text>
+            <text x="175" y="305" font-size="10">4</text>
+            <!-- point Q=8, Cost=16 -->
+            <line x1="319" y1="290" x2="319" y2="102" stroke="#999" stroke-dasharray="4,3"/>
+            <line x1="55" y1="102" x2="319" y2="102" stroke="#999" stroke-dasharray="4,3"/>
+            <circle cx="319" cy="102" r="5" fill="#f39c12"/>
+            <text x="325" y="98" font-size="10" fill="#f39c12">(8, $16)</text>
+            <text x="312" y="305" font-size="10">8</text>
+            <!-- origin -->
+            <circle cx="55" cy="290" r="4" fill="#333"/>
+            <text x="42" y="305" font-size="9">0</text>
+        </svg>
+        <p class="fig-caption">LRTC — прямая из нуля · MC=2 → при Q=4 тратишь $8, при Q=8 — $16</p>
+    </div>
+
+    <p><strong>На графике P–Q</strong> MC=2 — горизонталь. <strong>На графике Cost–Q</strong> LRTC — диагональ вверх. Это одно и то же: каждая следующая единица стоит $2.</p>
+    <p class="nb-en">Horizontal MC on P–Q graph = diagonal LRTC on Cost–Q graph. Each extra unit adds $2 to total cost.</p>
+
+    <hr>
+
+    <h2>Три вида LRTC (long run, RTS)</h2>
+    <p>Если масштаб фирмы меняется, LRTC может изгибаться — не только прямая:</p>
+
+    <div class="key-box">
+        <strong>Связь с монополией:</strong> если LRTC растёт <strong>медленнее</strong> Q (зелёная линия, increasing RTS) → $/шт падает → одна большая фирма дешевле многих маленьких → <strong>natural monopoly</strong>.
+    </div>
+    <p class="nb-en">If LRTC rises slower than output (green line), unit cost falls — one big firm is cheaper → natural monopoly.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid2" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8ecf0" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect x="60" y="40" width="360" height="260" fill="url(#grid2)"/>
+            <line x1="60" y1="40" x2="60" y2="300" stroke="#333" stroke-width="2"/>
+            <line x1="60" y1="300" x2="420" y2="300" stroke="#333" stroke-width="2"/>
+            <text x="18" y="48" font-size="13" font-weight="600">Cost</text>
+            <text x="18" y="62" font-size="9" fill="#666">$ (LRTC)</text>
+            <text x="355" y="318" font-size="13" font-weight="600">Quantity</text>
+            <!-- constant RTS = LRTC straight (same as MC constant case) -->
+            <line x1="60" y1="300" x2="400" y2="60" stroke="#333" stroke-width="2.5"/>
+            <text x="280" y="115" font-size="10" font-weight="600">LRTC constant</text>
+            <text x="280" y="128" font-size="9" fill="#666">(прямая, MC=const)</text>
+            <!-- increasing RTS - green below -->
+            <path d="M 60 300 Q 170 285 230 250 Q 290 210 400 60" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <text x="130" y="278" font-size="10" font-weight="600" fill="#27ae60">increasing RTS</text>
+            <!-- decreasing RTS - red above -->
+            <path d="M 60 300 Q 170 240 230 170 Q 290 120 400 60" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+            <text x="270" y="100" font-size="10" font-weight="600" fill="#e74c3c">decreasing RTS</text>
+            <circle cx="400" cy="60" r="5" fill="#8e44ad"/>
+            <text x="408" y="56" font-size="10" fill="#8e44ad">Q*</text>
+            <!-- Q=200 vertical -->
+            <line x1="230" y1="300" x2="230" y2="40" stroke="#999" stroke-dasharray="4,3"/>
+            <text x="215" y="315" font-size="9">Quantity=200</text>
+            <circle cx="230" cy="250" r="4" fill="#27ae60"/>
+            <text x="238" y="262" font-size="9" fill="#27ae60">$400</text>
+            <circle cx="230" cy="210" r="4" fill="#333"/>
+            <text x="238" y="208" font-size="9">$500</text>
+            <circle cx="230" cy="170" r="4" fill="#e74c3c"/>
+            <text x="238" y="168" font-size="9" fill="#e74c3c">$600</text>
+            <text x="245" y="255" font-size="8" fill="#27ae60">LAC=$2</text>
+            <text x="245" y="215" font-size="8" fill="#333">LAC=$2.50</text>
+            <text x="245" y="175" font-size="8" fill="#e74c3c">LAC=$3</text>
+        </svg>
+        <p class="fig-caption">При Q=200: зелёная $400 (LAC $2) · чёрная $500 ($2.50) · красная $600 ($3) · ниже линии = дешевле</p>
+    </div>
+
+    <div class="nb-example">
+        <p class="step">LRTC при Q=200 на <strong>зелёной</strong> линии = <strong>$400</strong></p>
+        <p class="step">LAC = LRTC ÷ Q = 400 ÷ 200 = <strong>$2</strong> за единицу</p>
+        <p class="ans">Падающая LRTC (зелёная) → монополист с большим Q имеет преимущество по издержкам</p>
+    </div>
+    <p class="nb-en">At Q=200 on the green line, LRTC=$400, LAC=$2/unit. Falling LRTC favours a large monopolist.</p>
+
+    <hr>
+
     <h2>Monopoly vs perfect competition / Сравнение</h2>
     <table>
         <tr><th><span class="en-cell">Item</span></th><th>Perfect competition<span class="en-cell">Perfect competition</span></th><th>Monopoly<span class="en-cell">Monopoly</span></th></tr>

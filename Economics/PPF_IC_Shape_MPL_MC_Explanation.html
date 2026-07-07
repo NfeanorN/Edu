@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPF, IC shape · MPL &amp; MC numericals</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-micro">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком</p>
+    <p class="back"><a href="index.html">← Economics</a></p>
+
+    <h1>Форма PPF и IC · числовые MPL &amp; MC</h1>
+    <p class="source">Frank · Ch. 3 (IC) · Ch. 8–9 (MPL, MC) · Ch. 17 (PPF)</p>
+
+    <div class="key-box"><strong>Не путать слова:</strong> PPF и IC выглядят <em>зеркально</em>. PPF — <strong>вогнутая</strong> к началу координат (concave). IC — <strong>выпуклая</strong> к началу (convex). Обе «луком» наружу, но называются по-разному.</div>
+
+    <hr>
+
+    <h2>1. PPF — почему вогнутая (concave)?</h2>
+
+    <div class="nb-def"><strong>PPF</strong> (Production Possibilities Frontier) — максимум двух товаров (например, <strong>food</strong> и <strong>clothing</strong>), который экономика может произвести при данных ресурсах.</div>
+    <p class="nb-en">PPF = maximum combinations of two goods the economy can produce with fixed resources.</p>
+
+    <p><strong>Почему кривая «луком» наружу?</strong> Потому что <strong>альтернативная стоимость растёт</strong>: чем больше ты уже делаешь одного товара, тем <strong>дороже</strong> каждая следующая единица в терминах второго товара.</p>
+    <p class="nb-en">Opportunity cost rises as you specialize more in one good — that's why the PPF is concave to the origin.</p>
+
+    <div class="nb-example">
+        <p class="step">Сначала переключи землю с одежды на еду — лёгкие участки, мало потерь</p>
+        <p class="step">Потом переключаешь фабрики, где шили одежду — теряешь <strong>больше</strong> clothing за каждый +1 food</p>
+        <p class="ans">Наклон PPF (MRT) <strong>круче</strong> по мере движения вдоль кривой → <strong>concave</strong></p>
+    </div>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="380" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="28" font-size="12">Food</text>
+            <text x="350" y="245" font-size="12">Clothing</text>
+            <path d="M 70 50 Q 200 120 340 210" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <circle cx="120" cy="85" r="4" fill="#3498db"/>
+            <text x="125" y="82" font-size="9">мало food —</text>
+            <text x="125" y="93" font-size="9">дешёвый обмен</text>
+            <circle cx="280" cy="175" r="4" fill="#e74c3c"/>
+            <text x="230" y="168" font-size="9">много food —</text>
+            <text x="230" y="179" font-size="9">дорогой обмен</text>
+        </svg>
+        <p class="fig-cap">PPF concave: чем больше food, тем больше clothing отдаёшь за +1 food</p>
+    </div>
+
+    <div class="nb-formula">MRT = |наклон PPF| = opportunity cost of +1 food in clothing</div>
+    <p class="nb-en">MRT = marginal rate of transformation = slope of PPF = opportunity cost.</p>
+
+    <hr>
+
+    <h2>2. Indifference curve — почему выпуклая (convex)?</h2>
+
+    <div class="nb-def"><strong>IC</strong> — все наборы (food, shelter), между которыми потребителю <strong>одинаково хорошо</strong>.</div>
+    <p class="nb-en">Indifference curve = bundles with equal utility.</p>
+
+    <p><strong>Почему «луком» к началу координат?</strong> Из-за <strong>убывающей предельной полезности</strong> и <strong>убывающего MRS</strong>:</p>
+    <ul>
+        <li>Когда у тебя <strong>мало</strong> food — ты сильно хочешь food и готов отдать <strong>много</strong> shelter за +1 food</li>
+        <li>Когда food <strong>много</strong> — ещё один фунт food ценишь <strong>слабее</strong> → отдаёшь <strong>меньше</strong> shelter</li>
+    </ul>
+    <p class="nb-en">Diminishing MRS: the more food you already have, the less shelter you're willing to give up for one more unit of food.</p>
+
+    <div class="nb-example">
+        <p class="step">Мало еды: готов обменять <strong>5</strong> sq yd shelter → <strong>1</strong> lb food</p>
+        <p class="step">Много еды: готов только <strong>1</strong> sq yd → <strong>1</strong> lb food</p>
+        <p class="ans">Наклон IC (MRS) <strong>пологеет</strong> по мере движения вправо → <strong>convex</strong> к началу</p>
+    </div>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="380" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="28" font-size="12">Food</text>
+            <text x="350" y="245" font-size="12">Shelter</text>
+            <path d="M 120 55 Q 220 120 380 220" stroke="#8e44ad" stroke-width="2.5" fill="none"/>
+            <text x="300" y="210" font-size="11" fill="#8e44ad">IC</text>
+            <text x="130" y="70" font-size="9" fill="#666">крутой наклон —</text>
+            <text x="130" y="81" font-size="9" fill="#666">сильно хочу food</text>
+            <text x="300" y="195" font-size="9" fill="#666">пологий — food хватает</text>
+        </svg>
+        <p class="fig-cap">IC convex: MRS падает вдоль кривой</p>
+    </div>
+
+    <hr>
+
+    <h2>3. PPF vs IC — одна таблица</h2>
+    <table>
+        <tr><th></th><th>PPF</th><th>Indifference curve</th></tr>
+        <tr>
+            <td><strong>Форма</strong></td>
+            <td><strong>Concave</strong> (вогнутая к началу)</td>
+            <td><strong>Convex</strong> (выпуклая к началу)</td>
+        </tr>
+        <tr>
+            <td><strong>Наклон</strong></td>
+            <td>MRT — opportunity cost</td>
+            <td>MRS — готовность обменять</td>
+        </tr>
+        <tr>
+            <td><strong>Почему кривая?</strong></td>
+            <td>Растущая альтернативная стоимость в производстве</td>
+            <td>Убывающая готовность менять один товар на другой</td>
+        </tr>
+        <tr>
+            <td><strong>Эффективность</strong></td>
+            <td colspan="2">В идеале: <strong>MRT = MRS</strong> (Ch. 17)</td>
+        </tr>
+    </table>
+    <p class="nb-en">PPF concave = rising opportunity cost. IC convex = diminishing MRS. Efficient allocation: MRT = MRS.</p>
+
+    <hr>
+
+    <h2>4. MPL — числовой пример (Frank, кухня)</h2>
+
+    <p><strong>MPL</strong> (marginal product of labour) = сколько <strong>дополнительного выпуска</strong> даёт <strong>последний</strong> worker.</p>
+    <p class="nb-en">MPL = extra output from hiring one more worker = ΔQ when L increases by 1.</p>
+
+    <div class="nb-formula">MPL = Q<sub>новый</sub> − Q<sub>старый</sub></div>
+
+    <table>
+        <tr>
+            <th>L<br>(поваров)</th>
+            <th>Q<br>(бургеры)</th>
+            <th>MPL<br>(добавил последний)</th>
+            <th>Расчёт</th>
+        </tr>
+        <tr><td>3</td><td>27</td><td>—</td><td></td></tr>
+        <tr><td>4</td><td>43</td><td><strong>16</strong></td><td>43 − 27</td></tr>
+        <tr><td>5</td><td>58</td><td><strong>15</strong></td><td>58 − 43</td></tr>
+        <tr><td>6</td><td>72</td><td><strong>14</strong></td><td>72 − 58</td></tr>
+        <tr><td>7</td><td>81</td><td><strong>9</strong></td><td>81 − 72</td></tr>
+        <tr><td>8</td><td>86</td><td><strong>5</strong></td><td>86 − 81</td></tr>
+    </table>
+    <p class="fig-cap">MPL = MP для labour. Пик при L=4, потом падает → diminishing returns</p>
+    <p class="nb-en">MPL peaks at 4 cooks, then falls — diminishing returns.</p>
+
+    <div class="nb-example">
+        <p class="step"><strong>Задача:</strong> при L=6 выпуск 72. Наняли 7-го → Q=81. Найти MPL 7-го.</p>
+        <p class="ans">MPL = 81 − 72 = <strong>9</strong> бургеров</p>
+    </div>
+
+    <hr>
+
+    <h2>5. MC — числовой пример</h2>
+
+    <p><strong>MC</strong> (marginal cost) = стоимость производства <strong>ещё одной</strong> единицы выпуска.</p>
+    <p class="nb-en">MC = cost of producing one more unit of output.</p>
+
+    <div class="nb-formula"><strong>MC = w / MPL</strong><br>w = зарплата одного worker за час</div>
+    <p class="nb-en">MC = wage / MPL. Pay the worker w; they add MPL units → cost per extra unit = w/MPL.</p>
+
+    <div class="nb-example">
+        <p class="step"><strong>Дано:</strong> w = $80/час, 4-й повар: MPL = 16</p>
+        <p class="step">MC = 80 ÷ 16 = <strong>$5</strong> за 1 бургер</p>
+    </div>
+
+    <div class="nb-example">
+        <p class="step"><strong>Дано:</strong> w = $80/час, 8-й повар: MPL = 5</p>
+        <p class="step">MC = 80 ÷ 5 = <strong>$16</strong> за 1 бургер</p>
+        <p class="ans">MPL упал → MC вырос. Они движутся <strong>в противоположные стороны</strong>.</p>
+    </div>
+
+    <h3>Сводная таблица: MPL → MC</h3>
+    <p>w = <strong>$80</strong> фиксировано:</p>
+    <table>
+        <tr><th>L</th><th>Q</th><th>MPL</th><th>MC = 80/MPL</th></tr>
+        <tr><td>4</td><td>43</td><td>16</td><td><strong>$5.00</strong></td></tr>
+        <tr><td>5</td><td>58</td><td>15</td><td><strong>$5.33</strong></td></tr>
+        <tr><td>6</td><td>72</td><td>14</td><td><strong>$5.71</strong></td></tr>
+        <tr><td>7</td><td>81</td><td>9</td><td><strong>$8.89</strong></td></tr>
+        <tr><td>8</td><td>86</td><td>5</td><td><strong>$16.00</strong></td></tr>
+    </table>
+    <p class="nb-en">As MPL falls, MC rises. Minimum MC where MPL is maximum (4th cook).</p>
+
+    <hr>
+
+    <h2>6. Практика — решай сам</h2>
+
+    <div class="nb-example">
+        <p class="step"><strong>1.</strong> L=5 → Q=58. L=6 → Q=72. MPL 6-го?</p>
+        <p class="ans">72 − 58 = <strong>14</strong></p>
+    </div>
+
+    <div class="nb-example">
+        <p class="step"><strong>2.</strong> w=$100, MPL=10. MC?</p>
+        <p class="ans">100 ÷ 10 = <strong>$10</strong></p>
+    </div>
+
+    <div class="nb-example">
+        <p class="step"><strong>3.</strong> w=$60, MC=$12. Найти MPL.</p>
+        <p class="ans">MPL = w/MC = 60/12 = <strong>5</strong> единиц выпуска</p>
+    </div>
+
+    <div class="nb-example">
+        <p class="step"><strong>4.</strong> Почему PPF concave, а IC convex?</p>
+        <p class="ans">PPF: растёт opportunity cost · IC: падает MRS (убывающая готовность обменивать)</p>
+    </div>
+
+    <hr>
+
+    <h2>Шпаргалка</h2>
+    <ul>
+        <li><strong>PPF concave</strong> — альтернативная стоимость растёт (MRT ↑)</li>
+        <li><strong>IC convex</strong> — MRS падает (меньше готов отдать за +1 товар)</li>
+        <li>Эффективность: <strong>MRT = MRS</strong></li>
+        <li><strong>MPL</strong> = ΔQ при +1 worker</li>
+        <li><strong>MC = w / MPL</strong> · MPL↓ → MC↑</li>
+    </ul>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">
+        <a href="MRS_Explanation.html">← MRS</a> ·
+        <a href="Diminishing_Returns_Explanation.html">Diminishing Returns</a> ·
+        <a href="Rational_Consumer_Choice_Explanation.html">Rational Choice →</a>
+    </p>
+</div>
+</body>
+</html>

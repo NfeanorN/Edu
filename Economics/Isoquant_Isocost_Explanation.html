@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isoquant &amp; Isocost — простыми словами</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-firm">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Production_Function_Explanation.html">← Production Function</a></p>
+
+    <h1>Isoquant &amp; Isocost</h1>
+    <p class="source">Frank, гл. 9 · пекарня · long run</p>
+
+    <div class="nb-def">Ты владелец пекарни. Нужно <strong>100 пирогов в день</strong>. Можно нанять <strong>пекарей</strong> (L) или поставить <strong>печи</strong> (K). Вопрос: <span class="hl">какой mix дешевле всего?</span></div>
+    <p class="nb-en">You run a bakery. Need 100 pies/day. Hire bakers (L) or buy ovens (K). What's the cheapest mix?</p>
+
+    <hr>
+
+    <h2>1. Главное — одной фразой</h2>
+    <p><strong>Iso-cost</strong> = «iso» (равный) + cost — все варианты за <strong>одни и те же деньги</strong>.</p>
+    <p><strong>Iso-quant</strong> = «iso» + quantity — все варианты с <strong>одним и тем же выпуском</strong>.</p>
+    <p>Фирма ищет <strong>касание</strong>: нужный выпуск + минимум денег.</p>
+    <p class="nb-en">Isocost = same money. Isoquant = same output. Optimum = where they touch.</p>
+
+    <div class="key-box">
+        <strong>Точно как у потребителя (Ch. 3):</strong><br>
+        Потребитель: budget line + IC → точка F<br>
+        Фирма: <strong>isocost</strong> + <strong>isoquant</strong> → точка F<br>
+        Только «товары» = пекари и печи.
+    </div>
+
+    <hr>
+
+    <h2>2. Isocost — «$200 и всё»</h2>
+
+    <p>У тебя <strong>$200 в неделю</strong>. Цены:</p>
+    <ul>
+        <li>1 пекарь = <strong>w = $50</strong></li>
+        <li>1 печь = <strong>r = $100</strong></li>
+    </ul>
+
+    <div class="nb-formula">C = wL + rK &nbsp;→&nbsp; 50L + 100K = 200</div>
+
+    <div class="nb-example">
+        <p class="step"><strong>Вариант 1:</strong> 4 пекаря, 0 печей → 4×50 = $200 ✓</p>
+        <p class="step"><strong>Вариант 2:</strong> 0 пекарей, 2 печи → 2×100 = $200 ✓</p>
+        <p class="step"><strong>Вариант 3:</strong> 2 пекаря + 1 печь → 100+100 = $200 ✓</p>
+        <p class="ans">Все на <strong>одной красной линии</strong> — isocost</p>
+    </div>
+    <p class="nb-en">Four bakers, or two ovens, or two bakers + one oven — all cost exactly $200.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="360" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="15" y="30" font-size="12">K</text>
+            <text x="15" y="42" font-size="9" fill="#666">печи</text>
+            <text x="340" y="248" font-size="12">L</text>
+            <text x="318" y="238" font-size="9" fill="#666">пекари</text>
+            <line x1="50" y1="50" x2="330" y2="230" stroke="#e74c3c" stroke-width="3"/>
+            <text x="200" y="200" font-size="11" fill="#e74c3c" font-weight="600">isocost $200</text>
+            <circle cx="50" cy="50" r="5" fill="#3498db"/>
+            <text x="56" y="48" font-size="9">2 печи</text>
+            <circle cx="330" cy="230" r="5" fill="#3498db"/>
+            <text x="290" y="225" font-size="9">4 пекаря</text>
+            <circle cx="190" cy="140" r="5" fill="#27ae60"/>
+            <text x="196" y="137" font-size="9" fill="#27ae60">2+1</text>
+            <polygon points="50,50 50,230 330,230" fill="rgba(231,76,60,0.06)"/>
+            <text x="120" y="180" font-size="9" fill="#999">под линией = дешевле</text>
+            <text x="200" y="100" font-size="9" fill="#e74c3c">над = не хватает $</text>
+        </svg>
+        <p class="fig-cap">Красная линия = все комбинации ровно за $200</p>
+    </div>
+
+    <p><strong>Наклон</strong> = −w/r = −50/100 = <strong>−½</strong> (пекарь в 2 раза дешевле печи).</p>
+    <p class="nb-en">Slope = −w/r. A baker costs half as much as an oven.</p>
+
+    <hr>
+
+    <h2>3. Isoquant — «100 пирогов любым способом»</h2>
+
+    <p>Нужно <strong>Q = 100 пирогов</strong>. Можно по-разному:</p>
+
+    <div class="story">
+        <strong>Много пекарей, мало печей:</strong> 10 пекарей + 2 печи → 100 пирогов<br>
+        <strong>Мало пекарей, много печей:</strong> 3 пекаря + 5 печей → 100 пирогов<br><br>
+        Разный набор — <strong>один выпуск</strong> → обе точки на <strong>зелёной</strong> кривой.
+    </div>
+    <p class="nb-en">10 bakers + 2 ovens, or 3 bakers + 5 ovens — same 100 pies, same isoquant.</p>
+
+    <ul>
+        <li><strong>Выше</strong> зелёная → больше пирогов (200 &gt; 100 &gt; 50)</li>
+        <li>Кривые <strong>не пересекаются</strong></li>
+    </ul>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="230" x2="360" y2="230" stroke="#333" stroke-width="1.5"/>
+            <text x="15" y="30" font-size="12">K</text>
+            <text x="340" y="248" font-size="12">L</text>
+            <path d="M 80 200 Q 170 140 330 90" stroke="#27ae60" stroke-width="1.5" fill="none" opacity="0.45"/>
+            <text x="300" y="85" font-size="9" fill="#27ae60">Q=50</text>
+            <path d="M 80 170 Q 180 115 340 100" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <text x="310" y="95" font-size="11" fill="#27ae60" font-weight="600">Q=100</text>
+            <path d="M 80 140 Q 190 85 350 110" stroke="#27ae60" stroke-width="1.5" fill="none" opacity="0.45"/>
+            <text x="320" y="105" font-size="9" fill="#27ae60">Q=200</text>
+            <circle cx="140" cy="145" r="4" fill="#8e44ad"/>
+            <text x="145" y="142" font-size="8">10L,2K</text>
+            <circle cx="280" cy="108" r="4" fill="#8e44ad"/>
+            <text x="285" y="105" font-size="8">3L,5K</text>
+        </svg>
+        <p class="fig-cap">Зелёная = isoquant · выше = больше выпуск</p>
+    </div>
+
+    <hr>
+
+    <h2>4. Оптимум F — касание</h2>
+
+    <p>Задача: <strong>100 пирогов</strong> за <strong>минимум $</strong>.</p>
+
+    <div class="nb-example">
+        <p class="step">Смотрим зелёную Q=100</p>
+        <p class="step">Ищем <strong>самую низкую</strong> красную линию, которая до неё <strong>дотягивается</strong></p>
+        <p class="step">Точка <strong>касания</strong> = F</p>
+        <p class="ans">Там дешевле всего сделать 100 пирогов</p>
+    </div>
+    <p class="nb-en">Find the lowest isocost line that still touches the Q=100 isoquant. Tangency point F = minimum cost.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="20" x2="50" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="50" y1="250" x2="380" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="15" y="30" font-size="12">K</text>
+            <text x="355" y="268" font-size="12">L</text>
+            <path d="M 80 170 Q 180 115 340 100" stroke="#27ae60" stroke-width="2.5" fill="none"/>
+            <text x="300" y="95" font-size="11" fill="#27ae60">Q=100</text>
+            <line x1="50" y1="70" x2="340" y2="250" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="250" y="220" font-size="11" fill="#e74c3c">isocost</text>
+            <line x1="50" y1="100" x2="340" y2="250" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.4"/>
+            <text x="80" y="95" font-size="9" fill="#999">дороже $</text>
+            <circle cx="210" cy="130" r="8" fill="#8e44ad"/>
+            <text x="220" y="127" font-size="12" fill="#8e44ad" font-weight="600">F</text>
+            <text x="225" y="145" font-size="9" fill="#8e44ad">мин. cost</text>
+        </svg>
+        <p class="fig-cap">F = касание · 100 пирогов за минимум денег</p>
+    </div>
+
+    <div class="key-box">
+        <strong>Не путать:</strong><br>
+        · <strong>Isocost</strong> = про <em>деньги</em> (красная, прямая)<br>
+        · <strong>Isoquant</strong> = про <em>выпуск</em> (зелёная, кривая)<br>
+        · <strong>F</strong> = ответ на экзамен
+    </div>
+
+    <hr>
+
+    <h2>5. Long run — зачем это всё</h2>
+    <p>В <strong>short run</strong> печь одна — меняешь только пекарей.</p>
+    <p>В <strong>long run</strong> можно и печи добавить — вот тогда isoquant + isocost.</p>
+    <p class="nb-en">Short run: fixed oven. Long run: choose both bakers and ovens.</p>
+
+    <hr>
+
+    <h2>6. Проверь себя</h2>
+
+    <div class="nb-example">
+        <p class="step">C=$200, w=$40, r=$80. Макс. пекарей?</p>
+        <p class="ans">200÷40 = <strong>5</strong></p>
+    </div>
+
+    <div class="nb-example">
+        <p class="step">2 пекаря + 1 печь, w=50, r=100. Сколько $?</p>
+        <p class="ans">100+100 = <strong>$200</strong></p>
+    </div>
+
+    <div class="nb-example">
+        <p class="step">Isoquant выше = больше или меньше Q?</p>
+        <p class="ans"><strong>Больше</strong></p>
+    </div>
+
+    <hr>
+
+    <h2>Шпаргалка</h2>
+    <ul>
+        <li><strong>Isocost</strong> — одни $ · C = wL + rK · красная линия</li>
+        <li><strong>Isoquant</strong> — один Q · зелёная кривая · выше = больше</li>
+        <li><strong>F</strong> = касание = дешевле всего</li>
+        <li>Как budget + IC у потребителя</li>
+    </ul>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">
+        <a href="Rational_Consumer_Choice_Explanation.html">← Rational Consumer</a> ·
+        <a href="Long_Run_Cost_Function_Explanation.html">Long Run Cost →</a>
+    </p>
+</div>
+</body>
+</html>
