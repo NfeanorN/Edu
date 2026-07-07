@@ -21,9 +21,9 @@
     <hr>
 
     <h2>Оси</h2>
-    <p><strong>Вправо (Q)</strong> — сколько пирогов произвели.</p>
-    <p><strong>Вверх (LTC)</strong> — сколько всего потратили $. Чем выше точка — тем больше денег.</p>
-    <p class="nb-en">X-axis = output Q · Y-axis = total cost LTC ($). Higher on the graph = more money spent.</p>
+    <p><strong>Вверх — Cost</strong> (издержки, $). Чем выше точка — тем больше потратили.</p>
+    <p><strong>Вправо — Quantity</strong> (выпуск Q). Сколько пирогов произвели.</p>
+    <p class="nb-en">Y-axis = Cost ($) · X-axis = Quantity (output Q). Higher = more money spent.</p>
 
     <hr>
 
@@ -82,8 +82,9 @@
         <svg class="svg-graph" viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
             <line x1="60" y1="40" x2="60" y2="300" stroke="#333" stroke-width="1.5"/>
             <line x1="60" y1="300" x2="420" y2="300" stroke="#333" stroke-width="1.5"/>
-            <text x="25" y="50" font-size="12">LTC $</text>
-            <text x="400" y="318" font-size="12">Q</text>
+            <text x="18" y="48" font-size="13" font-weight="600">Cost</text>
+            <text x="18" y="62" font-size="9" fill="#666">$ (LTC)</text>
+            <text x="355" y="318" font-size="13" font-weight="600">Quantity</text>
             <!-- diagonal -->
             <line x1="60" y1="300" x2="400" y2="60" stroke="#333" stroke-width="2.5"/>
             <text x="300" y="120" font-size="10" font-weight="600">① constant</text>
@@ -97,7 +98,7 @@
             <text x="408" y="56" font-size="10" fill="#8e44ad">Q*</text>
             <!-- Q=200 cut -->
             <line x1="230" y1="300" x2="230" y2="40" stroke="#999" stroke-dasharray="4,3"/>
-            <text x="218" y="315" font-size="9">Q=200</text>
+            <text x="205" y="315" font-size="9">Quantity=200</text>
             <circle cx="230" cy="250" r="4" fill="#27ae60"/>
             <text x="238" y="262" font-size="9" fill="#27ae60">$400</text>
             <circle cx="230" cy="210" r="4" fill="#333"/>
