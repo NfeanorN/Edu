@@ -52,8 +52,7 @@
     .q.correct { border-color: #27ae60; background: #f6fff9; }
     .q.wrong { border-color: #e74c3c; background: #fff8f8; }
     .q-num { font-weight: 700; color: #16a085; margin-bottom: 0.35rem; }
-    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
-    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
     .opts { display: grid; gap: 0.45rem; }
     label.opt {
       display: flex;
@@ -66,8 +65,7 @@
     label.opt:hover { background: #eef9f6; }
   .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
-    .opt-en { font-size: 0.95rem; }
-    .opt-ru { font-size: 0.82rem; color: #777; font-style: italic; }
+    .opt-en { font-size: 0.95rem; }
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -187,7 +185,7 @@
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← К тестам Accounting & Banking</a></p>
+    <p class="back"><a href="index.html">← Accounting & Banking tests</a></p>
     <h1>Part 1 — IFRS (25/06/2025)</h1>
     <p class="sub">IAS 2, Conceptual Framework, IFRS 15</p>
     <div class="rules">+1 / −1 · 25 June 2025 exam.</div>
@@ -195,8 +193,8 @@
       <div id="questions"></div>
       
       <div class="actions">
-        <button type="submit">Проверить ответы</button>
-        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+        <button type="submit">Check answers</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
       </div>
     </form>
     <div id="results">
@@ -207,9 +205,9 @@
   </div>
   <script>
     const SCORING = {"correct": 1, "wrong": -1, "max": null};
-    const QUESTIONS = [{"num": 1, "id": "q1", "en": "Which costing method is NOT allowed under IAS 2 – Inventory?", "ru": "Какой метод оценки запасов НЕ разрешён по IAS 2?", "options": [{"id": "a", "en": "Weighted Average", "ru": "Средневзвешенная"}, {"id": "b", "en": "FIFO", "ru": "FIFO"}, {"id": "c", "en": "LIFO", "ru": "LIFO"}, {"id": "d", "en": "Net Realisable Value", "ru": "Чистая возможная цена продажи"}], "correct": "c", "section": null}, {"num": 2, "id": "q2", "en": "Which is NOT a purpose of the IASB's Conceptual Framework?", "ru": "Что НЕ является целью Conceptual Framework IASB?", "options": [{"id": "a", "en": "Assist IASB in preparing IFRS", "ru": "Помощь IASB в подготовке IFRS"}, {"id": "b", "en": "Assist auditors on IFRS compliance", "ru": "Помощь аудиторам в оценке соответствия IFRS"}, {"id": "c", "en": "Assist when no IFRS covers an item", "ru": "Помощь при отсутствии IFRS по вопросу"}, {"id": "d", "en": "Be authoritative when IFRS conflicts with Framework", "ru": "Быть обязательным при конфликте IFRS и Framework"}], "correct": "d", "section": null}, {"num": 3, "id": "q3", "en": "Two fundamental qualitative characteristics (IFRS Framework):", "ru": "Две фундаментальные качественные характеристики (IFRS Framework):", "options": [{"id": "a", "en": "Comparability and Timeliness", "ru": "Сопоставимость и своевременность"}, {"id": "b", "en": "Relevance and Faithful Representation", "ru": "Уместность и достоверное представление"}, {"id": "c", "en": "Verifiability and Understandability", "ru": "Проверяемость и понятность"}, {"id": "d", "en": "Neutrality and Completeness", "ru": "Нейтральность и полнота"}], "correct": "b", "section": null}, {"num": 4, "id": "q4", "en": "Under IFRS 15, revenue is generally recognised when:", "ru": "По IFRS 15 выручка обычно признаётся когда:", "options": [{"id": "a", "en": "Customer places an order", "ru": "Клиент размещает заказ"}, {"id": "b", "en": "Entity receives cash", "ru": "Получена оплата"}, {"id": "c", "en": "Control of good or service is transferred to customer", "ru": "Контроль над товаром/услугой передан покупателю"}, {"id": "d", "en": "Contract is signed", "ru": "Подписан договор"}], "correct": "c", "section": null}];
-    const OPEN_ITEMS = [];
-    const SNA_ITEMS = [];
+    const QUESTIONS = [{"num":1,"id":"q1","en":"Which costing method is NOT allowed under IAS 2 – Inventory?","options":[{"id":"a","en":"Weighted Average"},{"id":"b","en":"FIFO"},{"id":"c","en":"LIFO"},{"id":"d","en":"Net Realisable Value"}],"correct":"c","section":null},{"num":2,"id":"q2","en":"Which is NOT a purpose of the IASB's Conceptual Framework?","options":[{"id":"a","en":"Assist IASB in preparing IFRS"},{"id":"b","en":"Assist auditors on IFRS compliance"},{"id":"c","en":"Assist when no IFRS covers an item"},{"id":"d","en":"Be authoritative when IFRS conflicts with Framework"}],"correct":"d","section":null},{"num":3,"id":"q3","en":"Two fundamental qualitative characteristics (IFRS Framework):","options":[{"id":"a","en":"Comparability and Timeliness"},{"id":"b","en":"Relevance and Faithful Representation"},{"id":"c","en":"Verifiability and Understandability"},{"id":"d","en":"Neutrality and Completeness"}],"correct":"b","section":null},{"num":4,"id":"q4","en":"Under IFRS 15, revenue is generally recognised when:","options":[{"id":"a","en":"Customer places an order"},{"id":"b","en":"Entity receives cash"},{"id":"c","en":"Control of good or service is transferred to customer"},{"id":"d","en":"Contract is signed"}],"correct":"c","section":null}]
+    const OPEN_ITEMS = []
+    const SNA_ITEMS = []
 
     const form = document.getElementById('test-form');
     const container = document.getElementById('questions');
@@ -232,18 +230,14 @@
         card.innerHTML = `
           <div class="q-num">Question ${q.num}</div>
           <div class="q-en">${q.en}</div>
-          <div class="q-ru">${q.ru}</div>
           <div class="opts">
             ${q.options.map(o => `
               <label class="opt">
                 <input type="radio" name="${q.id}" value="${o.id}" />
-                <span>
-                  <div class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</div>
-                  <div class="opt-ru">${o.ru}</div>
-                </span>
+                <span class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</span>
               </label>`).join('')}
           </div>
-          ${q.explain_ru ? `<details class="solution"><summary>📗 Решение</summary><div class="howto">${q.explain_ru}</div></details>` : ''}
+          ${q.explain ? `<details class="solution"><summary>📗 Solution</summary><div class="howto">${q.explain}</div></details>` : ''}
           <div class="feedback" hidden></div>`;
         container.appendChild(card);
       });
@@ -253,7 +247,7 @@
       if (!OPEN_ITEMS.length) return;
       let openSection = '';
       OPEN_ITEMS.forEach((item, idx) => {
-        const sec = item.section || (item.howto_ru ? 'Exercises' : 'Theory — short answers');
+        const sec = item.section || (item.howto_en ? 'Exercises' : 'Theory — short answers');
         if (sec !== openSection) {
           openSection = sec;
           const h = document.createElement('div');
@@ -263,30 +257,12 @@
         }
         const block = document.createElement('div');
         block.className = 'open-block';
-        const brief = item.sample_en || item.sample_ru || '';
+        const brief = item.sample_en || '';
         block.innerHTML = `
-          <div class="q-num">${item.title_ru}</div>
+          <div class="q-num">${item.title_en || item.en}</div>
           <div class="q-en">${item.en}</div>
-          <div class="q-ru">${item.ru}</div>
           ${brief ? `<div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">${brief}</div></div>` : ''}
           <textarea name="open_${idx}" placeholder="Your answer (optional)..."></textarea>`;
-        if (item.howto_ru) {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'reveal-btn secondary';
-          btn.textContent = 'Show full solution';
-          const answerBlock = document.createElement('div');
-          answerBlock.className = 'answer-block';
-          answerBlock.hidden = true;
-          answerBlock.innerHTML = '<div class="answer-label">Full solution</div><div class="howto"></div>';
-          answerBlock.querySelector('.howto').textContent = item.howto_ru;
-          btn.addEventListener('click', () => {
-            answerBlock.hidden = false;
-            btn.hidden = true;
-          });
-          block.appendChild(btn);
-          block.appendChild(answerBlock);
-        }
         container.appendChild(block);
       });
     }
@@ -295,14 +271,13 @@
       if (!SNA_ITEMS.length) return;
       const h = document.createElement('div');
       h.className = 'section-title';
-      h.textContent = 'SNA — расчёты';
+      h.textContent = 'SNA — calculations';
       container.appendChild(h);
       SNA_ITEMS.forEach((item, idx) => {
         const block = document.createElement('div');
         block.className = 'open-block';
         block.innerHTML = `
           <div class="q-en">${item.en}</div>
-          <div class="q-ru">${item.ru}</div>
           <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
           <div class="feedback" hidden></div>`;
         block.dataset.expected = item.expected;
@@ -350,7 +325,7 @@
       if (unanswered > 0) {
         resultsBox.classList.remove('visible');
         warnEl.hidden = false;
-        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        warnEl.textContent = `Answer all MCQ questions (${unanswered} unanswered).`;
         const first = container.querySelector('.q.unanswered');
         if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
@@ -368,7 +343,7 @@
           unanswered++;
           card.classList.add('unanswered');
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          fb.innerHTML = '⚠️ No answer selected. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
           return;
         }
 
@@ -377,14 +352,14 @@
           correct++;
           card.classList.add('correct');
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           wrong++;
           card.classList.add('wrong');
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
-            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
-            (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✗ Incorrect. Your answer: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         }
 
         card.querySelectorAll('label.opt').forEach((lbl) => {
@@ -406,13 +381,13 @@
         fb.hidden = false;
         if (ok === null) {
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '⚠️ Empty answer. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         } else if (ok) {
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '✗ Incorrect. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         }
       });
 
@@ -421,11 +396,11 @@
       if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
 
       document.getElementById('score-text').textContent =
-        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+        `Score: ${correct} of ${total} (${Math.round(correct/total*100)}%)`;
       document.getElementById('score-detail').textContent =
         SCORING.correct !== 1 || SCORING.wrong !== 0
-          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
-          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+          ? `Points: ${score.toFixed(1)} · Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`
+          : `Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`;
 
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });

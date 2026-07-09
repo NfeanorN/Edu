@@ -52,8 +52,7 @@
     .q.correct { border-color: #27ae60; background: #f6fff9; }
     .q.wrong { border-color: #e74c3c; background: #fff8f8; }
     .q-num { font-weight: 700; color: #16a085; margin-bottom: 0.35rem; }
-    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
-    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
     .opts { display: grid; gap: 0.45rem; }
     label.opt {
       display: flex;
@@ -66,8 +65,7 @@
     label.opt:hover { background: #eef9f6; }
   .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
-    .opt-en { font-size: 0.95rem; }
-    .opt-ru { font-size: 0.82rem; color: #777; font-style: italic; }
+    .opt-en { font-size: 0.95rem; }
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -204,7 +202,7 @@
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← К тестам Accounting & Banking</a></p>
+    <p class="back"><a href="index.html">← Accounting & Banking tests</a></p>
     <h1>Statement of Financial Position</h1>
     <p class="sub">Uniclam Group Corp. — exam photo + filled balance sheet</p>
     
@@ -229,7 +227,6 @@
       </figure>
       <div>
     <p class="q-en"><strong>How to fill the blank table:</strong> classify each item → add subtotals → Total Assets = Total Equity + Liabilities.</p>
-    <p class="q-ru" style="font-size:0.9rem;color:#666;font-style:italic">Разнести статьи → сложить → проверить баланс 614 550 €</p>
     <div class="open-block" style="box-shadow:none;overflow-x:auto;margin:0">
       <table class="sofp">
         <tr><th colspan="2">ASSETS</th><th colspan="2">EQUITY &amp; LIABILITIES</th></tr>
@@ -278,8 +275,8 @@
     </div>
 
       <div class="actions">
-        <button type="submit">Проверить ответы</button>
-        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+        <button type="submit">Check answers</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
       </div>
     </form>
     <div id="results">
@@ -290,9 +287,9 @@
   </div>
   <script>
     const SCORING = {"correct": 1, "wrong": 0, "max": null};
-    const QUESTIONS = [];
-    const OPEN_ITEMS = [{"title_ru":"SoFP — вариант 1 (5 pts)","ru":"Uniclam Group Corp. — построить Statement of Financial Position (меньшие суммы)","en":"Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)","howto_ru":"Шаг 1 — классификация по IFRS:\n  NCA: Goodwill 12 750 + Other intangible 8 500 + PPE 103 700\n  CA: Inventories 37 400 + Trade receivables 23 800 + Cash 18 700\n  Equity: Share capital 25 000 + Retained earnings 41 300\n  NCL: Long-term borrowings 75 000 + Deferred tax 12 550\n  CL: Short-term borrowings 20 000 + Trade payables 28 000 + Current tax 3 000\n\nШаг 2 — суммы:\n  NCA = 124 950 | CA = 79 900 | Total Assets = 204 850\n  Equity = 66 300 | NCL = 87 550 | CL = 51 000 | Total = 204 850 ✓","sample_ru":"Таблица выше на этой странице — Exercise 1 (5 pts).","sample_en":"Total Assets = 204,850. Equity 66,300 + Non-current liabilities 87,550 + Current liabilities 51,000."},{"title_ru":"SoFP — вариант 2 (6 pts)","ru":"Uniclam Group Corp. — SoFP (Exercise 1, 6 points)","en":"Statement of Financial Position — exam version","howto_ru":"Шаг 1 — классификация (данные с листа):\n  NCA: Goodwill 38 250 + Other intangible 25 500 + PPE 311 100\n  CA: Inventories 112 200 + Trade receivables 71 400 + Cash 56 100\n  Equity: Share capital 153 000 + Retained earnings 45 900\n  NCL: Long-term borrowings 229 500 + Deferred tax 33 150\n  CL: Short-term borrowings 53 550 + Trade payables 76 500 + Current tax 22 950\n\nШаг 2 — суммы:\n  NCA = 374 850 | CA = 239 700 | Total Assets = 614 550\n  Equity = 198 900 | NCL = 262 650 | CL = 153 000 | Total = 614 550 ✓","sample_ru":"Таблица выше — Exercise 1 (6 pts), Total 614 550 €.","sample_en":"Total Assets = Total Equity & Liabilities = 614,550. See the filled table above."},{"title_ru":"Exercise 3 (8 pts) — Depreciation","ru":"Exercise 3 — амортизация: $160 000, 6 лет, остаточная $28 000","en":"Exercise 3 (8 points). Cost $160,000, life 6 years, residual $28,000. (a) Annual charge straight-line and reducing balance 15%. (b) 6-year schedule for each method.","sample_en":"(a) Straight-line: $22,000 per year. Reducing balance: 15% of carrying value each year. (b) Year 6 NBV = $28,000 (SL) or $60,344 (RB) — see page 10.","howto_ru":"(a) Straight-line: (160 000 − 28 000) / 6 = 22 000 $/год.\nReducing balance: dep = carrying × 15%.\n\n(b) Таблицы на стр. 10.","sample_ru":"Полные таблицы — на стр. 10."},{"title_ru":"Exercise 3 (8 pts) — DCF Cassino SpA","ru":"Cassino SpA — DCF, WACC 5%, g 1%","en":"Evaluate Cassino SpA using DCF. WACC 5%, g 1%. Cash flows 2024–2028. Complete discount coefficients, DCFs, and W.","sample_en":"W ≈ 143,858 (sum of discounted cash flows). See page 13 for full table.","howto_ru":"Коэффициент = 1 / (1,05)^n\nDCF = Cash flow × коэффициент\n\n2024: 0,9524 → 23 810\n2025: 0,9070 → 27 211\n2026: 0,8638 → 30 234\n2027: 0,8227 → 31 263\n2028: 0,7835 → 31 341\n\nW = 143 858","sample_ru":"Полная таблица — стр. 13."}];
-    const SNA_ITEMS = [];
+    const QUESTIONS = []
+    const OPEN_ITEMS = [{"en":"Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)","sample_en":"Total Assets = 204,850. Equity 66,300 + Non-current liabilities 87,550 + Current liabilities 51,000.","title_en":"SoFP — variant 1 (5 pts)"},{"en":"Statement of Financial Position — exam version (larger figures)","sample_en":"Total Assets = Total Equity & Liabilities = 614,550. See the filled table above.","title_en":"SoFP — variant 2 (6 pts)"}]
+    const SNA_ITEMS = []
 
     const form = document.getElementById('test-form');
     const container = document.getElementById('questions');
@@ -315,18 +312,14 @@
         card.innerHTML = `
           <div class="q-num">Question ${q.num}</div>
           <div class="q-en">${q.en}</div>
-          <div class="q-ru">${q.ru}</div>
           <div class="opts">
             ${q.options.map(o => `
               <label class="opt">
                 <input type="radio" name="${q.id}" value="${o.id}" />
-                <span>
-                  <div class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</div>
-                  <div class="opt-ru">${o.ru}</div>
-                </span>
+                <span class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</span>
               </label>`).join('')}
           </div>
-          ${q.explain_ru ? `<details class="solution"><summary>📗 Решение</summary><div class="howto">${q.explain_ru}</div></details>` : ''}
+          ${q.explain ? `<details class="solution"><summary>📗 Solution</summary><div class="howto">${q.explain}</div></details>` : ''}
           <div class="feedback" hidden></div>`;
         container.appendChild(card);
       });
@@ -336,7 +329,7 @@
       if (!OPEN_ITEMS.length) return;
       let openSection = '';
       OPEN_ITEMS.forEach((item, idx) => {
-        const sec = item.section || (item.howto_ru ? 'Exercises' : 'Theory — short answers');
+        const sec = item.section || (item.howto_en ? 'Exercises' : 'Theory — short answers');
         if (sec !== openSection) {
           openSection = sec;
           const h = document.createElement('div');
@@ -346,30 +339,12 @@
         }
         const block = document.createElement('div');
         block.className = 'open-block';
-        const brief = item.sample_en || item.sample_ru || '';
+        const brief = item.sample_en || '';
         block.innerHTML = `
-          <div class="q-num">${item.title_ru}</div>
+          <div class="q-num">${item.title_en || item.en}</div>
           <div class="q-en">${item.en}</div>
-          <div class="q-ru">${item.ru}</div>
           ${brief ? `<div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">${brief}</div></div>` : ''}
           <textarea name="open_${idx}" placeholder="Your answer (optional)..."></textarea>`;
-        if (item.howto_ru) {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'reveal-btn secondary';
-          btn.textContent = 'Show full solution';
-          const answerBlock = document.createElement('div');
-          answerBlock.className = 'answer-block';
-          answerBlock.hidden = true;
-          answerBlock.innerHTML = '<div class="answer-label">Full solution</div><div class="howto"></div>';
-          answerBlock.querySelector('.howto').textContent = item.howto_ru;
-          btn.addEventListener('click', () => {
-            answerBlock.hidden = false;
-            btn.hidden = true;
-          });
-          block.appendChild(btn);
-          block.appendChild(answerBlock);
-        }
         container.appendChild(block);
       });
     }
@@ -378,14 +353,13 @@
       if (!SNA_ITEMS.length) return;
       const h = document.createElement('div');
       h.className = 'section-title';
-      h.textContent = 'SNA — расчёты';
+      h.textContent = 'SNA — calculations';
       container.appendChild(h);
       SNA_ITEMS.forEach((item, idx) => {
         const block = document.createElement('div');
         block.className = 'open-block';
         block.innerHTML = `
           <div class="q-en">${item.en}</div>
-          <div class="q-ru">${item.ru}</div>
           <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
           <div class="feedback" hidden></div>`;
         block.dataset.expected = item.expected;
@@ -433,7 +407,7 @@
       if (unanswered > 0) {
         resultsBox.classList.remove('visible');
         warnEl.hidden = false;
-        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        warnEl.textContent = `Answer all MCQ questions (${unanswered} unanswered).`;
         const first = container.querySelector('.q.unanswered');
         if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
@@ -451,7 +425,7 @@
           unanswered++;
           card.classList.add('unanswered');
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          fb.innerHTML = '⚠️ No answer selected. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
           return;
         }
 
@@ -460,14 +434,14 @@
           correct++;
           card.classList.add('correct');
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           wrong++;
           card.classList.add('wrong');
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
-            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
-            (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✗ Incorrect. Your answer: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         }
 
         card.querySelectorAll('label.opt').forEach((lbl) => {
@@ -489,13 +463,13 @@
         fb.hidden = false;
         if (ok === null) {
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '⚠️ Empty answer. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         } else if (ok) {
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '✗ Incorrect. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         }
       });
 
@@ -504,11 +478,11 @@
       if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
 
       document.getElementById('score-text').textContent =
-        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+        `Score: ${correct} of ${total} (${Math.round(correct/total*100)}%)`;
       document.getElementById('score-detail').textContent =
         SCORING.correct !== 1 || SCORING.wrong !== 0
-          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
-          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+          ? `Points: ${score.toFixed(1)} · Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`
+          : `Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`;
 
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });

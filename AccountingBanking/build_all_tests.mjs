@@ -6,6 +6,28 @@ import { fileURLToPath } from 'url';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 
+const CYRILLIC = /[\u0400-\u04FF]/;
+
+function cleanOption(o) {
+  const { ru, ...rest } = o;
+  return rest;
+}
+
+function cleanQuestion(q) {
+  const { ru, explain_ru, ...rest } = q;
+  if (explain_ru && !CYRILLIC.test(explain_ru)) rest.explain = explain_ru;
+  if (rest.options) rest.options = rest.options.map(cleanOption);
+  return rest;
+}
+
+function cleanOpenItem(item) {
+  const { ru, title_ru, sample_ru, howto_ru, ...rest } = item;
+  if (!rest.title_en && rest.en) {
+    rest.title_en = rest.en.length > 60 ? rest.en.slice(0, 57) + '…' : rest.en;
+  }
+  return rest;
+}
+
 const TEST_FILES = [
   { file: '01_Part1_Management_Accounting.html', title: '01 — Part 1 Management (05/06/2024)', desc: '8 MCQ · +1/−1' },
   { file: '06_Part1_IFRS_2025.html', title: '06 — Part 1 IFRS (25/06/2025)', desc: '4 MCQ · +1/−1' },
@@ -13,19 +35,49 @@ const TEST_FILES = [
   { file: '07_Part1_Management_Q5-8.html', title: '07 — Management Q5–8', desc: '4 MCQ · +1/−1' },
   { file: '02_Part2_Finance_Banking.html', title: '02 — Part 2 Finance & Banking', desc: '18 MCQ' },
   { file: '08_Part2_Exam_2026_Variant_B.html', title: '08 — Part 2 Exam 2026 Variant B', desc: '18 MCQ' },
+  { file: '13_Part2_Exam_2026_16-06_Variant_B.html', title: '13 — Part 2 Exam 16/06/2026 Variant B', desc: '18 MCQ' },
   { file: '12_Part2_Exam_Variant_C.html', title: '12 — Part 2 Variant C Q7–14', desc: '8 MCQ' },
-  { file: '03_Part2_Calculations.html', title: '03 — Расчёты Part 2', desc: '4 MCQ · 3 балла' },
+  { file: '03_Part2_Calculations.html', title: '03 — Part 2 Calculations', desc: '4 MCQ · 3 pts' },
   { file: '04_Sustainability.html', title: '04 — Sustainability & SROI', desc: '3 MCQ' },
-  { file: '09_Statement_of_Financial_Position.html', title: '09 — Statement of Financial Position', desc: 'SoFP + решения' },
+  { file: '14_Master_Question_Bank.html', title: '14 — Master Question Bank', desc: '32 MCQ · missing topics' },
+  { file: '09_Statement_of_Financial_Position.html', title: '09 — Statement of Financial Position', desc: 'SoFP + solutions' },
   { file: '10_Depreciation.html', title: '10 — Depreciation', desc: 'Exercise 3 (8 pts) + tables' },
-  { file: '05_Open_Questions.html', title: '05 — Открытые вопросы', desc: 'теория + задачи' },
+  { file: '05_Open_Questions.html', title: '05 — Open questions', desc: 'theory + exercises' },
 ];
 
 function parseConst(html, name) {
-  const re = new RegExp(`const ${name} = (\\[[\\s\\S]*?\\]|\\{[\\s\\S]*?\\});`);
-  const m = html.match(re);
-  if (!m) return name === 'SCORING' ? { correct: 1, wrong: 0, max: null } : [];
-  return JSON.parse(m[1]);
+  const json = extractJsConst(html, name);
+  if (!json) return name === 'SCORING' ? { correct: 1, wrong: 0, max: null } : [];
+  return JSON.parse(json);
+}
+
+function extractJsConst(html, name) {
+  const marker = `const ${name} = `;
+  const start = html.indexOf(marker);
+  if (start < 0) return null;
+  const valStart = start + marker.length;
+  const open = html[valStart];
+  if (open !== '[' && open !== '{') return null;
+  const close = open === '[' ? ']' : '}';
+  let depth = 0;
+  let inStr = false;
+  let esc = false;
+  for (let i = valStart; i < html.length; i++) {
+    const c = html[i];
+    if (inStr) {
+      if (esc) esc = false;
+      else if (c === '\\') esc = true;
+      else if (c === '"') inStr = false;
+      continue;
+    }
+    if (c === '"') { inStr = true; continue; }
+    if (c === open) depth++;
+    else if (c === close) {
+      depth--;
+      if (depth === 0) return html.slice(valStart, i + 1);
+    }
+  }
+  return null;
 }
 
 function parseTitle(html) {
@@ -47,13 +99,13 @@ const blocks = TEST_FILES.map((meta, bi) => {
   const html = readFileSync(join(ROOT, meta.file), 'utf8');
   const slug = slugFromFile(meta.file);
   const scoring = parseConst(html, 'SCORING');
-  const questions = parseConst(html, 'QUESTIONS').map((q, qi) => ({
+  const questions = parseConst(html, 'QUESTIONS').map((q, qi) => cleanQuestion({
     ...q,
     id: `${slug}_${q.id || 'q' + (qi + 1)}`,
     _block: slug,
     _scoring: scoring,
   }));
-  const open = parseConst(html, 'OPEN_ITEMS');
+  const open = parseConst(html, 'OPEN_ITEMS').map(cleanOpenItem);
   const sna = parseConst(html, 'SNA_ITEMS');
   const extra = parseExtra(html);
   return {
@@ -72,11 +124,11 @@ const allQuestions = blocks.flatMap(b => b.questions);
 const totalMcq = allQuestions.length;
 
 const html = `<!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Все тесты — Accounting &amp; Banking</title>
+  <title>All tests — Accounting &amp; Banking</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -148,7 +200,6 @@ const html = `<!doctype html>
     .q.wrong { border-color: #e74c3c; background: #fff8f8; }
     .q-num { font-weight: 700; color: #16a085; margin-bottom: 0.35rem; }
     .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
-    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
     .opts { display: grid; gap: 0.45rem; }
     label.opt {
       display: flex;
@@ -162,7 +213,6 @@ const html = `<!doctype html>
     .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
     .opt-en { font-size: 0.95rem; }
-    .opt-ru { font-size: 0.82rem; color: #777; font-style: italic; }
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -294,12 +344,12 @@ const html = `<!doctype html>
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← К списку тестов</a> · <a href="00_How_To_Solve.html">Как решать задачи</a></p>
-    <h1>Все тесты на одной странице</h1>
-    <p class="sub">Accounting &amp; Banking for SMEs — ${totalMcq} вопросов с вариантами + открытые вопросы и задачи.</p>
-    <div class="rules">Ответьте на все MCQ и нажмите «Проверить всё». Открытые вопросы — для самопроверки (краткие ответы и «Показать решение»).</div>
+    <p class="back"><a href="index.html">← Test list</a> · <a href="00_How_To_Solve.html">How to solve tasks</a></p>
+    <h1>All tests on one page</h1>
+    <p class="sub">Accounting &amp; Banking for SMEs — ${totalMcq} MCQ questions + open questions and exercises.</p>
+    <div class="rules">Answer all MCQ and click “Check all”. Open questions are for self-check (brief answers).</div>
     <nav class="toc">
-      <strong>Содержание:</strong>
+      <strong>Contents:</strong>
       <ol>
         ${blocks.map(b => `<li><a href="#block-${b.slug}">${b.title}</a> <span style="color:#888">(${b.desc})</span></li>`).join('\n        ')}
       </ol>
@@ -307,8 +357,8 @@ const html = `<!doctype html>
     <form id="test-form">
       <div id="questions"></div>
       <div class="actions">
-        <button type="submit">Проверить всё (${totalMcq} MCQ)</button>
-        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+        <button type="submit">Check all (${totalMcq} MCQ)</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
       </div>
     </form>
     <div id="results">
@@ -329,7 +379,7 @@ const html = `<!doctype html>
       if (!items.length) return;
       let openSection = '';
       items.forEach((item, idx) => {
-        const sec = item.section || (item.howto_ru ? 'Exercises' : 'Theory — short answers');
+        const sec = item.section || (item.howto_en ? 'Exercises' : 'Theory — short answers');
         if (sec !== openSection) {
           openSection = sec;
           const h = document.createElement('div');
@@ -339,14 +389,13 @@ const html = `<!doctype html>
         }
         const block = document.createElement('div');
         block.className = 'open-block';
-        const brief = item.sample_en || item.sample_ru || '';
+        const brief = item.sample_en || '';
         block.innerHTML = \`
-          <div class="q-num">\${item.title_ru || 'Question'}</div>
+          <div class="q-num">\${item.title_en || item.en}</div>
           <div class="q-en">\${item.en}</div>
-          <div class="q-ru">\${item.ru}</div>
           \${brief ? \`<div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">\${brief}</div></div>\` : ''}
           <textarea name="open_\${slug}_\${idx}" placeholder="Your answer (optional)..."></textarea>\`;
-        if (item.howto_ru) {
+        if (item.howto_en) {
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'reveal-btn secondary';
@@ -355,7 +404,7 @@ const html = `<!doctype html>
           answerBlock.className = 'answer-block';
           answerBlock.hidden = true;
           answerBlock.innerHTML = '<div class="answer-label">Full solution</div><div class="howto"></div>';
-          answerBlock.querySelector('.howto').textContent = item.howto_ru;
+          answerBlock.querySelector('.howto').textContent = item.howto_en;
           btn.addEventListener('click', () => { answerBlock.hidden = false; btn.hidden = true; });
           block.appendChild(btn);
           block.appendChild(answerBlock);
@@ -396,18 +445,14 @@ const html = `<!doctype html>
           card.innerHTML = \`
             <div class="q-num">Question \${q.num}</div>
             <div class="q-en">\${q.en}</div>
-            <div class="q-ru">\${q.ru}</div>
             <div class="opts">
               \${q.options.map(o => \`
                 <label class="opt">
                   <input type="radio" name="\${q.id}" value="\${o.id}" />
-                  <span>
-                    <div class="opt-en"><strong>\${o.id.toUpperCase()})</strong> \${o.en}</div>
-                    <div class="opt-ru">\${o.ru}</div>
-                  </span>
+                  <span class="opt-en"><strong>\${o.id.toUpperCase()})</strong> \${o.en}</span>
                 </label>\`).join('')}
             </div>
-            \${q.explain_ru ? \`<details class="solution"><summary>📗 Решение</summary><div class="howto">\${q.explain_ru}</div></details>\` : ''}
+            \${q.explain ? \`<details class="solution"><summary>📗 Solution</summary><div class="howto">\${q.explain}</div></details>\` : ''}
             <div class="feedback" hidden></div>\`;
           container.appendChild(card);
         });
@@ -417,14 +462,13 @@ const html = `<!doctype html>
         if (block.sna.length) {
           const h = document.createElement('div');
           h.className = 'section-title';
-          h.textContent = 'SNA — расчёты';
+          h.textContent = 'SNA — calculations';
           container.appendChild(h);
           block.sna.forEach((item, idx) => {
             const el = document.createElement('div');
             el.className = 'open-block';
             el.innerHTML = \`
               <div class="q-en">\${item.en}</div>
-              <div class="q-ru">\${item.ru}</div>
               <input type="text" name="sna_\${block.slug}_\${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
               <div class="feedback" hidden></div>\`;
             el.dataset.expected = item.expected;
@@ -476,7 +520,7 @@ const html = `<!doctype html>
       if (unanswered > 0) {
         resultsBox.classList.remove('visible');
         warnEl.hidden = false;
-        warnEl.textContent = 'Ответьте на все вопросы с вариантами (' + unanswered + ' без ответа).';
+        warnEl.textContent = 'Answer all MCQ questions (' + unanswered + ' unanswered).';
         const first = container.querySelector('.q.unanswered');
         if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
@@ -496,15 +540,15 @@ const html = `<!doctype html>
           score += sc.correct;
           card.classList.add('correct');
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           wrong++;
           score += sc.wrong;
           card.classList.add('wrong');
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
-            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
-            (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✗ Incorrect. Your answer: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         }
 
         card.querySelectorAll('label.opt').forEach((lbl) => {
@@ -524,21 +568,21 @@ const html = `<!doctype html>
         fb.hidden = false;
         if (ok === null) {
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '⚠️ Empty answer. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         } else if (ok) {
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно';
+          fb.innerHTML = '✓ Correct';
         } else {
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '✗ Incorrect. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         }
       });
 
       const total = QUESTIONS.length;
       document.getElementById('score-text').textContent =
-        'Результат: ' + correct + ' из ' + total + ' (' + Math.round(correct / total * 100) + '%)';
+        'Score: ' + correct + ' of ' + total + ' (' + Math.round(correct / total * 100) + '%)';
       document.getElementById('score-detail').textContent =
-        'Баллы: ' + score.toFixed(1) + ' · Верно: ' + correct + ' · Неверно: ' + wrong;
+        'Points: ' + score.toFixed(1) + ' · Correct: ' + correct + ' · Wrong: ' + wrong;
 
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
