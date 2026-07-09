@@ -16,8 +16,8 @@ def build_template():
     start = t.index('TEMPLATE = """') + len('TEMPLATE = """')
     end = t.index('"""', start)
     body = t[start:end]
-    body = body.replace("#7b4397", ACCENT).replace("#6a3784", "#138d75").replace(
-        "← К тестам HRM", "← К тестам Accounting & Banking"
+    body = body.replace("#7b4397", ACCENT).replace("#6a3784", "#138d75"    ).replace(
+        "← К тестам HRM", "← Accounting & Banking tests"
     ).replace("#f3f0f7", "#eef9f6").replace("#f8f5fc", "#eefaf7")
     body = body.replace(
         "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}",
@@ -52,110 +52,17 @@ def build_template():
         "          </div>\n"
         "          <div class=\"feedback\" hidden></div>`;",
         "          </div>\n"
-        "          ${{q.explain_ru ? `<details class=\"solution\"><summary>📗 Решение</summary><div class=\"howto\">${{q.explain_ru}}</div></details>` : ''}}\n"
+        "          ${{q.explain ? `<details class=\"solution\"><summary>📗 Solution</summary><div class=\"howto\">${{q.explain}}</div></details>` : ''}}\n"
         "          <div class=\"feedback\" hidden></div>`;",
     )
-    old_render_open = """    function renderOpen() {{
-      if (!OPEN_ITEMS.length) return;
-      const h = document.createElement('div');
-      h.className = 'section-title';
-      h.textContent = 'Открытые вопросы';
-      container.appendChild(h);
-      OPEN_ITEMS.forEach((item, idx) => {{
-        const block = document.createElement('div');
-        block.className = 'open-block';
-        block.innerHTML = `
-          <div class="q-num">${{item.title_ru}}</div>
-          <div class="q-ru">${{item.ru}}</div>
-          <div class="q-en">${{item.en}}</div>
-          <textarea name="open_${{idx}}" placeholder="Ваш ответ..."></textarea>
-          <div class="sample" hidden></div>`;
-        block.querySelector('.sample').textContent = item.sample_ru;
-        container.appendChild(block);
-      }});
-    }}"""
-    new_render_open = """    function renderOpen() {{
-      if (!OPEN_ITEMS.length) return;
-      let openSection = '';
-      OPEN_ITEMS.forEach((item, idx) => {{
-        const sec = item.section || (item.howto_ru ? 'Exercises' : 'Theory — short answers');
-        if (sec !== openSection) {{
-          openSection = sec;
-          const h = document.createElement('div');
-          h.className = 'section-title';
-          h.textContent = sec;
-          container.appendChild(h);
-        }}
-        const block = document.createElement('div');
-        block.className = 'open-block';
-        const brief = item.sample_en || item.sample_ru || '';
-        block.innerHTML = `
-          <div class="q-num">${{item.title_ru}}</div>
-          <div class="q-en">${{item.en}}</div>
-          <div class="q-ru">${{item.ru}}</div>
-          ${{brief ? `<div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">${{brief}}</div></div>` : ''}}
-          <textarea name="open_${{idx}}" placeholder="Your answer (optional)..."></textarea>`;
-        if (item.howto_ru) {{
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'reveal-btn secondary';
-          btn.textContent = 'Show full solution';
-          const answerBlock = document.createElement('div');
-          answerBlock.className = 'answer-block';
-          answerBlock.hidden = true;
-          answerBlock.innerHTML = '<div class="answer-label">Full solution</div><div class="howto"></div>';
-          answerBlock.querySelector('.howto').textContent = item.howto_ru;
-          btn.addEventListener('click', () => {{
-            answerBlock.hidden = false;
-            btn.hidden = true;
-          }});
-          block.appendChild(btn);
-          block.appendChild(answerBlock);
-        }}
-        container.appendChild(block);
-      }});
-    }}"""
-    body = body.replace(old_render_open, new_render_open)
     body = body.replace(
-        "fb.textContent = '✓ Верно';",
-        "fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class=\"explain\">' + q.explain_ru + '</div>' : '');",
+        "fb.textContent = '✓ Correct';",
+        "fb.innerHTML = '✓ Correct' + (q.explain ? '<div class=\"explain\">' + q.explain + '</div>' : '');",
     )
     body = body.replace(
-        "'</mark>. Правильный: <mark class=\"correct-mark\">' + q.correct.toUpperCase() + '</mark>';",
+        "'</mark>. Correct: <mark class=\"correct-mark\">' + q.correct.toUpperCase() + '</mark>';",
         "'</mark>. Correct: <mark class=\"correct-mark\">' + q.correct.toUpperCase() + '</mark>' +\n"
-        "            (q.explain_ru ? '<div class=\"explain\">' + q.explain_ru + '</div>' : '');",
-    )
-    body = body.replace(
-        ".q-ru {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}\n"
-        "    .q-en {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}",
-        ".q-en {{ font-size: 1.02rem; margin-bottom: 0.35rem; }}\n"
-        "    .q-ru {{ font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }}",
-    )
-    body = body.replace(
-        ".opt-ru {{ font-size: 0.95rem; }}\n"
-        "    .opt-en {{ font-size: 0.82rem; color: #777; }}",
-        ".opt-en {{ font-size: 0.95rem; }}\n"
-        "    .opt-ru {{ font-size: 0.82rem; color: #777; font-style: italic; }}",
-    )
-    body = body.replace(
-        '<div class="q-num">Вопрос ${{q.num}}</div>\n'
-        '          <div class="q-ru">${{q.ru}}</div>\n'
-        '          <div class="q-en">${{q.en}}</div>',
-        '<div class="q-num">Question ${{q.num}}</div>\n'
-        '          <div class="q-en">${{q.en}}</div>\n'
-        '          <div class="q-ru">${{q.ru}}</div>',
-    )
-    body = body.replace(
-        '<div class="opt-ru"><strong>${{o.id.toUpperCase()}})</strong> ${{o.ru}}</div>\n'
-        '                  <div class="opt-en">${{o.en}}</div>',
-        '<div class="opt-en"><strong>${{o.id.toUpperCase()}})</strong> ${{o.en}}</div>\n'
-        '                  <div class="opt-ru">${{o.ru}}</div>',
-    )
-    body = body.replace(
-        '          <div class="q-ru">${{item.ru}}</div>\n'
-        '          <div class="q-en">${{item.en}}</div>',
-        '          <div class="q-en">${{item.en}}</div>\n'
-        '          <div class="q-ru">${{item.ru}}</div>',
+        "            (q.explain ? '<div class=\"explain\">' + q.explain + '</div>' : '');",
     )
     return body
 
@@ -166,7 +73,7 @@ TEMPLATE = build_template()
 # 00_How_To_Solve.html — standalone guide (edit file directly)
 
 INDEX = """<!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -211,24 +118,25 @@ INDEX = """<!doctype html>
 <body>
   <div class="wrap">
     <h1>Accounting &amp; Banking for SMEs</h1>
-    <p class="sub">Учёт и банковское дело для МСП — экзамены 2024–2026. RU + EN, проверка ответов.</p>
+    <p class="sub">Accounting &amp; Banking for SMEs — exams 2024–2026. English only.</p>
     <ul class="topics">
-      <li><a href="99_All_Tests.html"><span class="title">★ Все тесты на одной странице</span><span class="desc">Все MCQ + открытые вопросы · одна проверка</span></a></li>
+      <li><a href="99_All_Tests.html"><span class="title">★ All tests on one page</span><span class="desc">All MCQ + open questions · one page</span></a></li>
       <li><a href="00_How_To_Solve.html"><span class="title">00 — How to Solve</span><span class="desc">Step-by-step: ROE, gap, SoFP, divisions, depreciation</span></a></li>
       <li><a href="01_Part1_Management_Accounting.html"><span class="title">01 — Part 1 (05/06/2024)</span><span class="desc">8 MCQ · management, break-even, DCF</span></a></li>
       <li><a href="06_Part1_IFRS_2025.html"><span class="title">06 — Part 1 IFRS (25/06/2025)</span><span class="desc">IAS 2, Framework, IFRS 15</span></a></li>
-      <li><a href="11_Part1_Financial_Statements.html"><span class="title">11 — Part 1: отчётность (Q1–4)</span><span class="desc">Cash flows, current ratio, IAS 7</span></a></li>
-      <li><a href="07_Part1_Management_Q5-8.html"><span class="title">07 — Management Q5–8</span><span class="desc">Функции менеджмента, direct costs</span></a></li>
-      <li><a href="02_Part2_Finance_Banking.html"><span class="title">02 — Part 2 (05/06/2024)</span><span class="desc">18 MCQ · банки, CAPM, EBU</span></a></li>
+      <li><a href="11_Part1_Financial_Statements.html"><span class="title">11 — Part 1: financial statements (Q1–4)</span><span class="desc">Cash flows, current ratio, IAS 7</span></a></li>
+      <li><a href="07_Part1_Management_Q5-8.html"><span class="title">07 — Management Q5–8</span><span class="desc">Management functions, direct costs</span></a></li>
+      <li><a href="02_Part2_Finance_Banking.html"><span class="title">02 — Part 2 (05/06/2024)</span><span class="desc">18 MCQ · banks, CAPM, EBU</span></a></li>
       <li><a href="08_Part2_Exam_2026_Variant_B.html"><span class="title">08 — Part 2 (25/06/2026, Variant B)</span><span class="desc">18 MCQ · Basel I, IFRS 9, VaR</span></a></li>
-      <li><a href="13_Part2_Exam_2026_16-06_Variant_B.html"><span class="title">13 — Part 2 (16/06/2026, Variant B)</span><span class="desc">18 MCQ · delisting, EBU, IFRS 9, VC · экзамен с фото</span></a></li>
+      <li><a href="13_Part2_Exam_2026_16-06_Variant_B.html"><span class="title">13 — Part 2 (16/06/2026, Variant B)</span><span class="desc">18 MCQ · delisting, EBU, IFRS 9, VC</span></a></li>
       <li><a href="12_Part2_Exam_Variant_C.html"><span class="title">12 — Part 2 (Variant C, Q7–14)</span><span class="desc">DGS, IFRS 9 Stage 1, call option</span></a></li>
-      <li><a href="03_Part2_Calculations.html"><span class="title">03 — Расчёты Part 2</span><span class="desc">ROE, repricing gap, duration · 3 балла</span></a></li>
+      <li><a href="03_Part2_Calculations.html"><span class="title">03 — Part 2 Calculations</span><span class="desc">ROE, repricing gap, duration · 3 pts each</span></a></li>
       <li><a href="04_Sustainability.html"><span class="title">04 — Sustainability &amp; SROI</span><span class="desc">3 MCQ</span></a></li>
-      <li><a href="09_Statement_of_Financial_Position.html"><span class="title">09 — Statement of Financial Position</span><span class="desc">Uniclam Group Corp. · 2 варианта</span></a></li>
+      <li><a href="14_Master_Question_Bank.html"><span class="title">14 — Master Question Bank</span><span class="desc">32 MCQ · missing topics from full course bank</span></a></li>
+      <li><a href="09_Statement_of_Financial_Position.html"><span class="title">09 — Statement of Financial Position</span><span class="desc">Uniclam Group Corp. · 2 variants</span></a></li>
       <li><a href="10_Depreciation.html"><span class="title">10 — Depreciation</span><span class="desc">Exercise 3 (8 pts) · straight-line &amp; reducing balance</span></a></li>
       <li><a href="13_Divisions_and_DCF.html"><span class="title">13 — Divisions &amp; DCF</span><span class="desc">Exercise 2 (8 pts) table + Cassino SpA DCF</span></a></li>
-      <li><a href="05_Open_Questions.html"><span class="title">05 — Открытые вопросы</span><span class="desc">Теория — краткие ответы; задачи — пошаговые решения</span></a></li>
+      <li><a href="05_Open_Questions.html"><span class="title">05 — Open questions</span><span class="desc">Theory — short answers; exercises — step-by-step solutions</span></a></li>
     </ul>
   </div>
 </body>
@@ -236,22 +144,23 @@ INDEX = """<!doctype html>
 """
 
 
-def opt(letter: str, en: str, ru: str) -> dict:
-    return {"id": letter.lower(), "en": en, "ru": ru}
+def opt(letter: str, en: str, ru: str = "") -> dict:
+    return {"id": letter.lower(), "en": en}
 
 
-def q(num, en, ru, options, correct, section=None, qid=None, explain_ru=None):
+def q(num, en, ru="", options=None, correct=None, section=None, qid=None, explain_ru=None, explain=None):
     d = {
         "num": num,
         "id": qid or f"q{num}",
         "en": en,
-        "ru": ru,
         "options": options,
         "correct": correct,
         "section": section,
     }
-    if explain_ru:
-        d["explain_ru"] = explain_ru
+    if explain:
+        d["explain"] = explain
+    elif explain_ru and not any("\u0400" <= c <= "\u04FF" for c in explain_ru):
+        d["explain"] = explain_ru
     return d
 
 
@@ -536,6 +445,10 @@ def main():
          "en": "Explain the DCF model",
          "sample_en": "Forecast free cash flows, discount them (WACC or cost of equity), add terminal value → company value.",
          "sample_ru": "Прогноз FCF → дисконтирование (WACC или Re через CAPM) → terminal value → firm/equity value."},
+        {"title_ru": "Debt vs Equity", "ru": "Explain the difference between Debt and Equity",
+         "en": "Explain the difference between Debt and Equity",
+         "sample_en": "Debt: contractual claim, fixed payments (tax-deductible interest), prior claim in distress, fixed maturity, usually no control. Equity: residual claim, non-deductible dividends, lowest priority, infinite life, management control.",
+         "sample_ru": "Долг: договорное требование, фиксированные выплаты (проценты вычитаются из налога), приоритет при банкротстве, срок погашения, обычно без контроля. Equity: остаточное требование, дивиденды не вычитаются, последний приоритет, бессрочно, право контроля."},
         {"title_ru": "SoFP — вариант 1 (5 pts)", "ru": "Uniclam Group Corp. — построить Statement of Financial Position (меньшие суммы)",
          "en": "Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)",
          "sample_en": "Total Assets = 204,850. Equity 66,300 + Non-current liabilities 87,550 + Current liabilities 51,000.",
@@ -968,6 +881,250 @@ def main():
           explain_ru="Банковский долг — фиксированные/предсказуемые платежи по графику."),
     ]
 
+    master_bank = [
+        q(1, "A Budget is:",
+          "Бюджет — это:",
+          [opt("a", "A detailed quantitative plan for acquiring and using financial and other resources over a specified forthcoming time period",
+               "Детальный количественный план приобретения и использования ресурсов на будущий период"),
+           opt("b", "A system that includes subsystems for planning, measuring and recording results and evaluating performance",
+               "Система планирования, учёта результатов и оценки эффективности"),
+           opt("c", "The force that moves different people in different ways for different reasons",
+               "Сила, движущая людей по-разному"),
+           opt("d", "Concerned with the initiation of organized action and stimulating people to work",
+               "Инициация организованных действий и мотивация людей")], "a",
+          section="Management accounting"),
+        q(2, "The Indirect costs are:",
+          "Косвенные затраты (indirect costs) — это:",
+          [opt("a", "Costs that vary directly and proportionately with changes in the activity level",
+               "Затраты, меняющиеся пропорционально уровню активности"),
+           opt("b", "Costs that remain the same in total regardless of changes in the activity level",
+               "Затраты, постоянные в сумме"),
+           opt("c", "Costs that can be easily and conveniently traced to a product or department",
+               "Затраты, легко относимые на продукт или подразделение"),
+           opt("d", "Costs that must be allocated in order to be assigned to a product or department",
+               "Затраты, которые нужно распределить, чтобы отнести на продукт или подразделение")], "d",
+          section="Management accounting"),
+        q(3, "Diversification is:",
+          "Диверсификация — это:",
+          [opt("a", "Reduce individual firm-specific credit risk", "Снижение индивидуального firm-specific кредитного риска"),
+           opt("b", "Reduce systematic credit risk", "Снижение систематического кредитного риска"),
+           opt("c", "Increase individual firm-specific credit risk", "Увеличение firm-specific риска"),
+           opt("d", "None of the answers", "Ни один из ответов")], "a",
+          section="Banking & risk"),
+        q(4, "The Banking Recovery and Resolution Directive (BRRD) is related to:",
+          "Директива BRRD относится:",
+          [opt("a", "The fourth pillar of European Banking Union", "К 4-му столпу EBU"),
+           opt("b", "The third pillar of European Banking Union", "К 3-му столпу EBU"),
+           opt("c", "The first pillar of European Banking Union", "К 1-му столпу EBU"),
+           opt("d", "The second pillar of European Banking Union", "Ко 2-му столпу EBU")], "d",
+          explain_ru="BRRD — часть resolution framework (2-й столп EBU: SRM, bail-in).",
+          section="EBU & regulation"),
+        q(5, "In order to evaluate financial instruments we can use:",
+          "Для оценки финансовых инструментов можно использовать:",
+          [opt("a", "Fair value criteria", "Критерий справедливой стоимости (fair value)"),
+           opt("b", "Amortized cost criteria", "Критерий амортизированной стоимости"),
+           opt("c", "Both fair value and amortized cost criteria", "Оба критерия"),
+           opt("d", "EAD criteria", "Критерий EAD")], "c",
+          section="IFRS & instruments"),
+        q(6, "The definition of syndicated loan:",
+          "Синдицированный кредит — это:",
+          [opt("a", "It is provided by only one financial institution", "Предоставляется одной финансовой организацией"),
+           opt("b", "It is provided by a group of financial institutions as opposed to multiple lenders",
+               "Группой институтов вместо множества кредиторов"),
+           opt("c", "It is provided by a group of financial institutions as opposed to a single lender",
+               "Группой финансовых институтов, а не одним кредитором"),
+           opt("d", "None of the above", "Ни один из перечисленных")], "c",
+          section="Banking & instruments"),
+        q(7, "In which valuation model is terminal cash flow used?",
+          "В какой модели оценки используется terminal cash flow?",
+          [opt("a", "Multiples method", "Метод мультипликаторов"),
+           opt("b", "DCF", "DCF"),
+           opt("c", "EVA", "EVA"),
+           opt("d", "None of the answers", "Ни один из ответов")], "b",
+          section="Valuation"),
+        q(8, "Which standard is used to account for non-performing loans (NPLs)?",
+          "Какой стандарт применяется для учёта NPL?",
+          [opt("a", "IFRS 9", "IFRS 9"),
+           opt("b", "IFRS 19", "IFRS 19"),
+           opt("c", "IFRS 1", "IFRS 1"),
+           opt("d", "None of the above", "Ни один")], "a",
+          section="IFRS & instruments"),
+        q(9, "The Financial Institutions' specialness is done by:",
+          "Особенность финансовых институтов обеспечивается:",
+          [opt("a", "Monitoring cost", "Затратами на мониторинг"),
+           opt("b", "Liquidity", "Ликвидностью"),
+           opt("c", "Both of them", "И тем, и другим"),
+           opt("d", "None of the above", "Ни один")], "c",
+          section="Financial intermediaries"),
+        q(10, "Commercial banks, credit unions, saving institutions are:",
+          "Коммерческие банки, кредитные союзы, сберегательные институты — это:",
+          [opt("a", "Depository institutions", "Депозитные институты (depository institutions)"),
+           opt("b", "Specific type of investment banks", "Особый тип инвестиционных банков"),
+           opt("c", "Mutual funds", "Паевые фонды"),
+           opt("d", "Securities firms", "Брокерские компании")], "a",
+          section="Bank types"),
+        q(11, "It is the document that allows you to read and analyze the bank's financial statements by tracking magnitudes and their evolution to operational and management aspects:",
+          "Документ для анализа отчётности банка в операционном и управленческом контексте:",
+          [opt("a", "Income statement", "Отчёт о прибылях и убытках"),
+           opt("b", "Statement of Comprehensive Income", "Отчёт о совокупном доходе"),
+           opt("c", "Supplementary note", "Дополнительная записка"),
+           opt("d", "Management report", "Управленческий отчёт (management report)")], "d",
+          section="Bank reporting"),
+        q(12, "The risk that a sudden surge in liability withdrawals may require an FI to liquidate assets in a short period at less than fair market prices is:",
+          "Риск внезапного оттока обязательств, вынуждающий продавать активы ниже рыночной цены:",
+          [opt("a", "Credit risk", "Кредитный риск"),
+           opt("b", "Liquidity risk", "Риск ликвидности"),
+           opt("c", "Market risk", "Рыночный риск"),
+           opt("d", "Operational risk", "Операционный риск")], "b",
+          section="Banking & risk"),
+        q(13, "A common stock:",
+          "Обыкновенная акция (common stock):",
+          [opt("a", "Has more voting rights", "Даёт больше прав голоса"),
+           opt("b", "Has more remuneration rights", "Даёт больше прав на вознаграждение"),
+           opt("c", "Has more rights in case of default", "Имеет больше прав при дефолте"),
+           opt("d", "None of the above", "Ни один")], "a",
+          section="Equity & debt"),
+        q(14, "In a syndicated loan:",
+          "В синдицированном кредите:",
+          [opt("a", "There are several banks that cover the loan", "Несколько банков покрывают кредит"),
+           opt("b", "There is only one bank that covers the loan", "Только один банк"),
+           opt("c", "There is always a guarantee", "Всегда есть гарантия"),
+           opt("d", "We can use only fixed rates", "Только фиксированные ставки")], "a",
+          section="Banking & instruments"),
+        q(15, "In the measurement of credit risk, volatility of earnings:",
+          "При измерении кредитного риска волатильность прибыли:",
+          [opt("a", "Is a borrower specific factor of qualitative models",
+               "Фактор заёмщика в качественных моделях"),
+           opt("b", "Is a borrower specific factor of quantitative models",
+               "Фактор заёмщика в количественных моделях"),
+           opt("c", "Is a market specific factor of qualitative models",
+               "Рыночный фактор в качественных моделях"),
+           opt("d", "Is a market specific factor of quantitative models",
+               "Рыночный фактор в количественных моделях")], "d",
+          section="Credit risk"),
+        q(16, "The net interest margin is more important in:",
+          "Чистая процентная маржа (NIM) важнее для:",
+          [opt("a", "Pension funds", "Пенсионных фондов"),
+           opt("b", "Mutual funds", "Паевых фондов"),
+           opt("c", "Commercial banks", "Коммерческих банков"),
+           opt("d", "Investment banks", "Инвестиционных банков")], "c",
+          section="Bank ratios"),
+        q(17, "The intermediation margin is more important in:",
+          "Маржа посредничества (intermediation margin) важнее для:",
+          [opt("a", "None of the answers", "Ни один из ответов"),
+           opt("b", "Commercial banks focused on mortgage", "Ипотечных коммерческих банков"),
+           opt("c", "Commercial banks", "Коммерческих банков"),
+           opt("d", "Investment banks", "Инвестиционных банков")], "c",
+          section="Bank ratios"),
+        q(18, "The estimated amount of money a bank loses when a borrower defaults on a loan is:",
+          "Оценочная сумма потерь банка при дефолте заёмщика:",
+          [opt("a", "The probability of default (PD)", "Вероятность дефолта (PD)"),
+           opt("b", "The expected loss (EL)", "Ожидаемый убыток (EL)"),
+           opt("c", "The loss given default (LGD)", "Loss given default (LGD)"),
+           opt("d", "The exposure at default (EAD)", "Exposure at default (EAD)")], "b",
+          explain_ru="EL = PD × EAD × LGD — ожидаемая потеря при дефолте.",
+          section="Credit risk"),
+        q(19, "A preferred stock:",
+          "Привилегированная акция (preferred stock):",
+          [opt("a", "Has more voting rights", "Больше прав голоса"),
+           opt("b", "Has more remuneration rights", "Больше прав на вознаграждение (дивиденды)"),
+           opt("c", "Has not remuneration rights", "Не даёт вознаграждения"),
+           opt("d", "None of the above", "Ни один")], "b",
+          section="Equity & debt"),
+        q(20, "Equity investments in banks' reports are in:",
+          "Инвестиции в акции (equity investments) в отчётности банка отражаются в:",
+          [opt("a", "Assets", "Активах"),
+           opt("b", "Liabilities", "Обязательствах"),
+           opt("c", "Shareholders' equity", "Собственном капитале"),
+           opt("d", "None of the above", "Ни один")], "a",
+          section="Bank balance sheet"),
+        q(21, "Altman's discriminant function is:",
+          "Дискриминантная функция Альтмана — это:",
+          [opt("a", "A qualitative measurement of credit risk", "Качественная мера кредитного риска"),
+           opt("b", "A quantitative measurement of market risk", "Количественная мера рыночного риска"),
+           opt("c", "A quantitative measurement of credit risk", "Количественная мера кредитного риска"),
+           opt("d", "A qualitative measurement of market risk", "Качественная мера рыночного риска")], "c",
+          section="Credit risk"),
+        q(22, "Using size, what is the largest group of depository institutions?",
+          "По размеру, самая крупная группа депозитных институтов:",
+          [opt("a", "Commercial banks", "Коммерческие банки"),
+           opt("b", "Investment banks", "Инвестиционные банки"),
+           opt("c", "Credit unions", "Кредитные союзы"),
+           opt("d", "Mutual funds", "Паевые фонды")], "a",
+          section="Bank types"),
+        q(23, '"An economic agent appointed to act on behalf of smaller agents in collecting information and/or investing funds on their behalf" is the definition of:',
+          "«Экономический агент, действующий от имени мелких агентов при сборе информации и/или инвестировании средств» — определение:",
+          [opt("a", "Bank's Role as Delegated Monitor", "Роли банка как делегированного монитора"),
+           opt("b", "Bank's Role as information producer", "Роли банка как производителя информации"),
+           opt("c", "Bank's Role for diversification", "Роли банка в диверсификации"),
+           opt("d", "None of the above", "Ни один")], "a",
+          section="Financial intermediaries"),
+        q(24, "Monetary policy actions include:",
+          "Действия денежно-кредитной политики включают:",
+          [opt("a", "All the answers", "Все перечисленные"),
+           opt("b", "Open market operations", "Операции на открытом рынке"),
+           opt("c", "The choice of the central discount rate", "Выбор учётной ставки ЦБ"),
+           opt("d", "Setting reserve requirements", "Установление норм резервирования")], "a",
+          section="Monetary policy"),
+        q(25, "They focus on consumer loans funded with member deposits:",
+          "Ориентированы на потребительские кредиты, финансируемые вкладами членов:",
+          [opt("a", "Credit unions", "Кредитные союзы (credit unions)"),
+           opt("b", "Commercial banks", "Коммерческие банки"),
+           opt("c", "Saving institutions", "Сберегательные институты"),
+           opt("d", "Investment banks", "Инвестиционные банки")], "a",
+          section="Bank types"),
+        q(26, "A loan backed by specific assets of the borrower; if the borrower defaults, the lender has a first lien on those assets:",
+          "Кредит, обеспеченный конкретными активами заёмщика; при дефолте кредитор имеет первичное право на эти активы:",
+          [opt("a", "Secured loan", "Обеспеченный кредит (secured loan)"),
+           opt("b", "Unsecured loan", "Необеспеченный кредит"),
+           opt("c", "Syndicated loan", "Синдицированный кредит"),
+           opt("d", "None of the above", "Ни один")], "a",
+          section="Credit risk"),
+        q(27, "It arises because of the possibility that promised cash flows on financial claims held by banks will not be paid in full:",
+          "Возникает из-за возможности, что обещанные денежные потоки по требованиям банка не будут выплачены полностью:",
+          [opt("a", "Credit risk", "Кредитный риск"),
+           opt("b", "Market risk", "Рыночный риск"),
+           opt("c", "Sovereign risk", "Суверенный риск"),
+           opt("d", "Liquidity risk", "Риск ликвидности")], "a",
+          section="Banking & risk"),
+        q(28, "The risk incurred by a bank as a result of activities related to contingent assets and liabilities held off the balance sheet:",
+          "Риск от внебалансовых условных активов и обязательств:",
+          [opt("a", "Off-balance sheet risk", "Внебалансовый риск"),
+           opt("b", "Market risk", "Рыночный риск"),
+           opt("c", "Sovereign risk", "Суверенный риск"),
+           opt("d", "Liquidity risk", "Риск ликвидности")], "a",
+          section="Banking & risk"),
+        q(29, "An increase in the frequency of the coupons:",
+          "Увеличение частоты выплаты купонов:",
+          [opt("a", "Reduces the duration", "Снижает duration"),
+           opt("b", "Increases the duration", "Увеличивает duration"),
+           opt("c", "Has no effect on the duration", "Не влияет на duration"),
+           opt("d", "Increases the value of the equity", "Увеличивает стоимость equity")], "a",
+          explain_ru="Чем чаще купоны, тем раньше возвращаются деньги → duration ниже.",
+          section="Bonds & duration"),
+        q(30, "Loans to banks are in:",
+          "Кредиты банкам отражаются в:",
+          [opt("a", "Assets section", "Разделе активов"),
+           opt("b", "Liabilities section", "Разделе обязательств"),
+           opt("c", "Expenses in the income statement", "Расходах в отчёте о прибылях"),
+           opt("d", "Assets section in the income statement", "Активах в отчёте о прибылях")], "a",
+          section="Bank balance sheet"),
+        q(31, "The internal financing of a firm depends directly on:",
+          "Внутреннее финансирование фирмы напрямую зависит от:",
+          [opt("a", "Total financial debt", "Общего финансового долга"),
+           opt("b", "Market price", "Рыночной цены"),
+           opt("c", "Firms' profitability", "Рентабельности фирмы"),
+           opt("d", "None of the above", "Ни один")], "c",
+          section="Corporate finance"),
+        q(32, "Bank leverage is the ratio of the value of a bank's assets to the value of its:",
+          "Банковский leverage — отношение стоимости активов банка к стоимости его:",
+          [opt("a", "Equity (capital)", "Собственного капитала (equity)"),
+           opt("b", "Profitability", "Рентабельности"),
+           opt("c", "ROE", "ROE"),
+           opt("d", "ROA", "ROA")], "a",
+          section="Bank ratios"),
+    ]
+
     guide_link = '<p class="sub"><a href="00_How_To_Solve.html">📘 How to solve tasks — step-by-step guide</a></p>'
 
     sofp_extra = guide_link + """
@@ -980,10 +1137,10 @@ def main():
     table.sofp tr.subtotal td { font-weight: 600; background: #f4f8f7; }
     table.sofp tr.total td { font-weight: 700; background: #eefaf7; }
     </style>
-    <div class="section-title">Решение: Uniclam Group Corp.</div>
-    <p class="q-ru">Разнесите каждую статью по разделу IFRS, сложите подитоги, проверьте: <strong>Total Assets = Total Equity + Liabilities</strong>.</p>
+    <div class="section-title">Solution: Uniclam Group Corp.</div>
+    <p>Classify each line item under IFRS sections, sum subtotals, and check: <strong>Total Assets = Total Equity + Liabilities</strong>.</p>
 
-    <p class="q-ru" style="margin-top:1.5rem"><strong>Exercise 1 — вариант 1 (5 pts)</strong> · Total Assets = 204 850 €</p>
+    <p style="margin-top:1.5rem"><strong>Exercise 1 — variant 1 (5 pts)</strong> · Total Assets = 204,850 €</p>
     <div class="open-block" style="box-shadow:none;overflow-x:auto">
       <table class="sofp">
         <tr><th colspan="2">ASSETS</th><th colspan="2">EQUITY &amp; LIABILITIES</th></tr>
@@ -1121,9 +1278,9 @@ def main():
 
     write_page("05_Open_Questions.html",
                "Open questions & exercises",
-               "Теория — краткие ответы сразу; задачи — кнопка «Показать решение»",
+               "Theory — brief answers; exercises — show solution button",
                [], open_items=open_items,
-               rules_html=guide_link + '<div class="rules">Теория: краткий ответ под вопросом. Задачи: нажмите «Показать решение» для пошагового разбора.</div>')
+               rules_html=guide_link + '<div class="rules">Theory: brief answer under each question. Exercises: click “Show full solution” for step-by-step breakdown.</div>')
 
     write_page("06_Part1_IFRS_2025.html",
                "Part 1 — IFRS (25/06/2025)",
@@ -1151,7 +1308,7 @@ def main():
     write_page("09_Statement_of_Financial_Position.html",
                "Statement of Financial Position",
                "Uniclam Group Corp. — classification exercise",
-               [], open_items=[open_items[6], open_items[7]],
+               [], open_items=[open_items[7], open_items[8]],
                extra_html=sofp_extra)
 
     write_page("10_Depreciation.html",
@@ -1172,14 +1329,17 @@ def main():
                exam_variant_c, scoring={"correct": 1, "wrong": 0, "max": None},
                rules_html=guide_link + '<div class="rules">1 балл за верный ответ.</div>')
 
+    write_page("14_Master_Question_Bank.html",
+               "Master Question Bank — missing topics",
+               "32 MCQ from full course bank · Budget, BRRD, syndicated loans, bank ratios, credit risk",
+               master_bank, scoring={"correct": 1, "wrong": 0, "max": None},
+               rules_html=guide_link + '<div class="rules">1 балл за верный ответ. Темы, которых не было в отдельных экзаменах 01–13.</div>')
+
     print("Generated AccountingBanking tests in", ROOT)
     import subprocess
     build_script = ROOT / "build_all_tests.mjs"
     if build_script.exists():
         subprocess.run(["node", str(build_script)], cwd=ROOT, check=False)
-    en_patch = ROOT / "patch_en_priority.mjs"
-    if en_patch.exists():
-        subprocess.run(["node", str(en_patch)], cwd=ROOT, check=False)
 
 
 if __name__ == "__main__":

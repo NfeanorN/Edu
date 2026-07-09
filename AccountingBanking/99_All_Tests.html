@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Все тесты — Accounting &amp; Banking</title>
+  <title>All tests — Accounting &amp; Banking</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -75,7 +75,6 @@
     .q.wrong { border-color: #e74c3c; background: #fff8f8; }
     .q-num { font-weight: 700; color: #16a085; margin-bottom: 0.35rem; }
     .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
-    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
     .opts { display: grid; gap: 0.45rem; }
     label.opt {
       display: flex;
@@ -89,7 +88,6 @@
     .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
     .opt-en { font-size: 0.95rem; }
-    .opt-ru { font-size: 0.82rem; color: #777; font-style: italic; }
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -221,12 +219,12 @@
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← К списку тестов</a> · <a href="00_How_To_Solve.html">Как решать задачи</a></p>
-    <h1>Все тесты на одной странице</h1>
-    <p class="sub">Accounting &amp; Banking for SMEs — 71 вопросов с вариантами + открытые вопросы и задачи.</p>
-    <div class="rules">Ответьте на все MCQ и нажмите «Проверить всё». Открытые вопросы — для самопроверки (краткие ответы и «Показать решение»).</div>
+    <p class="back"><a href="index.html">← Test list</a> · <a href="00_How_To_Solve.html">How to solve tasks</a></p>
+    <h1>All tests on one page</h1>
+    <p class="sub">Accounting &amp; Banking for SMEs — 121 MCQ questions + open questions and exercises.</p>
+    <div class="rules">Answer all MCQ and click “Check all”. Open questions are for self-check (brief answers).</div>
     <nav class="toc">
-      <strong>Содержание:</strong>
+      <strong>Contents:</strong>
       <ol>
         <li><a href="#block-01_part1_management_accounting">01 — Part 1 Management (05/06/2024)</a> <span style="color:#888">(8 MCQ · +1/−1)</span></li>
         <li><a href="#block-06_part1_ifrs_2025">06 — Part 1 IFRS (25/06/2025)</a> <span style="color:#888">(4 MCQ · +1/−1)</span></li>
@@ -234,19 +232,21 @@
         <li><a href="#block-07_part1_management_q5_8">07 — Management Q5–8</a> <span style="color:#888">(4 MCQ · +1/−1)</span></li>
         <li><a href="#block-02_part2_finance_banking">02 — Part 2 Finance & Banking</a> <span style="color:#888">(18 MCQ)</span></li>
         <li><a href="#block-08_part2_exam_2026_variant_b">08 — Part 2 Exam 2026 Variant B</a> <span style="color:#888">(18 MCQ)</span></li>
+        <li><a href="#block-13_part2_exam_2026_16_06_variant_b">13 — Part 2 Exam 16/06/2026 Variant B</a> <span style="color:#888">(18 MCQ)</span></li>
         <li><a href="#block-12_part2_exam_variant_c">12 — Part 2 Variant C Q7–14</a> <span style="color:#888">(8 MCQ)</span></li>
-        <li><a href="#block-03_part2_calculations">03 — Расчёты Part 2</a> <span style="color:#888">(4 MCQ · 3 балла)</span></li>
+        <li><a href="#block-03_part2_calculations">03 — Part 2 Calculations</a> <span style="color:#888">(4 MCQ · 3 pts)</span></li>
         <li><a href="#block-04_sustainability">04 — Sustainability & SROI</a> <span style="color:#888">(3 MCQ)</span></li>
-        <li><a href="#block-09_statement_of_financial_position">09 — Statement of Financial Position</a> <span style="color:#888">(SoFP + решения)</span></li>
+        <li><a href="#block-14_master_question_bank">14 — Master Question Bank</a> <span style="color:#888">(32 MCQ · missing topics)</span></li>
+        <li><a href="#block-09_statement_of_financial_position">09 — Statement of Financial Position</a> <span style="color:#888">(SoFP + solutions)</span></li>
         <li><a href="#block-10_depreciation">10 — Depreciation</a> <span style="color:#888">(Exercise 3 (8 pts) + tables)</span></li>
-        <li><a href="#block-05_open_questions">05 — Открытые вопросы</a> <span style="color:#888">(теория + задачи)</span></li>
+        <li><a href="#block-05_open_questions">05 — Open questions</a> <span style="color:#888">(theory + exercises)</span></li>
       </ol>
     </nav>
     <form id="test-form">
       <div id="questions"></div>
       <div class="actions">
-        <button type="submit">Проверить всё (71 MCQ)</button>
-        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+        <button type="submit">Check all (121 MCQ)</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
       </div>
     </form>
     <div id="results">
@@ -271,27 +271,22 @@
         "num": 1,
         "id": "01_part1_management_accounting_q1",
         "en": "The management of an organization performs three general broad functions:",
-        "ru": "Менеджмент организации выполняет три общие функции:",
         "options": [
           {
             "id": "a",
-            "en": "Planning, directing and motivating, controlling",
-            "ru": "Планирование, руководство и мотивация, контроль"
+            "en": "Planning, directing and motivating, controlling"
           },
           {
             "id": "b",
-            "en": "Planning, budgeting and controlling",
-            "ru": "Планирование, бюджетирование и контроль"
+            "en": "Planning, budgeting and controlling"
           },
           {
             "id": "c",
-            "en": "Planning, accounting and controlling",
-            "ru": "Планирование, учёт и контроль"
+            "en": "Planning, accounting and controlling"
           },
           {
             "id": "d",
-            "en": "Directing and motivating, accounting and controlling",
-            "ru": "Руководство, учёт и контроль"
+            "en": "Directing and motivating, accounting and controlling"
           }
         ],
         "correct": "a",
@@ -307,27 +302,22 @@
         "num": 2,
         "id": "01_part1_management_accounting_q2",
         "en": "Planning involves:",
-        "ru": "Планирование включает:",
         "options": [
           {
             "id": "a",
-            "en": "Developing objectives and preparing various budgets to achieve these objectives",
-            "ru": "Разработку целей и подготовку бюджетов для их достижения"
+            "en": "Developing objectives and preparing various budgets to achieve these objectives"
           },
           {
             "id": "b",
-            "en": "Steps taken by management to ensure objectives are attained",
-            "ru": "Шаги менеджмента для достижения целей"
+            "en": "Steps taken by management to ensure objectives are attained"
           },
           {
             "id": "c",
-            "en": "Analysis of accounts and fiscal trends to advise business decisions",
-            "ru": "Анализ счетов и трендов для принятия решений"
+            "en": "Analysis of accounts and fiscal trends to advise business decisions"
           },
           {
             "id": "d",
-            "en": "Guiding and motivating people to achieve organisational objectives",
-            "ru": "Руководство и мотивацию людей для достижения целей"
+            "en": "Guiding and motivating people to achieve organisational objectives"
           }
         ],
         "correct": "a",
@@ -343,27 +333,22 @@
         "num": 3,
         "id": "01_part1_management_accounting_q3",
         "en": "For all companies to be efficient and effective it must have 3 levels of managers namely:",
-        "ru": "Для эффективности компании нужны 3 уровня менеджеров:",
         "options": [
           {
             "id": "a",
-            "en": "Strategic, Accounting and Operational Managers",
-            "ru": "Стратегические, учётные и операционные"
+            "en": "Strategic, Accounting and Operational Managers"
           },
           {
             "id": "b",
-            "en": "Strategic, Tactical and Financial Managers",
-            "ru": "Стратегические, тактические и финансовые"
+            "en": "Strategic, Tactical and Financial Managers"
           },
           {
             "id": "c",
-            "en": "Strategic, Tactical and Operational Managers",
-            "ru": "Стратегические, тактические и операционные"
+            "en": "Strategic, Tactical and Operational Managers"
           },
           {
             "id": "d",
-            "en": "Financial, Accounting and Operational Managers",
-            "ru": "Финансовые, учётные и операционные"
+            "en": "Financial, Accounting and Operational Managers"
           }
         ],
         "correct": "c",
@@ -379,27 +364,22 @@
         "num": 4,
         "id": "01_part1_management_accounting_q4",
         "en": "The Direct costs are:",
-        "ru": "Прямые затраты (direct costs) — это:",
         "options": [
           {
             "id": "a",
-            "en": "Costs that vary directly and proportionately with changes in activity level",
-            "ru": "Затраты, меняющиеся пропорционально уровню активности"
+            "en": "Costs that vary directly and proportionately with changes in activity level"
           },
           {
             "id": "b",
-            "en": "Costs that remain the same in total regardless of activity level",
-            "ru": "Затраты, не меняющиеся в сумме при изменении активности"
+            "en": "Costs that remain the same in total regardless of activity level"
           },
           {
             "id": "c",
-            "en": "Costs that can be easily and conveniently traced to a product or department",
-            "ru": "Затраты, которые легко отнести на продукт или подразделение"
+            "en": "Costs that can be easily and conveniently traced to a product or department"
           },
           {
             "id": "d",
-            "en": "Costs that must be allocated to be assigned to a product or department",
-            "ru": "Затраты, которые нужно распределять на продукт или подразделение"
+            "en": "Costs that must be allocated to be assigned to a product or department"
           }
         ],
         "correct": "c",
@@ -415,27 +395,22 @@
         "num": 5,
         "id": "01_part1_management_accounting_q5",
         "en": "The formula for break even analysis is as follows:",
-        "ru": "Формула точки безубыточности:",
         "options": [
           {
             "id": "a",
-            "en": "Variable costs / (Sales price per unit – Variable cost per unit)",
-            "ru": "Переменные затраты / (Цена − Переменные затраты на ед.)"
+            "en": "Variable costs / (Sales price per unit – Variable cost per unit)"
           },
           {
             "id": "b",
-            "en": "(Variable cost + Fixed costs) / Sales price",
-            "ru": "(Переменные + Постоянные) / Цена продажи"
+            "en": "(Variable cost + Fixed costs) / Sales price"
           },
           {
             "id": "c",
-            "en": "Fixed costs / (Sales price per unit – Variable cost per unit)",
-            "ru": "Постоянные затраты / (Цена − Переменные затраты на ед.)"
+            "en": "Fixed costs / (Sales price per unit – Variable cost per unit)"
           },
           {
             "id": "d",
-            "en": "Assets / (Revenue – Fixed costs)",
-            "ru": "Активы / (Выручка − Постоянные затраты)"
+            "en": "Assets / (Revenue – Fixed costs)"
           }
         ],
         "correct": "c",
@@ -451,27 +426,22 @@
         "num": 6,
         "id": "01_part1_management_accounting_q6",
         "en": "Which EU authority has regulatory powers on banking corporate governance matters:",
-        "ru": "Какой орган ЕС регулирует корпоративное управление банков:",
         "options": [
           {
             "id": "a",
-            "en": "The ECB",
-            "ru": "ECB"
+            "en": "The ECB"
           },
           {
             "id": "b",
-            "en": "The EBA",
-            "ru": "EBA"
+            "en": "The EBA"
           },
           {
             "id": "c",
-            "en": "The ECB and the EBA",
-            "ru": "ECB и EBA"
+            "en": "The ECB and the EBA"
           },
           {
             "id": "d",
-            "en": "The Basel Committee on Banking Supervision",
-            "ru": "Базельский комитет"
+            "en": "The Basel Committee on Banking Supervision"
           }
         ],
         "correct": "c",
@@ -487,27 +457,22 @@
         "num": 7,
         "id": "01_part1_management_accounting_q7",
         "en": "Within the banking organization, who has the ultimate responsibility over governance, strategy and financial soundness?",
-        "ru": "Кто несёт окончательную ответственность за governance, стратегию и финансовую устойчивость банка:",
         "options": [
           {
             "id": "a",
-            "en": "The CEO",
-            "ru": "CEO"
+            "en": "The CEO"
           },
           {
             "id": "b",
-            "en": "The Board",
-            "ru": "Совет директоров (Board)"
+            "en": "The Board"
           },
           {
             "id": "c",
-            "en": "The CEO and the CFO",
-            "ru": "CEO и CFO"
+            "en": "The CEO and the CFO"
           },
           {
             "id": "d",
-            "en": "The heads of internal control functions",
-            "ru": "Руководители внутреннего контроля"
+            "en": "The heads of internal control functions"
           }
         ],
         "correct": "b",
@@ -523,27 +488,22 @@
         "num": 8,
         "id": "01_part1_management_accounting_q8",
         "en": "Discounted Cash Flow (DCF) analysis is?",
-        "ru": "Анализ дисконтированных денежных потоков (DCF) — это:",
         "options": [
           {
             "id": "a",
-            "en": "Relative valuation using trading multiples",
-            "ru": "Относительная оценка по мультипликаторам"
+            "en": "Relative valuation using trading multiples"
           },
           {
             "id": "b",
-            "en": "Relative valuation comparing recent M&A transactions",
-            "ru": "Сравнение с недавними сделками M&A"
+            "en": "Relative valuation comparing recent M&A transactions"
           },
           {
             "id": "c",
-            "en": "A Market approach method",
-            "ru": "Рыночный подход"
+            "en": "A Market approach method"
           },
           {
             "id": "d",
-            "en": "An intrinsic value approach",
-            "ru": "Подход внутренней (intrinsic) стоимости"
+            "en": "An intrinsic value approach"
           }
         ],
         "correct": "d",
@@ -574,27 +534,22 @@
         "num": 1,
         "id": "06_part1_ifrs_2025_q1",
         "en": "Which costing method is NOT allowed under IAS 2 – Inventory?",
-        "ru": "Какой метод оценки запасов НЕ разрешён по IAS 2?",
         "options": [
           {
             "id": "a",
-            "en": "Weighted Average",
-            "ru": "Средневзвешенная"
+            "en": "Weighted Average"
           },
           {
             "id": "b",
-            "en": "FIFO",
-            "ru": "FIFO"
+            "en": "FIFO"
           },
           {
             "id": "c",
-            "en": "LIFO",
-            "ru": "LIFO"
+            "en": "LIFO"
           },
           {
             "id": "d",
-            "en": "Net Realisable Value",
-            "ru": "Чистая возможная цена продажи"
+            "en": "Net Realisable Value"
           }
         ],
         "correct": "c",
@@ -610,27 +565,22 @@
         "num": 2,
         "id": "06_part1_ifrs_2025_q2",
         "en": "Which is NOT a purpose of the IASB's Conceptual Framework?",
-        "ru": "Что НЕ является целью Conceptual Framework IASB?",
         "options": [
           {
             "id": "a",
-            "en": "Assist IASB in preparing IFRS",
-            "ru": "Помощь IASB в подготовке IFRS"
+            "en": "Assist IASB in preparing IFRS"
           },
           {
             "id": "b",
-            "en": "Assist auditors on IFRS compliance",
-            "ru": "Помощь аудиторам в оценке соответствия IFRS"
+            "en": "Assist auditors on IFRS compliance"
           },
           {
             "id": "c",
-            "en": "Assist when no IFRS covers an item",
-            "ru": "Помощь при отсутствии IFRS по вопросу"
+            "en": "Assist when no IFRS covers an item"
           },
           {
             "id": "d",
-            "en": "Be authoritative when IFRS conflicts with Framework",
-            "ru": "Быть обязательным при конфликте IFRS и Framework"
+            "en": "Be authoritative when IFRS conflicts with Framework"
           }
         ],
         "correct": "d",
@@ -646,27 +596,22 @@
         "num": 3,
         "id": "06_part1_ifrs_2025_q3",
         "en": "Two fundamental qualitative characteristics (IFRS Framework):",
-        "ru": "Две фундаментальные качественные характеристики (IFRS Framework):",
         "options": [
           {
             "id": "a",
-            "en": "Comparability and Timeliness",
-            "ru": "Сопоставимость и своевременность"
+            "en": "Comparability and Timeliness"
           },
           {
             "id": "b",
-            "en": "Relevance and Faithful Representation",
-            "ru": "Уместность и достоверное представление"
+            "en": "Relevance and Faithful Representation"
           },
           {
             "id": "c",
-            "en": "Verifiability and Understandability",
-            "ru": "Проверяемость и понятность"
+            "en": "Verifiability and Understandability"
           },
           {
             "id": "d",
-            "en": "Neutrality and Completeness",
-            "ru": "Нейтральность и полнота"
+            "en": "Neutrality and Completeness"
           }
         ],
         "correct": "b",
@@ -682,27 +627,22 @@
         "num": 4,
         "id": "06_part1_ifrs_2025_q4",
         "en": "Under IFRS 15, revenue is generally recognised when:",
-        "ru": "По IFRS 15 выручка обычно признаётся когда:",
         "options": [
           {
             "id": "a",
-            "en": "Customer places an order",
-            "ru": "Клиент размещает заказ"
+            "en": "Customer places an order"
           },
           {
             "id": "b",
-            "en": "Entity receives cash",
-            "ru": "Получена оплата"
+            "en": "Entity receives cash"
           },
           {
             "id": "c",
-            "en": "Control of good or service is transferred to customer",
-            "ru": "Контроль над товаром/услугой передан покупателю"
+            "en": "Control of good or service is transferred to customer"
           },
           {
             "id": "d",
-            "en": "Contract is signed",
-            "ru": "Подписан договор"
+            "en": "Contract is signed"
           }
         ],
         "correct": "c",
@@ -733,32 +673,26 @@
         "num": 1,
         "id": "11_part1_financial_statements_q1",
         "en": "Which financial statement summarizes payments and receipts for a period?",
-        "ru": "Какой отчёт отражает поступления и выплаты за период?",
         "options": [
           {
             "id": "a",
-            "en": "Statement of Financial Position",
-            "ru": "Отчёт о финансовом положении"
+            "en": "Statement of Financial Position"
           },
           {
             "id": "b",
-            "en": "Statement of Cash Flows",
-            "ru": "Отчёт о движении денежных средств"
+            "en": "Statement of Cash Flows"
           },
           {
             "id": "c",
-            "en": "Statement of Comprehensive Income",
-            "ru": "Отчёт о совокупном доходе"
+            "en": "Statement of Comprehensive Income"
           },
           {
             "id": "d",
-            "en": "Statement of Changes in Equity",
-            "ru": "Отчёт об изменениях капитала"
+            "en": "Statement of Changes in Equity"
           }
         ],
         "correct": "b",
         "section": null,
-        "explain_ru": "Cash Flows = денежные поступления и выплаты за период.",
         "_block": "11_part1_financial_statements",
         "_scoring": {
           "correct": 1,
@@ -770,32 +704,27 @@
         "num": 2,
         "id": "11_part1_financial_statements_q2",
         "en": "The current ratio compares:",
-        "ru": "Коэффициент текущей ликвидности сравнивает:",
         "options": [
           {
             "id": "a",
-            "en": "Current assets to Current liabilities",
-            "ru": "Оборотные активы и оборотные обязательства"
+            "en": "Current assets to Current liabilities"
           },
           {
             "id": "b",
-            "en": "Total liabilities to Total assets",
-            "ru": "Обязательства и активы"
+            "en": "Total liabilities to Total assets"
           },
           {
             "id": "c",
-            "en": "Net income to Revenue",
-            "ru": "Чистую прибыль и выручку"
+            "en": "Net income to Revenue"
           },
           {
             "id": "d",
-            "en": "Inventory to Cost of goods sold",
-            "ru": "Запасы и себестоимость"
+            "en": "Inventory to Cost of goods sold"
           }
         ],
         "correct": "a",
         "section": null,
-        "explain_ru": "Current ratio = Current assets / Current liabilities.",
+        "explain": "Current ratio = Current assets / Current liabilities.",
         "_block": "11_part1_financial_statements",
         "_scoring": {
           "correct": 1,
@@ -807,27 +736,22 @@
         "num": 3,
         "id": "11_part1_financial_statements_q3",
         "en": "Two fundamental qualitative characteristics (IFRS Framework):",
-        "ru": "Две фундаментальные качественные характеристики:",
         "options": [
           {
             "id": "a",
-            "en": "Comparability and Timeliness",
-            "ru": "Сопоставимость и своевременность"
+            "en": "Comparability and Timeliness"
           },
           {
             "id": "b",
-            "en": "Relevance and Faithful Representation",
-            "ru": "Уместность и достоверное представление"
+            "en": "Relevance and Faithful Representation"
           },
           {
             "id": "c",
-            "en": "Verifiability and Understandability",
-            "ru": "Проверяемость и понятность"
+            "en": "Verifiability and Understandability"
           },
           {
             "id": "d",
-            "en": "Neutrality and Completeness",
-            "ru": "Нейтральность и полнота"
+            "en": "Neutrality and Completeness"
           }
         ],
         "correct": "b",
@@ -843,32 +767,26 @@
         "num": 4,
         "id": "11_part1_financial_statements_q4",
         "en": "Under IAS 7, which is in Financing Activities?",
-        "ru": "По IAS 7 к финансовой деятельности относится:",
         "options": [
           {
             "id": "a",
-            "en": "Revenues",
-            "ru": "Выручка"
+            "en": "Revenues"
           },
           {
             "id": "b",
-            "en": "A sale of an office",
-            "ru": "Продажа офиса"
+            "en": "A sale of an office"
           },
           {
             "id": "c",
-            "en": "A purchase of an office",
-            "ru": "Покупка офиса"
+            "en": "A purchase of an office"
           },
           {
             "id": "d",
-            "en": "Payments of dividends",
-            "ru": "Выплата дивидендов"
+            "en": "Payments of dividends"
           }
         ],
         "correct": "d",
         "section": null,
-        "explain_ru": "Дивиденды — financing; покупка/продажа офиса — investing.",
         "_block": "11_part1_financial_statements",
         "_scoring": {
           "correct": 1,
@@ -895,27 +813,22 @@
         "num": 5,
         "id": "07_part1_management_q5_8_q5",
         "en": "The management performs three general broad functions:",
-        "ru": "Три общие функции менеджмента:",
         "options": [
           {
             "id": "a",
-            "en": "Planning, directing and motivating, controlling",
-            "ru": "Планирование, руководство, контроль"
+            "en": "Planning, directing and motivating, controlling"
           },
           {
             "id": "b",
-            "en": "Planning, budgeting and controlling",
-            "ru": "Планирование, бюджетирование, контроль"
+            "en": "Planning, budgeting and controlling"
           },
           {
             "id": "c",
-            "en": "Planning, accounting and controlling",
-            "ru": "Планирование, учёт, контроль"
+            "en": "Planning, accounting and controlling"
           },
           {
             "id": "d",
-            "en": "Directing, accounting and controlling",
-            "ru": "Руководство, учёт, контроль"
+            "en": "Directing, accounting and controlling"
           }
         ],
         "correct": "a",
@@ -931,27 +844,22 @@
         "num": 6,
         "id": "07_part1_management_q5_8_q6",
         "en": "Planning involves:",
-        "ru": "Планирование включает:",
         "options": [
           {
             "id": "a",
-            "en": "Developing objectives and preparing budgets",
-            "ru": "Цели и бюджеты"
+            "en": "Developing objectives and preparing budgets"
           },
           {
             "id": "b",
-            "en": "Steps to ensure objectives are attained",
-            "ru": "Шаги для достижения целей"
+            "en": "Steps to ensure objectives are attained"
           },
           {
             "id": "c",
-            "en": "Analysis of accounts for decisions",
-            "ru": "Анализ счетов"
+            "en": "Analysis of accounts for decisions"
           },
           {
             "id": "d",
-            "en": "Guiding and motivating people",
-            "ru": "Руководство и мотивация людей"
+            "en": "Guiding and motivating people"
           }
         ],
         "correct": "a",
@@ -967,27 +875,22 @@
         "num": 7,
         "id": "07_part1_management_q5_8_q7",
         "en": "Three levels of managers:",
-        "ru": "Три уровня менеджеров:",
         "options": [
           {
             "id": "a",
-            "en": "Strategic, Accounting, Operational",
-            "ru": "Стратегические, учётные, операционные"
+            "en": "Strategic, Accounting, Operational"
           },
           {
             "id": "b",
-            "en": "Strategic, Tactical, Financial",
-            "ru": "Стратегические, тактические, финансовые"
+            "en": "Strategic, Tactical, Financial"
           },
           {
             "id": "c",
-            "en": "Strategic, Tactical, Operational",
-            "ru": "Стратегические, тактические, операционные"
+            "en": "Strategic, Tactical, Operational"
           },
           {
             "id": "d",
-            "en": "Financial, Accounting, Operational",
-            "ru": "Финансовые, учётные, операционные"
+            "en": "Financial, Accounting, Operational"
           }
         ],
         "correct": "c",
@@ -1003,27 +906,22 @@
         "num": 8,
         "id": "07_part1_management_q5_8_q8",
         "en": "Direct costs are:",
-        "ru": "Прямые затраты:",
         "options": [
           {
             "id": "a",
-            "en": "Vary proportionately with activity",
-            "ru": "Меняются пропорционально активности"
+            "en": "Vary proportionately with activity"
           },
           {
             "id": "b",
-            "en": "Remain same in total",
-            "ru": "Постоянны в сумме"
+            "en": "Remain same in total"
           },
           {
             "id": "c",
-            "en": "Easily traced to product or department",
-            "ru": "Легко относятся на продукт/подразделение"
+            "en": "Easily traced to product or department"
           },
           {
             "id": "d",
-            "en": "Must be allocated",
-            "ru": "Требуют распределения"
+            "en": "Must be allocated"
           }
         ],
         "correct": "c",
@@ -1054,27 +952,22 @@
         "num": 1,
         "id": "02_part2_finance_banking_q1",
         "en": "In the perspective of investors, which instrument is riskier?",
-        "ru": "С точки зрения инвестора, какой инструмент рискованнее?",
         "options": [
           {
             "id": "a",
-            "en": "Government bond",
-            "ru": "Государственная облигация"
+            "en": "Government bond"
           },
           {
             "id": "b",
-            "en": "Corporate bond",
-            "ru": "Корпоративная облигация"
+            "en": "Corporate bond"
           },
           {
             "id": "c",
-            "en": "Equity share",
-            "ru": "Акция (доля в капитале)"
+            "en": "Equity share"
           },
           {
             "id": "d",
-            "en": "Subordinated bond",
-            "ru": "Субординированная облигация"
+            "en": "Subordinated bond"
           }
         ],
         "correct": "c",
@@ -1090,27 +983,22 @@
         "num": 2,
         "id": "02_part2_finance_banking_q2",
         "en": "In the perspective of firms, which instrument has constant cash outflows?",
-        "ru": "С точки зрения фирмы, у какого инструмента постоянные денежные выплаты?",
         "options": [
           {
             "id": "a",
-            "en": "Bond with variable rates",
-            "ru": "Облигация с плавающей ставкой"
+            "en": "Bond with variable rates"
           },
           {
             "id": "b",
-            "en": "Equity",
-            "ru": "Акционерный капитал"
+            "en": "Equity"
           },
           {
             "id": "c",
-            "en": "Bond with fixed rates",
-            "ru": "Облигация с фиксированной ставкой"
+            "en": "Bond with fixed rates"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один из перечисленных"
+            "en": "None of the above"
           }
         ],
         "correct": "c",
@@ -1126,27 +1014,22 @@
         "num": 3,
         "id": "02_part2_finance_banking_q3",
         "en": "About the exchange of money, in the financial system we have:",
-        "ru": "Об обмене денег в финансовой системе:",
         "options": [
           {
             "id": "a",
-            "en": "Indirect and direct circuit",
-            "ru": "Прямой и непрямой контур"
+            "en": "Indirect and direct circuit"
           },
           {
             "id": "b",
-            "en": "Direct circuit only",
-            "ru": "Только прямой контур"
+            "en": "Direct circuit only"
           },
           {
             "id": "c",
-            "en": "Indirect circuit only",
-            "ru": "Только непрямой контур"
+            "en": "Indirect circuit only"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один из перечисленных"
+            "en": "None of the above"
           }
         ],
         "correct": "a",
@@ -1162,27 +1045,22 @@
         "num": 4,
         "id": "02_part2_finance_banking_q4",
         "en": "A credit line on which a borrower can draw and repay many times is:",
-        "ru": "Кредитная линия, по которой заёмщик может многократно брать и возвращать средства:",
         "options": [
           {
             "id": "a",
-            "en": "Bond",
-            "ru": "Облигация"
+            "en": "Bond"
           },
           {
             "id": "b",
-            "en": "Non revolving loan",
-            "ru": "Невозобновляемый кредит"
+            "en": "Non revolving loan"
           },
           {
             "id": "c",
-            "en": "Revolving loan",
-            "ru": "Возобновляемый кредит (revolving)"
+            "en": "Revolving loan"
           },
           {
             "id": "d",
-            "en": "Syndicated loan",
-            "ru": "Синдицированный кредит"
+            "en": "Syndicated loan"
           }
         ],
         "correct": "c",
@@ -1198,27 +1076,22 @@
         "num": 5,
         "id": "02_part2_finance_banking_q5",
         "en": "In the European Banking Union we have:",
-        "ru": "В Европейском банковском союзе:",
         "options": [
           {
             "id": "a",
-            "en": "1 pillar",
-            "ru": "1 столп"
+            "en": "1 pillar"
           },
           {
             "id": "b",
-            "en": "5 pillars",
-            "ru": "5 столпов"
+            "en": "5 pillars"
           },
           {
             "id": "c",
-            "en": "2 pillars",
-            "ru": "2 столпа"
+            "en": "2 pillars"
           },
           {
             "id": "d",
-            "en": "3 pillars",
-            "ru": "3 столпа"
+            "en": "3 pillars"
           }
         ],
         "correct": "d",
@@ -1234,27 +1107,22 @@
         "num": 6,
         "id": "02_part2_finance_banking_q6",
         "en": "The first pillar of the European Banking Union is about:",
-        "ru": "Первый столп Европейского банковского союза — это:",
         "options": [
           {
             "id": "a",
-            "en": "Sustainability",
-            "ru": "Устойчивость"
+            "en": "Sustainability"
           },
           {
             "id": "b",
-            "en": "Deposit guarantee schemes",
-            "ru": "Схемы гарантирования вкладов"
+            "en": "Deposit guarantee schemes"
           },
           {
             "id": "c",
-            "en": "Resolution mechanisms",
-            "ru": "Механизмы resolution"
+            "en": "Resolution mechanisms"
           },
           {
             "id": "d",
-            "en": "Supervision",
-            "ru": "Надзор (supervision)"
+            "en": "Supervision"
           }
         ],
         "correct": "d",
@@ -1270,27 +1138,22 @@
         "num": 7,
         "id": "02_part2_finance_banking_q7",
         "en": "With the stress tests the authority defines:",
-        "ru": "Стресс-тесты позволяют регулятору определить:",
         "options": [
           {
             "id": "a",
-            "en": "The need of new equity",
-            "ru": "Потребность в новом капитале (equity)"
+            "en": "The need of new equity"
           },
           {
             "id": "b",
-            "en": "The need of new debt",
-            "ru": "Потребность в новом долге"
+            "en": "The need of new debt"
           },
           {
             "id": "c",
-            "en": "The profitability of the banks",
-            "ru": "Рентабельность банков"
+            "en": "The profitability of the banks"
           },
           {
             "id": "d",
-            "en": "None of the answers",
-            "ru": "Ни один из ответов"
+            "en": "None of the answers"
           }
         ],
         "correct": "a",
@@ -1306,27 +1169,22 @@
         "num": 8,
         "id": "02_part2_finance_banking_q8",
         "en": "Ratings are used for the calculation of:",
-        "ru": "Рейтинги используются для расчёта:",
         "options": [
           {
             "id": "a",
-            "en": "EAD",
-            "ru": "EAD"
+            "en": "EAD"
           },
           {
             "id": "b",
-            "en": "LGD",
-            "ru": "LGD"
+            "en": "LGD"
           },
           {
             "id": "c",
-            "en": "None of the answers",
-            "ru": "Ни один из ответов"
+            "en": "None of the answers"
           },
           {
             "id": "d",
-            "en": "PD",
-            "ru": "PD (вероятность дефолта)"
+            "en": "PD"
           }
         ],
         "correct": "d",
@@ -1342,27 +1200,22 @@
         "num": 9,
         "id": "02_part2_finance_banking_q9",
         "en": "According to CAPM the cost of equity (used in DCF) is determined using:",
-        "ru": "По CAPM стоимость equity (в DCF) определяется через:",
         "options": [
           {
             "id": "a",
-            "en": "Risk free rate, beta, market risk premium",
-            "ru": "Безрисковая ставка, бета, рыночная премия за риск"
+            "en": "Risk free rate, beta, market risk premium"
           },
           {
             "id": "b",
-            "en": "Beta and WACC",
-            "ru": "Бета и WACC"
+            "en": "Beta and WACC"
           },
           {
             "id": "c",
-            "en": "WACC",
-            "ru": "WACC"
+            "en": "WACC"
           },
           {
             "id": "d",
-            "en": "Only risk free rate",
-            "ru": "Только безрисковая ставка"
+            "en": "Only risk free rate"
           }
         ],
         "correct": "a",
@@ -1378,27 +1231,22 @@
         "num": 10,
         "id": "02_part2_finance_banking_q10",
         "en": "The repricing model is useful to manage:",
-        "ru": "Модель переоценки (repricing) полезна для управления:",
         "options": [
           {
             "id": "a",
-            "en": "Interest rate risk",
-            "ru": "Процентным риском"
+            "en": "Interest rate risk"
           },
           {
             "id": "b",
-            "en": "Credit risk",
-            "ru": "Кредитным риском"
+            "en": "Credit risk"
           },
           {
             "id": "c",
-            "en": "Sovereign risk",
-            "ru": "Суверенным риском"
+            "en": "Sovereign risk"
           },
           {
             "id": "d",
-            "en": "Mutual funds",
-            "ru": "Паевыми фондами"
+            "en": "Mutual funds"
           }
         ],
         "correct": "a",
@@ -1414,27 +1262,22 @@
         "num": 11,
         "id": "02_part2_finance_banking_q11",
         "en": "IFRS 9 is useful to determine:",
-        "ru": "IFRS 9 используется для определения:",
         "options": [
           {
             "id": "a",
-            "en": "Geographical division of assets",
-            "ru": "Географического распределения активов"
+            "en": "Geographical division of assets"
           },
           {
             "id": "b",
-            "en": "The expected losses",
-            "ru": "Ожидаемых потерь (expected losses)"
+            "en": "The expected losses"
           },
           {
             "id": "c",
-            "en": "Geographical division of liabilities",
-            "ru": "Географического распределения обязательств"
+            "en": "Geographical division of liabilities"
           },
           {
             "id": "d",
-            "en": "Bonis",
-            "ru": "Bonis"
+            "en": "Bonis"
           }
         ],
         "correct": "b",
@@ -1450,27 +1293,22 @@
         "num": 12,
         "id": "02_part2_finance_banking_q12",
         "en": "Repayments from foreign borrowers may be interrupted due to government restrictions — this is:",
-        "ru": "Риск прерывания платежей иностранных заёмщиков из-за ограничений правительства — это:",
         "options": [
           {
             "id": "a",
-            "en": "Country risk",
-            "ru": "Страновой риск (country risk)"
+            "en": "Country risk"
           },
           {
             "id": "b",
-            "en": "Liquidity risk",
-            "ru": "Риск ликвидности"
+            "en": "Liquidity risk"
           },
           {
             "id": "c",
-            "en": "Market risk",
-            "ru": "Рыночный риск"
+            "en": "Market risk"
           },
           {
             "id": "d",
-            "en": "Operational risk",
-            "ru": "Операционный риск"
+            "en": "Operational risk"
           }
         ],
         "correct": "a",
@@ -1486,27 +1324,22 @@
         "num": 13,
         "id": "02_part2_finance_banking_q13",
         "en": "What are the strengths of the DCF?",
-        "ru": "Сильные стороны DCF:",
         "options": [
           {
             "id": "a",
-            "en": "All the answers",
-            "ru": "Все перечисленные"
+            "en": "All the answers"
           },
           {
             "id": "b",
-            "en": "It is scientific",
-            "ru": "Научность"
+            "en": "It is scientific"
           },
           {
             "id": "c",
-            "en": "It is widely used",
-            "ru": "Широкое применение"
+            "en": "It is widely used"
           },
           {
             "id": "d",
-            "en": "It is based on cash flows",
-            "ru": "Основан на денежных потоках"
+            "en": "It is based on cash flows"
           }
         ],
         "correct": "a",
@@ -1522,27 +1355,22 @@
         "num": 14,
         "id": "02_part2_finance_banking_q14",
         "en": "Which theory introduces moral hazard and adverse selection?",
-        "ru": "Какая теория вводит moral hazard и adverse selection?",
         "options": [
           {
             "id": "a",
-            "en": "Information asymmetries",
-            "ru": "Информационная асимметрия"
+            "en": "Information asymmetries"
           },
           {
             "id": "b",
-            "en": "Uncertainty",
-            "ru": "Неопределённость"
+            "en": "Uncertainty"
           },
           {
             "id": "c",
-            "en": "Intellectual asymmetries",
-            "ru": "Интеллектуальная асимметрия"
+            "en": "Intellectual asymmetries"
           },
           {
             "id": "d",
-            "en": "Transaction costs",
-            "ru": "Транзакционные издержки"
+            "en": "Transaction costs"
           }
         ],
         "correct": "a",
@@ -1558,27 +1386,22 @@
         "num": 15,
         "id": "02_part2_finance_banking_q15",
         "en": "Which activity is specific to investment banks?",
-        "ru": "Какая деятельность характерна для инвестиционных банков?",
         "options": [
           {
             "id": "a",
-            "en": "M&A support",
-            "ru": "Поддержка M&A"
+            "en": "M&A support"
           },
           {
             "id": "b",
-            "en": "Credit intermediation",
-            "ru": "Кредитное посредничество"
+            "en": "Credit intermediation"
           },
           {
             "id": "c",
-            "en": "General lending activities",
-            "ru": "Обычное кредитование"
+            "en": "General lending activities"
           },
           {
             "id": "d",
-            "en": "None of the answers",
-            "ru": "Ни один из ответов"
+            "en": "None of the answers"
           }
         ],
         "correct": "a",
@@ -1594,27 +1417,22 @@
         "num": 16,
         "id": "02_part2_finance_banking_q16",
         "en": "The total value of an operating business regardless of capital structure is:",
-        "ru": "Совокупная стоимость действующего бизнеса независимо от структуры капитала:",
         "options": [
           {
             "id": "a",
-            "en": "Firm value",
-            "ru": "Стоимость фирмы (firm value)"
+            "en": "Firm value"
           },
           {
             "id": "b",
-            "en": "Equity value",
-            "ru": "Стоимость equity"
+            "en": "Equity value"
           },
           {
             "id": "c",
-            "en": "Net debt",
-            "ru": "Чистый долг"
+            "en": "Net debt"
           },
           {
             "id": "d",
-            "en": "None of the answers",
-            "ru": "Ни один из ответов"
+            "en": "None of the answers"
           }
         ],
         "correct": "a",
@@ -1630,27 +1448,22 @@
         "num": 17,
         "id": "02_part2_finance_banking_q17",
         "en": "The bail-in:",
-        "ru": "Bail-in:",
         "options": [
           {
             "id": "a",
-            "en": "Optional choice of bank managers",
-            "ru": "Добровольный выбор менеджеров"
+            "en": "Optional choice of bank managers"
           },
           {
             "id": "b",
-            "en": "Related only to customer creditworthiness",
-            "ru": "Связан только с кредитоспособностью клиентов"
+            "en": "Related only to customer creditworthiness"
           },
           {
             "id": "c",
-            "en": "Resolution mechanism of the first pillar of EBU",
-            "ru": "Механизм resolution 1-го столпа EBU"
+            "en": "Resolution mechanism of the first pillar of EBU"
           },
           {
             "id": "d",
-            "en": "Resolution mechanism of the second pillar of EBU",
-            "ru": "Механизм resolution 2-го столпа EBU"
+            "en": "Resolution mechanism of the second pillar of EBU"
           }
         ],
         "correct": "d",
@@ -1666,27 +1479,22 @@
         "num": 18,
         "id": "02_part2_finance_banking_q18",
         "en": "The early interventions of the SRM are used:",
-        "ru": "Ранние вмешательства SRM применяются:",
         "options": [
           {
             "id": "a",
-            "en": "None of the answers",
-            "ru": "Ни один из ответов"
+            "en": "None of the answers"
           },
           {
             "id": "b",
-            "en": "After the bail-in",
-            "ru": "После bail-in"
+            "en": "After the bail-in"
           },
           {
             "id": "c",
-            "en": "Before the bail-in",
-            "ru": "До bail-in"
+            "en": "Before the bail-in"
           },
           {
             "id": "d",
-            "en": "During the bail-in",
-            "ru": "Во время bail-in"
+            "en": "During the bail-in"
           }
         ],
         "correct": "c",
@@ -1717,27 +1525,22 @@
         "num": 1,
         "id": "08_part2_exam_2026_variant_b_q1",
         "en": "What is the main risk considered by Basel I?",
-        "ru": "Главный риск в Basel I:",
         "options": [
           {
             "id": "a",
-            "en": "Interest rate risk",
-            "ru": "Процентный риск"
+            "en": "Interest rate risk"
           },
           {
             "id": "b",
-            "en": "Market risk",
-            "ru": "Рыночный риск"
+            "en": "Market risk"
           },
           {
             "id": "c",
-            "en": "Credit risk",
-            "ru": "Кредитный риск"
+            "en": "Credit risk"
           },
           {
             "id": "d",
-            "en": "Concentration risk",
-            "ru": "Риск концентрации"
+            "en": "Concentration risk"
           }
         ],
         "correct": "c",
@@ -1753,27 +1556,22 @@
         "num": 2,
         "id": "08_part2_exam_2026_variant_b_q2",
         "en": "Duration is useful for the evaluation of:",
-        "ru": "Duration полезна для оценки:",
         "options": [
           {
             "id": "a",
-            "en": "Bond",
-            "ru": "Облигации"
+            "en": "Bond"
           },
           {
             "id": "b",
-            "en": "Shares",
-            "ru": "Акций"
+            "en": "Shares"
           },
           {
             "id": "c",
-            "en": "Derivatives",
-            "ru": "Производных инструментов"
+            "en": "Derivatives"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один из перечисленных"
+            "en": "None of the above"
           }
         ],
         "correct": "a",
@@ -1789,27 +1587,22 @@
         "num": 3,
         "id": "08_part2_exam_2026_variant_b_q3",
         "en": "In the financial system, exchange of money:",
-        "ru": "В финансовой системе обмен денег:",
         "options": [
           {
             "id": "a",
-            "en": "Indirect and direct circuit",
-            "ru": "Прямой и непрямой контур"
+            "en": "Indirect and direct circuit"
           },
           {
             "id": "b",
-            "en": "Direct circuit only",
-            "ru": "Только прямой"
+            "en": "Direct circuit only"
           },
           {
             "id": "c",
-            "en": "Indirect circuit only",
-            "ru": "Только непрямой"
+            "en": "Indirect circuit only"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один"
+            "en": "None of the above"
           }
         ],
         "correct": "a",
@@ -1825,27 +1618,22 @@
         "num": 4,
         "id": "08_part2_exam_2026_variant_b_q4",
         "en": "Banks operate as credit intermediaries in:",
-        "ru": "Банки как кредитные посредники действуют в:",
         "options": [
           {
             "id": "a",
-            "en": "Indirect circuit but only for IPO",
-            "ru": "Непрямом контуре, только IPO"
+            "en": "Indirect circuit but only for IPO"
           },
           {
             "id": "b",
-            "en": "Direct circuit but only for IPO",
-            "ru": "Прямом контуре, только IPO"
+            "en": "Direct circuit but only for IPO"
           },
           {
             "id": "c",
-            "en": "Direct circuit",
-            "ru": "Прямом контуре"
+            "en": "Direct circuit"
           },
           {
             "id": "d",
-            "en": "Indirect circuit",
-            "ru": "Непрямом контуре"
+            "en": "Indirect circuit"
           }
         ],
         "correct": "d",
@@ -1861,27 +1649,22 @@
         "num": 5,
         "id": "08_part2_exam_2026_variant_b_q5",
         "en": "Total loans to customers are:",
-        "ru": "Совокупные кредиты клиентам отражаются:",
         "options": [
           {
             "id": "a",
-            "en": "In liabilities of balance sheet",
-            "ru": "В обязательствах баланса"
+            "en": "In liabilities of balance sheet"
           },
           {
             "id": "b",
-            "en": "In liabilities of income statement",
-            "ru": "В обязательствах отчёта о прибылях"
+            "en": "In liabilities of income statement"
           },
           {
             "id": "c",
-            "en": "In assets of income statement",
-            "ru": "В активах отчёта о прибылях"
+            "en": "In assets of income statement"
           },
           {
             "id": "d",
-            "en": "In assets of banks' balance sheet",
-            "ru": "В активах баланса банка"
+            "en": "In assets of banks' balance sheet"
           }
         ],
         "correct": "d",
@@ -1897,27 +1680,22 @@
         "num": 6,
         "id": "08_part2_exam_2026_variant_b_q6",
         "en": "First pillar of European Banking Union:",
-        "ru": "Первый столп EBU:",
         "options": [
           {
             "id": "a",
-            "en": "Sustainability",
-            "ru": "Устойчивость"
+            "en": "Sustainability"
           },
           {
             "id": "b",
-            "en": "Deposit guarantee schemes",
-            "ru": "Гарантии вкладов"
+            "en": "Deposit guarantee schemes"
           },
           {
             "id": "c",
-            "en": "Resolution mechanisms",
-            "ru": "Resolution"
+            "en": "Resolution mechanisms"
           },
           {
             "id": "d",
-            "en": "Supervision",
-            "ru": "Надзор"
+            "en": "Supervision"
           }
         ],
         "correct": "d",
@@ -1933,27 +1711,22 @@
         "num": 7,
         "id": "08_part2_exam_2026_variant_b_q7",
         "en": "In the DCF model we have:",
-        "ru": "В модели DCF есть:",
         "options": [
           {
             "id": "a",
-            "en": "Asset side and equity side approach",
-            "ru": "Подход со стороны активов и equity"
+            "en": "Asset side and equity side approach"
           },
           {
             "id": "b",
-            "en": "Only asset side approach",
-            "ru": "Только со стороны активов"
+            "en": "Only asset side approach"
           },
           {
             "id": "c",
-            "en": "Only equity side approach",
-            "ru": "Только со стороны equity"
+            "en": "Only equity side approach"
           },
           {
             "id": "d",
-            "en": "Income approach",
-            "ru": "Доходный подход"
+            "en": "Income approach"
           }
         ],
         "correct": "a",
@@ -1969,27 +1742,22 @@
         "num": 8,
         "id": "08_part2_exam_2026_variant_b_q8",
         "en": "Value at Risk (VaR) is useful to manage:",
-        "ru": "VaR используется для управления:",
         "options": [
           {
             "id": "a",
-            "en": "Market risk",
-            "ru": "Рыночным риском"
+            "en": "Market risk"
           },
           {
             "id": "b",
-            "en": "Credit risk",
-            "ru": "Кредитным риском"
+            "en": "Credit risk"
           },
           {
             "id": "c",
-            "en": "Counterpart risk",
-            "ru": "Риском контрагента"
+            "en": "Counterpart risk"
           },
           {
             "id": "d",
-            "en": "None of the answers",
-            "ru": "Ни один"
+            "en": "None of the answers"
           }
         ],
         "correct": "a",
@@ -2005,27 +1773,22 @@
         "num": 9,
         "id": "08_part2_exam_2026_variant_b_q9",
         "en": "CAPM cost of equity uses:",
-        "ru": "Стоимость equity по CAPM:",
         "options": [
           {
             "id": "a",
-            "en": "Risk free rate, beta, market risk premium",
-            "ru": "Rf, бета, премия за риск"
+            "en": "Risk free rate, beta, market risk premium"
           },
           {
             "id": "b",
-            "en": "Beta and WACC",
-            "ru": "Бета и WACC"
+            "en": "Beta and WACC"
           },
           {
             "id": "c",
-            "en": "WACC",
-            "ru": "WACC"
+            "en": "WACC"
           },
           {
             "id": "d",
-            "en": "Only risk free rate",
-            "ru": "Только Rf"
+            "en": "Only risk free rate"
           }
         ],
         "correct": "a",
@@ -2041,27 +1804,22 @@
         "num": 10,
         "id": "08_part2_exam_2026_variant_b_q10",
         "en": "If price of underlying asset increases, payoff of call option buyer:",
-        "ru": "Если цена базового актива растёт, payoff покупателя call:",
         "options": [
           {
             "id": "a",
-            "en": "Higher",
-            "ru": "Выше"
+            "en": "Higher"
           },
           {
             "id": "b",
-            "en": "Lower",
-            "ru": "Ниже"
+            "en": "Lower"
           },
           {
             "id": "c",
-            "en": "Stable",
-            "ru": "Стабилен"
+            "en": "Stable"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один"
+            "en": "None of the above"
           }
         ],
         "correct": "a",
@@ -2077,27 +1835,22 @@
         "num": 11,
         "id": "08_part2_exam_2026_variant_b_q11",
         "en": "IFRS 9 is divided into:",
-        "ru": "IFRS 9 делится на:",
         "options": [
           {
             "id": "a",
-            "en": "5 stages",
-            "ru": "5 стадий"
+            "en": "5 stages"
           },
           {
             "id": "b",
-            "en": "3 stages",
-            "ru": "3 стадии"
+            "en": "3 stages"
           },
           {
             "id": "c",
-            "en": "4 stages",
-            "ru": "4 стадии"
+            "en": "4 stages"
           },
           {
             "id": "d",
-            "en": "6 stages",
-            "ru": "6 стадий"
+            "en": "6 stages"
           }
         ],
         "correct": "b",
@@ -2113,27 +1866,22 @@
         "num": 12,
         "id": "08_part2_exam_2026_variant_b_q12",
         "en": "Credit risk is more important in:",
-        "ru": "Кредитный риск важнее для:",
         "options": [
           {
             "id": "a",
-            "en": "Commercial banks",
-            "ru": "Коммерческих банков"
+            "en": "Commercial banks"
           },
           {
             "id": "b",
-            "en": "Investment banks",
-            "ru": "Инвестиционных банков"
+            "en": "Investment banks"
           },
           {
             "id": "c",
-            "en": "Diversified banks",
-            "ru": "Диверсифицированных банков"
+            "en": "Diversified banks"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один"
+            "en": "None of the above"
           }
         ],
         "correct": "a",
@@ -2149,27 +1897,22 @@
         "num": 13,
         "id": "08_part2_exam_2026_variant_b_q13",
         "en": "SICR (significant increase in credit risk):",
-        "ru": "SICR (значительное увеличение кредитного риска):",
         "options": [
           {
             "id": "a",
-            "en": "Activates Stage 2 measurement",
-            "ru": "Активирует измерение Stage 2"
+            "en": "Activates Stage 2 measurement"
           },
           {
             "id": "b",
-            "en": "Activates Stage 4",
-            "ru": "Активирует Stage 4"
+            "en": "Activates Stage 4"
           },
           {
             "id": "c",
-            "en": "Activates Stage 3",
-            "ru": "Активирует Stage 3"
+            "en": "Activates Stage 3"
           },
           {
             "id": "d",
-            "en": "Not related to credit risk",
-            "ru": "Не связан с кредитным риском"
+            "en": "Not related to credit risk"
           }
         ],
         "correct": "a",
@@ -2185,27 +1928,22 @@
         "num": 14,
         "id": "08_part2_exam_2026_variant_b_q14",
         "en": "From bank perspective, secured loans:",
-        "ru": "С точки зрения банка, обеспеченные кредиты:",
         "options": [
           {
             "id": "a",
-            "en": "Are safer than unsecured loans",
-            "ru": "Безопаснее необеспеченных"
+            "en": "Are safer than unsecured loans"
           },
           {
             "id": "b",
-            "en": "Are riskier than unsecured",
-            "ru": "Рискованнее необеспеченных"
+            "en": "Are riskier than unsecured"
           },
           {
             "id": "c",
-            "en": "Only instrument for SMEs",
-            "ru": "Единственный инструмент для МСП"
+            "en": "Only instrument for SMEs"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один"
+            "en": "None of the above"
           }
         ],
         "correct": "a",
@@ -2221,27 +1959,22 @@
         "num": 15,
         "id": "08_part2_exam_2026_variant_b_q15",
         "en": "Activity specific to investment banks:",
-        "ru": "Деятельность, характерная для инвестбанков:",
         "options": [
           {
             "id": "a",
-            "en": "Issuing listed bonds",
-            "ru": "Выпуск листинговых облигаций"
+            "en": "Issuing listed bonds"
           },
           {
             "id": "b",
-            "en": "Credit intermediation",
-            "ru": "Кредитное посредничество"
+            "en": "Credit intermediation"
           },
           {
             "id": "c",
-            "en": "General lending",
-            "ru": "Обычное кредитование"
+            "en": "General lending"
           },
           {
             "id": "d",
-            "en": "None of the answers",
-            "ru": "Ни один"
+            "en": "None of the answers"
           }
         ],
         "correct": "a",
@@ -2257,27 +1990,22 @@
         "num": 16,
         "id": "08_part2_exam_2026_variant_b_q16",
         "en": "Total value of business regardless of capital structure:",
-        "ru": "Стоимость бизнеса независимо от структуры капитала:",
         "options": [
           {
             "id": "a",
-            "en": "Firm value",
-            "ru": "Firm value"
+            "en": "Firm value"
           },
           {
             "id": "b",
-            "en": "Equity value",
-            "ru": "Equity value"
+            "en": "Equity value"
           },
           {
             "id": "c",
-            "en": "Net debt",
-            "ru": "Net debt"
+            "en": "Net debt"
           },
           {
             "id": "d",
-            "en": "None of the answers",
-            "ru": "Ни один"
+            "en": "None of the answers"
           }
         ],
         "correct": "a",
@@ -2293,27 +2021,22 @@
         "num": 17,
         "id": "08_part2_exam_2026_variant_b_q17",
         "en": "The bad-bank:",
-        "ru": "Bad-bank:",
         "options": [
           {
             "id": "a",
-            "en": "Optional choice of managers",
-            "ru": "Добровольный выбор менеджеров"
+            "en": "Optional choice of managers"
           },
           {
             "id": "b",
-            "en": "Related only to customer creditworthiness",
-            "ru": "Только кредитоспособность клиентов"
+            "en": "Related only to customer creditworthiness"
           },
           {
             "id": "c",
-            "en": "Resolution mechanism of first pillar EBU",
-            "ru": "Resolution 1-го столпа"
+            "en": "Resolution mechanism of first pillar EBU"
           },
           {
             "id": "d",
-            "en": "Resolution mechanism of second pillar EBU",
-            "ru": "Resolution 2-го столпа EBU"
+            "en": "Resolution mechanism of second pillar EBU"
           }
         ],
         "correct": "d",
@@ -2329,32 +2052,600 @@
         "num": 18,
         "id": "08_part2_exam_2026_variant_b_q18",
         "en": "Net interest margin % is a:",
-        "ru": "Net interest margin % — это:",
         "options": [
           {
             "id": "a",
-            "en": "Profitability ratio",
-            "ru": "Показатель рентабельности"
+            "en": "Profitability ratio"
           },
           {
             "id": "b",
-            "en": "Efficiency ratio",
-            "ru": "Показатель эффективности"
+            "en": "Efficiency ratio"
           },
           {
             "id": "c",
-            "en": "Solvency ratio",
-            "ru": "Показатель платёжеспособности"
+            "en": "Solvency ratio"
           },
           {
             "id": "d",
-            "en": "Equity ratio",
-            "ru": "Показатель equity"
+            "en": "Equity ratio"
           }
         ],
         "correct": "a",
         "section": null,
         "_block": "08_part2_exam_2026_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      }
+    ],
+    "open": [],
+    "sna": [],
+    "extra": ""
+  },
+  {
+    "slug": "13_part2_exam_2026_16_06_variant_b",
+    "title": "13 — Part 2 Exam 16/06/2026 Variant B",
+    "desc": "18 MCQ",
+    "scoring": {
+      "correct": 1,
+      "wrong": 0,
+      "max": null
+    },
+    "questions": [
+      {
+        "num": 1,
+        "id": "13_part2_exam_2026_16_06_variant_b_q1",
+        "en": "Delisting can be caused by",
+        "options": [
+          {
+            "id": "a",
+            "en": "The autonomous decision of the listed company"
+          },
+          {
+            "id": "b",
+            "en": "Exclusion from the price list by the authorities due to lack of requirements"
+          },
+          {
+            "id": "c",
+            "en": "The acquisition of the company through a public offering"
+          },
+          {
+            "id": "d",
+            "en": "All the answers"
+          }
+        ],
+        "correct": "d",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 2,
+        "id": "13_part2_exam_2026_16_06_variant_b_q2",
+        "en": "The duration is an instrument useful for the evaluation of",
+        "options": [
+          {
+            "id": "a",
+            "en": "Bond"
+          },
+          {
+            "id": "b",
+            "en": "Shares"
+          },
+          {
+            "id": "c",
+            "en": "Derivatives"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "correct": "a",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 3,
+        "id": "13_part2_exam_2026_16_06_variant_b_q3",
+        "en": "Basel I focus on",
+        "options": [
+          {
+            "id": "a",
+            "en": "Interest risk"
+          },
+          {
+            "id": "b",
+            "en": "Credit risk"
+          },
+          {
+            "id": "c",
+            "en": "Currency risk"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "correct": "b",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 4,
+        "id": "13_part2_exam_2026_16_06_variant_b_q4",
+        "en": "In the transfer of financial resources between subjects in surplus and in deficit, when the bank takes risks, we are talking about",
+        "options": [
+          {
+            "id": "a",
+            "en": "Indirect circuit"
+          },
+          {
+            "id": "b",
+            "en": "Direct circuit"
+          },
+          {
+            "id": "c",
+            "en": "M&A"
+          },
+          {
+            "id": "d",
+            "en": "IPO"
+          }
+        ],
+        "correct": "a",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 5,
+        "id": "13_part2_exam_2026_16_06_variant_b_q5",
+        "en": "The total of the deposits of the customers are",
+        "options": [
+          {
+            "id": "a",
+            "en": "In the liabilities of the banks' balance sheet"
+          },
+          {
+            "id": "b",
+            "en": "In the liabilities of the banks' income statement"
+          },
+          {
+            "id": "c",
+            "en": "In the asset of the banks' income statement"
+          },
+          {
+            "id": "d",
+            "en": "In the asset of the banks' balance sheet"
+          }
+        ],
+        "correct": "a",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 6,
+        "id": "13_part2_exam_2026_16_06_variant_b_q6",
+        "en": "In the capital markets service of the investment banks, banks can operate",
+        "options": [
+          {
+            "id": "a",
+            "en": "Only in primary markets"
+          },
+          {
+            "id": "b",
+            "en": "Only in secondary markets"
+          },
+          {
+            "id": "c",
+            "en": "Both in primary and secondary markets"
+          },
+          {
+            "id": "d",
+            "en": "Only for IPO"
+          }
+        ],
+        "correct": "c",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 7,
+        "id": "13_part2_exam_2026_16_06_variant_b_q7",
+        "en": "Which of the following is a service offered by investment banks?",
+        "options": [
+          {
+            "id": "a",
+            "en": "Asset management"
+          },
+          {
+            "id": "b",
+            "en": "Corporate finance"
+          },
+          {
+            "id": "c",
+            "en": "Risk management"
+          },
+          {
+            "id": "d",
+            "en": "All the previous answers"
+          }
+        ],
+        "correct": "d",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 8,
+        "id": "13_part2_exam_2026_16_06_variant_b_q8",
+        "en": "The Deposit Guarantee Schemes Directive is related",
+        "options": [
+          {
+            "id": "a",
+            "en": "To the fourth pillar of European Banking Union"
+          },
+          {
+            "id": "b",
+            "en": "To the third pillar of European Banking Union"
+          },
+          {
+            "id": "c",
+            "en": "To the first pillar of European Banking Union"
+          },
+          {
+            "id": "d",
+            "en": "To the second pillar of European Banking Union"
+          }
+        ],
+        "correct": "b",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 9,
+        "id": "13_part2_exam_2026_16_06_variant_b_q9",
+        "en": "Usually, venture capitalists buy",
+        "options": [
+          {
+            "id": "a",
+            "en": "Shares of stable companies"
+          },
+          {
+            "id": "b",
+            "en": "Bonds of stable companies"
+          },
+          {
+            "id": "c",
+            "en": "Shares of young companies with good potential"
+          },
+          {
+            "id": "d",
+            "en": "Bonds of young companies with good potential"
+          }
+        ],
+        "correct": "c",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 10,
+        "id": "13_part2_exam_2026_16_06_variant_b_q10",
+        "en": "Bail-in is a measure related to",
+        "options": [
+          {
+            "id": "a",
+            "en": "The second pillar of EBU"
+          },
+          {
+            "id": "b",
+            "en": "The first pillar of EBU"
+          },
+          {
+            "id": "c",
+            "en": "CAPM"
+          },
+          {
+            "id": "d",
+            "en": "APT"
+          }
+        ],
+        "correct": "a",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 11,
+        "id": "13_part2_exam_2026_16_06_variant_b_q11",
+        "en": "Stage 1 of IFRS 9 is called",
+        "options": [
+          {
+            "id": "a",
+            "en": "Non-performing"
+          },
+          {
+            "id": "b",
+            "en": "Performing"
+          },
+          {
+            "id": "c",
+            "en": "Under performing"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "correct": "b",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 12,
+        "id": "13_part2_exam_2026_16_06_variant_b_q12",
+        "en": "Usually credit risk is more important in",
+        "options": [
+          {
+            "id": "a",
+            "en": "Commercial banks"
+          },
+          {
+            "id": "b",
+            "en": "Investment banks"
+          },
+          {
+            "id": "c",
+            "en": "Diversified banks"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "correct": "a",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 13,
+        "id": "13_part2_exam_2026_16_06_variant_b_q13",
+        "en": "The IFRS 9 divide into:",
+        "options": [
+          {
+            "id": "a",
+            "en": "5 stages"
+          },
+          {
+            "id": "b",
+            "en": "3 stages"
+          },
+          {
+            "id": "c",
+            "en": "4 stages"
+          },
+          {
+            "id": "d",
+            "en": "6 stages"
+          }
+        ],
+        "correct": "b",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 14,
+        "id": "13_part2_exam_2026_16_06_variant_b_q14",
+        "en": "In the perspective of the bank, secured loans",
+        "options": [
+          {
+            "id": "a",
+            "en": "Are safer than unsecured loans"
+          },
+          {
+            "id": "b",
+            "en": "Are riskier than unsecured loans"
+          },
+          {
+            "id": "c",
+            "en": "Are the only credit instrument available for SMEs"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "correct": "a",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 15,
+        "id": "13_part2_exam_2026_16_06_variant_b_q15",
+        "en": "Credit risk is related to",
+        "options": [
+          {
+            "id": "a",
+            "en": "Probability of default"
+          },
+          {
+            "id": "b",
+            "en": "Exposure at default"
+          },
+          {
+            "id": "c",
+            "en": "Loss given default"
+          },
+          {
+            "id": "d",
+            "en": "All the previous answers"
+          }
+        ],
+        "correct": "d",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 16,
+        "id": "13_part2_exam_2026_16_06_variant_b_q16",
+        "en": "In the perspective of a company, only considering cash flow out, which financial instrument is best?",
+        "options": [
+          {
+            "id": "a",
+            "en": "Shares"
+          },
+          {
+            "id": "b",
+            "en": "Bonds"
+          },
+          {
+            "id": "c",
+            "en": "Debt"
+          },
+          {
+            "id": "d",
+            "en": "Derivatives"
+          }
+        ],
+        "correct": "a",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 17,
+        "id": "13_part2_exam_2026_16_06_variant_b_q17",
+        "en": "In the operations of a bank 'Non-financial debts' are",
+        "options": [
+          {
+            "id": "a",
+            "en": "Interest bearing asset"
+          },
+          {
+            "id": "b",
+            "en": "Non-expensive liabilities"
+          },
+          {
+            "id": "c",
+            "en": "Real asset"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "correct": "b",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 18,
+        "id": "13_part2_exam_2026_16_06_variant_b_q18",
+        "en": "Which of the following financing instruments for a business provides a secure and predictable cash outflow?",
+        "options": [
+          {
+            "id": "a",
+            "en": "Increase of Equity"
+          },
+          {
+            "id": "b",
+            "en": "Bank debt, like mortgage"
+          },
+          {
+            "id": "c",
+            "en": "Increase of share capital"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "correct": "b",
+        "section": null,
+        "_block": "13_part2_exam_2026_16_06_variant_b",
         "_scoring": {
           "correct": 1,
           "wrong": 0,
@@ -2380,27 +2671,22 @@
         "num": 7,
         "id": "12_part2_exam_variant_c_q7",
         "en": "In the DCF model we have:",
-        "ru": "В модели DCF:",
         "options": [
           {
             "id": "a",
-            "en": "Asset side and equity side approach",
-            "ru": "Подход со стороны активов и equity"
+            "en": "Asset side and equity side approach"
           },
           {
             "id": "b",
-            "en": "Only asset side approach",
-            "ru": "Только со стороны активов"
+            "en": "Only asset side approach"
           },
           {
             "id": "c",
-            "en": "Only equity side approach",
-            "ru": "Только со стороны equity"
+            "en": "Only equity side approach"
           },
           {
             "id": "d",
-            "en": "Income approach",
-            "ru": "Доходный подход"
+            "en": "Income approach"
           }
         ],
         "correct": "a",
@@ -2416,32 +2702,26 @@
         "num": 8,
         "id": "12_part2_exam_variant_c_q8",
         "en": "The Deposit Guarantee Schemes Directive is related to:",
-        "ru": "Директива о гарантиях вкладов относится к:",
         "options": [
           {
             "id": "a",
-            "en": "Fourth pillar of EBU",
-            "ru": "4-й столп EBU"
+            "en": "Fourth pillar of EBU"
           },
           {
             "id": "b",
-            "en": "Third pillar of EBU",
-            "ru": "3-й столп EBU"
+            "en": "Third pillar of EBU"
           },
           {
             "id": "c",
-            "en": "First pillar of EBU",
-            "ru": "1-й столп EBU"
+            "en": "First pillar of EBU"
           },
           {
             "id": "d",
-            "en": "Second pillar of EBU",
-            "ru": "2-й столп EBU"
+            "en": "Second pillar of EBU"
           }
         ],
         "correct": "b",
         "section": null,
-        "explain_ru": "EBU: 1 надзор, 2 resolution, 3 гарантии вкладов (DGS).",
         "_block": "12_part2_exam_variant_c",
         "_scoring": {
           "correct": 1,
@@ -2453,32 +2733,27 @@
         "num": 9,
         "id": "12_part2_exam_variant_c_q9",
         "en": "Market risk premium is useful to calculate:",
-        "ru": "Премия за рыночный риск нужна для:",
         "options": [
           {
             "id": "a",
-            "en": "Cost of equity and WACC",
-            "ru": "Cost of equity и WACC"
+            "en": "Cost of equity and WACC"
           },
           {
             "id": "b",
-            "en": "Cost of equity",
-            "ru": "Cost of equity"
+            "en": "Cost of equity"
           },
           {
             "id": "c",
-            "en": "Cost of debt",
-            "ru": "Cost of debt"
+            "en": "Cost of debt"
           },
           {
             "id": "d",
-            "en": "Only risk free rate",
-            "ru": "Только Rf"
+            "en": "Only risk free rate"
           }
         ],
         "correct": "b",
         "section": null,
-        "explain_ru": "CAPM: Re = Rf + β × MRP.",
+        "explain": "CAPM: Re = Rf + β × MRP.",
         "_block": "12_part2_exam_variant_c",
         "_scoring": {
           "correct": 1,
@@ -2490,32 +2765,26 @@
         "num": 10,
         "id": "12_part2_exam_variant_c_q10",
         "en": "If price of underlying asset decreases, payoff of call option buyer:",
-        "ru": "Если цена актива падает, payoff покупателя call:",
         "options": [
           {
             "id": "a",
-            "en": "Higher",
-            "ru": "Выше"
+            "en": "Higher"
           },
           {
             "id": "b",
-            "en": "Lower",
-            "ru": "Ниже"
+            "en": "Lower"
           },
           {
             "id": "c",
-            "en": "Stable",
-            "ru": "Стабилен"
+            "en": "Stable"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один"
+            "en": "None of the above"
           }
         ],
         "correct": "b",
         "section": null,
-        "explain_ru": "Call: рост цены → выше payoff; падение → ниже.",
         "_block": "12_part2_exam_variant_c",
         "_scoring": {
           "correct": 1,
@@ -2527,27 +2796,22 @@
         "num": 11,
         "id": "12_part2_exam_variant_c_q11",
         "en": "Stage 1 of IFRS 9 is called:",
-        "ru": "Стадия 1 IFRS 9:",
         "options": [
           {
             "id": "a",
-            "en": "Non-performing",
-            "ru": "Non-performing"
+            "en": "Non-performing"
           },
           {
             "id": "b",
-            "en": "Performing",
-            "ru": "Performing"
+            "en": "Performing"
           },
           {
             "id": "c",
-            "en": "Under performing",
-            "ru": "Under performing"
+            "en": "Under performing"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один"
+            "en": "None of the above"
           }
         ],
         "correct": "b",
@@ -2563,27 +2827,22 @@
         "num": 12,
         "id": "12_part2_exam_variant_c_q12",
         "en": "In bank operations, Loans to companies are:",
-        "ru": "Кредиты компаниям для банка — это:",
         "options": [
           {
             "id": "a",
-            "en": "Interest bearing assets",
-            "ru": "Процентные активы"
+            "en": "Interest bearing assets"
           },
           {
             "id": "b",
-            "en": "Non-interest bearing assets",
-            "ru": "Безпроцентные активы"
+            "en": "Non-interest bearing assets"
           },
           {
             "id": "c",
-            "en": "Real assets",
-            "ru": "Реальные активы"
+            "en": "Real assets"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один"
+            "en": "None of the above"
           }
         ],
         "correct": "a",
@@ -2599,27 +2858,22 @@
         "num": 13,
         "id": "12_part2_exam_variant_c_q13",
         "en": "SICR (significant increase in credit risk):",
-        "ru": "SICR:",
         "options": [
           {
             "id": "a",
-            "en": "Activates Stage 2 measurement",
-            "ru": "Активирует Stage 2"
+            "en": "Activates Stage 2 measurement"
           },
           {
             "id": "b",
-            "en": "Activates Stage 4",
-            "ru": "Активирует Stage 4"
+            "en": "Activates Stage 4"
           },
           {
             "id": "c",
-            "en": "Activates Stage 3",
-            "ru": "Активирует Stage 3"
+            "en": "Activates Stage 3"
           },
           {
             "id": "d",
-            "en": "Not related to credit risk",
-            "ru": "Не связан с кредитным риском"
+            "en": "Not related to credit risk"
           }
         ],
         "correct": "a",
@@ -2635,27 +2889,22 @@
         "num": 14,
         "id": "12_part2_exam_variant_c_q14",
         "en": "From bank perspective, secured loans:",
-        "ru": "Обеспеченные кредиты для банка:",
         "options": [
           {
             "id": "a",
-            "en": "Are safer than unsecured loans",
-            "ru": "Безопаснее необеспеченных"
+            "en": "Are safer than unsecured loans"
           },
           {
             "id": "b",
-            "en": "Are riskier than unsecured",
-            "ru": "Рискованнее"
+            "en": "Are riskier than unsecured"
           },
           {
             "id": "c",
-            "en": "Only instrument for SMEs",
-            "ru": "Единственный инструмент для МСП"
+            "en": "Only instrument for SMEs"
           },
           {
             "id": "d",
-            "en": "None of the above",
-            "ru": "Ни один"
+            "en": "None of the above"
           }
         ],
         "correct": "a",
@@ -2674,8 +2923,8 @@
   },
   {
     "slug": "03_part2_calculations",
-    "title": "03 — Расчёты Part 2",
-    "desc": "4 MCQ · 3 балла",
+    "title": "03 — Part 2 Calculations",
+    "desc": "4 MCQ · 3 pts",
     "scoring": {
       "correct": 3,
       "wrong": 0,
@@ -2686,32 +2935,26 @@
         "num": 14,
         "id": "03_part2_calculations_q14",
         "en": "Calculate ROE: bank capital 50; profit 5; (ROE = profit / bank capital)",
-        "ru": "Рассчитайте ROE: капитал банка 50; прибыль 5; ROE = profit / bank capital",
         "options": [
           {
             "id": "a",
-            "en": "5%",
-            "ru": "5%"
+            "en": "5%"
           },
           {
             "id": "b",
-            "en": "10%",
-            "ru": "10%"
+            "en": "10%"
           },
           {
             "id": "c",
-            "en": "25%",
-            "ru": "25%"
+            "en": "25%"
           },
           {
             "id": "d",
-            "en": "1%",
-            "ru": "1%"
+            "en": "1%"
           }
         ],
         "correct": "b",
         "section": null,
-        "explain_ru": "Формула: ROE = profit / bank capital.\nШаг 1: подставляем 5 и 50.\nШаг 2: ROE = 5 / 50 = 0,10 = 10% → ответ b).\nЕсли profit до налогов и tax 50%: PAT = 2,5 → ROE = 5%.",
         "_block": "03_part2_calculations",
         "_scoring": {
           "correct": 3,
@@ -2723,32 +2966,26 @@
         "num": 15,
         "id": "03_part2_calculations_q15",
         "en": "Repricing gap model: Gap -10 mln €; interest rate change 2%. ΔNII = Gap × Δr",
-        "ru": "Repricing gap: разрыв −10 млн €; изменение ставки 2%. ΔNII = Gap × Δr",
         "options": [
           {
             "id": "a",
-            "en": "-200.000 euro",
-            "ru": "−200 000 €"
+            "en": "-200.000 euro"
           },
           {
             "id": "b",
-            "en": "200.000 euro",
-            "ru": "200 000 €"
+            "en": "200.000 euro"
           },
           {
             "id": "c",
-            "en": "-20.000.000 euro",
-            "ru": "−20 000 000 €"
+            "en": "-20.000.000 euro"
           },
           {
             "id": "d",
-            "en": "-50.000 euro",
-            "ru": "−50 000 €"
+            "en": "-50.000 euro"
           }
         ],
         "correct": "a",
         "section": null,
-        "explain_ru": "Формула: ΔNII = Gap × Δr.\nШаг 1: Gap = −10 000 000 €, Δr = 2% = 0,02.\nШаг 2: ΔNII = −10 000 000 × 0,02 = −200 000 € → ответ a).\nОтрицательный gap: при росте ставок NII падает.",
         "_block": "03_part2_calculations",
         "_scoring": {
           "correct": 3,
@@ -2760,32 +2997,26 @@
         "num": 16,
         "id": "03_part2_calculations_q16",
         "en": "Which bond has the longest duration?",
-        "ru": "У какой облигации наибольшая duration?",
         "options": [
           {
             "id": "a",
-            "en": "Maturity 10 years; rate 5%; coupon monthly",
-            "ru": "10 лет; 5%; купон ежемесячно"
+            "en": "Maturity 10 years; rate 5%; coupon monthly"
           },
           {
             "id": "b",
-            "en": "Maturity 5 years; rate 5%; coupon monthly",
-            "ru": "5 лет; 5%; купон ежемесячно"
+            "en": "Maturity 5 years; rate 5%; coupon monthly"
           },
           {
             "id": "c",
-            "en": "Maturity 10 years; rate 5%; coupon annual",
-            "ru": "10 лет; 5%; купон ежегодно"
+            "en": "Maturity 10 years; rate 5%; coupon annual"
           },
           {
             "id": "d",
-            "en": "Maturity 1 year; rate 5%; coupon monthly",
-            "ru": "1 год; 5%; купон ежемесячно"
+            "en": "Maturity 1 year; rate 5%; coupon monthly"
           }
         ],
         "correct": "c",
         "section": null,
-        "explain_ru": "Duration ↑ при: (1) более длинном сроке, (2) более редких купонах.\nСравнение: 10 лет > 5 лет > 1 год.\nПри 10 годах annual купон > monthly (деньги раньше возвращаются при monthly → duration ниже).\nОтвет: c) 10 лет, купон ежегодно.",
         "_block": "03_part2_calculations",
         "_scoring": {
           "correct": 3,
@@ -2797,32 +3028,26 @@
         "num": 17,
         "id": "03_part2_calculations_q17",
         "en": "Usually, loans to consumers are:",
-        "ru": "Обычно потребительские кредиты — это:",
         "options": [
           {
             "id": "a",
-            "en": "Interest bearing assets",
-            "ru": "Процентные активы"
+            "en": "Interest bearing assets"
           },
           {
             "id": "b",
-            "en": "Non interest bearing assets",
-            "ru": "Безпроцентные активы"
+            "en": "Non interest bearing assets"
           },
           {
             "id": "c",
-            "en": "Expensive liabilities",
-            "ru": "Дорогие обязательства"
+            "en": "Expensive liabilities"
           },
           {
             "id": "d",
-            "en": "Real assets",
-            "ru": "Реальные активы"
+            "en": "Real assets"
           }
         ],
         "correct": "a",
         "section": null,
-        "explain_ru": "В балансе банка кредиты клиентам — активы, по которым банк получает проценты → interest bearing assets (ответ a).",
         "_block": "03_part2_calculations",
         "_scoring": {
           "correct": 3,
@@ -2849,27 +3074,22 @@
         "num": 6,
         "id": "04_sustainability_q6",
         "en": "The SROI indicators:",
-        "ru": "Показатели SROI:",
         "options": [
           {
             "id": "a",
-            "en": "Relates asset value to cash flows and risk",
-            "ru": "Связывает стоимость актива с денежными потоками и риском"
+            "en": "Relates asset value to cash flows and risk"
           },
           {
             "id": "b",
-            "en": "Estimates price by comparable assets",
-            "ru": "Оценивает цену по сопоставимым активам"
+            "en": "Estimates price by comparable assets"
           },
           {
             "id": "c",
-            "en": "Measures monetary social impact relative to investment volume",
-            "ru": "Измеряет денежный социальный эффект относительно объёма инвестиций"
+            "en": "Measures monetary social impact relative to investment volume"
           },
           {
             "id": "d",
-            "en": "Method of raising capital for startups",
-            "ru": "Способ привлечения капитала для стартапов"
+            "en": "Method of raising capital for startups"
           }
         ],
         "correct": "c",
@@ -2885,27 +3105,22 @@
         "num": 7,
         "id": "04_sustainability_q7",
         "en": "Corporate Sustainability:",
-        "ru": "Корпоративная устойчивость (sustainability):",
         "options": [
           {
             "id": "a",
-            "en": "Impact investing with measurable ESG impact",
-            "ru": "Инвестиции с измеримым ESG-эффектом"
+            "en": "Impact investing with measurable ESG impact"
           },
           {
             "id": "b",
-            "en": "Capacity to safeguard long-term profitability while respecting environment, people and resources",
-            "ru": "Способность обеспечивать долгосрочную прибыль, уважая среду, людей и ресурсы"
+            "en": "Capacity to safeguard long-term profitability while respecting environment, people and resources"
           },
           {
             "id": "c",
-            "en": "Circular economy sharing and recycling model",
-            "ru": "Модель циркулярной экономики"
+            "en": "Circular economy sharing and recycling model"
           },
           {
             "id": "d",
-            "en": "Skills and abilities employees bring to operations",
-            "ru": "Навыки и способности сотрудников"
+            "en": "Skills and abilities employees bring to operations"
           }
         ],
         "correct": "b",
@@ -2921,27 +3136,22 @@
         "num": 8,
         "id": "04_sustainability_q8",
         "en": "Efficiency is:",
-        "ru": "Эффективность (efficiency) — это:",
         "options": [
           {
             "id": "a",
-            "en": "Money needed for stability given assets and liabilities",
-            "ru": "Деньги для стабильности при данных активах и обязательствах"
+            "en": "Money needed for stability given assets and liabilities"
           },
           {
             "id": "b",
-            "en": "Comparison of what is produced with what can be achieved with the same resources",
-            "ru": "Сравнение фактического результата с тем, что можно достичь при тех же ресурсах"
+            "en": "Comparison of what is produced with what can be achieved with the same resources"
           },
           {
             "id": "c",
-            "en": "LBO technique using mostly debt",
-            "ru": "LBO с преимущественным долгом"
+            "en": "LBO technique using mostly debt"
           },
           {
             "id": "d",
-            "en": "Degree to which objectives are achieved",
-            "ru": "Степень достижения целей (это effectiveness)"
+            "en": "Degree to which objectives are achieved"
           }
         ],
         "correct": "b",
@@ -2959,9 +3169,1016 @@
     "extra": ""
   },
   {
+    "slug": "14_master_question_bank",
+    "title": "14 — Master Question Bank",
+    "desc": "32 MCQ · missing topics",
+    "scoring": {
+      "correct": 1,
+      "wrong": 0,
+      "max": null
+    },
+    "questions": [
+      {
+        "num": 1,
+        "id": "14_master_question_bank_q1",
+        "en": "A Budget is:",
+        "correct": "a",
+        "section": "Management accounting",
+        "options": [
+          {
+            "id": "a",
+            "en": "A detailed quantitative plan for acquiring and using financial and other resources over a specified forthcoming time period"
+          },
+          {
+            "id": "b",
+            "en": "A system that includes subsystems for planning, measuring and recording results and evaluating performance"
+          },
+          {
+            "id": "c",
+            "en": "The force that moves different people in different ways for different reasons"
+          },
+          {
+            "id": "d",
+            "en": "Concerned with the initiation of organized action and stimulating people to work"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 2,
+        "id": "14_master_question_bank_q2",
+        "en": "The Indirect costs are:",
+        "correct": "d",
+        "section": "Management accounting",
+        "options": [
+          {
+            "id": "a",
+            "en": "Costs that vary directly and proportionately with changes in the activity level"
+          },
+          {
+            "id": "b",
+            "en": "Costs that remain the same in total regardless of changes in the activity level"
+          },
+          {
+            "id": "c",
+            "en": "Costs that can be easily and conveniently traced to a product or department"
+          },
+          {
+            "id": "d",
+            "en": "Costs that must be allocated in order to be assigned to a product or department"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 3,
+        "id": "14_master_question_bank_q3",
+        "en": "Diversification is:",
+        "correct": "a",
+        "section": "Banking & risk",
+        "options": [
+          {
+            "id": "a",
+            "en": "Reduce individual firm-specific credit risk"
+          },
+          {
+            "id": "b",
+            "en": "Reduce systematic credit risk"
+          },
+          {
+            "id": "c",
+            "en": "Increase individual firm-specific credit risk"
+          },
+          {
+            "id": "d",
+            "en": "None of the answers"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 4,
+        "id": "14_master_question_bank_q4",
+        "en": "The Banking Recovery and Resolution Directive (BRRD) is related to:",
+        "correct": "d",
+        "section": "EBU & regulation",
+        "options": [
+          {
+            "id": "a",
+            "en": "The fourth pillar of European Banking Union"
+          },
+          {
+            "id": "b",
+            "en": "The third pillar of European Banking Union"
+          },
+          {
+            "id": "c",
+            "en": "The first pillar of European Banking Union"
+          },
+          {
+            "id": "d",
+            "en": "The second pillar of European Banking Union"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 5,
+        "id": "14_master_question_bank_q5",
+        "en": "In order to evaluate financial instruments we can use:",
+        "correct": "c",
+        "section": "IFRS & instruments",
+        "options": [
+          {
+            "id": "a",
+            "en": "Fair value criteria"
+          },
+          {
+            "id": "b",
+            "en": "Amortized cost criteria"
+          },
+          {
+            "id": "c",
+            "en": "Both fair value and amortized cost criteria"
+          },
+          {
+            "id": "d",
+            "en": "EAD criteria"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 6,
+        "id": "14_master_question_bank_q6",
+        "en": "The definition of syndicated loan:",
+        "correct": "c",
+        "section": "Banking & instruments",
+        "options": [
+          {
+            "id": "a",
+            "en": "It is provided by only one financial institution"
+          },
+          {
+            "id": "b",
+            "en": "It is provided by a group of financial institutions as opposed to multiple lenders"
+          },
+          {
+            "id": "c",
+            "en": "It is provided by a group of financial institutions as opposed to a single lender"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 7,
+        "id": "14_master_question_bank_q7",
+        "en": "In which valuation model is terminal cash flow used?",
+        "correct": "b",
+        "section": "Valuation",
+        "options": [
+          {
+            "id": "a",
+            "en": "Multiples method"
+          },
+          {
+            "id": "b",
+            "en": "DCF"
+          },
+          {
+            "id": "c",
+            "en": "EVA"
+          },
+          {
+            "id": "d",
+            "en": "None of the answers"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 8,
+        "id": "14_master_question_bank_q8",
+        "en": "Which standard is used to account for non-performing loans (NPLs)?",
+        "correct": "a",
+        "section": "IFRS & instruments",
+        "options": [
+          {
+            "id": "a",
+            "en": "IFRS 9"
+          },
+          {
+            "id": "b",
+            "en": "IFRS 19"
+          },
+          {
+            "id": "c",
+            "en": "IFRS 1"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 9,
+        "id": "14_master_question_bank_q9",
+        "en": "The Financial Institutions' specialness is done by:",
+        "correct": "c",
+        "section": "Financial intermediaries",
+        "options": [
+          {
+            "id": "a",
+            "en": "Monitoring cost"
+          },
+          {
+            "id": "b",
+            "en": "Liquidity"
+          },
+          {
+            "id": "c",
+            "en": "Both of them"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 10,
+        "id": "14_master_question_bank_q10",
+        "en": "Commercial banks, credit unions, saving institutions are:",
+        "correct": "a",
+        "section": "Bank types",
+        "options": [
+          {
+            "id": "a",
+            "en": "Depository institutions"
+          },
+          {
+            "id": "b",
+            "en": "Specific type of investment banks"
+          },
+          {
+            "id": "c",
+            "en": "Mutual funds"
+          },
+          {
+            "id": "d",
+            "en": "Securities firms"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 11,
+        "id": "14_master_question_bank_q11",
+        "en": "It is the document that allows you to read and analyze the bank's financial statements by tracking magnitudes and their evolution to operational and management aspects:",
+        "correct": "d",
+        "section": "Bank reporting",
+        "options": [
+          {
+            "id": "a",
+            "en": "Income statement"
+          },
+          {
+            "id": "b",
+            "en": "Statement of Comprehensive Income"
+          },
+          {
+            "id": "c",
+            "en": "Supplementary note"
+          },
+          {
+            "id": "d",
+            "en": "Management report"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 12,
+        "id": "14_master_question_bank_q12",
+        "en": "The risk that a sudden surge in liability withdrawals may require an FI to liquidate assets in a short period at less than fair market prices is:",
+        "correct": "b",
+        "section": "Banking & risk",
+        "options": [
+          {
+            "id": "a",
+            "en": "Credit risk"
+          },
+          {
+            "id": "b",
+            "en": "Liquidity risk"
+          },
+          {
+            "id": "c",
+            "en": "Market risk"
+          },
+          {
+            "id": "d",
+            "en": "Operational risk"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 13,
+        "id": "14_master_question_bank_q13",
+        "en": "A common stock:",
+        "correct": "a",
+        "section": "Equity & debt",
+        "options": [
+          {
+            "id": "a",
+            "en": "Has more voting rights"
+          },
+          {
+            "id": "b",
+            "en": "Has more remuneration rights"
+          },
+          {
+            "id": "c",
+            "en": "Has more rights in case of default"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 14,
+        "id": "14_master_question_bank_q14",
+        "en": "In a syndicated loan:",
+        "correct": "a",
+        "section": "Banking & instruments",
+        "options": [
+          {
+            "id": "a",
+            "en": "There are several banks that cover the loan"
+          },
+          {
+            "id": "b",
+            "en": "There is only one bank that covers the loan"
+          },
+          {
+            "id": "c",
+            "en": "There is always a guarantee"
+          },
+          {
+            "id": "d",
+            "en": "We can use only fixed rates"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 15,
+        "id": "14_master_question_bank_q15",
+        "en": "In the measurement of credit risk, volatility of earnings:",
+        "correct": "d",
+        "section": "Credit risk",
+        "options": [
+          {
+            "id": "a",
+            "en": "Is a borrower specific factor of qualitative models"
+          },
+          {
+            "id": "b",
+            "en": "Is a borrower specific factor of quantitative models"
+          },
+          {
+            "id": "c",
+            "en": "Is a market specific factor of qualitative models"
+          },
+          {
+            "id": "d",
+            "en": "Is a market specific factor of quantitative models"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 16,
+        "id": "14_master_question_bank_q16",
+        "en": "The net interest margin is more important in:",
+        "correct": "c",
+        "section": "Bank ratios",
+        "options": [
+          {
+            "id": "a",
+            "en": "Pension funds"
+          },
+          {
+            "id": "b",
+            "en": "Mutual funds"
+          },
+          {
+            "id": "c",
+            "en": "Commercial banks"
+          },
+          {
+            "id": "d",
+            "en": "Investment banks"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 17,
+        "id": "14_master_question_bank_q17",
+        "en": "The intermediation margin is more important in:",
+        "correct": "c",
+        "section": "Bank ratios",
+        "options": [
+          {
+            "id": "a",
+            "en": "None of the answers"
+          },
+          {
+            "id": "b",
+            "en": "Commercial banks focused on mortgage"
+          },
+          {
+            "id": "c",
+            "en": "Commercial banks"
+          },
+          {
+            "id": "d",
+            "en": "Investment banks"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 18,
+        "id": "14_master_question_bank_q18",
+        "en": "The estimated amount of money a bank loses when a borrower defaults on a loan is:",
+        "correct": "b",
+        "section": "Credit risk",
+        "options": [
+          {
+            "id": "a",
+            "en": "The probability of default (PD)"
+          },
+          {
+            "id": "b",
+            "en": "The expected loss (EL)"
+          },
+          {
+            "id": "c",
+            "en": "The loss given default (LGD)"
+          },
+          {
+            "id": "d",
+            "en": "The exposure at default (EAD)"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 19,
+        "id": "14_master_question_bank_q19",
+        "en": "A preferred stock:",
+        "correct": "b",
+        "section": "Equity & debt",
+        "options": [
+          {
+            "id": "a",
+            "en": "Has more voting rights"
+          },
+          {
+            "id": "b",
+            "en": "Has more remuneration rights"
+          },
+          {
+            "id": "c",
+            "en": "Has not remuneration rights"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 20,
+        "id": "14_master_question_bank_q20",
+        "en": "Equity investments in banks' reports are in:",
+        "correct": "a",
+        "section": "Bank balance sheet",
+        "options": [
+          {
+            "id": "a",
+            "en": "Assets"
+          },
+          {
+            "id": "b",
+            "en": "Liabilities"
+          },
+          {
+            "id": "c",
+            "en": "Shareholders' equity"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 21,
+        "id": "14_master_question_bank_q21",
+        "en": "Altman's discriminant function is:",
+        "correct": "c",
+        "section": "Credit risk",
+        "options": [
+          {
+            "id": "a",
+            "en": "A qualitative measurement of credit risk"
+          },
+          {
+            "id": "b",
+            "en": "A quantitative measurement of market risk"
+          },
+          {
+            "id": "c",
+            "en": "A quantitative measurement of credit risk"
+          },
+          {
+            "id": "d",
+            "en": "A qualitative measurement of market risk"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 22,
+        "id": "14_master_question_bank_q22",
+        "en": "Using size, what is the largest group of depository institutions?",
+        "correct": "a",
+        "section": "Bank types",
+        "options": [
+          {
+            "id": "a",
+            "en": "Commercial banks"
+          },
+          {
+            "id": "b",
+            "en": "Investment banks"
+          },
+          {
+            "id": "c",
+            "en": "Credit unions"
+          },
+          {
+            "id": "d",
+            "en": "Mutual funds"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 23,
+        "id": "14_master_question_bank_q23",
+        "en": "\"An economic agent appointed to act on behalf of smaller agents in collecting information and/or investing funds on their behalf\" is the definition of:",
+        "correct": "a",
+        "section": "Financial intermediaries",
+        "options": [
+          {
+            "id": "a",
+            "en": "Bank's Role as Delegated Monitor"
+          },
+          {
+            "id": "b",
+            "en": "Bank's Role as information producer"
+          },
+          {
+            "id": "c",
+            "en": "Bank's Role for diversification"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 24,
+        "id": "14_master_question_bank_q24",
+        "en": "Monetary policy actions include:",
+        "correct": "a",
+        "section": "Monetary policy",
+        "options": [
+          {
+            "id": "a",
+            "en": "All the answers"
+          },
+          {
+            "id": "b",
+            "en": "Open market operations"
+          },
+          {
+            "id": "c",
+            "en": "The choice of the central discount rate"
+          },
+          {
+            "id": "d",
+            "en": "Setting reserve requirements"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 25,
+        "id": "14_master_question_bank_q25",
+        "en": "They focus on consumer loans funded with member deposits:",
+        "correct": "a",
+        "section": "Bank types",
+        "options": [
+          {
+            "id": "a",
+            "en": "Credit unions"
+          },
+          {
+            "id": "b",
+            "en": "Commercial banks"
+          },
+          {
+            "id": "c",
+            "en": "Saving institutions"
+          },
+          {
+            "id": "d",
+            "en": "Investment banks"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 26,
+        "id": "14_master_question_bank_q26",
+        "en": "A loan backed by specific assets of the borrower; if the borrower defaults, the lender has a first lien on those assets:",
+        "correct": "a",
+        "section": "Credit risk",
+        "options": [
+          {
+            "id": "a",
+            "en": "Secured loan"
+          },
+          {
+            "id": "b",
+            "en": "Unsecured loan"
+          },
+          {
+            "id": "c",
+            "en": "Syndicated loan"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 27,
+        "id": "14_master_question_bank_q27",
+        "en": "It arises because of the possibility that promised cash flows on financial claims held by banks will not be paid in full:",
+        "correct": "a",
+        "section": "Banking & risk",
+        "options": [
+          {
+            "id": "a",
+            "en": "Credit risk"
+          },
+          {
+            "id": "b",
+            "en": "Market risk"
+          },
+          {
+            "id": "c",
+            "en": "Sovereign risk"
+          },
+          {
+            "id": "d",
+            "en": "Liquidity risk"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 28,
+        "id": "14_master_question_bank_q28",
+        "en": "The risk incurred by a bank as a result of activities related to contingent assets and liabilities held off the balance sheet:",
+        "correct": "a",
+        "section": "Banking & risk",
+        "options": [
+          {
+            "id": "a",
+            "en": "Off-balance sheet risk"
+          },
+          {
+            "id": "b",
+            "en": "Market risk"
+          },
+          {
+            "id": "c",
+            "en": "Sovereign risk"
+          },
+          {
+            "id": "d",
+            "en": "Liquidity risk"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 29,
+        "id": "14_master_question_bank_q29",
+        "en": "An increase in the frequency of the coupons:",
+        "correct": "a",
+        "section": "Bonds & duration",
+        "options": [
+          {
+            "id": "a",
+            "en": "Reduces the duration"
+          },
+          {
+            "id": "b",
+            "en": "Increases the duration"
+          },
+          {
+            "id": "c",
+            "en": "Has no effect on the duration"
+          },
+          {
+            "id": "d",
+            "en": "Increases the value of the equity"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 30,
+        "id": "14_master_question_bank_q30",
+        "en": "Loans to banks are in:",
+        "correct": "a",
+        "section": "Bank balance sheet",
+        "options": [
+          {
+            "id": "a",
+            "en": "Assets section"
+          },
+          {
+            "id": "b",
+            "en": "Liabilities section"
+          },
+          {
+            "id": "c",
+            "en": "Expenses in the income statement"
+          },
+          {
+            "id": "d",
+            "en": "Assets section in the income statement"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 31,
+        "id": "14_master_question_bank_q31",
+        "en": "The internal financing of a firm depends directly on:",
+        "correct": "c",
+        "section": "Corporate finance",
+        "options": [
+          {
+            "id": "a",
+            "en": "Total financial debt"
+          },
+          {
+            "id": "b",
+            "en": "Market price"
+          },
+          {
+            "id": "c",
+            "en": "Firms' profitability"
+          },
+          {
+            "id": "d",
+            "en": "None of the above"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      },
+      {
+        "num": 32,
+        "id": "14_master_question_bank_q32",
+        "en": "Bank leverage is the ratio of the value of a bank's assets to the value of its:",
+        "correct": "a",
+        "section": "Bank ratios",
+        "options": [
+          {
+            "id": "a",
+            "en": "Equity (capital)"
+          },
+          {
+            "id": "b",
+            "en": "Profitability"
+          },
+          {
+            "id": "c",
+            "en": "ROE"
+          },
+          {
+            "id": "d",
+            "en": "ROA"
+          }
+        ],
+        "_block": "14_master_question_bank",
+        "_scoring": {
+          "correct": 1,
+          "wrong": 0,
+          "max": null
+        }
+      }
+    ],
+    "open": [],
+    "sna": [],
+    "extra": ""
+  },
+  {
     "slug": "09_statement_of_financial_position",
     "title": "09 — Statement of Financial Position",
-    "desc": "SoFP + решения",
+    "desc": "SoFP + solutions",
     "scoring": {
       "correct": 1,
       "wrong": 0,
@@ -2970,24 +4187,18 @@
     "questions": [],
     "open": [
       {
-        "title_ru": "SoFP — вариант 1 (5 pts)",
-        "ru": "Uniclam Group Corp. — построить Statement of Financial Position (меньшие суммы)",
         "en": "Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)",
         "sample_en": "Total Assets = 204,850. Equity 66,300 + Non-current liabilities 87,550 + Current liabilities 51,000.",
-        "howto_ru": "Шаг 1 — классификация по IFRS:\n  NCA: Goodwill 12 750 + Other intangible 8 500 + PPE 103 700\n  CA: Inventories 37 400 + Trade receivables 23 800 + Cash 18 700\n  Equity: Share capital 25 000 + Retained earnings 41 300\n  NCL: Long-term borrowings 75 000 + Deferred tax 12 550\n  CL: Short-term borrowings 20 000 + Trade payables 28 000 + Current tax 3 000\n\nШаг 2 — суммы:\n  NCA = 124 950 | CA = 79 900 | Total Assets = 204 850\n  Equity = 66 300 | NCL = 87 550 | CL = 51 000 | Total = 204 850 ✓",
-        "sample_ru": "Активы 204 850 (NCA 124 950 + CA 79 900). Пассивы: Equity 66 300 + NCL 87 550 + CL 51 000."
+        "title_en": "SoFP — variant 1 (5 pts)"
       },
       {
-        "title_ru": "SoFP — вариант 2 (6 pts)",
-        "ru": "Uniclam Group Corp. — SoFP (Exercise 1, 6 points)",
         "en": "Statement of Financial Position — exam version (larger figures)",
         "sample_en": "Total Assets = Total Equity & Liabilities = 614,550. See the filled table above.",
-        "howto_ru": "Шаг 1 — классификация (данные с листа):\n  NCA: Goodwill 38 250 + Other intangible 25 500 + PPE 311 100\n  CA: Inventories 112 200 + Trade receivables 71 400 + Cash 56 100\n  Equity: Share capital 153 000 + Retained earnings 45 900\n  NCL: Long-term borrowings 229 500 + Deferred tax 33 150\n  CL: Short-term borrowings 53 550 + Trade payables 76 500 + Current tax 22 950\n\nШаг 2 — суммы:\n  NCA = 374 850 | CA = 239 700 | Total Assets = 614 550\n  Equity = 198 900 | NCL = 262 650 | CL = 153 000 | Total = 614 550 ✓",
-        "sample_ru": "См. заполненную таблицу на странице 09 — Exercise 1 (6 pts)."
+        "title_en": "SoFP — variant 2 (6 pts)"
       }
     ],
     "sna": [],
-    "extra": "<p class=\"sub\"><a href=\"00_How_To_Solve.html\">📘 How to solve tasks — step-by-step guide</a></p>\n    <style>\n    table.sofp { border-collapse: collapse; width: 100%; font-size: 0.85rem; margin: 1rem 0; }\n    table.sofp th, table.sofp td { border: 1px solid #ccc; padding: 5px 8px; }\n    table.sofp th { background: #16a085; color: #fff; text-align: center; }\n    table.sofp td.num { text-align: right; white-space: nowrap; }\n    table.sofp td.lbl { text-align: left; }\n    table.sofp tr.subtotal td { font-weight: 600; background: #f4f8f7; }\n    table.sofp tr.total td { font-weight: 700; background: #eefaf7; }\n    </style>\n    <div class=\"section-title\">Решение: Uniclam Group Corp.</div>\n    <p class=\"q-ru\">Разнесите каждую статью по разделу IFRS, сложите подитоги, проверьте: <strong>Total Assets = Total Equity + Liabilities</strong>.</p>\n\n    <p class=\"q-ru\" style=\"margin-top:1.5rem\"><strong>Exercise 1 — вариант 1 (5 pts)</strong> · Total Assets = 204 850 €</p>\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\n      <table class=\"sofp\">\n        <tr><th colspan=\"2\">ASSETS</th><th colspan=\"2\">EQUITY &amp; LIABILITIES</th></tr>\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Non-current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Equity</strong></td></tr>\n        <tr><td class=\"lbl\">Goodwill</td><td class=\"num\">12 750</td><td class=\"lbl\">Share capital</td><td class=\"num\">25 000</td></tr>\n        <tr><td class=\"lbl\">Other intangible</td><td class=\"num\">8 500</td><td class=\"lbl\">Retained earnings</td><td class=\"num\">41 300</td></tr>\n        <tr><td class=\"lbl\">Property, plant &amp; equipment</td><td class=\"num\">103 700</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\n        <tr class=\"subtotal\"><td class=\"lbl\">Total non-current assets</td><td class=\"num\">124 950</td><td class=\"lbl\"><strong>Total equity</strong></td><td class=\"num\">66 300</td></tr>\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Non-current liabilities</strong></td></tr>\n        <tr><td class=\"lbl\">Inventories</td><td class=\"num\">37 400</td><td class=\"lbl\">Long-term borrowings</td><td class=\"num\">75 000</td></tr>\n        <tr><td class=\"lbl\">Trade receivables</td><td class=\"num\">23 800</td><td class=\"lbl\">Deferred tax</td><td class=\"num\">12 550</td></tr>\n        <tr><td class=\"lbl\">Cash</td><td class=\"num\">18 700</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\n        <tr class=\"subtotal\"><td class=\"lbl\">Total current assets</td><td class=\"num\">79 900</td><td class=\"lbl\"><strong>Total non-current liabilities</strong></td><td class=\"num\">87 550</td></tr>\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\" colspan=\"2\"><strong>Current liabilities</strong></td></tr>\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Short-term borrowings</td><td class=\"num\">20 000</td></tr>\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Trade and other payables</td><td class=\"num\">28 000</td></tr>\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Current tax payable</td><td class=\"num\">3 000</td></tr>\n        <tr class=\"subtotal\"><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\"><strong>Total current liabilities</strong></td><td class=\"num\">51 000</td></tr>\n        <tr class=\"total\"><td class=\"lbl\"><strong>TOTAL ASSETS</strong></td><td class=\"num\"><strong>204 850</strong></td><td class=\"lbl\"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class=\"num\"><strong>204 850</strong></td></tr>\n      </table>\n    </div>\n\n    <p class=\"q-ru\" style=\"margin-top:1.5rem\"><strong>Exercise 1 — вариант 2 (6 pts)</strong> · Total Assets = 614 550 €</p>\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\n      <table class=\"sofp\">\n        <tr><th colspan=\"2\">ASSETS</th><th colspan=\"2\">EQUITY &amp; LIABILITIES</th></tr>\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Non-current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Equity</strong></td></tr>\n        <tr><td class=\"lbl\">Goodwill</td><td class=\"num\">38 250</td><td class=\"lbl\">Share capital</td><td class=\"num\">153 000</td></tr>\n        <tr><td class=\"lbl\">Other intangible</td><td class=\"num\">25 500</td><td class=\"lbl\">Retained earnings</td><td class=\"num\">45 900</td></tr>\n        <tr><td class=\"lbl\">Property, plant &amp; equipment</td><td class=\"num\">311 100</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\n        <tr class=\"subtotal\"><td class=\"lbl\">Total non-current assets</td><td class=\"num\">374 850</td><td class=\"lbl\"><strong>Total equity</strong></td><td class=\"num\">198 900</td></tr>\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Non-current liabilities</strong></td></tr>\n        <tr><td class=\"lbl\">Inventories</td><td class=\"num\">112 200</td><td class=\"lbl\">Long-term borrowings</td><td class=\"num\">229 500</td></tr>\n        <tr><td class=\"lbl\">Trade receivables</td><td class=\"num\">71 400</td><td class=\"lbl\">Deferred tax</td><td class=\"num\">33 150</td></tr>\n        <tr><td class=\"lbl\">Cash</td><td class=\"num\">56 100</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\n        <tr class=\"subtotal\"><td class=\"lbl\">Total current assets</td><td class=\"num\">239 700</td><td class=\"lbl\"><strong>Total non-current liabilities</strong></td><td class=\"num\">262 650</td></tr>\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\" colspan=\"2\"><strong>Current liabilities</strong></td></tr>\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Short-term borrowings</td><td class=\"num\">53 550</td></tr>\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Trade and other payables</td><td class=\"num\">76 500</td></tr>\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Current tax payable</td><td class=\"num\">22 950</td></tr>\n        <tr class=\"subtotal\"><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\"><strong>Total current liabilities</strong></td><td class=\"num\">153 000</td></tr>\n        <tr class=\"total\"><td class=\"lbl\"><strong>TOTAL ASSETS</strong></td><td class=\"num\"><strong>614 550</strong></td><td class=\"lbl\"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class=\"num\"><strong>614 550</strong></td></tr>\n      </table>\n    </div>"
+    "extra": "<p class=\"sub\"><a href=\"00_How_To_Solve.html\">📘 How to solve — step-by-step guide</a></p>\r\n    <style>\r\n    table.sofp { border-collapse: collapse; width: 100%; font-size: 0.85rem; margin: 1rem 0; }\r\n    table.sofp th, table.sofp td { border: 1px solid #ccc; padding: 5px 8px; }\r\n    table.sofp th { background: #16a085; color: #fff; text-align: center; }\r\n    table.sofp td.num { text-align: right; white-space: nowrap; }\r\n    table.sofp td.lbl { text-align: left; }\r\n    table.sofp tr.subtotal td { font-weight: 600; background: #f4f8f7; }\r\n    table.sofp tr.total td { font-weight: 700; background: #eefaf7; }\r\n    </style>\r\n\r\n    <div class=\"section-title\">Exercise 1 (6 pts) — your exam sheet + solution</div>\r\n    <div class=\"exam-row\">\r\n      <figure class=\"exam-photo\">\r\n        <img src=\"images/exam-sofp-exercise1.png\" alt=\"Exam Exercise 1 — Uniclam SoFP\" />\r\n        <figcaption>Photo from exam · list of items + empty table</figcaption>\r\n      </figure>\r\n      <div>\r\n    <p class=\"q-en\"><strong>How to fill the blank table:</strong> classify each item → add subtotals → Total Assets = Total Equity + Liabilities.</p>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto;margin:0\">\r\n      <table class=\"sofp\">\r\n        <tr><th colspan=\"2\">ASSETS</th><th colspan=\"2\">EQUITY &amp; LIABILITIES</th></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Non-current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Equity</strong></td></tr>\r\n        <tr><td class=\"lbl\">Goodwill</td><td class=\"num\">38 250</td><td class=\"lbl\">Share capital</td><td class=\"num\">153 000</td></tr>\r\n        <tr><td class=\"lbl\">Other intangible</td><td class=\"num\">25 500</td><td class=\"lbl\">Retained earnings</td><td class=\"num\">45 900</td></tr>\r\n        <tr><td class=\"lbl\">Property, plant &amp; equipment</td><td class=\"num\">311 100</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total non-current assets</td><td class=\"num\">374 850</td><td class=\"lbl\"><strong>Total equity</strong></td><td class=\"num\">198 900</td></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Non-current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\">Inventories</td><td class=\"num\">112 200</td><td class=\"lbl\">Long-term borrowings</td><td class=\"num\">229 500</td></tr>\r\n        <tr><td class=\"lbl\">Trade receivables</td><td class=\"num\">71 400</td><td class=\"lbl\">Deferred tax</td><td class=\"num\">33 150</td></tr>\r\n        <tr><td class=\"lbl\">Cash</td><td class=\"num\">56 100</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total current assets</td><td class=\"num\">239 700</td><td class=\"lbl\"><strong>Total non-current liabilities</strong></td><td class=\"num\">262 650</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\" colspan=\"2\"><strong>Current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Short-term borrowings</td><td class=\"num\">53 550</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Trade and other payables</td><td class=\"num\">76 500</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Current tax payable</td><td class=\"num\">22 950</td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\"><strong>Total current liabilities</strong></td><td class=\"num\">153 000</td></tr>\r\n        <tr class=\"total\"><td class=\"lbl\"><strong>TOTAL ASSETS</strong></td><td class=\"num\"><strong>614 550</strong></td><td class=\"lbl\"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class=\"num\"><strong>614 550</strong></td></tr>\r\n      </table>\r\n    </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"section-title\">Variant 1 (5 pts) — smaller numbers · Total Assets = 204 850 €</div>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\r\n      <table class=\"sofp\">\r\n        <tr><th colspan=\"2\">ASSETS</th><th colspan=\"2\">EQUITY &amp; LIABILITIES</th></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Non-current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Equity</strong></td></tr>\r\n        <tr><td class=\"lbl\">Goodwill</td><td class=\"num\">12 750</td><td class=\"lbl\">Share capital</td><td class=\"num\">25 000</td></tr>\r\n        <tr><td class=\"lbl\">Other intangible</td><td class=\"num\">8 500</td><td class=\"lbl\">Retained earnings</td><td class=\"num\">41 300</td></tr>\r\n        <tr><td class=\"lbl\">Property, plant &amp; equipment</td><td class=\"num\">103 700</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total non-current assets</td><td class=\"num\">124 950</td><td class=\"lbl\"><strong>Total equity</strong></td><td class=\"num\">66 300</td></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Non-current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\">Inventories</td><td class=\"num\">37 400</td><td class=\"lbl\">Long-term borrowings</td><td class=\"num\">75 000</td></tr>\r\n        <tr><td class=\"lbl\">Trade receivables</td><td class=\"num\">23 800</td><td class=\"lbl\">Deferred tax</td><td class=\"num\">12 550</td></tr>\r\n        <tr><td class=\"lbl\">Cash</td><td class=\"num\">18 700</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total current assets</td><td class=\"num\">79 900</td><td class=\"lbl\"><strong>Total non-current liabilities</strong></td><td class=\"num\">87 550</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\" colspan=\"2\"><strong>Current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Short-term borrowings</td><td class=\"num\">20 000</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Trade and other payables</td><td class=\"num\">28 000</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Current tax payable</td><td class=\"num\">3 000</td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\"><strong>Total current liabilities</strong></td><td class=\"num\">51 000</td></tr>\r\n        <tr class=\"total\"><td class=\"lbl\"><strong>TOTAL ASSETS</strong></td><td class=\"num\"><strong>204 850</strong></td><td class=\"lbl\"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class=\"num\"><strong>204 850</strong></td></tr>\r\n      </table>\r\n    </div>"
   },
   {
     "slug": "10_depreciation",
@@ -3001,12 +4212,12 @@
     "questions": [],
     "open": [],
     "sna": [],
-    "extra": "<p class=\"sub\"><a href=\"00_How_To_Solve.html\">📘 How to solve tasks — step-by-step guide</a></p>\n    <style>\n    .exam-row {\n      display: grid;\n      grid-template-columns: minmax(240px, 1fr) minmax(300px, 1.2fr);\n      gap: 1.25rem;\n      align-items: start;\n      margin: 1rem 0 1.5rem;\n    }\n    .exam-photo {\n      margin: 0;\n      background: #fafafa;\n      border: 1px solid #e0e6ed;\n      border-radius: 10px;\n      padding: 0.5rem;\n    }\n    .exam-photo img { width: 100%; height: auto; border-radius: 6px; display: block; }\n    .exam-photo figcaption { font-size: 0.82rem; color: #666; text-align: center; margin-top: 0.5rem; }\n    @media (max-width: 820px) { .exam-row { grid-template-columns: 1fr; } }\n    </style>\n    <div class=\"section-title\">Exercise 3 (8 pts) — your exam sheet + solution</div>\n    <div class=\"exam-row\">\n      <figure class=\"exam-photo\">\n        <img src=\"images/exam-depreciation-exercise3.png\" alt=\"Exam Exercise 3 — Depreciation\" />\n        <figcaption>Photo from exam · cost $160k, 6 years, residual $28k</figcaption>\n      </figure>\n      <div>\n        <p class=\"q-en\"><strong>(a)</strong> Calculate the annual depreciation charge for each method.</p>\n        <div class=\"brief-answer\" style=\"margin-top:0.5rem\">\n          <div class=\"brief-label\">Answer (a)</div>\n          <div class=\"brief-text\"><strong>Straight-line:</strong> (160,000 − 28,000) ÷ 6 = <strong>$22,000</strong> every year.<br>\n          <strong>Reducing balance (15%):</strong> dep = 15% × carrying value (carrying goes down each year).</div>\n        </div>\n        <p class=\"q-en\" style=\"margin-top:1rem\"><strong>(b)</strong> Build a 6-year schedule: cost, accumulated depreciation, NBV.</p>\n        <div class=\"brief-answer\">\n          <div class=\"brief-label\">Answer (b)</div>\n          <div class=\"brief-text\">Use the tables below. Year 6 NBV = <strong>$28,000</strong> (straight-line, equals residual) or <strong>$60,344</strong> (reducing balance).</div>\n        </div>\n      </div>\n    </div>\n    <div class=\"section-title\">(b) Straight-line — 6-year schedule</div>\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\n      <table class=\"matrix\">\n        <tr><th>Year</th><th>Cost ($)</th><th>Dep. year ($)</th><th>Accum. dep. ($)</th><th>NBV ($)</th></tr>\n        <tr><td>1</td><td>160 000</td><td>22 000</td><td>22 000</td><td>138 000</td></tr>\n        <tr><td>2</td><td>160 000</td><td>22 000</td><td>44 000</td><td>116 000</td></tr>\n        <tr><td>3</td><td>160 000</td><td>22 000</td><td>66 000</td><td>94 000</td></tr>\n        <tr><td>4</td><td>160 000</td><td>22 000</td><td>88 000</td><td>72 000</td></tr>\n        <tr><td>5</td><td>160 000</td><td>22 000</td><td>110 000</td><td>50 000</td></tr>\n        <tr><td>6</td><td>160 000</td><td>22 000</td><td>132 000</td><td>28 000</td></tr>\n      </table>\n    </div>\n    <div class=\"section-title\">(b) Reducing balance 15% — 6-year schedule</div>\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\n      <table class=\"matrix\">\n        <tr><th>Year</th><th>Carrying ($)</th><th>Dep. year ($)</th><th>Accum. dep. ($)</th><th>NBV ($)</th></tr>\n        <tr><td>1</td><td>160 000</td><td>24 000</td><td>24 000</td><td>136 000</td></tr>\n        <tr><td>2</td><td>136 000</td><td>20 400</td><td>44 400</td><td>115 600</td></tr>\n        <tr><td>3</td><td>115 600</td><td>17 340</td><td>61 740</td><td>98 260</td></tr>\n        <tr><td>4</td><td>98 260</td><td>14 739</td><td>76 479</td><td>83 521</td></tr>\n        <tr><td>5</td><td>83 521</td><td>12 528</td><td>89 007</td><td>70 993</td></tr>\n        <tr><td>6</td><td>70 993</td><td>10 649</td><td>99 656</td><td>60 344</td></tr>\n      </table>\n    </div>"
+    "extra": "<p class=\"sub\"><a href=\"00_How_To_Solve.html\">📘 How to solve — step-by-step guide</a></p>\r\n    <div class=\"section-title\">Exercise 3 (8 pts) — your exam sheet + solution</div>\r\n    <div class=\"exam-row\">\r\n      <figure class=\"exam-photo\">\r\n        <img src=\"images/exam-depreciation-exercise3.png\" alt=\"Exam Exercise 3 — Depreciation\" />\r\n        <figcaption>Photo from exam · cost $160k, 6 years, residual $28k</figcaption>\r\n      </figure>\r\n      <div>\r\n        <p class=\"q-en\"><strong>(a)</strong> Calculate the annual depreciation charge for each method.</p>\r\n        <div class=\"brief-answer\" style=\"margin-top:0.5rem\">\r\n          <div class=\"brief-label\">Answer (a)</div>\r\n          <div class=\"brief-text\"><strong>Straight-line:</strong> (160,000 − 28,000) ÷ 6 = <strong>$22,000</strong> every year.<br>\r\n          <strong>Reducing balance (15%):</strong> dep = 15% × carrying value (carrying goes down each year).</div>\r\n        </div>\r\n        <p class=\"q-en\" style=\"margin-top:1rem\"><strong>(b)</strong> Build a 6-year schedule: cost, accumulated depreciation, NBV.</p>\r\n        <div class=\"brief-answer\">\r\n          <div class=\"brief-label\">Answer (b)</div>\r\n          <div class=\"brief-text\">Use the tables below. Year 6 NBV = <strong>$28,000</strong> (straight-line, equals residual) or <strong>$60,344</strong> (reducing balance).</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"section-title\">(b) Straight-line — 6-year schedule</div>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\r\n      <table class=\"matrix\">\r\n        <tr><th>Year</th><th>Cost ($)</th><th>Dep. year ($)</th><th>Accum. dep. ($)</th><th>NBV ($)</th></tr>\r\n        <tr><td>1</td><td>160 000</td><td>22 000</td><td>22 000</td><td>138 000</td></tr>\r\n        <tr><td>2</td><td>160 000</td><td>22 000</td><td>44 000</td><td>116 000</td></tr>\r\n        <tr><td>3</td><td>160 000</td><td>22 000</td><td>66 000</td><td>94 000</td></tr>\r\n        <tr><td>4</td><td>160 000</td><td>22 000</td><td>88 000</td><td>72 000</td></tr>\r\n        <tr><td>5</td><td>160 000</td><td>22 000</td><td>110 000</td><td>50 000</td></tr>\r\n        <tr><td>6</td><td>160 000</td><td>22 000</td><td>132 000</td><td>28 000</td></tr>\r\n      </table>\r\n    </div>\r\n    <div class=\"section-title\">(b) Reducing balance 15% — 6-year schedule</div>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\r\n      <table class=\"matrix\">\r\n        <tr><th>Year</th><th>Carrying ($)</th><th>Dep. year ($)</th><th>Accum. dep. ($)</th><th>NBV ($)</th></tr>\r\n        <tr><td>1</td><td>160 000</td><td>24 000</td><td>24 000</td><td>136 000</td></tr>\r\n        <tr><td>2</td><td>136 000</td><td>20 400</td><td>44 400</td><td>115 600</td></tr>\r\n        <tr><td>3</td><td>115 600</td><td>17 340</td><td>61 740</td><td>98 260</td></tr>\r\n        <tr><td>4</td><td>98 260</td><td>14 739</td><td>76 479</td><td>83 521</td></tr>\r\n        <tr><td>5</td><td>83 521</td><td>12 528</td><td>89 007</td><td>70 993</td></tr>\r\n        <tr><td>6</td><td>70 993</td><td>10 649</td><td>99 656</td><td>60 344</td></tr>\r\n      </table>\r\n    </div>"
   },
   {
     "slug": "05_open_questions",
-    "title": "05 — Открытые вопросы",
-    "desc": "теория + задачи",
+    "title": "05 — Open questions",
+    "desc": "theory + exercises",
     "scoring": {
       "correct": 1,
       "wrong": 0,
@@ -3015,118 +4226,84 @@
     "questions": [],
     "open": [
       {
-        "title_ru": "Функции финансовой системы",
-        "ru": "Explain the functions of the financial system",
         "en": "Explain the functions of the financial system",
         "sample_en": "Collects savings, gives loans, shares risk, matches loan size and time, runs payments, prices information.",
-        "sample_ru": "Мобилизация сбережений; кредитование; распределение рисков; трансформация сроков и объёмов; платёжная система; ценообразование информации."
+        "title_en": "Explain the functions of the financial system"
       },
       {
-        "title_ru": "Теории существования финансовых посредников",
-        "ru": "Explains the theories of the existence of financial intermediaries",
         "en": "Explains the theories of the existence of financial intermediaries",
         "sample_en": "Banks cut costs, spread risk, fix information problems (bad borrowers, moral hazard), change loan length, use expert knowledge.",
-        "sample_ru": "Снижение транзакционных издержек; диверсификация риска; асимметрия информации (adverse selection, moral hazard); трансформация сроков; экспертиза."
+        "title_en": "Explains the theories of the existence of financial inter…"
       },
       {
-        "title_ru": "Баланс банка и индексы",
-        "ru": "Talk about the balance sheets of banks and the most important indices",
         "en": "Talk about the balance sheets of banks and the most important indices",
         "sample_en": "Assets: loans, securities, reserves. Liabilities: deposits, borrowings. Equity: capital. Ratios: ROE, ROA, NIM, CAR, LCR, NPL.",
-        "sample_ru": "Активы: кредиты, ценные бумаги, резервы. Пассивы: депозиты, заимствования. Капитал. Индексы: ROE, ROA, NIM, CAR, LCR, NPL."
+        "title_en": "Talk about the balance sheets of banks and the most impor…"
       },
       {
-        "title_ru": "European Banking Union",
-        "ru": "Highlight the main features of the European Banking Union",
         "en": "Highlight the main features of the European Banking Union",
         "sample_en": "Three pillars: (1) Single Supervisory Mechanism (SSM), (2) Single Resolution with bail-in (SRM), (3) Deposit guarantees (DGS).",
-        "sample_ru": "3 столпа: (1) единый надзор SSM, (2) resolution и bail-in (SRM), (3) гарантии вкладов (DGS/EDIS)."
+        "title_en": "European Banking Union"
       },
       {
-        "title_ru": "Interest rate risk",
-        "ru": "Talk about interest rate risk",
         "en": "Talk about interest rate risk",
         "sample_en": "When rates change, net interest income and asset values change. Manage with repricing gap, duration, hedging.",
-        "sample_ru": "Риск изменения ставок → влияет на NII и стоимость активов/обязательств. Управление: repricing gap, duration, hedging."
+        "title_en": "Interest rate risk"
       },
       {
-        "title_ru": "DCF model",
-        "ru": "Explain the DCF model",
         "en": "Explain the DCF model",
         "sample_en": "Forecast free cash flows, discount them (WACC or cost of equity), add terminal value → company value.",
-        "sample_ru": "Прогноз FCF → дисконтирование (WACC или Re через CAPM) → terminal value → firm/equity value."
+        "title_en": "DCF model"
       },
       {
-        "title_ru": "SoFP — вариант 1 (5 pts)",
-        "ru": "Uniclam Group Corp. — построить Statement of Financial Position (меньшие суммы)",
+        "en": "Explain the difference between Debt and Equity",
+        "sample_en": "Debt: contractual claim, fixed payments (tax-deductible interest), prior claim in distress, fixed maturity, usually no control. Equity: residual claim, non-deductible dividends, lowest priority, infinite life, management control.",
+        "title_en": "Debt vs Equity"
+      },
+      {
         "en": "Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)",
         "sample_en": "Total Assets = 204,850. Equity 66,300 + Non-current liabilities 87,550 + Current liabilities 51,000.",
-        "howto_ru": "Шаг 1 — классификация по IFRS:\n  NCA: Goodwill 12 750 + Other intangible 8 500 + PPE 103 700\n  CA: Inventories 37 400 + Trade receivables 23 800 + Cash 18 700\n  Equity: Share capital 25 000 + Retained earnings 41 300\n  NCL: Long-term borrowings 75 000 + Deferred tax 12 550\n  CL: Short-term borrowings 20 000 + Trade payables 28 000 + Current tax 3 000\n\nШаг 2 — суммы:\n  NCA = 124 950 | CA = 79 900 | Total Assets = 204 850\n  Equity = 66 300 | NCL = 87 550 | CL = 51 000 | Total = 204 850 ✓",
-        "sample_ru": "Активы 204 850 (NCA 124 950 + CA 79 900). Пассивы: Equity 66 300 + NCL 87 550 + CL 51 000."
+        "title_en": "SoFP — variant 1 (5 pts)"
       },
       {
-        "title_ru": "SoFP — вариант 2 (6 pts)",
-        "ru": "Uniclam Group Corp. — SoFP (Exercise 1, 6 points)",
         "en": "Statement of Financial Position — exam version (larger figures)",
         "sample_en": "Total Assets = Total Equity & Liabilities = 614,550. See the filled table above.",
-        "howto_ru": "Шаг 1 — классификация (данные с листа):\n  NCA: Goodwill 38 250 + Other intangible 25 500 + PPE 311 100\n  CA: Inventories 112 200 + Trade receivables 71 400 + Cash 56 100\n  Equity: Share capital 153 000 + Retained earnings 45 900\n  NCL: Long-term borrowings 229 500 + Deferred tax 33 150\n  CL: Short-term borrowings 53 550 + Trade payables 76 500 + Current tax 22 950\n\nШаг 2 — суммы:\n  NCA = 374 850 | CA = 239 700 | Total Assets = 614 550\n  Equity = 198 900 | NCL = 262 650 | CL = 153 000 | Total = 614 550 ✓",
-        "sample_ru": "См. заполненную таблицу на странице 09 — Exercise 1 (6 pts)."
+        "title_en": "SoFP — variant 2 (6 pts)"
       },
       {
-        "title_ru": "Exercise 2 — таблица (2024)",
-        "ru": "Divisions A/B: revenue 108k/72k; indirect per direct labour; selling per revenue; electricity & financial per raw materials.",
         "en": "Division table — 2024 exam version.",
         "sample_en": "Division A: Net Income 33,880. Division B: Net Income 14,840.",
-        "howto_ru": "Правила распределения общих затрат:\n  Indirect labour → по direct labour (A:B = 12:24)\n  Selling → по revenue (A:B = 108:72)\n  Electricity, Financial → по raw materials (A:B = 12:6)\n\nDivision A:\n  Indirect = 3 600 × 12/36 = 1 200\n  Selling = 12 000 × 108/180 = 7 200\n  Electricity = 16 800 × 12/18 = 11 200\n  Financial = 24 000 × 12/18 = 16 000\n  Pre-tax = 108 000 − (12 000+1 200+7 200+11 200+16 000+...) = 48 400\n  Tax 30% = 14 520 → Net = 33 880\n\nDivision B: аналогично → Pre-tax 21 200 → Tax 6 360 → Net 14 840",
-        "sample_ru": "A: Net Income 33 880. B: Net Income 14 840."
+        "title_en": "Division table — 2024 exam version."
       },
       {
-        "title_ru": "Exercise 2 — таблица (2025 tablet)",
-        "ru": "Divisions: revenue 144k/120k; indirect/selling/adv/electricity/financial по правилам.",
         "en": "Division table — tablet version with advertising.",
         "sample_en": "Division A: Net Income 32,214. Division B: Net Income 126.",
-        "howto_ru": "Шаг 1 — распределение общих затрат:\n  Indirect 8 400 × (direct labour дивизиона / 48)\n  Selling 24 000 × (revenue дивизиона / 264)\n  Advertising 25 000 × (revenue / 264)\n  Electricity 22 400 × (raw materials / 60)\n  Financial 30 000 × (raw materials / 60)\n\nDivision A:\n  Indirect = 8 400 × 16/48 = 2 800\n  Selling = 24 000 × 144/264 = 13 091\n  Advertising = 25 000 × 144/264 = 13 636\n  Electricity = 22 400 × 28/60 = 10 453\n  Financial = 30 000 × 28/60 = 14 000\n  Total costs = 16 000+2 800+28 000+13 091+10 453+14 000+13 636 = 97 980\n  Pre-tax = 144 000 − 97 980 = 46 020\n  Tax = 46 020 × 30% = 13 806\n  Net = 46 020 − 13 806 = 32 214\n\nDivision B:\n  Indirect = 5 600 | Selling = 10 909 | Advertising = 11 364\n  Electricity = 11 947 | Financial = 16 000\n  Total costs = 119 820\n  Pre-tax = 120 000 − 119 820 = 180\n  Tax = 180 × 30% = 54\n  Net = 180 − 54 = 126",
-        "sample_ru": "A: Net 32 214. B: Net 126."
+        "title_en": "Division table — tablet version with advertising."
       },
       {
-        "title_ru": "Exercise 3 (8 pts) — DCF Cassino SpA",
-        "ru": "Cassino SpA — DCF, WACC 5%, g 1%",
         "en": "Evaluate Cassino SpA using DCF. WACC 5%, g 1%. Cash flows 2024–2028. Complete discount coefficients, DCFs, and W.",
         "sample_en": "W ≈ 143,858 (sum of discounted cash flows). See page 13 for full table.",
-        "howto_ru": "Коэффициент = 1 / (1,05)^n\nDCF = Cash flow × коэффициент\n\n2024: 0,9524 → 23 810\n2025: 0,9070 → 27 211\n2026: 0,8638 → 30 234\n2027: 0,8227 → 31 263\n2028: 0,7835 → 31 341\n\nW = 143 858",
-        "sample_ru": "Полная таблица — стр. 13."
+        "title_en": "Evaluate Cassino SpA using DCF. WACC 5%, g 1%. Cash flows…"
       },
       {
-        "title_ru": "Exercise 3 — production May",
-        "ru": "Omega: production May? Sales May 90k, June 80k, 30% ending inventory.",
         "en": "Budgeted production for May.",
         "sample_en": "Production in May = 87,000 units.",
-        "howto_ru": "Формула: Production = Sales + Ending inventory − Beginning inventory\nEnding inv. = 30% × продажи следующего месяца\nBeginning inv. = 30% × продажи текущего месяца\n\nMay:\n  Ending = 0,3 × 80 000 = 24 000\n  Beginning = 0,3 × 90 000 = 27 000\n  Production = 90 000 + 24 000 − 27 000 = 87 000 units",
-        "sample_ru": "Production May = 87 000 units"
+        "title_en": "Budgeted production for May."
       },
       {
-        "title_ru": "Exercise 3 (8 pts) — Depreciation",
-        "ru": "Exercise 3 — амортизация: $160 000, 6 лет, остаточная $28 000",
         "en": "Exercise 3 (8 points). Cost $160,000, life 6 years, residual $28,000. (a) Annual charge straight-line and reducing balance 15%. (b) 6-year schedule for each method.",
         "sample_en": "(a) Straight-line: $22,000 per year. Reducing balance: 15% of carrying value each year. (b) Year 6 NBV = $28,000 (SL) or $60,344 (RB) — see page 10.",
-        "howto_ru": "(a) Straight-line: (160 000 − 28 000) / 6 = 22 000 $/год.\nReducing balance: dep = carrying × 15% (carrying = прошлый NBV).\n\n(b) Straight-line — каждый год dep 22 000, cost 160 000, accum растёт, NBV = 160 000 − accum.\nГод 6 NBV = 28 000 (= residual).\n\nReducing balance:\nГод 1: 160 000 × 15% = 24 000 → NBV 136 000\nГод 2: 136 000 × 15% = 20 400 → NBV 115 600\n… Год 6 NBV = 60 344",
-        "sample_ru": "Полные таблицы — на стр. 10."
+        "title_en": "Exercise 3 — Depreciation (8 pts)"
       },
       {
-        "title_ru": "Depreciation — straight-line",
-        "ru": "Asset $160 000, life 6 years, residual $28 000 — build 6-year schedule (straight-line).",
         "en": "Straight-line depreciation schedule.",
         "sample_en": "Annual depreciation = 22,000. After 6 years NBV = 28,000 (residual value).",
-        "howto_ru": "Annual dep = (Cost − Residual) / Life = (160 000 − 28 000) / 6 = 22 000 $/год\n\nКаждый год:\n  Dep. year = 22 000\n  Accum. dep. += 22 000\n  NBV = 160 000 − Accum. dep.\n\nГод 1: dep 22 000, accum 22 000, NBV 138 000\nГод 2: NBV 116 000 | Год 3: 94 000 | Год 4: 72 000 | Год 5: 50 000 | Год 6: 28 000",
-        "sample_ru": "Год 6: NBV = 28 000 $ (остаточная стоимость). Полная таблица — на стр. 10."
+        "title_en": "Depreciation — straight-line"
       },
       {
-        "title_ru": "Depreciation — reducing balance 15%",
-        "ru": "Reducing balance 15% — 6-year schedule.",
         "en": "Reducing balance depreciation schedule.",
         "sample_en": "Each year: dep = 15% of book value. Year 6 NBV = 60,344.",
-        "howto_ru": "Dep_year = Carrying value × 15%\nNBV = Carrying − Dep\nСледующий год: Carrying = предыдущий NBV\n\nГод 1: 160 000 × 15% = 24 000 → NBV 136 000\nГод 2: 136 000 × 15% = 20 400 → NBV 115 600\nГод 3: 17 340 → NBV 98 260\nГод 4: 14 739 → NBV 83 521\nГод 5: 12 528 → NBV 70 993\nГод 6: 10 649 → NBV 60 344",
-        "sample_ru": "Год 6: NBV 60 344 $ (не равно residual 28 000 без корректировки)."
+        "title_en": "Depreciation — reducing balance 15%"
       }
     ],
     "sna": [],
@@ -3143,7 +4320,7 @@
       if (!items.length) return;
       let openSection = '';
       items.forEach((item, idx) => {
-        const sec = item.section || (item.howto_ru ? 'Exercises' : 'Theory — short answers');
+        const sec = item.section || (item.howto_en ? 'Exercises' : 'Theory — short answers');
         if (sec !== openSection) {
           openSection = sec;
           const h = document.createElement('div');
@@ -3153,14 +4330,13 @@
         }
         const block = document.createElement('div');
         block.className = 'open-block';
-        const brief = item.sample_en || item.sample_ru || '';
+        const brief = item.sample_en || '';
         block.innerHTML = `
-          <div class="q-num">${item.title_ru || 'Question'}</div>
+          <div class="q-num">${item.title_en || item.en}</div>
           <div class="q-en">${item.en}</div>
-          <div class="q-ru">${item.ru}</div>
           ${brief ? `<div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">${brief}</div></div>` : ''}
           <textarea name="open_${slug}_${idx}" placeholder="Your answer (optional)..."></textarea>`;
-        if (item.howto_ru) {
+        if (item.howto_en) {
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'reveal-btn secondary';
@@ -3169,7 +4345,7 @@
           answerBlock.className = 'answer-block';
           answerBlock.hidden = true;
           answerBlock.innerHTML = '<div class="answer-label">Full solution</div><div class="howto"></div>';
-          answerBlock.querySelector('.howto').textContent = item.howto_ru;
+          answerBlock.querySelector('.howto').textContent = item.howto_en;
           btn.addEventListener('click', () => { answerBlock.hidden = false; btn.hidden = true; });
           block.appendChild(btn);
           block.appendChild(answerBlock);
@@ -3210,18 +4386,14 @@
           card.innerHTML = `
             <div class="q-num">Question ${q.num}</div>
             <div class="q-en">${q.en}</div>
-            <div class="q-ru">${q.ru}</div>
             <div class="opts">
               ${q.options.map(o => `
                 <label class="opt">
                   <input type="radio" name="${q.id}" value="${o.id}" />
-                  <span>
-                    <div class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</div>
-                    <div class="opt-ru">${o.ru}</div>
-                  </span>
+                  <span class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</span>
                 </label>`).join('')}
             </div>
-            ${q.explain_ru ? `<details class="solution"><summary>📗 Решение</summary><div class="howto">${q.explain_ru}</div></details>` : ''}
+            ${q.explain ? `<details class="solution"><summary>📗 Solution</summary><div class="howto">${q.explain}</div></details>` : ''}
             <div class="feedback" hidden></div>`;
           container.appendChild(card);
         });
@@ -3231,14 +4403,13 @@
         if (block.sna.length) {
           const h = document.createElement('div');
           h.className = 'section-title';
-          h.textContent = 'SNA — расчёты';
+          h.textContent = 'SNA — calculations';
           container.appendChild(h);
           block.sna.forEach((item, idx) => {
             const el = document.createElement('div');
             el.className = 'open-block';
             el.innerHTML = `
               <div class="q-en">${item.en}</div>
-              <div class="q-ru">${item.ru}</div>
               <input type="text" name="sna_${block.slug}_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
               <div class="feedback" hidden></div>`;
             el.dataset.expected = item.expected;
@@ -3290,7 +4461,7 @@
       if (unanswered > 0) {
         resultsBox.classList.remove('visible');
         warnEl.hidden = false;
-        warnEl.textContent = 'Ответьте на все вопросы с вариантами (' + unanswered + ' без ответа).';
+        warnEl.textContent = 'Answer all MCQ questions (' + unanswered + ' unanswered).';
         const first = container.querySelector('.q.unanswered');
         if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
@@ -3310,15 +4481,15 @@
           score += sc.correct;
           card.classList.add('correct');
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           wrong++;
           score += sc.wrong;
           card.classList.add('wrong');
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
-            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
-            (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✗ Incorrect. Your answer: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         }
 
         card.querySelectorAll('label.opt').forEach((lbl) => {
@@ -3338,21 +4509,21 @@
         fb.hidden = false;
         if (ok === null) {
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '⚠️ Empty answer. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         } else if (ok) {
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно';
+          fb.innerHTML = '✓ Correct';
         } else {
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '✗ Incorrect. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         }
       });
 
       const total = QUESTIONS.length;
       document.getElementById('score-text').textContent =
-        'Результат: ' + correct + ' из ' + total + ' (' + Math.round(correct / total * 100) + '%)';
+        'Score: ' + correct + ' of ' + total + ' (' + Math.round(correct / total * 100) + '%)';
       document.getElementById('score-detail').textContent =
-        'Баллы: ' + score.toFixed(1) + ' · Верно: ' + correct + ' · Неверно: ' + wrong;
+        'Points: ' + score.toFixed(1) + ' · Correct: ' + correct + ' · Wrong: ' + wrong;
 
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });

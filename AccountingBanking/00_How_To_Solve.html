@@ -133,18 +133,12 @@
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← Tests</a> · <a href="99_All_Tests.html">All tests on one page</a> · <a href="09_Statement_of_Financial_Position.html">SoFP full solution</a></p>
+    <p class="back"><a href="index.html">← Tests</a> · <a href="99_All_Tests.html">All tests on one page</a> · <a href="09_Statement_of_Financial_Position.html">SoFP exercise</a></p>
     <h1>How to Solve Exam Tasks</h1>
     <p class="sub">Accounting &amp; Banking for SMEs — step-by-step for calculations and exercises.</p>
-    <p class="ru">Пошаговые решения расчётных и практических заданий экзамена.</p>
-
     <nav class="toc">
       <strong>Contents</strong>
       <ol>
-        <li><a href="#mcq-example">MCQ example (from exam)</a></li>
-        <li><a href="#roe">ROE</a></li>
-        <li><a href="#gap">Repricing gap (ΔNII)</a></li>
-        <li><a href="#duration">Bond duration</a></li>
         <li><a href="#sofp">Statement of Financial Position</a></li>
         <li><a href="#division">Division table A / B</a></li>
         <li><a href="#production">Production budget</a></li>
@@ -157,69 +151,6 @@
         <li><a href="#theory">Open questions — short answers</a></li>
       </ol>
     </nav>
-
-    <!-- MCQ example -->
-    <div class="card" id="mcq-example">
-      <span class="tag">MCQ · Test 01</span>
-      <h2>Example — multiple choice (from your screenshot)</h2>
-      <div class="exam-row">
-        <figure class="exam-photo">
-          <img src="images/exam-mcq-q1-management.png" alt="Exam sheet: Question 1 — three functions of management" />
-          <figcaption>Your exam — Question 1<br>Read EN, pick A/B/C/D</figcaption>
-        </figure>
-        <div>
-          <p><strong>Question:</strong> The management of an organization performs three general broad functions:</p>
-          <p class="ru">Три общие функции менеджмента</p>
-          <p>Standard managerial accounting answer:</p>
-          <div class="formula">Planning → Directing &amp; motivating → Controlling</div>
-          <p class="ru">Планирование → руководство и мотивация → контроль</p>
-          <div class="answer">Answer: A) Planning, directing and motivating, controlling</div>
-          <p style="font-size:0.9rem;color:#555;margin-top:0.75rem">B is wrong (budgeting ≠ directing). C/D swap accounting for motivating.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 1 ROE -->
-    <div class="card" id="roe">
-      <span class="tag">MCQ · Test 03</span>
-      <h2>1. ROE (Return on Equity)</h2>
-      <p><strong>Given:</strong> bank capital = 50, profit = 5</p>
-      <p class="ru">Дано: капитал банка = 50, прибыль = 5</p>
-      <div class="formula">ROE = Net profit ÷ Bank capital</div>
-      <ol class="steps">
-        <li>Check if profit is <strong>already net</strong> (after tax) or pre-tax.</li>
-        <li>Divide: ROE = 5 ÷ 50 = 0.10 = <strong>10%</strong></li>
-      </ol>
-      <div class="answer">Answer: b) 10%</div>
-      <div class="warn"><strong>Trap:</strong> If profit is pre-tax and tax = 50% → net profit = 2.5 → ROE = 5% (answer a).</div>
-    </div>
-
-    <!-- 2 Gap -->
-    <div class="card" id="gap">
-      <span class="tag">MCQ · Test 03</span>
-      <h2>2. Repricing gap — change in NII</h2>
-      <p><strong>Given:</strong> Gap = −10,000,000 €, interest rate change = +2%</p>
-      <div class="formula">ΔNII = Gap × Δr</div>
-      <ol class="steps">
-        <li>Convert rate: 2% = 0.02</li>
-        <li>ΔNII = (−10,000,000) × 0.02 = <strong>−200,000 €</strong></li>
-        <li>Negative gap + rising rates → NII <strong>falls</strong></li>
-      </ol>
-      <div class="answer">Answer: a) −200,000 €</div>
-    </div>
-
-    <!-- 3 Duration -->
-    <div class="card" id="duration">
-      <span class="tag">MCQ · Test 03</span>
-      <h2>3. Which bond has the longest duration?</h2>
-      <p>Duration is <strong>higher</strong> when:</p>
-      <ul class="steps">
-        <li>Maturity is <strong>longer</strong> (10 years &gt; 5 years &gt; 1 year)</li>
-        <li>Coupons are paid <strong>less often</strong> (annual &gt; monthly)</li>
-      </ul>
-      <p>Compare: 10 years + annual coupon beats 10 years + monthly coupon.</p>
-      <div class="answer">Answer: c) 10 years, 5%, coupon paid annually</div>
-    </div>
 
     <!-- 4 SoFP -->
     <div class="card" id="sofp">
@@ -249,41 +180,6 @@
       </table>
         </div>
       </div>
-
-      <p style="margin-top:1.25rem"><strong>Exercise 1 — filled solution (6 pts)</strong> — same numbers as on your photo</p>
-      <div class="grid2">
-        <div>
-          <p><strong>ASSETS</strong></p>
-          <table class="data">
-            <tr><td class="lbl">Goodwill</td><td class="num">38,250</td></tr>
-            <tr><td class="lbl">Other intangible</td><td class="num">25,500</td></tr>
-            <tr><td class="lbl">PPE</td><td class="num">311,100</td></tr>
-            <tr class="sub"><td class="lbl">Total NCA</td><td class="num">374,850</td></tr>
-            <tr><td class="lbl">Inventories</td><td class="num">112,200</td></tr>
-            <tr><td class="lbl">Trade receivables</td><td class="num">71,400</td></tr>
-            <tr><td class="lbl">Cash</td><td class="num">56,100</td></tr>
-            <tr class="sub"><td class="lbl">Total CA</td><td class="num">239,700</td></tr>
-            <tr class="tot"><td class="lbl">TOTAL ASSETS</td><td class="num">614,550</td></tr>
-          </table>
-        </div>
-        <div>
-          <p><strong>EQUITY &amp; LIABILITIES</strong></p>
-          <table class="data">
-            <tr><td class="lbl">Share capital</td><td class="num">153,000</td></tr>
-            <tr><td class="lbl">Retained earnings</td><td class="num">45,900</td></tr>
-            <tr class="sub"><td class="lbl">Total equity</td><td class="num">198,900</td></tr>
-            <tr><td class="lbl">Long-term borrowings</td><td class="num">229,500</td></tr>
-            <tr><td class="lbl">Deferred tax</td><td class="num">33,150</td></tr>
-            <tr class="sub"><td class="lbl">Total NCL</td><td class="num">262,650</td></tr>
-            <tr><td class="lbl">Short-term borrowings</td><td class="num">53,550</td></tr>
-            <tr><td class="lbl">Trade payables</td><td class="num">76,500</td></tr>
-            <tr><td class="lbl">Current tax payable</td><td class="num">22,950</td></tr>
-            <tr class="sub"><td class="lbl">Total CL</td><td class="num">153,000</td></tr>
-            <tr class="tot"><td class="lbl">TOTAL</td><td class="num">614,550 ✓</td></tr>
-          </table>
-        </div>
-      </div>
-      <p class="ru">Полные таблицы обоих вариантов — на странице <a href="09_Statement_of_Financial_Position.html">09 SoFP</a>.</p>
     </div>
 
     <!-- 5b Division exam 2025 -->
@@ -297,7 +193,6 @@
         </figure>
         <div>
           <p><strong>Allocate shared costs</strong> → Pre-tax → Tax 30% → Net Income</p>
-          <div class="answer" style="margin-top:0.5rem">A: <strong>32,214</strong> · B: <strong>126</strong></div>
           <p style="margin-top:0.75rem"><a href="13_Divisions_and_DCF.html">Full filled table → page 13</a></p>
         </div>
       </div>
@@ -320,13 +215,6 @@
       <div class="formula">Pre-tax profit = Revenue − all costs (direct + allocated)
 Tax = 30% × Pre-tax
 Net Income = Pre-tax − Tax</div>
-      <p><strong>Example — Division A (2024):</strong></p>
-      <ol class="steps">
-        <li>Selling = 12,000 × 108/180 = <strong>7,200</strong></li>
-        <li>Electricity = 16,800 × 12/18 = <strong>11,200</strong></li>
-        <li>Pre-tax = <strong>48,400</strong> → Tax = 14,520 → <strong>Net = 33,880</strong></li>
-      </ol>
-      <div class="answer">Division A: Net Income 33,880 · Division B: Net Income 14,840</div>
     </div>
 
     <!-- 5c DCF Cassino -->
@@ -337,7 +225,6 @@ Net Income = Pre-tax − Tax</div>
       <div class="formula">Discount coeff. = 1 ÷ (1.05)^year
 DCF = Cash flow × coeff.
 W = sum of DCFs</div>
-      <div class="answer"><strong>W ≈ 143,858</strong></div>
       <p><a href="13_Divisions_and_DCF.html">Full table with coefficients → page 13</a></p>
     </div>
 
@@ -349,12 +236,6 @@ W = sum of DCFs</div>
       <div class="formula">Ending inv. = 30% × next month sales
 Beginning inv. = 30% × current month sales
 Production = Sales + Ending inv. − Beginning inv.</div>
-      <ol class="steps">
-        <li>Ending (May) = 0.30 × 80,000 = <strong>24,000</strong></li>
-        <li>Beginning (May) = 0.30 × 90,000 = <strong>27,000</strong></li>
-        <li>Production = 90,000 + 24,000 − 27,000 = <strong>87,000 units</strong></li>
-      </ol>
-      <div class="answer">Production May = 87,000 units</div>
     </div>
 
     <!-- 7 Depreciation Exercise 3 -->
@@ -368,8 +249,8 @@ Production = Sales + Ending inv. − Beginning inv.</div>
         </figure>
         <div>
           <p><strong>(a)</strong> Annual depreciation charge:</p>
-          <div class="answer" style="margin-top:0.5rem">Straight-line: <strong>$22,000</strong>/year · Reducing balance: <strong>15%</strong> of carrying value</div>
-          <p style="margin-top:1rem"><strong>(b)</strong> 6-year schedules → <a href="10_Depreciation.html">page 10</a> (full tables)</p>
+          <div class="formula" style="margin-top:0.5rem">Straight-line: (Cost − Residual) ÷ Life · Reducing balance: carrying value × rate</div>
+          <p style="margin-top:1rem"><strong>(b)</strong> 6-year schedules → <a href="10_Depreciation.html">page 10</a></p>
         </div>
       </div>
     </div>
@@ -381,17 +262,8 @@ Production = Sales + Ending inv. − Beginning inv.</div>
       <p><strong>Given:</strong> Cost $160,000 · Life 6 years · Residual $28,000</p>
       <div class="formula">Annual depreciation = (Cost − Residual) ÷ Life
 = (160,000 − 28,000) ÷ 6 = 22,000 per year</div>
-      <p>Each year: Accumulated dep. += 22,000 · NBV = Cost − Accumulated</p>
-      <table class="data calc">
-        <tr><th>Year</th><th>Depreciation</th><th>Accumulated</th><th>NBV</th></tr>
-        <tr><td>1</td><td>22,000</td><td>22,000</td><td>138,000</td></tr>
-        <tr><td>2</td><td>22,000</td><td>44,000</td><td>116,000</td></tr>
-        <tr><td>3</td><td>22,000</td><td>66,000</td><td>94,000</td></tr>
-        <tr><td>4</td><td>22,000</td><td>88,000</td><td>72,000</td></tr>
-        <tr><td>5</td><td>22,000</td><td>110,000</td><td>50,000</td></tr>
-        <tr><td>6</td><td>22,000</td><td>132,000</td><td>28,000</td></tr>
-      </table>
-      <div class="answer">Year 6 NBV = $28,000 (= residual value)</div>
+      <p>Each year: Accumulated dep. += annual charge · NBV = Cost − Accumulated</p>
+      <p><a href="10_Depreciation.html">Full schedule → page 10</a></p>
     </div>
 
     <!-- 8 Depreciation RB -->
@@ -401,16 +273,7 @@ Production = Sales + Ending inv. − Beginning inv.</div>
       <div class="formula">Depreciation = Carrying value × 15%
 NBV = Carrying value − Depreciation
 Next year: Carrying value = previous NBV</div>
-      <table class="data calc">
-        <tr><th>Year</th><th>Carrying</th><th>Dep. 15%</th><th>Accum.</th><th>NBV</th></tr>
-        <tr><td>1</td><td>160,000</td><td>24,000</td><td>24,000</td><td>136,000</td></tr>
-        <tr><td>2</td><td>136,000</td><td>20,400</td><td>44,400</td><td>115,600</td></tr>
-        <tr><td>3</td><td>115,600</td><td>17,340</td><td>61,740</td><td>98,260</td></tr>
-        <tr><td>4</td><td>98,260</td><td>14,739</td><td>76,479</td><td>83,521</td></tr>
-        <tr><td>5</td><td>83,521</td><td>12,528</td><td>89,007</td><td>70,993</td></tr>
-        <tr><td>6</td><td>70,993</td><td>10,649</td><td>99,656</td><td>60,344</td></tr>
-      </table>
-      <div class="warn">NBV at year 6 ($60,344) ≠ residual $28,000 unless adjusted in the final year.</div>
+      <p><a href="10_Depreciation.html">Full schedule → page 10</a></p>
     </div>
 
     <!-- 9 Call -->
@@ -419,8 +282,8 @@ Next year: Carrying value = previous NBV</div>
       <h2>9. Call option — payoff</h2>
       <p>Buyer of a <strong>call</strong> profits when the underlying price <strong>rises</strong>.</p>
       <ul class="steps">
-        <li>Price <strong>up</strong> → payoff <strong>higher</strong> (answer a in 2026 exam)</li>
-        <li>Price <strong>down</strong> → payoff <strong>lower</strong> (answer b in variant C)</li>
+        <li>Price <strong>up</strong> → payoff <strong>higher</strong></li>
+        <li>Price <strong>down</strong> → payoff <strong>lower</strong></li>
       </ul>
     </div>
 
@@ -433,8 +296,7 @@ Next year: Carrying value = previous NBV</div>
         <li><strong>Resolution</strong> (SRM) — bail-in, bad-bank, failing banks</li>
         <li><strong>Deposit guarantee</strong> (DGS / EDIS) — protect depositors</li>
       </ol>
-      <p class="ru">1 — надзор · 2 — урегулирование · 3 — гарантии вкладов</p>
-    </div>
+      </div>
 
     <!-- Theory brief -->
     <div class="card" id="theory">
@@ -452,8 +314,7 @@ Next year: Carrying value = previous NBV</div>
         <dt>DCF model</dt>
         <dd>Forecast FCF → discount (WACC or Re via CAPM) → terminal value → firm/equity value.</dd>
       </dl>
-      <p class="ru">Развёрнутые решения задач — на странице <a href="05_Open_Questions.html">05 Open questions</a> (кнопка «Показать решение»).</p>
-    </div>
+      </div>
   </div>
 </body>
 </html>

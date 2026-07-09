@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -52,7 +52,7 @@
     .q.correct { border-color: #27ae60; background: #f6fff9; }
     .q.wrong { border-color: #e74c3c; background: #fff8f8; }
     .q-num { font-weight: 700; color: #16a085; margin-bottom: 0.35rem; }
-    .q-en { font-size: 1.02rem; margin-bottom: 0.75rem; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
     .opts { display: grid; gap: 0.45rem; }
     label.opt {
       display: flex;
@@ -65,7 +65,7 @@
     label.opt:hover { background: #eef9f6; }
   .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
-    .opt-en { font-size: 0.95rem; }
+    .opt-en { font-size: 0.95rem; }
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -101,16 +101,6 @@
       font-size: 0.9rem;
       white-space: pre-wrap;
     }
-    .brief-answer {
-      margin: 0.75rem 0;
-      padding: 0.75rem 0.9rem;
-      background: #e8f8ef;
-      border-radius: 8px;
-      border-left: 3px solid #27ae60;
-      font-size: 0.92rem;
-      white-space: pre-wrap;
-    }
-    .brief-label { font-size: 0.8rem; font-weight: 600; color: #1e7e45; margin-bottom: 0.35rem; }
     .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
     table.matrix {
       border-collapse: collapse;
@@ -167,7 +157,7 @@
     mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
     mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
     .howto {
-      margin-top: 0.5rem;
+      margin-top: 0.75rem;
       padding: 0.85rem 1rem;
       background: #eefaf7;
       border-radius: 8px;
@@ -176,8 +166,7 @@
       white-space: pre-wrap;
     }
     .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
-    .answer-label { font-weight: 600; color: #16a085; margin-top: 0.75rem; font-size: 0.9rem; }
-    .brief-answer {
+        .brief-answer {
       margin: 0.65rem 0 0.85rem;
       padding: 0.7rem 1rem;
       background: #e8f8ef;
@@ -188,17 +177,15 @@
     }
     .brief-label { font-weight: 600; color: #1e7e45; font-size: 0.82rem; margin-bottom: 0.2rem; }
     .brief-text { color: #1a1a2e; }
+    .answer-label { font-weight: 600; color: #16a085; margin-top: 0.75rem; font-size: 0.9rem; }
     .reveal-btn { margin-top: 0.6rem; font-size: 0.88rem; padding: 0.45rem 1rem; }
     details.solution { margin-top: 0.75rem; font-size: 0.9rem; }
     details.solution summary { cursor: pointer; color: #16a085; font-weight: 600; }
-    .exam-photo { max-width: 100%; margin: 1rem 0 1.5rem; }
-    .exam-photo img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #e8ecf1; display: block; }
-    .exam-photo figcaption { font-size: 0.85rem; color: #666; margin-top: 0.5rem; text-align: center; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← К тестам Accounting & Banking</a></p>
+    <p class="back"><a href="index.html">← Accounting & Banking tests</a></p>
     <h1>Sustainability, SROI & Efficiency</h1>
     <p class="sub">SROI, Corporate Sustainability, Efficiency</p>
     
@@ -206,8 +193,8 @@
       <div id="questions"></div>
       
       <div class="actions">
-        <button type="submit">Проверить ответы</button>
-        <button type="button" class="secondary" id="reset-btn">Сбросить</button>
+        <button type="submit">Check answers</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
       </div>
     </form>
     <div id="results">
@@ -218,9 +205,9 @@
   </div>
   <script>
     const SCORING = {"correct": 1, "wrong": 0, "max": null};
-    const QUESTIONS = [{"num": 6, "id": "q6", "en": "The SROI indicators:", "ru": "Показатели SROI:", "options": [{"id": "a", "en": "Relates asset value to cash flows and risk", "ru": "Связывает стоимость актива с денежными потоками и риском"}, {"id": "b", "en": "Estimates price by comparable assets", "ru": "Оценивает цену по сопоставимым активам"}, {"id": "c", "en": "Measures monetary social impact relative to investment volume", "ru": "Измеряет денежный социальный эффект относительно объёма инвестиций"}, {"id": "d", "en": "Method of raising capital for startups", "ru": "Способ привлечения капитала для стартапов"}], "correct": "c", "section": null}, {"num": 7, "id": "q7", "en": "Corporate Sustainability:", "ru": "Корпоративная устойчивость (sustainability):", "options": [{"id": "a", "en": "Impact investing with measurable ESG impact", "ru": "Инвестиции с измеримым ESG-эффектом"}, {"id": "b", "en": "Capacity to safeguard long-term profitability while respecting environment, people and resources", "ru": "Способность обеспечивать долгосрочную прибыль, уважая среду, людей и ресурсы"}, {"id": "c", "en": "Circular economy sharing and recycling model", "ru": "Модель циркулярной экономики"}, {"id": "d", "en": "Skills and abilities employees bring to operations", "ru": "Навыки и способности сотрудников"}], "correct": "b", "section": null}, {"num": 8, "id": "q8", "en": "Efficiency is:", "ru": "Эффективность (efficiency) — это:", "options": [{"id": "a", "en": "Money needed for stability given assets and liabilities", "ru": "Деньги для стабильности при данных активах и обязательствах"}, {"id": "b", "en": "Comparison of what is produced with what can be achieved with the same resources", "ru": "Сравнение фактического результата с тем, что можно достичь при тех же ресурсах"}, {"id": "c", "en": "LBO technique using mostly debt", "ru": "LBO с преимущественным долгом"}, {"id": "d", "en": "Degree to which objectives are achieved", "ru": "Степень достижения целей (это effectiveness)"}], "correct": "b", "section": null}];
-    const OPEN_ITEMS = [];
-    const SNA_ITEMS = [];
+    const QUESTIONS = [{"num":6,"id":"q6","en":"The SROI indicators:","options":[{"id":"a","en":"Relates asset value to cash flows and risk"},{"id":"b","en":"Estimates price by comparable assets"},{"id":"c","en":"Measures monetary social impact relative to investment volume"},{"id":"d","en":"Method of raising capital for startups"}],"correct":"c","section":null},{"num":7,"id":"q7","en":"Corporate Sustainability:","options":[{"id":"a","en":"Impact investing with measurable ESG impact"},{"id":"b","en":"Capacity to safeguard long-term profitability while respecting environment, people and resources"},{"id":"c","en":"Circular economy sharing and recycling model"},{"id":"d","en":"Skills and abilities employees bring to operations"}],"correct":"b","section":null},{"num":8,"id":"q8","en":"Efficiency is:","options":[{"id":"a","en":"Money needed for stability given assets and liabilities"},{"id":"b","en":"Comparison of what is produced with what can be achieved with the same resources"},{"id":"c","en":"LBO technique using mostly debt"},{"id":"d","en":"Degree to which objectives are achieved"}],"correct":"b","section":null}]
+    const OPEN_ITEMS = []
+    const SNA_ITEMS = []
 
     const form = document.getElementById('test-form');
     const container = document.getElementById('questions');
@@ -250,7 +237,7 @@
                 <span class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</span>
               </label>`).join('')}
           </div>
-          ${q.explain_ru ? `<details class="solution"><summary>📗 Решение</summary><div class="howto">${q.explain_ru}</div></details>` : ''}
+          ${q.explain ? `<details class="solution"><summary>📗 Solution</summary><div class="howto">${q.explain}</div></details>` : ''}
           <div class="feedback" hidden></div>`;
         container.appendChild(card);
       });
@@ -258,19 +245,24 @@
 
     function renderOpen() {
       if (!OPEN_ITEMS.length) return;
-      const h = document.createElement('div');
-      h.className = 'section-title';
-      h.textContent = 'Open questions';
-      container.appendChild(h);
+      let openSection = '';
       OPEN_ITEMS.forEach((item, idx) => {
+        const sec = item.section || (item.howto_en ? 'Exercises' : 'Theory — short answers');
+        if (sec !== openSection) {
+          openSection = sec;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = sec;
+          container.appendChild(h);
+        }
         const block = document.createElement('div');
         block.className = 'open-block';
+        const brief = item.sample_en || '';
         block.innerHTML = `
-          <div class="q-num">${item.title_en || ('Open question ' + (idx + 1))}</div>
+          <div class="q-num">${item.title_en || item.en}</div>
           <div class="q-en">${item.en}</div>
-          <div class="brief-answer"><div class="brief-label">Sample answer (EN)</div><div class="brief-text"></div></div>
-          <textarea name="open_${idx}" placeholder="Your answer..."></textarea>`;
-        block.querySelector('.brief-text').textContent = item.sample_en || item.sample_ru || '';
+          ${brief ? `<div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">${brief}</div></div>` : ''}
+          <textarea name="open_${idx}" placeholder="Your answer (optional)..."></textarea>`;
         container.appendChild(block);
       });
     }
@@ -333,7 +325,7 @@
       if (unanswered > 0) {
         resultsBox.classList.remove('visible');
         warnEl.hidden = false;
-        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        warnEl.textContent = `Answer all MCQ questions (${unanswered} unanswered).`;
         const first = container.querySelector('.q.unanswered');
         if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
@@ -351,7 +343,7 @@
           unanswered++;
           card.classList.add('unanswered');
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          fb.innerHTML = '⚠️ No answer selected. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
           return;
         }
 
@@ -360,14 +352,14 @@
           correct++;
           card.classList.add('correct');
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           wrong++;
           card.classList.add('wrong');
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+          fb.innerHTML = '✗ Incorrect. Your answer: <mark class="wrong-mark">' + selected.value.toUpperCase() +
             '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
-            (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+            (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         }
 
         card.querySelectorAll('label.opt').forEach((lbl) => {
@@ -379,6 +371,8 @@
         });
       });
 
+      container.querySelectorAll('.open-block .sample, .open-block .howto').forEach(el => { el.hidden = false; });
+
       container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
         const block = fb.closest('.open-block');
         if (!block.dataset.expected) return;
@@ -387,13 +381,13 @@
         fb.hidden = false;
         if (ok === null) {
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '⚠️ Empty answer. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         } else if (ok) {
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '✗ Incorrect. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         }
       });
 
@@ -402,11 +396,11 @@
       if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
 
       document.getElementById('score-text').textContent =
-        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+        `Score: ${correct} of ${total} (${Math.round(correct/total*100)}%)`;
       document.getElementById('score-detail').textContent =
         SCORING.correct !== 1 || SCORING.wrong !== 0
-          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
-          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+          ? `Points: ${score.toFixed(1)} · Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`
+          : `Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`;
 
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
