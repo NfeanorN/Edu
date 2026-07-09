@@ -2,175 +2,317 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="notebook-style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Производственная функция — Production Function</title>
+    <link rel="stylesheet" href="notebook-style.css">
 </head>
 <body class="nb-page nb-firm">
 <div class="nb-sheet">
     <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком</p>
-    <p class="back"><a href="index.html">← Economics</a> · <a href="MRS_Explanation.html">← MRS</a></p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Diminishing_Returns_Explanation.html">Diminishing Returns →</a> · <a href="Frank_Study_Guide.html#tp-mp-ap">Frank Ch. 8</a></p>
 
     <h1>Производственная функция</h1>
-    <p class="source">Frank, гл. 8 · Production</p>
+    <p class="source">Frank, гл. 8 · Figure 10.1</p>
 
-    <div class="nb-def"><strong>Производственная функция</strong> — ответ на вопрос: <span class="hl">«Если у меня столько работников и столько оборудования — сколько я произведу?»</span></div>
-    <p class="nb-en">Production function: given inputs (labour, capital), how much output Q can the firm produce?</p>
+    <div class="nb-def"><strong>Производственная функция</strong> — зависимость между <span class="hl">объёмом выпуска (Q)</span> и количеством используемых <span class="hl">факторов производства</span> (труд <strong>L</strong> и капитал <strong>K</strong>): показывает, сколько продукции фирма может произвести при заданной комбинации ресурсов.</div>
+    <p class="nb-en">The production function is the technological relationship between output Q and inputs — labour L and capital K — showing how much the firm can produce from a given combination of resources.</p>
+
+    <div class="key-box">
+        <strong>Карта этой страницы:</strong><br>
+        ① L, K, Q + формула &nbsp;→&nbsp; ② SR vs LR &nbsp;→&nbsp; ③ TP, MP, AP &nbsp;→&nbsp; ④ пример Frank &nbsp;→&nbsp; ⑤ графики
+    </div>
 
     <hr>
 
-    <h2>1. Три буквы: L, K, Q</h2>
+    <h2>① Три буквы и формула</h2>
+
     <table>
         <tr><th>Буква</th><th>Что это</th><th>Пример (кухня Frank)</th></tr>
         <tr><td><strong>L</strong></td><td>Труд (labour)</td><td>Повара — можно нанять больше или меньше</td></tr>
         <tr><td><strong>K</strong></td><td>Капитал (capital)</td><td>Кухня, плита, станки — «оборудование»</td></tr>
         <tr><td><strong>Q</strong></td><td>Выпуск (output)</td><td>Блюда в час, детали, пироги</td></tr>
     </table>
-    <p class="nb-en">L = labour, K = capital, Q = output.</p>
+    <p class="nb-en">L = labour · K = capital · Q = output.</p>
 
-    <div class="nb-formula">
-        <strong>Q = F(L, K)</strong> — из труда и капитала получается выпуск
-    </div>
+    <div class="nb-formula"><strong>Q = F(L, K)</strong> — из ресурсов получается выпуск</div>
     <p class="nb-en">The production function links inputs (L, K) to output Q.</p>
 
     <hr>
 
-    <h2>2. Краткий vs долгий период</h2>
+    <h2>② Краткий vs долгий период — не путай!</h2>
+
     <table>
         <tr><th></th><th>Краткий период (SR)</th><th>Долгий период (LR)</th></tr>
-        <tr><td><strong>Что можно менять</strong></td><td>Только <strong>L</strong> (нанять/уволить)</td><td>И <strong>L</strong>, и <strong>K</strong> (расширить цех, купить печи)</td></tr>
+        <tr><td><strong>Что меняется</strong></td><td>Только <strong>L</strong> (нанять / уволить)</td><td>И <strong>L</strong>, и <strong>K</strong> (расширить цех, купить печи)</td></tr>
         <tr><td><strong>Запись</strong></td><td>Q = f(L, <strong>K̄</strong>) — K зафиксирован</td><td>Q = F(L, K)</td></tr>
-        <tr><td><strong>Главный вопрос</strong></td><td>Что если +1 работник? → <a href="Diminishing_Returns_Explanation.html">убывающая отдача</a></td><td>Что если всё ×2? → <a href="Returns_to_Scale_Explanation.html">отдача от масштаба</a></td></tr>
+        <tr><td><strong>Главный вопрос</strong></td><td>«+1 worker при той же кухне?»</td><td>«Удвоить и workers, и кухню?»</td></tr>
+        <tr><td><strong>Закон</strong></td><td><a href="Diminishing_Returns_Explanation.html">убывающая отдача</a></td><td><a href="Returns_to_Scale_Explanation.html">отдача от масштаба (RTS)</a></td></tr>
+        <tr><td><strong>График</strong></td><td><strong>Q от L</strong> (K фикс.)</td><td><strong>Isoquant</strong> — L vs K</td></tr>
     </table>
-    <p class="nb-en">Short run: K fixed, L variable. Long run: both can change.</p>
+    <p class="nb-en">SR: K fixed, only L changes. LR: both L and K can change — different questions, different laws.</p>
 
-    <div class="key-box"><strong>Не путай!</strong> «+1 повар при той же кухне» (SR) и «удвоить и поваров, и кухню» (LR) — это разные вопросы.</div>
+    <div class="key-box">
+        <strong>+1 повар при той же плите</strong> (SR) ≠ <strong>удвоить и поваров, и плиты</strong> (LR). Это разные вопросы.
+    </div>
 
     <hr>
 
-    <h2>3. TP, MP, AP — три способа смотреть на выпуск</h2>
+    <h2>③ TP, MP, AP — три способа смотреть на выпуск</h2>
+
+    <p>Одни и те же цифры — три разных взгляда:</p>
+
     <table>
-        <tr><th></th><th>Формула</th><th>Простыми словами</th></tr>
+        <tr><th></th><th>Формула</th><th>Вопрос</th><th>Пример</th></tr>
         <tr>
             <td><strong>TP</strong><br>Total Product</td>
             <td>Q</td>
-            <td><strong>Сколько всего</strong> произведено<br><em>«6 поваров — сколько блюд за час?»</em></td>
+            <td>Сколько <strong>всего</strong>?</td>
+            <td>6 workers → <strong>72</strong> детали</td>
         </tr>
         <tr>
             <td><strong>MP</strong><br>Marginal Product</td>
             <td>MP = ΔQ / ΔL</td>
-            <td><strong>Сколько добавит последний</strong> работник<br><em>«6-й повар — +сколько блюд?»</em></td>
+            <td>Сколько добавит <strong>последний</strong> worker?</td>
+            <td>5→6 workers: 72−58 = <strong>+14</strong></td>
         </tr>
         <tr>
             <td><strong>AP</strong><br>Average Product</td>
             <td>AP = Q / L</td>
-            <td><strong>Сколько в среднем</strong> на одного<br><em>«56 блюд ÷ 6 поваров ≈ 9,3»</em></td>
+            <td>Сколько <strong>в среднем</strong> на одного?</td>
+            <td>72 ÷ 6 = <strong>12</strong></td>
         </tr>
     </table>
     <p class="nb-en">TP = total output · MP = extra from last worker · AP = output per worker.</p>
 
     <div class="nb-example">
-        <p class="step">5 рабочих → 50 деталей</p>
-        <p class="step">6 рабочих → 56 деталей</p>
-        <p class="ans">MP 6-го = 56 − 50 = <strong>6</strong> (не 56!) · AP = 56 ÷ 6 ≈ <strong>9,3</strong></p>
+        <p class="step"><strong>Как считать MP:</strong> наняли ещё одного worker → смотрим, на сколько вырос Q</p>
+        <p class="step">Было 5 workers → Q = 58. Стало 6 → Q = 72</p>
+        <p class="ans">MP 6-го worker = 72 − 58 = <strong>14</strong> (не 72! не среднее!)</p>
     </div>
-    <p class="nb-en">MP of the 6th worker = 6 (the addition), not 56 (the total).</p>
+    <p class="nb-en">MP of the 6th worker = 14 (the addition), not 72 (the total).</p>
 
-    <hr>
-
-    <h2>4. Пример из конспекта — Figure 10.1</h2>
-    <p>K зафиксирован: <strong>Q = F(K₀, L)</strong>. Данные Frank (Figure 10.1):</p>
-
-    <table>
-        <tr><th>L</th><th>Q</th><th>MP</th><th></th></tr>
-        <tr><td>1</td><td>4</td><td>4</td><td></td></tr>
-        <tr><td>2</td><td>14</td><td>+10</td><td>MP растёт</td></tr>
-        <tr><td>3</td><td>27</td><td>+13</td><td></td></tr>
-        <tr><td>4</td><td>43</td><td><strong>+16</strong></td><td>MP max</td></tr>
-        <tr><td>5</td><td>58</td><td>+15</td><td>diminishing ↓</td></tr>
-        <tr><td>6</td><td>72</td><td>+14</td><td></td></tr>
-        <tr><td>7</td><td>81</td><td>+9</td><td></td></tr>
-        <tr><td>8</td><td>86</td><td>+5</td><td></td></tr>
-    </table>
-    <p class="nb-en">Figure 10.1: MP peaks at L=4, then falls — diminishing marginal returns.</p>
-    <p>→ Подробнее с графиком и MC → <a href="Diminishing_Returns_Explanation.html">Law of Diminishing Returns</a></p>
-
-    <hr>
-
-    <h2>5. Пример Frank — кухня (K фиксирован)</h2>
-    <p>Одна маленькая кухня. Нанимаем поваров:</p>
-
-    <table>
-        <tr><th>L<br>поваров</th><th>Q<br>блюд/час</th><th>MP<br>прирост</th><th>AP<br>Q÷L</th><th>Что происходит</th></tr>
-        <tr><td>1</td><td>10</td><td>10</td><td>10,0</td><td>Один — медленно</td></tr>
-        <tr><td>2</td><td>25</td><td><strong>+15</strong></td><td>12,5</td><td>Специализация: один режет, другой жарит</td></tr>
-        <tr><td>3</td><td>35</td><td>+10</td><td>11,7</td><td>Ещё помогает, но меньше</td></tr>
-        <tr><td>4</td><td>40</td><td>+5</td><td>10,0</td><td>Тесно</td></tr>
-        <tr><td>5</td><td>41</td><td>+1</td><td>8,2</td><td>Почти некуда встать</td></tr>
-        <tr><td>6</td><td><strong>38</strong></td><td><strong>−3</strong></td><td>6,3</td><td>Слишком много — Q упал</td></tr>
-    </table>
-
-    <div class="story">Сначала каждый новый повар <strong>много помогает</strong> (MP = 15). Потом — всё меньше. Шестой повар <strong>мешает</strong> (MP = −3): блюд стало меньше, чем с пятью.</div>
-    <p class="nb-en">Marginal product rises at first (specialization), then falls — diminishing returns. Too many workers can even reduce total output.</p>
-
-    <div class="nb-graph">
-        <svg class="svg-graph" viewBox="0 0 440 260" xmlns="http://www.w3.org/2000/svg">
-            <line x1="55" y1="25" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
-            <line x1="55" y1="230" x2="410" y2="230" stroke="#333" stroke-width="1.5"/>
-            <text x="18" y="30" font-size="13">Q (TP)</text>
-            <text x="395" y="248" font-size="13">L</text>
-            <path d="M 70 210 Q 180 70 280 85 T 400 160" stroke="#9b59b6" stroke-width="2.5" fill="none"/>
-            <circle cx="280" cy="85" r="5" fill="#e74c3c"/>
-            <text x="288" y="80" font-size="10" fill="#e74c3c">max TP</text>
-            <text x="330" y="145" font-size="9" fill="#c0392b">MP &lt; 0 → TP падает</text>
-        </svg>
-        <p class="fig-cap">Кривая TP: растёт → максимум → может упасть, если MP &lt; 0</p>
-    </div>
-
-    <p>Подробнее про закон убывающей отдачи → <a href="Diminishing_Returns_Explanation.html">Law of Diminishing Returns</a></p>
-
-    <hr>
-
-    <h2>6. MP и AP — аналогия со средним баллом</h2>
+    <h3>Аналогия со средним баллом класса</h3>
     <div class="nb-example">
-        <p class="step">Средний балл класса AP = 7</p>
+        <p class="step">Средний балл класса <strong>AP = 7</strong></p>
         <p class="step">Новый ученик с оценкой <strong>9</strong> (MP &gt; AP) → средний <strong>растёт</strong></p>
         <p class="step">Новый с оценкой <strong>5</strong> (MP &lt; AP) → средний <strong>падает</strong></p>
-        <p class="ans">Новый ученик = <strong>MP</strong> · Класс в среднем = <strong>AP</strong></p>
+        <p class="ans">Новый ученик = <strong>MP</strong> · Средний класса = <strong>AP</strong></p>
     </div>
-    <p class="nb-en">New student = marginal product. Class average = average product. MP &gt; AP pulls AP up; MP &lt; AP pulls AP down.</p>
 
     <table>
         <tr><th>Если…</th><th>Тогда…</th></tr>
         <tr><td>MP &gt; AP</td><td>AP растёт</td></tr>
         <tr><td>MP &lt; AP</td><td>AP падает</td></tr>
         <tr><td>MP = AP</td><td>AP на максимуме</td></tr>
-        <tr><td>MP = 0</td><td>TP на максимуме</td></tr>
+        <tr><td>MP = 0</td><td>TP на максимуме (новый worker ничего не добавил)</td></tr>
     </table>
 
     <hr>
 
-    <h2>7. Связь с издержками — MC = w / MP</h2>
-    <div class="nb-formula">
-        <strong>MC = w / MP</strong> &nbsp;·&nbsp; <strong>AVC = w / AP</strong><br>
-        MP большой → MC маленький · MP падает → MC растёт
+    <h2>④ Пример Frank — Figure 10.1</h2>
+    <p><strong>K зафиксирован</strong> (одна кухня / один цех). Нанимаем workers по одному:</p>
+    <p class="nb-en">Capital K is fixed. We hire workers one by one and track total and marginal product.</p>
+
+    <table>
+        <tr>
+            <th>L<br>workers</th>
+            <th>Q (TP)<br>всего</th>
+            <th>MP<br>добавил последний</th>
+            <th>AP<br>Q ÷ L</th>
+            <th>Что происходит</th>
+        </tr>
+        <tr><td>1</td><td>4</td><td>4</td><td>4,0</td><td>Старт</td></tr>
+        <tr><td>2</td><td>14</td><td><strong>+10</strong></td><td>7,0</td><td>MP растёт — специализация</td></tr>
+        <tr><td>3</td><td>27</td><td>+13</td><td>9,0</td><td></td></tr>
+        <tr><td>4</td><td>43</td><td><strong>+16</strong></td><td>10,8</td><td><strong>MP max</strong></td></tr>
+        <tr><td>5</td><td>58</td><td>+15</td><td>11,6</td><td>MP начинает падать ↓</td></tr>
+        <tr><td>6</td><td>72</td><td>+14</td><td>12,0</td><td>diminishing returns</td></tr>
+        <tr><td>7</td><td>81</td><td>+9</td><td>11,6</td><td>всё теснее</td></tr>
+        <tr><td>8</td><td>86</td><td>+5</td><td>10,8</td><td>почти нет толку</td></tr>
+    </table>
+
+    <div class="key-box">
+        <strong>Три фазы на одном примере:</strong><br>
+        L 1→4: MP <strong>растёт</strong> (workers помогают друг другу)<br>
+        L 4→8: MP <strong>падает</strong> — закон убывающей отдачи (K не растёт, тесно)<br>
+        Q всё равно <strong>растёт</strong> (86 &gt; 4), просто каждый новый worker добавляет меньше
     </div>
-    <p class="nb-en">If each worker adds little (low MP), each extra unit of output is costly → MC rises. That's why cost curves are U-shaped.</p>
-    <p>MP падает → MC растёт → U-образная MC. Подробнее → <a href="Diminishing_Returns_Explanation.html">Diminishing Returns + MC graph</a></p>
-    <p>→ <a href="Long_Run_Cost_Function_Explanation.html">Long Run Cost Function</a></p>
+    <p class="nb-en">MP rises until L=4, then falls — diminishing marginal returns. Total Q still rises, just more slowly.</p>
 
     <hr>
 
-    <h2>8. Шпаргалка</h2>
+    <h2>⑤ Графики — как читать</h2>
+
+    <h3>График A: TP (Q от L)</h3>
+    <p>Ось X = workers (L). Ось Y = всего произведено (TP = Q). K зафиксирован.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="TP curve Frank 10.1">
+            <line x1="60" y1="30" x2="60" y2="255" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="255" x2="450" y2="255" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="38" font-size="12">Q (TP)</text>
+            <text x="430" y="275" font-size="12">L</text>
+
+            <!-- grid hints -->
+            <line x1="60" y1="55" x2="450" y2="55" stroke="#eee"/>
+            <line x1="60" y1="110" x2="450" y2="110" stroke="#eee"/>
+            <line x1="60" y1="165" x2="450" y2="165" stroke="#eee"/>
+            <line x1="60" y1="220" x2="450" y2="220" stroke="#eee"/>
+            <text x="42" y="59" font-size="8" fill="#888">80</text>
+            <text x="42" y="114" font-size="8" fill="#888">60</text>
+            <text x="42" y="169" font-size="8" fill="#888">40</text>
+            <text x="42" y="224" font-size="8" fill="#888">20</text>
+            <text x="48" y="258" font-size="8" fill="#888">0</text>
+
+            <!-- TP curve through actual points L1-8 Q4,14,27,43,58,72,81,86 -->
+            <!-- y = 255 - Q * 2.33 -->
+            <polyline points="105,246 143,222 181,192 219,155 257,120 295,87 333,66 371,55"
+                      fill="none" stroke="#9b59b6" stroke-width="3" stroke-linejoin="round"/>
+
+            <!-- data points -->
+            <circle cx="105" cy="246" r="4" fill="#9b59b6"/>
+            <circle cx="219" cy="155" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="371" cy="55" r="4" fill="#9b59b6"/>
+
+            <text x="88" y="240" font-size="9">L=1</text>
+            <text x="88" y="252" font-size="8" fill="#666">Q=4</text>
+            <text x="200" y="148" font-size="10" fill="#27ae60" font-weight="600">L=4 MP max</text>
+            <text x="200" y="160" font-size="8" fill="#27ae60">кривая ещё крутая</text>
+            <text x="350" y="48" font-size="9">L=8 Q=86</text>
+
+            <!-- flattening arrow -->
+            <path d="M 280 95 L 350 62" stroke="#e74c3c" stroke-width="2" marker-end="url(#arr)"/>
+            <text x="285" y="130" font-size="10" fill="#e74c3c">здесь положе —</text>
+            <text x="285" y="143" font-size="10" fill="#e74c3c">diminishing returns</text>
+
+            <defs>
+                <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L8,3 L0,6 Z" fill="#e74c3c"/>
+                </marker>
+            </defs>
+        </svg>
+        <p class="fig-cap">TP всегда растёт ↑, но кривая <strong>выпрямляется</strong> — каждый worker добавляет меньше<span class="en-cell">TP rises but flattens as marginal product falls.</span></p>
+    </div>
+
+    <h3>График B: MP и AP</h3>
+    <p><strong>MP</strong> — столбики «сколько добавил этот worker». <strong>AP</strong> — гладкая линия среднего.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="MP and AP Frank 10.1">
+            <line x1="60" y1="30" x2="60" y2="255" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="255" x2="450" y2="255" stroke="#333" stroke-width="1.5"/>
+            <text x="18" y="38" font-size="12">MP, AP</text>
+            <text x="430" y="275" font-size="12">L</text>
+
+            <!-- MP bars: values 4,10,13,16,15,14,9,5 scale *12 -->
+            <rect x="88" y="207" width="30" height="48" fill="#e74c3c" opacity="0.75" rx="2"/>
+            <rect x="128" y="135" width="30" height="120" fill="#e74c3c" opacity="0.75" rx="2"/>
+            <rect x="168" y="99" width="30" height="156" fill="#e74c3c" opacity="0.75" rx="2"/>
+            <rect x="208" y="63" width="30" height="192" fill="#e74c3c" opacity="0.9" rx="2"/>
+            <rect x="248" y="75" width="30" height="180" fill="#e74c3c" opacity="0.75" rx="2"/>
+            <rect x="288" y="87" width="30" height="168" fill="#e74c3c" opacity="0.75" rx="2"/>
+            <rect x="328" y="147" width="30" height="108" fill="#e74c3c" opacity="0.75" rx="2"/>
+            <rect x="368" y="195" width="30" height="60" fill="#e74c3c" opacity="0.75" rx="2"/>
+
+            <text x="210" y="55" font-size="10" fill="#e74c3c" font-weight="600">MP max = 16</text>
+            <text x="400" y="190" font-size="9" fill="#e74c3c">MP=5</text>
+
+            <!-- AP curve through 4,7,9,10.75,11.6,12,11.57,10.75 scaled -->
+            <path d="M 103 207 Q 180 120 248 116 Q 308 108 383 126"
+                  fill="none" stroke="#3498db" stroke-width="3"/>
+            <text x="390" y="120" font-size="11" fill="#3498db" font-weight="600">AP</text>
+
+            <circle cx="288" cy="111" r="5" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="295" y="105" font-size="9" fill="#27ae60">MP=AP</text>
+            <text x="295" y="117" font-size="8" fill="#27ae60">max AP</text>
+
+            <text x="75" y="275" font-size="9" fill="#e74c3c">■ MP</text>
+            <text x="130" y="275" font-size="9" fill="#3498db">— AP</text>
+        </svg>
+        <p class="fig-cap">MP (красный) сначала ↑, потом ↓. AP (синий) растёт, пока MP &gt; AP, и падает, когда MP &lt; AP<span class="en-cell">MP peaks at L=4; AP peaks where MP crosses AP.</span></p>
+    </div>
+
+    <h3>График C: три кривые на одной картинке</h3>
+    <p>Так их обычно рисуют вместе — видно связь:</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="TP MP AP together">
+            <line x1="55" y1="25" x2="55" y2="260" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="260" x2="450" y2="260" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="32" font-size="11">Q / MP / AP</text>
+            <text x="430" y="278" font-size="11">L</text>
+
+            <!-- TP scaled to fit upper area -->
+            <path d="M 90 230 Q 200 140 240 100 Q 320 60 400 45" fill="none" stroke="#9b59b6" stroke-width="2.5"/>
+            <text x="405" y="42" font-size="10" fill="#9b59b6">TP</text>
+
+            <!-- MP hump -->
+            <path d="M 90 200 Q 220 60 400 190" fill="none" stroke="#e74c3c" stroke-width="2.5"/>
+            <text x="215" y="52" font-size="10" fill="#e74c3c">MP</text>
+
+            <!-- AP -->
+            <path d="M 90 210 Q 200 120 280 110 Q 360 115 400 130" fill="none" stroke="#3498db" stroke-width="2.5"/>
+            <text x="405" y="128" font-size="10" fill="#3498db">AP</text>
+
+            <line x1="240" y1="25" x2="240" y2="260" stroke="#aaa" stroke-dasharray="4,4"/>
+            <text x="245" y="40" font-size="9" fill="#666">L=4</text>
+
+            <rect x="70" y="268" width="360" height="1" fill="none"/>
+            <text x="70" y="292" font-size="9" fill="#666">Фиолетовый TP растёт · Красный MP падает после пика · Синий AP max там, где MP пересекает AP</text>
+        </svg>
+        <p class="fig-cap">Связь трёх кривых — главная картинка для Ch. 8<span class="en-cell">Standard Ch. 8 diagram: TP, MP, and AP together.</span></p>
+    </div>
+
+    <p>→ Подробнее про закон убывающей отдачи: <a href="Diminishing_Returns_Explanation.html">Diminishing Returns</a></p>
+
+    <hr>
+
+    <h2>⑥ Связь с издержками</h2>
+    <div class="nb-formula">
+        <strong>MC = w / MP</strong> &nbsp;·&nbsp; <strong>AVC = w / AP</strong>
+    </div>
+    <p>Если worker добавляет мало (MP маленький) → каждая новая единица выпуска <strong>дороже</strong> → MC растёт. Поэтому MC U-образная.</p>
+    <p class="nb-en">Low MP means high marginal cost. That's why the MC curve is U-shaped.</p>
+
+    <hr>
+
+    <h2>⑦ Долгий период — isoquant (кратко)</h2>
+    <p>Когда можно менять и L, и K, смотрим не «Q от L», а <strong>isoquant</strong> — все комбинации (L, K) с одним Q.</p>
+    <p class="nb-en">In the long run, isoquants show L–K bundles that yield the same output.</p>
+
+    <div class="nb-formula">
+        Пример Cobb-Douglas: <strong>Q = L<sup>0,5</sup> · K<sup>0,5</sup></strong><br>
+        L=4, K=9 → Q=6 &nbsp;·&nbsp; L=9, K=4 → Q=6 (та же isoquant, другой микс)
+    </div>
+
+    <p>→ <a href="Isoquant_Isocost_Explanation.html">Isoquant &amp; Isocost</a> · <a href="Returns_to_Scale_Explanation.html">Returns to Scale</a> · <a href="Production_Cost_Long_Run_Explanation.html">Production &amp; Cost LR</a></p>
+
+    <hr>
+
+    <h2>⑧ Шпаргалка и ловушки</h2>
+
+    <div class="key-box">
+        <strong>Ловушки на экзамене:</strong><br>
+        · <strong>MP</strong> = прирост от <em>последнего</em> worker (72−58=14), не весь Q<br>
+        · Убывающая отдача ≠ «выпуск падает» — Q растёт, но <strong>медленнее</strong><br>
+        · «Чем больше производишь, тем меньше тратишь» — <strong>НЕТ</strong>. TC растёт, просто MP падает<br>
+        · SR: K фикс. · LR: оба input меняются
+    </div>
+
     <ul>
         <li><strong>Q = F(L, K)</strong> — ресурсы → выпуск</li>
-        <li><strong>SR:</strong> K фикс., меняем L → TP, MP, AP</li>
-        <li><strong>MP</strong> = прирост от последнего · <strong>AP</strong> = Q ÷ L</li>
-        <li>MP &gt; AP → AP растёт · MP = 0 → max TP</li>
-        <li>SR: убывающая отдача · LR: отдача от масштаба</li>
+        <li><strong>SR:</strong> K̄ фикс. → график <strong>Q vs L</strong> → TP, MP, AP</li>
+        <li><strong>MP</strong> = новый Q − старый Q · <strong>AP</strong> = Q / L</li>
+        <li>MP &gt; AP → AP ↑ · MP пересекает AP в max AP · MP = 0 → max TP</li>
+        <li><strong>MC = w / MP</strong> · MP ↓ → MC ↑</li>
+        <li><strong>LR:</strong> isoquant · RTS → <a href="Returns_to_Scale_Explanation.html">отдельная тема</a></li>
     </ul>
 
-    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;"><a href="MRS_Explanation.html">← MRS</a> · <a href="Diminishing_Returns_Explanation.html">Diminishing Returns →</a></p>
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">
+        <a href="Diminishing_Returns_Explanation.html">Diminishing Returns →</a> ·
+        <a href="Returns_to_Scale_Explanation.html">Returns to Scale</a> ·
+        <a href="Exam_Prep_Guide.html">Exam Prep</a>
+    </p>
 </div>
 </body>
 </html>
