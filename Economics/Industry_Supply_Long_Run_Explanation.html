@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Долгосрочное предложение отрасли — Frank Ch. 10</title>
+    <link rel="stylesheet" href="notebook-style.css">
+</head>
+<body class="nb-page nb-firm">
+<div class="nb-sheet">
+    <p class="lang-bar">🇷🇺 Русский основной текст · <strong>EN</strong> = синий курсив под блоком</p>
+    <p class="back"><a href="index.html">← Economics</a> · <a href="Syllabus/36_Industry_Supply.html">← Syllabus #36</a> · <a href="Frank_Study_Guide.html#lr-supply">Frank Study Guide</a></p>
+
+    <h1>Долгосрочное предложение отрасли (LRS)</h1>
+    <p class="source">Frank, гл. 10 · p. 321 · Figure 10.11</p>
+
+    <div class="key-box">
+        <strong>Главная идея:</strong> в долгом периоде фирмы <strong>входят</strong> (если π &gt; 0) и <strong>выходят</strong> (если π &lt; 0).
+        Цена возвращается к <strong>P = min LAC</strong>, экономическая прибыль <strong>π = 0</strong>.
+    </div>
+    <p class="nb-en">Long run: free entry/exit drives economic profit to zero; price settles at min LAC.</p>
+
+    <hr>
+
+    <h2>График 1 — что происходит по шагам</h2>
+    <p>Спрос вырос (D → D₁). В <strong>кратком периоде</strong> число пекарен фиксировано → цена прыгает вверх → прибыль. В <strong>долгом периоде</strong> новые пекарни входят → S сдвигается вправо → цена снова падает.</p>
+    <p class="nb-en">Demand rises. Short run: fixed firms → higher price → profit. Long run: entry → supply shifts right → price falls back.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- axes -->
+            <line x1="60" y1="40" x2="60" y2="250" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="250" x2="680" y2="250" stroke="#333" stroke-width="1.5"/>
+            <text x="30" y="48" font-size="11">P</text>
+            <text x="660" y="268" font-size="11">Q</text>
+
+            <!-- LRS horizontal -->
+            <line x1="80" y1="155" x2="660" y2="155" stroke="#27ae60" stroke-width="3"/>
+            <text x="520" y="145" fill="#27ae60" font-size="12" font-weight="600">LRS — P = min LAC</text>
+
+            <!-- SR supply curves -->
+            <line x1="100" y1="235" x2="620" y2="70" stroke="#2980b9" stroke-width="2"/>
+            <text x="560" y="85" fill="#2980b9" font-size="11">S₀ (SR, мало фирм)</text>
+            <line x1="180" y1="235" x2="660" y2="70" stroke="#2980b9" stroke-width="2" stroke-dasharray="8,5"/>
+            <text x="560" y="108" fill="#1a5276" font-size="11">S₁ (SR, больше фирм)</text>
+
+            <!-- Demand -->
+            <line x1="120" y1="70" x2="480" y2="235" stroke="#8e44ad" stroke-width="2.5"/>
+            <text x="430" y="220" fill="#8e44ad" font-size="11">D</text>
+            <line x1="200" y1="55" x2="580" y2="235" stroke="#8e44ad" stroke-width="2.5" stroke-dasharray="7,4"/>
+            <text x="530" y="220" fill="#6c3483" font-size="11">D₁ (спрос вырос)</text>
+
+            <!-- Step 1: LR equilibrium -->
+            <circle cx="310" cy="155" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="250" y="140" font-size="10" fill="#1e8449">① ДП равновесие</text>
+            <text x="250" y="152" font-size="9" fill="#555">P = min LAC, π = 0</text>
+            <line x1="310" y1="155" x2="310" y2="250" stroke="#aaa" stroke-dasharray="3,3"/>
+            <text x="300" y="265" font-size="9">Q₀</text>
+
+            <!-- Step 2: SR after demand shock -->
+            <circle cx="400" cy="108" r="6" fill="#e74c3c" stroke="#fff" stroke-width="1.5"/>
+            <text x="410" y="95" font-size="10" fill="#c0392b">② КП: D₁ ∩ S₀</text>
+            <text x="410" y="107" font-size="9" fill="#555">P выше → π &gt; 0</text>
+            <line x1="400" y1="108" x2="400" y2="250" stroke="#aaa" stroke-dasharray="3,3"/>
+            <line x1="60" y1="108" x2="400" y2="108" stroke="#e74c3c" stroke-dasharray="4,3" opacity="0.5"/>
+            <text x="18" y="112" font-size="9" fill="#c0392b">P высокая</text>
+
+            <!-- Step 3: LR after entry -->
+            <circle cx="500" cy="155" r="6" fill="#27ae60" stroke="#fff" stroke-width="1.5"/>
+            <text x="510" y="140" font-size="10" fill="#1e8449">③ ДП снова</text>
+            <text x="510" y="152" font-size="9" fill="#555">вход фирм → P ↓, Q ↑</text>
+            <line x1="500" y1="155" x2="500" y2="250" stroke="#aaa" stroke-dasharray="3,3"/>
+            <text x="490" y="265" font-size="9">Q₁ &gt; Q₀</text>
+
+            <!-- arrows -->
+            <path d="M 330 148 L 385 118" stroke="#e67e22" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+            <path d="M 415 118 L 485 148" stroke="#e67e22" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+            <defs>
+                <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                    <path d="M0,0 L8,3 L0,6 Z" fill="#e67e22"/>
+                </marker>
+            </defs>
+            <text x="330" y="285" font-size="10" fill="#e67e22">② спрос вырос → ③ фирмы вошли → цена вернулась к min LAC</text>
+        </svg>
+        <p class="fig-cap">Три точки на одном графике: долгосрочное равновесие → краткосрочная прибыль → снова долгосрочное равновесие на <strong>LRS</strong><span class="en-cell">LR eq → SR profit → LR eq again on the LRS line.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>График 2 — SR supply vs LR supply</h2>
+    <div class="key-box">
+        <strong>SR supply</strong> = сумма MC фирм (восходящая). Число фирм <strong>фиксировано</strong>.<br>
+        <strong>LR supply (LRS)</strong> = <strong>не</strong> сумма MC! Это линия долгосрочных равновесий. При constant-cost — <strong>горизонтальна</strong>.
+    </div>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="30" x2="55" y2="240" stroke="#333" stroke-width="1.5"/>
+            <line x1="55" y1="240" x2="440" y2="240" stroke="#333" stroke-width="1.5"/>
+            <text x="20" y="38" font-size="11">P</text>
+            <text x="420" y="258" font-size="11">Q</text>
+
+            <!-- SR -->
+            <path d="M 75 210 Q 220 90 410 55" stroke="#2980b9" stroke-width="3" fill="none"/>
+            <text x="330" y="65" fill="#2980b9" font-size="12" font-weight="600">SR supply</text>
+            <text x="300" y="80" font-size="9" fill="#2980b9">восходящая · сумма MC</text>
+
+            <!-- LR constant cost -->
+            <line x1="75" y1="140" x2="420" y2="140" stroke="#27ae60" stroke-width="3"/>
+            <text x="250" y="128" fill="#27ae60" font-size="12" font-weight="600">LR supply (constant-cost)</text>
+            <text x="230" y="155" font-size="9" fill="#1e8449">горизонтальна при P = min LAC</text>
+
+            <!-- min LAC marker -->
+            <line x1="55" y1="140" x2="420" y2="140" stroke="#27ae60" stroke-dasharray="4,4" opacity="0.35"/>
+            <text x="58" y="135" font-size="9" fill="#666">min LAC</text>
+
+            <!-- annotation box -->
+            <rect x="70" y="175" width="175" height="58" rx="6" fill="#fff8e7" stroke="#f0b429"/>
+            <text x="82" y="193" font-size="9" fill="#333">КП: цена может быть</text>
+            <text x="82" y="206" font-size="9" fill="#333">выше min LAC (прибыль)</text>
+            <text x="82" y="222" font-size="9" fill="#333">ДП: цена = min LAC всегда</text>
+        </svg>
+        <p class="fig-cap">Синяя — краткосрочное предложение · зелёная — долгосрочное (constant-cost)<span class="en-cell">Blue = SR supply (upward) · green = LR supply (flat at min LAC).</span></p>
+    </div>
+
+    <hr>
+
+    <h2>График 3 — три типа отрасли (Figure 10.11)</h2>
+    <p>Форма <strong>LRS</strong> зависит от того, как растут цены на ресурсы, когда отрасль расширяется.</p>
+    <p class="nb-en">LRS shape depends on whether input prices rise, stay flat, or fall as the industry grows.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Panel 1: constant -->
+            <text x="115" y="22" text-anchor="middle" font-size="11" font-weight="600">Constant-cost</text>
+            <line x1="30" y1="35" x2="30" y2="220" stroke="#333"/>
+            <line x1="30" y1="220" x2="200" y2="220" stroke="#333"/>
+            <line x1="40" y1="130" x2="190" y2="130" stroke="#27ae60" stroke-width="3"/>
+            <text x="95" y="118" text-anchor="middle" font-size="9" fill="#27ae60">LRS горизонтальна</text>
+            <text x="115" y="240" text-anchor="middle" font-size="8" fill="#666">пекарни, салоны</text>
+
+            <!-- Panel 2: increasing -->
+            <text x="360" y="22" text-anchor="middle" font-size="11" font-weight="600">Increasing-cost</text>
+            <line x1="250" y1="35" x2="250" y2="220" stroke="#333"/>
+            <line x1="250" y1="220" x2="470" y2="220" stroke="#333"/>
+            <line x1="270" y1="200" x2="450" y2="70" stroke="#e74c3c" stroke-width="3"/>
+            <text x="360" y="115" text-anchor="middle" font-size="9" fill="#c0392b">LRS восходящая</text>
+            <text x="360" y="240" text-anchor="middle" font-size="8" fill="#666">дефицитные ресурсы дорожают</text>
+
+            <!-- Panel 3: decreasing -->
+            <text x="595" y="22" text-anchor="middle" font-size="11" font-weight="600">Decreasing-cost</text>
+            <line x1="500" y1="35" x2="500" y2="220" stroke="#333"/>
+            <line x1="500" y1="220" x2="690" y2="220" stroke="#333"/>
+            <line x1="520" y1="70" x2="680" y2="200" stroke="#8e44ad" stroke-width="3"/>
+            <text x="595" y="115" text-anchor="middle" font-size="9" fill="#6c3483">LRS нисходящая</text>
+            <text x="595" y="240" text-anchor="middle" font-size="8" fill="#666">редко · масштаб снижает цены</text>
+        </svg>
+        <p class="fig-cap">Frank Figure 10.11 — три формы долгосрочного предложения отрасли<span class="en-cell">Three long-run industry supply curves from Frank Figure 10.11.</span></p>
+    </div>
+
+    <table>
+        <tr><th>Тип</th><th>LRS</th><th>Почему</th></tr>
+        <tr><td><strong>Constant-cost</strong></td><td>горизонтальна</td><td>ресурсов хватает, цены факторов не растут</td></tr>
+        <tr><td><strong>Increasing-cost</strong></td><td>восходящая</td><td>рост отрасли → дефицитные ресурсы дорожают</td></tr>
+        <tr><td><strong>Decreasing-cost</strong></td><td>нисходящая</td><td>рост отрасли → появляются дешёвые поставщики</td></tr>
+    </table>
+
+    <hr>
+
+    <h2>Формула долгосрочного равновесия</h2>
+    <div class="formula-box" style="text-align:center;font-size:1.1em;">
+        <strong>P = MR = MC = min LAC</strong> &nbsp;·&nbsp; <strong>π = 0</strong>
+    </div>
+    <p class="nb-en">Long-run competitive equilibrium: price equals marginal and minimum long-run average cost; economic profit is zero.</p>
+
+    <div class="key-box">
+        π = 0 — это <strong>нормальная прибыль</strong>, не банкротство. Фирма зарабатывает столько же, сколько в лучшей альтернативе.
+    </div>
+
+    <p style="margin-top:1.5rem;font-size:0.9em;color:#888;">
+        <a href="Syllabus/36_Industry_Supply.html">Syllabus #36</a> ·
+        <a href="Exam_Prep_Guide.html#t36">Exam Prep</a> ·
+        <a href="Returns_to_Scale_Explanation.html">RTS &amp; LRAC →</a>
+    </p>
+</div>
+</body>
+</html>

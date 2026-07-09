@@ -17,6 +17,9 @@
     <div class="nb-def"><strong>IBC</strong> показывает, как человек <span class="hl">распределяет потребление во времени</span>: сколько тратить <strong>сегодня (C₁)</strong> и <strong>завтра (C₂)</strong>, если можно сберегать или занимать под процент <strong>r</strong>.</div>
     <p class="nb-en">The intertemporal budget constraint shows how people choose to spend and save money over time — between current consumption C₁ and future consumption C₂.</p>
 
+    <div class="nb-why"><strong>Аналогия:</strong> как бюджетная линия для <strong>двух товаров</strong> (еда и жильё), только вместо товаров — <strong>C₁</strong> и <strong>C₂</strong>, а «цена» C₁ в единицах C₂ = <strong>(1+r)</strong>. → <a href="Budget_Constraint_Explanation.html">Budget Constraint (2 goods)</a></div>
+    <p class="nb-en">Same idea as a two-good budget line: C₁ and C₂ are the two "goods"; the price of 1€ of C₁ today is (1+r)€ of C₂ tomorrow.</p>
+
     <hr>
 
     <h2>Variables / Переменные</h2>
@@ -49,6 +52,31 @@
         <div class="var-list"><strong>Наклон = −(1+r)</strong> · Вертикальный intercept (C₁=0): <strong>M₁(1+r) + M₂</strong> = max C₂ · Горизонтальный (C₂=0): <strong>M₁ + M₂/(1+r)</strong> = max C₁</div>
     </div>
     <p class="nb-en">Slope = −(1+r). +1€ of C₁ today costs (1+r)€ of C₂ tomorrow. Vertical intercept = max future consumption if all income is saved. Horizontal intercept = max current consumption if all future income is borrowed today.</p>
+
+    <h3>Откуда берётся уравнение? / Derivation</h3>
+    <p>По периодам бюджет такой:</p>
+    <div class="nb-formula">
+        Period 1: &nbsp; C₁ + S = M₁ &nbsp;&nbsp;(S = сбережения, S ≥ 0)<br>
+        Period 2: &nbsp; C₂ = M₂ + S(1+r) &nbsp;&nbsp;(отложенное + проценты)
+    </div>
+    <p class="nb-en">Period 1: consume C₁ and save S from income M₁. Period 2: consume C₂ from income M₂ plus saved amount with interest.</p>
+
+    <p>Если <strong>занимаешь</strong> (B &gt; 0): C₁ = M₁ + B, в period 2 отдаёшь C₂ = M₂ − B(1+r).</p>
+    <p class="nb-en">If you borrow B: spend more than M₁ today, repay B(1+r) in period 2.</p>
+
+    <div class="nb-example">
+        <p class="step">Из S = M₁ − C₁ подставляем в C₂ = M₂ + S(1+r):</p>
+        <p class="step">C₂ = M₂ + (M₁ − C₁)(1+r)</p>
+        <p class="step">C₂ = M₁(1+r) + M₂ − (1+r)·C₁</p>
+        <p class="ans">Наклон по C₁: <strong>−(1+r)</strong> · +1 C₁ → −(1+r) C₂</p>
+    </div>
+    <p class="nb-en">Substitute saving S = M₁ − C₁ into period-2 budget → slope −(1+r).</p>
+
+    <div class="nb-formula">
+        <strong>Lifetime wealth (PV):</strong> &nbsp; W = M₁ + M₂/(1+r)
+        <div class="var-list">Вся «жизненная» покупательная способность в сегодняшних деньгах</div>
+    </div>
+    <p class="nb-en">Lifetime wealth in present value = M₁ + M₂/(1+r).</p>
 
     <hr>
 
@@ -175,14 +203,16 @@
 
     <h3>Example A — notebook (M₁=5000, M₂=6000, r=20%)</h3>
     <div class="nb-example">
-        <p class="step">(1+r) = 1,2</p>
-        <p class="step">PV: C₁ + C₂/1,2 = 5000 + 6000/1,2 = 5000 + 5000 = <strong>10 000</strong></p>
-        <p class="step">FV: 1,2·C₁ + C₂ = 6000 + 6000 = <strong>12 000</strong></p>
-        <p class="step">Уравнение линии: C₂ = 12 000 − 1,2·C₁ · slope = <strong>−1,2</strong></p>
+        <p class="step">(1+r) = 1,2 · <strong>W</strong> = 5000 + 6000/1,2 = <strong>10 000</strong> (PV дохода)</p>
+        <p class="step">PV: C₁ + C₂/1,2 = <strong>10 000</strong> · FV: 1,2·C₁ + C₂ = <strong>12 000</strong></p>
+        <p class="step">Уравнение: C₂ = 12 000 − 1,2·C₁ · slope = <strong>−1,2</strong></p>
         <p class="step">E = (5000; 6000) · max C₁ = 10 000 · max C₂ = 12 000</p>
-        <p class="ans">Borrow B=1000 → (6000; 4800): отдаёшь 1000×1,2 = 1200 в period 2</p>
+        <p class="step"><strong>Save S=1000</strong> → C₁=4000, C₂ = 6000 + 1000×1,2 = <strong>7200</strong> → <strong>L (4000; 7200)</strong></p>
+        <p class="step">Проверка: 4000 + 7200/1,2 = 10 000 ✓</p>
+        <p class="step"><strong>Borrow B=1000</strong> → C₁=6000, C₂ = 6000 − 1200 = <strong>4800</strong> → <strong>B (6000; 4800)</strong></p>
+        <p class="ans">Проверка: 6000 + 4800/1,2 = 10 000 ✓ — любая точка на линии даёт тот же PV</p>
     </div>
-    <p class="nb-en">Notebook example: PV lifetime income = 10,000. FV = 12,000. Slope −1.2. Endowment (5000, 6000).</p>
+    <p class="nb-en">Lifetime PV = 10,000. Save → (4000, 7200). Borrow → (6000, 4800). Both satisfy C₁ + C₂/1.2 = 10,000.</p>
 
     <h3>Example B — Frank Ch. 5 (M₁=$50 000, M₂=$60 000, r=20%)</h3>
     <div class="nb-example">
@@ -203,6 +233,67 @@
         <tr><td><strong>M₂ ↑</strong></td><td>Параллельный сдвиг наружу<span class="en-cell">Parallel shift outward</span></td><td>Больше будущий доход → больше PV</td></tr>
     </table>
     <p class="nb-en">Lower r → rotation around E (cheaper borrowing). Higher M₁ or M₂ → parallel outward shift (more lifetime wealth).</p>
+
+    <h3>График: r падает (поворот вокруг E)</h3>
+    <p>Ставка <strong>r ↓</strong> → |slope| = (1+r) <strong>меньше</strong> → линия <strong>положе</strong>. Заём дешевле → можно больше C₁ сегодня за те же C₂.</p>
+    <p class="nb-en">Lower interest rate → flatter budget line rotating around endowment E. Cheaper to borrow today.</p>
+
+    <div class="nb-graph">
+        <svg class="svg-graph" viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg" aria-label="IBC rotation when r falls">
+            <line x1="65" y1="25" x2="65" y2="255" stroke="#333" stroke-width="1.5"/>
+            <line x1="65" y1="255" x2="430" y2="255" stroke="#333" stroke-width="1.5"/>
+            <text x="22" y="30" font-size="12">C₂</text>
+            <text x="405" y="275" font-size="12">C₁</text>
+            <!-- high r: steep -->
+            <line x1="65" y1="50" x2="400" y2="255" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6,4"/>
+            <text x="68" y="48" font-size="9" fill="#e74c3c">r=20% slope −1,2</text>
+            <!-- low r: flatter -->
+            <line x1="65" y1="50" x2="430" y2="200" stroke="#3498db" stroke-width="2.5"/>
+            <text x="350" y="195" font-size="9" fill="#3498db">r=10% slope −1,1</text>
+            <circle cx="215" cy="152" r="7" fill="#27ae60"/>
+            <text x="222" y="148" font-size="10" fill="#27ae60" font-weight="600">E</text>
+            <text x="222" y="162" font-size="9">(M₁,M₂)</text>
+            <line x1="65" y1="152" x2="215" y2="152" stroke="#999" stroke-dasharray="3,3"/>
+            <line x1="215" y1="152" x2="215" y2="255" stroke="#999" stroke-dasharray="3,3"/>
+            <text x="300" y="230" font-size="9" fill="#666">r↓ → заём дешевле</text>
+            <text x="300" y="242" font-size="9" fill="#666">→ C₁ можно больше</text>
+        </svg>
+        <p class="fig-caption">При <strong>r ↓</strong> линия <strong>вращается вокруг E</strong> (не параллельный сдвиг). E не двигается — доходы те же.<span class="en-cell">r falls → rotation around E, not parallel shift.</span></p>
+    </div>
+
+    <hr>
+
+    <h2>Income vs Consumption / Доход ≠ потребление</h2>
+    <table>
+        <tr><th></th><th>Доход (M)</th><th>Потребление (C)</th></tr>
+        <tr><td><strong>Period 1</strong></td><td>M₁ = 5000</td><td>C₁ может быть 4000 (save) или 6000 (borrow)</td></tr>
+        <tr><td><strong>Period 2</strong></td><td>M₂ = 6000</td><td>C₂ = 7200 (save) или 4800 (borrow)</td></tr>
+        <tr><td><strong>На графике</strong></td><td>Точка <strong>E = (M₁, M₂)</strong></td><td>Любая точка <strong>на линии</strong></td></tr>
+    </table>
+    <p class="nb-en">Income is fixed at E. Consumption can differ from income in each period if you save or borrow.</p>
+
+    <div class="key-box">
+        <strong>Не путай:</strong><br>
+        · <strong>E = (M₁, M₂)</strong> — доход, не обязательно оптимум<br>
+        · <strong>slope = −(1+r)</strong> — не −r<br>
+        · <strong>r ↓</strong> → поворот вокруг E · <strong>M ↑</strong> → параллельный сдвиг<br>
+        · <strong>PV</strong> всего дохода = M₁ + M₂/(1+r)
+    </div>
+    <p class="nb-en">E is endowment (income), not necessarily optimal. Slope is −(1+r), not −r. Lower r rotates around E; higher M shifts parallel.</p>
+
+    <hr>
+
+    <h2>Сравнение с бюджетом двух товаров</h2>
+    <table>
+        <tr><th>Обычный budget</th><th>Intertemporal budget</th></tr>
+        <tr><td>Оси: Q₁, Q₂ (товары)</td><td>Оси: C₁, C₂ (время)</td></tr>
+        <tr><td>Цены P₁, P₂</td><td>«Цена» C₁ = <strong>(1+r)</strong> в единицах C₂</td></tr>
+        <tr><td>M = P₁Q₁ + P₂Q₂</td><td>W = C₁ + C₂/(1+r)</td></tr>
+        <tr><td>Наклон −P₁/P₂</td><td>Наклон <strong>−(1+r)</strong></td></tr>
+    </table>
+    <p class="nb-en">Two goods: slope −P₁/P₂. Intertemporal: slope −(1+r). Same budget-line logic.</p>
+
+    <hr>
 
     <div class="nb-key">
         IBC: C₁ + C₂/(1+r) = M₁ + M₂/(1+r) · slope = −(1+r) · E = (M₁,M₂) · max C₁ = M₁+M₂/(1+r) · max C₂ = M₁(1+r)+M₂ · B=C₁−M₁ · S=M₁−C₁ · PV=FV/(1+r)
