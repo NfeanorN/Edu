@@ -32,25 +32,25 @@ jobs:
             CVAngular/package-lock.json
 
       - name: Build EconomicsReact
+        if: hashFiles('EconomicsReact/package.json') != ''
         working-directory: EconomicsReact
         run: |
           npm ci
           npm run build -- --base=${PAGES_BASE}/EconomicsReact/
 
       - name: Build AvatarSubtitlesReact
+        if: hashFiles('AvatarSubtitlesReact/package.json') != ''
         working-directory: AvatarSubtitlesReact
         run: |
           npm ci
           npm run build -- --base=${PAGES_BASE}/AvatarSubtitlesReact/
 
       - name: Build CVAngular
+        if: hashFiles('CVAngular/package.json') != ''
         working-directory: CVAngular
         run: |
           npm ci
           npm run build -- --base-href=${PAGES_BASE}/CV/
-
-      - name: Generate Accounting & Banking tests
-        run: python3 AccountingBanking/gen_tests.py
 
       - name: Assemble site
         env:

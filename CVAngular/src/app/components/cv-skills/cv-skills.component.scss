@@ -1,0 +1,13 @@
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin: 0.5rem 0;
+}
+
+.skill {
+  background: var(--cv-skill-bg);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}

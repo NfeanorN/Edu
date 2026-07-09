@@ -1,0 +1,26 @@
+<app-pdf-bar />
+
+<main class="cv-page">
+  @let cv = profile();
+
+  <article class="cv-paper">
+    <app-cv-header
+      [fullName]="cv.fullName"
+      [headline]="cv.headline"
+      [contacts]="cv.contacts"
+      [workFormat]="cv.workFormat"
+    />
+
+    <app-cv-about [text]="cv.about" />
+
+    <app-cv-experience [jobs]="cv.jobs" [years]="cv.experienceYears" />
+
+    <app-cv-skills [skills]="cv.skills" />
+
+    <app-cv-education [education]="cv.education" />
+
+    <app-cv-languages [languages]="cv.languages" />
+
+    <app-cv-additional [text]="cv.additional" />
+  </article>
+</main>

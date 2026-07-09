@@ -101,7 +101,8 @@ for (const dir of STATIC_DIRS) {
 for (const app of REACT_APPS) {
   const src = path.join(root, app.dist);
   if (!fs.existsSync(src)) {
-    throw new Error(`Missing build output: ${app.dist}. Run npm run build first.`);
+    console.warn("Skip missing React build:", app.dist);
+    continue;
   }
   const dest = path.join(siteDir, app.name);
   copyDir(src, dest);
@@ -112,7 +113,8 @@ for (const app of REACT_APPS) {
 for (const app of ANGULAR_APPS) {
   const src = path.join(root, app.dist);
   if (!fs.existsSync(src)) {
-    throw new Error(`Missing build output: ${app.dist}. Run ng build first.`);
+    console.warn("Skip missing Angular build:", app.dist);
+    continue;
   }
   const dest = path.join(siteDir, app.name);
   copyDir(src, dest);

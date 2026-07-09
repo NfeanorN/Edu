@@ -1,0 +1,20 @@
+.extra-section {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--cv-page-bg);
+  border-radius: 8px;
+  border-left: 4px solid var(--cv-primary);
+}
+
+h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--cv-heading);
+}
+
+p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
