@@ -215,14 +215,33 @@
     .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
     mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
     mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+  
+    .page-hidden { display: none !important; }
+    .paginator {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 1rem 0;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e8ecf1;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .paginator-top { position: sticky; top: 0; z-index: 5; }
+    .paginator-info { font-weight: 600; color: #2c3e50; font-size: 0.95rem; }
+    .paginator-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .paginator-btns button:disabled { opacity: 0.45; cursor: not-allowed; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <p class="back"><a href="index.html">← Test list</a> · <a href="00_How_To_Solve.html">How to solve tasks</a></p>
     <h1>All tests on one page</h1>
-    <p class="sub">Accounting &amp; Banking for SMEs — 121 MCQ questions + open questions and exercises.</p>
-    <div class="rules">Answer all MCQ and click “Check all”. Open questions are for self-check (brief answers).</div>
+    <p class="sub">Accounting &amp; Banking for SMEs — 121 MCQ questions.</p>
+    <div class="rules">Answer all MCQ and click “Check all”.</div>
     <nav class="toc">
       <strong>Contents:</strong>
       <ol>
@@ -237,9 +256,8 @@
         <li><a href="#block-03_part2_calculations">03 — Part 2 Calculations</a> <span style="color:#888">(4 MCQ · 3 pts)</span></li>
         <li><a href="#block-04_sustainability">04 — Sustainability & SROI</a> <span style="color:#888">(3 MCQ)</span></li>
         <li><a href="#block-14_master_question_bank">14 — Master Question Bank</a> <span style="color:#888">(32 MCQ · missing topics)</span></li>
-        <li><a href="#block-09_statement_of_financial_position">09 — Statement of Financial Position</a> <span style="color:#888">(SoFP + solutions)</span></li>
         <li><a href="#block-10_depreciation">10 — Depreciation</a> <span style="color:#888">(Exercise 3 (8 pts) + tables)</span></li>
-        <li><a href="#block-05_open_questions">05 — Open questions</a> <span style="color:#888">(theory + exercises)</span></li>
+        <li><a href="#block-09_statement_of_financial_position">09 — Statement of Financial Position</a> <span style="color:#888">(SoFP + solutions)</span></li>
       </ol>
     </nav>
     <form id="test-form">
@@ -4176,31 +4194,6 @@
     "extra": ""
   },
   {
-    "slug": "09_statement_of_financial_position",
-    "title": "09 — Statement of Financial Position",
-    "desc": "SoFP + solutions",
-    "scoring": {
-      "correct": 1,
-      "wrong": 0,
-      "max": null
-    },
-    "questions": [],
-    "open": [
-      {
-        "en": "Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)",
-        "sample_en": "Total Assets = 204,850. Equity 66,300 + Non-current liabilities 87,550 + Current liabilities 51,000.",
-        "title_en": "SoFP — variant 1 (5 pts)"
-      },
-      {
-        "en": "Statement of Financial Position — exam version (larger figures)",
-        "sample_en": "Total Assets = Total Equity & Liabilities = 614,550. See the filled table above.",
-        "title_en": "SoFP — variant 2 (6 pts)"
-      }
-    ],
-    "sna": [],
-    "extra": "<p class=\"sub\"><a href=\"00_How_To_Solve.html\">📘 How to solve — step-by-step guide</a></p>\r\n    <style>\r\n    table.sofp { border-collapse: collapse; width: 100%; font-size: 0.85rem; margin: 1rem 0; }\r\n    table.sofp th, table.sofp td { border: 1px solid #ccc; padding: 5px 8px; }\r\n    table.sofp th { background: #16a085; color: #fff; text-align: center; }\r\n    table.sofp td.num { text-align: right; white-space: nowrap; }\r\n    table.sofp td.lbl { text-align: left; }\r\n    table.sofp tr.subtotal td { font-weight: 600; background: #f4f8f7; }\r\n    table.sofp tr.total td { font-weight: 700; background: #eefaf7; }\r\n    </style>\r\n\r\n    <div class=\"section-title\">Exercise 1 (6 pts) — your exam sheet + solution</div>\r\n    <div class=\"exam-row\">\r\n      <figure class=\"exam-photo\">\r\n        <img src=\"images/exam-sofp-exercise1.png\" alt=\"Exam Exercise 1 — Uniclam SoFP\" />\r\n        <figcaption>Photo from exam · list of items + empty table</figcaption>\r\n      </figure>\r\n      <div>\r\n    <p class=\"q-en\"><strong>How to fill the blank table:</strong> classify each item → add subtotals → Total Assets = Total Equity + Liabilities.</p>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto;margin:0\">\r\n      <table class=\"sofp\">\r\n        <tr><th colspan=\"2\">ASSETS</th><th colspan=\"2\">EQUITY &amp; LIABILITIES</th></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Non-current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Equity</strong></td></tr>\r\n        <tr><td class=\"lbl\">Goodwill</td><td class=\"num\">38 250</td><td class=\"lbl\">Share capital</td><td class=\"num\">153 000</td></tr>\r\n        <tr><td class=\"lbl\">Other intangible</td><td class=\"num\">25 500</td><td class=\"lbl\">Retained earnings</td><td class=\"num\">45 900</td></tr>\r\n        <tr><td class=\"lbl\">Property, plant &amp; equipment</td><td class=\"num\">311 100</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total non-current assets</td><td class=\"num\">374 850</td><td class=\"lbl\"><strong>Total equity</strong></td><td class=\"num\">198 900</td></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Non-current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\">Inventories</td><td class=\"num\">112 200</td><td class=\"lbl\">Long-term borrowings</td><td class=\"num\">229 500</td></tr>\r\n        <tr><td class=\"lbl\">Trade receivables</td><td class=\"num\">71 400</td><td class=\"lbl\">Deferred tax</td><td class=\"num\">33 150</td></tr>\r\n        <tr><td class=\"lbl\">Cash</td><td class=\"num\">56 100</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total current assets</td><td class=\"num\">239 700</td><td class=\"lbl\"><strong>Total non-current liabilities</strong></td><td class=\"num\">262 650</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\" colspan=\"2\"><strong>Current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Short-term borrowings</td><td class=\"num\">53 550</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Trade and other payables</td><td class=\"num\">76 500</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Current tax payable</td><td class=\"num\">22 950</td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\"><strong>Total current liabilities</strong></td><td class=\"num\">153 000</td></tr>\r\n        <tr class=\"total\"><td class=\"lbl\"><strong>TOTAL ASSETS</strong></td><td class=\"num\"><strong>614 550</strong></td><td class=\"lbl\"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class=\"num\"><strong>614 550</strong></td></tr>\r\n      </table>\r\n    </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"section-title\">Variant 1 (5 pts) — smaller numbers · Total Assets = 204 850 €</div>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\r\n      <table class=\"sofp\">\r\n        <tr><th colspan=\"2\">ASSETS</th><th colspan=\"2\">EQUITY &amp; LIABILITIES</th></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Non-current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Equity</strong></td></tr>\r\n        <tr><td class=\"lbl\">Goodwill</td><td class=\"num\">12 750</td><td class=\"lbl\">Share capital</td><td class=\"num\">25 000</td></tr>\r\n        <tr><td class=\"lbl\">Other intangible</td><td class=\"num\">8 500</td><td class=\"lbl\">Retained earnings</td><td class=\"num\">41 300</td></tr>\r\n        <tr><td class=\"lbl\">Property, plant &amp; equipment</td><td class=\"num\">103 700</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total non-current assets</td><td class=\"num\">124 950</td><td class=\"lbl\"><strong>Total equity</strong></td><td class=\"num\">66 300</td></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Non-current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\">Inventories</td><td class=\"num\">37 400</td><td class=\"lbl\">Long-term borrowings</td><td class=\"num\">75 000</td></tr>\r\n        <tr><td class=\"lbl\">Trade receivables</td><td class=\"num\">23 800</td><td class=\"lbl\">Deferred tax</td><td class=\"num\">12 550</td></tr>\r\n        <tr><td class=\"lbl\">Cash</td><td class=\"num\">18 700</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total current assets</td><td class=\"num\">79 900</td><td class=\"lbl\"><strong>Total non-current liabilities</strong></td><td class=\"num\">87 550</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\" colspan=\"2\"><strong>Current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Short-term borrowings</td><td class=\"num\">20 000</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Trade and other payables</td><td class=\"num\">28 000</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Current tax payable</td><td class=\"num\">3 000</td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\"><strong>Total current liabilities</strong></td><td class=\"num\">51 000</td></tr>\r\n        <tr class=\"total\"><td class=\"lbl\"><strong>TOTAL ASSETS</strong></td><td class=\"num\"><strong>204 850</strong></td><td class=\"lbl\"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class=\"num\"><strong>204 850</strong></td></tr>\r\n      </table>\r\n    </div>"
-  },
-  {
     "slug": "10_depreciation",
     "title": "10 — Depreciation",
     "desc": "Exercise 3 (8 pts) + tables",
@@ -4215,99 +4208,18 @@
     "extra": "<p class=\"sub\"><a href=\"00_How_To_Solve.html\">📘 How to solve — step-by-step guide</a></p>\r\n    <div class=\"section-title\">Exercise 3 (8 pts) — your exam sheet + solution</div>\r\n    <div class=\"exam-row\">\r\n      <figure class=\"exam-photo\">\r\n        <img src=\"images/exam-depreciation-exercise3.png\" alt=\"Exam Exercise 3 — Depreciation\" />\r\n        <figcaption>Photo from exam · cost $160k, 6 years, residual $28k</figcaption>\r\n      </figure>\r\n      <div>\r\n        <p class=\"q-en\"><strong>(a)</strong> Calculate the annual depreciation charge for each method.</p>\r\n        <div class=\"brief-answer\" style=\"margin-top:0.5rem\">\r\n          <div class=\"brief-label\">Answer (a)</div>\r\n          <div class=\"brief-text\"><strong>Straight-line:</strong> (160,000 − 28,000) ÷ 6 = <strong>$22,000</strong> every year.<br>\r\n          <strong>Reducing balance (15%):</strong> dep = 15% × carrying value (carrying goes down each year).</div>\r\n        </div>\r\n        <p class=\"q-en\" style=\"margin-top:1rem\"><strong>(b)</strong> Build a 6-year schedule: cost, accumulated depreciation, NBV.</p>\r\n        <div class=\"brief-answer\">\r\n          <div class=\"brief-label\">Answer (b)</div>\r\n          <div class=\"brief-text\">Use the tables below. Year 6 NBV = <strong>$28,000</strong> (straight-line, equals residual) or <strong>$60,344</strong> (reducing balance).</div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"section-title\">(b) Straight-line — 6-year schedule</div>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\r\n      <table class=\"matrix\">\r\n        <tr><th>Year</th><th>Cost ($)</th><th>Dep. year ($)</th><th>Accum. dep. ($)</th><th>NBV ($)</th></tr>\r\n        <tr><td>1</td><td>160 000</td><td>22 000</td><td>22 000</td><td>138 000</td></tr>\r\n        <tr><td>2</td><td>160 000</td><td>22 000</td><td>44 000</td><td>116 000</td></tr>\r\n        <tr><td>3</td><td>160 000</td><td>22 000</td><td>66 000</td><td>94 000</td></tr>\r\n        <tr><td>4</td><td>160 000</td><td>22 000</td><td>88 000</td><td>72 000</td></tr>\r\n        <tr><td>5</td><td>160 000</td><td>22 000</td><td>110 000</td><td>50 000</td></tr>\r\n        <tr><td>6</td><td>160 000</td><td>22 000</td><td>132 000</td><td>28 000</td></tr>\r\n      </table>\r\n    </div>\r\n    <div class=\"section-title\">(b) Reducing balance 15% — 6-year schedule</div>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\r\n      <table class=\"matrix\">\r\n        <tr><th>Year</th><th>Carrying ($)</th><th>Dep. year ($)</th><th>Accum. dep. ($)</th><th>NBV ($)</th></tr>\r\n        <tr><td>1</td><td>160 000</td><td>24 000</td><td>24 000</td><td>136 000</td></tr>\r\n        <tr><td>2</td><td>136 000</td><td>20 400</td><td>44 400</td><td>115 600</td></tr>\r\n        <tr><td>3</td><td>115 600</td><td>17 340</td><td>61 740</td><td>98 260</td></tr>\r\n        <tr><td>4</td><td>98 260</td><td>14 739</td><td>76 479</td><td>83 521</td></tr>\r\n        <tr><td>5</td><td>83 521</td><td>12 528</td><td>89 007</td><td>70 993</td></tr>\r\n        <tr><td>6</td><td>70 993</td><td>10 649</td><td>99 656</td><td>60 344</td></tr>\r\n      </table>\r\n    </div>"
   },
   {
-    "slug": "05_open_questions",
-    "title": "05 — Open questions",
-    "desc": "theory + exercises",
+    "slug": "09_statement_of_financial_position",
+    "title": "09 — Statement of Financial Position",
+    "desc": "SoFP + solutions",
     "scoring": {
       "correct": 1,
       "wrong": 0,
       "max": null
     },
     "questions": [],
-    "open": [
-      {
-        "en": "Explain the functions of the financial system",
-        "sample_en": "Collects savings, gives loans, shares risk, matches loan size and time, runs payments, prices information.",
-        "title_en": "Explain the functions of the financial system"
-      },
-      {
-        "en": "Explains the theories of the existence of financial intermediaries",
-        "sample_en": "Banks cut costs, spread risk, fix information problems (bad borrowers, moral hazard), change loan length, use expert knowledge.",
-        "title_en": "Explains the theories of the existence of financial inter…"
-      },
-      {
-        "en": "Talk about the balance sheets of banks and the most important indices",
-        "sample_en": "Assets: loans, securities, reserves. Liabilities: deposits, borrowings. Equity: capital. Ratios: ROE, ROA, NIM, CAR, LCR, NPL.",
-        "title_en": "Talk about the balance sheets of banks and the most impor…"
-      },
-      {
-        "en": "Highlight the main features of the European Banking Union",
-        "sample_en": "Three pillars: (1) Single Supervisory Mechanism (SSM), (2) Single Resolution with bail-in (SRM), (3) Deposit guarantees (DGS).",
-        "title_en": "European Banking Union"
-      },
-      {
-        "en": "Talk about interest rate risk",
-        "sample_en": "When rates change, net interest income and asset values change. Manage with repricing gap, duration, hedging.",
-        "title_en": "Interest rate risk"
-      },
-      {
-        "en": "Explain the DCF model",
-        "sample_en": "Forecast free cash flows, discount them (WACC or cost of equity), add terminal value → company value.",
-        "title_en": "DCF model"
-      },
-      {
-        "en": "Explain the difference between Debt and Equity",
-        "sample_en": "Debt: contractual claim, fixed payments (tax-deductible interest), prior claim in distress, fixed maturity, usually no control. Equity: residual claim, non-deductible dividends, lowest priority, infinite life, management control.",
-        "title_en": "Debt vs Equity"
-      },
-      {
-        "en": "Build Statement of Financial Position for Uniclam Group Corp. (smaller figures)",
-        "sample_en": "Total Assets = 204,850. Equity 66,300 + Non-current liabilities 87,550 + Current liabilities 51,000.",
-        "title_en": "SoFP — variant 1 (5 pts)"
-      },
-      {
-        "en": "Statement of Financial Position — exam version (larger figures)",
-        "sample_en": "Total Assets = Total Equity & Liabilities = 614,550. See the filled table above.",
-        "title_en": "SoFP — variant 2 (6 pts)"
-      },
-      {
-        "en": "Division table — 2024 exam version.",
-        "sample_en": "Division A: Net Income 33,880. Division B: Net Income 14,840.",
-        "title_en": "Division table — 2024 exam version."
-      },
-      {
-        "en": "Division table — tablet version with advertising.",
-        "sample_en": "Division A: Net Income 32,214. Division B: Net Income 126.",
-        "title_en": "Division table — tablet version with advertising."
-      },
-      {
-        "en": "Evaluate Cassino SpA using DCF. WACC 5%, g 1%. Cash flows 2024–2028. Complete discount coefficients, DCFs, and W.",
-        "sample_en": "W ≈ 143,858 (sum of discounted cash flows). See page 13 for full table.",
-        "title_en": "Evaluate Cassino SpA using DCF. WACC 5%, g 1%. Cash flows…"
-      },
-      {
-        "en": "Budgeted production for May.",
-        "sample_en": "Production in May = 87,000 units.",
-        "title_en": "Budgeted production for May."
-      },
-      {
-        "en": "Exercise 3 (8 points). Cost $160,000, life 6 years, residual $28,000. (a) Annual charge straight-line and reducing balance 15%. (b) 6-year schedule for each method.",
-        "sample_en": "(a) Straight-line: $22,000 per year. Reducing balance: 15% of carrying value each year. (b) Year 6 NBV = $28,000 (SL) or $60,344 (RB) — see page 10.",
-        "title_en": "Exercise 3 — Depreciation (8 pts)"
-      },
-      {
-        "en": "Straight-line depreciation schedule.",
-        "sample_en": "Annual depreciation = 22,000. After 6 years NBV = 28,000 (residual value).",
-        "title_en": "Depreciation — straight-line"
-      },
-      {
-        "en": "Reducing balance depreciation schedule.",
-        "sample_en": "Each year: dep = 15% of book value. Year 6 NBV = 60,344.",
-        "title_en": "Depreciation — reducing balance 15%"
-      }
-    ],
+    "open": [],
     "sna": [],
-    "extra": ""
+    "extra": "<p class=\"sub\"><a href=\"00_How_To_Solve.html\">📘 How to solve — step-by-step guide</a></p>\r\n    <style>\r\n    table.sofp { border-collapse: collapse; width: 100%; font-size: 0.85rem; margin: 1rem 0; }\r\n    table.sofp th, table.sofp td { border: 1px solid #ccc; padding: 5px 8px; }\r\n    table.sofp th { background: #16a085; color: #fff; text-align: center; }\r\n    table.sofp td.num { text-align: right; white-space: nowrap; }\r\n    table.sofp td.lbl { text-align: left; }\r\n    table.sofp tr.subtotal td { font-weight: 600; background: #f4f8f7; }\r\n    table.sofp tr.total td { font-weight: 700; background: #eefaf7; }\r\n    </style>\r\n\r\n    <div class=\"section-title\">Exercise 1 (6 pts) — your exam sheet + solution</div>\r\n    <div class=\"exam-row\">\r\n      <figure class=\"exam-photo\">\r\n        <img src=\"images/exam-sofp-exercise1.png\" alt=\"Exam Exercise 1 — Uniclam SoFP\" />\r\n        <figcaption>Photo from exam · list of items + empty table</figcaption>\r\n      </figure>\r\n      <div>\r\n    <p class=\"q-en\"><strong>How to fill the blank table:</strong> classify each item → add subtotals → Total Assets = Total Equity + Liabilities.</p>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto;margin:0\">\r\n      <table class=\"sofp\">\r\n        <tr><th colspan=\"2\">ASSETS</th><th colspan=\"2\">EQUITY &amp; LIABILITIES</th></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Non-current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Equity</strong></td></tr>\r\n        <tr><td class=\"lbl\">Goodwill</td><td class=\"num\">38 250</td><td class=\"lbl\">Share capital</td><td class=\"num\">153 000</td></tr>\r\n        <tr><td class=\"lbl\">Other intangible</td><td class=\"num\">25 500</td><td class=\"lbl\">Retained earnings</td><td class=\"num\">45 900</td></tr>\r\n        <tr><td class=\"lbl\">Property, plant &amp; equipment</td><td class=\"num\">311 100</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total non-current assets</td><td class=\"num\">374 850</td><td class=\"lbl\"><strong>Total equity</strong></td><td class=\"num\">198 900</td></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Non-current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\">Inventories</td><td class=\"num\">112 200</td><td class=\"lbl\">Long-term borrowings</td><td class=\"num\">229 500</td></tr>\r\n        <tr><td class=\"lbl\">Trade receivables</td><td class=\"num\">71 400</td><td class=\"lbl\">Deferred tax</td><td class=\"num\">33 150</td></tr>\r\n        <tr><td class=\"lbl\">Cash</td><td class=\"num\">56 100</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total current assets</td><td class=\"num\">239 700</td><td class=\"lbl\"><strong>Total non-current liabilities</strong></td><td class=\"num\">262 650</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\" colspan=\"2\"><strong>Current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Short-term borrowings</td><td class=\"num\">53 550</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Trade and other payables</td><td class=\"num\">76 500</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Current tax payable</td><td class=\"num\">22 950</td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\"><strong>Total current liabilities</strong></td><td class=\"num\">153 000</td></tr>\r\n        <tr class=\"total\"><td class=\"lbl\"><strong>TOTAL ASSETS</strong></td><td class=\"num\"><strong>614 550</strong></td><td class=\"lbl\"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class=\"num\"><strong>614 550</strong></td></tr>\r\n      </table>\r\n    </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"section-title\">Variant 1 (5 pts) — smaller numbers · Total Assets = 204 850 €</div>\r\n    <div class=\"open-block\" style=\"box-shadow:none;overflow-x:auto\">\r\n      <table class=\"sofp\">\r\n        <tr><th colspan=\"2\">ASSETS</th><th colspan=\"2\">EQUITY &amp; LIABILITIES</th></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Non-current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Equity</strong></td></tr>\r\n        <tr><td class=\"lbl\">Goodwill</td><td class=\"num\">12 750</td><td class=\"lbl\">Share capital</td><td class=\"num\">25 000</td></tr>\r\n        <tr><td class=\"lbl\">Other intangible</td><td class=\"num\">8 500</td><td class=\"lbl\">Retained earnings</td><td class=\"num\">41 300</td></tr>\r\n        <tr><td class=\"lbl\">Property, plant &amp; equipment</td><td class=\"num\">103 700</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total non-current assets</td><td class=\"num\">124 950</td><td class=\"lbl\"><strong>Total equity</strong></td><td class=\"num\">66 300</td></tr>\r\n        <tr><td class=\"lbl\" colspan=\"2\"><strong>Current assets</strong></td><td class=\"lbl\" colspan=\"2\"><strong>Non-current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\">Inventories</td><td class=\"num\">37 400</td><td class=\"lbl\">Long-term borrowings</td><td class=\"num\">75 000</td></tr>\r\n        <tr><td class=\"lbl\">Trade receivables</td><td class=\"num\">23 800</td><td class=\"lbl\">Deferred tax</td><td class=\"num\">12 550</td></tr>\r\n        <tr><td class=\"lbl\">Cash</td><td class=\"num\">18 700</td><td class=\"lbl\"></td><td class=\"num\"></td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\">Total current assets</td><td class=\"num\">79 900</td><td class=\"lbl\"><strong>Total non-current liabilities</strong></td><td class=\"num\">87 550</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\" colspan=\"2\"><strong>Current liabilities</strong></td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Short-term borrowings</td><td class=\"num\">20 000</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Trade and other payables</td><td class=\"num\">28 000</td></tr>\r\n        <tr><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\">Current tax payable</td><td class=\"num\">3 000</td></tr>\r\n        <tr class=\"subtotal\"><td class=\"lbl\"></td><td class=\"num\"></td><td class=\"lbl\"><strong>Total current liabilities</strong></td><td class=\"num\">51 000</td></tr>\r\n        <tr class=\"total\"><td class=\"lbl\"><strong>TOTAL ASSETS</strong></td><td class=\"num\"><strong>204 850</strong></td><td class=\"lbl\"><strong>TOTAL EQUITY &amp; LIABILITIES</strong></td><td class=\"num\"><strong>204 850</strong></td></tr>\r\n      </table>\r\n    </div>"
   }
 ];
     const QUESTIONS = BLOCKS.flatMap(b => b.questions);
@@ -4316,20 +4228,178 @@
     const container = document.getElementById('questions');
     const resultsBox = document.getElementById('results');
 
+    const PAGE_SIZE = 20;
+    let currentPage = 0;
+    let paginatorTop = null;
+    let paginatorBottom = null;
+    let paginationLocked = false;
+
+    function mcqPageCount() {
+      return QUESTIONS.length ? Math.ceil(QUESTIONS.length / PAGE_SIZE) : 0;
+    }
+
+    function openPageCount() {
+      const n = BLOCKS.reduce((s, b) => s + (b.open ? b.open.length : 0), 0);
+      return n ? Math.ceil(n / PAGE_SIZE) : 0;
+    }
+
+    function totalPageCount() {
+      let n = mcqPageCount();
+      if (openPageCount()) n += openPageCount();
+      const sna = BLOCKS.reduce((s, b) => s + (b.sna ? b.sna.length : 0), 0);
+      if (sna) n += 1;
+      return Math.max(1, n);
+    }
+
+    function needsPagination() {
+      return totalPageCount() > 1;
+    }
+
+    function pageLabel(page) {
+      const mcqPages = mcqPageCount();
+      if (page < mcqPages) {
+        const from = page * PAGE_SIZE + 1;
+        const to = Math.min((page + 1) * PAGE_SIZE, QUESTIONS.length);
+        return 'Questions ' + from + '–' + to + ' · page ' + (page + 1) + ' of ' + totalPageCount();
+      }
+      const openStart = page - mcqPages;
+      const openTotal = BLOCKS.reduce((s, b) => s + (b.open ? b.open.length : 0), 0);
+      if (openTotal && page < mcqPages + openPageCount()) {
+        const from = openStart * PAGE_SIZE + 1;
+        const to = Math.min((openStart + 1) * PAGE_SIZE, openTotal);
+        return 'Open questions ' + from + '–' + to + ' · page ' + (page + 1) + ' of ' + totalPageCount();
+      }
+      return 'Calculations · page ' + (page + 1) + ' of ' + totalPageCount();
+    }
+
+    function createPaginator(className) {
+      const el = document.createElement('div');
+      el.className = className;
+      el.innerHTML = '<span class="paginator-info"></span><div class="paginator-btns">' +
+        '<button type="button" class="secondary" data-nav="prev">← Previous</button>' +
+        '<button type="button" class="secondary" data-nav="next">Next →</button></div>';
+      el.querySelector('[data-nav="prev"]').addEventListener('click', () => goToPage(currentPage - 1));
+      el.querySelector('[data-nav="next"]').addEventListener('click', () => goToPage(currentPage + 1));
+      return el;
+    }
+
+    function updatePaginator() {
+      const show = needsPagination() && !paginationLocked;
+      [paginatorTop, paginatorBottom].forEach((p) => {
+        if (!p) return;
+        p.style.display = show ? '' : 'none';
+        if (!show) return;
+        p.querySelector('.paginator-info').textContent = pageLabel(currentPage);
+        p.querySelector('[data-nav="prev"]').disabled = currentPage <= 0;
+        p.querySelector('[data-nav="next"]').disabled = currentPage >= totalPageCount() - 1;
+      });
+      updateCheckButton();
+    }
+
+    function applyPageVisibility() {
+      container.querySelectorAll('[data-page]').forEach((el) => {
+        const p = Number(el.dataset.page);
+        el.classList.toggle('page-hidden', paginationLocked ? false : p !== currentPage);
+      });
+      updatePaginator();
+    }
+
+    function goToPage(page) {
+      if (paginationLocked) return;
+      currentPage = Math.max(0, Math.min(totalPageCount() - 1, page));
+      applyPageVisibility();
+      const target = paginatorTop || container;
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function setupPagination() {
+      paginationLocked = false;
+      currentPage = 0;
+      if (paginatorTop) {
+        paginatorTop.remove();
+        paginatorBottom.remove();
+        paginatorTop = paginatorBottom = null;
+      }
+      if (!needsPagination()) {
+        updateCheckButton();
+        return;
+      }
+      paginatorTop = createPaginator('paginator paginator-top');
+      paginatorBottom = createPaginator('paginator paginator-bottom');
+      container.before(paginatorTop);
+      const actions = form.querySelector('.actions');
+      form.insertBefore(paginatorBottom, actions);
+      goToPage(0);
+      updateCheckButton();
+    }
+
+    function showAllPages() {
+      paginationLocked = true;
+      applyPageVisibility();
+    }
+
+    function pageForMcqIndex(idx) {
+      return Math.floor(idx / PAGE_SIZE);
+    }
+
+    function isMcqPage(page) {
+      return page < mcqPageCount();
+    }
+
+    function questionsForPage(page) {
+      const items = [];
+      QUESTIONS.forEach((q, idx) => {
+        if (pageForMcqIndex(idx) === page) items.push(q);
+      });
+      return items;
+    }
+
+    function questionsToCheck() {
+      if (needsPagination() && isMcqPage(currentPage)) {
+        return questionsForPage(currentPage);
+      }
+      return QUESTIONS;
+    }
+
+    function updateCheckButton() {
+      const btn = form.querySelector('.actions button[type="submit"]');
+      if (!btn) return;
+      if (!btn.dataset.defaultLabel) btn.dataset.defaultLabel = btn.textContent;
+      if (needsPagination() && isMcqPage(currentPage)) {
+        btn.textContent = 'Check this page (' + questionsForPage(currentPage).length + ')';
+      } else {
+        btn.textContent = btn.dataset.defaultLabel;
+      }
+    }
+
+    let openGlobalIdx = 0;
+    function nextOpenPage() {
+      const p = mcqPageCount() + Math.floor(openGlobalIdx / PAGE_SIZE);
+      openGlobalIdx++;
+      return p;
+    }
+    function resetOpenPageCounter() {
+      openGlobalIdx = 0;
+    }
+
+
     function renderOpenItems(items, slug) {
       if (!items.length) return;
       let openSection = '';
       items.forEach((item, idx) => {
+        const openPage = nextOpenPage();
         const sec = item.section || (item.howto_en ? 'Exercises' : 'Theory — short answers');
         if (sec !== openSection) {
           openSection = sec;
           const h = document.createElement('div');
           h.className = 'section-title';
+          h.dataset.page = String(openPage);
           h.textContent = sec;
           container.appendChild(h);
         }
         const block = document.createElement('div');
         block.className = 'open-block';
+        block.dataset.page = String(openPage);
         const brief = item.sample_en || '';
         block.innerHTML = `
           <div class="q-num">${item.title_en || item.en}</div>
@@ -4356,33 +4426,40 @@
 
     function renderAll() {
       container.innerHTML = '';
+      resetOpenPageCounter();
+      let globalMcqIdx = 0;
       BLOCKS.forEach(block => {
         const header = document.createElement('div');
         header.className = 'block-header';
         header.id = 'block-' + block.slug;
         header.innerHTML = '<h2>' + block.title + '</h2><p>' + block.desc + '</p>';
+        header.dataset.page = String(pageForMcqIndex(globalMcqIdx));
         container.appendChild(header);
 
         if (block.extra) {
           const extra = document.createElement('div');
           extra.className = 'block-extra';
+          extra.dataset.page = String(pageForMcqIndex(globalMcqIdx));
           extra.innerHTML = block.extra;
           container.appendChild(extra);
         }
 
         let currentSection = '';
         block.questions.forEach(q => {
+          const mcqPage = pageForMcqIndex(globalMcqIdx);
           const sec = q.section ? block.title + ' · ' + q.section : null;
           if (sec && sec !== currentSection) {
             currentSection = sec;
             const h = document.createElement('div');
             h.className = 'section-title';
+            h.dataset.page = String(mcqPage);
             h.textContent = q.section;
             container.appendChild(h);
           }
           const card = document.createElement('div');
           card.className = 'q';
           card.dataset.id = q.id;
+          card.dataset.page = String(mcqPage);
           card.innerHTML = `
             <div class="q-num">Question ${q.num}</div>
             <div class="q-en">${q.en}</div>
@@ -4396,6 +4473,7 @@
             ${q.explain ? `<details class="solution"><summary>📗 Solution</summary><div class="howto">${q.explain}</div></details>` : ''}
             <div class="feedback" hidden></div>`;
           container.appendChild(card);
+          globalMcqIdx++;
         });
 
         renderOpenItems(block.open, block.slug);
@@ -4403,11 +4481,13 @@
         if (block.sna.length) {
           const h = document.createElement('div');
           h.className = 'section-title';
+          h.dataset.page = String(mcqPageCount() + openPageCount());
           h.textContent = 'SNA — calculations';
           container.appendChild(h);
           block.sna.forEach((item, idx) => {
             const el = document.createElement('div');
             el.className = 'open-block';
+            el.dataset.page = String(mcqPageCount() + openPageCount());
             el.innerHTML = `
               <div class="q-en">${item.en}</div>
               <input type="text" name="sna_${block.slug}_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
@@ -4418,6 +4498,7 @@
           });
         }
       });
+      setupPagination();
     }
 
     function normalize(val) {
@@ -4438,8 +4519,10 @@
       let wrong = 0;
       let score = 0;
       const warnEl = document.getElementById('warn-text');
+      const toCheck = questionsToCheck();
+      const checkingAll = toCheck.length === QUESTIONS.length;
 
-      QUESTIONS.forEach((q) => {
+      toCheck.forEach((q) => {
         const card = container.querySelector('[data-id="' + q.id + '"]');
         if (!card) return;
         const selected = form.querySelector('input[name="' + q.id + '"]:checked');
@@ -4461,14 +4544,20 @@
       if (unanswered > 0) {
         resultsBox.classList.remove('visible');
         warnEl.hidden = false;
-        warnEl.textContent = 'Answer all MCQ questions (' + unanswered + ' unanswered).';
+        warnEl.textContent = checkingAll
+          ? 'Answer all MCQ questions (' + unanswered + ' unanswered).'
+          : 'Answer all questions on this page (' + unanswered + ' unanswered).';
         const first = container.querySelector('.q.unanswered');
-        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (first) {
+          const p = Number(first.dataset.page);
+          if (!isNaN(p)) goToPage(p);
+          first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
         return;
       }
       warnEl.hidden = true;
 
-      QUESTIONS.forEach((q) => {
+      toCheck.forEach((q) => {
         const card = container.querySelector('[data-id="' + q.id + '"]');
         const selected = form.querySelector('input[name="' + q.id + '"]:checked');
         const fb = card.querySelector('.feedback');
@@ -4519,12 +4608,14 @@
         }
       });
 
-      const total = QUESTIONS.length;
-      document.getElementById('score-text').textContent =
-        'Score: ' + correct + ' of ' + total + ' (' + Math.round(correct / total * 100) + '%)';
+      const total = checkingAll ? QUESTIONS.length : toCheck.length;
+      document.getElementById('score-text').textContent = checkingAll
+        ? 'Score: ' + correct + ' of ' + total + ' (' + Math.round(correct / total * 100) + '%)'
+        : 'This page: ' + correct + ' of ' + total + ' (' + Math.round(correct / total * 100) + '%)';
       document.getElementById('score-detail').textContent =
         'Points: ' + score.toFixed(1) + ' · Correct: ' + correct + ' · Wrong: ' + wrong;
 
+      if (checkingAll) showAllPages();
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });

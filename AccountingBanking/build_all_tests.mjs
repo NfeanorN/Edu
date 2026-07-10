@@ -3,6 +3,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { applyBlocksPagination } from './lib/pagination.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 
@@ -40,9 +41,8 @@ const TEST_FILES = [
   { file: '03_Part2_Calculations.html', title: '03 — Part 2 Calculations', desc: '4 MCQ · 3 pts' },
   { file: '04_Sustainability.html', title: '04 — Sustainability & SROI', desc: '3 MCQ' },
   { file: '14_Master_Question_Bank.html', title: '14 — Master Question Bank', desc: '32 MCQ · missing topics' },
-  { file: '09_Statement_of_Financial_Position.html', title: '09 — Statement of Financial Position', desc: 'SoFP + solutions' },
   { file: '10_Depreciation.html', title: '10 — Depreciation', desc: 'Exercise 3 (8 pts) + tables' },
-  { file: '05_Open_Questions.html', title: '05 — Open questions', desc: 'theory + exercises' },
+  { file: '09_Statement_of_Financial_Position.html', title: '09 — Statement of Financial Position', desc: 'SoFP + solutions' },
 ];
 
 function parseConst(html, name) {
@@ -105,7 +105,7 @@ const blocks = TEST_FILES.map((meta, bi) => {
     _block: slug,
     _scoring: scoring,
   }));
-  const open = parseConst(html, 'OPEN_ITEMS').map(cleanOpenItem);
+  const open = [];
   const sna = parseConst(html, 'SNA_ITEMS');
   const extra = parseExtra(html);
   return {
@@ -346,8 +346,8 @@ const html = `<!doctype html>
   <div class="wrap">
     <p class="back"><a href="index.html">← Test list</a> · <a href="00_How_To_Solve.html">How to solve tasks</a></p>
     <h1>All tests on one page</h1>
-    <p class="sub">Accounting &amp; Banking for SMEs — ${totalMcq} MCQ questions + open questions and exercises.</p>
-    <div class="rules">Answer all MCQ and click “Check all”. Open questions are for self-check (brief answers).</div>
+    <p class="sub">Accounting &amp; Banking for SMEs — ${totalMcq} MCQ questions.</p>
+    <div class="rules">Answer all MCQ and click “Check all”.</div>
     <nav class="toc">
       <strong>Contents:</strong>
       <ol>
@@ -497,8 +497,10 @@ const html = `<!doctype html>
       let wrong = 0;
       let score = 0;
       const warnEl = document.getElementById('warn-text');
+      const toCheck = questionsToCheck();
+      const checkingAll = toCheck.length === QUESTIONS.length;
 
-      QUESTIONS.forEach((q) => {
+      toCheck.forEach((q) => {
         const card = container.querySelector('[data-id="' + q.id + '"]');
         if (!card) return;
         const selected = form.querySelector('input[name="' + q.id + '"]:checked');
@@ -520,14 +522,20 @@ const html = `<!doctype html>
       if (unanswered > 0) {
         resultsBox.classList.remove('visible');
         warnEl.hidden = false;
-        warnEl.textContent = 'Answer all MCQ questions (' + unanswered + ' unanswered).';
+        warnEl.textContent = checkingAll
+          ? 'Answer all MCQ questions (' + unanswered + ' unanswered).'
+          : 'Answer all questions on this page (' + unanswered + ' unanswered).';
         const first = container.querySelector('.q.unanswered');
-        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (first) {
+          const p = Number(first.dataset.page);
+          if (!isNaN(p)) goToPage(p);
+          first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
         return;
       }
       warnEl.hidden = true;
 
-      QUESTIONS.forEach((q) => {
+      toCheck.forEach((q) => {
         const card = container.querySelector('[data-id="' + q.id + '"]');
         const selected = form.querySelector('input[name="' + q.id + '"]:checked');
         const fb = card.querySelector('.feedback');
@@ -578,12 +586,14 @@ const html = `<!doctype html>
         }
       });
 
-      const total = QUESTIONS.length;
-      document.getElementById('score-text').textContent =
-        'Score: ' + correct + ' of ' + total + ' (' + Math.round(correct / total * 100) + '%)';
+      const total = checkingAll ? QUESTIONS.length : toCheck.length;
+      document.getElementById('score-text').textContent = checkingAll
+        ? 'Score: ' + correct + ' of ' + total + ' (' + Math.round(correct / total * 100) + '%)'
+        : 'This page: ' + correct + ' of ' + total + ' (' + Math.round(correct / total * 100) + '%)';
       document.getElementById('score-detail').textContent =
         'Points: ' + score.toFixed(1) + ' · Correct: ' + correct + ' · Wrong: ' + wrong;
 
+      if (checkingAll) showAllPages();
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -601,5 +611,5 @@ const html = `<!doctype html>
 </html>
 `;
 
-writeFileSync(join(ROOT, '99_All_Tests.html'), html, 'utf8');
+writeFileSync(join(ROOT, '99_All_Tests.html'), applyBlocksPagination(html), 'utf8');
 console.log('Built 99_All_Tests.html —', totalMcq, 'MCQ across', blocks.length, 'blocks');

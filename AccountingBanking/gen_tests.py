@@ -64,6 +64,131 @@ def build_template():
         "'</mark>. Correct: <mark class=\"correct-mark\">' + q.correct.toUpperCase() + '</mark>' +\n"
         "            (q.explain ? '<div class=\"explain\">' + q.explain + '</div>' : '');",
     )
+    body = apply_pagination_patches(body)
+    return body
+
+
+def apply_pagination_patches(body):
+    """Add 20-question pagination to the HRM test template."""
+    from pathlib import Path
+    lib = Path(__file__).parent / "lib" / "pagination.mjs"
+    text = lib.read_text(encoding="utf-8")
+    css = text.split("export const PAGINATION_CSS = `")[1].split("`;", 1)[0]
+    js = text.split("export const PAGINATION_JS_STANDARD = `")[1].split("`;", 1)[0]
+
+    if ".paginator-top" not in body:
+        body = body.replace("</style>", css + "  </style>")
+    if "const PAGE_SIZE = 20;" in body:
+        return body
+
+    body = body.replace(
+        "const resultsBox = document.getElementById('results');\n",
+        "const resultsBox = document.getElementById('results');\n" + js + "\n",
+    )
+    body = body.replace("QUESTIONS.forEach((q) => {{", "QUESTIONS.forEach((q, idx) => {{")
+    body = body.replace(
+        "          h.className = 'section-title';\n"
+        "          h.textContent = q.section;\n"
+        "          container.appendChild(h);",
+        "          h.className = 'section-title';\n"
+        "          h.dataset.page = String(pageForMcqIndex(idx));\n"
+        "          h.textContent = q.section;\n"
+        "          container.appendChild(h);",
+    )
+    body = body.replace(
+        "        card.dataset.id = q.id;\n"
+        "        card.innerHTML",
+        "        card.dataset.id = q.id;\n"
+        "        card.dataset.page = String(pageForMcqIndex(idx));\n"
+        "        card.innerHTML",
+    )
+    body = body.replace(
+        "          h.className = 'section-title';\n"
+        "          h.textContent = sec;\n"
+        "          container.appendChild(h);\n"
+        "        }}\n"
+        "        const block = document.createElement('div');\n"
+        "        block.className = 'open-block';",
+        "          h.className = 'section-title';\n"
+        "          h.dataset.page = String(openItemPage(idx));\n"
+        "          h.textContent = sec;\n"
+        "          container.appendChild(h);\n"
+        "        }}\n"
+        "        const block = document.createElement('div');\n"
+        "        block.className = 'open-block';\n"
+        "        block.dataset.page = String(openItemPage(idx));",
+    )
+    body = body.replace(
+        "      h.className = 'section-title';\n"
+        "      h.textContent = 'Open questions';\n"
+        "      container.appendChild(h);\n"
+        "      OPEN_ITEMS.forEach((item, idx) => {{\n"
+        "        const block = document.createElement('div');\n"
+        "        block.className = 'open-block';",
+        "      h.className = 'section-title';\n"
+        "      h.dataset.page = String(openItemPage(0));\n"
+        "      h.textContent = 'Open questions';\n"
+        "      container.appendChild(h);\n"
+        "      OPEN_ITEMS.forEach((item, idx) => {{\n"
+        "        const block = document.createElement('div');\n"
+        "        block.className = 'open-block';\n"
+        "        block.dataset.page = String(openItemPage(idx));",
+    )
+    body = body.replace(
+        "      h.className = 'section-title';\n"
+        "      h.textContent = 'SNA — calculations';\n"
+        "      container.appendChild(h);\n"
+        "      SNA_ITEMS.forEach((item, idx) => {{\n"
+        "        const block = document.createElement('div');\n"
+        "        block.className = 'open-block';",
+        "      h.className = 'section-title';\n"
+        "      h.dataset.page = String(mcqPageCount() + openPageCount());\n"
+        "      h.textContent = 'SNA — calculations';\n"
+        "      container.appendChild(h);\n"
+        "      SNA_ITEMS.forEach((item, idx) => {{\n"
+        "        const block = document.createElement('div');\n"
+        "        block.className = 'open-block';\n"
+        "        block.dataset.page = String(mcqPageCount() + openPageCount());",
+    )
+    body = body.replace(
+        "        const first = container.querySelector('.q.unanswered');\n"
+        "        if (first) first.scrollIntoView({{ behavior: 'smooth', block: 'center' }});",
+        "        const first = container.querySelector('.q.unanswered');\n"
+        "        if (first) {{\n"
+        "          const p = Number(first.dataset.page);\n"
+        "          if (!isNaN(p)) goToPage(p);\n"
+        "          first.scrollIntoView({{ behavior: 'smooth', block: 'center' }});\n"
+        "        }}",
+    )
+    body = body.replace(
+        "      resultsBox.classList.add('visible');\n"
+        "      resultsBox.scrollIntoView({{ behavior: 'smooth', block: 'start' }});",
+        "      showAllPages();\n"
+        "      resultsBox.classList.add('visible');\n"
+        "      resultsBox.scrollIntoView({{ behavior: 'smooth', block: 'start' }});",
+    )
+    body = body.replace(
+        "    renderQuestions();\n"
+        "    renderOpen();\n"
+        "    renderSna();\n"
+        "    {{extra_init}}",
+        "    renderQuestions();\n"
+        "    renderOpen();\n"
+        "    renderSna();\n"
+        "    setupPagination();\n"
+        "    {{extra_init}}",
+    )
+    body = body.replace(
+        "      renderQuestions();\n"
+        "      renderOpen();\n"
+        "      renderSna();\n"
+        "      {{extra_render}}",
+        "      renderQuestions();\n"
+        "      renderOpen();\n"
+        "      renderSna();\n"
+        "      setupPagination();\n"
+        "      {{extra_render}}",
+    )
     return body
 
 
@@ -120,7 +245,7 @@ INDEX = """<!doctype html>
     <h1>Accounting &amp; Banking for SMEs</h1>
     <p class="sub">Accounting &amp; Banking for SMEs — exams 2024–2026. English only.</p>
     <ul class="topics">
-      <li><a href="99_All_Tests.html"><span class="title">★ All tests on one page</span><span class="desc">All MCQ + open questions · one page</span></a></li>
+      <li><a href="99_All_Tests.html"><span class="title">★ All tests on one page</span><span class="desc">All MCQ · one page</span></a></li>
       <li><a href="00_How_To_Solve.html"><span class="title">00 — How to Solve</span><span class="desc">Step-by-step: ROE, gap, SoFP, divisions, depreciation</span></a></li>
       <li><a href="01_Part1_Management_Accounting.html"><span class="title">01 — Part 1 (05/06/2024)</span><span class="desc">8 MCQ · management, break-even, DCF</span></a></li>
       <li><a href="06_Part1_IFRS_2025.html"><span class="title">06 — Part 1 IFRS (25/06/2025)</span><span class="desc">IAS 2, Framework, IFRS 15</span></a></li>
@@ -136,7 +261,6 @@ INDEX = """<!doctype html>
       <li><a href="09_Statement_of_Financial_Position.html"><span class="title">09 — Statement of Financial Position</span><span class="desc">Uniclam Group Corp. · 2 variants</span></a></li>
       <li><a href="10_Depreciation.html"><span class="title">10 — Depreciation</span><span class="desc">Exercise 3 (8 pts) · straight-line &amp; reducing balance</span></a></li>
       <li><a href="13_Divisions_and_DCF.html"><span class="title">13 — Divisions &amp; DCF</span><span class="desc">Exercise 2 (8 pts) table + Cassino SpA DCF</span></a></li>
-      <li><a href="05_Open_Questions.html"><span class="title">05 — Open questions</span><span class="desc">Theory — short answers; exercises — step-by-step solutions</span></a></li>
     </ul>
   </div>
 </body>
@@ -1276,12 +1400,6 @@ def main():
                "SROI, Corporate Sustainability, Efficiency",
                sust)
 
-    write_page("05_Open_Questions.html",
-               "Open questions & exercises",
-               "Theory — brief answers; exercises — show solution button",
-               [], open_items=open_items,
-               rules_html=guide_link + '<div class="rules">Theory: brief answer under each question. Exercises: click “Show full solution” for step-by-step breakdown.</div>')
-
     write_page("06_Part1_IFRS_2025.html",
                "Part 1 — IFRS (25/06/2025)",
                "IAS 2, Conceptual Framework, IFRS 15",
@@ -1308,7 +1426,7 @@ def main():
     write_page("09_Statement_of_Financial_Position.html",
                "Statement of Financial Position",
                "Uniclam Group Corp. — classification exercise",
-               [], open_items=[open_items[7], open_items[8]],
+               [], open_items=[],
                extra_html=sofp_extra)
 
     write_page("10_Depreciation.html",
