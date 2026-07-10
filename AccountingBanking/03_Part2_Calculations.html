@@ -181,6 +181,25 @@
     .reveal-btn { margin-top: 0.6rem; font-size: 0.88rem; padding: 0.45rem 1rem; }
     details.solution { margin-top: 0.75rem; font-size: 0.9rem; }
     details.solution summary { cursor: pointer; color: #16a085; font-weight: 600; }
+  
+    .page-hidden { display: none !important; }
+    .paginator {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 1rem 0;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e8ecf1;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .paginator-top { position: sticky; top: 0; z-index: 5; }
+    .paginator-info { font-weight: 600; color: #2c3e50; font-size: 0.95rem; }
+    .paginator-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .paginator-btns button:disabled { opacity: 0.45; cursor: not-allowed; }
   </style>
 </head>
 <body>
@@ -214,20 +233,167 @@
     const container = document.getElementById('questions');
     const resultsBox = document.getElementById('results');
 
+    const PAGE_SIZE = 20;
+    let currentPage = 0;
+    let paginatorTop = null;
+    let paginatorBottom = null;
+    let paginationLocked = false;
+
+    function mcqPageCount() {
+      return QUESTIONS.length ? Math.ceil(QUESTIONS.length / PAGE_SIZE) : 0;
+    }
+
+    function openPageCount() {
+      return OPEN_ITEMS.length ? Math.ceil(OPEN_ITEMS.length / PAGE_SIZE) : 0;
+    }
+
+    function openItemPage(idx) {
+      return mcqPageCount() + Math.floor(idx / PAGE_SIZE);
+    }
+
+    function totalPageCount() {
+      let n = mcqPageCount();
+      if (OPEN_ITEMS.length) n += openPageCount();
+      if (SNA_ITEMS.length) n += 1;
+      return Math.max(1, n);
+    }
+
+    function needsPagination() {
+      return totalPageCount() > 1;
+    }
+
+    function pageLabel(page) {
+      const mcqPages = mcqPageCount();
+      if (page < mcqPages) {
+        const from = page * PAGE_SIZE + 1;
+        const to = Math.min((page + 1) * PAGE_SIZE, QUESTIONS.length);
+        return 'Questions ' + from + '–' + to + ' · page ' + (page + 1) + ' of ' + totalPageCount();
+      }
+      const openStart = page - mcqPages;
+      if (OPEN_ITEMS.length && page < mcqPages + openPageCount()) {
+        const from = openStart * PAGE_SIZE + 1;
+        const to = Math.min((openStart + 1) * PAGE_SIZE, OPEN_ITEMS.length);
+        return 'Open questions ' + from + '–' + to + ' · page ' + (page + 1) + ' of ' + totalPageCount();
+      }
+      return 'Calculations · page ' + (page + 1) + ' of ' + totalPageCount();
+    }
+
+    function createPaginator(className) {
+      const el = document.createElement('div');
+      el.className = className;
+      el.innerHTML = '<span class="paginator-info"></span><div class="paginator-btns">' +
+        '<button type="button" class="secondary" data-nav="prev">← Previous</button>' +
+        '<button type="button" class="secondary" data-nav="next">Next →</button></div>';
+      el.querySelector('[data-nav="prev"]').addEventListener('click', () => goToPage(currentPage - 1));
+      el.querySelector('[data-nav="next"]').addEventListener('click', () => goToPage(currentPage + 1));
+      return el;
+    }
+
+    function updatePaginator() {
+      const show = needsPagination() && !paginationLocked;
+      [paginatorTop, paginatorBottom].forEach((p) => {
+        if (!p) return;
+        p.style.display = show ? '' : 'none';
+        if (!show) return;
+        p.querySelector('.paginator-info').textContent = pageLabel(currentPage);
+        p.querySelector('[data-nav="prev"]').disabled = currentPage <= 0;
+        p.querySelector('[data-nav="next"]').disabled = currentPage >= totalPageCount() - 1;
+      });
+      updateCheckButton();
+    }
+
+    function applyPageVisibility() {
+      container.querySelectorAll('[data-page]').forEach((el) => {
+        const p = Number(el.dataset.page);
+        el.classList.toggle('page-hidden', paginationLocked ? false : p !== currentPage);
+      });
+      updatePaginator();
+    }
+
+    function goToPage(page) {
+      if (paginationLocked) return;
+      currentPage = Math.max(0, Math.min(totalPageCount() - 1, page));
+      applyPageVisibility();
+      const target = paginatorTop || container;
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function setupPagination() {
+      paginationLocked = false;
+      currentPage = 0;
+      if (paginatorTop) {
+        paginatorTop.remove();
+        paginatorBottom.remove();
+        paginatorTop = paginatorBottom = null;
+      }
+      if (!needsPagination()) {
+        updateCheckButton();
+        return;
+      }
+      paginatorTop = createPaginator('paginator paginator-top');
+      paginatorBottom = createPaginator('paginator paginator-bottom');
+      container.before(paginatorTop);
+      const actions = form.querySelector('.actions');
+      form.insertBefore(paginatorBottom, actions);
+      goToPage(0);
+      updateCheckButton();
+    }
+
+    function showAllPages() {
+      paginationLocked = true;
+      applyPageVisibility();
+    }
+
+    function pageForMcqIndex(idx) {
+      return Math.floor(idx / PAGE_SIZE);
+    }
+
+    function isMcqPage(page) {
+      return page < mcqPageCount();
+    }
+
+    function questionsForPage(page) {
+      const items = [];
+      QUESTIONS.forEach((q, idx) => {
+        if (pageForMcqIndex(idx) === page) items.push(q);
+      });
+      return items;
+    }
+
+    function questionsToCheck() {
+      if (needsPagination() && isMcqPage(currentPage)) {
+        return questionsForPage(currentPage);
+      }
+      return QUESTIONS;
+    }
+
+    function updateCheckButton() {
+      const btn = form.querySelector('.actions button[type="submit"]');
+      if (!btn) return;
+      if (!btn.dataset.defaultLabel) btn.dataset.defaultLabel = btn.textContent;
+      if (needsPagination() && isMcqPage(currentPage)) {
+        btn.textContent = 'Check this page (' + questionsForPage(currentPage).length + ')';
+      } else {
+        btn.textContent = btn.dataset.defaultLabel;
+      }
+    }
+
     function renderQuestions() {
       container.innerHTML = '';
       let currentSection = '';
-      QUESTIONS.forEach((q) => {
+      QUESTIONS.forEach((q, idx) => {
         if (q.section && q.section !== currentSection) {
           currentSection = q.section;
           const h = document.createElement('div');
           h.className = 'section-title';
+          h.dataset.page = String(pageForMcqIndex(idx));
           h.textContent = q.section;
           container.appendChild(h);
         }
         const card = document.createElement('div');
         card.className = 'q';
         card.dataset.id = q.id;
+        card.dataset.page = String(pageForMcqIndex(idx));
         card.innerHTML = `
           <div class="q-num">Question ${q.num}</div>
           <div class="q-en">${q.en}</div>
@@ -253,11 +419,13 @@
           openSection = sec;
           const h = document.createElement('div');
           h.className = 'section-title';
+          h.dataset.page = String(openItemPage(idx));
           h.textContent = sec;
           container.appendChild(h);
         }
         const block = document.createElement('div');
         block.className = 'open-block';
+        block.dataset.page = String(openItemPage(idx));
         const brief = item.sample_en || '';
         block.innerHTML = `
           <div class="q-num">${item.title_en || item.en}</div>
@@ -272,11 +440,13 @@
       if (!SNA_ITEMS.length) return;
       const h = document.createElement('div');
       h.className = 'section-title';
+      h.dataset.page = String(mcqPageCount() + openPageCount());
       h.textContent = 'SNA — calculations';
       container.appendChild(h);
       SNA_ITEMS.forEach((item, idx) => {
         const block = document.createElement('div');
         block.className = 'open-block';
+        block.dataset.page = String(mcqPageCount() + openPageCount());
         block.innerHTML = `
           <div class="q-en">${item.en}</div>
           <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
@@ -304,8 +474,10 @@
       let correct = 0;
       let wrong = 0;
       const warnEl = document.getElementById('warn-text');
+      const toCheck = questionsToCheck();
+      const checkingAll = toCheck.length === QUESTIONS.length;
 
-      QUESTIONS.forEach((q) => {
+      toCheck.forEach((q, idx) => {
         const card = container.querySelector(`[data-id="${q.id}"]`);
         const selected = form.querySelector(`input[name="${q.id}"]:checked`);
         card.classList.remove('unanswered', 'correct', 'wrong');
@@ -326,14 +498,20 @@
       if (unanswered > 0) {
         resultsBox.classList.remove('visible');
         warnEl.hidden = false;
-        warnEl.textContent = `Answer all MCQ questions (${unanswered} unanswered).`;
+        warnEl.textContent = checkingAll
+          ? `Answer all MCQ questions (${unanswered} unanswered).`
+          : `Answer all questions on this page (${unanswered} unanswered).`;
         const first = container.querySelector('.q.unanswered');
-        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (first) {
+          const p = Number(first.dataset.page);
+          if (!isNaN(p)) goToPage(p);
+          first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
         return;
       }
       warnEl.hidden = true;
 
-      QUESTIONS.forEach((q) => {
+      toCheck.forEach((q) => {
         const card = container.querySelector(`[data-id="${q.id}"]`);
         const selected = form.querySelector(`input[name="${q.id}"]:checked`);
         const fb = card.querySelector('.feedback');
@@ -392,17 +570,19 @@
         }
       });
 
-      const total = QUESTIONS.length;
+      const total = checkingAll ? QUESTIONS.length : toCheck.length;
       let score = correct * SCORING.correct + wrong * SCORING.wrong;
       if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
 
-      document.getElementById('score-text').textContent =
-        `Score: ${correct} of ${total} (${Math.round(correct/total*100)}%)`;
+      document.getElementById('score-text').textContent = checkingAll
+        ? `Score: ${correct} of ${total} (${Math.round(correct/total*100)}%)`
+        : `This page: ${correct} of ${total} (${Math.round(correct/total*100)}%)`;
       document.getElementById('score-detail').textContent =
         SCORING.correct !== 1 || SCORING.wrong !== 0
           ? `Points: ${score.toFixed(1)} · Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`
           : `Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`;
 
+      if (checkingAll) showAllPages();
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -414,12 +594,14 @@
       renderQuestions();
       renderOpen();
       renderSna();
+      setupPagination();
       
     });
 
     renderQuestions();
     renderOpen();
     renderSna();
+    setupPagination();
     
   </script>
 </body>

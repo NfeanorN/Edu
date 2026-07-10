@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Build 14_Master_Question_Bank.html and patch 05_Open_Questions (Debt vs Equity). */
+/** Build 14_Master_Question_Bank.html from template. */
 import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
