@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part 1 — Exam 16/06/2026</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #16a085; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #16a085;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #16a085;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 1.15rem;
+      color: #16a085;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #16a085; margin-bottom: 0.35rem; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #eef9f6; }
+  .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-en { font-size: 0.95rem; }
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .open-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .open-block textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-top: 0.5rem;
+      padding: 0.65rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .sample {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: #eefaf7;
+      border-radius: 8px;
+      border-left: 3px solid #16a085;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
+    table.matrix {
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0 auto;
+    }
+    table.matrix th, table.matrix td {
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      text-align: center;
+    }
+    table.matrix th { background: #16a085; color: #fff; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #16a085;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #138d75; }
+    button.secondary {
+      background: #fff;
+      color: #16a085;
+      border: 2px solid #16a085;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #16a085;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+    .howto {
+      margin-top: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: #eefaf7;
+      border-radius: 8px;
+      border-left: 3px solid #16a085;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
+        .brief-answer {
+      margin: 0.65rem 0 0.85rem;
+      padding: 0.7rem 1rem;
+      background: #e8f8ef;
+      border-left: 4px solid #27ae60;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .brief-label { font-weight: 600; color: #1e7e45; font-size: 0.82rem; margin-bottom: 0.2rem; }
+    .brief-text { color: #1a1a2e; }
+    .answer-label { font-weight: 600; color: #16a085; margin-top: 0.75rem; font-size: 0.9rem; }
+    .reveal-btn { margin-top: 0.6rem; font-size: 0.88rem; padding: 0.45rem 1rem; }
+    details.solution { margin-top: 0.75rem; font-size: 0.9rem; }
+    details.solution summary { cursor: pointer; color: #16a085; font-weight: 600; }
+  
+    .page-hidden { display: none !important; }
+    .paginator {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 1rem 0;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e8ecf1;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .paginator-top { position: sticky; top: 0; z-index: 5; }
+    .paginator-info { font-weight: 600; color: #2c3e50; font-size: 0.95rem; }
+    .paginator-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .paginator-btns button:disabled { opacity: 0.45; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← Accounting & Banking tests</a></p>
+    <h1>Part 1 — Exam 16/06/2026</h1>
+    <p class="sub">Accounting and banking for SMEs · 16th June 2026</p>
+    <div class="rules">+1 correct, −1 wrong, 0 if skipped (no penalty for blanks).</div>
+    <form id="test-form">
+      <div id="questions"></div>
+      
+      <div class="actions">
+        <button type="submit">Check answers</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = {"correct":1,"wrong":-1,"max":null}
+    const QUESTIONS = [{"num":1,"id":"q1","en":"The management of an organization performs three general broad functions:","options":[{"id":"a","en":"Planning, directing and motivating, controlling"},{"id":"b","en":"Planning, budgeting and controlling"},{"id":"c","en":"Planning, accounting and controlling"},{"id":"d","en":"Directing and motivating, accounting and controlling"}],"correct":"a","section":null},{"num":2,"id":"q2","en":"Planning involves:","options":[{"id":"a","en":"Developing objectives and preparing various budgets to achieve these objectives"},{"id":"b","en":"The steps taken by management that attempt to ensure the objectives are attained"},{"id":"c","en":"Analysis of an organization's accounts and fiscal trends to provide data to advise those in business to make accurate decisions"},{"id":"d","en":"Guiding, coaching, instructing, motivating, leading the people in an organisation to achieve organisational objectives"}],"correct":"a","section":null},{"num":3,"id":"q3","en":"For all companies to be efficient and effective it must have 3 levels of managers namely:","options":[{"id":"a","en":"Strategic Managers, Accounting Managers and Operational Managers"},{"id":"b","en":"Strategic Managers, Tactical Managers and Financial Managers"},{"id":"c","en":"Strategic Managers, Tactical Managers and Operational Managers"},{"id":"d","en":"Financial Managers, Accounting Managers and Operational Managers"}],"correct":"c","section":null},{"num":4,"id":"q4","en":"The Direct costs are:","options":[{"id":"a","en":"Costs that vary directly and proportionately with changes in the activity level"},{"id":"b","en":"Costs that remain the same in total regardless of changes in the activity level"},{"id":"c","en":"Costs that can be easily and conveniently traced to a product or department"},{"id":"d","en":"Costs that must be allocated in order to be assigned to a product or department"}],"correct":"c","section":null},{"num":5,"id":"q5","en":"The formula for break even analysis is as follows:","options":[{"id":"a","en":"Variable costs / (Sales price per unit – Variable cost per unit)"},{"id":"b","en":"(Variable cost + Fixed costs) / Sales price"},{"id":"c","en":"Fixed costs / (Sales price per unit – Variable cost per unit)"},{"id":"d","en":"Assets / (Revenue – Fixed costs)"}],"correct":"c","section":null},{"num":6,"id":"q6","en":"A Budget is:","options":[{"id":"a","en":"A detailed quantitative plan for acquiring/using financial and other resources over a specified forthcoming time period"},{"id":"b","en":"A system that includes subsystems for planning, measuring and recording results and evaluating performance"},{"id":"c","en":"The force that moves different people in different ways for different reasons"},{"id":"d","en":"Concerned with the initiation of organized action and stimulating people to work"}],"correct":"a","section":null},{"num":7,"id":"q7","en":"Efficiency is:","options":[{"id":"a","en":"The comparison of what is actually produced or performed with what can be achieved with the same consumption of resources"},{"id":"b","en":"The degree to which objectives are achieved and the extent to which targeted problems are solved"},{"id":"c","en":"Refers to how an organization has achieved full self-awareness due"},{"id":"d","en":"The criterion that allows to judge the economic and financial viability of an investment"}],"correct":"a","section":null},{"num":8,"id":"q8","en":"Discounted Cash Flow (DCF) analysis is?","options":[{"id":"a","en":"A relative valuation method in which you compare the current value of a business to other similar businesses by looking at trading multiples liabilities"},{"id":"b","en":"A form of relative valuation where you compare the company in question to other businesses that have recently been sold or acquired in the same industry"},{"id":"c","en":"A Market approach method"},{"id":"d","en":"An Intrinsic value approach"}],"correct":"d","section":null}]
+    const OPEN_ITEMS = []
+    const SNA_ITEMS = []
+
+    const form = document.getElementById('test-form');
+    const container = document.getElementById('questions');
+    const resultsBox = document.getElementById('results');
+
+    const PAGE_SIZE = 20;
+    let currentPage = 0;
+    let paginatorTop = null;
+    let paginatorBottom = null;
+    let paginationLocked = false;
+
+    function mcqPageCount() {
+      return QUESTIONS.length ? Math.ceil(QUESTIONS.length / PAGE_SIZE) : 0;
+    }
+
+    function openPageCount() {
+      return OPEN_ITEMS.length ? Math.ceil(OPEN_ITEMS.length / PAGE_SIZE) : 0;
+    }
+
+    function openItemPage(idx) {
+      return mcqPageCount() + Math.floor(idx / PAGE_SIZE);
+    }
+
+    function totalPageCount() {
+      let n = mcqPageCount();
+      if (OPEN_ITEMS.length) n += openPageCount();
+      if (SNA_ITEMS.length) n += 1;
+      return Math.max(1, n);
+    }
+
+    function needsPagination() {
+      return totalPageCount() > 1;
+    }
+
+    function pageLabel(page) {
+      const mcqPages = mcqPageCount();
+      if (page < mcqPages) {
+        const from = page * PAGE_SIZE + 1;
+        const to = Math.min((page + 1) * PAGE_SIZE, QUESTIONS.length);
+        return 'Questions ' + from + '–' + to + ' · page ' + (page + 1) + ' of ' + totalPageCount();
+      }
+      const openStart = page - mcqPages;
+      if (OPEN_ITEMS.length && page < mcqPages + openPageCount()) {
+        const from = openStart * PAGE_SIZE + 1;
+        const to = Math.min((openStart + 1) * PAGE_SIZE, OPEN_ITEMS.length);
+        return 'Open questions ' + from + '–' + to + ' · page ' + (page + 1) + ' of ' + totalPageCount();
+      }
+      return 'Calculations · page ' + (page + 1) + ' of ' + totalPageCount();
+    }
+
+    function createPaginator(className) {
+      const el = document.createElement('div');
+      el.className = className;
+      el.innerHTML = '<span class="paginator-info"></span><div class="paginator-btns">' +
+        '<button type="button" class="secondary" data-nav="prev">← Previous</button>' +
+        '<button type="button" class="secondary" data-nav="next">Next →</button></div>';
+      el.querySelector('[data-nav="prev"]').addEventListener('click', () => goToPage(currentPage - 1));
+      el.querySelector('[data-nav="next"]').addEventListener('click', () => goToPage(currentPage + 1));
+      return el;
+    }
+
+    function updatePaginator() {
+      const show = needsPagination() && !paginationLocked;
+      [paginatorTop, paginatorBottom].forEach((p) => {
+        if (!p) return;
+        p.style.display = show ? '' : 'none';
+        if (!show) return;
+        p.querySelector('.paginator-info').textContent = pageLabel(currentPage);
+        p.querySelector('[data-nav="prev"]').disabled = currentPage <= 0;
+        p.querySelector('[data-nav="next"]').disabled = currentPage >= totalPageCount() - 1;
+      });
+      updateCheckButton();
+    }
+
+    function applyPageVisibility() {
+      container.querySelectorAll('[data-page]').forEach((el) => {
+        const p = Number(el.dataset.page);
+        el.classList.toggle('page-hidden', paginationLocked ? false : p !== currentPage);
+      });
+      updatePaginator();
+    }
+
+    function goToPage(page) {
+      if (paginationLocked) return;
+      currentPage = Math.max(0, Math.min(totalPageCount() - 1, page));
+      applyPageVisibility();
+      const target = paginatorTop || container;
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function setupPagination() {
+      paginationLocked = false;
+      currentPage = 0;
+      if (paginatorTop) {
+        paginatorTop.remove();
+        paginatorBottom.remove();
+        paginatorTop = paginatorBottom = null;
+      }
+      if (!needsPagination()) {
+        updateCheckButton();
+        return;
+      }
+      paginatorTop = createPaginator('paginator paginator-top');
+      paginatorBottom = createPaginator('paginator paginator-bottom');
+      container.before(paginatorTop);
+      const actions = form.querySelector('.actions');
+      form.insertBefore(paginatorBottom, actions);
+      goToPage(0);
+      updateCheckButton();
+    }
+
+    function showAllPages() {
+      paginationLocked = true;
+      applyPageVisibility();
+    }
+
+    function pageForMcqIndex(idx) {
+      return Math.floor(idx / PAGE_SIZE);
+    }
+
+    function isMcqPage(page) {
+      return page < mcqPageCount();
+    }
+
+    function questionsForPage(page) {
+      const items = [];
+      QUESTIONS.forEach((q, idx) => {
+        if (pageForMcqIndex(idx) === page) items.push(q);
+      });
+      return items;
+    }
+
+    function questionsToCheck() {
+      if (needsPagination() && isMcqPage(currentPage)) {
+        return questionsForPage(currentPage);
+      }
+      return QUESTIONS;
+    }
+
+    function updateCheckButton() {
+      const btn = form.querySelector('.actions button[type="submit"]');
+      if (!btn) return;
+      if (!btn.dataset.defaultLabel) btn.dataset.defaultLabel = btn.textContent;
+      if (needsPagination() && isMcqPage(currentPage)) {
+        btn.textContent = 'Check this page (' + questionsForPage(currentPage).length + ')';
+      } else {
+        btn.textContent = btn.dataset.defaultLabel;
+      }
+    }
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      let currentSection = '';
+      QUESTIONS.forEach((q, idx) => {
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.dataset.page = String(pageForMcqIndex(idx));
+          h.textContent = q.section;
+          container.appendChild(h);
+        }
+        const card = document.createElement('div');
+        card.className = 'q';
+        card.dataset.id = q.id;
+        card.dataset.page = String(pageForMcqIndex(idx));
+        card.innerHTML = `
+          <div class="q-num">Question ${q.num}</div>
+          <div class="q-en">${q.en}</div>
+          <div class="opts">
+            ${q.options.map(o => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</span>
+              </label>`).join('')}
+          </div>
+          ${q.explain ? `<details class="solution"><summary>📗 Solution</summary><div class="howto">${q.explain}</div></details>` : ''}
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderOpen() {
+      if (!OPEN_ITEMS.length) return;
+      let openSection = '';
+      OPEN_ITEMS.forEach((item, idx) => {
+        const sec = item.section || (item.howto_en ? 'Exercises' : 'Theory — short answers');
+        if (sec !== openSection) {
+          openSection = sec;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.dataset.page = String(openItemPage(idx));
+          h.textContent = sec;
+          container.appendChild(h);
+        }
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.dataset.page = String(openItemPage(idx));
+        const brief = item.sample_en || '';
+        block.innerHTML = `
+          <div class="q-num">${item.title_en || item.en}</div>
+          <div class="q-en">${item.en}</div>
+          ${brief ? `<div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">${brief}</div></div>` : ''}
+          <textarea name="open_${idx}" placeholder="Your answer (optional)..."></textarea>`;
+        container.appendChild(block);
+      });
+    }
+
+    function renderSna() {
+      if (!SNA_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.dataset.page = String(mcqPageCount() + openPageCount());
+      h.textContent = 'SNA — calculations';
+      container.appendChild(h);
+      SNA_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.dataset.page = String(mcqPageCount() + openPageCount());
+        block.innerHTML = `
+          <div class="q-en">${item.en}</div>
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Your answer..." />
+          <div class="feedback" hidden></div>`;
+        block.dataset.expected = item.expected;
+        block.dataset.accept = JSON.stringify(item.accept || []);
+        container.appendChild(block);
+      });
+    }
+
+    function normalize(val) {
+      return String(val || '').trim().toLowerCase().replace(/\\s+/g, ' ');
+    }
+
+    function checkSnaAnswer(expected, accept, user) {
+      const n = normalize(user);
+      if (!n) return null;
+      const variants = [expected, ...(accept || [])].map(normalize);
+      return variants.some(v => n === v || n.includes(v) || v.includes(n));
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const warnEl = document.getElementById('warn-text');
+      const toCheck = questionsToCheck();
+      const checkingAll = toCheck.length === QUESTIONS.length;
+
+      toCheck.forEach((q, idx) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        card.classList.remove('unanswered', 'correct', 'wrong');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = true;
+        fb.textContent = '';
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          lbl.classList.remove('result-opt');
+          lbl.style.background = '';
+          lbl.querySelector('input').disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove('visible');
+        warnEl.hidden = false;
+        warnEl.textContent = checkingAll
+          ? `Answer all MCQ questions (${unanswered} unanswered).`
+          : `Answer all questions on this page (${unanswered} unanswered).`;
+        const first = container.querySelector('.q.unanswered');
+        if (first) {
+          const p = Number(first.dataset.page);
+          if (!isNaN(p)) goToPage(p);
+          first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+      warnEl.hidden = true;
+
+      toCheck.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        const fb = card.querySelector('.feedback');
+        fb.hidden = false;
+        card.classList.remove('unanswered', 'correct', 'wrong');
+
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ No answer selected. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          return;
+        }
+
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add('correct');
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
+        } else {
+          wrong++;
+          card.classList.add('wrong');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Incorrect. Your answer: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
+        }
+
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          const inp = lbl.querySelector('input');
+          lbl.classList.add('result-opt');
+          if (inp.value === q.correct) lbl.style.background = '#e8f8ef';
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = '#fdecea';
+          inp.disabled = true;
+        });
+      });
+
+      container.querySelectorAll('.open-block .sample, .open-block .howto').forEach(el => { el.hidden = false; });
+
+      container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
+        const block = fb.closest('.open-block');
+        if (!block.dataset.expected) return;
+        const inp = block.querySelector('input');
+        const ok = checkSnaAnswer(block.dataset.expected, JSON.parse(block.dataset.accept || '[]'), inp.value);
+        fb.hidden = false;
+        if (ok === null) {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Empty answer. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        } else if (ok) {
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
+        } else {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Incorrect. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        }
+      });
+
+      const total = checkingAll ? QUESTIONS.length : toCheck.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
+
+      document.getElementById('score-text').textContent = checkingAll
+        ? `Score: ${correct} of ${total} (${Math.round(correct/total*100)}%)`
+        : `This page: ${correct} of ${total} (${Math.round(correct/total*100)}%)`;
+      document.getElementById('score-detail').textContent =
+        SCORING.correct !== 1 || SCORING.wrong !== 0
+          ? `Points: ${score.toFixed(1)} · Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`
+          : `Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`;
+
+      if (checkingAll) showAllPages();
+      resultsBox.classList.add('visible');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      form.reset();
+      resultsBox.classList.remove('visible');
+      document.getElementById('warn-text').hidden = true;
+      renderQuestions();
+      renderOpen();
+      renderSna();
+      setupPagination();
+      
+    });
+
+    renderQuestions();
+    renderOpen();
+    renderSna();
+    setupPagination();
+    
+  </script>
+</body>
+</html>

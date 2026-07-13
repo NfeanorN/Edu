@@ -30,6 +30,8 @@ function cleanOpenItem(item) {
 }
 
 const TEST_FILES = [
+  { file: '15_Part1_Exam_2026_16-06.html', title: '15 — Part 1 Exam 16/06/2026', desc: '8 MCQ · +1/−1 · photo exam' },
+  { file: '16_Part2_Exam_2026_16-06_Variant_A.html', title: '16 — Part 2 Exam 16/06/2026 Variant A', desc: '13 MCQ + open · Free Float, PE' },
   { file: '01_Part1_Management_Accounting.html', title: '01 — Part 1 Management (05/06/2024)', desc: '8 MCQ · +1/−1' },
   { file: '06_Part1_IFRS_2025.html', title: '06 — Part 1 IFRS (25/06/2025)', desc: '4 MCQ · +1/−1' },
   { file: '11_Part1_Financial_Statements.html', title: '11 — Financial statements Q1–4', desc: '4 MCQ · +1/−1' },
@@ -95,6 +97,10 @@ function slugFromFile(file) {
   return file.replace(/\.html$/, '').replace(/[^a-z0-9]+/gi, '_').toLowerCase();
 }
 
+function questionKey(q) {
+  return q.en.trim().toLowerCase();
+}
+
 const blocks = TEST_FILES.map((meta, bi) => {
   const html = readFileSync(join(ROOT, meta.file), 'utf8');
   const slug = slugFromFile(meta.file);
@@ -119,6 +125,16 @@ const blocks = TEST_FILES.map((meta, bi) => {
     extra,
   };
 });
+
+const seenQuestions = new Set();
+for (const block of blocks) {
+  block.questions = block.questions.filter((q) => {
+    const key = questionKey(q);
+    if (seenQuestions.has(key)) return false;
+    seenQuestions.add(key);
+    return true;
+  });
+}
 
 const allQuestions = blocks.flatMap(b => b.questions);
 const totalMcq = allQuestions.length;
