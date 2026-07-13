@@ -163,7 +163,7 @@ def apply_pagination_patches(body):
     body = body.replace(
         "      resultsBox.classList.add('visible');\n"
         "      resultsBox.scrollIntoView({{ behavior: 'smooth', block: 'start' }});",
-        "      showAllPages();\n"
+        "      if (checkingAll) showAllPages();\n"
         "      resultsBox.classList.add('visible');\n"
         "      resultsBox.scrollIntoView({{ behavior: 'smooth', block: 'start' }});",
     )
@@ -247,6 +247,8 @@ INDEX = """<!doctype html>
     <ul class="topics">
       <li><a href="99_All_Tests.html"><span class="title">★ All tests on one page</span><span class="desc">All MCQ · one page</span></a></li>
       <li><a href="00_How_To_Solve.html"><span class="title">00 — How to Solve</span><span class="desc">Step-by-step: ROE, gap, SoFP, divisions, depreciation</span></a></li>
+      <li><a href="15_Part1_Exam_2026_16-06.html"><span class="title">15 — Part 1 Exam (16/06/2026)</span><span class="desc">8 MCQ · photo exam · +1/−1</span></a></li>
+      <li><a href="16_Part2_Exam_2026_16-06_Variant_A.html"><span class="title">16 — Part 2 Exam Variant A (16/06/2026)</span><span class="desc">13 MCQ + open · Free Float, PE, EBU</span></a></li>
       <li><a href="01_Part1_Management_Accounting.html"><span class="title">01 — Part 1 (05/06/2024)</span><span class="desc">8 MCQ · management, break-even, DCF</span></a></li>
       <li><a href="06_Part1_IFRS_2025.html"><span class="title">06 — Part 1 IFRS (25/06/2025)</span><span class="desc">IAS 2, Framework, IFRS 15</span></a></li>
       <li><a href="11_Part1_Financial_Statements.html"><span class="title">11 — Part 1: financial statements (Q1–4)</span><span class="desc">Cash flows, current ratio, IAS 7</span></a></li>

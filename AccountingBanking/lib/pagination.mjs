@@ -410,13 +410,15 @@ export function applyStandardPagination(html) {
           first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }`,
   );
-  out = out.replace(
-    `      resultsBox.classList.add('visible');
+  if (!out.includes('if (checkingAll) showAllPages()')) {
+    out = out.replace(
+      `      resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });`,
-    `      showAllPages();
+      `      if (checkingAll) showAllPages();
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });`,
-  );
+    );
+  }
   out = out.replace(
     `    renderQuestions();
     renderOpen();
@@ -595,13 +597,15 @@ export function applyBlocksPagination(html) {
           first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }`,
   );
-  out = out.replace(
-    `      resultsBox.classList.add('visible');
+  if (!out.includes('if (checkingAll) showAllPages()')) {
+    out = out.replace(
+      `      resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });`,
-    `      showAllPages();
+      `      if (checkingAll) showAllPages();
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });`,
-  );
+    );
+  }
 
   return out.includes('const PAGE_SIZE = 20;') ? restoreEol(out, eol) : html;
 }
