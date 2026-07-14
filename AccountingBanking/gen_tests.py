@@ -247,6 +247,7 @@ INDEX = """<!doctype html>
     <ul class="topics">
       <li><a href="99_All_Tests.html"><span class="title">★ All tests on one page</span><span class="desc">All MCQ · one page</span></a></li>
       <li><a href="00_How_To_Solve.html"><span class="title">00 — How to Solve</span><span class="desc">Step-by-step: ROE, gap, SoFP, divisions, depreciation</span></a></li>
+      <li><a href="05_Open_Questions.html"><span class="title">05 — Open questions</span><span class="desc">21 open · theory, EBU 3 pillars, IPO, exercises</span></a></li>
       <li><a href="15_Part1_Exam_2026_16-06.html"><span class="title">15 — Part 1 Exam (16/06/2026)</span><span class="desc">8 MCQ · photo exam · +1/−1</span></a></li>
       <li><a href="16_Part2_Exam_2026_16-06_Variant_A.html"><span class="title">16 — Part 2 Exam Variant A (16/06/2026)</span><span class="desc">13 MCQ + open · Free Float, PE, EBU</span></a></li>
       <li><a href="01_Part1_Management_Accounting.html"><span class="title">01 — Part 1 (05/06/2024)</span><span class="desc">8 MCQ · management, break-even, DCF</span></a></li>
@@ -1333,26 +1334,37 @@ def main():
     .exam-photo figcaption { font-size: 0.82rem; color: #666; text-align: center; margin-top: 0.5rem; }
     @media (max-width: 820px) { .exam-row { grid-template-columns: 1fr; } }
     </style>
-    <div class="section-title">Exercise 3 (8 pts) — your exam sheet + solution</div>
+    <div class="section-title">Exercise 3 (8 pts) — exam sheet</div>
     <div class="exam-row">
       <figure class="exam-photo">
         <img src="images/exam-depreciation-exercise3.png" alt="Exam Exercise 3 — Depreciation" />
         <figcaption>Photo from exam · cost $160k, 6 years, residual $28k</figcaption>
       </figure>
       <div>
-        <p class="q-en"><strong>(a)</strong> Calculate the annual depreciation charge for each method.</p>
-        <div class="brief-answer" style="margin-top:0.5rem">
-          <div class="brief-label">Answer (a)</div>
-          <div class="brief-text"><strong>Straight-line:</strong> (160,000 − 28,000) ÷ 6 = <strong>$22,000</strong> every year.<br>
-          <strong>Reducing balance (15%):</strong> dep = 15% × carrying value (carrying goes down each year).</div>
-        </div>
-        <p class="q-en" style="margin-top:1rem"><strong>(b)</strong> Build a 6-year schedule: cost, accumulated depreciation, NBV.</p>
-        <div class="brief-answer">
-          <div class="brief-label">Answer (b)</div>
-          <div class="brief-text">Use the tables below. Year 6 NBV = <strong>$28,000</strong> (straight-line, equals residual) or <strong>$60,344</strong> (reducing balance).</div>
-        </div>
+        <p class="q-en"><strong>(a)</strong> Calculate the annual depreciation charge for each method (straight-line and reducing balance 15%).</p>
+        <p class="q-en"><strong>(b)</strong> For each method, build a 6-year schedule: cost, accumulated depreciation, NBV.</p>
       </div>
     </div>
+
+    <div class="section-title">(a) Annual depreciation charge — answer</div>
+    <div class="open-block" style="border-left: 4px solid #27ae60;">
+      <p class="q-en"><strong>Straight-line</strong></p>
+      <p class="q-en">Formula: (Cost − Residual) ÷ Life = (160,000 − 28,000) ÷ 6</p>
+      <p class="q-en" style="font-size:1.15rem;margin:0.5rem 0"><strong>Annual depreciation = $22,000 every year</strong> (same in years 1–6)</p>
+
+      <p class="q-en" style="margin-top:1.25rem"><strong>Reducing balance (15%)</strong></p>
+      <p class="q-en">Formula: Depreciation = 15% × carrying value at start of year (carrying falls each year — charge is <em>not</em> constant).</p>
+      <table class="matrix" style="margin-top:0.75rem;max-width:520px">
+        <tr><th>Year</th><th>Carrying at start ($)</th><th>Calculation</th><th>Dep. charge ($)</th></tr>
+        <tr><td>1</td><td>160,000</td><td>160,000 × 15%</td><td><strong>24,000</strong></td></tr>
+        <tr><td>2</td><td>136,000</td><td>136,000 × 15%</td><td><strong>20,400</strong></td></tr>
+        <tr><td>3</td><td>115,600</td><td>115,600 × 15%</td><td><strong>17,340</strong></td></tr>
+        <tr><td>4</td><td>98,260</td><td>98,260 × 15%</td><td><strong>14,739</strong></td></tr>
+        <tr><td>5</td><td>83,521</td><td>83,521 × 15%</td><td><strong>12,528</strong></td></tr>
+        <tr><td>6</td><td>70,993</td><td>70,993 × 15%</td><td><strong>10,649</strong></td></tr>
+      </table>
+    </div>
+
     <div class="section-title">(b) Straight-line — 6-year schedule</div>
     <div class="open-block" style="box-shadow:none;overflow-x:auto">
       <table class="matrix">
@@ -1378,6 +1390,33 @@ def main():
       </table>
     </div>
     """
+
+    write_page("05_Open_Questions.html",
+               "Open questions — all in one page",
+               f"{len(open_items) + 5} open questions · theory, exam, exercises",
+               [], open_items=open_items + [
+                   {"section": "Exam 16/06/2026 — Variant A",
+                    "title_en": "First pillar of EBU",
+                    "en": "Describe the first pillar of the European Banking Union",
+                    "sample_en": "The first pillar is the Single Supervisory Mechanism (SSM): the ECB and national supervisors jointly oversee significant banks in participating countries."},
+                   {"section": "Exam 16/06/2026 — Variant A",
+                    "title_en": "Private equity",
+                    "en": "Describe private equity",
+                    "sample_en": "Private equity invests in companies (often unlisted) using capital from institutional investors. Funds are typically closed-end; exit through sale or IPO."},
+                   {"section": "Exam 16/06/2026 — Variant A",
+                    "title_en": "Second pillar of EBU",
+                    "en": "Describe the second pillar of the European Banking Union",
+                    "sample_en": "The second pillar is the Single Resolution Mechanism (SRM): unified resolution of failing banks, SRB, bail-in before taxpayer money."},
+                   {"section": "Exam 16/06/2026 — Variant A",
+                    "title_en": "Third pillar of EBU",
+                    "en": "Describe the third pillar of the European Banking Union",
+                    "sample_en": "The third pillar is Deposit Guarantee Schemes (DGS): protect deposits up to €100,000 per depositor per bank if a bank fails; funded by banks; reduces bank runs."},
+                   {"section": "Exam 16/06/2026 — Variant A",
+                    "title_en": "IPO",
+                    "en": "Describe IPO (Initial Public Offering)",
+                    "sample_en": "First public sale of shares; company lists on exchange, raises equity; investment banks underwrite; free float after listing."},
+               ],
+               rules_html=guide_link + '<div class="rules">Write your answer, then reveal sample answers. Full tables: pages 09, 10, 13.</div>')
 
     write_page("01_Part1_Management_Accounting.html",
                "Part 1 — Management & Accounting",
