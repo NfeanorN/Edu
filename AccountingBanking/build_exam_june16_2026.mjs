@@ -148,33 +148,33 @@ const PART2_OPEN_EXTRA = `
     <div class="section-title">Second part of exam — open questions (max 6 points each)</div>
     <div class="open-block">
       <div class="q-num">1) Describe the first pillar of the European Banking Union</div>
-      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">The first pillar is banking supervision through the <strong>Single Supervisory Mechanism (SSM)</strong>. Since 2014, the ECB directly supervises the largest (“significant”) banks in participating EU countries, while national authorities supervise smaller banks under the same framework.
+      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">The first pillar is bank supervision through the <strong>Single Supervisory Mechanism (SSM)</strong>. Since 2014, the ECB directly watches the largest banks in EU countries that take part, while national supervisors watch smaller banks using the same rules.
 
-The idea is to apply rules consistently, catch problems early, and reduce the risk that a weak bank in one country threatens the whole system. Supervision covers capital, liquidity, governance, and risk management.</div></div>
+The aim is to use the same rules everywhere, find problems early, and stop one weak bank from hurting the whole system. Supervisors check capital, liquidity, how the bank is run, and how risks are managed.</div></div>
     </div>
     <div class="open-block">
       <div class="q-num">2) Describe the private equity</div>
-      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text"><strong>Private equity</strong> means investing in companies that are not listed on a stock exchange, using capital raised from institutional investors such as pension funds. These are usually <strong>closed-end</strong> funds with a life of about 10 years.
+      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text"><strong>Private equity</strong> means investing in companies that are not on the stock market, using money from big investors like pension funds. These funds are usually <strong>closed-end</strong> for about 10 years — you cannot take your money out anytime.
 
-The manager buys a stake, works on improving the business (strategy, governance, sometimes leverage), and exits by selling the company or taking it public through an IPO. Returns come from both operational improvement and the sale price at exit.</div></div>
+The manager buys part of a company, tries to improve it (better strategy, management, sometimes more debt), and later sells it or lists it on the stock exchange in an IPO. Profit comes from making the company better and from a higher sale price at the end.</div></div>
     </div>
     <div class="open-block">
       <div class="q-num">3) Describe the second pillar of the European Banking Union</div>
-      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">The second pillar is the <strong>Single Resolution Mechanism (SRM)</strong>. When a bank is failing or likely to fail, the Single Resolution Board plans an orderly wind-down instead of a disorderly collapse or an automatic taxpayer bailout.
+      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">The second pillar is the <strong>Single Resolution Mechanism (SRM)</strong>. When a bank is failing or will probably fail, the Single Resolution Board organises an orderly closure instead of a sudden crash or a full bailout with public money.
 
-The key tool is <strong>bail-in</strong>: shareholders and certain creditors absorb losses before public funds are used. Resolution funds help stabilise the process. The goal is to protect financial stability while making those who took the risk pay first.</div></div>
+The main tool is <strong>bail-in</strong>: shareholders and some creditors lose money first before the state pays. Resolution funds help pay for the process. The idea is to keep the financial system stable but make the people who took the risk pay first.</div></div>
     </div>
     <div class="open-block">
       <div class="q-num">4) Describe the third pillar of the European Banking Union</div>
-      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">The third pillar is deposit protection through <strong>Deposit Guarantee Schemes (DGS)</strong>. If a bank fails, retail depositors should still get their money back quickly, up to the legal limit — in the EU typically <strong>€100,000</strong> per person per bank.
+      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">The third pillar is deposit protection through <strong>Deposit Guarantee Schemes (DGS)</strong>. If a bank fails, ordinary depositors should still get their money back quickly, up to the legal limit — in the EU usually <strong>€100,000</strong> per person per bank.
 
-This reduces panic withdrawals and protects small savers. National guarantee funds are financed by contributions from banks. The EU is also working toward a more integrated European Deposit Insurance Scheme (EDIS). The main idea is confidence: people know deposits are safe even when a bank goes into resolution.</div></div>
+This stops panic and bank runs and protects small savers. National funds are paid for by contributions from banks. The EU also wants a more common European Deposit Insurance Scheme (EDIS) in the future. Main point: people trust that their deposits are safe even when a bank is in trouble.</div></div>
     </div>
     <div class="open-block">
       <div class="q-num">5) Describe IPO (Initial Public Offering)</div>
-      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">An <strong>IPO</strong> is when a company sells its shares to the public for the first time and lists on a stock exchange. The firm raises new equity capital and becomes subject to disclosure rules and market scrutiny.
+      <div class="brief-answer"><div class="brief-label">Answer</div><div class="brief-text">An <strong>IPO</strong> is when a company sells its shares to the public for the first time and starts trading on a stock exchange. The company raises new money from investors and must publish more information to the market.
 
-Investment banks usually act as underwriters — they help set the price, place shares with investors, and often guarantee a minimum take-up. After listing, the shares that outsiders can freely buy and sell make up the <strong>free float</strong>.</div></div>
+Investment banks often help as underwriters: they help set the price, find buyers, and sometimes guarantee that enough shares will be sold. After the IPO, the shares that the public can freely buy and sell are called the <strong>free float</strong>.</div></div>
     </div>
 `;
 
