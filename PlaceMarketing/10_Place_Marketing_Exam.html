@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Place Marketing — Экзамен</title>
+  <title>Place Marketing — Exam</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -53,7 +53,7 @@
     .q.wrong { border-color: #e74c3c; background: #fff8f8; }
     .q-num { font-weight: 700; color: #2980b9; margin-bottom: 0.35rem; }
     .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
-    .q-ru { font-size: 0.88rem; color: #666; margin-bottom: 0.75rem; font-style: italic; }
+    
     .opts { display: grid; gap: 0.45rem; }
     label.opt {
       display: flex;
@@ -67,7 +67,7 @@
   .result-opt { cursor: default; }
     label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
     .opt-en { font-size: 0.95rem; }
-    .opt-ru { font-size: 0.82rem; color: #777; }
+    
     .feedback {
       margin-top: 0.75rem;
       padding: 0.65rem 0.85rem;
@@ -157,9 +157,6 @@
     .score-detail { color: #555; margin-top: 0.35rem; }
     .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
     mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
-    .exam-photo { max-width: 100%; margin: 1rem 0 1.5rem; }
-    .exam-photo img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #e8ecf1; display: block; }
-    .exam-photo figcaption { font-size: 0.85rem; color: #666; margin-top: 0.5rem; text-align: center; }
     mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
     .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
     .answer-box {
@@ -178,14 +175,7 @@
       margin-bottom: 0.5rem;
     }
     .answer-en { font-size: 0.95rem; white-space: pre-wrap; line-height: 1.55; }
-    .answer-ru {
-      font-size: 0.88rem;
-      color: #555;
-      margin-top: 0.55rem;
-      white-space: pre-wrap;
-      line-height: 1.55;
-      font-style: italic;
-    }
+    
     .practice-note {
       margin-top: 0.75rem;
       font-size: 0.88rem;
@@ -213,27 +203,16 @@
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="index.html">← All variants / Все варианты</a> · <a href="../index.html">Edu materials</a></p>
-    <h1>Place Marketing — Экзамен</h1>
+    <p class="back"><a href="index.html">← All variants</a> · <a href="../index.html">Edu materials</a></p>
+    <h1>Place Marketing — Exam</h1>
     <p class="sub">19 MCQ · Univ. Cassino</p>
-    <div class="rules"><strong>Place Marketing Exam</strong> — Part I: 19 MCQ (1 mark each). Click <em>Check answers</em> to score. · 19 MCQ, проверка кнопкой.</div>
+    <div class="rules"><strong>Place Marketing Exam</strong> — Part I: 19 MCQ (1 mark each). Click <em>Check answers</em> to score.</div>
     <form id="test-form">
-      
-    <div class="section-title">Exam photos / Фото бланка</div>
-    <figure class="exam-photo">
-      <img src="images/exam-pm-mcq-1-10.png" alt="Place Marketing exam — MCQ 1–10" />
-      <figcaption>Part I — questions 1–10</figcaption>
-    </figure>
-    <figure class="exam-photo">
-      <img src="images/exam-pm-mcq-11-19.png" alt="Place Marketing exam — MCQ 11–19" />
-      <figcaption>Part I — questions 11–19</figcaption>
-    </figure>
-    
       <div id="questions"></div>
       
       <div class="actions">
-        <button type="submit">Check answers / Проверить</button>
-        <button type="button" class="secondary" id="reset-btn">Reset / Сбросить</button>
+        <button type="submit">Check answers</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
       </div>
     </form>
     <div id="results">
@@ -244,7 +223,7 @@
   </div>
   <script>
     const SCORING = {"correct":1,"wrong":0,"max":19};
-    const QUESTIONS = [{"num":1,"id":"q1","en":"What does it mean to be an \"intentional observer\" in the context of perceiving complexity?","ru":"Что значит быть «intentional observer» при восприятии сложности?","options":[{"id":"a","en":"One who perceives and analyzes the system by coming into contact with it from a specific perspective.","ru":"Тот, кто воспринимает и анализирует систему, вступая с ней в контакт с определённой позиции"},{"id":"b","en":"A data analysis software that monitors tourist flows in an automated way.","ru":"ПО для автоматического мониторинга туристических потоков"},{"id":"c","en":"The policy maker who imposes a top-down vision without consulting stakeholders.","ru":"Политик, навязывающий top-down видение без консультаций"},{"id":"d","en":"A passive user who receives the value proposition without contributing to its definition.","ru":"Пассивный пользователь, получающий value proposition без участия в её определении"}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Intentional observer — активный наблюдатель с позиции, а не пассивный пользователь и не автоматика."},{"num":2,"id":"q2","en":"What is the difference between \"Place Image\" and \"Place Brand\" according to Kavaratzis?","ru":"Разница между Place Image и Place Brand по Kavaratzis:","options":[{"id":"a","en":"There is no difference; they are interchangeable synonyms.","ru":"Разницы нет, это синонимы"},{"id":"b","en":"Image is the mental perception of users; the brand includes relationships and strategic actions.","ru":"Image — ментальное восприятие; brand включает отношения и стратегические действия"},{"id":"c","en":"Image is managed by the State, the brand is created exclusively by private entities.","ru":"Image управляет государство, brand — только частный сектор"},{"id":"d","en":"Image concerns tourists, the brand concerns only local residents.","ru":"Image — для туристов, brand — только для жителей"}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Kavaratzis: image = восприятие; brand шире — стратегия, отношения, действия."},{"num":3,"id":"q3","en":"The local government as a \"Movie Director\" must:","ru":"Местная власть как «Movie Director» должна:","options":[{"id":"a","en":"Control every single word spoken by citizens.","ru":"Контролировать каждое слово граждан"},{"id":"b","en":"Replace local inhabitants with professional actors for promotional videos.","ru":"Заменять жителей профессиональными актёрами в роликах"},{"id":"c","en":"Exclusively produce documentaries on the ancient history of the place.","ru":"Только снимать документалки об истории места"},{"id":"d","en":"Encourage actors to suggest ideas and projects aligned with the general strategy.","ru":"Поощрять акторов предлагать идеи и проекты в русле общей стратегии"}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Режиссёр задаёт стратегию, но не диктует всё — акторы предлагают идеи в её рамках."},{"num":4,"id":"q4","en":"Why does territorial innovation require \"Inclusion\"?","ru":"Почему территориальные инновации требуют Inclusion?","options":[{"id":"a","en":"Because true innovation does not exist without the active participation of the system of actors.","ru":"Настоящих инноваций нет без активного участия системы акторов"},{"id":"b","en":"Because it is a legal requirement imposed by European Commission directives.","ru":"Это юридическое требование Еврокомиссии"},{"id":"c","en":"To artificially increase the number of participants at technical roundtables.","ru":"Чтобы искусственно увеличить число участников круглых столов"},{"id":"d","en":"To reduce the decision-making power of marketing experts in favor of the crowd.","ru":"Чтобы снизить власть маркетологов в пользу толпы"}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Инновация = co-creation; без включения акторов она не работает."},{"num":5,"id":"q5","en":"The role of the University in a place strategy is that of:","ru":"Роль университета в place strategy:","options":[{"id":"a","en":"A simple provider of degrees detached from the real economy.","ru":"Просто выдаёт дипломы, оторванные от экономики"},{"id":"b","en":"A catalyst and provider of value through the dissemination of knowledge and projects.","ru":"Катализатор ценности через распространение знаний и проектов"},{"id":"c","en":"A censorship body for residents' critical opinions toward the government.","ru":"Орган цензуры критики жителей к власти"},{"id":"d","en":"A purely theoretical entity that must remain isolated from market dynamics.","ru":"Чисто теоретическая сущность, изолированная от рынка"}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Университет — катализатор знаний, проектов и human capital для территории."},{"num":6,"id":"q6","en":"What is meant by \"Place Brand Equity\"?","ru":"Что такое «Place Brand Equity»?","options":[{"id":"a","en":"The asset value of historical buildings located in the city center.","ru":"Стоимость исторических зданий в центре"},{"id":"b","en":"The net profit generated by the commercial activities of a Natural Shopping Center.","ru":"Чистая прибыль Natural Shopping Center"},{"id":"c","en":"The systematic result of the place's image and identity in the minds of stakeholders.","ru":"Системный результат image и identity в сознании стейкхолдеров"},{"id":"d","en":"The number of annual visitors multiplied by the average per capita expenditure.","ru":"Число посетителей × средние траты на человека"}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Brand equity места — накопленный образ (image + identity), не деньги на счёте."},{"num":7,"id":"q7","en":"The concept of \"Mutuality\" implies that actors:","ru":"Концепция «Mutuality» означает, что акторы:","options":[{"id":"a","en":"Are all related to one another.","ru":"Все связаны друг с другом"},{"id":"b","en":"Are obliged to sign a financial mutual assistance contract.","ru":"Обязаны подписать договор взаимопомощи"},{"id":"c","en":"All have the same income and education level.","ru":"Имеют одинаковый доход и образование"},{"id":"d","en":"Work for a common ultimate purpose, sharing expectations and results.","ru":"Работают на общую цель, деля ожидания и результаты"}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Mutuality = общая финальная цель места; акторы разделяют риски и результаты."},{"num":8,"id":"q8","en":"The \"Placement\" lever in place marketing concerns:","ru":"Рычаг «Placement» в place marketing касается:","options":[{"id":"a","en":"The delivery channels of place marketing communication.","ru":"Каналов коммуникации place marketing"},{"id":"b","en":"The positioning of the place marketing strategy.","ru":"Позиционирования стратегии place marketing"},{"id":"c","en":"The spatial context where the user recognizes and enjoys the value proposition.","ru":"Пространственного контекста, где пользователь получает value proposition"},{"id":"d","en":"A strategic element of the marketing plan.","ru":"Стратегического элемента marketing plan"}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Placement = distribution: пространство/доступ, где пользователь получает ценность места."},{"num":9,"id":"q9","en":"The \"PESTEL\" analysis in the marketing plan serves to monitor:","ru":"PESTEL-анализ в marketing plan служит для мониторинга:","options":[{"id":"a","en":"Elements of the marketing microenvironment.","ru":"Элементов микросреды маркетинга"},{"id":"b","en":"Direct competition between two commercial businesses on the same street.","ru":"Прямой конкуренции двух магазинов на одной улице"},{"id":"c","en":"The level of street cleanliness and maintenance of public gardens.","ru":"Чистоты улиц и содержания парков"},{"id":"d","en":"External Political, Economic, Social, Technological, Environmental, and Legal factors.","ru":"Внешних политических, экономических, социальных, технологических, экологических и правовых факторов"}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"PESTEL = макросреда (внешние факторы), не микросреда."},{"num":10,"id":"q10","en":"What is the primary purpose of Town Centre Management (TCM) schemes?","ru":"Главная цель схем Town Centre Management (TCM)?","options":[{"id":"a","en":"To revitalize city centers through public-private partnerships.","ru":"Ревитализация центров через public-private partnerships"},{"id":"b","en":"To shift downtown commerce toward large shopping malls outside the city.","ru":"Перенос торговли в ТЦ за городом"},{"id":"c","en":"To eliminate the presence of independent shops in favor of an association.","ru":"Устранение независимых магазинов ради ассоциации"},{"id":"d","en":"To limit the installation of shopping centers in the city center.","ru":"Ограничение ТЦ в центре города"}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"TCM = партнёрство власти, бизнеса и жителей для оживления центра."},{"num":11,"id":"q11","en":"\"Big Data\" in place marketing are useful because:","ru":"«Big Data» в place marketing полезны, потому что:","options":[{"id":"a","en":"They allow collecting information for the management of the municipality's strategy.","ru":"Позволяют собирать данные для стратегии муниципалитета"},{"id":"b","en":"They improve the understanding of social dynamics and markets through flow analysis.","ru":"Улучшают понимание социальной динамики и рынков через анализ потоков"},{"id":"c","en":"They reduce the need to interact with the real population.","ru":"Снижают необходимость взаимодействия с населением"},{"id":"d","en":"They allow automating completely the creation of the Place Image.","ru":"Полностью автоматизируют создание Place Image"}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Big Data помогают понять потоки и поведение, но не заменяют участие людей."},{"num":12,"id":"q12","en":"What is the role of \"Nudges\" (gentle pushes) according to the sources?","ru":"Роль «Nudges» (мягких подталкиваний)?","options":[{"id":"a","en":"Non-monetary sanctions for those who do not respect the environment.","ru":"Неденежные санкции за нарушение экологии"},{"id":"b","en":"Orders issued by the municipality in relation to TCM.","ru":"Приказы муниципалитета по TCM"},{"id":"c","en":"Small informational stimuli to guide citizens toward virtuous and conscious behaviors.","ru":"Небольшие информационные стимулы к добросовестному поведению"},{"id":"d","en":"Advertising to attract tourists.","ru":"Реклама для привлечения туристов"}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Nudge = мягкий стимул (подсказка), а не штраф и не приказ."},{"num":13,"id":"q13","en":"An \"Adaptive\" system in territorial marketing is a system that:","ru":"«Adaptive» система в территориальном маркетинге — это система, которая:","options":[{"id":"a","en":"Refuses to change to keep its historical image unaltered.","ru":"Отказывается меняться ради исторического имиджа"},{"id":"b","en":"Changes strategy every day based on feedback from social networks.","ru":"Меняет стратегию каждый день по соцсетям"},{"id":"c","en":"Is imposed by the central government without direct local consultation.","ru":"Навязана центральной властью без консультаций"},{"id":"d","en":"Follows rules shared by stakeholders to respond to environmental changes.","ru":"Следует общим правилам стейкхолдеров и адаптируется к изменениям среды"}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Adaptive (VSA) = жизнеспособная система, адаптирующаяся по общим правилам."},{"num":14,"id":"q14","en":"In a marketing plan for a CCN, the \"Safety\" lever is measured through:","ru":"В marketing plan для CCN рычаг «Safety» измеряется через:","options":[{"id":"a","en":"The reduction of real crime and the improvement of users' perception of protection.","ru":"Снижение реальной преступности и улучшение восприятия безопасности"},{"id":"b","en":"It is a KPI and indicates the number of fines issued by the municipal police for parking violations.","ru":"Число штрафов за парковку"},{"id":"c","en":"The number of surveillance interventions arranged during the year.","ru":"Число операций видеонаблюдения за год"},{"id":"d","en":"The response speed of local police in the city.","ru":"Скорость реакции полиции"}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Safety = реальная безопасность + восприятие защиты пользователями."},{"num":15,"id":"q15","en":"In a \"Smart City\", technology must be understood as:","ru":"В «Smart City» технологию следует понимать как:","options":[{"id":"a","en":"An ultimate goal of urban development to which privacy is sacrificed.","ru":"Конечную цель развития, ради которой жертвуют privacy"},{"id":"b","en":"A tool to optimize the co-creation of value and the well-being of citizens.","ru":"Инструмент для co-creation ценности и благополучия граждан"},{"id":"c","en":"An incidental cost to be eliminated to balance the municipal budget.","ru":"Побочные расходы, которые надо убрать"},{"id":"d","en":"A substitute for human skills in the political decision process.","ru":"Замену человеческим навыкам в политических решениях"}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Tech — средство для co-creation и wellbeing, не самоцель."},{"num":16,"id":"q16","en":"In the \"movie director\" governance model, the role of government is:","ru":"В модели governance «movie director» роль власти:","options":[{"id":"a","en":"To write the strategy and objectives and suggest actions to the actors.","ru":"Писать стратегию и цели и предлагать действия акторам"},{"id":"b","en":"To passively monitor markets without intervening in the strategy.","ru":"Пассивно наблюдать за рынками без вмешательства"},{"id":"c","en":"To encourage actors to integrate knowledge for a common ultimate purpose.","ru":"Поощрять акторов интегрировать знания ради общей цели"},{"id":"d","en":"To manage the legal and bureaucratic aspects of the territory.","ru":"Управлять только юридическими и бюрократическими аспектами"}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Режиссёр задаёт стратегию, цели и направляет акторов — не пассивный наблюдатель."},{"num":17,"id":"q17","en":"\"Co-production\" differs from \"co-creation\" because:","ru":"«Co-production» отличается от «co-creation», потому что:","options":[{"id":"a","en":"It only concerns the experiential value-in-use of the final user.","ru":"Касается только experiential value-in-use конечного пользователя"},{"id":"b","en":"It implies the direct participation of the customer in the design or realization of the offering.","ru":"Подразумевает прямое участие клиента в проектировании или реализации предложения"},{"id":"c","en":"It is a process that partially excludes the public administration.","ru":"Частично исключает public administration"},{"id":"d","en":"It applies exclusively to services in the city.","ru":"Применяется только к городским услугам"}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Co-production = пользователь участвует в создании услуги; co-creation шире (вся система акторов)."},{"num":18,"id":"q18","en":"The urban \"Servicescape\" concept problematizes the city as:","ru":"Концепция urban «Servicescape» рассматривает город как:","options":[{"id":"a","en":"A setting where the interaction among actors creates and perceives the service offering.","ru":"Среду, где взаимодействие акторов создаёт и воспринимает услугу"},{"id":"b","en":"A context in which the services of the city develop.","ru":"Контекст развития городских услуг"},{"id":"c","en":"A non-place devoid of identity and meaningful social relationships.","ru":"Non-place без идентичности и социальных связей"},{"id":"d","en":"An administrative structure aimed at managing public services.","ru":"Административную структуру управления услугами"}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Servicescape (Bitner) — физическая и социальная среда, где создаётся опыт услуги."},{"num":19,"id":"q19","en":"\"Change Aversion\" can be overcome through:","ru":"«Change Aversion» можно преодолеть через:","options":[{"id":"a","en":"Limits generated by those who hinder development.","ru":"Ограничения для тех, кто мешает развитию"},{"id":"b","en":"Proposing the replacement of downtown entrepreneurs not aligned with TCM.","ru":"Замену предпринимателей, не согласных с TCM"},{"id":"c","en":"The dissemination of knowledge and the involvement of stakeholders in the design process.","ru":"Распространение знаний и вовлечение стейкхолдеров в проектирование"},{"id":"d","en":"The total elimination of every existing rule in the territory.","ru":"Полную отмену всех существующих правил"}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)","explain_ru":"Сопротивление изменениям снимают знания и участие в co-design, не принуждением."}];
+    const QUESTIONS = [{"num":1,"id":"q1","en":"What does it mean to be an \"intentional observer\" in the context of perceiving complexity?","options":[{"id":"a","en":"One who perceives and analyzes the system by coming into contact with it from a specific perspective."},{"id":"b","en":"A data analysis software that monitors tourist flows in an automated way."},{"id":"c","en":"The policy maker who imposes a top-down vision without consulting stakeholders."},{"id":"d","en":"A passive user who receives the value proposition without contributing to its definition."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":2,"id":"q2","en":"What is the difference between \"Place Image\" and \"Place Brand\" according to Kavaratzis?","options":[{"id":"a","en":"There is no difference; they are interchangeable synonyms."},{"id":"b","en":"Image is the mental perception of users; the brand includes relationships and strategic actions."},{"id":"c","en":"Image is managed by the State, the brand is created exclusively by private entities."},{"id":"d","en":"Image concerns tourists, the brand concerns only local residents."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":3,"id":"q3","en":"The local government as a \"Movie Director\" must:","options":[{"id":"a","en":"Control every single word spoken by citizens."},{"id":"b","en":"Replace local inhabitants with professional actors for promotional videos."},{"id":"c","en":"Exclusively produce documentaries on the ancient history of the place."},{"id":"d","en":"Encourage actors to suggest ideas and projects aligned with the general strategy."}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)"},{"num":4,"id":"q4","en":"Why does territorial innovation require \"Inclusion\"?","options":[{"id":"a","en":"Because true innovation does not exist without the active participation of the system of actors."},{"id":"b","en":"Because it is a legal requirement imposed by European Commission directives."},{"id":"c","en":"To artificially increase the number of participants at technical roundtables."},{"id":"d","en":"To reduce the decision-making power of marketing experts in favor of the crowd."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":5,"id":"q5","en":"The role of the University in a place strategy is that of:","options":[{"id":"a","en":"A simple provider of degrees detached from the real economy."},{"id":"b","en":"A catalyst and provider of value through the dissemination of knowledge and projects."},{"id":"c","en":"A censorship body for residents' critical opinions toward the government."},{"id":"d","en":"A purely theoretical entity that must remain isolated from market dynamics."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":6,"id":"q6","en":"What is meant by \"Place Brand Equity\"?","options":[{"id":"a","en":"The asset value of historical buildings located in the city center."},{"id":"b","en":"The net profit generated by the commercial activities of a Natural Shopping Center."},{"id":"c","en":"The systematic result of the place's image and identity in the minds of stakeholders."},{"id":"d","en":"The number of annual visitors multiplied by the average per capita expenditure."}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)"},{"num":7,"id":"q7","en":"The concept of \"Mutuality\" implies that actors:","options":[{"id":"a","en":"Are all related to one another."},{"id":"b","en":"Are obliged to sign a financial mutual assistance contract."},{"id":"c","en":"All have the same income and education level."},{"id":"d","en":"Work for a common ultimate purpose, sharing expectations and results."}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)"},{"num":8,"id":"q8","en":"The \"Placement\" lever in place marketing concerns:","options":[{"id":"a","en":"The delivery channels of place marketing communication."},{"id":"b","en":"The positioning of the place marketing strategy."},{"id":"c","en":"The spatial context where the user recognizes and enjoys the value proposition."},{"id":"d","en":"A strategic element of the marketing plan."}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)"},{"num":9,"id":"q9","en":"The \"PESTEL\" analysis in the marketing plan serves to monitor:","options":[{"id":"a","en":"Elements of the marketing microenvironment."},{"id":"b","en":"Direct competition between two commercial businesses on the same street."},{"id":"c","en":"The level of street cleanliness and maintenance of public gardens."},{"id":"d","en":"External Political, Economic, Social, Technological, Environmental, and Legal factors."}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)"},{"num":10,"id":"q10","en":"What is the primary purpose of Town Centre Management (TCM) schemes?","options":[{"id":"a","en":"To revitalize city centers through public-private partnerships."},{"id":"b","en":"To shift downtown commerce toward large shopping malls outside the city."},{"id":"c","en":"To eliminate the presence of independent shops in favor of an association."},{"id":"d","en":"To limit the installation of shopping centers in the city center."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":11,"id":"q11","en":"\"Big Data\" in place marketing are useful because:","options":[{"id":"a","en":"They allow collecting information for the management of the municipality's strategy."},{"id":"b","en":"They improve the understanding of social dynamics and markets through flow analysis."},{"id":"c","en":"They reduce the need to interact with the real population."},{"id":"d","en":"They allow automating completely the creation of the Place Image."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":12,"id":"q12","en":"What is the role of \"Nudges\" (gentle pushes) according to the sources?","options":[{"id":"a","en":"Non-monetary sanctions for those who do not respect the environment."},{"id":"b","en":"Orders issued by the municipality in relation to TCM."},{"id":"c","en":"Small informational stimuli to guide citizens toward virtuous and conscious behaviors."},{"id":"d","en":"Advertising to attract tourists."}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)"},{"num":13,"id":"q13","en":"An \"Adaptive\" system in territorial marketing is a system that:","options":[{"id":"a","en":"Refuses to change to keep its historical image unaltered."},{"id":"b","en":"Changes strategy every day based on feedback from social networks."},{"id":"c","en":"Is imposed by the central government without direct local consultation."},{"id":"d","en":"Follows rules shared by stakeholders to respond to environmental changes."}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)"},{"num":14,"id":"q14","en":"In a marketing plan for a CCN, the \"Safety\" lever is measured through:","options":[{"id":"a","en":"The reduction of real crime and the improvement of users' perception of protection."},{"id":"b","en":"It is a KPI and indicates the number of fines issued by the municipal police for parking violations."},{"id":"c","en":"The number of surveillance interventions arranged during the year."},{"id":"d","en":"The response speed of local police in the city."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":15,"id":"q15","en":"In a \"Smart City\", technology must be understood as:","options":[{"id":"a","en":"An ultimate goal of urban development to which privacy is sacrificed."},{"id":"b","en":"A tool to optimize the co-creation of value and the well-being of citizens."},{"id":"c","en":"An incidental cost to be eliminated to balance the municipal budget."},{"id":"d","en":"A substitute for human skills in the political decision process."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":16,"id":"q16","en":"In the \"movie director\" governance model, the role of government is:","options":[{"id":"a","en":"To write the strategy and objectives and suggest actions to the actors."},{"id":"b","en":"To passively monitor markets without intervening in the strategy."},{"id":"c","en":"To encourage actors to integrate knowledge for a common ultimate purpose."},{"id":"d","en":"To manage the legal and bureaucratic aspects of the territory."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":17,"id":"q17","en":"\"Co-production\" differs from \"co-creation\" because:","options":[{"id":"a","en":"It only concerns the experiential value-in-use of the final user."},{"id":"b","en":"It implies the direct participation of the customer in the design or realization of the offering."},{"id":"c","en":"It is a process that partially excludes the public administration."},{"id":"d","en":"It applies exclusively to services in the city."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":18,"id":"q18","en":"The urban \"Servicescape\" concept problematizes the city as:","options":[{"id":"a","en":"A setting where the interaction among actors creates and perceives the service offering."},{"id":"b","en":"A context in which the services of the city develop."},{"id":"c","en":"A non-place devoid of identity and meaningful social relationships."},{"id":"d","en":"An administrative structure aimed at managing public services."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":19,"id":"q19","en":"\"Change Aversion\" can be overcome through:","options":[{"id":"a","en":"Limits generated by those who hinder development."},{"id":"b","en":"Proposing the replacement of downtown entrepreneurs not aligned with TCM."},{"id":"c","en":"The dissemination of knowledge and the involvement of stakeholders in the design process."},{"id":"d","en":"The total elimination of every existing rule in the territory."}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)"}];
     const OPEN_ITEMS = [];
     const SNA_ITEMS = [];
 
@@ -267,16 +246,14 @@
         card.className = 'q';
         card.dataset.id = q.id;
         card.innerHTML = `
-          <div class="q-num">Вопрос ${q.num}</div>
+          <div class="q-num">Question ${q.num}</div>
           <div class="q-en">${q.en}</div>
-          <div class="q-ru">${q.ru}</div>
           <div class="opts">
             ${q.options.map(o => `
               <label class="opt">
                 <input type="radio" name="${q.id}" value="${o.id}" />
                 <span>
                   <div class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</div>
-                  <div class="opt-ru">${o.ru}</div>
                 </span>
               </label>`).join('')}
           </div>
@@ -379,7 +356,7 @@
       if (unanswered > 0) {
         resultsBox.classList.remove('visible');
         warnEl.hidden = false;
-        warnEl.textContent = `Ответьте на все вопросы с вариантами (${unanswered} без ответа).`;
+        warnEl.textContent = `Answer all multiple-choice questions (${unanswered} unanswered).`;
         const first = container.querySelector('.q.unanswered');
         if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
@@ -397,7 +374,7 @@
           unanswered++;
           card.classList.add('unanswered');
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Ответ не выбран. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          fb.innerHTML = '⚠️ No answer selected. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
           return;
         }
 
@@ -406,13 +383,13 @@
           correct++;
           card.classList.add('correct');
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Correct / Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           wrong++;
           card.classList.add('wrong');
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Ваш ответ: <mark class="wrong-mark">' + selected.value.toUpperCase() +
-            '</mark>. Правильный: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          fb.innerHTML = '✗ Wrong. Your answer: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
         }
 
         card.querySelectorAll('label.opt').forEach((lbl) => {
@@ -432,13 +409,13 @@
         fb.hidden = false;
         if (ok === null) {
           fb.className = 'feedback bad';
-          fb.innerHTML = '⚠️ Пустой ответ. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '⚠️ Empty answer. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         } else if (ok) {
           fb.className = 'feedback ok';
-          fb.innerHTML = '✓ Correct / Верно' + (q.explain_ru ? '<div class="explain">' + q.explain_ru + '</div>' : '');
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
         } else {
           fb.className = 'feedback bad';
-          fb.innerHTML = '✗ Неверно. Эталон: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+          fb.innerHTML = '✗ Wrong. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
         }
       });
 
@@ -447,11 +424,11 @@
       if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
 
       document.getElementById('score-text').textContent =
-        `Результат: ${correct} из ${total} (${Math.round(correct/total*100)}%)`;
+        `Score: ${correct} of ${total} (${Math.round(correct/total*100)}%)`;
       document.getElementById('score-detail').textContent =
         SCORING.correct !== 1 || SCORING.wrong !== 0
-          ? `Баллы: ${score.toFixed(1)} · Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`
-          : `Верно: ${correct} · Неверно: ${wrong} · Без ответа: ${unanswered}`;
+          ? `Points: ${score.toFixed(1)} · Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`
+          : `Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`;
 
       resultsBox.classList.add('visible');
       resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
