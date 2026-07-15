@@ -1,0 +1,192 @@
+[
+  {
+    "en": "An \"Adaptive\" system in territorial marketing is a system that:",
+    "options": [
+      { "id": "a", "en": "Maintains its governance architecture unaltered regardless of external competitive pressures." },
+      { "id": "b", "en": "Modifies its strategic positioning exclusively based on seasonal fluctuations in tourist demand." },
+      { "id": "c", "en": "Follows rules shared by stakeholders to respond dynamically and homeostatically to environmental changes." },
+      { "id": "d", "en": "Delegates strategic decision-making processes to higher-level coordination bodies exogenous to the local network." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "In a marketing plan for a CCN, the \"Safety\" lever is measured by:",
+    "options": [
+      { "id": "a", "en": "The increase in physical private security presence along the commercial perimeters of the urban district." },
+      { "id": "b", "en": "The reduction of real crime and the parallel improvement in users' perception of protection." },
+      { "id": "c", "en": "The statistical reduction of real crime and the parallel improvement in users' perception on safety at work." },
+      { "id": "d", "en": "The degree of compliance of physical commercial infrastructures with European regulations on safety at work." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "In a \"Smart City\", technology must be understood as:",
+    "options": [
+      { "id": "a", "en": "The primary and self-sufficient infrastructure to which the relational dynamics of the actors must be subordinated." },
+      { "id": "b", "en": "An enabling tool to optimize value co-creation, efficiency, and well-being of the actors." },
+      { "id": "c", "en": "A purely tangible operant resource aimed at reducing fixed costs of the Public Administration." },
+      { "id": "d", "en": "A proprietary framework aimed at the acquisition and monetization of behavioral profiles." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "What is the most relevant indicator (KPI) to evaluate \"Town Center Progress\"?",
+    "options": [
+      { "id": "a", "en": "The rate of increase in private vehicle traffic flows recorded during peak commercial hours." },
+      { "id": "b", "en": "The variety of the offer and the quality of maintenance of streets and public services." },
+      { "id": "c", "en": "The overall volume of administrative sanctions issued by local police bodies in the district." },
+      { "id": "d", "en": "The share of budget allocations exclusively destined for asynchronous promotional activities." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "\"Co-production\" differs from \"co-creation\" because it:",
+    "options": [
+      { "id": "a", "en": "Implies the direct and operational participation of the customer or stakeholder in the design or realization of the offer." },
+      { "id": "b", "en": "Focuses solely on the phenomenological and experiential dimension of value-in-use within the context." },
+      { "id": "c", "en": "Implies the direct and operational participation of the municipality in the development of ideas deriving from external investors." },
+      { "id": "d", "en": "Presupposes the absence of institutional arrangements and shared norms at the transactional ecosystem level." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "The concept of urban \"Servicescape\" problematizes the city as:",
+    "options": [
+      { "id": "a", "en": "A logistical agglomeration mainly aimed at the efficient movement of material operant resources." },
+      { "id": "b", "en": "A structured physical and relational scenario of delivery and enjoyment in which the interaction between actors creates and perceives the service." },
+      { "id": "c", "en": "A purely digital architecture in which onlife interactions disregard spatial proximity constraints." },
+      { "id": "d", "en": "A vertically integrated production district where value is embedded in distributed physical goods." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "The concept of \"Value Co-creation\" implies that:",
+    "options": [
+      { "id": "a", "en": "Value is uniquely predetermined by the producer actor and expressed through exchange value." },
+      { "id": "b", "en": "Value emerges from interaction, collaboration, and resource integration among a plurality of actors." },
+      { "id": "c", "en": "Value equates exclusively with the marginal utility extracted by the consumer in isolation." },
+      { "id": "d", "en": "Value is configured through top-down processes regulated by centralized institutions of the State." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "In the classification of drivers of change, \"exogenous\" factors are:",
+    "options": [
+      { "id": "a", "en": "Forces external to the place-system, which favor the practical transformation of place marketing strategies." },
+      { "id": "b", "en": "Structural innovation demands raised by trade associations rooted in the district." },
+      { "id": "c", "en": "Forces external to the place-system, such as global technological macro-trends, climate change, or pandemic events." },
+      { "id": "d", "en": "Internal demographic dynamics connected to the residential mobility flows of the historical population." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "A territorial service ecosystem (Service Ecosystem) is defined as stable when:",
+    "options": [
+      { "id": "a", "en": "It is regulated by shared institutions, norms, and meanings that facilitate coordination and adaptation." },
+      { "id": "b", "en": "It consolidates rigid entry barriers that inhibit the access of new external operant actors." },
+      { "id": "c", "en": "It neutralizes digitalization processes to preserve the balance of traditional relationships." },
+      { "id": "d", "en": "It adopts hierarchical and inflexible governance that excludes local actor participation." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "What specifically describes the phenomenon of \"Overtourism\"?",
+    "options": [
+      { "id": "a", "en": "A greater tourism opportunity generated by place marketing that needs no further monitoring." },
+      { "id": "b", "en": "A greater tourism opportunity to be monitored because it is generated by place marketing." },
+      { "id": "c", "en": "A greater tourism opportunity generated by place marketing." },
+      { "id": "d", "en": "An excessive anthropogenic load that compromises the quality of life of residents and the integrity of the local ecosystem." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "In the \"Promotion\" lever of place marketing, the main objective is to:",
+    "options": [
+      { "id": "a", "en": "Generate tariff economies of scale to increase raw access volumes to the territorial system." },
+      { "id": "b", "en": "Communicate the Place Value Proposition to align the perceived image with the real identity of the territory." },
+      { "id": "c", "en": "Implement integrated information systems to monitor the onlife consumption behaviors of stakeholders." },
+      { "id": "d", "en": "Restructure traditional distribution channels by modifying vertical relationships between market intermediaries." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "Town Centre Management (TCM) was originally born as a response to:",
+    "options": [
+      { "id": "a", "en": "The strong competition exerted by out-of-town shopping centres." },
+      { "id": "b", "en": "The drives toward privatization of essential public services imposed by spending review regulations." },
+      { "id": "c", "en": "The need to redefine the administrative and electoral boundaries of metropolitan municipalities." },
+      { "id": "d", "en": "De-industrialization tendencies of urban centers in favor of peripheral manufacturing districts." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "What is meant by \"Place Brand Identity\"?",
+    "options": [
+      { "id": "a", "en": "The set of stereotypical perceptions and mental associations developed by external demand markets." },
+      { "id": "b", "en": "The complex of visual elements, graphics, and registered trademarks filed by the management consortium." },
+      { "id": "c", "en": "The set of distinctive, historical, cultural, and value traits that the territory stably decides to propose." },
+      { "id": "d", "en": "The competitive positioning of the place-system within international place brand rankings." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "Why is the \"Bottom-up\" approach considered crucial in Natural Shopping Center (CCN) projects?",
+    "options": [
+      { "id": "a", "en": "It accelerates the adoption of emergency administrative ordinances, bypassing trade union consultation tables." },
+      { "id": "b", "en": "It favors spontaneous engagement of actors, mutual trust, and reduces resistance to change." },
+      { "id": "c", "en": "It allows the elimination of public structural investment costs through recourse to venture capital." },
+      { "id": "d", "en": "It favors spontaneous engagement of actors, developing the work of the municipality." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "The \"Genius Loci\" represents:",
+    "options": [
+      { "id": "a", "en": "A predictive mathematical model applied to the logistics optimization of smart mobility flows." },
+      { "id": "b", "en": "The professional profile of the manager responsible for the operational coordination of the place branding agency." },
+      { "id": "c", "en": "A theoretical framework aimed at measuring the concentration of place marketing principles." },
+      { "id": "d", "en": "The spirit of the place, namely the unique intertwining of historical, cultural, material, and intangible elements that characterize it." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "The model of the \"15-minute city\" aims to:",
+    "options": [
+      { "id": "a", "en": "Guarantee physical proximity and access to essential services to increase collaboration in the city center." },
+      { "id": "b", "en": "Guarantee physical proximity and access to essential services to raise sustainability and quality of life." },
+      { "id": "c", "en": "Rationalize public transport vectors by abolishing intermediate low-density stations." },
+      { "id": "d", "en": "Standardize the offer of central commercial districts to align it with urban commuting rhythms." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "An evident limitation of territorial marketing projects based on \"Promotion\" alone is:",
+    "options": [
+      { "id": "a", "en": "The creation of high expectations not supported by the real substance of the place." },
+      { "id": "b", "en": "Financial unsustainability deriving from fixed maintenance costs of onlife server infrastructures." },
+      { "id": "c", "en": "The loss of jurisdictional autonomy of the local authority in favor of external communication agencies." },
+      { "id": "d", "en": "The exclusive polarization of positioning on low-income resident demand segments." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "What does the concept of \"Value-in-context\" properly express?",
+    "options": [
+      { "id": "a", "en": "The equity value of a territorial asset estimated using only local real estate indicators." },
+      { "id": "b", "en": "That the utility of an operant resource remains constant as the cultural characteristics of the beneficiary vary." },
+      { "id": "c", "en": "The equilibrium price defined by competitive interaction between demand and supply in a closed market." },
+      { "id": "d", "en": "That the value of a resource strictly depends on contingencies, relationships, and the specific environment." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "A \"Free-rider\" within a Natural Shopping Center is:",
+    "options": [
+      { "id": "a", "en": "An end user who enjoys free logistics services of the district without generating commercial transactions." },
+      { "id": "b", "en": "A network actor who benefits from collective advantages without contributing in any way to costs or activities." },
+      { "id": "c", "en": "A non-authorized commercial operator practicing dumping outside the urban perimeter." },
+      { "id": "d", "en": "An exogenous investor acquiring real estate assets in the historic center for purely speculative purposes." }
+    ],
+    "correct": "b"
+  }
+]

@@ -155,10 +155,7 @@ def build_template() -> str:
     )
     body = body.replace(
         "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}",
-        "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}\n"
-        "    .exam-photo {{ max-width: 100%; margin: 1rem 0 1.5rem; }}\n"
-        "    .exam-photo img {{ width: 100%; height: auto; border-radius: 8px; border: 1px solid #e8ecf1; display: block; }}\n"
-        "    .exam-photo figcaption {{ font-size: 0.85rem; color: #666; margin-top: 0.5rem; text-align: center; }}",
+        "mark.wrong-mark {{ background: #fadbd8; padding: 0 4px; border-radius: 3px; }}",
     )
     body = body.replace(
         "fb.textContent = '✓ Верно';",
@@ -330,27 +327,18 @@ MCQ_ANALYSIS_C = q(
 
 
 def main():
+    v01_raw = json.loads((ROOT / "variant01.json").read_text(encoding="utf-8"))
     exam_01_mcq = [
-        q(1, "Positioning is:",
-          "Позиционирование (positioning) — это:",
-          [
-              opt("a", "a process in which a Company seeks to fix the product price",
-                  "процесс фиксации цены продукта"),
-              opt("b", "a process in which a Company seeks to establish perceptions of its product offering that are consistent with customers' needs and preferences",
-                  "процесс формирования восприятия предложения в соответствии с потребностями клиентов"),
-              opt("c", "a process in which a Company seeks to establish perceptions explaining the price and the quality of the product",
-                  "процесс объяснения цены и качества продукта"),
-          ], "b", PART_I),
-        q(2, "Place Marketing is:",
-          "Place Marketing — это:",
-          [
-              opt("a", "Company marketing applied on the territories",
-                  "корпоративный маркетинг, применённый к территориям"),
-              opt("b", "The strategy of the Place",
-                  "стратегия места"),
-              opt("c", "The activity, set of institutions and processes for creating, communicating, delivering and exchanging offerings of the place that have value for place stakeholders (target markets) and its community at large",
-                  "деятельность и процессы создания, коммуникации и обмена ценностными предложениями места для стейкхолдеров и сообщества"),
-          ], "c", PART_I),
+        q(
+            i + 1,
+            item["en"],
+            "",
+            [opt(o["id"], o["en"], "") for o in item["options"]],
+            item["correct"],
+            PART_I,
+            **({"explain_ru": item["explain"]} if item.get("explain") else {}),
+        )
+        for i, item in enumerate(v01_raw)
     ]
     exam_01_open = [
         oq(PART_II, "a", "4Ps and limits", "4P и их ограничения в place marketing",
@@ -413,20 +401,18 @@ def main():
            "Продукт места = материальное + нематериальное, co-created многими акторами, меняется."),
     ]
 
+    v03_raw = json.loads((ROOT / "variant03.json").read_text(encoding="utf-8"))
     exam_03_mcq = [
-        q(1, "A market orientation recognizes that:",
-          "Рыночная ориентация признаёт, что:",
-          [
-              opt("a", "price is the most important variable for customers",
-                  "цена — главная переменная для клиентов"),
-              opt("b", "market intelligence relating to current and future customer needs is important",
-                  "важна рыночная информация о текущих и будущих потребностях"),
-              opt("c", "selling and marketing are essentially the same thing",
-                  "продажи и маркетинг — одно и то же"),
-              opt("d", "sales depend predominantly on an aggressive sales force",
-                  "продажи зависят от агрессивного отдела продаж"),
-          ], "b", PART_I),
-        MCQ_ANALYSIS_C,
+        q(
+            i + 1,
+            item["en"],
+            "",
+            [opt(o["id"], o["en"], "") for o in item["options"]],
+            item["correct"],
+            PART_I,
+            **({"explain_ru": item["explain"]} if item.get("explain") else {}),
+        )
+        for i, item in enumerate(v03_raw)
     ]
     exam_03_open = [
         oq(PART_II, "a", "Why place marketing is other than communication?",
@@ -457,17 +443,18 @@ def main():
            "KPI: поток людей, пустые магазины, продажи, безопасность. Партнёры TCM видят прогресс и получают финансирование."),
     ]
 
+    v04_raw = json.loads((ROOT / "variant04.json").read_text(encoding="utf-8"))
     exam_04_mcq = [
-        q(1, "Which of the following is not an element of the marketing mix?",
-          "Что НЕ является элементом marketing mix?",
-          [
-              opt("a", "Distribution", "Distribution (место/дистрибуция)"),
-              opt("b", "Product", "Product"),
-              opt("c", "Target market", "Target market (целевой рынок)"),
-              opt("d", "Pricing", "Pricing"),
-          ], "c", PART_I,
-          explain_ru="Target market — результат STP, не элемент 4P."),
-        MCQ_ANALYSIS_C,
+        q(
+            i + 1,
+            item["en"],
+            "",
+            [opt(o["id"], o["en"], "") for o in item["options"]],
+            item["correct"],
+            PART_I,
+            **({"explain_ru": item["explain"]} if item.get("explain") else {}),
+        )
+        for i, item in enumerate(v04_raw)
     ]
     exam_04_open = [
         oq(PART_II, "a", "What's about National Brand Index?",
@@ -499,26 +486,18 @@ def main():
            "Ось 1: скорость знаний/информации. Ось 2: участие. Высокие обе → co-creation. Низкие → пассивность."),
     ]
 
+    v05_raw = json.loads((ROOT / "variant05.json").read_text(encoding="utf-8"))
     exam_05_mcq = [
-        q(1, "Four competing philosophies strongly influence the role of marketing and marketing activities within an organization. Which of the following is not a component of market orientation?",
-          "Что НЕ является компонентом market orientation?",
-          [
-              opt("a", "Customer orientation.", "Customer orientation"),
-              opt("b", "Profitability orientation.", "Profitability orientation"),
-              opt("c", "Marketing orientation.", "Marketing orientation"),
-              opt("d", "Competitor orientation.", "Competitor orientation"),
-          ], "b", PART_I,
-          explain_ru="Market orientation: customer, competitor, interfunctional coordination — не «profitability orientation» как отдельный компонент."),
-        q(2, "Which one is right:",
-          "Какое утверждение верно:",
-          [
-              opt("a", "The territory emerges as a place through the perception of an observer and the emergent characteristics of the place, which interact with each other.",
-                  "Территория становится местом через восприятие наблюдателя и эмерджентные характеристики места"),
-              opt("b", "The territory is a place with specific features interacting with each other.",
-                  "Территория — это место с взаимодействующими характеристиками"),
-              opt("c", "The territory emerges as a place through the efforts of a strong government body and by the stakeholders investments.",
-                  "Место возникает только через усилия власти и инвестиции стейкхолдеров"),
-          ], "a", PART_I),
+        q(
+            i + 1,
+            item["en"],
+            "",
+            [opt(o["id"], o["en"], "") for o in item["options"]],
+            item["correct"],
+            PART_I,
+            **({"explain_ru": item["explain"]} if item.get("explain") else {}),
+        )
+        for i, item in enumerate(v05_raw)
     ]
     exam_05_open = [
         oq(PART_II, "a", "Which is the relationship between marketing and value?",
@@ -1076,17 +1055,6 @@ def main():
         scoring={"correct": 1, "wrong": 0, "max": None},
     )
 
-    exam_photos = """
-    <div class="section-title">Exam photos / Фото бланка</div>
-    <figure class="exam-photo">
-      <img src="images/exam-pm-mcq-1-10.png" alt="Place Marketing exam — MCQ 1–10" />
-      <figcaption>Part I — questions 1–10</figcaption>
-    </figure>
-    <figure class="exam-photo">
-      <img src="images/exam-pm-mcq-11-19.png" alt="Place Marketing exam — MCQ 11–19" />
-      <figcaption>Part I — questions 11–19</figcaption>
-    </figure>
-    """
     write_page(
         "10_Place_Marketing_Exam.html",
         "Place Marketing — Экзамен",
@@ -1096,11 +1064,10 @@ def main():
         rules_html=(
             '<div class="rules">'
             "<strong>Place Marketing Exam</strong> — Part I: 19 MCQ (1 mark each). "
-            "Click <em>Check answers</em> to score. "
-            "· 19 MCQ, проверка кнопкой."
+            "Click <em>Check answers</em> to score."
             "</div>"
         ),
-        extra_html=exam_photos,
+        extra_html="",
         scoring={"correct": 1, "wrong": 0, "max": 19},
     )
     dedicated = ROOT / "10_Place_Marketing_Exam.html"

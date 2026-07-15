@@ -31,19 +31,7 @@ const QUESTIONS = [
 
 const OPEN_ITEMS = [];
 
-const EXAM_PHOTOS = `
-    <div class="section-title">Exam photos / Фото бланка</div>
-    <figure class="exam-photo">
-      <img src="images/exam-pm-mcq-1-10.png" alt="Place Marketing exam — MCQ 1–10" />
-      <figcaption>Part I — questions 1–10</figcaption>
-    </figure>
-    <figure class="exam-photo">
-      <img src="images/exam-pm-mcq-11-19.png" alt="Place Marketing exam — MCQ 11–19" />
-      <figcaption>Part I — questions 11–19</figcaption>
-    </figure>
-    `;
-
-function patchTemplate(html, { title, h1, sub, rules, questions, openItems, back, photos = '' }) {
+function patchTemplate(html, { title, h1, sub, rules, questions, openItems, back }) {
   let out = html;
   out = out.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
   out = out.replace(/<h1>[^<]*<\/h1>/, `<h1>${h1}</h1>`);
@@ -53,24 +41,9 @@ function patchTemplate(html, { title, h1, sub, rules, questions, openItems, back
     /<p class="back">[\s\S]*?<\/p>/,
     `<p class="back">${back}</p>`,
   );
-  if (!out.includes('.exam-photo')) {
-    out = out.replace(
-      'mark.wrong-mark { background: #fadbd8;',
-      `.exam-photo { max-width: 100%; margin: 1rem 0 1.5rem; }
-    .exam-photo img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #e8ecf1; display: block; }
-    .exam-photo figcaption { font-size: 0.85rem; color: #666; margin-top: 0.5rem; text-align: center; }
-    mark.wrong-mark { background: #fadbd8;`,
-    );
-  }
   out = out.replace(/const SCORING = [\s\S]*?;/, 'const SCORING = {"correct":1,"wrong":0,"max":19};');
   out = out.replace(/const QUESTIONS = \[[\s\S]*?\];/, `const QUESTIONS = ${JSON.stringify(questions)};`);
   out = out.replace(/const OPEN_ITEMS = \[[\s\S]*?\];/, `const OPEN_ITEMS = ${JSON.stringify(openItems)};`);
-  if (photos) {
-    out = out.replace(
-      '<div id="questions"></div>',
-      `${photos}\n      <div id="questions"></div>`,
-    );
-  }
   return out;
 }
 
@@ -89,7 +62,6 @@ const examHtml = patchTemplate(indexHtml, {
   questions: QUESTIONS,
   openItems: OPEN_ITEMS,
   back: '<a href="index.html">← All variants / Все варианты</a> · <a href="../index.html">Edu materials</a>',
-  photos: EXAM_PHOTOS,
 });
 
 writeFileSync(join(ROOT, '10_Place_Marketing_Exam.html'), examHtml, 'utf8');
