@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michigan — Service Marketing Exams</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #1e4d8c; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #1e4d8c;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #1e4d8c;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 1.15rem;
+      color: #1e4d8c;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #1e4d8c; margin-bottom: 0.35rem; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #eef2f8; }
+    .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-en { font-size: 0.95rem; }
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #1e4d8c;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #163a6b; }
+    button.secondary {
+      background: #fff;
+      color: #1e4d8c;
+      border: 2px solid #1e4d8c;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #1e4d8c;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+    .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
+    .page-hidden { display: none !important; }
+    .paginator {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin: 1rem 0;
+      padding: 0.85rem 1rem;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e8ecf1;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .paginator-top { position: sticky; top: 0; z-index: 5; }
+    .paginator-info { font-weight: 600; color: #2c3e50; font-size: 0.95rem; }
+    .paginator-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .paginator-btns button:disabled { opacity: 0.45; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="../index.html">← Edu materials</a></p>
+    <h1>Michigan — Service Marketing</h1>
+    <p class="sub">2 variants · 38 MCQ · 1 mark each (19/30)</p>
+    <div class="rules"><strong>Exam variants</strong> — one variant per page (19 MCQ). Variant 01: Flower of Service / service management. Variant 02: S-D Logic. Use <em>Previous / Next</em>; click <em>Check this page</em> to score.</div>
+    <form id="test-form">
+      <div id="questions"></div>
+      <div class="actions">
+        <button type="submit">Check answers</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = {"correct":1,"wrong":0,"max":null};
+    const QUESTIONS = [{"num":"Variant 01 · Q1","en":"A \"Vigorous Petal\" represents a supplementary element that:","options":[{"id":"a","en":"Costs the company more than the economic value it generates in the short term"},{"id":"b","en":"Is required by law and therefore does not allow any differentiation"},{"id":"c","en":"Distinguishes the company's value proposition from the competition"},{"id":"d","en":"Is eliminated during crisis periods to protect the core product"}],"correct":"c","explain":"Vigorous petals are differentiating supplementary services (Flower of Service).","id":"v01_mcq1","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q2","en":"In \"High Contact Services\", the main \"Actors\" are:","options":[{"id":"a","en":"Exclusively the managers who decide the operational procedures"},{"id":"b","en":"Both contact employees and the customers themselves"},{"id":"c","en":"Only digital technologies that automate the process"},{"id":"d","en":"Raw material suppliers supporting the value chain"}],"correct":"b","id":"v01_mcq2","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q3","en":"\"Interactional Justice\" focuses on:","options":[{"id":"a","en":"Transparent and easy-to-follow rules to access the recovery system"},{"id":"b","en":"Economic restitution or discount vouchers for future purchases"},{"id":"c","en":"Social media monitoring to identify public complaints"},{"id":"d","en":"Honest explanation, genuine effort, and polite treatment"}],"correct":"d","explain":"Procedural = rules; distributive = compensation; interactional = how people are treated.","id":"v01_mcq3","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q4","en":"Which of these is NOT an actor in the company's micro-environment?","options":[{"id":"a","en":"Suppliers"},{"id":"b","en":"Climate and weather conditions"},{"id":"c","en":"Competitors"},{"id":"d","en":"Customers"}],"correct":"b","explain":"Climate/weather = macro-environment, not micro actors.","id":"v01_mcq4","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q5","en":"Relational marketing differs from transactional marketing by:","options":[{"id":"a","en":"Focusing on maximizing sales volume per single transaction"},{"id":"b","en":"Conflict orientation to get the most advantageous purchase price"},{"id":"c","en":"Managing large databases aimed at undifferentiated mass promotion"},{"id":"d","en":"The goal of initiating, maintaining and improving relationships over the long term"}],"correct":"d","id":"v01_mcq5","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q6","en":"A specific challenge for service management is:","options":[{"id":"a","en":"Totally eliminating human contact to maximize efficiency"},{"id":"b","en":"Reducing the number of customers to stabilize irregular demand"},{"id":"c","en":"Transforming every immaterial performance into a storable output"},{"id":"d","en":"Balancing standardization and customization"}],"correct":"d","id":"v01_mcq6","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q7","en":"Who heavily influenced the Scandinavian approach (SAS) to services?","options":[{"id":"a","en":"Frederick Taylor"},{"id":"b","en":"Adam Smith"},{"id":"c","en":"Michael Porter"},{"id":"d","en":"Jan Carlzon"}],"correct":"d","id":"v01_mcq7","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q8","en":"The transformation of industries into \"Industry 4.0\" centers on:","options":[{"id":"a","en":"Total replacement of the human workforce with mechanical robotics"},{"id":"b","en":"Cyber-physical systems and the integration of Big Data into processes"},{"id":"c","en":"Returning to centralized production models for quality control"},{"id":"d","en":"Reducing market dynamism through rigid legal standards"}],"correct":"b","id":"v01_mcq8","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q9","en":"The \"Order-Taking\" petal includes elements such as:","options":[{"id":"a","en":"Personalized advice and suggestions on correct product use"},{"id":"b","en":"Management of refunds and warranty repairs after failure"},{"id":"c","en":"Reservations, program enrollments and facility check-ins"},{"id":"d","en":"Welcoming guests with food, drinks and comfortable waiting areas"}],"correct":"c","explain":"Order-taking = applications/orders/reservations. A=Consultation, B=Exceptions, D=Hospitality.","id":"v01_mcq9","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q10","en":"What does the term \"Consideration Set\" indicate?","options":[{"id":"a","en":"Employees considered for internal promotion"},{"id":"b","en":"Service flower petals the management decides to enhance"},{"id":"c","en":"The set of financial risks associated with a new investment"},{"id":"d","en":"The alternatives that a customer seriously evaluates before purchase"}],"correct":"d","id":"v01_mcq10","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q11","en":"The purpose of a \"Service Guarantee\" is to:","options":[{"id":"a","en":"Increase internal bureaucracy to discourage customer complaints"},{"id":"b","en":"Avoid having to train staff thanks to insurance coverage"},{"id":"c","en":"Allow the company to increase prices without improving quality"},{"id":"d","en":"Reduce perceived risk and force the company to high standards"}],"correct":"d","id":"v01_mcq11","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q12","en":"What is meant by \"Undifferentiated Marketing\"?","options":[{"id":"a","en":"Niche marketing"},{"id":"b","en":"Personalized marketing for each individual"},{"id":"c","en":"Mass marketing aimed at a large market with a single offer"},{"id":"d","en":"Marketing aimed only at industrial sectors"}],"correct":"c","id":"v01_mcq12","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q13","en":"Psychographic segmentation divides the market based on:","options":[{"id":"a","en":"Age, gender and disposable income"},{"id":"b","en":"Geographic location and climate"},{"id":"c","en":"Purchase frequency and brand loyalty"},{"id":"d","en":"Lifestyle and personality"}],"correct":"d","id":"v01_mcq13","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q14","en":"In the \"Old View\" of business, service was considered:","options":[{"id":"a","en":"A central strategy for gaining competitive advantage"},{"id":"b","en":"A technical post-sales function to solve problems"},{"id":"c","en":"An immaterial activity unrelated to physical product quality"},{"id":"d","en":"A holistic approach spanning all operations"}],"correct":"b","id":"v01_mcq14","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q15","en":"The corporate \"Vision\" defines:","options":[{"id":"a","en":"Current ethical principles and socio-economic role"},{"id":"b","en":"Quantitative results achieved in the previous year"},{"id":"c","en":"The short-term perspective of immediate goals"},{"id":"d","en":"Long-term future goals and desired future state"}],"correct":"d","explain":"Mission/values ≈ current role; vision ≈ desired future.","id":"v01_mcq15","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q16","en":"What characterizes the \"Targeted Customer Satisfaction Survey\" at FedEx?","options":[{"id":"a","en":"Massive mailing of questionnaires to the entire database to measure brand recall"},{"id":"b","en":"The use of mystery shoppers to evaluate road couriers' performance"},{"id":"c","en":"The analysis of customers who experienced specific processes in the last 3 months"},{"id":"d","en":"Measuring employee satisfaction regarding corporate culture"}],"correct":"c","id":"v01_mcq16","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q17","en":"The \"Enhancing\" supplementary services category includes:","options":[{"id":"a","en":"Information, Billing, Payment and Order-taking"},{"id":"b","en":"People, Process, Physical Evidence and Politics"},{"id":"c","en":"Sensing, Seizing, Transforming and Testing"},{"id":"d","en":"Hospitality, Consultation, Safekeeping and Exceptions"}],"correct":"d","explain":"Facilitating = Information, Order-taking, Billing, Payment. Enhancing = Hospitality, Consultation, Safekeeping, Exceptions.","id":"v01_mcq17","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q18","en":"A \"Low Contact Service\" (e.g., Internet Banking) focuses on:","options":[{"id":"a","en":"Managing the \"theater\" of the service with elegant furnishings and uniforms"},{"id":"b","en":"Prolonged face-to-face interactions to build immediate trust"},{"id":"c","en":"The physical involvement of the customer in technical back-office processes"},{"id":"d","en":"Technological efficiency and ease of navigation in digital channels"}],"correct":"d","id":"v01_mcq18","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 01 · Q19","en":"The \"Close the Loop\" process in customer feedback serves to:","options":[{"id":"a","en":"Prevent the customer from switching suppliers after a single dissatisfaction"},{"id":"b","en":"Identify the least productive employees to reduce their monthly salary"},{"id":"c","en":"Ensure that the problem is resolved and the customer is informed of the outcome"},{"id":"d","en":"Close all communication channels to avoid further complaints"}],"correct":"c","id":"v01_mcq19","section":"Variant 01 — Part I (MCQ)"},{"num":"Variant 02 · Q1","en":"\"All social and economic actors are resource integrators\" (Axiom 3) means:","options":[{"id":"a","en":"That actors must accumulate resources without ever exchanging them."},{"id":"b","en":"That the firm must own every resource necessary for production."},{"id":"c","en":"That value emerges by combining resources from multiple sources (market, private, public)."},{"id":"d","en":"That customers must surrender their skills to the firm for free."}],"correct":"c","id":"v02_mcq1","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q2","en":"\"Blockchain\" is cited in the sources as:","options":[{"id":"a","en":"A physical barrier to protect goods from theft."},{"id":"b","en":"A method to block digital customer payments."},{"id":"c","en":"A board game for employees during breaks."},{"id":"d","en":"A key innovation for the secure and transparent management of ecosystems."}],"correct":"d","id":"v02_mcq2","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q3","en":"Why is a service-centered view defined as \"inherently beneficiary oriented\"?","options":[{"id":"a","en":"Because service is defined as the application of competences for the benefit of another actor."},{"id":"b","en":"Because it is a legal requirement imposed by consumer protection regulations."},{"id":"c","en":"Because the firm must necessarily please the customer to maximize exchange value."},{"id":"d","en":"Because the beneficiary is the only actor possessing operant resources in the system."}],"correct":"a","id":"v02_mcq3","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q4","en":"Co-production refers to:","options":[{"id":"a","en":"Phenomenological value."},{"id":"b","en":"Profit sharing."},{"id":"c","en":"The customer's participation in the design or production phase."},{"id":"d","en":"Creation of value in use."}],"correct":"c","explain":"Co-production = participation in design/production; value-in-use / phenomenological = co-creation side.","id":"v02_mcq4","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q5","en":"Which characteristic of services (IHIP) is criticized by S-D Logic as deriving from G-D Logic?","options":[{"id":"a","en":"Interactivity and relational nature."},{"id":"b","en":"Value co-creation in the context of use."},{"id":"c","en":"The operant resource nature of applied knowledge."},{"id":"d","en":"Perishability, since processes and knowledge can be \"stored\" in goods."}],"correct":"d","id":"v02_mcq5","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q6","en":"In shifting to the \"Actor-to-Actor\" (A2A) perspective, S-D Logic intends to:","options":[{"id":"a","en":"Replace humans with software agents equipped with AI."},{"id":"b","en":"Focus exclusively on business-to-business (B2B) transactions."},{"id":"c","en":"Overcome rigid distinctions between the roles of \"producer\" and \"consumer\"."},{"id":"d","en":"Eliminate the need to integrate private resources within the network."}],"correct":"c","id":"v02_mcq6","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q7","en":"\"The whole is greater than the sum of its individual parts\" is the definition of:","options":[{"id":"a","en":"Negative entropy (Negentropy)."},{"id":"b","en":"Technological equifinality."},{"id":"c","en":"Asymmetric functional hierarchy."},{"id":"d","en":"Holism."}],"correct":"d","id":"v02_mcq7","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q8","en":"An example of a \"Technological Institution\" in retail cited in the sources is:","options":[{"id":"a","en":"The mechanical scale for weighing fruit."},{"id":"b","en":"The use of non-recyclable plastic bags."},{"id":"c","en":"Mobile applications for ordering and personalizing the offering."},{"id":"d","en":"The presence of security guards at the entrance."}],"correct":"c","id":"v02_mcq8","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q9","en":"What is meant by \"Symmetric Information\" among partners in a service system?","options":[{"id":"a","en":"That everyone must use the same IT hardware."},{"id":"b","en":"That industrial secrets must be protected with asymmetric barriers."},{"id":"c","en":"That the producer must know more than the consumer to guide them."},{"id":"d","en":"That actors openly share information without manipulation for the common good."}],"correct":"d","id":"v02_mcq9","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q10","en":"Technological integration in \"Smart\" systems aims to:","options":[{"id":"a","en":"Improve quality of life and sustainability through responsiveness."},{"id":"b","en":"Increase system entropy to generate chaos."},{"id":"c","en":"Monitor citizens' private lives for repressive purposes."},{"id":"d","en":"Eliminate stakeholder participation by fully automating every decision."}],"correct":"a","explain":"Option D was cut off on the photo; distractor reconstructed.","id":"v02_mcq10","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q11","en":"The integrative approach to value in service consumption (Korgun & Asugman, 2015) is based on three dimensions:","options":[{"id":"a","en":"Service quality, price, and customer satisfaction in the short term."},{"id":"b","en":"Multi-actor interactions, value co-creation, and long-term relational attributes."},{"id":"c","en":"Exchange value, value-in-use, and individual phenomenological value."},{"id":"d","en":"Staff skills, process efficiency, and physical environment aesthetics."}],"correct":"c","id":"v02_mcq11","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q12","en":"\"Contextual value\" implies that:","options":[{"id":"a","en":"Value is the same for everyone."},{"id":"b","en":"Value does not exist."},{"id":"c","en":"Value depends on the specific context of time and place."},{"id":"d","en":"Value is only measured in euros."}],"correct":"c","id":"v02_mcq12","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q13","en":"The extended marketing mix (7Ps) includes, besides the traditional 4Ps:","options":[{"id":"a","en":"Performance, Profit and Strategic Positioning."},{"id":"b","en":"Advertising, Personnel and Ecosystemic Point of Sale."},{"id":"c","en":"Planning, Partnership and Labor Productivity."},{"id":"d","en":"People, Process and Physical evidence."}],"correct":"d","id":"v02_mcq13","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q14","en":"What is the role of \"goods\" according to Foundational Premise 3 (FP3) of S-D Logic?","options":[{"id":"a","en":"They represent the ultimate goal of economic activity and the fundamental unit of exchange."},{"id":"b","en":"They are operand resources capable of acting autonomously to generate benefits for the customer."},{"id":"c","en":"They function as distribution mechanisms or tools (appliances) for service provision."},{"id":"d","en":"They are discrete units of output that embed value independently of interaction with the beneficiary."}],"correct":"c","id":"v02_mcq14","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q15","en":"\"Entropy\" in a viable system indicates:","options":[{"id":"a","en":"The maximum efficiency reached by operational processes."},{"id":"b","en":"Vital energy deriving exclusively from monetary sales."},{"id":"c","en":"The system's tendency to fall into disorder if not governed."},{"id":"d","en":"Data transmission speed in a Smart City."}],"correct":"c","id":"v02_mcq15","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q16","en":"Why is \"ecosystem survival\" the shared goal of retail actors?","options":[{"id":"a","en":"Because the state imposes sanctions in case of systemic failure."},{"id":"b","en":"Because customers prefer buying in monopolistic systems."},{"id":"c","en":"Because management has no other measurable objectives."},{"id":"d","en":"Because interdependence allows individual actors to thrive only if the system is viable."}],"correct":"d","id":"v02_mcq16","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q17","en":"Value co-creation stimulates innovation because:","options":[{"id":"a","en":"It reduces labor costs for the company."},{"id":"b","en":"It forces competitors to copy users' ideas."},{"id":"c","en":"It integrates the customer's knowledge and usage experience into the creative process."},{"id":"d","en":"It allows skipping the product safety testing phase."}],"correct":"c","id":"v02_mcq17","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q18","en":"Why is technology \"institutional\" according to S-D Logic?","options":[{"id":"a","en":"Because it is entirely funded by government bodies."},{"id":"b","en":"Because updating software monthly is mandatory by law."},{"id":"c","en":"Because it has fixed and immovable installation costs."},{"id":"d","en":"Because it represents applied knowledge embedded in social norms and practices."}],"correct":"d","id":"v02_mcq18","section":"Variant 02 — Part I (MCQ)"},{"num":"Variant 02 · Q19","en":"What is the vision of Retail according to Service-Dominant Logic?","options":[{"id":"a","en":"A linear supply chain focused on logistics."},{"id":"b","en":"A simple intermediary adding value to the factory price."},{"id":"c","en":"A pure tertiary sector excluding agriculture."},{"id":"d","en":"A service ecosystem based on resource integration and co-creation."}],"correct":"d","id":"v02_mcq19","section":"Variant 02 — Part I (MCQ)"}];
+    const OPEN_ITEMS = [];
+    const SNA_ITEMS = [];
+
+    const form = document.getElementById('test-form');
+    const container = document.getElementById('questions');
+    const resultsBox = document.getElementById('results');
+
+    const VARIANT_PAGES = (() => {
+      const order = [];
+      const map = new Map();
+      QUESTIONS.forEach((q) => {
+        const m = q.section?.match(/Variant (\d+)/);
+        if (!m) return;
+        const v = m[1];
+        if (!map.has(v)) {
+          map.set(v, order.length);
+          order.push(v);
+        }
+      });
+      return { order, map };
+    })();
+
+    let currentPage = 0;
+    let paginatorTop = null;
+    let paginatorBottom = null;
+    let paginationLocked = false;
+
+    function pageForQuestion(q) {
+      const m = q.section?.match(/Variant (\d+)/);
+      if (!m) return 0;
+      return VARIANT_PAGES.map.get(m[1]) ?? 0;
+    }
+
+    function totalPageCount() {
+      return Math.max(1, VARIANT_PAGES.order.length);
+    }
+
+    function needsPagination() {
+      return totalPageCount() > 1;
+    }
+
+    function pageLabel(page) {
+      const v = VARIANT_PAGES.order[page];
+      const count = QUESTIONS.filter((q) => pageForQuestion(q) === page).length;
+      const titles = { '01': 'Service flower / management', '02': 'S-D Logic' };
+      return 'Variant ' + v + ' · ' + (titles[v] || '') + ' · ' + count + ' MCQ · page ' + (page + 1) + ' of ' + totalPageCount();
+    }
+
+    function createPaginator(className) {
+      const el = document.createElement('div');
+      el.className = className;
+      el.innerHTML = '<span class="paginator-info"></span><div class="paginator-btns">' +
+        '<button type="button" class="secondary" data-nav="prev">← Previous</button>' +
+        '<button type="button" class="secondary" data-nav="next">Next →</button></div>';
+      el.querySelector('[data-nav="prev"]').addEventListener('click', () => goToPage(currentPage - 1));
+      el.querySelector('[data-nav="next"]').addEventListener('click', () => goToPage(currentPage + 1));
+      return el;
+    }
+
+    function updatePaginator() {
+      const show = needsPagination() && !paginationLocked;
+      [paginatorTop, paginatorBottom].forEach((p) => {
+        if (!p) return;
+        p.style.display = show ? '' : 'none';
+        if (!show) return;
+        p.querySelector('.paginator-info').textContent = pageLabel(currentPage);
+        p.querySelector('[data-nav="prev"]').disabled = currentPage <= 0;
+        p.querySelector('[data-nav="next"]').disabled = currentPage >= totalPageCount() - 1;
+      });
+      updateCheckButton();
+    }
+
+    function applyPageVisibility() {
+      container.querySelectorAll('[data-page]').forEach((el) => {
+        const p = Number(el.dataset.page);
+        el.classList.toggle('page-hidden', paginationLocked ? false : p !== currentPage);
+      });
+      updatePaginator();
+    }
+
+    function goToPage(page) {
+      if (paginationLocked) return;
+      currentPage = Math.max(0, Math.min(totalPageCount() - 1, page));
+      applyPageVisibility();
+      const target = paginatorTop || container;
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function setupPagination() {
+      paginationLocked = false;
+      currentPage = 0;
+      if (paginatorTop) {
+        paginatorTop.remove();
+        paginatorBottom.remove();
+        paginatorTop = paginatorBottom = null;
+      }
+      if (!needsPagination()) {
+        updateCheckButton();
+        return;
+      }
+      paginatorTop = createPaginator('paginator paginator-top');
+      paginatorBottom = createPaginator('paginator paginator-bottom');
+      container.before(paginatorTop);
+      const actions = form.querySelector('.actions');
+      form.insertBefore(paginatorBottom, actions);
+      goToPage(0);
+      updateCheckButton();
+    }
+
+    function questionsForPage(page) {
+      return QUESTIONS.filter((q) => pageForQuestion(q) === page);
+    }
+
+    function questionsToCheck() {
+      if (needsPagination()) return questionsForPage(currentPage);
+      return QUESTIONS;
+    }
+
+    function updateCheckButton() {
+      const btn = form.querySelector('.actions button[type="submit"]');
+      if (!btn) return;
+      if (!btn.dataset.defaultLabel) btn.dataset.defaultLabel = btn.textContent;
+      if (needsPagination()) {
+        btn.textContent = 'Check this page (' + questionsForPage(currentPage).length + ')';
+      } else {
+        btn.textContent = btn.dataset.defaultLabel;
+      }
+    }
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      let currentSection = '';
+      QUESTIONS.forEach((q) => {
+        const page = pageForQuestion(q);
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.dataset.page = String(page);
+          h.textContent = q.section;
+          container.appendChild(h);
+        }
+        const card = document.createElement('div');
+        card.className = 'q';
+        card.dataset.id = q.id;
+        card.dataset.page = String(page);
+        card.innerHTML = `
+          <div class="q-num">Question ${q.num}</div>
+          <div class="q-en">${q.en}</div>
+          <div class="opts">
+            ${q.options.map(o => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span>
+                  <div class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</div>
+                </span>
+              </label>`).join('')}
+          </div>
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const warnEl = document.getElementById('warn-text');
+      const toCheck = questionsToCheck();
+      const checkingAll = toCheck.length === QUESTIONS.length;
+
+      toCheck.forEach((q) => {
+        const card = container.querySelector('[data-id="' + q.id + '"]');
+        const selected = form.querySelector('input[name="' + q.id + '"]:checked');
+        card.classList.remove('unanswered', 'correct', 'wrong');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = true;
+        fb.textContent = '';
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          lbl.classList.remove('result-opt');
+          lbl.style.background = '';
+          lbl.querySelector('input').disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove('visible');
+        warnEl.hidden = false;
+        warnEl.textContent = checkingAll
+          ? 'Answer all multiple-choice questions (' + unanswered + ' unanswered).'
+          : 'Answer all questions on this page (' + unanswered + ' unanswered).';
+        const first = container.querySelector('.q.unanswered');
+        if (first) {
+          const p = Number(first.dataset.page);
+          if (!isNaN(p)) goToPage(p);
+          first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+      warnEl.hidden = true;
+
+      toCheck.forEach((q) => {
+        const card = container.querySelector('[data-id="' + q.id + '"]');
+        const selected = form.querySelector('input[name="' + q.id + '"]:checked');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = false;
+        card.classList.remove('unanswered', 'correct', 'wrong');
+
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ No answer selected. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          return;
+        }
+
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add('correct');
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
+        } else {
+          wrong++;
+          card.classList.add('wrong');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Wrong. Your answer: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>' +
+            (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
+        }
+
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          const inp = lbl.querySelector('input');
+          lbl.classList.add('result-opt');
+          if (inp.value === q.correct) lbl.style.background = '#e8f8ef';
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = '#fdecea';
+          inp.disabled = true;
+        });
+      });
+
+      const total = checkingAll ? QUESTIONS.length : toCheck.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
+
+      document.getElementById('score-text').textContent = checkingAll
+        ? 'Score: ' + correct + ' of ' + total + ' (' + Math.round(correct/total*100) + '%)'
+        : 'This page: ' + correct + ' of ' + total + ' (' + Math.round(correct/total*100) + '%)';
+      document.getElementById('score-detail').textContent =
+        'Correct: ' + correct + ' · Wrong: ' + wrong + ' · Unanswered: ' + unanswered;
+
+      resultsBox.classList.add('visible');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      form.reset();
+      resultsBox.classList.remove('visible');
+      document.getElementById('warn-text').hidden = true;
+      renderQuestions();
+      setupPagination();
+    });
+
+    renderQuestions();
+    setupPagination();
+  </script>
+</body>
+</html>
