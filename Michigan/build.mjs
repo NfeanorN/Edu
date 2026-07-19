@@ -192,9 +192,9 @@ const variant02 = [
     opt('a', 'Improve quality of life and sustainability through responsiveness.'),
     opt('b', 'Increase system entropy to generate chaos.'),
     opt('c', "Monitor citizens' private lives for repressive purposes."),
-    opt('d', 'Eliminate stakeholder participation by fully automating every decision.'),
-  ], 'a', 'Option D was cut off on the photo; distractor reconstructed.'),
-  q(11, 'The integrative approach to value in service consumption (Korgun & Asugman, 2015) is based on three dimensions:', [
+    opt('d', 'Exclude poor subjects from accessing essential services.'),
+  ], 'a'),
+  q(11, 'The integrative approach to value in service consumption (Kuzgun & Asugman, 2015) is based on three key dimensions:', [
     opt('a', 'Service quality, price, and customer satisfaction in the short term.'),
     opt('b', 'Multi-actor interactions, value co-creation, and long-term relational attributes.'),
     opt('c', 'Exchange value, value-in-use, and individual phenomenological value.'),
@@ -214,7 +214,7 @@ const variant02 = [
   ], 'd'),
   q(14, 'What is the role of "goods" according to Foundational Premise 3 (FP3) of S-D Logic?', [
     opt('a', 'They represent the ultimate goal of economic activity and the fundamental unit of exchange.'),
-    opt('b', 'They are operand resources capable of acting autonomously to generate benefits for the customer.'),
+    opt('b', 'They are operant resources capable of acting autonomously to generate benefits for the customer.'),
     opt('c', 'They function as distribution mechanisms or tools (appliances) for service provision.'),
     opt('d', 'They are discrete units of output that embed value independently of interaction with the beneficiary.'),
   ], 'c'),
@@ -250,6 +250,124 @@ const variant02 = [
   ], 'd'),
 ];
 
+/** Service Management – PART 1 – Exam (19/30) */
+const variant03 = [
+  q(1, 'What is an example of an "Asset rental service"?', [
+    opt('a', 'Access to a Wi-Fi network via subscription'),
+    opt('b', 'Requesting professional legal advice'),
+    opt('c', 'Renting a car or a suit'),
+    opt('d', 'Attending an educational seminar'),
+  ], 'c'),
+  q(2, '"Good-dominant logic" is typical of:', [
+    opt('a', 'Modern Service Management focused on co-creation'),
+    opt('b', 'Traditional management focused on tangible goods and mass production'),
+    opt('c', 'Relational marketing oriented towards consumer loyalty'),
+    opt('d', 'Purely digital service environments'),
+  ], 'b'),
+  q(3, '"Responsible Research in Business and Management" (RRBM) aims to:', [
+    opt('a', 'Maximize academic prestige through purely theoretical publications'),
+    opt('b', 'Protect corporate industrial secrets during R&D'),
+    opt('c', 'Develop knowledge that brings benefits to both business and society'),
+    opt('d', 'Develop business models exclusively focused on shareholder profit'),
+  ], 'c'),
+  q(4, 'What is meant by "Service Tiering"?', [
+    opt('a', 'Reducing the number of flower petals to lower the offer cost'),
+    opt('b', 'Exclusively using sub-brands to cover all market segments'),
+    opt('c', 'Differentiating products based on different service levels and prices'),
+    opt('d', 'Standardizing the core offer by eliminating differences between service classes'),
+  ], 'c'),
+  q(5, 'A "High Contact Service" implies:', [
+    opt('a', 'Exclusive use of self-service technologies with no human presence'),
+    opt('b', "That the customer receives the benefit without ever visiting the supplier's location"),
+    opt('c', 'Significant and prolonged interactions between customer and staff/facilities'),
+    opt('d', 'Centralized factory production with distribution via agents'),
+  ], 'c'),
+  q(6, 'In a "Service Blueprint", the "Line of Visibility" separates:', [
+    opt('a', 'Actions performed by the customer from those performed by the employee'),
+    opt('b', 'Revenues generated from individual transactions from total operating costs'),
+    opt('c', 'Positive moments of truth from those leading to failure'),
+    opt('d', 'Visible front-stage activities from supporting back-stage activities'),
+  ], 'd'),
+  q(7, '"Positioning" serves to:', [
+    opt('a', 'Physically place the product on shelves'),
+    opt('b', 'Decide the geographic location of the company headquarters'),
+    opt('c', 'Calculate the ROI of advertising campaigns'),
+    opt('d', 'Establish a perception of the product offering in the minds of customers relative to competition'),
+  ], 'd'),
+  q(8, 'In a startup, who usually makes up the first sales team?', [
+    opt('a', 'External sales experts hired to handle the mainstream market'),
+    opt('b', 'The founder and the founding team'),
+    opt('c', 'The founder and the logistics management staff'),
+    opt('d', 'Sales agencies specialized in crossing the technological chasm'),
+  ], 'b'),
+  q(9, 'Which EU country showed the highest percentage of employed people in services in 2019?', [
+    opt('a', 'Romania'),
+    opt('b', 'Italy'),
+    opt('c', 'Luxembourg'),
+    opt('d', 'Netherlands'),
+  ], 'c'),
+  q(10, 'In terms of efficiency, Service Management prioritizes:', [
+    opt('a', 'Internal efficiency based exclusively on technical criteria'),
+    opt('b', 'The execution speed of machinery within the sites'),
+    opt('c', 'External efficiency and the recognition of quality by the user'),
+    opt('d', 'Purely financial efficiency measures'),
+  ], 'c'),
+  q(11, '"Service-Dominant Logic" (Vargo and Lusch) argues that:', [
+    opt('a', 'Service is a necessary accessory extension to sell tangible products'),
+    opt('b', 'Service logic must dominate customer desires through marketing'),
+    opt('c', 'Service is the fundamental basis of exchange, where goods are service vehicles'),
+    opt('d', 'Physical goods have an intrinsic value superior to service performance'),
+  ], 'c'),
+  q(12, 'The "Courtyard by Marriott" brand is an example of:', [
+    opt('a', 'A style extension that does not modify core hotel operational processes'),
+    opt('b', 'A "House of Brands" strategy where the Marriott name is completely absent'),
+    opt('c', 'A product designed via trade-off analysis (conjoint analysis) of travelers'),
+    opt('d', 'A niche service aimed exclusively at backpacker tourists'),
+  ], 'c'),
+  q(13, 'What characterizes "Information Processing" (e.g., Insurance)?', [
+    opt('a', 'Constant physical contact between the supplier and the customer\'s body'),
+    opt('b', 'The impossibility of automating processes via artificial intelligence'),
+    opt('c', 'Exclusive use of paper documentation to maintain tradition'),
+    opt('d', 'The processing of data to create value in intangible assets'),
+  ], 'd'),
+  q(14, 'A guideline for staff in handling complaints (LOS) is:', [
+    opt('a', 'Deny the error until irrefutable proof emerges from the back-office'),
+    opt('b', 'Give the customer the benefit of the doubt and do not get defensive'),
+    opt('c', 'Ask the customer to submit a written complaint exclusively via lawyer'),
+    opt('d', 'Immediately offer the maximum possible compensation before investigating'),
+  ], 'b'),
+  q(15, 'Psychographic segmentation analyzes:', [
+    opt('a', 'Geographic location'),
+    opt('b', 'Age and gender'),
+    opt('c', 'Purchase frequency'),
+    opt('d', 'Lifestyle and personality'),
+  ], 'd'),
+  q(16, 'A "Lead" becomes an "SQL" (Sales Qualified Lead) when:', [
+    opt('a', 'They only provide an email address'),
+    opt('b', 'They visit the website for the first time'),
+    opt('c', 'They ask for a refund'),
+    opt('d', 'They are reviewed by the sales team and confirmed as a real potential customer'),
+  ], 'd'),
+  q(17, 'The ATECO classification in Italy serves to:', [
+    opt('a', 'Measure the perceived quality of services provided nationally'),
+    opt('b', 'Distinguish between public and private sector employment contracts'),
+    opt('c', 'Classify economic activities for statistical and fiscal purposes'),
+    opt('d', 'Classify economic activities for administrative and marketing purposes'),
+  ], 'c'),
+  q(18, 'The term "Service Management" was originally introduced in:', [
+    opt('a', 'Finnish in 1980 and Swedish in 1982'),
+    opt('b', 'Swedish in 1982 and English in 1984'),
+    opt('c', 'English in 1978 and French in 1980'),
+    opt('d', 'Swedish in 1980 and English in 1982'),
+  ], 'd'),
+  q(19, 'A risk of AI-based over-personalization (Filter Bubbles) is:', [
+    opt('a', 'The excessive increase in choices for the inexperienced consumer'),
+    opt('b', 'The loss of efficiency in mass market segmentation processes'),
+    opt('c', 'The increase in cognitive load during the pre-purchase phase'),
+    opt('d', 'The reduction of "serendipity" and exposure to algorithmic bias'),
+  ], 'd'),
+];
+
 function tag(variantId, items) {
   const label = String(variantId).padStart(2, '0');
   return items.map((item, i) => ({
@@ -260,7 +378,7 @@ function tag(variantId, items) {
   }));
 }
 
-const QUESTIONS = [...tag('01', variant01), ...tag('02', variant02)];
+const QUESTIONS = [...tag('01', variant01), ...tag('02', variant02), ...tag('03', variant03)];
 
 const html = `<!doctype html>
 <html lang="en">
@@ -406,8 +524,8 @@ const html = `<!doctype html>
   <div class="wrap">
     <p class="back"><a href="../index.html">← Edu materials</a></p>
     <h1>Michigan — Service Marketing</h1>
-    <p class="sub">2 variants · 38 MCQ · 1 mark each (19/30)</p>
-    <div class="rules"><strong>Exam variants</strong> — one variant per page (19 MCQ). Variant 01: Flower of Service / service management. Variant 02: S-D Logic. Use <em>Previous / Next</em>; click <em>Check this page</em> to score.</div>
+    <p class="sub">3 variants · 57 MCQ · 1 mark each (19/30)</p>
+    <div class="rules"><strong>Exam variants</strong> — one variant per page (19 MCQ). Variant 01: Flower of Service. Variant 02: S-D Logic (Part 2). Variant 03: Service Management Part 1. Use <em>Previous / Next</em>; click <em>Check this page</em> to score.</div>
     <form id="test-form">
       <div id="questions"></div>
       <div class="actions">
@@ -468,7 +586,7 @@ const html = `<!doctype html>
     function pageLabel(page) {
       const v = VARIANT_PAGES.order[page];
       const count = QUESTIONS.filter((q) => pageForQuestion(q) === page).length;
-      const titles = { '01': 'Service flower / management', '02': 'S-D Logic' };
+      const titles = { '01': 'Service flower / management', '02': 'S-D Logic (Part 2)', '03': 'Service Management Part 1' };
       return 'Variant ' + v + ' · ' + (titles[v] || '') + ' · ' + count + ' MCQ · page ' + (page + 1) + ' of ' + totalPageCount();
     }
 
@@ -699,4 +817,4 @@ const html = `<!doctype html>
 `;
 
 writeFileSync(join(ROOT, 'index.html'), html, 'utf8');
-console.log(`Michigan/index.html — ${QUESTIONS.length} MCQ (2 variants)`);
+console.log(`Michigan/index.html — ${QUESTIONS.length} MCQ (3 variants)`);
