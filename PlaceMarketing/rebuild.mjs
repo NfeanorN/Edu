@@ -132,7 +132,7 @@ patchHtml('index.html', {
   rules:
     '<div class="rules"><strong>Exam variants</strong> — MCQ only, one variant per page (19 questions each). Use <em>Previous / Next</em> to switch variants; click <em>Check this page</em> to score the current variant.</div>',
   back:
-    '<a href="../index.html">← Edu materials</a> · <a href="10_Place_Marketing_Exam.html">Exam (19 MCQ)</a>',
+    '<a href="../index.html">← Edu materials</a> · <a href="OpenQuestions/index.html">Open questions</a> · <a href="10_Place_Marketing_Exam.html">Exam (19 MCQ)</a>',
   questions: combined,
   scoring: { correct: 1, wrong: 0, max: null },
 });
