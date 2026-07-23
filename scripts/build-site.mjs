@@ -13,8 +13,7 @@ const STATIC_DIRS = [
   "HR",
   "HRM",
   "AccountingBanking",
-  // PlaceMarketing — temporarily off Pages (oral / exam period)
-  "Michigan",
+  // PlaceMarketing + Michigan — temporarily off Pages
   "Avatar",
   "Sheldon",
   "EPC_Champions_League_Final",
@@ -22,7 +21,7 @@ const STATIC_DIRS = [
   "EPC_Study_Room_Booking",
 ];
 
-/** Old PlaceMarketing URLs → bounce to hub (bookmarks / shared links). */
+/** Old PlaceMarketing / Michigan URLs → bounce to hub. */
 const BLOCKED_PATH_REDIRECTS = [
   "PlaceMarketing/index.html",
   "PlaceMarketing/oral-basics.html",
@@ -34,6 +33,7 @@ const BLOCKED_PATH_REDIRECTS = [
   "PlaceMarketing/OpenQuestions/04_Variant.html",
   "PlaceMarketing/OpenQuestions/05_Variant.html",
   "PlaceMarketing/OpenQuestions/06_Variant.html",
+  "Michigan/index.html",
 ];
 
 const REACT_APPS = [
