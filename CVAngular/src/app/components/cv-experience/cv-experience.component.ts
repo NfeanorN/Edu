@@ -10,7 +10,7 @@ import { CvSectionComponent } from '../cv-section/cv-section.component';
     <app-cv-section
       sectionId="experience"
       title="Work experience"
-      [subtitle]="'(' + years() + ' years)'"
+      [subtitle]="'(' + label() + ')'"
     >
       @for (job of jobs(); track job.company) {
         <article class="job">
@@ -19,6 +19,9 @@ import { CvSectionComponent } from '../cv-section/cv-section.component';
             <time class="dates">{{ job.dates }}</time>
           </div>
           <p class="role">{{ job.role }}</p>
+          @if (job.context) {
+            <p class="context">{{ job.context }}</p>
+          }
           <ul>
             @for (item of job.responsibilities; track item) {
               <li>{{ item }}</li>
@@ -32,5 +35,5 @@ import { CvSectionComponent } from '../cv-section/cv-section.component';
 })
 export class CvExperienceComponent {
   readonly jobs = input.required<readonly JobExperience[]>();
-  readonly years = input.required<number>();
+  readonly label = input.required<string>();
 }

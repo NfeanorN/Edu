@@ -9,6 +9,8 @@ export interface JobExperience {
   company: string;
   dates: string;
   role: string;
+  /** Short product / domain context under the company name */
+  context?: string;
   responsibilities: readonly string[];
 }
 
@@ -29,7 +31,7 @@ export interface CvProfile {
   contacts: readonly ContactLink[];
   workFormat: string;
   about: string;
-  experienceYears: number;
+  experienceLabel: string;
   jobs: readonly JobExperience[];
   skills: readonly string[];
   education: readonly Education[];
