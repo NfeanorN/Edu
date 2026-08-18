@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz — 36 Syllabus Topics · Economics</title>
+<style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.65; margin: 0; padding: 1.5rem 1rem 3rem; color: #1a1a2e; background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%); }
+    .wrap { max-width: 820px; margin: 0 auto; }
+    .card { background: #fff; padding: 1.6rem 1.8rem; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+    h1 { color: #1a3a5c; border-bottom: 4px solid #27ae60; padding-bottom: 12px; font-size: 1.6rem; margin: 0 0 .8rem; }
+    .back { margin-bottom: 1rem; font-size: .95rem; }
+    .back a { color: #27ae60; text-decoration: none; font-weight: 500; }
+    .back a:hover { text-decoration: underline; }
+    .sub { color: #555; font-size: .95rem; margin: 0 0 1.2rem; }
+
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 1.2rem; }
+    .chip { border: 1px solid #cfd8e3; background: #fff; color: #2c3e50; padding: 7px 14px; border-radius: 999px; cursor: pointer; font-size: .9rem; font-family: inherit; }
+    .chip:hover { border-color: #27ae60; }
+    .chip.active { background: #27ae60; border-color: #27ae60; color: #fff; font-weight: 600; }
+    .spacer { flex: 1; }
+    .btn { background: #27ae60; color: #fff; border: none; padding: 9px 18px; border-radius: 8px; cursor: pointer; font-size: .95rem; font-family: inherit; font-weight: 600; }
+    .btn:hover { background: #219150; }
+    .btn.ghost { background: #fff; color: #27ae60; border: 1px solid #27ae60; }
+    .btn.ghost:hover { background: #eef8f0; }
+
+    .bar { height: 8px; background: #e9eef4; border-radius: 999px; overflow: hidden; margin-bottom: .5rem; }
+    .bar span { display: block; height: 100%; width: 0; background: #27ae60; transition: width .25s; }
+    .status { display: flex; justify-content: space-between; font-size: .88rem; color: #666; margin-bottom: 1.2rem; }
+    .status b { color: #1a3a5c; }
+
+    .tag { display: inline-block; font-size: .74rem; font-weight: 700; letter-spacing: .3px; padding: 3px 9px; border-radius: 999px; margin-bottom: .7rem; }
+    .tag.micro { background: #eef3ff; color: #3a6cdc; }
+    .tag.macro { background: #fff8e6; color: #d68910; }
+    .qtext { font-size: 1.12rem; font-weight: 600; color: #1a3a5c; margin: 0 0 1rem; }
+    .qtext code { background: #f1f3f6; padding: 2px 6px; border-radius: 4px; font-size: .92em; }
+
+    .opts { list-style: none; padding: 0; margin: 0; }
+    .opts li { margin: 8px 0; }
+    .opt { width: 100%; text-align: left; display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border: 1px solid #e0e6ed; background: #fff; border-radius: 10px; cursor: pointer; font-size: .98rem; font-family: inherit; color: #2c3e50; line-height: 1.5; transition: border-color .15s, background .15s; }
+    .opt:hover:not(:disabled) { border-color: #27ae60; background: #f9fdfa; }
+    .opt:disabled { cursor: default; }
+    .opt .letter { flex: 0 0 24px; height: 24px; border-radius: 50%; background: #eef2f7; color: #56657a; font-weight: 700; font-size: .82rem; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+    .opt.correct { border-color: #27ae60; background: #eef8f0; }
+    .opt.correct .letter { background: #27ae60; color: #fff; }
+    .opt.wrong { border-color: #e74c3c; background: #fdeeec; }
+    .opt.wrong .letter { background: #e74c3c; color: #fff; }
+
+    .explain { margin-top: 1rem; padding: 12px 16px; border-radius: 8px; border-left: 4px solid #5b8def; background: #eef3ff; font-size: .95rem; display: none; }
+    .explain.show { display: block; }
+    .explain .verdict { font-weight: 700; display: block; margin-bottom: 4px; }
+    .explain .verdict.ok { color: #1e8449; }
+    .explain .verdict.no { color: #c0392b; }
+    .explain .ru { display: block; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #b9c8e8; font-size: .88rem; color: #4a5568; }
+    .explain .src { display: block; margin-top: 8px; font-size: .84rem; }
+    .explain .src a { color: #3a6cdc; }
+
+    .nav { display: flex; gap: 10px; margin-top: 1.4rem; }
+
+    .result { text-align: center; padding: 1rem 0; }
+    .score { font-size: 3rem; font-weight: 700; color: #27ae60; line-height: 1.1; }
+    .score.mid { color: #f0b429; }
+    .score.low { color: #e74c3c; }
+    .result p { color: #555; }
+    .breakdown { text-align: left; margin: 1.5rem 0; }
+    .breakdown h3 { font-size: 1rem; color: #1a3a5c; margin-bottom: .5rem; }
+    .breakdown ul { padding-left: 1.2rem; margin: 0; font-size: .93rem; }
+    .breakdown li { margin: 6px 0; color: #555; }
+    .breakdown a { color: #27ae60; }
+    .hint { font-size: .85rem; color: #8895a7; margin-top: 1.2rem; text-align: center; }
+    @media (max-width: 520px) { .card { padding: 1.2rem 1.1rem; } .spacer { flex-basis: 100%; height: 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <p class="back"><a href="index.html">← Economics home</a> · <a href="Syllabus/index.html">Syllabus (36 topics)</a> · <a href="Exam_Prep_Guide.html">Exam Prep Guide</a></p>
+
+    <div class="card">
+        <h1>Self-Check Quiz — 36 Syllabus Topics</h1>
+        <p class="sub">One or more questions per exam topic. Answer, get instant feedback with the reasoning, and a link to the topic page. <strong>🇷🇺 Пояснение по-русски — под каждым ответом.</strong></p>
+
+        <div class="controls">
+            <button class="chip active" data-filter="all" type="button">All 36 topics</button>
+            <button class="chip" data-filter="micro" type="button">📙 Micro (Frank)</button>
+            <button class="chip" data-filter="macro" type="button">📊 Macro</button>
+            <span class="spacer"></span>
+            <button class="chip" id="shuffleToggle" type="button">🔀 Shuffle: on</button>
+        </div>
+
+        <div class="bar"><span id="progressBar"></span></div>
+        <div class="status">
+            <span>Question <b id="qNum">1</b> / <b id="qTotal">40</b></span>
+            <span>Correct: <b id="qScore">0</b></span>
+        </div>
+
+        <div id="quizArea"></div>
+    </div>
+
+    <p class="hint">Клавиши 1–4 — выбрать ответ, Enter или → — следующий вопрос.</p>
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    topic: 1, kind: "micro", page: "Syllabus/01_Returns_to_Scale.html",
+    q: "A firm produces with <code>Q = A·L<sup>0.3</sup>·K<sup>0.5</sup></code>. What are its returns to scale?",
+    opts: [
+      "Increasing returns to scale",
+      "Constant returns to scale",
+      "Decreasing returns to scale",
+      "Cannot be determined without knowing A"
+    ],
+    a: 2,
+    why: "Add the exponents: 0.3 + 0.5 = 0.8 &lt; 1. Doubling both inputs raises output by less than double, so returns to scale are decreasing and LRAC rises with output. The constant A only scales the level, never the returns to scale.",
+    ru: "Складываем степени: 0,3 + 0,5 = 0,8 &lt; 1 → убывающая отдача от масштаба. Множитель A на тип отдачи не влияет."
+  },
+  {
+    topic: 1, kind: "micro", page: "Syllabus/01_Returns_to_Scale.html",
+    q: "Which statement correctly separates returns to scale from diminishing marginal returns?",
+    opts: [
+      "Returns to scale is short-run; diminishing returns is long-run",
+      "Returns to scale varies all inputs (long run); diminishing returns adds one input while others stay fixed (short run)",
+      "They are two names for the same effect",
+      "Returns to scale applies only to monopolies"
+    ],
+    a: 1,
+    why: "Returns to scale is a long-run concept: every input is multiplied by the same factor k. Diminishing marginal returns is short-run: capital is fixed and only labour rises, so each extra worker eventually adds less output. This is the single most common exam trap on this topic.",
+    ru: "Отдача от масштаба — длинный период, все факторы растут в k раз. Убывающая предельная отдача — короткий период, K фиксирован, растёт только L. Это классическая ловушка на экзамене."
+  },
+  {
+    topic: 2, kind: "micro", page: "Syllabus/02_Short_vs_Long_Run.html",
+    q: "What defines the short run in production theory?",
+    opts: [
+      "A period shorter than one calendar year",
+      "At least one input (usually capital) is fixed",
+      "The period before the firm earns any profit",
+      "A period in which prices cannot change"
+    ],
+    a: 1,
+    why: "The short run is defined by fixed inputs, not by the calendar. For a hot-dog stand the long run may be weeks; for a power plant it may be a decade. In the long run every input, including capital, is variable.",
+    ru: "Короткий период определяется не календарём, а тем, что хотя бы один фактор (обычно капитал) фиксирован. В длинном периоде все факторы переменные."
+  },
+  {
+    topic: 3, kind: "micro", page: "Syllabus/03_Isoquant_Isocost.html",
+    q: "A firm minimises the cost of producing a given output when:",
+    opts: [
+      "MRTS = w/r — the isoquant is tangent to the isocost line",
+      "It uses equal amounts of labour and capital",
+      "MP<sub>L</sub> = MP<sub>K</sub>",
+      "The isoquant crosses the isocost line twice"
+    ],
+    a: 0,
+    why: "Cost minimisation for a target output happens at the tangency point: MRTS = MP<sub>L</sub>/MP<sub>K</sub> = w/r, equivalently MP<sub>L</sub>/w = MP<sub>K</sub>/r — the last dollar spent on labour buys as much output as the last dollar spent on capital. Equal marginal products alone are not enough because the inputs have different prices.",
+    ru: "Минимум издержек — в точке касания изокванты и изокосты: MRTS = w/r, то есть MP_L/w = MP_K/r. Последний рубль на труд даёт столько же выпуска, сколько на капитал."
+  },
+  {
+    topic: 4, kind: "micro", page: "Syllabus/04_MC_MR_Average_Cost.html",
+    q: "If marginal cost lies below average total cost, then as output rises ATC is:",
+    opts: [
+      "Rising",
+      "Falling",
+      "Constant",
+      "At its minimum"
+    ],
+    a: 1,
+    why: "Marginal always pulls the average towards itself. When the cost of the next unit is below the current average, the average is dragged down. MC cuts ATC exactly at the minimum of ATC — the same logic as adding a below-average grade to your GPA.",
+    ru: "Предельная величина тянет среднюю за собой: MC &lt; ATC → ATC падает. MC пересекает ATC ровно в минимуме ATC."
+  },
+  {
+    topic: 5, kind: "micro", page: "Syllabus/05_Isocost.html",
+    q: "The isocost line <code>C = wL + rK</code> plotted with K on the vertical axis has slope:",
+    opts: [
+      "−w/r",
+      "−r/w",
+      "w·r",
+      "C/w"
+    ],
+    a: 0,
+    why: "Rearrange to K = C/r − (w/r)·L, so the slope is −w/r: the market rate at which capital can be traded for labour at constant cost. A wage increase makes the line steeper; a bigger budget C shifts it outward in parallel.",
+    ru: "Из C = wL + rK получаем K = C/r − (w/r)L, наклон = −w/r. Рост зарплаты делает линию круче, рост бюджета C сдвигает её параллельно наружу."
+  },
+  {
+    topic: 6, kind: "micro", page: "Syllabus/06_Game_Theory.html",
+    q: "A pair of strategies is a Nash equilibrium when:",
+    opts: [
+      "It gives both players the highest possible joint payoff",
+      "No player can improve their payoff by changing strategy alone, given what the other does",
+      "Both players choose their dominant strategy",
+      "The players have agreed to cooperate"
+    ],
+    a: 1,
+    why: "Nash equilibrium is about unilateral deviation: holding the opponent's choice fixed, no one gains by switching. The prisoner's dilemma shows why this need not be the best joint outcome — (Confess, Confess) is the Nash equilibrium even though (Silent, Silent) pays both more.",
+    ru: "Равновесие Нэша: никому не выгодно менять стратегию в одиночку. Оно не обязано быть лучшим для обоих — дилемма заключённого именно об этом."
+  },
+  {
+    topic: 7, kind: "micro", page: "Syllabus/07_Utility_Function.html",
+    q: "Diminishing marginal utility means the total utility curve U(x) is:",
+    opts: [
+      "A straight upward line",
+      "Concave — rising but flattening out",
+      "Convex — rising ever more steeply",
+      "Downward sloping throughout"
+    ],
+    a: 1,
+    why: "Marginal utility is the slope of total utility. If each extra unit adds less satisfaction than the one before, the slope falls while staying positive, so the curve rises and flattens — a concave shape. A straight line would mean constant marginal utility.",
+    ru: "MU — это наклон кривой общей полезности. Убывающая MU → наклон уменьшается, но остаётся положительным: кривая растёт и выполаживается (вогнутая)."
+  },
+  {
+    topic: 8, kind: "micro", page: "Syllabus/08_Intertemporal_Budget.html",
+    q: "With income M<sub>1</sub> today and M<sub>2</sub> next year and interest rate r, the intertemporal budget constraint has slope:",
+    opts: [
+      "−(1 + r)",
+      "−1/(1 + r)",
+      "−r",
+      "−M<sub>2</sub>/M<sub>1</sub>"
+    ],
+    a: 0,
+    why: "Giving up one unit of consumption today buys (1 + r) units next year, so the line is C<sub>1</sub> + C<sub>2</sub>/(1+r) = M<sub>1</sub> + M<sub>2</sub>/(1+r) with slope −(1 + r) in (C<sub>1</sub>, C<sub>2</sub>) space. A higher interest rate makes the constraint steeper and pivots it around the endowment point.",
+    ru: "Отказ от единицы потребления сегодня даёт (1+r) единиц завтра, поэтому наклон = −(1+r). Рост r делает линию круче, вращая её вокруг точки дохода."
+  },
+  {
+    topic: 9, kind: "macro", page: "Syllabus/09_Central_Bank_Inflation.html",
+    q: "Inflation is running well above target. What does the central bank normally do, and why?",
+    opts: [
+      "Cut the rate — cheaper credit makes goods cheaper",
+      "Raise the rate — dearer credit cools consumption and investment, easing price pressure",
+      "Raise the rate — it directly raises firms' costs and so raises prices",
+      "Leave the rate alone — inflation is a fiscal matter"
+    ],
+    a: 1,
+    why: "Higher policy rates make borrowing dearer and saving more attractive, so C and I fall, aggregate demand falls, and inflation slows. The chain is <code>i↑ → C, I↓ → AD↓ → π↓</code>. Cutting rates would do the opposite and add fuel to inflation.",
+    ru: "При высокой инфляции ЦБ поднимает ставку: кредит дорожает, C и I падают, совокупный спрос снижается, инфляция замедляется (i↑ → C, I↓ → AD↓ → π↓)."
+  },
+  {
+    topic: 10, kind: "macro", page: "Syllabus/10_Interest_Rate_GDP.html",
+    q: "The transmission from a lower interest rate to higher GDP runs mainly through:",
+    opts: [
+      "i↓ → investment and durable consumption ↑ → aggregate demand ↑ → Y↑",
+      "i↓ → saving ↑ → Y↑",
+      "i↓ → taxes ↓ → Y↑",
+      "i↓ → the price level falls, so real GDP falls"
+    ],
+    a: 0,
+    why: "A lower rate cuts the cost of financing projects, so more investment projects clear their hurdle rate, and credit-financed consumption rises too. Demand goes up and firms produce more, so Y rises — this is exactly the downward-sloping IS curve.",
+    ru: "Ставка ниже → инвестиции и кредитное потребление выше → спрос выше → Y растёт. Это и есть отрицательный наклон кривой IS."
+  },
+  {
+    topic: 11, kind: "macro", page: "Syllabus/11_Marginal_Propensity.html",
+    q: "Disposable income rises by 200 and consumption rises by 150. The MPC is:",
+    opts: [
+      "1.33",
+      "0.75",
+      "0.25",
+      "50"
+    ],
+    a: 1,
+    why: "MPC = ΔC/ΔY<sub>D</sub> = 150/200 = 0.75. The remaining 0.25 is the marginal propensity to save, and MPC + MPS = 1 always. MPC lies strictly between 0 and 1.",
+    ru: "MPC = ΔC/ΔY_D = 150/200 = 0,75. Остальные 0,25 — предельная склонность к сбережению; MPC + MPS = 1."
+  },
+  {
+    topic: 12, kind: "micro", page: "Syllabus/12_Marginal_Utility.html",
+    q: "Marginal utility is best defined as:",
+    opts: [
+      "Total satisfaction from all units consumed",
+      "The extra satisfaction from consuming one more unit",
+      "Satisfaction per dollar spent",
+      "The price a consumer actually pays"
+    ],
+    a: 1,
+    why: "MU = ΔU/ΔQ — the increment from the last unit. Total utility is the running sum of marginal utilities; satisfaction per dollar is MU/P, which is what the rational spending rule equalises across goods.",
+    ru: "MU = ΔU/ΔQ — прирост полезности от последней единицы. Общая полезность — сумма всех MU, а MU/P — полезность на рубль (правило рационального расходования)."
+  },
+  {
+    topic: 13, kind: "micro", page: "Syllabus/13_Reservation_Price.html",
+    q: "A buyer's reservation price for a good is:",
+    opts: [
+      "The price at which the buyer is indifferent between buying and not buying — the maximum they would pay",
+      "The market price the buyer expects to see",
+      "The lowest price at which the seller will trade",
+      "The average price of similar goods"
+    ],
+    a: 0,
+    why: "The reservation price is the point of indifference. Any market price below it produces positive consumer surplus (reservation price − price paid), and the buyer trades; above it, no trade. Sellers have the mirror-image reservation price: the minimum acceptable.",
+    ru: "Резервная цена покупателя — максимум, который он готов заплатить (точка безразличия). Излишек покупателя = резервная цена − уплаченная цена."
+  },
+  {
+    topic: 14, kind: "micro", page: "Syllabus/14_Opportunity_Cost.html",
+    q: "You have a free concert ticket. You would otherwise work a shift paying 60 and enjoy it as much as staying home. Attending the concert costs you nothing in cash. What is the opportunity cost of going?",
+    opts: [
+      "0, since the ticket was free",
+      "60 — the value of the best alternative you gave up",
+      "The face value printed on the ticket",
+      "60 plus the ticket's face value"
+    ],
+    a: 1,
+    why: "Opportunity cost is the value of the single best forgone alternative, whether or not money changes hands. The ticket price is a sunk irrelevance here; the shift you skip is worth 60, so that is the cost of the evening.",
+    ru: "Альтернативные издержки — ценность лучшей упущенной возможности, даже без денежных трат. Билет бесплатный, но пропущенная смена стоит 60 — это и есть цена вечера."
+  },
+  {
+    topic: 15, kind: "micro", page: "Syllabus/15_Perfect_Competition.html",
+    q: "In long-run equilibrium under perfect competition, a typical firm:",
+    opts: [
+      "Earns positive economic profit because it is efficient",
+      "Produces where P = MC = minimum ATC and earns zero economic profit",
+      "Sets price above marginal cost to cover fixed costs",
+      "Produces where MR is greater than MC"
+    ],
+    a: 1,
+    why: "Free entry competes away any economic profit. Entry pushes price down until it just touches the bottom of ATC, so P = MC = min ATC. Zero <em>economic</em> profit still means a normal return — the owner's capital earns exactly what it would elsewhere.",
+    ru: "Свободный вход убирает экономическую прибыль: P = MC = min ATC, прибыль нулевая. Нулевая экономическая прибыль — это нормальная бухгалтерская доходность, а не разорение."
+  },
+  {
+    topic: 16, kind: "micro", page: "Syllabus/16_Rational_Spending_Rule.html",
+    q: "Currently MU<sub>x</sub>/P<sub>x</sub> = 10 and MU<sub>y</sub>/P<sub>y</sub> = 6. To raise utility the consumer should:",
+    opts: [
+      "Buy more X and less Y until the two ratios are equal",
+      "Buy more Y and less X until the two ratios are equal",
+      "Keep the bundle unchanged — the budget is already spent",
+      "Buy more of both goods"
+    ],
+    a: 0,
+    why: "Each dollar moved into X currently yields 10 utils against 6 lost from Y, a net gain of 4. Shifting spending towards X drives MU<sub>x</sub> down (diminishing MU) and MU<sub>y</sub> up until MU<sub>x</sub>/P<sub>x</sub> = MU<sub>y</sub>/P<sub>y</sub>. Buying more of both is impossible — the budget binds.",
+    ru: "Рубль, переброшенный на X, даёт 10 ютилей вместо 6 → выгодно. Покупаем больше X, пока MU_x/P_x не сравняется с MU_y/P_y. «Больше обоих» невозможно — бюджет ограничен."
+  },
+  {
+    topic: 17, kind: "macro", page: "Syllabus/17_Investment_vs_Saving.html",
+    q: "In a closed economy, the national accounts identity implies:",
+    opts: [
+      "S = I, where S is private plus public saving",
+      "S is always greater than I because households are cautious",
+      "I = C + G",
+      "Saving and investment are unrelated"
+    ],
+    a: 0,
+    why: "From Y = C + I + G, subtracting C and G and splitting taxes gives (Y − T − C) + (T − G) = I: private saving plus public saving equals investment. A budget deficit (T &lt; G) is negative public saving, which crowds out investment unless private saving rises.",
+    ru: "Из Y = C + I + G следует (Y − T − C) + (T − G) = I: частные плюс государственные сбережения равны инвестициям. Дефицит бюджета — отрицательное госсбережение."
+  },
+  {
+    topic: 18, kind: "micro", page: "Syllabus/18_Supply_and_Demand.html",
+    q: "Demand for a good increases while supply is unchanged. In the new equilibrium:",
+    opts: [
+      "Price falls, quantity rises",
+      "Price rises, quantity rises",
+      "Price rises, quantity falls",
+      "Both are unchanged — supply did not move"
+    ],
+    a: 1,
+    why: "The demand curve shifts right along an unchanged supply curve, so both equilibrium price and quantity rise. Note the wording: a shift of demand (a new curve) is different from a movement along demand caused by a price change.",
+    ru: "Кривая спроса сдвигается вправо вдоль неизменного предложения → и цена, и количество растут. Сдвиг кривой ≠ движение вдоль кривой."
+  },
+  {
+    topic: 19, kind: "macro", page: "Syllabus/19_Money_Market.html",
+    q: "In the standard money market diagram, why is money supply drawn as a vertical line?",
+    opts: [
+      "Because households always hold the same amount of money",
+      "Because the central bank sets the quantity of money, independently of the interest rate",
+      "Because money demand does not depend on income",
+      "Because the interest rate is fixed by law"
+    ],
+    a: 1,
+    why: "M<sup>s</sup> is a policy variable: the central bank chooses it, so it does not respond to i and the curve is vertical. Money demand M<sup>d</sup> = $Y·L(i) slopes down because a higher interest rate raises the opportunity cost of holding non-interest-bearing money. Equilibrium i is where the two meet.",
+    ru: "Предложение денег задаёт ЦБ, оно не зависит от ставки → вертикальная линия. Спрос M^d = $Y·L(i) убывает по i, так как растёт альтернативная стоимость хранения наличных."
+  },
+  {
+    topic: 20, kind: "micro", page: "Syllabus/20_LR_Cost_RTS.html",
+    q: "A falling long-run average cost curve corresponds to:",
+    opts: [
+      "Increasing returns to scale (economies of scale)",
+      "Decreasing returns to scale",
+      "Constant returns to scale",
+      "Diminishing marginal product of labour"
+    ],
+    a: 0,
+    why: "If output grows faster than inputs, cost per unit falls, so LRAC slopes down — economies of scale. Constant returns give a flat LRAC and decreasing returns give a rising one. Diminishing marginal product is a short-run idea and does not describe LRAC.",
+    ru: "Выпуск растёт быстрее затрат → издержки на единицу падают → LRAC снижается (экономия на масштабе). Постоянная отдача — LRAC плоская, убывающая — LRAC растёт."
+  },
+  {
+    topic: 21, kind: "macro", page: "Syllabus/21_CB_Interest_Rate.html",
+    q: "The central bank buys government bonds on the open market. The immediate effect is:",
+    opts: [
+      "Money supply falls and the interest rate rises",
+      "Money supply rises and the interest rate falls",
+      "Money supply rises and the interest rate rises",
+      "Neither the money supply nor the rate changes"
+    ],
+    a: 1,
+    why: "Buying bonds pays money into the banking system, so M<sup>s</sup> shifts right; against a downward-sloping money demand curve the equilibrium interest rate falls. Bond prices rise and their yield falls — the same fact seen from the bond market. Selling bonds does the reverse.",
+    ru: "Покупая облигации, ЦБ вливает деньги: M^s сдвигается вправо, ставка падает. Цены облигаций растут, доходность снижается. Продажа облигаций — наоборот."
+  },
+  {
+    topic: 22, kind: "micro", page: "Syllabus/22_When_MU_Maximized.html",
+    q: "Total utility from consuming a good reaches its maximum when:",
+    opts: [
+      "Marginal utility is at its highest",
+      "Marginal utility equals zero",
+      "Marginal utility is negative",
+      "Average utility equals marginal utility"
+    ],
+    a: 1,
+    why: "Total utility rises as long as MU &gt; 0, peaks exactly where MU = 0, and falls once MU turns negative (the extra unit hurts). Do not confuse the peak of TU with the peak of MU, which normally occurs at the very first unit.",
+    ru: "Общая полезность растёт, пока MU &gt; 0, достигает максимума при MU = 0 и падает при MU &lt; 0. Не путать максимум TU с максимумом MU (обычно на первой единице)."
+  },
+  {
+    topic: 23, kind: "micro", page: "Syllabus/23_Monopolist_Delta_TR.html",
+    q: "A monopolist cuts its price while operating on the elastic part of its demand curve. Total revenue will:",
+    opts: [
+      "Rise, because the quantity gain outweighs the price loss",
+      "Fall, because price is lower",
+      "Stay the same",
+      "Rise only if marginal cost is zero"
+    ],
+    a: 0,
+    why: "On the elastic segment |E<sub>d</sub>| &gt; 1, so the percentage rise in quantity exceeds the percentage fall in price and TR increases — equivalently MR &gt; 0. On the inelastic segment a price cut lowers TR, which is why a monopolist never chooses to produce there.",
+    ru: "На эластичном участке |E_d| &gt; 1: прирост количества перевешивает потерю в цене, TR растёт (MR &gt; 0). На неэластичном участке снижение цены уменьшает TR — монополист там не работает."
+  },
+  {
+    topic: 24, kind: "macro", page: "Syllabus/24_Real_vs_Nominal_GDP.html",
+    q: "Nominal GDP is 660 and real GDP is 600. The GDP deflator is:",
+    opts: [
+      "60",
+      "90.9",
+      "110",
+      "10"
+    ],
+    a: 2,
+    why: "Deflator = (nominal / real) × 100 = 660/600 × 100 = 110, meaning prices are 10% above the base year. Real GDP uses base-year prices and therefore isolates changes in the quantity of output produced.",
+    ru: "Дефлятор = (номинальный / реальный) × 100 = 660/600 × 100 = 110 → цены на 10% выше базового года. Реальный ВВП считается в ценах базового года."
+  },
+  {
+    topic: 25, kind: "macro", page: "Syllabus/25_CB_Money_Supply.html",
+    q: "Which action does NOT increase the money supply?",
+    opts: [
+      "An open market purchase of bonds",
+      "Lowering the reserve requirement ratio",
+      "Raising the reserve requirement ratio",
+      "Lending more to commercial banks at the discount window"
+    ],
+    a: 2,
+    why: "A higher reserve requirement forces banks to hold more of each deposit idle, shrinking the money multiplier and contracting the money supply. The other three tools all inject reserves or free them up, expanding M.",
+    ru: "Повышение нормы резервирования уменьшает денежный мультипликатор и сжимает денежную массу. Остальные три инструмента, наоборот, её расширяют."
+  },
+  {
+    topic: 26, kind: "macro", page: "Syllabus/26_IS_LM.html",
+    q: "Government spending G rises with the money supply held constant. In the IS-LM model:",
+    opts: [
+      "IS shifts right: Y rises and i rises",
+      "IS shifts left: Y falls and i falls",
+      "LM shifts right: Y rises and i falls",
+      "Y rises and i is unchanged"
+    ],
+    a: 0,
+    why: "Higher G raises demand at every interest rate, so IS shifts right. Along an unchanged LM curve, the higher income raises money demand and pushes i up. The rate increase partly crowds out private investment, so Y rises by less than the simple multiplier suggests.",
+    ru: "Рост G сдвигает IS вправо; вдоль неизменной LM растут и Y, и i. Рост ставки частично вытесняет частные инвестиции (crowding out), поэтому Y растёт меньше, чем по простому мультипликатору."
+  },
+  {
+    topic: 27, kind: "macro", page: "Syllabus/27_Exchange_Rates.html",
+    q: "The real exchange rate differs from the nominal exchange rate because it:",
+    opts: [
+      "Is quoted by the central bank rather than the market",
+      "Adjusts the nominal rate for the two countries' price levels",
+      "Applies only to trade in services",
+      "Is always fixed by international agreement"
+    ],
+    a: 1,
+    why: "The real rate ε = e · P/P* measures how many foreign baskets of goods one domestic basket buys, so it captures competitiveness. A nominal depreciation that is fully offset by higher domestic inflation leaves the real rate — and trade flows — unchanged.",
+    ru: "Реальный курс ε = e · P/P* учитывает уровни цен и показывает конкурентоспособность. Если номинальное обесценение полностью съедено внутренней инфляцией, реальный курс не меняется."
+  },
+  {
+    topic: 28, kind: "macro", page: "Syllabus/28_Multiplier.html",
+    q: "With MPC = 0.8 and no taxes, an increase in autonomous spending of 100 raises equilibrium output by:",
+    opts: [
+      "80",
+      "100",
+      "500",
+      "125"
+    ],
+    a: 2,
+    why: "The multiplier is 1/(1 − c₁) = 1/(1 − 0.8) = 5, so ΔY = 5 × 100 = 500. Each round of spending becomes someone's income, 80% of which is spent again: 100 + 80 + 64 + … = 500. A larger MPC means a larger multiplier.",
+    ru: "Мультипликатор = 1/(1 − 0,8) = 5, значит ΔY = 500. Каждый виток расходов становится чьим-то доходом: 100 + 80 + 64 + … = 500."
+  },
+  {
+    topic: 29, kind: "micro", page: "Syllabus/29_Budget_Shift.html",
+    q: "Income is fixed and the price of good X (horizontal axis) falls. The budget line:",
+    opts: [
+      "Shifts outward in parallel",
+      "Rotates outward, pivoting on the vertical intercept",
+      "Rotates inward, pivoting on the horizontal intercept",
+      "Does not move until income changes"
+    ],
+    a: 1,
+    why: "The vertical intercept M/P<sub>Y</sub> is untouched because P<sub>Y</sub> and M are unchanged, while the horizontal intercept M/P<sub>X</sub> moves right — so the line pivots and becomes flatter. Only an income change shifts the line in parallel.",
+    ru: "Вертикальная точка пересечения M/P_Y не меняется, а горизонтальная M/P_X уходит вправо → линия поворачивается и становится более пологой. Параллельный сдвиг даёт только изменение дохода."
+  },
+  {
+    topic: 30, kind: "macro", page: "Syllabus/30_MPC_Slope.html",
+    q: "In the consumption function <code>C = c₀ + c₁·Y<sub>D</sub></code>, the term c₀ represents:",
+    opts: [
+      "The marginal propensity to consume",
+      "Autonomous consumption — spending that happens even at zero disposable income",
+      "The slope of the consumption function",
+      "Total saving"
+    ],
+    a: 1,
+    why: "c₀ is the vertical intercept: consumption financed from wealth or borrowing when Y<sub>D</sub> = 0. The slope is c₁, the MPC. A change in c₀ (say, a confidence shock) shifts the whole line up or down without changing its slope.",
+    ru: "c₀ — автономное потребление, точка пересечения с осью: тратим даже при нулевом доходе. Наклон — это c₁ (MPC). Изменение c₀ сдвигает всю линию, не меняя наклона."
+  },
+  {
+    topic: 31, kind: "macro", page: "Syllabus/31_Phillips_Okun.html",
+    q: "Which pairing of relationships is correct?",
+    opts: [
+      "Okun: output growth ↔ change in unemployment; Phillips: inflation ↔ unemployment",
+      "Okun: inflation ↔ unemployment; Phillips: output growth ↔ unemployment",
+      "Both describe inflation and the interest rate",
+      "Both describe unemployment and the exchange rate"
+    ],
+    a: 0,
+    why: "Okun's law links the real side: growth above trend lowers unemployment. The Phillips curve links the nominal side: lower unemployment goes with higher inflation, at least in the short run. Chained together they explain why a boom brings both lower unemployment and rising prices.",
+    ru: "Закон Оукена: рост выпуска ↔ изменение безработицы. Кривая Филлипса: инфляция ↔ безработица. Вместе они объясняют, почему бум снижает безработицу и разгоняет цены."
+  },
+  {
+    topic: 32, kind: "micro", page: "Syllabus/32_Maximize_Profit.html",
+    q: "A firm of any market structure maximises profit by producing where:",
+    opts: [
+      "Price is at its highest",
+      "MR = MC (with MC rising through that point)",
+      "Average total cost is minimised",
+      "Total revenue is maximised"
+    ],
+    a: 1,
+    why: "While MR &gt; MC an extra unit adds more revenue than cost, so output should rise; while MR &lt; MC it should fall. Profit peaks at MR = MC. Maximising revenue ignores costs, and minimum ATC is the profit-maximising point only in the special case of long-run perfect competition.",
+    ru: "Пока MR &gt; MC, выпуск выгодно увеличивать; пока MR &lt; MC — сокращать. Максимум прибыли при MR = MC. Максимум выручки — не то же самое, он игнорирует издержки."
+  },
+  {
+    topic: 33, kind: "micro", page: "Syllabus/33_Price_Discrimination.html",
+    q: "Which of these is genuine price discrimination?",
+    opts: [
+      "A student discount on the same cinema ticket",
+      "A higher price for a first-class airline seat with more legroom",
+      "A higher price in a shop far from the warehouse because of delivery costs",
+      "A seasonal price rise caused by a poor harvest"
+    ],
+    a: 0,
+    why: "Price discrimination means different prices for the same good with no cost difference behind them. Students pay less because their demand is more elastic. The other options are price differences driven by genuine cost or supply differences, which is not discrimination. It requires market power and no resale.",
+    ru: "Ценовая дискриминация — разные цены на один и тот же товар при одинаковых издержках. Студенческая скидка — да (спрос эластичнее). Разница из-за издержек или урожая — нет."
+  },
+  {
+    topic: 34, kind: "micro", page: "Syllabus/34_Perfect_Price_Discrimination.html",
+    q: "Under perfect (first-degree) price discrimination:",
+    opts: [
+      "Consumer surplus is captured entirely by the seller and output reaches the efficient level",
+      "Consumer surplus rises because everyone can afford the good",
+      "Deadweight loss is larger than under single-price monopoly",
+      "The firm must charge everyone the same price"
+    ],
+    a: 0,
+    why: "Charging each buyer exactly their reservation price turns the demand curve into the marginal revenue curve, so the firm sells to everyone who values the good above MC. Output equals the competitive level and deadweight loss disappears — but the entire surplus goes to the seller, so it is efficient without being fair.",
+    ru: "Каждый платит свою резервную цену → кривая спроса становится MR, продаётся всем, кто ценит товар выше MC. Выпуск как при конкуренции, DWL исчезает, но весь излишек забирает продавец."
+  },
+  {
+    topic: 35, kind: "micro", page: "Syllabus/35_Willingness_to_Pay.html",
+    q: "A consumer would pay up to 50 for a book and buys it for 32. Consumer surplus is:",
+    opts: [
+      "50",
+      "32",
+      "18",
+      "82"
+    ],
+    a: 2,
+    why: "Consumer surplus = willingness to pay − price paid = 50 − 32 = 18. Adding this up across all buyers gives the triangle between the demand curve and the market price, which is the standard measure of the gain from trade for consumers.",
+    ru: "Излишек потребителя = готовность платить − уплаченная цена = 50 − 32 = 18. Сумма по всем покупателям даёт треугольник между кривой спроса и ценой."
+  },
+  {
+    topic: 36, kind: "micro", page: "Syllabus/36_Industry_Supply.html",
+    q: "Compared with the short-run industry supply curve, the long-run curve is:",
+    opts: [
+      "Steeper, because firms cannot react",
+      "Flatter (more elastic), because firms can adjust capacity and new firms can enter",
+      "Vertical, because capacity is fixed",
+      "Downward sloping"
+    ],
+    a: 1,
+    why: "In the short run only existing firms with fixed capacity respond, so supply is relatively inelastic. In the long run plants can be built or scrapped and firms freely enter and exit, so a given price rise brings a much bigger quantity response — a flatter curve, perfectly horizontal in the constant-cost case.",
+    ru: "В коротком периоде реагируют только существующие фирмы с фиксированной мощностью → предложение неэластично. В длинном возможны вход/выход и смена мощностей → кривая более пологая."
+  },
+  {
+    topic: 4, kind: "micro", page: "Syllabus/04_MC_MR_Average_Cost.html",
+    q: "Total cost is <code>TC = 100 + 20Q</code>. At Q = 10, average total cost and marginal cost are:",
+    opts: [
+      "ATC = 30 and MC = 20",
+      "ATC = 20 and MC = 30",
+      "ATC = 30 and MC = 30",
+      "ATC = 20 and MC = 20"
+    ],
+    a: 0,
+    why: "TC(10) = 100 + 200 = 300, so ATC = 300/10 = 30. MC is the derivative — the constant 20 — because the fixed cost of 100 does not change with output. ATC exceeds MC here and keeps falling as the fixed cost is spread over more units.",
+    ru: "TC(10) = 300 → ATC = 30. MC = 20 (производная; постоянные 100 не зависят от Q). ATC &gt; MC, поэтому ATC ещё снижается — постоянные издержки размазываются на больший выпуск."
+  },
+  {
+    topic: 18, kind: "micro", page: "Syllabus/18_Supply_and_Demand.html",
+    q: "Demand is <code>Q<sub>d</sub> = 100 − 2P</code> and supply is <code>Q<sub>s</sub> = 20 + 2P</code>. Equilibrium price and quantity are:",
+    opts: [
+      "P = 20, Q = 60",
+      "P = 30, Q = 40",
+      "P = 20, Q = 40",
+      "P = 25, Q = 50"
+    ],
+    a: 0,
+    why: "Set Q<sub>d</sub> = Q<sub>s</sub>: 100 − 2P = 20 + 2P → 80 = 4P → P = 20. Substituting back, Q = 100 − 40 = 60 (and 20 + 40 = 60, which confirms it). Always check the quantity in both equations.",
+    ru: "Приравниваем: 100 − 2P = 20 + 2P → P = 20, Q = 60. Подстановка в обе формулы даёт 60 — проверка сошлась."
+  },
+  {
+    topic: 28, kind: "macro", page: "Syllabus/28_Multiplier.html",
+    q: "Why is the tax multiplier smaller in absolute value than the government spending multiplier?",
+    opts: [
+      "Because taxes are collected later in the year",
+      "Because a tax cut first passes through households, who save part of it, while government spending enters demand in full",
+      "Because taxes do not affect disposable income",
+      "It is not smaller — the two multipliers are equal"
+    ],
+    a: 1,
+    why: "A dollar of G is spending straight away. A dollar of tax cut raises disposable income, but households spend only c₁ of it and save the rest, so the first round is smaller: the multipliers are 1/(1 − c₁) versus −c₁/(1 − c₁).",
+    ru: "Рубль госрасходов сразу становится спросом, а рубль снижения налогов проходит через домохозяйства, которые часть сберегают. Отсюда 1/(1 − c₁) против −c₁/(1 − c₁)."
+  },
+  {
+    topic: 15, kind: "micro", page: "Syllabus/15_Perfect_Competition.html",
+    q: "In the short run a competitive firm should keep producing at a loss as long as:",
+    opts: [
+      "Price covers average total cost",
+      "Price covers average variable cost",
+      "Total revenue covers fixed costs",
+      "It never should — any loss means shutting down"
+    ],
+    a: 1,
+    why: "Fixed costs are paid whether or not the firm operates, so they are sunk in the short run. If P ≥ AVC the revenue covers variable costs and contributes something towards the fixed costs, making the loss smaller than shutting down. Below AVC, every unit produced deepens the loss.",
+    ru: "Постоянные издержки в коротком периоде всё равно оплачены (невозвратны). Если P ≥ AVC, выручка покрывает переменные издержки и часть постоянных — убыток меньше, чем при закрытии. Ниже AVC надо останавливаться."
+  }
+];
+
+const state = {
+  filter: "all",
+  shuffle: true,
+  list: [],
+  index: 0,
+  score: 0,
+  answered: [],
+};
+
+const area = document.getElementById("quizArea");
+const bar = document.getElementById("progressBar");
+const qNum = document.getElementById("qNum");
+const qTotal = document.getElementById("qTotal");
+const qScore = document.getElementById("qScore");
+
+function shuffled(arr) {
+  const copy = arr.slice();
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function buildList() {
+  let pool = QUESTIONS.filter(q => state.filter === "all" || q.kind === state.filter);
+  pool = state.shuffle ? shuffled(pool) : pool.slice().sort((a, b) => a.topic - b.topic);
+  state.list = pool.map(q => {
+    const order = state.shuffle ? shuffled(q.opts.map((_, i) => i)) : q.opts.map((_, i) => i);
+    return { ...q, order };
+  });
+  state.index = 0;
+  state.score = 0;
+  state.answered = [];
+}
+
+function render() {
+  if (state.index >= state.list.length) return renderResult();
+
+  const q = state.list[state.index];
+  qNum.textContent = state.index + 1;
+  qTotal.textContent = state.list.length;
+  qScore.textContent = state.score;
+  bar.style.width = (state.index / state.list.length * 100) + "%";
+
+  const kindLabel = q.kind === "micro" ? "📙 Micro · Frank" : "📊 Macro · course";
+  const letters = ["A", "B", "C", "D"];
+
+  area.innerHTML = `
+    <span class="tag ${q.kind}">${kindLabel} · Topic ${q.topic}</span>
+    <p class="qtext">${q.q}</p>
+    <ul class="opts">
+      ${q.order.map((origIdx, pos) => `
+        <li><button class="opt" type="button" data-orig="${origIdx}">
+          <span class="letter">${letters[pos]}</span><span>${q.opts[origIdx]}</span>
+        </button></li>`).join("")}
+    </ul>
+    <div class="explain" id="explain"></div>
+    <div class="nav" id="nav"></div>
+  `;
+
+  area.querySelectorAll(".opt").forEach(btn => {
+    btn.addEventListener("click", () => choose(parseInt(btn.dataset.orig, 10)));
+  });
+}
+
+function choose(origIdx) {
+  const q = state.list[state.index];
+  const correct = origIdx === q.a;
+  if (correct) state.score++;
+  state.answered.push({ q, correct });
+  qScore.textContent = state.score;
+
+  area.querySelectorAll(".opt").forEach(btn => {
+    const idx = parseInt(btn.dataset.orig, 10);
+    btn.disabled = true;
+    if (idx === q.a) btn.classList.add("correct");
+    else if (idx === origIdx) btn.classList.add("wrong");
+  });
+
+  const explain = document.getElementById("explain");
+  explain.className = "explain show";
+  explain.innerHTML = `
+    <span class="verdict ${correct ? "ok" : "no"}">${correct ? "✓ Correct" : "✗ Not quite"}</span>
+    ${q.why}
+    <span class="ru">🇷🇺 ${q.ru}</span>
+    <span class="src">📖 <a href="${q.page}">Topic ${q.topic} — full page</a></span>
+  `;
+
+  const last = state.index === state.list.length - 1;
+  document.getElementById("nav").innerHTML =
+    `<button class="btn" id="nextBtn" type="button">${last ? "See results" : "Next question →"}</button>`;
+  document.getElementById("nextBtn").addEventListener("click", next);
+  document.getElementById("nextBtn").focus();
+}
+
+function next() {
+  state.index++;
+  render();
+}
+
+function renderResult() {
+  const total = state.list.length;
+  const pct = Math.round(state.score / total * 100);
+  const cls = pct >= 80 ? "" : pct >= 55 ? "mid" : "low";
+  const verdict = pct >= 80 ? "Strong — you are exam-ready on these topics."
+    : pct >= 55 ? "Decent base, but revise the topics below before the exam."
+    : "Go back through the topic pages below, then take the quiz again.";
+
+  const missed = state.answered.filter(a => !a.correct);
+  const seen = new Set();
+  const missedList = missed.filter(a => {
+    if (seen.has(a.q.topic)) return false;
+    seen.add(a.q.topic);
+    return true;
+  });
+
+  bar.style.width = "100%";
+  qNum.textContent = total;
+
+  area.innerHTML = `
+    <div class="result">
+      <div class="score ${cls}">${state.score} / ${total}</div>
+      <p><strong>${pct}%</strong> — ${verdict}</p>
+    </div>
+    ${missedList.length ? `
+      <div class="breakdown">
+        <h3>Topics to review (${missedList.length})</h3>
+        <ul>${missedList.map(a => `<li><a href="${a.q.page}">Topic ${a.q.topic}</a> — ${a.q.kind === "micro" ? "Micro" : "Macro"}</li>`).join("")}</ul>
+      </div>` : `<div class="breakdown"><h3>No mistakes — nothing to review. 🎉</h3></div>`}
+    <div class="nav">
+      <button class="btn" id="againBtn" type="button">Restart</button>
+      ${missed.length ? `<button class="btn ghost" id="missedBtn" type="button">Retry only my mistakes (${missed.length})</button>` : ""}
+    </div>
+  `;
+
+  document.getElementById("againBtn").addEventListener("click", () => { buildList(); render(); });
+  const missedBtn = document.getElementById("missedBtn");
+  if (missedBtn) {
+    missedBtn.addEventListener("click", () => {
+      state.list = missed.map(a => ({ ...a.q, order: shuffled(a.q.opts.map((_, i) => i)) }));
+      state.index = 0;
+      state.score = 0;
+      state.answered = [];
+      render();
+    });
+  }
+}
+
+document.querySelectorAll(".chip[data-filter]").forEach(chip => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".chip[data-filter]").forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    state.filter = chip.dataset.filter;
+    buildList();
+    render();
+  });
+});
+
+document.getElementById("shuffleToggle").addEventListener("click", (e) => {
+  state.shuffle = !state.shuffle;
+  e.target.textContent = state.shuffle ? "🔀 Shuffle: on" : "🔢 Shuffle: off";
+  buildList();
+  render();
+});
+
+document.addEventListener("keydown", (e) => {
+  const nextBtn = document.getElementById("nextBtn");
+  if ((e.key === "Enter" || e.key === "ArrowRight") && nextBtn) {
+    e.preventDefault();
+    nextBtn.click();
+    return;
+  }
+  const n = parseInt(e.key, 10);
+  if (n >= 1 && n <= 4 && !nextBtn) {
+    const btns = area.querySelectorAll(".opt");
+    if (btns[n - 1]) btns[n - 1].click();
+  }
+});
+
+buildList();
+render();
+</script>
+</body>
+</html>

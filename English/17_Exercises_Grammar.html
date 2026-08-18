@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Exercises — Жаттығулар</title>
+<style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; margin: 0; padding: 2rem 1rem 3rem; color: #1a1a2e; background: #f8fafc; }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #3498db; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 12px; font-size: 1.75rem; margin-top: 0; }
+    .kk { color: #555; font-size: 0.95em; }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 1.5rem 0; }
+    .tab { border: 1px solid #cfd8e3; background: #fff; color: #2c3e50; padding: 8px 15px; border-radius: 999px; cursor: pointer; font-size: 0.9rem; font-family: inherit; }
+    .tab:hover { border-color: #3498db; }
+    .tab.active { background: #3498db; border-color: #3498db; color: #fff; font-weight: 600; }
+    .tab .mark { margin-left: 6px; font-size: 0.85em; }
+
+    .section { background: #fff; border-radius: 12px; padding: 1.5rem 1.7rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    .section h2 { color: #34495e; margin: 0 0 .3rem; font-size: 1.25rem; border-left: 4px solid #3498db; padding-left: 12px; }
+    .rule { background: #e8f4fc; border-left: 4px solid #3498db; padding: .9rem 1.15rem; border-radius: 8px; margin: 1rem 0 1.5rem; font-size: .95rem; }
+    .rule .formula { font-family: monospace; background: #fff; padding: 2px 8px; border-radius: 4px; }
+
+    ol.items { padding-left: 1.6rem; margin: 0; }
+    ol.items > li { margin: 1rem 0; }
+    .sentence { font-size: 1.02rem; }
+    .cue { color: #7f8c8d; font-style: italic; }
+    .tr { display: block; color: #7f8c8d; font-size: .87rem; margin-top: 2px; }
+
+    input[type="text"] { font-family: inherit; font-size: .98rem; padding: 5px 10px; border: 1px solid #cfd8e3; border-radius: 6px; min-width: 120px; background: #fff; color: #1a1a2e; }
+    input[type="text"]:focus { outline: none; border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,.15); }
+    input.ok { border-color: #27ae60; background: #eef8f0; }
+    input.no { border-color: #e74c3c; background: #fdeeec; }
+
+    .choices { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .choice { font-family: inherit; font-size: .93rem; padding: 6px 14px; border: 1px solid #cfd8e3; background: #fff; border-radius: 8px; cursor: pointer; color: #2c3e50; }
+    .choice:hover:not(:disabled) { border-color: #3498db; }
+    .choice.picked { border-color: #3498db; background: #e8f4fc; font-weight: 600; }
+    .choice.ok { border-color: #27ae60; background: #eef8f0; color: #1e8449; font-weight: 600; }
+    .choice.no { border-color: #e74c3c; background: #fdeeec; color: #c0392b; }
+
+    .fb { display: block; font-size: .88rem; margin-top: 5px; }
+    .fb.ok { color: #1e8449; }
+    .fb.no { color: #c0392b; }
+
+    table.verbs { width: 100%; border-collapse: collapse; margin-top: .5rem; }
+    table.verbs th, table.verbs td { padding: 9px 10px; border-bottom: 1px solid #eee; text-align: left; }
+    table.verbs th { background: #3498db; color: #fff; font-weight: 600; font-size: .92rem; }
+    table.verbs td:first-child { font-weight: 600; }
+    table.verbs input { min-width: 100px; width: 100%; }
+    table.verbs .kk-cell { color: #7f8c8d; font-size: .88rem; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid #eee; }
+    .btn { background: #3498db; color: #fff; border: none; padding: 9px 18px; border-radius: 8px; cursor: pointer; font-size: .95rem; font-family: inherit; font-weight: 600; }
+    .btn:hover { background: #2980b9; }
+    .btn.ghost { background: #fff; color: #3498db; border: 1px solid #3498db; }
+    .btn.ghost:hover { background: #e8f4fc; }
+    .result { margin-left: auto; font-weight: 600; color: #2c3e50; }
+    .result.ok { color: #1e8449; }
+    .result.no { color: #c0392b; }
+    @media (max-width: 520px) {
+      body { padding: 1.2rem .8rem 2.5rem; }
+      .section { padding: 1.2rem 1rem; }
+      .result { margin-left: 0; flex-basis: 100%; }
+      table.verbs th:nth-child(4), table.verbs td:nth-child(4) { display: none; }
+    }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <p class="back"><a href="index.html">← English тақырыптарына оралу</a></p>
+
+    <h1>Grammar Exercises</h1>
+    <p class="kk">Өтілген тақырыптар бойынша жаттығулар: жауабыңды жаз немесе таңда, содан кейін <strong>«Тексеру»</strong> батырмасын бас. Қате болса — дұрыс жауап көрсетіледі.</p>
+
+    <div class="tabs" id="tabs"></div>
+    <div id="sectionArea"></div>
+</div>
+
+<script>
+const SECTIONS = [
+  {
+    id: "present",
+    tab: "Present Simple",
+    title: "Present Simple — Қарапайым осы шақ",
+    rule: `<strong>He / She / It</strong> → етістікке <span class="formula">-s</span> қосылады: <em>she work<strong>s</strong></em>.
+           Сұрақ пен болымсыз түрінде <span class="formula">do / does</span> көмекшісі тұрады, ал негізгі етістік бастапқы формада қалады:
+           <em>Does she work?</em> · <em>She does<strong>n't</strong> work.</em> (жаңылмаңыз: <s>doesn't works</s>).
+           <span class="formula">-y</span> дауыссыздан кейін → <span class="formula">-ies</span>: <em>study → studies</em>.`,
+    items: [
+      { type: "fill", before: "She ", cue: "(work)", after: " in a bank.", answers: ["works"], tr: "Ол банкте жұмыс істейді." },
+      { type: "fill", before: "My brother ", cue: "(go)", after: " to school every day.", answers: ["goes"], tr: "Менің ағам күн сайын мектепке барады." },
+      { type: "choice", text: "___ he speak English?", opts: ["Do", "Does", "Is", "Are"], a: 1, tr: "Ол ағылшынша сөйлей ме?" },
+      { type: "fill", before: "They ", cue: "(not / like)", after: " coffee.", answers: ["don't like", "do not like"], tr: "Олар кофе ұнатпайды." },
+      { type: "fill", before: "Water ", cue: "(boil)", after: " at 100 degrees.", answers: ["boils"], tr: "Су 100 градуста қайнайды." },
+      { type: "choice", text: "She ___ eat meat.", opts: ["don't", "doesn't", "isn't", "not"], a: 1, tr: "Ол ет жемейді." },
+      { type: "fill", before: "He ", cue: "(study)", after: " English twice a week.", answers: ["studies"], tr: "Ол аптасына екі рет ағылшын тілін оқиды." },
+      { type: "fill", before: "", cue: "(do)", after: " your parents live in Astana?", answers: ["do"], tr: "Ата-анаң Астанада тұра ма?" },
+      { type: "fill", before: "The train ", cue: "(leave)", after: " at seven o'clock.", answers: ["leaves"], tr: "Пойыз жетіде жүреді." },
+      { type: "choice", text: "I ___ TV in the evening.", opts: ["watch", "watches", "am watch", "watchs"], a: 0, tr: "Мен кешке теледидар көремін." }
+    ]
+  },
+  {
+    id: "quant",
+    tab: "How much / many",
+    title: "Quantifiers — Сандық сөздер",
+    rule: `<strong>Санауға болатын</strong> (countable: apples, books) → <span class="formula">many</span>, <span class="formula">a few</span>, <span class="formula">How many?</span><br>
+           <strong>Санауға болмайтын</strong> (uncountable: money, milk, time) → <span class="formula">much</span>, <span class="formula">a little</span>, <span class="formula">How much?</span><br>
+           <span class="formula">a lot of</span> екеуімен де қолданыла береді, әсіресе болымды сөйлемде.`,
+    items: [
+      { type: "choice", text: "How ___ money do you have?", opts: ["much", "many"], a: 0, tr: "Сенде қанша ақша бар? (money — санауға болмайды)" },
+      { type: "choice", text: "There aren't ___ apples in the basket.", opts: ["much", "many"], a: 1, tr: "Себетте алма көп емес." },
+      { type: "choice", text: "She has ___ friends in London.", opts: ["a few", "a little"], a: 0, tr: "Оның Лондонда бірнеше досы бар." },
+      { type: "choice", text: "There is ___ milk in the fridge.", opts: ["a few", "a little"], a: 1, tr: "Тоңазытқышта аздап сүт бар." },
+      { type: "choice", text: "How ___ students are there in your group?", opts: ["much", "many"], a: 1, tr: "Тобыңда қанша студент бар?" },
+      { type: "choice", text: "I don't have ___ time today.", opts: ["much", "many"], a: 0, tr: "Бүгін уақытым көп емес." },
+      { type: "choice", text: "We have ___ homework today.", opts: ["many", "a lot of"], a: 1, tr: "Бүгін үй тапсырмасы көп. (homework — санауға болмайды)" },
+      { type: "choice", text: "How ___ sugar do you put in your tea?", opts: ["much", "many"], a: 0, tr: "Шайыңа қанша қант саласың?" }
+    ]
+  },
+  {
+    id: "compare",
+    tab: "Comparatives",
+    title: "Comparatives & Superlatives — Салыстыру",
+    rule: `<strong>Қысқа сөздер</strong> (1 буын): <span class="formula">-er / the -est</span> — <em>fast → faster → the fastest</em>.<br>
+           <strong>Ұзын сөздер</strong> (2+ буын): <span class="formula">more / the most</span> — <em>expensive → more expensive → the most expensive</em>.<br>
+           <strong>Ережеге бағынбайтындар:</strong> good → better → the best · bad → worse → the worst.<br>
+           <span class="formula">as ... as</span> ішінде етістік <strong>өзгермейді</strong>: <em>as big as</em>.`,
+    items: [
+      { type: "fill", before: "This car is ", cue: "(fast)", after: " than mine.", answers: ["faster"], tr: "Бұл көлік менікінен жылдамырақ." },
+      { type: "fill", before: "She is the ", cue: "(tall)", after: " girl in the class.", answers: ["tallest"], tr: "Ол — сыныптағы ең бойшаң қыз." },
+      { type: "fill", before: "This book is ", cue: "(interesting)", after: " than that one.", answers: ["more interesting"], tr: "Бұл кітап анаған қарағанда қызықтырақ." },
+      { type: "fill", before: "He is the ", cue: "(good)", after: " player in the team.", answers: ["best"], tr: "Ол — командадағы ең үздік ойыншы." },
+      { type: "fill", before: "Today the weather is ", cue: "(bad)", after: " than yesterday.", answers: ["worse"], tr: "Бүгін ауа райы кешегіден нашарлау." },
+      { type: "choice", text: "Astana is ___ than Almaty in winter.", opts: ["colder", "more cold", "coldest", "the colder"], a: 0, tr: "Қыста Астана Алматыдан суығырақ." },
+      { type: "fill", before: "This is the ", cue: "(expensive)", after: " phone in the shop.", answers: ["most expensive"], tr: "Бұл — дүкендегі ең қымбат телефон." },
+      { type: "fill", before: "My house is as ", cue: "(big)", after: " as yours.", answers: ["big"], tr: "Менің үйім сенікіндей үлкен." }
+    ]
+  },
+  {
+    id: "passive",
+    tab: "Passive Voice",
+    title: "Passive Voice — Ырықсыз етіс",
+    rule: `<span class="formula">Subject + be + V3 (+ by ...)</span>. <strong>be</strong> шаққа қарай өзгереді, ал негізгі етістік әрқашан 3-формада:<br>
+           Present: <em>is / are made</em> · Past: <em>was / were made</em> · Future: <em>will be made</em> · Present Perfect: <em>has / have been made</em>.<br>
+           Passive тек <strong>transitive</strong> етістіктерде болады (build, write, steal), <em>go, come, sleep</em> сияқтыларда болмайды.`,
+    items: [
+      { type: "fill", before: "English ", cue: "(speak)", after: " in many countries.", answers: ["is spoken"], tr: "Ағылшынша көп елде сөйлейді." },
+      { type: "fill", before: "The letter ", cue: "(send)", after: " yesterday.", answers: ["was sent"], tr: "Хат кеше жіберілді." },
+      { type: "fill", before: "This house ", cue: "(build)", after: " in 1990.", answers: ["was built"], tr: "Бұл үй 1990 жылы салынды." },
+      { type: "choice", text: "This song ___ by millions of people.", opts: ["loves", "is loved", "is loving", "was love"], a: 1, tr: "Бұл әнді миллиондаған адам жақсы көреді." },
+      { type: "fill", before: "The work ", cue: "(finish)", after: " tomorrow.", answers: ["will be finished"], tr: "Жұмыс ертең аяқталады." },
+      { type: "fill", before: "Active: They make cars in Germany. → Passive: Cars ", cue: "(make)", after: " in Germany.", answers: ["are made"], tr: "Көліктер Германияда жасалады." },
+      { type: "fill", before: "My bike ", cue: "(steal)", after: " last night.", answers: ["was stolen"], tr: "Велосипедім түнде ұрланды." },
+      { type: "choice", text: "Which verb CANNOT be used in the passive?", opts: ["build", "write", "go", "steal"], a: 2, tr: "«go» — көлемесі жоқ (intransitive) етістік, passive болмайды." }
+    ]
+  },
+  {
+    id: "verbs",
+    tab: "Irregular Verbs",
+    title: "Irregular Verbs — Қалыпты емес етістіктер",
+    rule: `Әр етістіктің <strong>Past Simple (V2)</strong> және <strong>Past Participle (V3)</strong> формасын жаз.
+           V3 — Perfect шақтар мен Passive-та қолданылады: <em>I have <strong>seen</strong></em> · <em>It was <strong>seen</strong></em>.`,
+    verbs: [
+      { v1: "go", v2: ["went"], v3: ["gone"], kk: "бару" },
+      { v1: "take", v2: ["took"], v3: ["taken"], kk: "алу" },
+      { v1: "write", v2: ["wrote"], v3: ["written"], kk: "жазу" },
+      { v1: "buy", v2: ["bought"], v3: ["bought"], kk: "сатып алу" },
+      { v1: "see", v2: ["saw"], v3: ["seen"], kk: "көру" },
+      { v1: "break", v2: ["broke"], v3: ["broken"], kk: "сындыру" },
+      { v1: "bring", v2: ["brought"], v3: ["brought"], kk: "әкелу" },
+      { v1: "choose", v2: ["chose"], v3: ["chosen"], kk: "таңдау" },
+      { v1: "drink", v2: ["drank"], v3: ["drunk"], kk: "ішу" },
+      { v1: "teach", v2: ["taught"], v3: ["taught"], kk: "оқыту" }
+    ]
+  }
+];
+
+const tabsEl = document.getElementById("tabs");
+const areaEl = document.getElementById("sectionArea");
+const scores = {};
+let current = SECTIONS[0].id;
+
+function normalize(s) {
+  return s.toLowerCase().trim().replace(/\s+/g, " ").replace(/[.!?]+$/, "").replace(/’/g, "'");
+}
+
+function renderTabs() {
+  tabsEl.innerHTML = SECTIONS.map(s => {
+    const sc = scores[s.id];
+    const mark = sc ? `<span class="mark">${sc.right}/${sc.total}</span>` : "";
+    return `<button class="tab ${s.id === current ? "active" : ""}" type="button" data-id="${s.id}">${s.tab}${mark}</button>`;
+  }).join("");
+  tabsEl.querySelectorAll(".tab").forEach(t => {
+    t.addEventListener("click", () => { current = t.dataset.id; renderTabs(); renderSection(); });
+  });
+}
+
+function renderSection() {
+  const s = SECTIONS.find(x => x.id === current);
+  const body = s.verbs ? renderVerbs(s) : renderItems(s);
+
+  areaEl.innerHTML = `
+    <div class="section">
+      <h2>${s.title}</h2>
+      <div class="rule">${s.rule}</div>
+      ${body}
+      <div class="actions">
+        <button class="btn" id="checkBtn" type="button">Тексеру</button>
+        <button class="btn ghost" id="answersBtn" type="button">Жауаптарды көрсету</button>
+        <button class="btn ghost" id="resetBtn" type="button">Тазарту</button>
+        <span class="result" id="result"></span>
+      </div>
+    </div>
+  `;
+
+  areaEl.querySelectorAll(".choice").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const group = btn.closest(".choices");
+      group.querySelectorAll(".choice").forEach(b => b.classList.remove("picked"));
+      btn.classList.add("picked");
+    });
+  });
+
+  areaEl.querySelectorAll('input[type="text"]').forEach(inp => {
+    inp.addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("checkBtn").click(); });
+    inp.addEventListener("input", () => { inp.classList.remove("ok", "no"); });
+  });
+
+  document.getElementById("checkBtn").addEventListener("click", () => check(s));
+  document.getElementById("answersBtn").addEventListener("click", () => showAnswers(s));
+  document.getElementById("resetBtn").addEventListener("click", () => { delete scores[s.id]; renderTabs(); renderSection(); });
+}
+
+function renderItems(s) {
+  return `<ol class="items">${s.items.map((it, i) => {
+    if (it.type === "fill") {
+      return `<li data-i="${i}">
+        <span class="sentence">${it.before}<input type="text" data-i="${i}" autocomplete="off" spellcheck="false"> <span class="cue">${it.cue}</span>${it.after}</span>
+        <span class="tr">${it.tr}</span>
+        <span class="fb" data-fb="${i}"></span>
+      </li>`;
+    }
+    return `<li data-i="${i}">
+      <span class="sentence">${it.text}</span>
+      <span class="tr">${it.tr}</span>
+      <div class="choices" data-i="${i}">
+        ${it.opts.map((o, j) => `<button class="choice" type="button" data-i="${i}" data-j="${j}">${o}</button>`).join("")}
+      </div>
+      <span class="fb" data-fb="${i}"></span>
+    </li>`;
+  }).join("")}</ol>`;
+}
+
+function renderVerbs(s) {
+  return `<table class="verbs">
+    <tr><th>Infinitive</th><th>Past Simple (V2)</th><th>Past Participle (V3)</th><th>Қазақша</th></tr>
+    ${s.verbs.map((v, i) => `<tr>
+      <td>${v.v1}</td>
+      <td><input type="text" data-i="${i}" data-col="v2" autocomplete="off" spellcheck="false"></td>
+      <td><input type="text" data-i="${i}" data-col="v3" autocomplete="off" spellcheck="false"></td>
+      <td class="kk-cell">${v.kk}</td>
+    </tr>`).join("")}
+  </table>`;
+}
+
+function check(s) {
+  let right = 0, total = 0;
+
+  if (s.verbs) {
+    areaEl.querySelectorAll('input[type="text"]').forEach(inp => {
+      const v = s.verbs[+inp.dataset.i];
+      const correct = inp.dataset.col === "v2" ? v.v2 : v.v3;
+      total++;
+      if (correct.some(c => normalize(c) === normalize(inp.value))) {
+        inp.classList.add("ok"); inp.classList.remove("no"); right++;
+      } else {
+        inp.classList.add("no"); inp.classList.remove("ok");
+        inp.value = inp.value.trim() ? inp.value : "";
+        inp.title = "Дұрыс жауап: " + correct[0];
+      }
+    });
+  } else {
+    s.items.forEach((it, i) => {
+      total++;
+      const fb = areaEl.querySelector(`[data-fb="${i}"]`);
+      if (it.type === "fill") {
+        const inp = areaEl.querySelector(`input[data-i="${i}"]`);
+        const ok = it.answers.some(a => normalize(a) === normalize(inp.value));
+        inp.classList.toggle("ok", ok);
+        inp.classList.toggle("no", !ok);
+        fb.className = "fb " + (ok ? "ok" : "no");
+        fb.textContent = ok ? "✓ Дұрыс" : "✗ Дұрыс жауап: " + it.answers[0];
+        if (ok) right++;
+      } else {
+        const picked = areaEl.querySelector(`.choice.picked[data-i="${i}"]`);
+        areaEl.querySelectorAll(`.choice[data-i="${i}"]`).forEach(b => {
+          b.classList.remove("ok", "no");
+          if (+b.dataset.j === it.a) b.classList.add("ok");
+          else if (picked && b === picked) b.classList.add("no");
+        });
+        const ok = picked && +picked.dataset.j === it.a;
+        fb.className = "fb " + (ok ? "ok" : "no");
+        fb.textContent = ok ? "✓ Дұрыс" : (picked ? "✗ Дұрыс жауап: " + it.opts[it.a] : "— Жауап таңдалмады");
+        if (ok) right++;
+      }
+    });
+  }
+
+  scores[s.id] = { right, total };
+  const res = document.getElementById("result");
+  const pct = Math.round(right / total * 100);
+  res.className = "result " + (pct >= 80 ? "ok" : pct >= 50 ? "" : "no");
+  res.textContent = `${right} / ${total} (${pct}%) — ` + (pct === 100 ? "Тамаша! 🎉" : pct >= 80 ? "Жақсы!" : pct >= 50 ? "Жаман емес, қайталап көр." : "Ережені қайта оқы.");
+  renderTabs();
+}
+
+function showAnswers(s) {
+  if (s.verbs) {
+    areaEl.querySelectorAll('input[type="text"]').forEach(inp => {
+      const v = s.verbs[+inp.dataset.i];
+      inp.value = (inp.dataset.col === "v2" ? v.v2 : v.v3)[0];
+      inp.classList.remove("no"); inp.classList.add("ok");
+    });
+    return;
+  }
+  s.items.forEach((it, i) => {
+    const fb = areaEl.querySelector(`[data-fb="${i}"]`);
+    if (it.type === "fill") {
+      const inp = areaEl.querySelector(`input[data-i="${i}"]`);
+      inp.value = it.answers[0];
+      inp.classList.remove("no"); inp.classList.add("ok");
+      fb.className = "fb ok";
+      fb.textContent = "Жауап: " + it.answers.join(" / ");
+    } else {
+      areaEl.querySelectorAll(`.choice[data-i="${i}"]`).forEach(b => {
+        b.classList.remove("no", "picked");
+        b.classList.toggle("ok", +b.dataset.j === it.a);
+      });
+      fb.className = "fb ok";
+      fb.textContent = "Жауап: " + it.opts[it.a];
+    }
+  });
+}
+
+renderTabs();
+renderSection();
+</script>
+</body>
+</html>

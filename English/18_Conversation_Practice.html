@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conversation Practice — Сөйлесу тәжірибесі</title>
+<style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; margin: 0; padding: 2rem 1rem 3rem; color: #1a1a2e; background: #f8fafc; }
+    .wrap { max-width: 780px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #3498db; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 { color: #2c3e50; border-bottom: 4px solid #3498db; padding-bottom: 12px; font-size: 1.75rem; margin-top: 0; }
+    .kk { color: #555; font-size: .95em; }
+
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 1.5rem 0; }
+    .tab { border: 1px solid #cfd8e3; background: #fff; color: #2c3e50; padding: 8px 15px; border-radius: 999px; cursor: pointer; font-size: .9rem; font-family: inherit; }
+    .tab:hover { border-color: #3498db; }
+    .tab.active { background: #3498db; border-color: #3498db; color: #fff; font-weight: 600; }
+
+    .section { background: #fff; border-radius: 12px; padding: 1.5rem 1.7rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    .section > h2 { color: #34495e; margin: 0 0 .4rem; font-size: 1.25rem; border-left: 4px solid #3498db; padding-left: 12px; }
+    .lead { color: #555; font-size: .95rem; margin: 0 0 1.4rem; }
+
+    .rule-card { border: 1px solid #e6ebf2; border-radius: 10px; padding: 1rem 1.2rem; margin: 1rem 0; }
+    .rule-card h3 { margin: 0 0 .3rem; font-size: 1.02rem; color: #2c3e50; }
+    .rule-card .why { color: #7f8c8d; font-size: .89rem; margin: 0 0 .7rem; }
+    .phrases { list-style: none; padding: 0; margin: 0; }
+    .phrases li { padding: 7px 0; border-bottom: 1px dashed #eef2f6; }
+    .phrases li:last-child { border-bottom: none; }
+    .en { font-weight: 600; color: #1a3a5c; }
+    .tr { color: #7f8c8d; font-size: .88rem; }
+
+    .bad-good { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: .8rem; }
+    .bad, .good { padding: 9px 12px; border-radius: 8px; font-size: .92rem; }
+    .bad { background: #fdeeec; border-left: 3px solid #e74c3c; }
+    .good { background: #eef8f0; border-left: 3px solid #27ae60; }
+    .bad b { color: #c0392b; } .good b { color: #1e8449; }
+    @media (max-width: 560px) { .bad-good { grid-template-columns: 1fr; } }
+
+    .dlg { border: 1px solid #e6ebf2; border-radius: 10px; padding: 1.1rem 1.2rem; margin: 1.2rem 0; }
+    .dlg h3 { margin: 0 0 .2rem; font-size: 1.05rem; color: #2c3e50; }
+    .dlg .where { color: #7f8c8d; font-size: .87rem; margin: 0 0 .9rem; }
+    .line { margin: 10px 0; }
+    .line .who { display: inline-block; width: 22px; font-weight: 700; color: #3498db; }
+    .line.b .who { color: #9b59b6; }
+    .line .txt { display: inline; }
+    .line .txt mark { background: #fff3cd; padding: 1px 3px; border-radius: 3px; }
+    .line .kkline { display: block; margin-left: 22px; color: #7f8c8d; font-size: .87rem; }
+    body.hide-tr .kkline { display: none; }
+
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 1.2rem; }
+    .btn { background: #3498db; color: #fff; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: .92rem; font-family: inherit; font-weight: 600; }
+    .btn:hover { background: #2980b9; }
+    .btn.ghost { background: #fff; color: #3498db; border: 1px solid #3498db; }
+    .btn.ghost:hover { background: #e8f4fc; }
+
+    .prompt { background: #eef3ff; border-left: 4px solid #5b8def; padding: 12px 16px; border-radius: 8px; margin-bottom: .9rem; }
+    .prompt .sit { color: #7f8c8d; font-size: .85rem; display: block; margin-bottom: 4px; }
+    .prompt .said { font-size: 1.08rem; font-weight: 600; color: #1a3a5c; }
+    .prompt .saidkk { display: block; color: #7f8c8d; font-size: .87rem; font-weight: 400; margin-top: 3px; }
+    .opts { list-style: none; padding: 0; margin: 0; }
+    .opts li { margin: 8px 0; }
+    .opt { width: 100%; text-align: left; padding: 11px 14px; border: 1px solid #e0e6ed; background: #fff; border-radius: 10px; cursor: pointer; font-size: .97rem; font-family: inherit; color: #2c3e50; line-height: 1.5; }
+    .opt:hover:not(:disabled) { border-color: #3498db; background: #f7fbfe; }
+    .opt:disabled { cursor: default; }
+    .opt.ok { border-color: #27ae60; background: #eef8f0; }
+    .opt.no { border-color: #e74c3c; background: #fdeeec; }
+    .fb { margin-top: .9rem; padding: 11px 15px; border-radius: 8px; font-size: .93rem; display: none; }
+    .fb.show { display: block; }
+    .fb.ok { background: #eef8f0; border-left: 4px solid #27ae60; }
+    .fb.no { background: #fdeeec; border-left: 4px solid #e74c3c; }
+    .fb .head { font-weight: 700; display: block; margin-bottom: 3px; }
+    .fb.ok .head { color: #1e8449; } .fb.no .head { color: #c0392b; }
+    .fb .tip { display: block; margin-top: 6px; color: #555; font-size: .89rem; }
+    .counter { color: #7f8c8d; font-size: .88rem; margin-bottom: .8rem; }
+    .counter b { color: #2c3e50; }
+
+    table.bank { width: 100%; border-collapse: collapse; margin-top: .4rem; }
+    table.bank th, table.bank td { padding: 8px 10px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+    table.bank th { background: #3498db; color: #fff; font-weight: 600; font-size: .9rem; }
+    table.bank td:first-child { font-weight: 600; color: #1a3a5c; width: 47%; }
+    table.bank td:last-child { color: #666; font-size: .9rem; }
+    .bank-group { margin: 1.4rem 0; }
+    .bank-group h3 { font-size: 1rem; color: #3498db; margin: 0 0 .2rem; }
+    .bank-group p.use { color: #7f8c8d; font-size: .87rem; margin: 0; }
+    @media (max-width: 520px) { body { padding: 1.2rem .8rem 2.5rem; } .section { padding: 1.2rem 1rem; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <p class="back"><a href="index.html">← English тақырыптарына оралу</a></p>
+
+    <h1>Conversation Practice</h1>
+    <p class="kk">Мақсат — сөйлесуді <strong>жалғастыра білу</strong>. Сөзді көп білу жеткіліксіз: жауап беріп, қарсы сұрақ қойып, қызығушылық танытып отыру керек. Осы бетте: техникалар, нағыз өмірден диалогтар, жауап таңдау жаттығуы және фразалар банкі.</p>
+
+    <div class="tabs" id="tabs"></div>
+    <div id="area"></div>
+</div>
+
+<script>
+/* ---------------- 1. TECHNIQUES ---------------- */
+const RULES = [
+  {
+    t: "1. Қысқа жауап бермеу: жауап + деталь",
+    why: "«Yes» немесе «No» деген жалғыз сөз сөйлесуді өлтіреді. Әрқашан бір-екі сөйлем қосыңыз.",
+    bad: { q: "Do you like football?", a: "Yes." },
+    good: { q: "Do you like football?", a: "Yes, I do. I watch almost every weekend. My favourite team is Barcelona." },
+    phrases: [
+      ["Yes, I do. Actually, …", "Иә. Шындығында, …"],
+      ["Not really, but I like …", "Онша емес, бірақ мен … ұнатамын"],
+      ["It depends. When I have time, I …", "Жағдайға байланысты. Уақытым болса, мен …"]
+    ]
+  },
+  {
+    t: "2. Қарсы сұрақ қою",
+    why: "Жауап бердіңіз — енді допты қайтарыңыз. Бұл ең оңай әрі ең күшті тәсіл.",
+    bad: { q: "How was your weekend?", a: "It was good." },
+    good: { q: "How was your weekend?", a: "It was good, thanks. I went to the mountains. What about you?" },
+    phrases: [
+      ["What about you?", "Ал сен ше?"],
+      ["How about you?", "Сен ше?"],
+      ["And you? / And yourself?", "Ал сіз ше?"],
+      ["Have you ever tried it?", "Сен байқап көрдің бе?"],
+      ["What do you think?", "Сен қалай ойлайсың?"]
+    ]
+  },
+  {
+    t: "3. Қызығушылық таныту",
+    why: "Тыңдап отырғаныңызды көрсететін қысқа сөздер. Оларсыз әңгіме суық көрінеді.",
+    bad: { q: "I got a new job last week!", a: "OK." },
+    good: { q: "I got a new job last week!", a: "Really? That's great news! Congratulations. What kind of job is it?" },
+    phrases: [
+      ["Really?", "Шынымен бе?"],
+      ["That's interesting.", "Қызық екен."],
+      ["That's great! / That's awesome!", "Тамаша!"],
+      ["Oh, I see.", "А, түсінікті."],
+      ["Tell me more about it.", "Бұл туралы толығырақ айтшы."],
+      ["No way!", "Мүмкін емес! (таңырқау)"],
+      ["I know what you mean.", "Не айтқыңыз келгенін түсінемін."]
+    ]
+  },
+  {
+    t: "4. Ойлануға уақыт алу",
+    why: "Үнсіз қалудың орнына осы сөздерді айтыңыз — сөйлесу үзілмейді, ал сізде ойлануға 2–3 секунд болады.",
+    bad: { q: "Why did you choose this university?", a: "… (үнсіздік)" },
+    good: { q: "Why did you choose this university?", a: "That's a good question. Let me think… I think the main reason was the programme." },
+    phrases: [
+      ["That's a good question.", "Жақсы сұрақ."],
+      ["Let me think…", "Ойланайыншы…"],
+      ["Well, how can I say it…", "Қалай айтсам екен…"],
+      ["Hmm, it's hard to say.", "Мм, айту қиын."],
+      ["To be honest, …", "Шынымды айтсам, …"]
+    ]
+  },
+  {
+    t: "5. Түсінбегенде — сұрау",
+    why: "Түсінбей бас изеу — ең үлкен қате. Қайта сұрау мүлдем ұят емес, керісінше қалыпты нәрсе.",
+    bad: { q: "The meeting's been moved to Thursday.", a: "Yes, yes… (түсінбей)" },
+    good: { q: "The meeting's been moved to Thursday.", a: "Sorry, could you repeat that, please? I didn't catch the day." },
+    phrases: [
+      ["Sorry, could you repeat that, please?", "Кешіріңіз, қайталай аласыз ба?"],
+      ["Sorry, I didn't catch that.", "Кешіріңіз, естімей қалдым."],
+      ["Could you speak a little slower, please?", "Сәл баяуырақ сөйлей аласыз ба?"],
+      ["What does \"deadline\" mean?", "«Deadline» деген нені білдіреді?"],
+      ["So you mean … , right?", "Яғни сіз … дегіңіз келеді ме?"]
+    ]
+  },
+  {
+    t: "6. Тақырыпты ауыстыру және әдепті аяқтау",
+    why: "Әңгімені дұрыс аяқтау да өнер. Кенеттен кетіп қалмаңыз.",
+    bad: { q: "…", a: "OK, bye. (кенет)" },
+    good: { q: "…", a: "Anyway, I have to go now — my class starts in five minutes. It was nice talking to you!" },
+    phrases: [
+      ["By the way, …", "Айтпақшы, …"],
+      ["Speaking of which, …", "Соған байланысты, …"],
+      ["Anyway, …", "Қалай болғанда да, …"],
+      ["I have to go now, sorry.", "Кешір, менің кетуім керек."],
+      ["It was nice talking to you.", "Сенімен сөйлескеніме қуаныштымын."],
+      ["See you soon! / Take care!", "Кездескенше! / Өзіңді күт!"]
+    ]
+  }
+];
+
+/* ---------------- 2. DIALOGUES ---------------- */
+const DIALOGUES = [
+  {
+    title: "Танысу — Meeting someone new",
+    where: "Университетте, алғашқы күн",
+    lines: [
+      ["A", "Hi! Is this seat free?", "Сәлем! Бұл орын бос па?"],
+      ["B", "Yes, sure. Go ahead.", "Иә, әрине. Отыра беріңіз."],
+      ["A", "Thanks. I'm Aidar, by the way.", "Рахмет. Айтпақшы, мен Айдармын."],
+      ["B", "Nice to meet you, Aidar. I'm Sofia.", "Танысқаныма қуаныштымын, Айдар. Мен Софиямын."],
+      ["A", "Nice to meet you too. Are you a first-year student?", "Мен де қуаныштымын. Сіз бірінші курстасыз ба?"],
+      ["B", "Yes, I am. I study economics. <mark>What about you?</mark>", "Иә. Экономика оқимын. Ал сіз ше?"],
+      ["A", "Same here, actually! So we're classmates.", "Мен де сол! Демек, біз сыныптаспыз."],
+      ["B", "<mark>No way!</mark> That's lucky. Do you know where room 204 is?", "Мүмкін емес! Сәтті болды. 204-бөлме қайда екенін білесіз бе?"],
+      ["A", "It's on the second floor, next to the library. I can show you.", "Екінші қабатта, кітапхананың қасында. Көрсетейін."],
+      ["B", "That would be great, thanks!", "Тамаша болар еді, рахмет!"]
+    ]
+  },
+  {
+    title: "Кафеде — At a café",
+    where: "Тапсырыс беру",
+    lines: [
+      ["A", "Hi, what can I get for you?", "Сәлеметсіз бе, не аласыз?"],
+      ["B", "Hi. Could I have a cappuccino, please?", "Сәлем. Капучино бере аласыз ба?"],
+      ["A", "Sure. Small, medium or large?", "Әрине. Кіші, орташа әлде үлкен бе?"],
+      ["B", "Medium, please. And do you have any sandwiches?", "Орташа, өтінемін. Сэндвич бар ма?"],
+      ["A", "We have cheese and chicken.", "Ірімшікпен және тауық етімен бар."],
+      ["B", "I'll take the chicken one, then.", "Онда тауық етімен аламын."],
+      ["A", "To eat in or take away?", "Осы жерде ме, әлде өзіңізбен бірге ме?"],
+      ["B", "To eat in, please. How much is it?", "Осы жерде. Қанша тұрады?"],
+      ["A", "That's 2,400 tenge, please.", "2400 теңге."],
+      ["B", "Here you are. Thank you!", "Мінеки. Рахмет!"]
+    ]
+  },
+  {
+    title: "Жол сұрау — Asking for directions",
+    where: "Көшеде",
+    lines: [
+      ["A", "Excuse me, could you help me? I'm looking for the train station.", "Кешіріңіз, көмектесе аласыз ба? Мен вокзалды іздеп жүрмін."],
+      ["B", "Sure. Go straight on for about two blocks, then turn left.", "Әрине. Екі квартал тура жүріңіз, содан кейін солға бұрылыңыз."],
+      ["A", "<mark>Sorry, could you repeat that?</mark> Two blocks and then…?", "Кешіріңіз, қайталай аласыз ба? Екі квартал, содан кейін…?"],
+      ["B", "Two blocks straight, then left. You'll see a big red building.", "Екі квартал тура, содан соң солға. Үлкен қызыл ғимарат көресіз."],
+      ["A", "Is it far? Can I walk?", "Алыс па? Жаяу бара аламын ба?"],
+      ["B", "It's about ten minutes on foot.", "Жаяу шамамен он минут."],
+      ["A", "Great. Thank you so much for your help!", "Тамаша. Көмегіңізге көп рахмет!"],
+      ["B", "You're welcome. Have a nice day!", "Оқасы жоқ. Күніңіз сәтті болсын!"]
+    ]
+  },
+  {
+    title: "Дүкенде — At the shop",
+    where: "Киім сатып алу",
+    lines: [
+      ["A", "Hello! Are you looking for anything in particular?", "Сәлеметсіз бе! Бір нәрсе іздеп жүрсіз бе?"],
+      ["B", "Yes, I need a jacket for winter.", "Иә, маған қысқы куртка керек."],
+      ["A", "What size are you?", "Өлшеміңіз қандай?"],
+      ["B", "Medium, I think. Can I try this one on?", "Меніңше, M. Мынаны киіп көрсем бола ма?"],
+      ["A", "Of course. The fitting room is over there.", "Әрине. Киім өлшейтін бөлме анау жақта."],
+      ["B", "It's a bit tight. Do you have a bigger size?", "Сәл тар екен. Үлкенірек өлшемі бар ма?"],
+      ["A", "Let me check… Yes, here's a large.", "Қарайын… Иә, мынау L."],
+      ["B", "This one fits well. How much is it?", "Мынау жақсы отыр. Қанша тұрады?"],
+      ["A", "It's 25,000 tenge, but there's a 20% discount today.", "25 000 теңге, бірақ бүгін 20% жеңілдік бар."],
+      ["B", "<mark>Oh, nice!</mark> I'll take it.", "О, тамаша! Аламын."]
+    ]
+  },
+  {
+    title: "Оқу туралы — Talking about studies",
+    where: "Курстас достармен",
+    lines: [
+      ["A", "How are your classes going this semester?", "Бұл семестрде сабақтарың қалай?"],
+      ["B", "Pretty good, but economics is hard. <mark>What about you?</mark>", "Жақсы, бірақ экономика қиын. Ал сен ше?"],
+      ["A", "Same for me. I'm struggling with the graphs.", "Менде де солай. Графиктермен қиналып жүрмін."],
+      ["B", "<mark>I know what you mean.</mark> Have you tried the study group?", "Сені түсінемін. Оқу тобын байқап көрдің бе?"],
+      ["A", "No, I haven't. When do they meet?", "Жоқ. Олар қашан жиналады?"],
+      ["B", "Every Tuesday at six, in the library.", "Әр сейсенбіде алтыда, кітапханада."],
+      ["A", "That sounds useful. Could I come with you next week?", "Пайдалы сияқты. Келесі аптада сенімен барсам бола ма?"],
+      ["B", "Of course! I'll text you the details.", "Әрине! Мәліметтерін жазып жіберемін."],
+      ["A", "Thanks a lot. <mark>By the way</mark>, did you finish the homework?", "Көп рахмет. Айтпақшы, үй тапсырмасын бітірдің бе?"],
+      ["B", "Almost. Two questions left.", "Дерлік. Екі сұрақ қалды."]
+    ]
+  },
+  {
+    title: "Жоспар құру — Making plans",
+    where: "Досыңмен",
+    lines: [
+      ["A", "Are you free on Saturday?", "Сенбіде бос сың ба?"],
+      ["B", "I think so. Why? What's up?", "Меніңше, иә. Не болды?"],
+      ["A", "There's a new film at the cinema. Do you want to go?", "Кинотеатрда жаңа фильм бар. Барғың келе ме?"],
+      ["B", "Sounds good! What time does it start?", "Жақсы идея! Сағат нешеде басталады?"],
+      ["A", "There are two shows — four o'clock and seven.", "Екі сеанс бар — төртте және жетіде."],
+      ["B", "Seven works better for me. Is that OK?", "Маған жеті ыңғайлырақ. Жарай ма?"],
+      ["A", "Perfect. Let's meet at half past six near the entrance.", "Тамаша. Алтыдан жартыда кіреберісте кездесейік."],
+      ["B", "Great. See you on Saturday!", "Жақсы. Сенбіде кездескенше!"]
+    ]
+  },
+  {
+    title: "Телефонмен — On the phone",
+    where: "Кездесуді ауыстыру",
+    lines: [
+      ["A", "Hello, this is Aidar speaking.", "Алло, бұл Айдар."],
+      ["B", "Hi Aidar, it's Marat. Do you have a minute?", "Сәлем Айдар, бұл Марат. Бір минутың бар ма?"],
+      ["A", "Sure, go ahead.", "Әрине, айта бер."],
+      ["B", "I'm afraid I can't make it tomorrow. Could we move our meeting?", "Өкінішке қарай ертең келе алмаймын. Кездесуді ауыстыра аламыз ба?"],
+      ["A", "No problem. When would suit you?", "Мәселе жоқ. Саған қашан ыңғайлы?"],
+      ["B", "How about Friday morning?", "Жұма таңертең ше?"],
+      ["A", "<mark>Let me think…</mark> Friday at ten works for me.", "Ойланайыншы… Жұма сағат он маған жарайды."],
+      ["B", "Great, thanks for understanding. See you then.", "Тамаша, түсінгеніңе рахмет. Сонда кездесеміз."],
+      ["A", "See you. Bye!", "Кездескенше. Сау бол!"]
+    ]
+  },
+  {
+    title: "Кешірім сұрау — Apologising",
+    where: "Кешігіп келгенде",
+    lines: [
+      ["A", "I'm so sorry I'm late. The bus was stuck in traffic.", "Кешіккенім үшін кешір. Автобус кептелісте тұрып қалды."],
+      ["B", "Don't worry about it. I just got here myself.", "Уайымдама. Мен де жаңа ғана келдім."],
+      ["A", "Thanks for waiting. Have you ordered yet?", "Күткеніңе рахмет. Тапсырыс бердің бе?"],
+      ["B", "Not yet. I was waiting for you.", "Әлі жоқ. Сені күтіп отырдым."],
+      ["A", "That's kind of you. Let's order now.", "Мейірімділігің үшін рахмет. Қазір тапсырыс берейік."]
+    ]
+  }
+];
+
+/* ---------------- 3. REPLY TRAINER ---------------- */
+const PROMPTS = [
+  {
+    sit: "Курстасың сені сабақтан кейін көрді",
+    said: "Hey! How's it going?", saidkk: "Сәлем! Қалың қалай?",
+    opts: [
+      "Not bad, thanks. A bit tired after the exam. How's it going with you?",
+      "Fine.",
+      "I am going to home."
+    ],
+    a: 0,
+    ok: "Тамаша: қысқа жауап + себебі + қарсы сұрақ. Осы үш бөлік әңгімені жүргізеді.",
+    no: ["", "«Fine.» — техникалық дұрыс, бірақ әңгіме сол жерде тоқтайды. Деталь мен қарсы сұрақ қосыңыз.", "Грамматика қате (going home, «to» керек емес) әрі сұраққа жауап емес."]
+  },
+  {
+    sit: "Жаңа таныс адам сұрап тұр",
+    said: "So, what do you do?", saidkk: "Немен айналысасың?",
+    opts: [
+      "I am student.",
+      "I'm a student. I study economics at ENU. What about you?",
+      "Yes, I do."
+    ],
+    a: 1,
+    ok: "Дұрыс: артикль «a» бар, деталь бар, соңында қарсы сұрақ бар.",
+    no: ["«I am student» — артикль түсіп қалған. Дұрысы: I'm **a** student.", "", "«What do you do?» — иә/жоқ сұрағы емес, сондықтан «Yes, I do» келмейді."]
+  },
+  {
+    sit: "Дос жаңалық айтып тұр",
+    said: "I passed my driving test yesterday!", saidkk: "Кеше жүргізуші куәлігі емтиханын тапсырдым!",
+    opts: [
+      "OK.",
+      "Congratulations! That's great news. Was it difficult?",
+      "I don't have a car."
+    ],
+    a: 1,
+    ok: "Дұрыс: құттықтау + эмоция + сұрақ. Адам жаңалығымен бөліскенде реакция күтеді.",
+    no: ["«OK» суық естіледі — адам сізден қуаныш күткен.", "", "Тақырыпты өзіңізге бұрып жібердіңіз, ал дос әлі айтып болған жоқ."]
+  },
+  {
+    sit: "Мұғалім тез сөйледі, түсінбедің",
+    said: "The assignment is due on the fifteenth.", saidkk: "Тапсырманы он бесіне дейін өткізу керек.",
+    opts: [
+      "Yes, yes, OK.",
+      "What? Say again.",
+      "Sorry, could you repeat that? I didn't catch the date."
+    ],
+    a: 2,
+    ok: "Дұрыс: әдепті түрде қайталауды сұрап, нақты нені түсінбегеніңізді айттыңыз.",
+    no: ["Түсінбей бас изеу — ең қауіпті нұсқа. Кейін мерзімді өткізіп аласыз.", "Грамматикалық қате емес, бірақ дөрекі естіледі. «Sorry, could you…» деп жұмсартыңыз.", ""]
+  },
+  {
+    sit: "Сатушы дүкенде саған келді",
+    said: "Can I help you with anything?", saidkk: "Бір нәрсеге көмектесейін бе?",
+    opts: [
+      "No.",
+      "I'm just looking, thanks.",
+      "I don't know."
+    ],
+    a: 1,
+    ok: "«I'm just looking, thanks» — дүкендегі ең табиғи әрі әдепті жауап.",
+    no: ["Жалғыз «No» дөрекі естіледі. Ең болмаса «No, thanks» деңіз.", "", "Түсініксіз әрі ыңғайсыз жағдай туғызады."]
+  },
+  {
+    sit: "Досың демалыс туралы сұрады",
+    said: "How was your weekend?", saidkk: "Демалысың қалай өтті?",
+    opts: [
+      "It was good, thanks. I went hiking with my brother. How was yours?",
+      "Good.",
+      "It was."
+    ],
+    a: 0,
+    ok: "Үлгі жауап: баға + не істегеніңіз + қарсы сұрақ.",
+    no: ["", "Тым қысқа — әңгіме өледі. Бір деталь қосыңыз.", "Аяқталмаған сөйлем, мағынасы жоқ."]
+  },
+  {
+    sit: "Сені кешкі асқа шақырды, бірақ бара алмайсың",
+    said: "Would you like to join us for dinner tonight?", saidkk: "Бүгін кешкі асқа бізбен бірге барасың ба?",
+    opts: [
+      "No, I can't.",
+      "I'd love to, but I can't tonight — I have to work. Maybe another time?",
+      "No. I don't like you."
+    ],
+    a: 1,
+    ok: "Ағылшынша бас тарту үлгісі: қуанышты бастау + себеп + балама ұсыну.",
+    no: ["Тым тік. Себеп пен балама ұсыныс қосыңыз.", "", "Өте дөрекі — мұндай айтпаңыз."]
+  },
+  {
+    sit: "Әңгіме үзіліп қалды, жалғастыру керек",
+    said: "…", saidkk: "(үнсіздік)",
+    opts: [
+      "So… yeah.",
+      "By the way, have you seen the new café near the station?",
+      "Why are you silent?"
+    ],
+    a: 1,
+    ok: "«By the way…» — тақырыпты табиғи түрде ауыстыратын ең пайдалы тіркес.",
+    no: ["Үнсіздікті ұзартады.", "", "Дөрекі әрі ыңғайсыз естіледі."]
+  },
+  {
+    sit: "Қиын сұрақ қойылды, ойлануға уақыт керек",
+    said: "Why do you want to work in this company?", saidkk: "Неге осы компанияда жұмыс істегіңіз келеді?",
+    opts: [
+      "… эм… не знаю…",
+      "That's a good question. Let me think… I think the main reason is the team.",
+      "Because I need money."
+    ],
+    a: 1,
+    ok: "Уақыт алатын тіркестер сізге 2–3 секунд береді, ал әңгіме үзілмейді.",
+    no: ["Ана тіліне ауысу — сұхбатта ең жаман сигнал.", "", "Шыншыл, бірақ сұхбатта әлсіз жауап."]
+  },
+  {
+    sit: "Сен біреудің аяғын басып қалдың",
+    said: "Ouch!", saidkk: "Ой!",
+    opts: [
+      "Sorry! Are you OK?",
+      "It's not my fault.",
+      "Excuse me."
+    ],
+    a: 0,
+    ok: "«Sorry» — кешірім сұрау үшін. Артынша «Are you OK?» деп қамқорлық танытыңыз.",
+    no: ["", "Ақталу орынсыз — алдымен кешірім сұрау керек.", "«Excuse me» — назар аудару немесе жанынан өту үшін, кешірім сұрау үшін емес. Айырмашылығын есте сақтаңыз."]
+  },
+  {
+    sit: "Кетуге тура келді, бірақ әңгіме әлі жүріп жатыр",
+    said: "…and then we decided to change the whole plan.", saidkk: "…содан кейін біз бүкіл жоспарды өзгертуді шештік.",
+    opts: [
+      "OK bye.",
+      "That's interesting! I'm sorry, I have to run — my class starts soon. Let's continue tomorrow?",
+      "I must go now because time."
+    ],
+    a: 1,
+    ok: "Әдепті аяқтау: қызығушылық + кешірім + себеп + жалғастыру ұсынысы.",
+    no: ["Кенет әрі дөрекі.", "", "«because time» грамматикалық қате. Дұрысы: because I'm out of time."]
+  },
+  {
+    sit: "Біреу сенің қаланды мақтап тұр",
+    said: "I really liked Almaty. The mountains are amazing!", saidkk: "Алматы маған қатты ұнады. Таулары керемет!",
+    opts: [
+      "Yes.",
+      "I'm glad you liked it! Did you go up to Shymbulak?",
+      "Almaty is a city in Kazakhstan."
+    ],
+    a: 1,
+    ok: "Реакция + нақтылаушы сұрақ. Осылай әңгіме өзінен-өзі жалғасады.",
+    no: ["Әңгімені тоқтатады.", "", "Айқын нәрсені айту — әңгіме емес, анықтама."]
+  }
+];
+
+/* ---------------- 4. PHRASE BANK ---------------- */
+const BANK = [
+  { g: "Сәлемдесу және басы", use: "Кез келген әңгіменің бастамасы", rows: [
+    ["Hi! How's it going?", "Сәлем! Қалың қалай?"],
+    ["How have you been?", "Қалайсың? (көптен көріспегенде)"],
+    ["Long time no see!", "Көрмегелі көп болды!"],
+    ["Nice to see you again.", "Қайта көргеніме қуаныштымын."],
+    ["How's your day going?", "Күнің қалай өтіп жатыр?"]
+  ]},
+  { g: "Келісу", use: "Пікірмен келіскенде", rows: [
+    ["Exactly!", "Дәл солай!"],
+    ["That's true.", "Бұл рас."],
+    ["I agree with you.", "Мен сізбен келісемін."],
+    ["You're right.", "Сіз дұрыс айтасыз."],
+    ["Me too. / Me neither.", "Мен де. / Мен де жоқ."]
+  ]},
+  { g: "Әдепті келіспеу", use: "Қарсы шыққанда, бірақ дөрекі болмай", rows: [
+    ["I see your point, but…", "Ойыңызды түсінемін, бірақ…"],
+    ["I'm not sure about that.", "Мен онысына сенімді емеспін."],
+    ["That's one way to look at it, but…", "Бұл да бір көзқарас, бірақ…"],
+    ["Actually, I think…", "Шындығында, меніңше…"],
+    ["Maybe, but what about…?", "Мүмкін, бірақ … ше?"]
+  ]},
+  { g: "Пікір айту", use: "Өз ойыңды білдіргенде", rows: [
+    ["I think / I believe…", "Меніңше / Мен сенемін…"],
+    ["In my opinion, …", "Менің ойымша, …"],
+    ["If you ask me, …", "Менен сұрасаң, …"],
+    ["It seems to me that…", "Маған … сияқты көрінеді"],
+    ["I'd say…", "Мен … дер едім"]
+  ]},
+  { g: "Сұрау және өтіну", use: "Бір нәрсе қажет болғанда", rows: [
+    ["Could you help me, please?", "Маған көмектесе аласыз ба?"],
+    ["Do you mind if I…?", "Мен … етсем, қарсы емессіз бе?"],
+    ["Would it be OK if…?", "… болса, жарай ма?"],
+    ["Can I ask you something?", "Бір нәрсе сұрасам бола ма?"],
+    ["I was wondering if…", "… ма екен деп ойлап едім"]
+  ]},
+  { g: "Сезім мен күй", use: "Өзіңді қалай сезінетініңді айтқанда", rows: [
+    ["I'm really tired today.", "Бүгін қатты шаршадым."],
+    ["I'm excited about it!", "Мен бұған қуаныштымын!"],
+    ["I'm a bit nervous.", "Сәл қобалжып тұрмын."],
+    ["I'm so happy for you!", "Сен үшін қатты қуаныштымын!"],
+    ["That's a relief.", "Жеңілдеп қалдым."]
+  ]},
+  { g: "Аяқтау", use: "Әңгімені әдепті түрде бітіргенде", rows: [
+    ["It was nice talking to you.", "Сенімен сөйлескеніме қуаныштымын."],
+    ["I have to run, sorry.", "Кешір, асығыс кетуім керек."],
+    ["Let's catch up soon.", "Жақында тағы сөйлесейік."],
+    ["Say hi to your family.", "Отбасыңа сәлем айт."],
+    ["Take care! / See you around!", "Өзіңді күт! / Кездескенше!"]
+  ]}
+];
+
+/* ---------------- RENDER ---------------- */
+const TABS = [
+  { id: "rules", label: "Жалғастыру техникасы" },
+  { id: "dlg", label: "Диалогтар" },
+  { id: "train", label: "Сенің кезегің" },
+  { id: "bank", label: "Фразалар банкі" }
+];
+let current = "rules";
+const tabsEl = document.getElementById("tabs");
+const areaEl = document.getElementById("area");
+const train = { i: 0, right: 0, done: 0 };
+
+function renderTabs() {
+  tabsEl.innerHTML = TABS.map(t =>
+    `<button class="tab ${t.id === current ? "active" : ""}" type="button" data-id="${t.id}">${t.label}</button>`).join("");
+  tabsEl.querySelectorAll(".tab").forEach(b =>
+    b.addEventListener("click", () => { current = b.dataset.id; renderTabs(); render(); }));
+}
+
+function render() {
+  if (current === "rules") return renderRules();
+  if (current === "dlg") return renderDialogues();
+  if (current === "train") return renderTrainer();
+  return renderBank();
+}
+
+function renderRules() {
+  areaEl.innerHTML = `
+    <div class="section">
+      <h2>Сөйлесуді қалай жалғастыру керек</h2>
+      <p class="lead">Алты техника. Әрқайсысында: неге керек, жаман мысал, жақсы мысал және дайын фразалар.</p>
+      ${RULES.map(r => `
+        <div class="rule-card">
+          <h3>${r.t}</h3>
+          <p class="why">${r.why}</p>
+          <div class="bad-good">
+            <div class="bad"><b>✗ Әлсіз</b><br>— ${r.bad.q}<br>— ${r.bad.a}</div>
+            <div class="good"><b>✓ Күшті</b><br>— ${r.good.q}<br>— ${r.good.a}</div>
+          </div>
+          <ul class="phrases">
+            ${r.phrases.map(p => `<li><span class="en">${p[0]}</span><br><span class="tr">${p[1]}</span></li>`).join("")}
+          </ul>
+        </div>`).join("")}
+    </div>`;
+}
+
+function renderDialogues() {
+  areaEl.innerHTML = `
+    <div class="section">
+      <h2>Нағыз өмірден диалогтар</h2>
+      <p class="lead">Сары түспен белгіленген тіркестер — әңгімені жалғастыратын сөздер. Алдымен аудармасыз оқып көріңіз, сосын тексеріңіз. Дауыстап қайталаған тиімді.</p>
+      <div class="toolbar">
+        <button class="btn ghost" id="trBtn" type="button">Аударманы жасыру</button>
+      </div>
+      ${DIALOGUES.map(d => `
+        <div class="dlg">
+          <h3>${d.title}</h3>
+          <p class="where">${d.where}</p>
+          ${d.lines.map(l => `
+            <div class="line ${l[0] === "B" ? "b" : ""}">
+              <span class="who">${l[0]}:</span><span class="txt">${l[1]}</span>
+              <span class="kkline">${l[2]}</span>
+            </div>`).join("")}
+        </div>`).join("")}
+    </div>`;
+
+  const btn = document.getElementById("trBtn");
+  btn.textContent = document.body.classList.contains("hide-tr") ? "Аударманы көрсету" : "Аударманы жасыру";
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("hide-tr");
+    btn.textContent = document.body.classList.contains("hide-tr") ? "Аударманы көрсету" : "Аударманы жасыру";
+  });
+}
+
+function renderTrainer() {
+  if (train.i >= PROMPTS.length) {
+    const pct = Math.round(train.right / PROMPTS.length * 100);
+    areaEl.innerHTML = `
+      <div class="section">
+        <h2>Сенің кезегің</h2>
+        <p class="lead" style="font-size:1.15rem;color:#2c3e50">
+          Нәтиже: <strong>${train.right} / ${PROMPTS.length}</strong> (${pct}%) —
+          ${pct >= 80 ? "Тамаша! Әңгімені жақсы жүргізесің. 🎉" : pct >= 50 ? "Жақсы бастама. Техникалар бетін қайта оқып, тағы байқап көр." : "Алдымен «Жалғастыру техникасы» бетін оқы, сосын қайта кел."}
+        </p>
+        <button class="btn" id="againBtn" type="button">Қайтадан бастау</button>
+      </div>`;
+    document.getElementById("againBtn").addEventListener("click", () => {
+      train.i = 0; train.right = 0; train.done = 0; renderTrainer();
+    });
+    return;
+  }
+
+  const p = PROMPTS[train.i];
+  areaEl.innerHTML = `
+    <div class="section">
+      <h2>Сенің кезегің</h2>
+      <p class="lead">Адам саған осылай айтты. Ең табиғи жауапты таңда.</p>
+      <p class="counter">Сұрақ <b>${train.i + 1}</b> / ${PROMPTS.length} · Дұрыс: <b>${train.right}</b></p>
+      <div class="prompt">
+        <span class="sit">${p.sit}</span>
+        <span class="said">${p.said}<span class="saidkk">${p.saidkk}</span></span>
+      </div>
+      <ul class="opts">
+        ${p.opts.map((o, j) => `<li><button class="opt" type="button" data-j="${j}">${o}</button></li>`).join("")}
+      </ul>
+      <div class="fb" id="fb"></div>
+      <div class="toolbar" id="nav" style="margin-top:1.2rem"></div>
+    </div>`;
+
+  areaEl.querySelectorAll(".opt").forEach(b =>
+    b.addEventListener("click", () => pick(parseInt(b.dataset.j, 10))));
+}
+
+function pick(j) {
+  const p = PROMPTS[train.i];
+  const correct = j === p.a;
+  if (correct) train.right++;
+  train.done++;
+
+  areaEl.querySelectorAll(".opt").forEach(b => {
+    b.disabled = true;
+    const bj = parseInt(b.dataset.j, 10);
+    if (bj === p.a) b.classList.add("ok");
+    else if (bj === j) b.classList.add("no");
+  });
+
+  const fb = document.getElementById("fb");
+  fb.className = "fb show " + (correct ? "ok" : "no");
+  fb.innerHTML = correct
+    ? `<span class="head">✓ Дұрыс</span>${p.ok}`
+    : `<span class="head">✗ Табиғи емес</span>${p.no[j]}<span class="tip">Дұрыс жауап: <strong>${p.opts[p.a]}</strong> — ${p.ok}</span>`;
+
+  const last = train.i === PROMPTS.length - 1;
+  document.getElementById("nav").innerHTML =
+    `<button class="btn" id="nextBtn" type="button">${last ? "Нәтижені көру" : "Келесі →"}</button>`;
+  document.getElementById("nextBtn").addEventListener("click", () => { train.i++; renderTrainer(); });
+  document.getElementById("nextBtn").focus();
+}
+
+function renderBank() {
+  areaEl.innerHTML = `
+    <div class="section">
+      <h2>Фразалар банкі</h2>
+      <p class="lead">Қызметі бойынша топтастырылған дайын тіркестер. Күніне бір топтан бастаңыз — жаттап алу емес, дауыстап қолданып көру маңызды.</p>
+      ${BANK.map(g => `
+        <div class="bank-group">
+          <h3>${g.g}</h3>
+          <p class="use">${g.use}</p>
+          <table class="bank">
+            <tr><th>English</th><th>Қазақша</th></tr>
+            ${g.rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join("")}
+          </table>
+        </div>`).join("")}
+    </div>`;
+}
+
+renderTabs();
+render();
+</script>
+</body>
+</html>

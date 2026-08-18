@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Examples with Graphs — Frank, Microeconomics and Behavior</title>
+<style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; margin: 0; padding: 1.5rem 1rem 3rem; color: #1a1a2e; background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%); }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .card { background: #fff; padding: 2rem 2.2rem; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+    .back { margin-bottom: 1rem; font-size: .95rem; }
+    .back a { color: #27ae60; text-decoration: none; font-weight: 500; }
+    .back a:hover { text-decoration: underline; }
+    h1 { color: #1a3a5c; border-bottom: 4px solid #27ae60; padding-bottom: 12px; font-size: 1.7rem; margin: 0 0 .8rem; }
+    .sub { color: #555; font-size: .97rem; }
+
+    .book { background: #eef3ff; border-left: 4px solid #5b8def; padding: 12px 16px; margin: 1.2rem 0 1.8rem; border-radius: 6px; font-size: .95rem; }
+    .book strong { color: #3a6cdc; }
+
+    .toc { background: #f8f9fb; border: 1px solid #e6ebf2; border-radius: 10px; padding: 1rem 1.3rem; margin-bottom: 2rem; }
+    .toc h3 { margin: 0 0 .5rem; font-size: .95rem; color: #1a3a5c; text-transform: uppercase; letter-spacing: .04em; }
+    .toc ol { margin: 0; padding-left: 1.3rem; columns: 2; column-gap: 2rem; font-size: .92rem; }
+    .toc li { margin: 4px 0; break-inside: avoid; }
+    .toc a { color: #27ae60; text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    @media (max-width: 620px) { .toc ol { columns: 1; } }
+
+    .ex { margin: 2.5rem 0; padding-top: 1.5rem; border-top: 2px solid #ecf0f1; }
+    .ex:first-of-type { border-top: none; padding-top: 0; }
+    h2 { color: #1a3a5c; font-size: 1.22rem; border-left: 5px solid #27ae60; padding-left: 12px; margin: 0 0 .5rem; }
+    .src-tag { display: inline-block; font-size: .78rem; font-weight: 700; background: #eef3ff; color: #3a6cdc; padding: 3px 10px; border-radius: 999px; margin-bottom: .8rem; }
+    .topic-tag { display: inline-block; font-size: .78rem; background: #eef8f0; color: #1e7e45; padding: 3px 10px; border-radius: 999px; margin-left: 6px; }
+    .topic-tag a { color: #1e7e45; text-decoration: none; }
+
+    .question { background: #fff8e7; border-left: 4px solid #f0b429; padding: 12px 16px; margin: 12px 0; border-radius: 6px; font-style: italic; }
+    .question::before { content: "❓ The book asks: "; font-weight: 700; font-style: normal; color: #8a6d1f; }
+
+    p { margin: 10px 0; }
+    ul, ol { margin: 10px 0; padding-left: 1.4rem; }
+    li { margin: 6px 0; }
+    code { background: #f1f3f6; padding: 2px 6px; border-radius: 4px; font-size: .9em; }
+
+    .graph { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 14px; margin: 16px 0; }
+    .svg-graph { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .fig-cap { text-align: center; font-size: .87em; color: #555; margin: 8px 0 0; }
+
+    .read { background: #f4faf6; border-left: 4px solid #27ae60; padding: 12px 18px; border-radius: 6px; margin: 14px 0; }
+    .read h4 { margin: 0 0 6px; font-size: .95rem; color: #1e7e45; }
+    .read ol { margin: 6px 0 0; font-size: .95rem; }
+
+    .answer { background: #eef8f0; border: 1px solid #bfe6cd; padding: 12px 16px; border-radius: 6px; margin: 14px 0; }
+    .answer::before { content: "✅ Answer in the book: "; font-weight: 700; color: #1e7e45; }
+
+    table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92em; }
+    th, td { border: 1px solid #e0e6ed; padding: 7px 10px; text-align: left; }
+    th { background: #27ae60; color: #fff; }
+    tr:nth-child(even) { background: #f8f9fa; }
+    td.num, th.num { text-align: right; }
+    .hl { background: #fff3cd !important; font-weight: 600; }
+
+    .payoff td, .payoff th { text-align: center; }
+    .payoff .rowhead { background: #eef3ff; font-weight: 600; text-align: left; }
+    .payoff .nash { background: #fdeeec; font-weight: 600; }
+
+    .ru { margin-top: 1rem; padding: .8rem 1rem; border-left: 3px dashed #bbb; background: #fafafa; font-size: .87rem; line-height: 1.6; color: #555; border-radius: 0 6px 6px 0; }
+    .ru::before { content: "🇷🇺 "; }
+    .up { font-size: .85rem; }
+    .up a { color: #999; text-decoration: none; }
+    @media (max-width: 560px) { .card { padding: 1.3rem 1.1rem; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card">
+    <p class="back"><a href="index.html">← Economics home</a> · <a href="Syllabus/index.html">Syllabus (36 topics)</a> · <a href="Quiz.html">Self-check quiz</a></p>
+
+    <h1>Book Examples, Step by Step</h1>
+    <p class="sub">Every example on this page is taken from the textbook. Simple English. Each one has a graph and a short guide on how to read that graph.</p>
+
+    <div class="book">📙 <strong>Source:</strong> Robert H. Frank, <em>Microeconomics and Behavior</em>, 7th edition. Example numbers and page numbers are the book's own. Nothing here is invented — only the wording is made simpler.</div>
+
+    <div class="toc">
+        <h3>Examples on this page</h3>
+        <ol>
+            <li><a href="#e14">1.4 — Opportunity cost: college or work?</a></li>
+            <li><a href="#e19">1.9 — Tom's fishing boats: marginal vs average</a></li>
+            <li><a href="#e111">1.11 — Susan and Hal: how many minutes?</a></li>
+            <li><a href="#e31">3.1 — Gigawatt Power: a kinked budget line</a></li>
+            <li><a href="#e32">3.2 — Gowdy: stolen petrol or lost $80?</a></li>
+            <li><a href="#e51">5.1 — Consumer surplus and a petrol price rise</a></li>
+            <li><a href="#e53">5.3 — A higher interest rate: do you save?</a></li>
+            <li><a href="#e91">9.1 — From production function to cost curves</a></li>
+            <li><a href="#e92">9.2 — Zara's Cleaners: AFC, AVC, ATC, MC</a></li>
+            <li><a href="#e101">10.1 — Economic profit vs accounting profit</a></li>
+            <li><a href="#e102">10.2 — Adding 200 firms into industry supply</a></li>
+            <li><a href="#e111mr">11.1 — The monopolist's marginal revenue</a></li>
+            <li><a href="#e113">11.3 — Selling in two markets at two prices</a></li>
+            <li><a href="#pd">12.1 — The prisoner's dilemma</a></li>
+        </ol>
+    </div>
+
+    <!-- ============ 1.4 ============ -->
+    <div class="ex" id="e14">
+        <h2>1. Opportunity Cost — Should I work first or go to college first?</h2>
+        <span class="src-tag">EXAMPLE 1.4 · Chapter 1, p. 6</span>
+        <span class="topic-tag"><a href="Syllabus/14_Opportunity_Cost.html">Syllabus topic 14</a></span>
+
+        <p>The book says the cost of college is not only tuition, fees, books and housing. There is one more cost: <strong>the money you do not earn while you study</strong>. Economists call this the <em>opportunity cost</em> of your time.</p>
+        <p>Here is the key fact from the book: <strong>wages grow with experience</strong>. So the longer you work before college, the more money you must give up to study. The opportunity cost is therefore <strong>smallest right after high school</strong>, when your wage is still low.</p>
+        <p>On the benefit side, the book lists two gains. First, a degree raises your pay a lot, and the earlier you graduate, the more years you enjoy that higher pay. Second, jobs for educated people are usually more pleasant.</p>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="30" x2="60" y2="200" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="200" x2="420" y2="200" stroke="#333" stroke-width="1.5"/>
+                <text x="14" y="26" font-size="11" fill="#333">Wage you</text>
+                <text x="14" y="38" font-size="11" fill="#333">give up ($)</text>
+                <text x="360" y="218" font-size="11" fill="#333">Your age</text>
+                <path d="M 70 175 Q 220 150 410 60" stroke="#8e44ad" stroke-width="2.5" fill="none"/>
+                <text x="300" y="90" font-size="11" fill="#8e44ad">wage rises with experience</text>
+                <line x1="100" y1="168" x2="100" y2="200" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <circle cx="100" cy="168" r="4" fill="#27ae60"/>
+                <text x="76" y="216" font-size="11" fill="#27ae60">age 20</text>
+                <text x="108" y="160" font-size="10.5" fill="#27ae60">small cost</text>
+                <line x1="360" y1="82" x2="360" y2="200" stroke="#e74c3c" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <circle cx="360" cy="82" r="4" fill="#e74c3c"/>
+                <text x="336" y="216" font-size="11" fill="#e74c3c">age 50</text>
+                <text x="286" y="76" font-size="10.5" fill="#e74c3c">big cost</text>
+            </svg>
+            <p class="fig-cap">The forgone wage is the height of the purple curve. It is low at 20 and high at 50.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>The horizontal axis is your age. The vertical axis is the salary you would earn if you did <em>not</em> study.</li>
+                <li>The purple curve rises because pay grows with experience.</li>
+                <li>The height of the curve at any age <strong>is</strong> the opportunity cost of one year at college at that age.</li>
+                <li>At 20 the curve is low, so studying is cheap. At 50 the curve is high, so studying is expensive.</li>
+            </ol>
+        </div>
+
+        <div class="answer">For most people it makes sense to go to college first and work afterwards. As the book puts it, "certainly it makes more sense to attend college at age 20 than at age 50."</div>
+        <p class="ru">Главная мысль: настоящая цена учёбы — это зарплата, которую вы не получили. Зарплата растёт с опытом, поэтому в 20 лет упущенный заработок маленький, а в 50 — большой. Отсюда вывод книги: учиться выгоднее сразу после школы.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 1.9 ============ -->
+    <div class="ex" id="e19">
+        <h2>2. Marginal vs Average — Should Tom launch another boat?</h2>
+        <span class="src-tag">EXAMPLE 1.9 · Chapter 1, p. 10</span>
+        <span class="topic-tag"><a href="Syllabus/04_MC_MR_Average_Cost.html">Syllabus topic 4</a></span>
+
+        <p>Tom runs a small fishing fleet of three boats. His daily cost is <strong>$300</strong>, so the <em>average</em> cost is $100 per boat. His daily revenue from fish is <strong>$600</strong>, so the <em>average</em> revenue is $200 per boat.</p>
+        <div class="question">Tom thinks: "My revenue per boat ($200) is bigger than my cost per boat ($100), so I should launch a fourth boat." Is this a sound decision?</div>
+        <p>The book's answer is <strong>no — the averages do not tell him what he needs to know</strong>. He must compare the <em>marginal</em> benefit of the next boat with its <em>marginal</em> cost of $100. The book gives the revenue numbers:</p>
+
+        <table>
+            <tr><th>Boats</th><th class="num">Total revenue</th><th class="num">Marginal benefit of that boat</th><th class="num">Marginal cost</th><th>Launch it?</th></tr>
+            <tr><td>1</td><td class="num">$300</td><td class="num">$300</td><td class="num">$100</td><td>Yes</td></tr>
+            <tr><td>2</td><td class="num">$480</td><td class="num">$180</td><td class="num">$100</td><td>Yes</td></tr>
+            <tr class="hl"><td>3</td><td class="num">$600</td><td class="num">$120</td><td class="num">$100</td><td>Yes — stop here</td></tr>
+            <tr><td>4</td><td class="num">$640</td><td class="num">$40</td><td class="num">$100</td><td>No</td></tr>
+        </table>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="30" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="220" x2="420" y2="220" stroke="#333" stroke-width="1.5"/>
+                <text x="12" y="26" font-size="11" fill="#333">$ per day</text>
+                <text x="340" y="240" font-size="11" fill="#333">boat number</text>
+                <line x1="56" y1="51" x2="60" y2="51" stroke="#333"/><text x="26" y="55" font-size="10" fill="#555">300</text>
+                <line x1="56" y1="164" x2="60" y2="164" stroke="#333"/><text x="26" y="168" font-size="10" fill="#555">100</text>
+                <rect x="90" y="51" width="50" height="169" fill="#27ae60" opacity=".8"/>
+                <rect x="170" y="119" width="50" height="101" fill="#27ae60" opacity=".8"/>
+                <rect x="250" y="152" width="50" height="68" fill="#27ae60" opacity=".8"/>
+                <rect x="330" y="197" width="50" height="23" fill="#e74c3c" opacity=".8"/>
+                <text x="106" y="45" font-size="10.5" fill="#1e7e45">300</text>
+                <text x="186" y="113" font-size="10.5" fill="#1e7e45">180</text>
+                <text x="266" y="146" font-size="10.5" fill="#1e7e45">120</text>
+                <text x="348" y="191" font-size="10.5" fill="#c0392b">40</text>
+                <line x1="60" y1="164" x2="420" y2="164" stroke="#e74c3c" stroke-width="2" stroke-dasharray="6 4"/>
+                <text x="366" y="159" font-size="11" fill="#e74c3c">MC = $100</text>
+                <text x="110" y="236" font-size="11">1</text><text x="190" y="236" font-size="11">2</text>
+                <text x="270" y="236" font-size="11">3</text><text x="350" y="236" font-size="11">4</text>
+            </svg>
+            <p class="fig-cap">Green bars stand above the $100 line, the red bar does not.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>Each bar is the <strong>extra</strong> revenue that one more boat brings, not the average.</li>
+                <li>The red dashed line is the marginal cost of a boat, $100 — the same for every boat.</li>
+                <li>Launch a boat while its bar is <strong>taller</strong> than the line. Boats 1, 2 and 3 pass this test.</li>
+                <li>The fourth bar ($40) is below the line, so the fourth boat loses $60 a day.</li>
+            </ol>
+        </div>
+
+        <div class="answer">Tom should launch <strong>three</strong> boats, not four. The book's Self-Test 1.4 asks what happens if marginal cost is $150 instead: then only boats 1 and 2 pass, so he launches <strong>two</strong>.</div>
+        <p class="ru">Классическая ловушка: средняя выручка ($200 на лодку) ничего не говорит о том, сколько принесёт следующая лодка. Сравнивать надо предельную выгоду с предельными издержками. Четвёртая лодка добавляет всего $40 при затратах $100 — она убыточна.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 1.11 ============ -->
+    <div class="ex" id="e111">
+        <h2>3. MB = MC on a Graph — How long should Susan talk to Hal?</h2>
+        <span class="src-tag">EXAMPLE 1.11 · Chapter 1, p. 12 · Figure 1.1</span>
+        <span class="topic-tag"><a href="Syllabus/32_Maximize_Profit.html">Syllabus topic 32</a></span>
+
+        <p>Susan pays <strong>4 cents per minute</strong> to call her boyfriend Hal. There is no monthly fee, and part-minutes cost the same rate, so a 30-second call costs 2 cents. Curve MB shows how much one more minute of talking is worth to her.</p>
+        <div class="question">How many minutes should she spend on the phone with Hal each month?</div>
+        <p>The MB curve slopes <strong>down</strong>. The book explains why: the more you have already talked, the less an extra minute is worth to you. The MC curve is <strong>flat</strong> at 4 cents, because every minute costs the same.</p>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="30" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="220" x2="430" y2="220" stroke="#333" stroke-width="1.5"/>
+                <text x="8" y="26" font-size="11" fill="#333">cents/minute</text>
+                <text x="330" y="243" font-size="11" fill="#333">minutes per month</text>
+                <line x1="56" y1="76" x2="60" y2="76" stroke="#333"/><text x="42" y="80" font-size="10" fill="#555">8</text>
+                <line x1="56" y1="148" x2="60" y2="148" stroke="#333"/><text x="42" y="152" font-size="10" fill="#555">4</text>
+                <line x1="60" y1="76" x2="420" y2="184" stroke="#8e44ad" stroke-width="2.5"/>
+                <text x="380" y="176" font-size="12" fill="#8e44ad" font-weight="600">MB</text>
+                <line x1="60" y1="148" x2="420" y2="148" stroke="#e74c3c" stroke-width="2.5"/>
+                <text x="380" y="141" font-size="12" fill="#e74c3c" font-weight="600">MC</text>
+                <circle cx="300" cy="148" r="5" fill="#27ae60"/>
+                <line x1="300" y1="148" x2="300" y2="220" stroke="#27ae60" stroke-width="1.3" stroke-dasharray="4 3"/>
+                <text x="272" y="238" font-size="11" fill="#27ae60" font-weight="600">400</text>
+                <text x="150" y="112" font-size="10.5" fill="#1e7e45">MB &gt; MC → talk more</text>
+                <text x="318" y="196" font-size="10.5" fill="#c0392b">MB &lt; MC → talk less</text>
+            </svg>
+            <p class="fig-cap">Figure 1.1: the best quantity is where MB crosses MC — 400 minutes a month.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>The horizontal axis is minutes of talking per month. The vertical axis is cents.</li>
+                <li>The purple MB line falls: minute number 500 is worth less to Susan than minute number 100.</li>
+                <li>The red MC line is flat at 4 cents because the price per minute never changes.</li>
+                <li>Left of the crossing, MB is above MC: one more minute is worth more than it costs, so she should talk longer.</li>
+                <li>Right of the crossing, MB is below MC: she is paying more than the minute is worth, so she should talk less.</li>
+                <li>Only at the crossing point is there nothing left to gain. That is the optimum.</li>
+            </ol>
+        </div>
+
+        <div class="answer">400 minutes per month — the quantity where the two curves cross.</div>
+        <p class="ru">Правило «MB = MC» в чистом виде. Слева от пересечения ещё выгодно говорить дольше, справа — уже переплата. Та же логика позже даёт условие максимума прибыли MR = MC.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 3.1 ============ -->
+    <div class="ex" id="e31">
+        <h2>4. A Kinked Budget Line — Gigawatt Power's quantity discount</h2>
+        <span class="src-tag">EXAMPLE 3.1 · Chapter 3, p. 57 · Figure 3.6</span>
+        <span class="topic-tag"><a href="Syllabus/29_Budget_Shift.html">Syllabus topic 29</a></span>
+
+        <p>Gigawatt Power charges <strong>$0.10 per kWh for the first 1,000 kWh</strong> each month, and only <strong>$0.05 per kWh after that</strong>. The customer has <strong>$400 a month</strong>. On the vertical axis we put the "composite good" — all the money left for everything else.</p>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 265" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="30" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="220" x2="430" y2="220" stroke="#333" stroke-width="1.5"/>
+                <text x="8" y="26" font-size="11" fill="#333">Y ($/month)</text>
+                <text x="290" y="248" font-size="11" fill="#333">electricity (1,000s of kWh/month)</text>
+                <line x1="56" y1="40" x2="60" y2="40" stroke="#333"/><text x="30" y="44" font-size="10" fill="#555">400</text>
+                <line x1="56" y1="85" x2="60" y2="85" stroke="#333"/><text x="30" y="89" font-size="10" fill="#555">300</text>
+                <line x1="56" y1="130" x2="60" y2="130" stroke="#333"/><text x="30" y="134" font-size="10" fill="#555">200</text>
+                <line x1="56" y1="175" x2="60" y2="175" stroke="#333"/><text x="30" y="179" font-size="10" fill="#555">100</text>
+                <polyline points="60,40 111,85 420,220" stroke="#2980b9" stroke-width="2.8" fill="none"/>
+                <circle cx="111" cy="85" r="5" fill="#e74c3c"/>
+                <text x="120" y="72" font-size="10.5" fill="#e74c3c" font-weight="600">kink at 1,000 kWh</text>
+                <text x="64" y="66" font-size="10.5" fill="#2980b9">slope −0.10</text>
+                <text x="230" y="150" font-size="10.5" fill="#2980b9">slope −0.05 (flatter)</text>
+                <text x="102" y="236" font-size="10" fill="#555">1</text>
+                <text x="359" y="236" font-size="10" fill="#555">7</text>
+                <text x="230" y="236" font-size="10" fill="#555">4</text>
+            </svg>
+            <p class="fig-cap">Figure 3.6: the discount makes the budget line bend outward at 1,000 kWh.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>Start at the top left: buy no electricity and you keep all $400.</li>
+                <li>For the first 1,000 kWh each unit costs $0.10, so the line falls by $100 over that stretch. That is the steep part, slope −0.10. You arrive at the point (1,000 kWh, $300).</li>
+                <li>After 1,000 kWh the price drops to $0.05, so each extra kWh costs you half as much of the other goods. The line becomes <strong>flatter</strong>, slope −0.05.</li>
+                <li>Your remaining $300 at $0.05 buys 6,000 more kWh, so the line hits the bottom axis at 7,000 kWh.</li>
+                <li>The bend is called the <strong>kink</strong>. It exists because the opportunity cost of electricity is not constant.</li>
+            </ol>
+        </div>
+
+        <div class="answer">A quantity discount gives a budget constraint made of two straight pieces: steep first, flat after the kink.</div>
+        <p class="ru">Скидка за объём ломает бюджетную линию. До 1000 кВт·ч наклон −0,10, после — −0,05, излом в точке (1000; $300). Книга делает из этого забавный вывод: тот, кто уже потребляет больше 1000 кВт·ч, скорее оставит лампочку на крыльце включённой — для него каждый лишний кВт·ч вдвое дешевле.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 3.2 ============ -->
+    <div class="ex" id="e32">
+        <h2>5. Same Budget, Same Decision — Gowdy's fishing trip</h2>
+        <span class="src-tag">EXAMPLE 3.2 · Chapter 3, p. 58</span>
+        <span class="topic-tag"><a href="Syllabus/14_Opportunity_Cost.html">Syllabus topic 14</a></span>
+
+        <p>Gowdy plans a fishing trip. Petrol costs <strong>$4 a gallon</strong> and the round trip uses <strong>5 gallons</strong>. Two different bad things happen to him on two different occasions:</p>
+        <ul>
+            <li><strong>Case A.</strong> He fills his 21-gallon tank the night before. In the morning a thief has siphoned out all but 1 gallon — he lost 20 gallons, worth $80.</li>
+            <li><strong>Case B.</strong> He plans to buy petrol on the way out. In the morning he finds he has lost <strong>$80</strong> from his wallet.</li>
+        </ul>
+        <div class="question">Should his decision about whether to take the trip differ in the two cases?</div>
+        <p>Many people feel the stolen petrol is different, because it feels tied to the trip. But look at the budget constraint. In both cases Gowdy is <strong>$80 poorer</strong>, and in both cases the trip still costs him 5 gallons × $4 = <strong>$20</strong> of petrol from here on. The price of the trip has not changed; only his wealth has.</p>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="25" x2="60" y2="200" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="200" x2="420" y2="200" stroke="#333" stroke-width="1.5"/>
+                <text x="8" y="21" font-size="11" fill="#333">other goods ($)</text>
+                <text x="330" y="220" font-size="11" fill="#333">petrol (gallons)</text>
+                <line x1="60" y1="40" x2="330" y2="200" stroke="#95a5a6" stroke-width="2.2" stroke-dasharray="5 4"/>
+                <text x="250" y="128" font-size="10.5" fill="#7f8c8d">before the loss</text>
+                <line x1="60" y1="95" x2="248" y2="200" stroke="#2980b9" stroke-width="2.8"/>
+                <text x="130" y="182" font-size="10.5" fill="#2980b9" font-weight="600">after losing $80</text>
+                <text x="66" y="88" font-size="10" fill="#2980b9">↓ $80</text>
+                <text x="90" y="60" font-size="10.5" fill="#555">same slope = same price of petrol</text>
+            </svg>
+            <p class="fig-cap">The line shifts inward in parallel. The slope — the price of petrol — is unchanged.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>The grey dashed line is Gowdy's budget before anything goes wrong.</li>
+                <li>Losing $80 moves the line inward, but the shift is <strong>parallel</strong>: prices did not change, only income did.</li>
+                <li>A parallel shift is exactly what a pure loss of wealth looks like. Both cases produce the same new line.</li>
+                <li>The book's rule: if the budget constraint is the same and tastes are the same, the rational choice must be the same.</li>
+            </ol>
+        </div>
+
+        <div class="answer">His decision should be <strong>the same</strong> in both cases. Whatever he does after losing $80 in cash, he should also do after losing $80 of petrol.</div>
+        <p class="ru">Одинаковое бюджетное ограничение → одинаковое решение. В обоих случаях человек беднее на $80, а цена поездки осталась $20. Ощущение, что «украли именно бензин для поездки», — психологическая ловушка, а не экономический аргумент.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 5.1 ============ -->
+    <div class="ex" id="e51">
+        <h2>6. Consumer Surplus — What a petrol price rise costs you</h2>
+        <span class="src-tag">EXAMPLE 5.1 · Chapter 5, p. 135 · Figure 5.5</span>
+        <span class="topic-tag"><a href="Syllabus/35_Willingness_to_Pay.html">Syllabus topic 35</a></span>
+
+        <p>One person's demand for petrol is <code>P = 10 − Q</code>, where P is dollars per gallon and Q is gallons per week. Her income is $1,000 a week. The price is <strong>$2</strong>, and an oil import restriction pushes it to <strong>$3</strong>.</p>
+        <div class="question">By how much will her consumer surplus fall?</div>
+
+        <table>
+            <tr><th>Price</th><th class="num">She buys</th><th class="num">Consumer surplus</th></tr>
+            <tr><td>$2/gal</td><td class="num">8 gal/wk</td><td class="num">½ × (10 − 2) × 8 = <strong>$32.00</strong></td></tr>
+            <tr><td>$3/gal</td><td class="num">7 gal/wk</td><td class="num">½ × (10 − 3) × 7 = <strong>$24.50</strong></td></tr>
+            <tr class="hl"><td>Loss</td><td class="num">−1 gal/wk</td><td class="num">32 − 24.50 = <strong>$7.50/wk</strong></td></tr>
+        </table>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 265" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="30" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="220" x2="430" y2="220" stroke="#333" stroke-width="1.5"/>
+                <text x="12" y="26" font-size="11" fill="#333">P ($/gal)</text>
+                <text x="320" y="243" font-size="11" fill="#333">gasoline (gal/wk)</text>
+                <polygon points="60,184 332,184 298,166 60,166" fill="#f0b429" opacity=".5"/>
+                <line x1="60" y1="40" x2="400" y2="220" stroke="#8e44ad" stroke-width="2.5"/>
+                <text x="368" y="196" font-size="11" fill="#8e44ad" font-weight="600">P = 10 − Q</text>
+                <line x1="60" y1="184" x2="332" y2="184" stroke="#2980b9" stroke-width="1.8" stroke-dasharray="5 3"/>
+                <line x1="60" y1="166" x2="298" y2="166" stroke="#e74c3c" stroke-width="1.8" stroke-dasharray="5 3"/>
+                <line x1="332" y1="184" x2="332" y2="220" stroke="#2980b9" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <line x1="298" y1="166" x2="298" y2="220" stroke="#e74c3c" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <text x="34" y="44" font-size="10" fill="#555">10</text>
+                <text x="38" y="188" font-size="10" fill="#2980b9">2</text>
+                <text x="38" y="170" font-size="10" fill="#e74c3c">3</text>
+                <text x="326" y="236" font-size="10" fill="#2980b9">8</text>
+                <text x="282" y="236" font-size="10" fill="#e74c3c">7</text>
+                <text x="120" y="120" font-size="11" fill="#1e7e45">surplus left at $3</text>
+                <text x="140" y="204" font-size="10.5" fill="#8a6d1f" font-weight="600">loss = $7.50/wk</text>
+                <text x="52" y="36" font-size="10" fill="#555">A</text>
+            </svg>
+            <p class="fig-cap">Figure 5.5: the shaded band between the two price lines is the surplus she loses.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>The demand line starts at $10 on the price axis. That $10 is the most she would pay for the very first gallon.</li>
+                <li>At any quantity, the <strong>height of the demand curve</strong> is the most she would pay for one more gallon.</li>
+                <li>Consumer surplus is the area <strong>between the demand curve and the price she actually pays</strong> — a triangle here.</li>
+                <li>Raise the price line from $2 to $3 and the triangle shrinks. The band you lose is the shaded shape.</li>
+                <li>Part of the loss is money she now pays on gallons she still buys; part is the pleasure of the gallon she stops buying.</li>
+            </ol>
+        </div>
+
+        <div class="answer">Her consumer surplus falls from $32 to $24.50, a loss of <strong>$7.50 per week</strong>.</div>
+        <p class="ru">Излишек потребителя = площадь между кривой спроса и ценой. При $2 это ½·8·8 = $32, при $3 — ½·7·7 = $24,50. Потеря $7,50 в неделю — заштрихованная трапеция. Высота кривой спроса в любой точке — максимальная готовность платить за следующий галлон.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 5.3 ============ -->
+    <div class="ex" id="e53">
+        <h2>7. Intertemporal Choice — A higher interest rate makes you save</h2>
+        <span class="src-tag">EXAMPLE 5.3 · Chapter 5, p. 149 · Figure 5.18</span>
+        <span class="topic-tag"><a href="Syllabus/08_Intertemporal_Budget.html">Syllabus topic 8</a></span>
+
+        <p>You have current income <strong>$100,000</strong> and future income <strong>$154,000</strong>. You can borrow and lend at <strong>r = 0.1</strong>. At this rate you choose to consume exactly your income in each period — you neither save nor borrow. This point is called <strong>A</strong>, your endowment.</p>
+        <div class="question">True or false: a rise in r to 0.4 will cause you to save some of your current income.</div>
+
+        <table>
+            <tr><th>Interest rate</th><th class="num">Horizontal intercept (present value)</th><th class="num">Vertical intercept (future value)</th><th class="num">Slope</th></tr>
+            <tr><td>r = 0.1 (line B)</td><td class="num">100,000 + 154,000/1.1 = <strong>240,000</strong></td><td class="num">154,000 + 1.1×100,000 = <strong>264,000</strong></td><td class="num">−1.1</td></tr>
+            <tr><td>r = 0.4 (line B′)</td><td class="num">100,000 + 154,000/1.4 = <strong>210,000</strong></td><td class="num">154,000 + 1.4×100,000 = <strong>294,000</strong></td><td class="num">−1.4</td></tr>
+        </table>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 265" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="25" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="220" x2="430" y2="220" stroke="#333" stroke-width="1.5"/>
+                <text x="6" y="21" font-size="11" fill="#333">C₂ (1000s)</text>
+                <text x="350" y="243" font-size="11" fill="#333">C₁ (1000s)</text>
+                <line x1="60" y1="62" x2="348" y2="220" stroke="#95a5a6" stroke-width="2.2"/>
+                <text x="300" y="200" font-size="11" fill="#7f8c8d" font-weight="600">B (r = 0.1)</text>
+                <line x1="60" y1="44" x2="312" y2="220" stroke="#2980b9" stroke-width="2.5"/>
+                <text x="238" y="180" font-size="11" fill="#2980b9" font-weight="600">B′ (r = 0.4)</text>
+                <circle cx="180" cy="128" r="5" fill="#e74c3c"/>
+                <text x="186" y="140" font-size="11" fill="#e74c3c" font-weight="600">A (100, 154)</text>
+                <circle cx="144" cy="102" r="5" fill="#27ae60"/>
+                <text x="96" y="96" font-size="11" fill="#27ae60" font-weight="600">D</text>
+                <path d="M 176 124 L 150 106" stroke="#27ae60" stroke-width="1.6" marker-end="url(#ar)" fill="none"/>
+                <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#27ae60"/></marker></defs>
+                <text x="30" y="48" font-size="10" fill="#2980b9">294</text>
+                <text x="30" y="66" font-size="10" fill="#7f8c8d">264</text>
+                <text x="300" y="236" font-size="10" fill="#2980b9">210</text>
+                <text x="338" y="236" font-size="10" fill="#7f8c8d">240</text>
+            </svg>
+            <p class="fig-cap">Figure 5.18: the budget line rotates <strong>around the endowment point A</strong>, because A is always affordable.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>The horizontal axis is consumption now, the vertical axis is consumption next period.</li>
+                <li>The slope is always <strong>−(1 + r)</strong>: give up $1 today and you get $(1 + r) tomorrow.</li>
+                <li>Point A is your income in both periods. You can always just consume it, so <strong>every</strong> budget line must pass through A. That is why the line rotates instead of shifting.</li>
+                <li>A higher r makes the line <strong>steeper</strong>: saving now buys more future consumption than before.</li>
+                <li>At A the slope of your indifference curve (your marginal rate of time preference) is 1.1, but the new line has slope 1.4. The market now pays you more to wait than you demand, so you move up and to the left, to D.</li>
+            </ol>
+        </div>
+
+        <div class="answer"><strong>True.</strong> At the new bundle D you consume less now and more in the future — that is, you save.</div>
+        <p class="ru">Линия межвременного бюджета всегда проходит через точку дохода A, поэтому при росте ставки она поворачивается вокруг A и становится круче (наклон −(1+r)). В точке A ваша норма временного предпочтения 1,1, а рынок теперь платит 1,4 — выгодно отложить потребление. Ответ: правда, вы начнёте сберегать.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 9.1 ============ -->
+    <div class="ex" id="e91">
+        <h2>8. From Production Function to Cost Curves</h2>
+        <span class="src-tag">EXAMPLE 9.1 · Chapter 9, p. 269 · Figures 9.3–9.4</span>
+        <span class="topic-tag"><a href="Syllabus/02_Short_vs_Long_Run.html">Syllabus topic 2</a></span>
+        <span class="topic-tag"><a href="Syllabus/05_Isocost.html">topic 5</a></span>
+
+        <p>The production function is <code>Q = 3KL</code>. Capital costs <strong>$2 per machine-hour</strong>, labour costs <strong>$24 per person-hour</strong>, and in the short run capital is <strong>fixed at K = 4</strong>.</p>
+        <div class="question">Graph the TC, VC and FC curves for this process.</div>
+        <p>Follow the book's three steps:</p>
+        <ol>
+            <li>Put K = 4 into the production function: <code>Q = 3 × 4 × L = 12L</code>. Output is simply proportional to labour.</li>
+            <li>Turn it around to find the labour needed for any output: <code>L = Q/12</code>.</li>
+            <li>Add up what the inputs cost:<br>
+                <code>TC = ($2 × 4) + ($24 × Q/12) = $8 + $2Q</code> per hour.</li>
+        </ol>
+        <p>So fixed cost is the <strong>$8</strong> spent on capital, and variable cost is <strong>2Q</strong>.</p>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="30" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="220" x2="430" y2="220" stroke="#333" stroke-width="1.5"/>
+                <text x="20" y="26" font-size="11" fill="#333">$/hr</text>
+                <text x="390" y="240" font-size="11" fill="#333">Q</text>
+                <line x1="60" y1="206" x2="420" y2="206" stroke="#f39c12" stroke-width="2.5"/>
+                <text x="380" y="200" font-size="12" fill="#d68910" font-weight="600">FC</text>
+                <line x1="60" y1="220" x2="420" y2="76" stroke="#2980b9" stroke-width="2.5"/>
+                <text x="380" y="92" font-size="12" fill="#2980b9" font-weight="600">VC</text>
+                <line x1="60" y1="206" x2="420" y2="62" stroke="#27ae60" stroke-width="2.5"/>
+                <text x="380" y="56" font-size="12" fill="#1e7e45" font-weight="600">TC</text>
+                <line x1="56" y1="206" x2="60" y2="206" stroke="#333"/><text x="42" y="210" font-size="10" fill="#555">8</text>
+                <line x1="330" y1="130" x2="330" y2="166" stroke="#7f8c8d" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="336" y="152" font-size="10" fill="#7f8c8d">always $8 apart</text>
+            </svg>
+            <p class="fig-cap">Figure 9.4: TC sits exactly $8 above VC at every output level.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>FC is a <strong>flat line at $8</strong>. Fixed cost does not change when output changes — that is what "fixed" means.</li>
+                <li>VC starts at the origin: produce nothing and you hire nobody, so variable cost is zero.</li>
+                <li>VC is a <strong>straight line</strong> here, not a curve. That is unusual, and it happens because this production function has constant returns to labour — there is no region of diminishing returns.</li>
+                <li>TC = FC + VC, so the TC line is the VC line lifted by $8. The vertical gap between them is always the fixed cost.</li>
+                <li>The slope of both VC and TC is $2, which is the marginal cost per unit.</li>
+            </ol>
+        </div>
+
+        <div class="answer"><code>FC = $8/hr</code>, <code>VC = $2Q/hr</code>, <code>TC = $8 + $2Q</code> per hour.</div>
+        <p class="ru">Как из производственной функции получить издержки: подставить фиксированный K, выразить L через Q, умножить на цены факторов. Здесь TC = 8 + 2Q: постоянные $8 — это капитал, переменные 2Q — труд. Прямая VC (а не изогнутая) означает постоянную отдачу от труда.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 9.2 ============ -->
+    <div class="ex" id="e92">
+        <h2>9. Zara's Cleaners — the four average and marginal cost curves</h2>
+        <span class="src-tag">EXAMPLE 9.2 · Chapter 9, p. 272 · Table 9.1</span>
+        <span class="topic-tag"><a href="Syllabus/04_MC_MR_Average_Cost.html">Syllabus topic 4</a></span>
+
+        <p>The book builds this table for a laundry. Fixed cost is $30 (you can see it: AFC × Q = 30 in every row). MC is written <strong>between</strong> two rows, because it is the cost of moving from one output level to the next.</p>
+
+        <table>
+            <tr><th class="num">Q (bags)</th><th class="num">AFC</th><th class="num">AVC</th><th class="num">ATC</th><th class="num">MC (between rows)</th></tr>
+            <tr><td class="num">4</td><td class="num">7.50</td><td class="num">2.50</td><td class="num">10.00</td><td class="num">2.50 → 1.00</td></tr>
+            <tr><td class="num">14</td><td class="num">2.14</td><td class="num">1.43</td><td class="num">3.57</td><td class="num">0.77</td></tr>
+            <tr><td class="num">27</td><td class="num">1.11</td><td class="num">1.11</td><td class="num">2.22</td><td class="num">0.63</td></tr>
+            <tr><td class="num">43</td><td class="num">0.70</td><td class="num">0.93</td><td class="num">1.63</td><td class="num">0.67</td></tr>
+            <tr><td class="num">58</td><td class="num">0.52</td><td class="num">0.86</td><td class="num">1.38</td><td class="num">0.71</td></tr>
+            <tr class="hl"><td class="num">72</td><td class="num">0.42</td><td class="num">0.83 ← min AVC</td><td class="num">1.25</td><td class="num">1.11</td></tr>
+            <tr class="hl"><td class="num">81</td><td class="num">0.37</td><td class="num">0.86</td><td class="num">1.23 ← min ATC</td><td class="num">2.00</td></tr>
+            <tr><td class="num">86</td><td class="num">0.35</td><td class="num">0.93</td><td class="num">1.28</td><td class="num">—</td></tr>
+        </table>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 265" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="30" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="220" x2="430" y2="220" stroke="#333" stroke-width="1.5"/>
+                <text x="14" y="26" font-size="11" fill="#333">$/bag</text>
+                <text x="360" y="243" font-size="11" fill="#333">Q (bags)</text>
+                <line x1="56" y1="130" x2="60" y2="130" stroke="#333"/><text x="38" y="134" font-size="10" fill="#555">2</text>
+                <line x1="56" y1="175" x2="60" y2="175" stroke="#333"/><text x="38" y="179" font-size="10" fill="#555">1</text>
+                <polyline points="116,59 168,120 232,147 292,158 348,164 384,165 404,162" stroke="#e74c3c" stroke-width="2.4" fill="none"/>
+                <text x="408" y="158" font-size="11" fill="#e74c3c" font-weight="600">ATC</text>
+                <polyline points="116,156 168,170 232,178 292,181 348,183 384,181 404,178" stroke="#2980b9" stroke-width="2.4" fill="none"/>
+                <text x="408" y="192" font-size="11" fill="#2980b9" font-weight="600">AVC</text>
+                <polyline points="116,124 168,170 232,188 292,197 348,201 384,203 404,204" stroke="#95a5a6" stroke-width="1.8" stroke-dasharray="4 3" fill="none"/>
+                <text x="408" y="212" font-size="11" fill="#7f8c8d" font-weight="600">AFC</text>
+                <polyline points="96,175 142,185 200,192 262,190 320,188 366,170 394,130" stroke="#8e44ad" stroke-width="2.6" fill="none"/>
+                <text x="376" y="118" font-size="11" fill="#8e44ad" font-weight="600">MC</text>
+                <circle cx="348" cy="183" r="4" fill="#2980b9"/>
+                <circle cx="384" cy="165" r="4" fill="#e74c3c"/>
+                <text x="250" y="70" font-size="10.5" fill="#555">MC cuts AVC and ATC at their lowest points</text>
+            </svg>
+            <p class="fig-cap">MC falls, then rises, and passes through the minimum of AVC (Q ≈ 72) and then of ATC (Q ≈ 81).</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li><strong>AFC (grey dashed) always falls.</strong> The same $30 is spread over more and more bags, so it never turns back up.</li>
+                <li><strong>The gap between ATC and AVC is AFC.</strong> The two curves get closer and closer as output grows, but never meet.</li>
+                <li><strong>MC is U-shaped</strong> and it is the curve that decides the shape of the others.</li>
+                <li>While MC is <strong>below</strong> an average curve, it pulls that average <strong>down</strong>; while MC is <strong>above</strong> it, it pushes the average <strong>up</strong>. So MC must cross each average curve exactly at its minimum.</li>
+                <li>AVC bottoms out <strong>before</strong> ATC (72 versus 81 bags). Reason: after AVC turns up, falling AFC still keeps ATC going down for a while.</li>
+            </ol>
+        </div>
+
+        <div class="answer">MC cuts AVC at its minimum ($0.83 at 72 bags) and ATC at its minimum ($1.23 at 81 bags).</div>
+        <p class="ru">Четыре кривые сразу. AFC монотонно падает — постоянные $30 делятся на всё больший выпуск. Расстояние ATC − AVC = AFC, поэтому кривые сближаются. MC пересекает AVC и ATC строго в их минимумах, причём минимум AVC наступает раньше (72 против 81 мешка).</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 10.1 ============ -->
+    <div class="ex" id="e101">
+        <h2>10. Economic Profit vs Accounting Profit</h2>
+        <span class="src-tag">EXAMPLE 10.1 · Chapter 10, p. 301 · Figure 10.1</span>
+        <span class="topic-tag"><a href="Syllabus/15_Perfect_Competition.html">Syllabus topic 15</a></span>
+
+        <p>A firm makes 100 units a week using 10 units of capital and 10 units of labour. Each factor costs <strong>$10 a unit</strong>, and output sells for <strong>$2.50 a unit</strong>, so revenue is <strong>$250</strong>. The firm <strong>owns half of its capital</strong> and rents the other 5 units.</p>
+        <div class="question">What are the firm's economic and accounting profit for the week?</div>
+
+        <table>
+            <tr><th></th><th class="num">Economic profit</th><th class="num">Accounting profit</th></tr>
+            <tr><td>Gross receipts</td><td class="num">$250</td><td class="num">$250</td></tr>
+            <tr><td>Direct labour cost</td><td class="num">($100)</td><td class="num">($100)</td></tr>
+            <tr><td>Direct capital cost (rented)</td><td class="num">($50)</td><td class="num">($50)</td></tr>
+            <tr><td>Implicit capital cost (owned)</td><td class="num">($50)</td><td class="num">—</td></tr>
+            <tr class="hl"><td><strong>Profit</strong></td><td class="num"><strong>$50</strong></td><td class="num"><strong>$100</strong></td></tr>
+        </table>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg">
+                <text x="96" y="24" font-size="12" fill="#1a3a5c" font-weight="600" text-anchor="middle">Economic</text>
+                <text x="300" y="24" font-size="12" fill="#1a3a5c" font-weight="600" text-anchor="middle">Accounting</text>
+                <rect x="40" y="40" width="112" height="72" fill="#3498db" opacity=".75"/>
+                <text x="96" y="82" font-size="11" fill="#fff" text-anchor="middle">labour $100</text>
+                <rect x="40" y="112" width="112" height="36" fill="#9b59b6" opacity=".75"/>
+                <text x="96" y="135" font-size="10.5" fill="#fff" text-anchor="middle">rented K $50</text>
+                <rect x="40" y="148" width="112" height="36" fill="#e67e22" opacity=".8"/>
+                <text x="96" y="171" font-size="10.5" fill="#fff" text-anchor="middle">owned K $50</text>
+                <rect x="40" y="184" width="112" height="36" fill="#27ae60"/>
+                <text x="96" y="207" font-size="11" fill="#fff" text-anchor="middle" font-weight="600">profit $50</text>
+                <rect x="244" y="40" width="112" height="72" fill="#3498db" opacity=".75"/>
+                <text x="300" y="82" font-size="11" fill="#fff" text-anchor="middle">labour $100</text>
+                <rect x="244" y="112" width="112" height="36" fill="#9b59b6" opacity=".75"/>
+                <text x="300" y="135" font-size="10.5" fill="#fff" text-anchor="middle">rented K $50</text>
+                <rect x="244" y="148" width="112" height="72" fill="#27ae60"/>
+                <text x="300" y="190" font-size="11" fill="#fff" text-anchor="middle" font-weight="600">profit $100</text>
+                <line x1="26" y1="40" x2="26" y2="220" stroke="#333" stroke-width="1.2"/>
+                <text x="12" y="136" font-size="10" fill="#555" transform="rotate(-90 12 136)" text-anchor="middle">revenue $250</text>
+                <text x="372" y="166" font-size="10.5" fill="#e67e22">the owned capital is</text>
+                <text x="372" y="180" font-size="10.5" fill="#e67e22">counted as profit here</text>
+            </svg>
+            <p class="fig-cap">Both bars are the same $250 of revenue. Only the accountant's bar leaves out the cost of the owner's own capital.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>Each column is the same $250 of weekly revenue, sliced into costs and what is left over.</li>
+                <li>Labour and rented capital are <strong>direct</strong> costs: real money leaves the firm. Both columns subtract them.</li>
+                <li>The orange slice is the <strong>implicit</strong> cost of the capital the owner already owns. No money leaves the firm, so the accountant ignores it — but the economist does not, because that capital could have earned $50 somewhere else.</li>
+                <li>That single slice is the whole difference: $100 accounting profit versus $50 economic profit.</li>
+                <li>The $50 implicit cost is the firm's <strong>normal profit</strong>. Economic profit is whatever is earned <em>on top of</em> normal profit.</li>
+            </ol>
+        </div>
+
+        <div class="answer">Accounting profit <strong>$100</strong>, economic profit <strong>$50</strong>. Note that buying versus renting the capital changes the accounting profit but leaves economic profit untouched.</div>
+        <p class="ru">Бухгалтер вычитает только реально уплаченные деньги, экономист — ещё и альтернативную стоимость собственного капитала ($50). Поэтому бухгалтерская прибыль $100, а экономическая $50. Нулевая экономическая прибыль в долгосрочном равновесии означает не разорение, а ровно нормальную доходность.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 10.2 ============ -->
+    <div class="ex" id="e102">
+        <h2>11. Industry Supply — adding up 200 identical firms</h2>
+        <span class="src-tag">EXAMPLE 10.2 · Chapter 10, p. 309 · Figure 10.5</span>
+        <span class="topic-tag"><a href="Syllabus/36_Industry_Supply.html">Syllabus topic 36</a></span>
+
+        <p>An industry has <strong>200 firms</strong>, and each one has the supply curve <code>P = 100 + 1,000Q<sub>i</sub></code>.</p>
+        <div class="question">What is the industry supply curve?</div>
+        <p>You cannot add prices — you must add <strong>quantities</strong> at each price. So the book does it in three steps:</p>
+        <ol>
+            <li>Solve the firm's curve for quantity: <code>Q<sub>i</sub> = −1/10 + P/1,000</code>.</li>
+            <li>Multiply by the number of firms: <code>Q = 200Q<sub>i</sub> = −20 + P/5</code>.</li>
+            <li>Solve back for price: <code>P = 100 + 5Q</code>.</li>
+        </ol>
+        <p>The general rule the book draws from this: if each of n firms has <code>P = c + dQ<sub>i</sub></code>, the industry has <code>P = c + (d/n)Q</code>.</p>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="30" x2="60" y2="200" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="200" x2="430" y2="200" stroke="#333" stroke-width="1.5"/>
+                <text x="24" y="26" font-size="11" fill="#333">P ($)</text>
+                <text x="370" y="222" font-size="11" fill="#333">quantity</text>
+                <line x1="56" y1="160" x2="60" y2="160" stroke="#333"/><text x="26" y="164" font-size="10" fill="#555">100</text>
+                <line x1="56" y1="70" x2="60" y2="70" stroke="#333"/><text x="26" y="74" font-size="10" fill="#555">200</text>
+                <line x1="60" y1="160" x2="86" y2="70" stroke="#e74c3c" stroke-width="2.5"/>
+                <text x="92" y="66" font-size="11" fill="#e74c3c" font-weight="600">one firm: P = 100 + 1,000Q</text>
+                <text x="92" y="80" font-size="10" fill="#e74c3c">(steep — 0.1 unit at P = 200)</text>
+                <line x1="60" y1="160" x2="400" y2="70" stroke="#27ae60" stroke-width="2.8"/>
+                <text x="250" y="112" font-size="11" fill="#1e7e45" font-weight="600">200 firms: P = 100 + 5Q</text>
+                <line x1="400" y1="70" x2="400" y2="200" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <text x="386" y="216" font-size="10" fill="#1e7e45">20</text>
+                <line x1="60" y1="70" x2="400" y2="70" stroke="#7f8c8d" stroke-width="1" stroke-dasharray="3 3"/>
+            </svg>
+            <p class="fig-cap">Same intercept, 200× flatter: at P = 200 one firm offers 0.1 unit and the industry offers 20.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>Both lines start at <strong>P = 100</strong>. Below that price nobody supplies anything, no matter how many firms there are.</li>
+                <li>Adding firms is a <strong>horizontal</strong> sum: pick a price, read each firm's quantity, add them up. The dashed grey line at P = 200 shows one such price.</li>
+                <li>The industry line is 200 times flatter because at every price the industry offers 200 times the quantity.</li>
+                <li>Flatter means <strong>more elastic</strong>: the same small price rise now brings a much bigger increase in total quantity.</li>
+                <li>This is exactly why long-run supply is flatter than short-run supply — in the long run the number of firms itself can grow.</li>
+            </ol>
+        </div>
+
+        <div class="answer"><code>P = 100 + 5Q</code>. (The book's Self-Test 10.3: 30 firms with <code>P = 20 + 90Q<sub>i</sub></code> give <code>P = 20 + 3Q</code>.)</div>
+        <p class="ru">Складывать надо количества при каждой цене, а не цены. Отсюда правило: n фирм с P = c + dQᵢ дают отраслевую кривую P = c + (d/n)Q. Точка пересечения с осью цен не меняется, а наклон падает в n раз — предложение становится эластичнее.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 11.1 ============ -->
+    <div class="ex" id="e111mr">
+        <h2>12. The Monopolist's Marginal Revenue Curve</h2>
+        <span class="src-tag">EXAMPLE 11.1 · Chapter 11, p. 347 · Figure 11.8</span>
+        <span class="topic-tag"><a href="Syllabus/23_Monopolist_Delta_TR.html">Syllabus topic 23</a></span>
+
+        <p>Find the marginal revenue curve that goes with the demand curve <code>P = 12 − 3Q</code>.</p>
+        <p>The book's rule for any straight-line demand curve: <strong>same vertical intercept, twice the slope</strong>. So from <code>P = a − bQ</code> you get <code>MR = a − 2bQ</code>, and here <code>MR = 12 − 6Q</code>.</p>
+        <p>Why twice as steep? To sell one more unit the monopolist must cut the price — and the lower price applies to <em>every</em> unit, not only the new one. So the revenue from the extra unit is always less than its price.</p>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 255" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="30" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="220" x2="430" y2="220" stroke="#333" stroke-width="1.5"/>
+                <text x="22" y="26" font-size="11" fill="#333">$/Q</text>
+                <text x="400" y="240" font-size="11" fill="#333">Q</text>
+                <line x1="56" y1="40" x2="60" y2="40" stroke="#333"/><text x="38" y="44" font-size="10" fill="#555">12</text>
+                <line x1="60" y1="40" x2="332" y2="220" stroke="#2980b9" stroke-width="2.6"/>
+                <text x="290" y="168" font-size="11.5" fill="#2980b9" font-weight="600">P = 12 − 3Q</text>
+                <line x1="60" y1="40" x2="196" y2="220" stroke="#e74c3c" stroke-width="2.6"/>
+                <text x="118" y="196" font-size="11.5" fill="#e74c3c" font-weight="600">MR = 12 − 6Q</text>
+                <text x="190" y="236" font-size="10" fill="#e74c3c">2</text>
+                <text x="326" y="236" font-size="10" fill="#2980b9">4</text>
+                <line x1="196" y1="220" x2="196" y2="212" stroke="#e74c3c" stroke-width="1.4"/>
+                <line x1="332" y1="220" x2="332" y2="212" stroke="#2980b9" stroke-width="1.4"/>
+                <text x="206" y="86" font-size="10.5" fill="#1e7e45">demand elastic here:</text>
+                <text x="206" y="99" font-size="10.5" fill="#1e7e45">MR &gt; 0, price cut raises TR</text>
+                <text x="240" y="205" font-size="10.5" fill="#c0392b">MR &lt; 0 beyond Q = 2</text>
+            </svg>
+            <p class="fig-cap">Figure 11.8: MR shares the $12 intercept but hits zero at half the quantity.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>Both lines start at <strong>$12</strong>. For the very first unit there is no earlier unit to discount, so MR equals the price.</li>
+                <li>MR reaches zero at <strong>Q = 2</strong>, while demand reaches zero at <strong>Q = 4</strong> — exactly half, always.</li>
+                <li>Where MR is positive (left of Q = 2), selling one more unit still adds revenue. Demand is elastic there and a price cut <strong>raises</strong> total revenue.</li>
+                <li>Where MR is negative (right of Q = 2), demand is inelastic and a price cut <strong>lowers</strong> total revenue.</li>
+                <li>A monopolist therefore never chooses to produce on the inelastic half of its demand curve.</li>
+            </ol>
+        </div>
+
+        <div class="answer"><code>MR = 12 − 6Q</code>. (Self-Test 11.2 in the book: <code>P = 100 − 2Q</code> gives <code>MR = 100 − 4Q</code>.)</div>
+        <p class="ru">Для линейного спроса MR имеет ту же точку на оси цен и вдвое больший наклон. Причина: чтобы продать ещё единицу, монополист снижает цену на все единицы сразу. MR = 0 ровно на середине спроса; правее спрос неэластичен и монополист туда не заходит.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 11.3 ============ -->
+    <div class="ex" id="e113">
+        <h2>13. Price Discrimination — one firm, two markets, two prices</h2>
+        <span class="src-tag">EXAMPLE 11.3 · Chapter 11, p. 353 · Figure 11.14</span>
+        <span class="topic-tag"><a href="Syllabus/33_Price_Discrimination.html">Syllabus topic 33</a></span>
+
+        <p>A monopolist has marginal cost <code>MC = Q</code> and home demand <code>P = 30 − Q</code>. It can also sell abroad at a fixed world price of <strong>$12</strong>, however much it wants.</p>
+        <div class="question">How much does it produce, how does it split output between the two markets, and what price does it charge at home?</div>
+        <p>The book solves it in four steps:</p>
+        <ol>
+            <li>Home marginal revenue: <code>MR<sub>H</sub> = 30 − 2Q</code>. Foreign marginal revenue is flat: <code>MR<sub>F</sub> = 12</code>, because the firm is small in the world market.</li>
+            <li>Total output where <code>ΣMR = MC</code>. Since the foreign market can absorb anything at $12, this gives <code>MC = 12</code>, so <code>Q = 12</code>.</li>
+            <li>Split so marginal revenue is equal in both markets: <code>30 − 2Q<sub>H</sub> = 12</code> → <code>Q<sub>H</sub> = 9</code>, and <code>Q<sub>F</sub> = 12 − 9 = 3</code>.</li>
+            <li>Home price from home demand: <code>P<sub>H</sub> = 30 − 9 = $21</code>.</li>
+        </ol>
+
+        <div class="graph">
+            <svg class="svg-graph" viewBox="0 0 460 265" xmlns="http://www.w3.org/2000/svg">
+                <line x1="60" y1="25" x2="60" y2="220" stroke="#333" stroke-width="1.5"/>
+                <line x1="60" y1="220" x2="430" y2="220" stroke="#333" stroke-width="1.5"/>
+                <text x="16" y="21" font-size="11" fill="#333">Price</text>
+                <text x="380" y="243" font-size="11" fill="#333">Quantity</text>
+                <line x1="60" y1="40" x2="420" y2="220" stroke="#2980b9" stroke-width="2.4"/>
+                <text x="330" y="182" font-size="11" fill="#2980b9" font-weight="600">D: P = 30 − Q</text>
+                <line x1="60" y1="40" x2="240" y2="220" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5 3"/>
+                <text x="128" y="196" font-size="10.5" fill="#e74c3c">MR_H = 30 − 2Q</text>
+                <line x1="60" y1="220" x2="420" y2="40" stroke="#16a085" stroke-width="2.4"/>
+                <text x="380" y="52" font-size="11" fill="#16a085" font-weight="600">MC = Q</text>
+                <line x1="168" y1="148" x2="420" y2="148" stroke="#e67e22" stroke-width="2.6"/>
+                <text x="330" y="142" font-size="11" fill="#d68910" font-weight="600">MR_F = 12 (world price)</text>
+                <circle cx="204" cy="148" r="5" fill="#8e44ad"/>
+                <line x1="204" y1="148" x2="204" y2="220" stroke="#8e44ad" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <text x="196" y="236" font-size="10.5" fill="#8e44ad" font-weight="600">Q* = 12</text>
+                <circle cx="168" cy="94" r="5" fill="#2980b9"/>
+                <line x1="168" y1="94" x2="168" y2="220" stroke="#2980b9" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <line x1="60" y1="94" x2="168" y2="94" stroke="#2980b9" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <text x="36" y="98" font-size="10" fill="#2980b9">21</text>
+                <text x="148" y="236" font-size="10.5" fill="#2980b9">Q_H = 9</text>
+                <text x="36" y="152" font-size="10" fill="#d68910">12</text>
+                <text x="222" y="120" font-size="10.5" fill="#555">the last 3 units go abroad</text>
+            </svg>
+            <p class="fig-cap">Figure 11.14: ΣMR follows MR_H down to $12, then runs flat along the world price.</p>
+        </div>
+
+        <div class="read">
+            <h4>How to read this graph</h4>
+            <ol>
+                <li>The blue demand line is the <strong>home</strong> market only. The dashed red MR_H is twice as steep, as always.</li>
+                <li>The orange flat line at $12 is the foreign market. It is flat because the firm can sell any amount there without moving the world price.</li>
+                <li>The combined marginal revenue curve follows MR_H while MR_H is above $12, and then becomes the flat $12 line. That kink is at Q = 9.</li>
+                <li>Output stops where this combined curve meets MC, at <strong>Q* = 12</strong>. Read it off where MC = Q crosses the $12 line.</li>
+                <li>Of those 12 units, 9 go home (where MR_H is still worth at least $12) and the last 3 go abroad.</li>
+                <li>The home <strong>price</strong> is read off the demand curve, not the MR curve: at Q_H = 9 the demand curve is at $21.</li>
+            </ol>
+        </div>
+
+        <div class="answer">Produce <strong>12</strong>, sell <strong>9 at home for $21</strong> and <strong>3 abroad at $12</strong>. Selling more at home would force the home price down and cut profit, because the extra home units would earn less than the $12 they earn abroad.</div>
+        <p class="ru">Правило дискриминации: выпуск там, где ΣMR = MC, а распределение — так, чтобы предельная выручка на каждом рынке была одинаковой. Здесь MR_F = 12 задаёт и общий выпуск (Q = 12), и порог для дома: 30 − 2Q_H = 12 → Q_H = 9. Цену дома читаем по кривой спроса, а не по MR: P_H = 21.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+    <!-- ============ 12.1 ============ -->
+    <div class="ex" id="pd">
+        <h2>14. The Prisoner's Dilemma</h2>
+        <span class="src-tag">Chapter 12, p. 374–375 · Table 12.1</span>
+        <span class="topic-tag"><a href="Syllabus/06_Game_Theory.html">Syllabus topic 6</a></span>
+
+        <p>Two prisoners, X and Y, are questioned in separate rooms. Each one can <strong>confess</strong> or <strong>stay silent</strong>. The payoffs are the prison sentences below — and here a <em>smaller</em> number is better.</p>
+
+        <table class="payoff">
+            <tr><th></th><th>Y stays silent</th><th>Y confesses</th></tr>
+            <tr><td class="rowhead">X stays silent</td><td>X: 1 year<br>Y: 1 year</td><td>X: 20 years<br>Y: goes free</td></tr>
+            <tr><td class="rowhead">X confesses</td><td>X: goes free<br>Y: 20 years</td><td class="nash">X: 5 years<br>Y: 5 years<br><span style="font-size:.85em">← Nash equilibrium</span></td></tr>
+        </table>
+
+        <div class="read">
+            <h4>How to read this table</h4>
+            <ol>
+                <li>Take X's point of view and hold Y's choice fixed. <strong>If Y confesses</strong>, X gets 5 years by confessing versus 20 by staying silent — so confess.</li>
+                <li><strong>If Y stays silent</strong>, X goes free by confessing versus 1 year by staying silent — so confess again.</li>
+                <li>Confessing is better for X <em>no matter what Y does</em>. That is what the book calls a <strong>dominant strategy</strong>.</li>
+                <li>The payoffs are perfectly symmetric, so Y reasons the same way and also confesses.</li>
+                <li>The result is the bottom-right cell: <strong>5 years each</strong>. Nobody can do better by changing strategy alone, so it is a Nash equilibrium.</li>
+                <li>Yet both would prefer the top-left cell — 1 year each. Individual logic leads to a worse group outcome.</li>
+            </ol>
+        </div>
+
+        <p>The book then uses the same structure for real markets. Coffee growers as a group would earn more by planting less, but no single grower will cut back. Cigarette firms all advertise and each ends up with a profit of only 250, because advertising mostly moves customers between brands instead of growing the market.</p>
+
+        <div class="answer">Both confess and get 5 years each — worse for both than the 1 year each they could have had.</div>
+        <p class="ru">Доминирующая стратегия — сознаться, что бы ни сделал второй. Оба сознаются и получают по 5 лет, хотя молчание дало бы по 1 году. Равновесие Нэша не обязано быть выгодным для группы. Та же структура объясняет, почему кофейные фермеры не сокращают посадки, а сигаретные компании тратятся на рекламу, которая лишь перетягивает клиентов друг у друга.</p>
+        <p class="up"><a href="#">↑ to the list</a></p>
+    </div>
+
+</div>
+</div>
+</body>
+</html>
