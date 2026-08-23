@@ -19,7 +19,7 @@ export const CV_PROFILE: CvProfile = {
       external: true,
     },
   ],
-  workFormat: 'Remote or office by agreement · Kazakhstan',
+  workFormat: 'Remote · Kazakhstan',
   about:
     'Frontend Developer with 4 years 11 months of commercial frontend experience. Specialized in Angular SPAs with TypeScript, JavaScript, RxJS and NgRx. Built and maintained multi-module enterprise and CRM UIs, integrated REST APIs, wrote unit tests, and improved performance through lazy loading and refactoring. Strong in reusable components, clean code, code review and team delivery of stable product interfaces.',
   experienceLabel: '4 years 11 months',
@@ -120,5 +120,5 @@ export const CV_PROFILE: CvProfile = {
     { name: 'English', level: 'B2 (docs, work correspondence, team communication)' },
   ],
   additional:
-    'Looking for Angular product teams with large SPA portfolios. Open to remote or office by agreement. Interested in clean architecture, performance, modern tooling and mentoring culture.',
+    'Looking for Angular product teams with large SPA portfolios. Remote. Interested in clean architecture, performance and modern tooling.',
 };

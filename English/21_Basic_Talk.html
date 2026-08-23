@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="kk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <title>Think in English — Daily Talk</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", system-ui, sans-serif;
+        line-height: 1.65;
+        margin: 0;
+        padding: 1.5rem 1rem 3rem;
+        color: #1a1a2e;
+        background: #f8fafc;
+        min-height: 100vh;
+      }
+      .wrap {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+      .back {
+        margin-bottom: 0.75rem;
+      }
+      .back a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      .back a:hover {
+        text-decoration: underline;
+      }
+      h1 {
+        color: #2c3e50;
+        border-bottom: 4px solid #16a085;
+        padding-bottom: 10px;
+        font-size: 1.65rem;
+        margin: 0 0 0.4rem;
+      }
+      .lead {
+        color: #555;
+        font-size: 0.95rem;
+        margin: 0 0 1rem;
+      }
+      .lead a {
+        color: #16a085;
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 0 0 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: #f8fafc;
+        padding: 0.6rem 0;
+      }
+      .tab {
+        border: 1px solid #cfd8e3;
+        background: #fff;
+        color: #2c3e50;
+        padding: 8px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 0.88rem;
+        font-family: inherit;
+      }
+      .tab:hover {
+        border-color: #16a085;
+      }
+      .tab.active {
+        background: #16a085;
+        border-color: #16a085;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      .btn {
+        background: #fff;
+        color: #16a085;
+        border: 1px solid #16a085;
+        padding: 7px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.88rem;
+        font-family: inherit;
+        font-weight: 600;
+      }
+      .btn:hover {
+        background: #e8f8f4;
+      }
+      .count {
+        color: #888;
+        font-size: 0.85rem;
+        margin-left: auto;
+      }
+
+      .panel {
+        display: none;
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.25rem 1.4rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+      .panel.active {
+        display: block;
+      }
+      .panel h2 {
+        margin: 0 0 0.35rem;
+        font-size: 1.2rem;
+        color: #2c3e50;
+        border-left: 4px solid #16a085;
+        padding-left: 12px;
+      }
+      .how {
+        color: #666;
+        font-size: 0.92rem;
+        margin: 0 0 1rem;
+      }
+
+      .group {
+        margin: 1.15rem 0 0;
+      }
+      .group h3 {
+        margin: 0 0 0.45rem;
+        font-size: 0.95rem;
+        color: #16a085;
+      }
+      .phrase {
+        padding: 0.65rem 0;
+        border-bottom: 1px solid #f0f2f5;
+      }
+      .phrase:last-child {
+        border-bottom: none;
+      }
+      .en {
+        font-size: 1.02rem;
+        font-weight: 500;
+        color: #1a1a2e;
+      }
+      .kk {
+        margin-top: 0.25rem;
+        font-size: 0.88rem;
+        color: #777;
+        border-left: 3px solid #b8e0d5;
+        padding-left: 0.65rem;
+      }
+      body.hide-kk .kk {
+        display: none;
+      }
+
+      .footer {
+        margin-top: 1.75rem;
+        padding: 1.25rem 1.4rem;
+        background: #2c3e50;
+        color: #ecf0f1;
+        border-radius: 12px;
+      }
+      .footer h2 {
+        margin: 0 0 0.6rem;
+        font-size: 1.05rem;
+        color: #fff;
+      }
+      .footer p {
+        margin: 0.45rem 0;
+        font-size: 0.92rem;
+        color: #d5dbe0;
+      }
+      .footer strong {
+        color: #fff;
+      }
+      .footer .kk-note {
+        color: #95a5a6;
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 1rem 0.75rem 2.5rem;
+        }
+        .panel {
+          padding: 1.1rem 1rem;
+        }
+        .count {
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p class="back"><a href="index.html">← English тақырыптарына оралу</a></p>
+
+      <h1>Think in English — Daily Talk</h1>
+      <p class="lead">
+        Күнделікті сөйлемдерді дауыстап айт. Бір таб — бір жаттығу.
+        <a href="https://www.youtube.com/watch?v=MpiWuR-yL9k" target="_blank" rel="noopener"
+          >Видо идеясы</a
+        >
+      </p>
+
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-tab="ex1">1. Name things</button>
+        <button class="tab" data-tab="ex2">2. Talk to yourself</button>
+        <button class="tab" data-tab="ex3">3. Pictures</button>
+        <button class="tab" data-tab="ex4">4. Listen &amp; repeat</button>
+        <button class="tab" data-tab="ex5">5. Live moments</button>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn" id="toggleKk" type="button">Қазақшаны жасыру</button>
+        <span class="count" id="count"></span>
+      </div>
+
+      <!-- EX1 -->
+      <section class="panel active" id="ex1">
+        <h2>Name everything around you</h2>
+        <p class="how">
+          Бөлмеңе / көшеге қара. Затты ағылшынша ата → қысқа сөйлем құр. Аудармасыз
+          ойлауды жаттықтыру.
+        </p>
+
+        <div class="group">
+          <h3>Room — words</h3>
+          <div class="phrase"><div class="en">phone · charger · laptop · headphones</div><div class="kk">телефон · зарядка · ноутбук · құлаққап</div></div>
+          <div class="phrase"><div class="en">chair · table · desk · sofa · bed</div><div class="kk">орындық · үстел · жұмыс үстелі · диван · төсек</div></div>
+          <div class="phrase"><div class="en">window · door · curtain · lamp · mirror</div><div class="kk">терезе · есік · перде · шам · айна</div></div>
+          <div class="phrase"><div class="en">bottle · cup · glass · plate · spoon</div><div class="kk">бөтелке · шыныаяқ · стакан · тәрелке · қасық</div></div>
+          <div class="phrase"><div class="en">bag · keys · wallet · jacket · shoes</div><div class="kk">сөмке · кілт · әмиян · куртка · аяқ киім</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Room — sentences</h3>
+          <div class="phrase"><div class="en">My phone is on the table.</div><div class="kk">Телефоным үстелде тұр.</div></div>
+          <div class="phrase"><div class="en">The window is open today.</div><div class="kk">Бүгін терезе ашық.</div></div>
+          <div class="phrase"><div class="en">There is a bag next to the chair.</div><div class="kk">Орындықтың жанында сөмке бар.</div></div>
+          <div class="phrase"><div class="en">The lamp is off.</div><div class="kk">Шам өшірулі.</div></div>
+          <div class="phrase"><div class="en">I can see a bottle of water.</div><div class="kk">Су бөтелкесін көріп тұрмын.</div></div>
+          <div class="phrase"><div class="en">My laptop is on the desk.</div><div class="kk">Ноутбугым жұмыс үстелінде.</div></div>
+          <div class="phrase"><div class="en">The door is closed.</div><div class="kk">Есік жабық.</div></div>
+          <div class="phrase"><div class="en">My keys are in my bag.</div><div class="kk">Кілтім сөмкемде.</div></div>
+          <div class="phrase"><div class="en">This cup is empty.</div><div class="kk">Бұл шыныаяқ бос.</div></div>
+          <div class="phrase"><div class="en">The mirror is above the sink.</div><div class="kk">Айна раковинаның үстінде.</div></div>
+          <div class="phrase"><div class="en">My jacket is on the sofa.</div><div class="kk">Курткам диванда.</div></div>
+          <div class="phrase"><div class="en">There are two chairs in this room.</div><div class="kk">Бұл бөлмеде екі орындық бар.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Outside</h3>
+          <div class="phrase"><div class="en">The road is busy.</div><div class="kk">Жол қозғалысқа толы.</div></div>
+          <div class="phrase"><div class="en">That car is moving fast.</div><div class="kk">Сол көлік тез жүріп барады.</div></div>
+          <div class="phrase"><div class="en">The trees look green.</div><div class="kk">Ағаштар жасыл көрінеді.</div></div>
+          <div class="phrase"><div class="en">There is a shop on the corner.</div><div class="kk">Бұрышта дүкен бар.</div></div>
+          <div class="phrase"><div class="en">People are waiting at the bus stop.</div><div class="kk">Адамдар аялдамада күтіп тұр.</div></div>
+          <div class="phrase"><div class="en">The sky is cloudy.</div><div class="kk">Аспан бұлтты.</div></div>
+          <div class="phrase"><div class="en">I can hear traffic.</div><div class="kk">Көлік шуын естіп тұрмын.</div></div>
+          <div class="phrase"><div class="en">That building is very tall.</div><div class="kk">Сол ғимарат өте биік.</div></div>
+          <div class="phrase"><div class="en">A dog is walking with its owner.</div><div class="kk">Ит иесімен бірге жүріп барады.</div></div>
+          <div class="phrase"><div class="en">The street lights are on.</div><div class="kk">Көше шамдары жанған.</div></div>
+        </div>
+      </section>
+
+      <!-- EX2 -->
+      <section class="panel" id="ex2">
+        <h2>Talk to yourself in English</h2>
+        <p class="how">
+          Оянғаннан бастап не істеп жатқаныңды және қалай сезінетініңді айт. Қате
+          болса да — тоқтама.
+        </p>
+
+        <div class="group">
+          <h3>Morning — wake up</h3>
+          <div class="phrase"><div class="en">I need to get out of bed.</div><div class="kk">Маған төсектен тұру керек.</div></div>
+          <div class="phrase"><div class="en">I feel very sleepy today.</div><div class="kk">Бүгін өте ұйқым келіп тұр.</div></div>
+          <div class="phrase"><div class="en">I don't want to wake up yet.</div><div class="kk">Әлі оянғым келмейді.</div></div>
+          <div class="phrase"><div class="en">My alarm just went off.</div><div class="kk">Дабыл сағатым жаңа ғана шырылдады.</div></div>
+          <div class="phrase"><div class="en">I need five more minutes.</div><div class="kk">Маған тағы бес минут керек.</div></div>
+          <div class="phrase"><div class="en">Okay… I'm getting up now.</div><div class="kk">Жарайды… қазір тұрамын.</div></div>
+          <div class="phrase"><div class="en">I slept badly last night.</div><div class="kk">Кеше түнде нашар ұйықтадым.</div></div>
+          <div class="phrase"><div class="en">It's too early.</div><div class="kk">Тым ерте.</div></div>
+          <div class="phrase"><div class="en">I hit the snooze button again.</div><div class="kk">Тағы да snooze басып қойдым.</div></div>
+          <div class="phrase"><div class="en">My eyes are still heavy.</div><div class="kk">Көздерім әлі ауыр.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Tea / coffee / breakfast</h3>
+          <div class="phrase"><div class="en">The water is getting hot.</div><div class="kk">Су қыздырылып жатыр.</div></div>
+          <div class="phrase"><div class="en">I need some sugar.</div><div class="kk">Маған сәл қант керек.</div></div>
+          <div class="phrase"><div class="en">I'm waiting for the kettle.</div><div class="kk">Шәйнекті күтіп тұрмын.</div></div>
+          <div class="phrase"><div class="en">This coffee smells good.</div><div class="kk">Бұл кофенің иісі жақсы.</div></div>
+          <div class="phrase"><div class="en">I drink coffee every morning.</div><div class="kk">Мен әр таңда кофе ішемін.</div></div>
+          <div class="phrase"><div class="en">I'm making breakfast.</div><div class="kk">Таңғы ас жасап жатырмын.</div></div>
+          <div class="phrase"><div class="en">I need a cup of tea.</div><div class="kk">Маған бір шыныаяқ шай керек.</div></div>
+          <div class="phrase"><div class="en">I'm not hungry yet.</div><div class="kk">Әлі аш емеспін.</div></div>
+          <div class="phrase"><div class="en">This toast is too hot.</div><div class="kk">Бұл тост тым ыстық.</div></div>
+          <div class="phrase"><div class="en">I forgot to buy milk.</div><div class="kk">Сүт сатып алуды ұмытыппын.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Getting ready</h3>
+          <div class="phrase"><div class="en">I'm brushing my teeth.</div><div class="kk">Тісімді тазалап жатырмын.</div></div>
+          <div class="phrase"><div class="en">I need to get dressed.</div><div class="kk">Киінуім керек.</div></div>
+          <div class="phrase"><div class="en">Where are my keys?</div><div class="kk">Кілтім қайда?</div></div>
+          <div class="phrase"><div class="en">I'm almost ready.</div><div class="kk">Дайын болып қалдым.</div></div>
+          <div class="phrase"><div class="en">I have to leave soon.</div><div class="kk">Жақында кетуім керек.</div></div>
+          <div class="phrase"><div class="en">I can't find my headphones.</div><div class="kk">Құлаққабымды таба алмай тұрмын.</div></div>
+          <div class="phrase"><div class="en">What should I wear today?</div><div class="kk">Бүгін не киейін?</div></div>
+          <div class="phrase"><div class="en">I'm running late.</div><div class="kk">Кешігіп барамын.</div></div>
+          <div class="phrase"><div class="en">I need to check the time.</div><div class="kk">Уақытты қарауым керек.</div></div>
+          <div class="phrase"><div class="en">Okay, let's go.</div><div class="kk">Жарайды, жүрейік.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>How I feel</h3>
+          <div class="phrase"><div class="en">I feel tired.</div><div class="kk">Шаршадым.</div></div>
+          <div class="phrase"><div class="en">I'm a bit hungry.</div><div class="kk">Сәл ашпын.</div></div>
+          <div class="phrase"><div class="en">I need a break.</div><div class="kk">Маған үзіліс керек.</div></div>
+          <div class="phrase"><div class="en">I'm in a good mood.</div><div class="kk">Көңіл-күйім жақсы.</div></div>
+          <div class="phrase"><div class="en">I just want to rest.</div><div class="kk">Тек демалғым келеді.</div></div>
+          <div class="phrase"><div class="en">I feel stressed today.</div><div class="kk">Бүгін стресстемін.</div></div>
+          <div class="phrase"><div class="en">I'm bored.</div><div class="kk">Маған жалықты.</div></div>
+          <div class="phrase"><div class="en">I feel better now.</div><div class="kk">Қазір өзімді жақсырақ сезінемін.</div></div>
+          <div class="phrase"><div class="en">I'm cold.</div><div class="kk">Маған суық.</div></div>
+          <div class="phrase"><div class="en">I'm really thirsty.</div><div class="kk">Өте шөлдедім.</div></div>
+          <div class="phrase"><div class="en">I have a headache.</div><div class="kk">Басым ауырып тұр.</div></div>
+          <div class="phrase"><div class="en">I'm okay, just a little tired.</div><div class="kk">Жақсымын, тек сәл шаршағанмын.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>During the day</h3>
+          <div class="phrase"><div class="en">I need to finish this.</div><div class="kk">Мұны бітіруім керек.</div></div>
+          <div class="phrase"><div class="en">I don't have time right now.</div><div class="kk">Қазір уақытым жоқ.</div></div>
+          <div class="phrase"><div class="en">I'll do it later.</div><div class="kk">Кейінірек істеймін.</div></div>
+          <div class="phrase"><div class="en">I'm on my way.</div><div class="kk">Жолдамын.</div></div>
+          <div class="phrase"><div class="en">I just got home.</div><div class="kk">Жаңа ғана үйге келдім.</div></div>
+          <div class="phrase"><div class="en">I need to reply to this message.</div><div class="kk">Осы хабарламаға жауап беруім керек.</div></div>
+          <div class="phrase"><div class="en">My phone is almost dead.</div><div class="kk">Телефонымның заряды бітіп қалды.</div></div>
+          <div class="phrase"><div class="en">I should drink more water.</div><div class="kk">Көбірек су ішуім керек.</div></div>
+          <div class="phrase"><div class="en">I'm going to bed early tonight.</div><div class="kk">Бүгін кешке ерте ұйықтаймын.</div></div>
+          <div class="phrase"><div class="en">That was a long day.</div><div class="kk">Ұзақ күн болды.</div></div>
+        </div>
+      </section>
+
+      <!-- EX3 -->
+      <section class="panel" id="ex3">
+        <h2>Use pictures instead of translation</h2>
+        <p class="how">
+          Сөзді өз тіліңе аударма. Басыңда сурет / сезім / сцена жаса, сосын сөйлемді айт.
+        </p>
+
+        <div class="group">
+          <h3>Word → image</h3>
+          <div class="phrase"><div class="en">hungry</div><div class="kk">дәмді тамаққа қарап тұрған өзін елестет</div></div>
+          <div class="phrase"><div class="en">angry</div><div class="kk">ашулы жүз, қатты дауыс</div></div>
+          <div class="phrase"><div class="en">run</div><div class="kk">жолда тез жүгіріп бара жатқан адам</div></div>
+          <div class="phrase"><div class="en">sleepy</div><div class="kk">көзін ашу қиын, төсекте жатқан сәт</div></div>
+          <div class="phrase"><div class="en">cold</div><div class="kk">қол дірілдеп, тыныс бу болып шығып тұр</div></div>
+          <div class="phrase"><div class="en">busy</div><div class="kk">көп тапсырма, телефон, асығыс жүру</div></div>
+          <div class="phrase"><div class="en">happy</div><div class="kk">жымию, жеңіл сезім, жақсы жаңалық</div></div>
+          <div class="phrase"><div class="en">scared</div><div class="kk">қорыққан көз, артқа шегіну</div></div>
+          <div class="phrase"><div class="en">tired</div><div class="kk">иық түсіп, баяу жүру, күш жоқ</div></div>
+          <div class="phrase"><div class="en">full</div><div class="kk">тамақтан кейін қарын толы, енді жегің келмейді</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Say it with the feeling</h3>
+          <div class="phrase"><div class="en">I'm hungry. I need food.</div><div class="kk">Ашпын. Маған тамақ керек.</div></div>
+          <div class="phrase"><div class="en">She looks angry.</div><div class="kk">Ол ашулы көрінеді.</div></div>
+          <div class="phrase"><div class="en">I feel sleepy.</div><div class="kk">Ұйқым келіп тұр.</div></div>
+          <div class="phrase"><div class="en">He can run very fast.</div><div class="kk">Ол өте тез жүгіре алады.</div></div>
+          <div class="phrase"><div class="en">It's cold outside.</div><div class="kk">Сыртта суық.</div></div>
+          <div class="phrase"><div class="en">I'm too busy today.</div><div class="kk">Бүгін тым бос емеспін / тым жұмыстамын.</div></div>
+          <div class="phrase"><div class="en">I'm happy about this.</div><div class="kk">Бұған қуаныштымын.</div></div>
+          <div class="phrase"><div class="en">Don't be scared.</div><div class="kk">Қорықпа.</div></div>
+          <div class="phrase"><div class="en">I'm so tired after work.</div><div class="kk">Жұмыстан кейін өте шаршадым.</div></div>
+          <div class="phrase"><div class="en">I'm full. I can't eat more.</div><div class="kk">Тойдым. Көбірек жей алмаймын.</div></div>
+        </div>
+      </section>
+
+      <!-- EX4 -->
+      <section class="panel" id="ex4">
+        <h2>Listen and repeat immediately</h2>
+        <p class="how">
+          Сөйлемді дауыстап оқы / аудиодан есті → бірден қайтала. Жылдамдық пен
+          интонацияны көшір. Оңай сөйлемдерден баста.
+        </p>
+
+        <div class="group">
+          <h3>Everyday lines</h3>
+          <div class="phrase"><div class="en">I don't know what happened.</div><div class="kk">Не болғанын білмеймін.</div></div>
+          <div class="phrase"><div class="en">Can you say that again?</div><div class="kk">Қайталап айта аласың ба?</div></div>
+          <div class="phrase"><div class="en">Sorry, I didn't catch that.</div><div class="kk">Кешір, естімей қалдым.</div></div>
+          <div class="phrase"><div class="en">That makes sense.</div><div class="kk">Бұл түсінікті.</div></div>
+          <div class="phrase"><div class="en">I'm on my way.</div><div class="kk">Жолдамын.</div></div>
+          <div class="phrase"><div class="en">I'll call you later.</div><div class="kk">Кейінірек қоңырау шаламын.</div></div>
+          <div class="phrase"><div class="en">Sounds good to me.</div><div class="kk">Маған жарайды.</div></div>
+          <div class="phrase"><div class="en">Let me think for a second.</div><div class="kk">Бір секунд ойлайын.</div></div>
+          <div class="phrase"><div class="en">I know what you mean.</div><div class="kk">Не айтқың келгенін түсінемін.</div></div>
+          <div class="phrase"><div class="en">No worries.</div><div class="kk">Уайымдама / бәрі жақсы.</div></div>
+          <div class="phrase"><div class="en">It's up to you.</div><div class="kk">Өзің шеш / сенің қолыңда.</div></div>
+          <div class="phrase"><div class="en">I can't today.</div><div class="kk">Бүгін қолымнан келмейді.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Short reactions</h3>
+          <div class="phrase"><div class="en">Really?</div><div class="kk">Шынымен бе?</div></div>
+          <div class="phrase"><div class="en">Oh, I see.</div><div class="kk">А, түсінікті.</div></div>
+          <div class="phrase"><div class="en">That's great!</div><div class="kk">Тамаша!</div></div>
+          <div class="phrase"><div class="en">No way!</div><div class="kk">Мүмкін емес!</div></div>
+          <div class="phrase"><div class="en">Fair enough.</div><div class="kk">Жарайды / түсінікті.</div></div>
+          <div class="phrase"><div class="en">Exactly.</div><div class="kk">Дәл солай.</div></div>
+          <div class="phrase"><div class="en">Maybe later.</div><div class="kk">Мүмкін кейінірек.</div></div>
+          <div class="phrase"><div class="en">I'm not sure.</div><div class="kk">Сенімді емеспін.</div></div>
+          <div class="phrase"><div class="en">It depends.</div><div class="kk">Жағдайға байланысты.</div></div>
+          <div class="phrase"><div class="en">Let's do it tomorrow.</div><div class="kk">Ертең істейік.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Phone / chat style</h3>
+          <div class="phrase"><div class="en">Where are you?</div><div class="kk">Қайдасың?</div></div>
+          <div class="phrase"><div class="en">I'm almost there.</div><div class="kk">Жақындап қалдым.</div></div>
+          <div class="phrase"><div class="en">Give me a minute.</div><div class="kk">Бір минут бер.</div></div>
+          <div class="phrase"><div class="en">Can you hear me?</div><div class="kk">Естіп тұрсың ба?</div></div>
+          <div class="phrase"><div class="en">The connection is bad.</div><div class="kk">Байланыс нашар.</div></div>
+          <div class="phrase"><div class="en">Text me when you're free.</div><div class="kk">Бос болғанда жаз.</div></div>
+          <div class="phrase"><div class="en">See you soon.</div><div class="kk">Жақында көрісейік.</div></div>
+          <div class="phrase"><div class="en">Talk to you later.</div><div class="kk">Кейінірек сөйлесейік.</div></div>
+        </div>
+      </section>
+
+      <!-- EX5 -->
+      <section class="panel" id="ex5">
+        <h2>Live small moments in English</h2>
+        <p class="how">
+          Күннің кішкентай бөлігін таңда — тек ағылшынша ойла және сипатта.
+        </p>
+
+        <div class="group">
+          <h3>Brushing teeth / bathroom</h3>
+          <div class="phrase"><div class="en">I'm brushing my teeth.</div><div class="kk">Тісімді тазалап жатырмын.</div></div>
+          <div class="phrase"><div class="en">The water is cold.</div><div class="kk">Су суық.</div></div>
+          <div class="phrase"><div class="en">I'm almost done.</div><div class="kk">Бітіріп қалдым.</div></div>
+          <div class="phrase"><div class="en">I need to wash my face.</div><div class="kk">Бетімді жууым керек.</div></div>
+          <div class="phrase"><div class="en">Where is my towel?</div><div class="kk">Сүлгім қайда?</div></div>
+          <div class="phrase"><div class="en">I'm looking in the mirror.</div><div class="kk">Айнаға қарап тұрмын.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Eating</h3>
+          <div class="phrase"><div class="en">This food tastes good.</div><div class="kk">Бұл тамақ дәмді.</div></div>
+          <div class="phrase"><div class="en">I'm eating slowly today.</div><div class="kk">Бүгін баяу жеп жатырмын.</div></div>
+          <div class="phrase"><div class="en">I'm full now.</div><div class="kk">Қазір тойдым.</div></div>
+          <div class="phrase"><div class="en">I need a spoon.</div><div class="kk">Маған қасық керек.</div></div>
+          <div class="phrase"><div class="en">This soup is hot.</div><div class="kk">Бұл сорпа ыстық.</div></div>
+          <div class="phrase"><div class="en">I'm cooking dinner.</div><div class="kk">Кешкі ас пісіріп жатырмын.</div></div>
+          <div class="phrase"><div class="en">I should add more salt.</div><div class="kk">Тағы тұз қосуым керек.</div></div>
+          <div class="phrase"><div class="en">I'm washing the dishes.</div><div class="kk">Ыдыс жуып жатырмын.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Outside / weather / people</h3>
+          <div class="phrase"><div class="en">The sky looks beautiful today.</div><div class="kk">Бүгін аспан әдемі көрінеді.</div></div>
+          <div class="phrase"><div class="en">That man is wearing a blue jacket.</div><div class="kk">Сол адам көк куртка киген.</div></div>
+          <div class="phrase"><div class="en">It's a bit windy.</div><div class="kk">Сәл желді.</div></div>
+          <div class="phrase"><div class="en">I can hear birds.</div><div class="kk">Құстардың дауысын естіп тұрмын.</div></div>
+          <div class="phrase"><div class="en">People are walking quickly.</div><div class="kk">Адамдар тез жүріп барады.</div></div>
+          <div class="phrase"><div class="en">It looks like rain.</div><div class="kk">Жаңбыр жауатын сияқты.</div></div>
+          <div class="phrase"><div class="en">The sun is bright.</div><div class="kk">Күн жарқырап тұр.</div></div>
+          <div class="phrase"><div class="en">Someone is talking on the phone.</div><div class="kk">Біреу телефонмен сөйлесіп тұр.</div></div>
+          <div class="phrase"><div class="en">I smell fresh bread.</div><div class="kk">Жаңа піскен нанның иісін сезіп тұрмын.</div></div>
+          <div class="phrase"><div class="en">This street is quiet.</div><div class="kk">Бұл көше тыныш.</div></div>
+        </div>
+
+        <div class="group">
+          <h3>Evening wind-down</h3>
+          <div class="phrase"><div class="en">I'm going to watch something.</div><div class="kk">Бірдеңе көрейін деп тұрмын.</div></div>
+          <div class="phrase"><div class="en">I should charge my phone.</div><div class="kk">Телефонымды зарядтауым керек.</div></div>
+          <div class="phrase"><div class="en">I'm tired. I need sleep.</div><div class="kk">Шаршадым. Ұйқы керек.</div></div>
+          <div class="phrase"><div class="en">Tomorrow will be better.</div><div class="kk">Ертең жақсырақ болады.</div></div>
+          <div class="phrase"><div class="en">I'm turning off the lights.</div><div class="kk">Шамдарды өшіріп жатырмын.</div></div>
+          <div class="phrase"><div class="en">Good night. Sleep well.</div><div class="kk">Қайырлы түн. Жақсы ұйықта.</div></div>
+        </div>
+      </section>
+
+      <div class="footer">
+        <h2>Қалай қолдану керек</h2>
+        <p>
+          <strong>1.</strong> Күніне бір таб таңда. Барлығын бірден оқудың қажеті жоқ.
+        </p>
+        <p>
+          <strong>2.</strong> Әр сөйлемді <strong>дауыстап</strong> айт. Тек көзіңмен
+          оқу — аз пайда.
+        </p>
+        <p>
+          <strong>3.</strong> Қазақшаны жасырып, тек ағылшынша айтып көр. Сосын
+          мағынасын тексер.
+        </p>
+        <p>
+          <strong>4.</strong> Мінсіз грамматика күтпе. Қарапайым сөйлем + күнделікті
+          қайталау = ойлау жылдамдайды.
+        </p>
+        <p class="kk-note">
+          Мақсат — сөз жаттау емес, күнделікті сәттерде ағылшынша ойлау әдетін
+          қалыптастыру. Бір аптадан кейін өзіңнен сөйлемдер шыға бастайды.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const tabs = document.querySelectorAll(".tab");
+      const panels = document.querySelectorAll(".panel");
+      const toggleKk = document.getElementById("toggleKk");
+      const countEl = document.getElementById("count");
+
+      function updateCount() {
+        const active = document.querySelector(".panel.active");
+        if (!active) return;
+        const n = active.querySelectorAll(".phrase").length;
+        countEl.textContent = n + " phrase" + (n === 1 ? "" : "s");
+      }
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          panels.forEach((p) => p.classList.remove("active"));
+          tab.classList.add("active");
+          document.getElementById(tab.dataset.tab).classList.add("active");
+          updateCount();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+
+      toggleKk.addEventListener("click", () => {
+        document.body.classList.toggle("hide-kk");
+        const hidden = document.body.classList.contains("hide-kk");
+        toggleKk.textContent = hidden ? "Қазақшаны көрсету" : "Қазақшаны жасыру";
+      });
+
+      updateCount();
+    </script>
+  </body>
+</html>

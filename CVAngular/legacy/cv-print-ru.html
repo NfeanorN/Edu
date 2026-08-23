@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Нуржан Жорабаев — Frontend-разработчик</title>
+  <style>
+    @page { size: A4; margin: 1.2cm 1.5cm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.45;
+      margin: 0;
+      padding: 0;
+      color: #1a1a2e;
+      background: #fff;
+      font-size: 10.5pt;
+    }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 3px solid #3498db;
+      padding-bottom: 8px;
+      margin: 0 0 0.35rem;
+      font-size: 1.55rem;
+    }
+    .headline {
+      color: #3498db;
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 0 0 0.75rem;
+    }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.92rem;
+      color: #2c3e50;
+    }
+    .work-format {
+      background: #e8f4fc;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.88rem;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      color: #34495e;
+      margin: 1.1rem 0 0.35rem;
+      font-size: 1.02rem;
+      border-left: 3px solid #3498db;
+      padding-left: 10px;
+      page-break-after: avoid;
+    }
+    .job { margin-bottom: 0.85rem; page-break-inside: avoid; }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .company { font-weight: 600; color: #2c3e50; }
+    .dates { color: #666; font-size: 0.88rem; }
+    .role { color: #3498db; font-weight: 500; margin: 2px 0 2px; font-size: 0.95rem; }
+    .context { color: #666; font-size: 0.86rem; font-style: italic; margin: 0 0 4px; }
+    .job ul { margin: 0; padding-left: 1.1rem; }
+    .job li { margin: 0.15rem 0; }
+    .skills { display: flex; flex-wrap: wrap; gap: 5px 8px; margin: 0.35rem 0; }
+    .skill {
+      background: #f0f4f8;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+    }
+    .edu-item { margin-bottom: 0.65rem; page-break-inside: avoid; }
+    .institution { font-weight: 600; margin: 0; }
+    .degree { color: #555; font-size: 0.92rem; margin: 0.1rem 0 0; }
+    .focus { color: #666; font-size: 0.88rem; margin: 2px 0 0; }
+    .languages { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; margin: 0.35rem 0; }
+    .lang-item { font-size: 0.92rem; }
+    .lang-item strong { color: #2c3e50; }
+    .extra-section {
+      margin-top: 0.85rem;
+      padding: 0.75rem 1rem;
+      background: #f8fafc;
+      border-radius: 6px;
+      border-left: 3px solid #3498db;
+      page-break-inside: avoid;
+    }
+    .extra-section h3 { margin: 0 0 0.35rem; font-size: 0.95rem; color: #34495e; }
+    .extra-section p { margin: 0; font-size: 0.92rem; color: #555; }
+    .about p { margin: 0.35rem 0; }
+    .muted { color: #666; font-weight: 400; }
+  </style>
+</head>
+<body>
+  <h1>Нуржан Жорабаев</h1>
+  <p class="headline">Frontend-разработчик</p>
+
+  <div class="contact">
+    <span>+7 747 926-27-53</span>
+    <span>zhorabayevn@gmail.com</span>
+    <span>github.com/Zhorabayevv</span>
+    <span>linkedin.com/in/nurzhan-zhorabayev-224247259</span>
+    <span>Казахстан</span>
+  </div>
+  <div class="work-format"><strong>Формат работы:</strong> удалённо · Казахстан</div>
+
+  <h2>О себе</h2>
+  <div class="about">
+    <p>Frontend-разработчик с опытом 4 года 11 месяцев. Специализация — Angular SPA на TypeScript, JavaScript, RxJS и NgRx. Разрабатывал и поддерживал многомодульные enterprise- и CRM-интерфейсы, интегрировал REST API, писал unit-тесты, улучшал производительность через lazy loading и рефакторинг. Сильные стороны — переиспользуемые компоненты, чистый код, code review и стабильная командная поставка продукта.</p>
+  </div>
+
+  <h2>Опыт работы <span class="muted">(4 года 11 месяцев)</span></h2>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="company">Khan Group</span>
+      <span class="dates">авг. 2024 — 2026</span>
+    </div>
+    <p class="role">Frontend-разработчик</p>
+    <p class="context">Промышленное и бизнес-ПО · многомодульное enterprise SPA</p>
+    <ul>
+      <li>Разрабатывал новую функциональность и поддерживал Angular enterprise SPA для внутренних бизнес-процессов.</li>
+      <li>Вёл 15+ Angular-модулей на RxJS, TypeScript и переиспользуемых UI-компонентах.</li>
+      <li>Интегрировал REST API; стабилизировал production UI, исправляя критические frontend-баги в релизных циклах.</li>
+      <li>Реализовал i18n и адаптивную вёрстку (HTML5, SCSS); оптимизировал загрузку через lazy-loaded маршруты.</li>
+      <li>Рефакторил общие компоненты и проводил code review для единообразия архитектуры и качества кода.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="company">Wisk Telecom Solutions</span>
+      <span class="dates">май 2024 — авг. 2024</span>
+    </div>
+    <p class="role">Frontend-разработчик</p>
+    <p class="context">Телеком-ПО · operations SPA с нуля</p>
+    <ul>
+      <li>Собрал Angular SPA телеком-продукта с нуля на модульной архитектуре.</li>
+      <li>Спроектировал структуру с lazy-loaded модулями для снижения initial load.</li>
+      <li>Создавал кастомные UI-компоненты и интегрировал их с backend REST API.</li>
+      <li>Улучшал поддерживаемость через SCSS-стандарты, общие паттерны и peer code review.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="company">Steps AI</span>
+      <span class="dates">мар. 2023 — май 2024</span>
+    </div>
+    <p class="role">Frontend-разработчик</p>
+    <p class="context">B2B SaaS · admin / user dashboards · real-time чат</p>
+    <ul>
+      <li>Развивал Angular + NgRx SaaS SPA на Angular Material с real-time функциями.</li>
+      <li>Делал новые интерфейсы и расширял существующую функциональность для B2B-пользователей.</li>
+      <li>Интегрировал WebSocket-чат и уведомления; работал с Go/Java backend-командами.</li>
+      <li>Писал и поддерживал unit-тесты (Jasmine/Karma); оптимизировал ключевые сценарии и чинил production-проблемы.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="company">NCRM Group</span>
+      <span class="dates">май 2022 — мар. 2023</span>
+    </div>
+    <p class="role">Frontend-разработчик</p>
+    <p class="context">CRM-платформа · мультиязычные бизнес-пользователи</p>
+    <ul>
+      <li>Поддерживал и развивал Angular CRM frontend для мультиязычных бизнес-пользователей.</li>
+      <li>Реализовывал CRM-фичи на Angular, RxJS, Ng-Zorro и Angular Material; интегрировал Django REST.</li>
+      <li>Делал drag-and-drop UI, i18n и лендинги для продуктовых модулей.</li>
+      <li>Участвовал в CI/CD, production-поддержке и командном code review.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="company">Freelance</span>
+      <span class="dates">окт. 2021 — апр. 2022</span>
+    </div>
+    <p class="role">Frontend-разработчик</p>
+    <p class="context">Клиентские SPA и лендинги</p>
+    <ul>
+      <li>Делал клиентские SPA на React, Redux, HTML5, CSS3 с интеграцией REST API.</li>
+    </ul>
+  </div>
+
+  <h2>Навыки</h2>
+  <div class="skills">
+    <span class="skill">JavaScript</span>
+    <span class="skill">TypeScript</span>
+    <span class="skill">Angular</span>
+    <span class="skill">Angular Material</span>
+    <span class="skill">PrimeNG</span>
+    <span class="skill">RxJS</span>
+    <span class="skill">NgRx</span>
+    <span class="skill">HTML5</span>
+    <span class="skill">CSS3</span>
+    <span class="skill">SCSS</span>
+    <span class="skill">REST API</span>
+    <span class="skill">WebSocket</span>
+    <span class="skill">Unit testing (Jasmine / Karma)</span>
+    <span class="skill">Reusable components</span>
+    <span class="skill">Lazy loading</span>
+    <span class="skill">Performance optimization</span>
+    <span class="skill">Design patterns</span>
+    <span class="skill">Git</span>
+    <span class="skill">CI/CD</span>
+    <span class="skill">Code review</span>
+    <span class="skill">Scrum</span>
+    <span class="skill">React (secondary)</span>
+  </div>
+
+  <h2>Образование</h2>
+  <div class="edu-item">
+    <p class="institution">Международный университет информационных технологий (МУИТ / IITU), Алматы</p>
+    <p class="degree">Информационные системы · бакалавр · 2023</p>
+    <p class="focus">Разработка ПО, базы данных, проектирование информационных систем.</p>
+  </div>
+
+  <h2>Языки</h2>
+  <div class="languages">
+    <span class="lang-item"><strong>Русский</strong> — родной</span>
+    <span class="lang-item"><strong>Казахский</strong> — родной</span>
+    <span class="lang-item"><strong>Английский</strong> — B2 (документация, переписка, командная коммуникация)</span>
+  </div>
+
+  <div class="extra-section">
+    <h3>Дополнительно</h3>
+    <p>Ищу Angular product-команды с крупными SPA. Удалённый формат. Интересны чистая архитектура, производительность и современный tooling.</p>
+  </div>
+</body>
+</html>
