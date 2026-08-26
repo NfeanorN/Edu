@@ -7,41 +7,8 @@ from syllabus_extras import EXTRAS
 
 OUT = Path(__file__).parent / "Syllabus"
 
-CSS = """
-        * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; margin: 0; padding: 1.5rem 1rem; color: #1a1a2e; background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%); }
-        .wrap { max-width: 880px; margin: 0 auto; background: #fff; padding: 2rem 2.2rem; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,.06); }
-        h1 { color: #1a3a5c; border-bottom: 4px solid #27ae60; padding-bottom: 12px; font-size: 1.75rem; margin-top: 0; }
-        h2 { color: #1a3a5c; margin-top: 2rem; font-size: 1.2rem; border-left: 5px solid #27ae60; padding-left: 12px; }
-        p { margin: 10px 0; }
-        ul, ol { margin: 10px 0; padding-left: 1.4rem; }
-        li { margin: 6px 0; }
-        .meta { color: #666; font-size: 0.92rem; margin-bottom: 1.2rem; }
-        .back a { color: #27ae60; text-decoration: none; font-weight: 500; }
-        .back a:hover { text-decoration: underline; }
-        .frank { background: #eef3ff; border-left: 4px solid #5b8def; padding: 12px 16px; margin: 14px 0; border-radius: 6px; }
-        .frank::before { content: "📙 Frank textbook: "; font-weight: 700; color: #3a6cdc; }
-        .macro { background: #fff8e6; border-left: 4px solid #f39c12; padding: 12px 16px; margin: 14px 0; border-radius: 6px; font-size: 0.95rem; }
-        .macro::before { content: "📊 Macro (course — not in Frank): "; font-weight: 700; color: #d68910; }
-        .formula { background: #eef8f0; border-left: 4px solid #27ae60; padding: 12px 16px; margin: 14px 0; border-radius: 6px; font-family: Cambria, Georgia, serif; }
-        .key { background: #fff8e7; border-left: 4px solid #f0b429; padding: 12px 16px; margin: 14px 0; border-radius: 6px; }
-        .key::before { content: "⭐ Exam: "; font-weight: 700; color: #8a6d1f; }
-        .graph { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 14px; margin: 14px 0; }
-        .svg-graph { max-width: 100%; height: auto; display: block; margin: 0 auto; }
-        .fig-cap { text-align: center; font-size: 0.88em; color: #555; margin-top: 8px; }
-        table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.93em; }
-        th, td { border: 1px solid #e0e6ed; padding: 8px 10px; text-align: left; }
-        th { background: #27ae60; color: #fff; }
-        tr:nth-child(even) { background: #f8f9fa; }
-        .more { margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid #ecf0f1; font-size: 0.95rem; }
-        .more a { color: #27ae60; }
-        code { background: #f1f3f6; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
-        .warn { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 14px; margin: 12px 0; border-radius: 6px; font-size: 0.94em; }
-        .ru-foot { margin-top: 2.5rem; padding: 1rem 0 0; border-top: 1px dashed #bbb; font-size: 0.78rem; line-height: 1.6; color: #666; }
-        .ru-foot h3 { font-size: 0.82rem; color: #888; margin: 0 0 8px; font-weight: 600; }
-        .ru-foot p, .ru-foot li { margin: 6px 0; }
-        .ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
-"""
+# Shared look: Economics/study-card.css (do not inline duplicate styles)
+STUDY_CSS = "../study-card.css"
 
 AXIS = """<line x1="50" y1="20" x2="50" y2="220" stroke="#333" stroke-width="1.5"/>
             <line x1="50" y1="220" x2="380" y2="220" stroke="#333" stroke-width="1.5"/>"""
@@ -529,7 +496,7 @@ def page(t):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topic {t['num']}: {t['title']} — Economics Syllabus</title>
-    <style>{CSS}</style>
+    <link rel="stylesheet" href="{STUDY_CSS}">
 </head>
 <body>
 <div class="wrap">
@@ -559,23 +526,9 @@ def index_html():
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syllabus — 36 Exam Topics (English)</title>
-    <style>
-        * {{ box-sizing: border-box; }}
-        body {{ font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; margin: 0; padding: 2rem; color: #1a1a2e; background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%); min-height: 100vh; }}
-        .wrap {{ max-width: 820px; margin: 0 auto; }}
-        h1 {{ color: #2c3e50; border-bottom: 4px solid #27ae60; padding-bottom: 12px; }}
-        .sub {{ color: #555; margin-bottom: 1.5rem; }}
-        .topics {{ list-style: none; padding: 0; }}
-        .topics li {{ margin: 0.45rem 0; }}
-        .topics a {{ display: block; padding: 0.75rem 1rem; background: #fff; border-radius: 10px; text-decoration: none; color: #2c3e50; border: 1px solid #e0e6ed; }}
-        .topics a:hover {{ border-color: #27ae60; box-shadow: 0 4px 12px rgba(39,174,96,.12); }}
-        .title {{ font-weight: 600; }}
-        .desc {{ display: block; color: #666; font-size: 0.82rem; margin-top: 3px; }}
-        .back a {{ color: #27ae60; text-decoration: none; }}
-        .note {{ background: #fff; border-left: 4px solid #5b8def; padding: 12px 16px; border-radius: 6px; margin: 1rem 0 1.5rem; font-size: 0.95rem; }}
-    </style>
+    <link rel="stylesheet" href="{STUDY_CSS}">
 </head>
-<body>
+<body class="hub">
 <div class="wrap">
     <p class="back"><a href="../index.html">← Economics home</a></p>
     <h1>Syllabus — 36 Exam Topics</h1>

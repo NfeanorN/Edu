@@ -1,0 +1,120 @@
+/* Exam Prep Guide — extras on top of study-card.css */
+
+.wrap {
+  max-width: 960px;
+  padding: 2rem 2.4rem;
+}
+
+h1 { font-size: 1.9rem; }
+
+h2 {
+  margin-top: 2.8rem;
+  font-size: 1.35rem;
+  padding: 6px 0 6px 14px;
+  background: linear-gradient(90deg, #eefbf3 0%, transparent 100%);
+  scroll-margin-top: 1rem;
+}
+h2 .num { color: #27ae60; }
+
+p { text-align: justify; }
+
+.en {
+  color: #3d4f66;
+  font-size: 0.94em;
+  padding: 8px 0 8px 14px;
+  border-left: 3px solid #5b8def;
+  margin: 8px 0 14px;
+  line-height: 1.65;
+}
+.en::before {
+  content: "EN: ";
+  font-weight: 700;
+  color: #3a6cdc;
+}
+
+.exam-q {
+  background: #fdecea;
+  border-left: 4px solid #e74c3c;
+  padding: 10px 14px;
+  margin: 12px 0;
+  border-radius: 6px;
+  font-size: 0.95em;
+}
+.exam-q::before {
+  content: "📝 Вопрос на экзамене: ";
+  font-weight: 700;
+  color: #c0392b;
+}
+
+.key::before {
+  content: "⭐ Главное: ";
+  font-weight: 700;
+  color: #8a6d1f;
+}
+
+.story {
+  background: #f4ecfe;
+  border-left: 4px solid #8e44ad;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 6px;
+}
+.story::before {
+  content: "💭 Пример: ";
+  font-weight: 700;
+  color: #6c3a8f;
+}
+
+.warn::before {
+  content: "⚠️ Не путать: ";
+  font-weight: 700;
+}
+
+.graph {
+  padding: 14px 14px 10px;
+  overflow-x: auto;
+}
+
+pre {
+  margin: 0;
+  font-size: 0.8em;
+  line-height: 1.4;
+  font-family: ui-monospace, "Courier New", monospace;
+}
+
+.toc {
+  columns: 2;
+  column-gap: 1.5rem;
+  font-size: 0.88em;
+  line-height: 1.5;
+  margin: 1.2rem 0 2rem;
+}
+.toc a {
+  color: #1a3a5c;
+  text-decoration: none;
+  display: block;
+  margin: 4px 0;
+}
+.toc a:hover { color: #27ae60; }
+
+.part {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #27ae60;
+  margin: 2rem 0 0.5rem;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 6px;
+}
+
+.more { font-size: 0.9em; margin-top: 10px; }
+
+hr {
+  border: none;
+  border-top: 2px solid #ecf0f1;
+  margin: 2rem 0;
+}
+
+@media (max-width: 700px) {
+  .toc { columns: 1; }
+  .wrap { padding: 1.2rem; }
+}

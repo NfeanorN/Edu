@@ -4,71 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Examples with Graphs — Frank, Microeconomics and Behavior</title>
-<style>
-    * { box-sizing: border-box; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; margin: 0; padding: 1.5rem 1rem 3rem; color: #1a1a2e; background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%); }
-    .wrap { max-width: 900px; margin: 0 auto; }
-    .card { background: #fff; padding: 2rem 2.2rem; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,.06); }
-    .back { margin-bottom: 1rem; font-size: .95rem; }
-    .back a { color: #27ae60; text-decoration: none; font-weight: 500; }
-    .back a:hover { text-decoration: underline; }
-    h1 { color: #1a3a5c; border-bottom: 4px solid #27ae60; padding-bottom: 12px; font-size: 1.7rem; margin: 0 0 .8rem; }
-    .sub { color: #555; font-size: .97rem; }
-
-    .book { background: #eef3ff; border-left: 4px solid #5b8def; padding: 12px 16px; margin: 1.2rem 0 1.8rem; border-radius: 6px; font-size: .95rem; }
-    .book strong { color: #3a6cdc; }
-
-    .toc { background: #f8f9fb; border: 1px solid #e6ebf2; border-radius: 10px; padding: 1rem 1.3rem; margin-bottom: 2rem; }
-    .toc h3 { margin: 0 0 .5rem; font-size: .95rem; color: #1a3a5c; text-transform: uppercase; letter-spacing: .04em; }
-    .toc ol { margin: 0; padding-left: 1.3rem; columns: 2; column-gap: 2rem; font-size: .92rem; }
-    .toc li { margin: 4px 0; break-inside: avoid; }
-    .toc a { color: #27ae60; text-decoration: none; }
-    .toc a:hover { text-decoration: underline; }
-    @media (max-width: 620px) { .toc ol { columns: 1; } }
-
-    .ex { margin: 2.5rem 0; padding-top: 1.5rem; border-top: 2px solid #ecf0f1; }
-    .ex:first-of-type { border-top: none; padding-top: 0; }
-    h2 { color: #1a3a5c; font-size: 1.22rem; border-left: 5px solid #27ae60; padding-left: 12px; margin: 0 0 .5rem; }
-    .src-tag { display: inline-block; font-size: .78rem; font-weight: 700; background: #eef3ff; color: #3a6cdc; padding: 3px 10px; border-radius: 999px; margin-bottom: .8rem; }
-    .topic-tag { display: inline-block; font-size: .78rem; background: #eef8f0; color: #1e7e45; padding: 3px 10px; border-radius: 999px; margin-left: 6px; }
-    .topic-tag a { color: #1e7e45; text-decoration: none; }
-
-    .question { background: #fff8e7; border-left: 4px solid #f0b429; padding: 12px 16px; margin: 12px 0; border-radius: 6px; font-style: italic; }
-    .question::before { content: "❓ The book asks: "; font-weight: 700; font-style: normal; color: #8a6d1f; }
-
-    p { margin: 10px 0; }
-    ul, ol { margin: 10px 0; padding-left: 1.4rem; }
-    li { margin: 6px 0; }
-    code { background: #f1f3f6; padding: 2px 6px; border-radius: 4px; font-size: .9em; }
-
-    .graph { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 14px; margin: 16px 0; }
-    .svg-graph { max-width: 100%; height: auto; display: block; margin: 0 auto; }
-    .fig-cap { text-align: center; font-size: .87em; color: #555; margin: 8px 0 0; }
-
-    .read { background: #f4faf6; border-left: 4px solid #27ae60; padding: 12px 18px; border-radius: 6px; margin: 14px 0; }
-    .read h4 { margin: 0 0 6px; font-size: .95rem; color: #1e7e45; }
-    .read ol { margin: 6px 0 0; font-size: .95rem; }
-
-    .answer { background: #eef8f0; border: 1px solid #bfe6cd; padding: 12px 16px; border-radius: 6px; margin: 14px 0; }
-    .answer::before { content: "✅ Answer in the book: "; font-weight: 700; color: #1e7e45; }
-
-    table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92em; }
-    th, td { border: 1px solid #e0e6ed; padding: 7px 10px; text-align: left; }
-    th { background: #27ae60; color: #fff; }
-    tr:nth-child(even) { background: #f8f9fa; }
-    td.num, th.num { text-align: right; }
-    .hl { background: #fff3cd !important; font-weight: 600; }
-
-    .payoff td, .payoff th { text-align: center; }
-    .payoff .rowhead { background: #eef3ff; font-weight: 600; text-align: left; }
-    .payoff .nash { background: #fdeeec; font-weight: 600; }
-
-    .ru { margin-top: 1rem; padding: .8rem 1rem; border-left: 3px dashed #bbb; background: #fafafa; font-size: .87rem; line-height: 1.6; color: #555; border-radius: 0 6px 6px 0; }
-    .ru::before { content: "🇷🇺 "; }
-    .up { font-size: .85rem; }
-    .up a { color: #999; text-decoration: none; }
-    @media (max-width: 560px) { .card { padding: 1.3rem 1.1rem; } }
-</style>
+<link rel="stylesheet" href="study-card.css">
 </head>
 <body>
 <div class="wrap">

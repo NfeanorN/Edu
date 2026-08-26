@@ -1,0 +1,369 @@
+/* Shared study-card layout — Syllabus, Frank_Only, Frank_Examples base */
+* { box-sizing: border-box; }
+
+body.study-card,
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.75;
+  margin: 0;
+  padding: 1.5rem 1rem 3rem;
+  color: #1a1a2e;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem 2.2rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+  color: #1a3a5c;
+  border-bottom: 4px solid #27ae60;
+  padding-bottom: 12px;
+  font-size: 1.7rem;
+  margin-top: 0;
+}
+
+h2 {
+  color: #1a3a5c;
+  margin-top: 2rem;
+  font-size: 1.22rem;
+  border-left: 5px solid #27ae60;
+  padding-left: 12px;
+}
+
+h3 {
+  color: #34495e;
+  margin-top: 1.4rem;
+  font-size: 1.05rem;
+}
+
+h4 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  color: #1e7e45;
+}
+
+p { margin: 10px 0; }
+ul, ol { margin: 10px 0; padding-left: 1.4rem; }
+li { margin: 6px 0; }
+
+.meta { color: #666; font-size: 0.92rem; margin-bottom: 1.2rem; }
+.sub { color: #555; font-size: 0.97rem; }
+
+.back { margin-bottom: 1rem; font-size: 0.95rem; }
+.back a { color: #27ae60; text-decoration: none; font-weight: 500; }
+.back a:hover { text-decoration: underline; }
+
+.frank {
+  background: #eef3ff;
+  border-left: 4px solid #5b8def;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 6px;
+}
+.frank::before {
+  content: "📙 Frank textbook: ";
+  font-weight: 700;
+  color: #3a6cdc;
+}
+
+.book {
+  background: #eef3ff;
+  border-left: 4px solid #5b8def;
+  padding: 12px 16px;
+  margin: 1rem 0 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+.book strong { color: #3a6cdc; }
+
+.macro {
+  background: #fff8e6;
+  border-left: 4px solid #f39c12;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+.macro::before {
+  content: "📊 Macro (course — not in Frank): ";
+  font-weight: 700;
+  color: #d68910;
+}
+
+.missing {
+  background: #fdeeec;
+  border-left: 4px solid #e74c3c;
+  padding: 12px 16px;
+  margin: 1rem 0;
+  border-radius: 6px;
+}
+
+.formula {
+  background: #eef8f0;
+  border-left: 4px solid #27ae60;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 6px;
+  font-family: Cambria, Georgia, serif;
+}
+
+.key {
+  background: #fff8e7;
+  border-left: 4px solid #f0b429;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 6px;
+}
+.key::before {
+  content: "⭐ Exam: ";
+  font-weight: 700;
+  color: #8a6d1f;
+}
+
+.warn {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 10px 14px;
+  margin: 12px 0;
+  border-radius: 6px;
+  font-size: 0.94em;
+}
+
+.question {
+  background: #fff8e7;
+  border-left: 4px solid #f0b429;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 6px;
+  font-style: italic;
+}
+.question::before {
+  content: "❓ The book asks: ";
+  font-weight: 700;
+  font-style: normal;
+  color: #8a6d1f;
+}
+
+.answer {
+  background: #eef8f0;
+  border: 1px solid #bfe6cd;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 14px 0;
+}
+.answer::before {
+  content: "✅ Answer in the book: ";
+  font-weight: 700;
+  color: #1e7e45;
+}
+
+.read {
+  background: #f4faf6;
+  border-left: 4px solid #27ae60;
+  padding: 12px 18px;
+  border-radius: 6px;
+  margin: 14px 0;
+}
+.read ol { margin: 6px 0 0; font-size: 0.95rem; }
+
+.graph {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 14px;
+  margin: 14px 0;
+}
+.svg-graph {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.fig-cap,
+.fig-caption {
+  text-align: center;
+  font-size: 0.88em;
+  color: #555;
+  margin-top: 8px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 12px 0;
+  font-size: 0.93em;
+}
+th, td {
+  border: 1px solid #e0e6ed;
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: #27ae60; color: #fff; }
+tr:nth-child(even) { background: #f8f9fa; }
+td.num, th.num { text-align: right; }
+.hl { background: #fff3cd !important; font-weight: 600; }
+
+.payoff td, .payoff th { text-align: center; }
+.payoff .rowhead {
+  background: #eef3ff;
+  font-weight: 600;
+  text-align: left;
+}
+.payoff .nash {
+  background: #fdeeec;
+  font-weight: 600;
+}
+
+.src,
+.src-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: #eef3ff;
+  color: #3a6cdc;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin: 0 0 0.8rem;
+}
+
+.topic-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  background: #eef8f0;
+  color: #1e7e45;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-left: 6px;
+}
+.topic-tag a { color: #1e7e45; text-decoration: none; }
+
+.toc {
+  background: #f8f9fb;
+  border: 1px solid #e6ebf2;
+  border-radius: 10px;
+  padding: 1rem 1.3rem;
+  margin-bottom: 1.5rem;
+}
+.toc h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.toc ol {
+  margin: 0;
+  padding-left: 1.3rem;
+  columns: 2;
+  column-gap: 2rem;
+  font-size: 0.92rem;
+}
+.toc li { margin: 4px 0; break-inside: avoid; }
+.toc a { color: #27ae60; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+.more {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid #ecf0f1;
+  font-size: 0.95rem;
+}
+.more a { color: #27ae60; }
+
+.ru-foot {
+  margin-top: 2.5rem;
+  padding: 1rem 0 0;
+  border-top: 1px dashed #bbb;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #666;
+}
+.ru-foot h3 {
+  font-size: 0.82rem;
+  color: #888;
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.ru-foot p, .ru-foot li { margin: 6px 0; }
+.ru-foot ul { padding-left: 1.2rem; margin: 6px 0; }
+
+.ru {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border-left: 3px dashed #bbb;
+  background: #fafafa;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #555;
+  border-radius: 0 6px 6px 0;
+}
+.ru::before { content: "🇷🇺 "; }
+
+.ex {
+  margin: 2.5rem 0;
+  padding-top: 1.5rem;
+  border-top: 2px solid #ecf0f1;
+}
+.ex:first-of-type { border-top: none; padding-top: 0; }
+
+.up { font-size: 0.85rem; }
+.up a { color: #999; text-decoration: none; }
+
+code {
+  background: #f1f3f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.note {
+  background: #fff;
+  border-left: 4px solid #5b8def;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.95rem;
+}
+
+.topics { list-style: none; padding: 0; margin: 0; }
+.topics li { margin: 0.45rem 0; }
+.topics a {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #2c3e50;
+  border: 1px solid #e0e6ed;
+}
+.topics a:hover {
+  border-color: #27ae60;
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.12);
+}
+.topics .title { font-weight: 600; }
+.topics .desc {
+  display: block;
+  color: #666;
+  font-size: 0.82rem;
+  margin-top: 3px;
+}
+
+/* Hub / index pages: list sits on gradient, not inside a card */
+.hub .wrap {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  max-width: 820px;
+}
+
+@media (max-width: 620px) {
+  .wrap { padding: 1.3rem 1.1rem; }
+  .toc ol { columns: 1; }
+}
