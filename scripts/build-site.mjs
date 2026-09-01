@@ -13,27 +13,13 @@ const STATIC_DIRS = [
   "HR",
   "HRM",
   "AccountingBanking",
-  // PlaceMarketing + Michigan — temporarily off Pages
+  "PlaceMarketing",
+  "Michigan",
   "Avatar",
   "Sheldon",
   "EPC_Champions_League_Final",
   "EPC_Extra_Class_Booking",
   "EPC_Study_Room_Booking",
-];
-
-/** Old PlaceMarketing / Michigan URLs → bounce to hub. */
-const BLOCKED_PATH_REDIRECTS = [
-  "PlaceMarketing/index.html",
-  "PlaceMarketing/oral-basics.html",
-  "PlaceMarketing/10_Place_Marketing_Exam.html",
-  "PlaceMarketing/OpenQuestions/index.html",
-  "PlaceMarketing/OpenQuestions/compact.html",
-  "PlaceMarketing/OpenQuestions/01_Variant.html",
-  "PlaceMarketing/OpenQuestions/03_Variant.html",
-  "PlaceMarketing/OpenQuestions/04_Variant.html",
-  "PlaceMarketing/OpenQuestions/05_Variant.html",
-  "PlaceMarketing/OpenQuestions/06_Variant.html",
-  "Michigan/index.html",
 ];
 
 const REACT_APPS = [
@@ -138,29 +124,5 @@ for (const app of ANGULAR_APPS) {
 }
 
 writeRoot404();
-
-function writeBlockedRedirects() {
-  const base = `/${repoName}/`;
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0;url=${base}">
-  <title>Unavailable</title>
-  <script>location.replace(${JSON.stringify(base)});</script>
-</head>
-<body>
-  <p>This section is temporarily unavailable. <a href="${base}">Back to Edu</a>.</p>
-</body>
-</html>`;
-  for (const rel of BLOCKED_PATH_REDIRECTS) {
-    const dest = path.join(siteDir, rel);
-    fs.mkdirSync(path.dirname(dest), { recursive: true });
-    fs.writeFileSync(dest, html);
-  }
-  console.log("Blocked redirects:", BLOCKED_PATH_REDIRECTS.length);
-}
-
-writeBlockedRedirects();
 console.log("Site ready:", siteDir);
 console.log("GitHub Pages URL: https://<user>.github.io/" + repoName + "/");

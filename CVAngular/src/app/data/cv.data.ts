@@ -19,9 +19,9 @@ export const CV_PROFILE: CvProfile = {
       external: true,
     },
   ],
-  workFormat: 'Remote · Kazakhstan',
+  workFormat: 'Hybrid or remote by agreement · Kazakhstan / Europe',
   about:
-    'Frontend Developer with 4 years 11 months of commercial frontend experience. Specialized in Angular SPAs with TypeScript, JavaScript, RxJS and NgRx. Built and maintained multi-module enterprise and CRM UIs, integrated REST APIs, wrote unit tests, and improved performance through lazy loading and refactoring. Strong in reusable components, clean code, code review and team delivery of stable product interfaces.',
+    'Frontend Developer with 4 years 11 months of commercial frontend experience. Specialized in Angular SPAs with TypeScript, JavaScript, RxJS and NgRx; also built a Flutter mobile app from scratch. Delivered multi-module enterprise and CRM UIs with mobile-first adaptive design, integrated REST APIs, wrote unit tests, and improved performance through lazy loading and refactoring. Strong in reusable components, clean code, code review and team delivery of stable product interfaces.',
   experienceLabel: '4 years 11 months',
   jobs: [
     {
@@ -33,18 +33,19 @@ export const CV_PROFILE: CvProfile = {
         'Delivered new features and maintained the Angular enterprise SPA used across internal business operations.',
         'Developed and supported 15+ Angular modules with RxJS, TypeScript and reusable UI components.',
         'Integrated REST APIs; stabilized production UI by fixing critical frontend bugs in release cycles.',
-        'Implemented i18n and responsive layouts (HTML5, SCSS); optimized load with lazy-loaded routes.',
+        'Implemented i18n and mobile-adaptive layouts (HTML5, SCSS) from design mockups; optimized load with lazy-loaded routes.',
         'Refactored shared components and conducted code reviews to keep architecture and quality consistent.',
       ],
     },
     {
       company: 'Wisk Telecom Solutions',
       dates: 'May 2024 — Aug 2024',
-      role: 'Frontend Developer',
-      context: 'Telecom software · operations SPA built from scratch',
+      role: 'Frontend & Flutter Developer',
+      context: 'Telecom software · Angular SPA and Flutter mobile app from scratch',
       responsibilities: [
         'Built the Angular SPA of a telecom operations product from scratch with modular architecture.',
-        'Designed lazy-loaded module structure to reduce initial load time.',
+        'Built a Flutter (Dart) mobile client from scratch alongside web work — screens, navigation and API integration.',
+        'Designed lazy-loaded module structure to reduce initial load time; adapted UI for mobile viewports from design.',
         'Created custom UI components and integrated them with backend REST APIs.',
         'Improved maintainability through SCSS standards, shared patterns and peer code review.',
       ],
@@ -56,7 +57,7 @@ export const CV_PROFILE: CvProfile = {
       context: 'B2B SaaS · admin / user dashboards · real-time chat',
       responsibilities: [
         'Scaled an Angular + NgRx SaaS SPA with Angular Material and real-time product features.',
-        'Delivered new interfaces and extended existing functionality for B2B users in a product team.',
+        'Delivered new interfaces and mobile-friendly layouts from design mockups for B2B users.',
         'Integrated WebSocket chat and notifications; collaborated with Go/Java backend teams.',
         'Wrote and maintained unit tests (Jasmine/Karma); optimized key flows and fixed production issues.',
       ],
@@ -69,7 +70,7 @@ export const CV_PROFILE: CvProfile = {
       responsibilities: [
         'Supported and extended the Angular CRM frontend for multi-language business users.',
         'Built CRM features with Angular, RxJS, Ng-Zorro and Angular Material; integrated Django REST.',
-        'Implemented drag-and-drop UI, i18n and landing pages for product modules.',
+        'Implemented drag-and-drop UI, i18n, landing pages and mobile-adaptive layouts from design.',
         'Participated in CI/CD, production support and team code review.',
       ],
     },
@@ -80,6 +81,7 @@ export const CV_PROFILE: CvProfile = {
       context: 'Client SPAs and landing projects',
       responsibilities: [
         'Delivered client SPAs with React, Redux, HTML5, CSS3 and REST API integration.',
+        'Implemented responsive and mobile-first UI from design mockups for client projects.',
       ],
     },
   ],
@@ -91,9 +93,11 @@ export const CV_PROFILE: CvProfile = {
     'PrimeNG',
     'RxJS',
     'NgRx',
+    'Flutter (Dart)',
     'HTML5',
     'CSS3',
     'SCSS',
+    'Mobile-adaptive UI',
     'REST API',
     'WebSocket',
     'Unit testing (Jasmine / Karma)',
@@ -109,6 +113,11 @@ export const CV_PROFILE: CvProfile = {
   ],
   education: [
     {
+      institution: 'Università degli Studi di Cassino e del Lazio Meridionale (Unicas), Italy',
+      degree: 'Economics and Entrepreneurship · Master · enrolled 2023',
+      focus: 'Economics, business administration, entrepreneurship.',
+    },
+    {
       institution: 'International University of Information Technologies (IITU), Almaty',
       degree: 'Information Systems · Bachelor · 2023',
       focus: 'Software development, databases, information systems design.',
@@ -120,5 +129,5 @@ export const CV_PROFILE: CvProfile = {
     { name: 'English', level: 'B2 (docs, work correspondence, team communication)' },
   ],
   additional:
-    'Looking for Angular product teams with large SPA portfolios. Remote. Interested in clean architecture, performance and modern tooling.',
+    'Looking for product teams with large SPA / mobile UI portfolios (Angular, Flutter). Hybrid or remote by agreement (Kazakhstan / Europe). Interested in clean architecture, performance and modern tooling.',
 };
