@@ -1,0 +1,193 @@
+[
+  {
+    "en": "In an \"Actor-for-Actor\" (A4A) relationship, actors are characterized by:",
+    "options": [
+      { "id": "a", "en": "Competition aimed at reducing local opportunities in the city center." },
+      { "id": "b", "en": "Mutual support, tolerance, and shared systemic goals." },
+      { "id": "c", "en": "Mutual support and tolerance between businesses and the municipality." },
+      { "id": "d", "en": "Mutual support and tolerance between the municipality and stakeholders." }
+    ],
+    "correct": "b",
+    "explain": "A4A = actors support one another for the shared goals of the whole place-system."
+  },
+  {
+    "en": "\"Mutuality\" among actors in an ecosystem means that:",
+    "options": [
+      { "id": "a", "en": "Each actor acts to maximize their own objective." },
+      { "id": "b", "en": "There is a legal contract that obliges merchants to provide mutual financial assistance." },
+      { "id": "c", "en": "Interactions are guided by respect for the final and common purpose of the place." },
+      { "id": "d", "en": "The actors must collaborate." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "\"Soft Conditions\" include elements such as:",
+    "options": [
+      { "id": "a", "en": "The presence of widespread knowledge in the territory." },
+      { "id": "b", "en": "The number of banks and financial branches present in the municipal territory." },
+      { "id": "c", "en": "The training of operators." },
+      { "id": "d", "en": "The presence of strong social networks, creativity, and open-mindedness of the community." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "What was the predominant focus of Place Marketing in the 1990s (first perspective)?",
+    "options": [
+      { "id": "a", "en": "Value co-creation based on horizontal relationships and well-being in use." },
+      { "id": "b", "en": "The development of complex smart mobility systems and urban big data management." },
+      { "id": "c", "en": "Place promotion and the selling of the territory." },
+      { "id": "d", "en": "The structural involvement of resident citizens in the design of community services." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "Why is Place Marketing considered a \"complex\" process?",
+    "options": [
+      { "id": "a", "en": "Because it implies managing non-linear interactions among a multitude of actors and objectives." },
+      { "id": "b", "en": "Because it exclusively requires the use of high financial resources and state subsidies." },
+      { "id": "c", "en": "Because administrative boundaries prevent forms of inter-provincial collaboration." },
+      { "id": "d", "en": "Because it is complex to identify the real beneficiaries of the value proposition." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "What is the ultimate goal of \"Value Co-creation Driven\" Place Marketing?",
+    "options": [
+      { "id": "a", "en": "Maximizing the profit of real estate companies and citizens in the city center." },
+      { "id": "b", "en": "The exponential increase in the number of tourists regardless of carrying capacity sustainability." },
+      { "id": "c", "en": "A centralization of all decisions in the hands of the municipality." },
+      { "id": "d", "en": "The well-being, satisfaction, and quality of life of stakeholders (internal and external)." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "The \"15-minute neighbourhood\" is an urban model that aims to:",
+    "options": [
+      { "id": "a", "en": "Guarantee access to all essential services within a 15-minute radius on foot or by bicycle." },
+      { "id": "b", "en": "Improve collective decisions in the neighborhood." },
+      { "id": "c", "en": "Limit the maximum stay of tourists in premium areas of the historic center." },
+      { "id": "d", "en": "Reduce free parking time in urban lots to increase municipal revenues." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "In the transition from transactional to relational marketing, the orientation shifts from:",
+    "options": [
+      { "id": "a", "en": "Collaboration to systemic conflict." },
+      { "id": "b", "en": "Conflict to collaboration and long-term trust." },
+      { "id": "c", "en": "Customer satisfaction to speculative maximization of sales volumes." },
+      { "id": "d", "en": "Open horizontal relationships to rigid and punitive vertical hierarchies." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "What is meant by \"Value-in-use\" in the territorial context?",
+    "options": [
+      { "id": "a", "en": "The market price or cadastral value of a property located in a prestigious area." },
+      { "id": "b", "en": "The net cost of essential public services provided by the local administration." },
+      { "id": "c", "en": "The value predetermined by the local government and transferred linearly to the population." },
+      { "id": "d", "en": "The value that emerges during the process of consumption and resource integration by the user." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "What is a frequent cause of failure in network projects (e.g., CCN - Natural Shopping Centers)?",
+    "options": [
+      { "id": "a", "en": "An excessive availability of non-repayable European financial funds." },
+      { "id": "b", "en": "Resistance to change and the lack of a shared strategic vision." },
+      { "id": "c", "en": "Too low a number of visitors in the city center." },
+      { "id": "d", "en": "The presence of an outdated commercial offer." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "What is the role of \"Genius Loci\" in strategic positioning?",
+    "options": [
+      { "id": "a", "en": "A system of tangible assets." },
+      { "id": "b", "en": "The distinctive intangible asset that allows the place to differentiate itself from competitors." },
+      { "id": "c", "en": "The distinctive tangible asset that allows the place to differentiate itself from competitors." },
+      { "id": "d", "en": "A system of intangible assets." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "What is meant by the \"Vocation\" of a territory in the sources?",
+    "options": [
+      { "id": "a", "en": "The identity and distinctive aptitude of an area toward specific activities (e.g., agricultural, industrial)." },
+      { "id": "b", "en": "The political and strategic direction of the municipality." },
+      { "id": "c", "en": "The placement of the municipality." },
+      { "id": "d", "en": "The logic of genius loci applied to strategy." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "What characterizes an \"Onlife\" experience in urban commerce?",
+    "options": [
+      { "id": "a", "en": "The ban on using smartphones inside traditional physical stores." },
+      { "id": "b", "en": "The integration of e-commerce into traditional stores." },
+      { "id": "c", "en": "The integration between physical purchasing, social interaction, and personalized digital services." },
+      { "id": "d", "en": "The use of information technology to enhance the commercial offer." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "What is the purpose of a territorial SWOT analysis?",
+    "options": [
+      { "id": "a", "en": "Identify strengths/weaknesses of primary stakeholders and opportunities/threats from the municipality." },
+      { "id": "b", "en": "Identify external strengths/weaknesses and internal opportunities/threats of the place-system." },
+      { "id": "c", "en": "Identify internal strengths/weaknesses and external opportunities/threats of the place-system." },
+      { "id": "d", "en": "Define the organizational chart and bureaucratic hierarchy within the municipal marketing office." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "The \"Motor Valley\" case shows how a territorial system can:",
+    "options": [
+      { "id": "a", "en": "The positive role generated by automotive companies on the territory." },
+      { "id": "b", "en": "Enhance the territory by giving birth to places characterized by industrial production." },
+      { "id": "c", "en": "Enhance a territory with the presence of strategic organizations." },
+      { "id": "d", "en": "Bring forth a \"Place\" of global excellence through the integration of actors and skills." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "In the evolutionary process of TCM (Town Centre Management), the first steps usually focus on:",
+    "options": [
+      { "id": "a", "en": "Generation of living labs." },
+      { "id": "b", "en": "Advanced management of complex algorithmic Big Data for consumer profiling." },
+      { "id": "c", "en": "Retail sector, property owners, and aesthetic improvement of the urban area." },
+      { "id": "d", "en": "Creation of a digital identity to integrate all actors." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "The effectiveness of a CCN over time depends, among other things, on:",
+    "options": [
+      { "id": "a", "en": "Sharing a common strategy and implementing a single integrated collective activity among all actors managed by TCM managers." },
+      { "id": "b", "en": "Developing the knowledge of the private actors involved to speed up operational decisions." },
+      { "id": "c", "en": "Categorical exclusion of public bodies to avoid the delays of administrative bureaucracy." },
+      { "id": "d", "en": "Sharing a common vision and mutual long-term cooperation among actors." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "What is meant by \"intentional observer\" in the context of perceiving complexity?",
+    "options": [
+      { "id": "a", "en": "One who studies the territory-place system and observes SWOT dynamics." },
+      { "id": "b", "en": "One who perceives and analyzes the system by coming into contact with it according to a specific perspective." },
+      { "id": "c", "en": "The policy maker presenting a top-down vision." },
+      { "id": "d", "en": "A passive user who receives the territorial value proposition without contributing to its evolution." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "What is the difference between \"Place Image\" and \"Place Brand\" according to Kavaratzis?",
+    "options": [
+      { "id": "a", "en": "The image is the mental perception of users; the brand includes relationships and strategic actions." },
+      { "id": "b", "en": "There is no conceptual or operational difference, they are interchangeable commercial synonyms." },
+      { "id": "c", "en": "The image is managed by the central State, the brand is created exclusively by private consortia." },
+      { "id": "d", "en": "The image concerns foreign tourists, the brand targets local residents." }
+    ],
+    "correct": "a"
+  }
+]

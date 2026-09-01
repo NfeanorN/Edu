@@ -1,0 +1,196 @@
+[
+  {
+    "en": "According to Le Moigne (1985), how should the \"complexity\" of a system be understood?",
+    "options": [
+      { "id": "a", "en": "As a series of structural complications solvable through linear planning." },
+      { "id": "b", "en": "As a property of the system whose behaviors are not all pre-determinable by the observer." },
+      { "id": "c", "en": "As the absence of shared rules and norms within a local government system." },
+      { "id": "d", "en": "As the dynamics of entropy that inevitably leads to the collapse of relations between actors." }
+    ],
+    "correct": "b",
+    "explain": "Complexity = not everything is predictable from the observer's viewpoint (Le Moigne)."
+  },
+  {
+    "en": "What is the mission of \"Onplace Universities\" in the post-pandemic period?",
+    "options": [
+      { "id": "a", "en": "To transform into purely digital universities to reduce fixed costs." },
+      { "id": "b", "en": "To prohibit the use of the internet to recover the tradition of classical teaching." },
+      { "id": "c", "en": "To integrate online activities with the real experience of the place and social life." },
+      { "id": "d", "en": "To compete with foreign universities exclusively on the price of tuition fees." }
+    ],
+    "correct": "c",
+    "explain": "Onplace = onlife/onplace: digital + physical place experience together."
+  },
+  {
+    "en": "A \"Natural Shopping Center\" (CCN - Centro Commerciale Naturale) is defined as:",
+    "options": [
+      { "id": "a", "en": "A modern architectural structure built with biocompaticle materials." },
+      { "id": "b", "en": "A consumer association dedicated exclusively to the bartering of goods." },
+      { "id": "c", "en": "A disused industrial area converted into a natural theme park." },
+      { "id": "d", "en": "A group of commercial activities spontaneously organized in historical centers or neighborhoods." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "Why did the \"Belgrade Waterfront\" project generate protests among citizens?",
+    "options": [
+      { "id": "a", "en": "Because housing prices were too low compared to the market." },
+      { "id": "b", "en": "Due to the lack of dialogue with the community and the unshared skyline impact." },
+      { "id": "c", "en": "Because it used too much onlife digital technology." },
+      { "id": "d", "en": "Because it was realized entirely with public funds without involving private entities." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "Why can the \"Passage of Time\" reduce the effectiveness of a project?",
+    "options": [
+      { "id": "a", "en": "Because initial goals can become obsolete if they are not constantly adapted." },
+      { "id": "b", "en": "Because buildings age and fall apart." },
+      { "id": "c", "en": "Because citizens lose memory of the benefits received in the past." },
+      { "id": "d", "en": "Because national laws change every 15 days." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "Using Cresswell's metaphor, with which concept is \"Place\" associated?",
+    "options": [
+      { "id": "a", "en": "With the \"House\", understood as the physical and objective structure of the territory." },
+      { "id": "b", "en": "With the \"Servicescape\", understood as the setting for the delivery of material services." },
+      { "id": "c", "en": "With the \"Home\", understood as a lived space, dense with meanings and bonds." },
+      { "id": "d", "en": "With the \"District\", understood as an industrial agglomeration devoid of social connotation." }
+    ],
+    "correct": "c",
+    "explain": "Territory = house (map); Place = home (meaning, lived experience)."
+  },
+  {
+    "en": "A territorial strategy that presents \"Strategy + Substance - Symbolic actions\" results as:",
+    "options": [
+      { "id": "a", "en": "Anonymous, because it lacks actions capable of capturing user attention." },
+      { "id": "b", "en": "Incoherent, because it is devoid of a long-term vision." },
+      { "id": "c", "en": "Winning, because substance is the only element that matters for the market." },
+      { "id": "d", "en": "Propaganda, because it is based only on unfulfilled promises." }
+    ],
+    "correct": "a",
+    "explain": "Strategy + substance without symbolic communication stays invisible (anonymous)."
+  },
+  {
+    "en": "What does \"Self-funding\" mean for a CCN project?",
+    "options": [
+      { "id": "a", "en": "Waiting for the State to send the necessary funds." },
+      { "id": "b", "en": "Generating own revenues through events, sponsorships, or value-added services." },
+      { "id": "c", "en": "Asking for a non-repayable loan from a foreign bank." },
+      { "id": "d", "en": "Selling the artistic heritage of the city to the highest bidder." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "Which of the following factors is identified as a \"change-generating force\"?",
+    "options": [
+      { "id": "a", "en": "The stability of bureaucratic and jurisdictional boundaries." },
+      { "id": "b", "en": "The reduction of migratory flows and technological decrease." },
+      { "id": "c", "en": "The diffusion of knowledge and the use of data (Big Data)." },
+      { "id": "d", "en": "The maintenance of traditional transactional marketing approaches." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "\"Demand-driven\" Place Marketing (second perspective) is characterized by:",
+    "options": [
+      { "id": "a", "en": "The centrality of co-creation and the win-win approach." },
+      { "id": "b", "en": "The management of the territory as a common good without market objectives." },
+      { "id": "c", "en": "The total absence of territorial economic competitiveness goals." },
+      { "id": "d", "en": "The generation of value by the government to satisfy a specific demand." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "What does the example of the Emilian \"Food Valley\" teach about the coexistence of systems?",
+    "options": [
+      { "id": "a", "en": "That different Places and Systems can coexist on the same physical base (territory)." },
+      { "id": "b", "en": "That a territory can host only one value system at a time." },
+      { "id": "c", "en": "That quality agriculture prevents the development of the automotive industry." },
+      { "id": "d", "en": "That territorial marketing must always unify all sectors under a single logo." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "The UK's TCM model (ATCM) is based on a partnership that aims to:",
+    "options": [
+      { "id": "a", "en": "Completely privatize public areas to increase efficiency." },
+      { "id": "b", "en": "Ban online commerce to protect traditional physical shops." },
+      { "id": "c", "en": "Make urban centers desirable and competitive places through cooperation." },
+      { "id": "d", "en": "Transform historical centers into open-air museums without productive activities." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "According to the Place Marketing Manifesto, the discipline must be:",
+    "options": [
+      { "id": "a", "en": "A magical art based on the leader's intuition." },
+      { "id": "b", "en": "A branch of architecture that deals only with urban aesthetics." },
+      { "id": "c", "en": "A technique of political propaganda to manipulate consensus." },
+      { "id": "d", "en": "A scientific discipline based on managerial processes and market orientation." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "What is meant by \"Authenticity\" in the development of a place's brand?",
+    "options": [
+      { "id": "a", "en": "The involvement of stakeholders in identifying real identity traits." },
+      { "id": "b", "en": "The creation of an invented historical legend to attract visitors." },
+      { "id": "c", "en": "The legal certification of local gastronomic products by the EU." },
+      { "id": "d", "en": "Architectural restoration that eliminates any trace of the past." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "What characterizes Quadrant \"a\" of the matrix \"Relation among technology-knowledge-information diffusion and actors engagement\"?",
+    "options": [
+      { "id": "a", "en": "A strong identification of stakeholders with the territorial project." },
+      { "id": "b", "en": "A management based exclusively on the primary needs of residents." },
+      { "id": "c", "en": "The use of technology to communicate in a single direction with low involvement." },
+      { "id": "d", "en": "The absolute lack of any digital infrastructure in the territory." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "Place Marketing is defined as a \"Social Process\" because:",
+    "options": [
+      { "id": "a", "en": "It takes place exclusively during local festivals and village fairs." },
+      { "id": "b", "en": "It is regulated by laws on social services and assistance to the elderly." },
+      { "id": "c", "en": "It requires the mandatory use of social networks for every communication." },
+      { "id": "d", "en": "It aims at collective well-being through interaction among members of society." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "In \"Onlife Universities\", the choice of software must be based on:",
+    "options": [
+      { "id": "a", "en": "Ease of use (user-friendly) and the capacity to include people and share data." },
+      { "id": "b", "en": "Exclusively the lowest economic cost for the administration." },
+      { "id": "c", "en": "Technical complexity to exclude non-experts from the educational process." },
+      { "id": "d", "en": "The exclusive ownership of the source code by the rectorate." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "In the matrix \"Relation among technology-knowledge-information diffusion and actors engagement\", the quadrant \"e\" (Low technology and Low relationship) exposes the territory to:",
+    "options": [
+      { "id": "a", "en": "Excessive democratic participation that blocks decisions." },
+      { "id": "b", "en": "Risk of resource exploitation by unregulated external actions." },
+      { "id": "c", "en": "Economic growth that is too rapid compared to the system's capacities." },
+      { "id": "d", "en": "An effective protection of local traditions through isolation." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "In the matrix \"Relation among technology-knowledge-information diffusion and actors engagement\", what characterizes Quadrant \"b\" (Medium technology, Medium relationship)?",
+    "options": [
+      { "id": "a", "en": "An advanced smart city based on co-creation." },
+      { "id": "b", "en": "The total absence of any form of territorial marketing." },
+      { "id": "c", "en": "A technological dictatorship that ignores the needs of residents." },
+      { "id": "d", "en": "A Demand-driven approach focused on satisfying a specific target." }
+    ],
+    "correct": "d"
+  }
+]

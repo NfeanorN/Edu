@@ -1,12 +1,453 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0;url=/Edu/">
-  <title>Unavailable</title>
-  <script>location.replace("/Edu/");</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Place Marketing — Exam</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back { margin-bottom: 1rem; }
+    .back a { color: #2980b9; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #2980b9;
+      padding-bottom: 12px;
+      font-size: 1.75rem;
+    }
+    .sub { color: #555; margin: 0.5rem 0 1.5rem; }
+    .rules {
+      background: #fff;
+      border-left: 4px solid #2980b9;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .section-title {
+      font-size: 1.15rem;
+      color: #2980b9;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+    .q {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      border: 1px solid #e8ecf1;
+    }
+    .q.unanswered { border-color: #e74c3c; }
+    .q.correct { border-color: #27ae60; background: #f6fff9; }
+    .q.wrong { border-color: #e74c3c; background: #fff8f8; }
+    .q-num { font-weight: 700; color: #2980b9; margin-bottom: 0.35rem; }
+    .q-en { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    
+    .opts { display: grid; gap: 0.45rem; }
+    label.opt {
+      display: flex;
+      gap: 0.55rem;
+      align-items: flex-start;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    label.opt:hover { background: #eef4fa; }
+  .result-opt { cursor: default; }
+    label.opt input { margin-top: 0.25rem; flex-shrink: 0; }
+    .opt-en { font-size: 0.95rem; }
+    
+    .feedback {
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #e8f8ef; color: #1e7e45; }
+    .feedback.bad { background: #fdecea; color: #c0392b; }
+    .open-block {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .open-block textarea {
+      width: 100%;
+      min-height: 120px;
+      margin-top: 0.5rem;
+      padding: 0.65rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    .sample {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: #eef5fc;
+      border-radius: 8px;
+      border-left: 3px solid #2980b9;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+    }
+    .matrix-wrap { overflow-x: auto; margin: 1rem 0; }
+    table.matrix {
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0 auto;
+    }
+    table.matrix th, table.matrix td {
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      text-align: center;
+    }
+    table.matrix th { background: #2980b9; color: #fff; }
+    .actions {
+      position: sticky;
+      bottom: 0;
+      background: rgba(245,247,250,.95);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    button {
+      background: #2980b9;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #1f6dad; }
+    button.secondary {
+      background: #fff;
+      color: #2980b9;
+      border: 2px solid #2980b9;
+    }
+    #results {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border: 2px solid #2980b9;
+    }
+    #results.visible { display: block; }
+    .score { font-size: 1.35rem; font-weight: 700; color: #2c3e50; }
+    .score-detail { color: #555; margin-top: 0.35rem; }
+    .warn { color: #e74c3c; font-weight: 600; margin-top: 0.5rem; }
+    mark.correct-mark { background: #d5f5e3; padding: 0 4px; border-radius: 3px; }
+    mark.wrong-mark { background: #fadbd8; padding: 0 4px; border-radius: 3px; }
+    .explain { margin-top: 0.5rem; font-size: 0.88rem; opacity: 0.95; }
+    .answer-box {
+      margin-top: 0.85rem;
+      padding: 0.9rem 1rem;
+      background: #eef5fc;
+      border-radius: 8px;
+      border-left: 4px solid #2980b9;
+    }
+    .answer-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #2980b9;
+      margin-bottom: 0.5rem;
+    }
+    .answer-en { font-size: 0.95rem; white-space: pre-wrap; line-height: 1.55; }
+    
+    .practice-note {
+      margin-top: 0.75rem;
+      font-size: 0.88rem;
+      color: #666;
+    }
+    .practice-note summary {
+      cursor: pointer;
+      color: #2980b9;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .practice-note textarea {
+      width: 100%;
+      min-height: 88px;
+      margin-top: 0.35rem;
+      padding: 0.65rem;
+      border: 1px dashed #c5d4e3;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      resize: vertical;
+      background: #fafbfc;
+    }
+  </style>
 </head>
 <body>
-  <p>This section is temporarily unavailable. <a href="/Edu/">Back to Edu</a>.</p>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← All variants</a> · <a href="../index.html">Edu materials</a></p>
+    <h1>Place Marketing — Exam</h1>
+    <p class="sub">19 MCQ · Univ. Cassino</p>
+    <div class="rules"><strong>Place Marketing Exam</strong> — Part I: 19 MCQ (1 mark each). Click <em>Check answers</em> to score.</div>
+    <form id="test-form">
+      <div id="questions"></div>
+      
+      <div class="actions">
+        <button type="submit">Check answers</button>
+        <button type="button" class="secondary" id="reset-btn">Reset</button>
+      </div>
+    </form>
+    <div id="results">
+      <div class="score" id="score-text"></div>
+      <p class="score-detail" id="score-detail"></p>
+      <p class="warn" id="warn-text" hidden></p>
+    </div>
+  </div>
+  <script>
+    const SCORING = {"correct":1,"wrong":0,"max":19};
+    const QUESTIONS = [{"num":1,"id":"q1","en":"What does it mean to be an \"intentional observer\" in the context of perceiving complexity?","options":[{"id":"a","en":"One who perceives and analyzes the system by coming into contact with it from a specific perspective."},{"id":"b","en":"A data analysis software that monitors tourist flows in an automated way."},{"id":"c","en":"The policy maker who imposes a top-down vision without consulting stakeholders."},{"id":"d","en":"A passive user who receives the value proposition without contributing to its definition."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":2,"id":"q2","en":"What is the difference between \"Place Image\" and \"Place Brand\" according to Kavaratzis?","options":[{"id":"a","en":"There is no difference; they are interchangeable synonyms."},{"id":"b","en":"Image is the mental perception of users; the brand includes relationships and strategic actions."},{"id":"c","en":"Image is managed by the State, the brand is created exclusively by private entities."},{"id":"d","en":"Image concerns tourists, the brand concerns only local residents."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":3,"id":"q3","en":"The local government as a \"Movie Director\" must:","options":[{"id":"a","en":"Control every single word spoken by citizens."},{"id":"b","en":"Replace local inhabitants with professional actors for promotional videos."},{"id":"c","en":"Exclusively produce documentaries on the ancient history of the place."},{"id":"d","en":"Encourage actors to suggest ideas and projects aligned with the general strategy."}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)"},{"num":4,"id":"q4","en":"Why does territorial innovation require \"Inclusion\"?","options":[{"id":"a","en":"Because true innovation does not exist without the active participation of the system of actors."},{"id":"b","en":"Because it is a legal requirement imposed by European Commission directives."},{"id":"c","en":"To artificially increase the number of participants at technical roundtables."},{"id":"d","en":"To reduce the decision-making power of marketing experts in favor of the crowd."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":5,"id":"q5","en":"The role of the University in a place strategy is that of:","options":[{"id":"a","en":"A simple provider of degrees detached from the real economy."},{"id":"b","en":"A catalyst and provider of value through the dissemination of knowledge and projects."},{"id":"c","en":"A censorship body for residents' critical opinions toward the government."},{"id":"d","en":"A purely theoretical entity that must remain isolated from market dynamics."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":6,"id":"q6","en":"What is meant by \"Place Brand Equity\"?","options":[{"id":"a","en":"The asset value of historical buildings located in the city center."},{"id":"b","en":"The net profit generated by the commercial activities of a Natural Shopping Center."},{"id":"c","en":"The systematic result of the place's image and identity in the minds of stakeholders."},{"id":"d","en":"The number of annual visitors multiplied by the average per capita expenditure."}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)"},{"num":7,"id":"q7","en":"The concept of \"Mutuality\" implies that actors:","options":[{"id":"a","en":"Are all related to one another."},{"id":"b","en":"Are obliged to sign a financial mutual assistance contract."},{"id":"c","en":"All have the same income and education level."},{"id":"d","en":"Work for a common ultimate purpose, sharing expectations and results."}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)"},{"num":8,"id":"q8","en":"The \"Placement\" lever in place marketing concerns:","options":[{"id":"a","en":"The delivery channels of place marketing communication."},{"id":"b","en":"The positioning of the place marketing strategy."},{"id":"c","en":"The spatial context where the user recognizes and enjoys the value proposition."},{"id":"d","en":"A strategic element of the marketing plan."}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)"},{"num":9,"id":"q9","en":"The \"PESTEL\" analysis in the marketing plan serves to monitor:","options":[{"id":"a","en":"Elements of the marketing microenvironment."},{"id":"b","en":"Direct competition between two commercial businesses on the same street."},{"id":"c","en":"The level of street cleanliness and maintenance of public gardens."},{"id":"d","en":"External Political, Economic, Social, Technological, Environmental, and Legal factors."}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)"},{"num":10,"id":"q10","en":"What is the primary purpose of Town Centre Management (TCM) schemes?","options":[{"id":"a","en":"To revitalize city centers through public-private partnerships."},{"id":"b","en":"To shift downtown commerce toward large shopping malls outside the city."},{"id":"c","en":"To eliminate the presence of independent shops in favor of an association."},{"id":"d","en":"To limit the installation of shopping centers in the city center."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":11,"id":"q11","en":"\"Big Data\" in place marketing are useful because:","options":[{"id":"a","en":"They allow collecting information for the management of the municipality's strategy."},{"id":"b","en":"They improve the understanding of social dynamics and markets through flow analysis."},{"id":"c","en":"They reduce the need to interact with the real population."},{"id":"d","en":"They allow automating completely the creation of the Place Image."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":12,"id":"q12","en":"What is the role of \"Nudges\" (gentle pushes) according to the sources?","options":[{"id":"a","en":"Non-monetary sanctions for those who do not respect the environment."},{"id":"b","en":"Orders issued by the municipality in relation to TCM."},{"id":"c","en":"Small informational stimuli to guide citizens toward virtuous and conscious behaviors."},{"id":"d","en":"Advertising to attract tourists."}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)"},{"num":13,"id":"q13","en":"An \"Adaptive\" system in territorial marketing is a system that:","options":[{"id":"a","en":"Refuses to change to keep its historical image unaltered."},{"id":"b","en":"Changes strategy every day based on feedback from social networks."},{"id":"c","en":"Is imposed by the central government without direct local consultation."},{"id":"d","en":"Follows rules shared by stakeholders to respond to environmental changes."}],"correct":"d","section":"Part I — Multiple Choice (1 mark each)"},{"num":14,"id":"q14","en":"In a marketing plan for a CCN, the \"Safety\" lever is measured through:","options":[{"id":"a","en":"The reduction of real crime and the improvement of users' perception of protection."},{"id":"b","en":"It is a KPI and indicates the number of fines issued by the municipal police for parking violations."},{"id":"c","en":"The number of surveillance interventions arranged during the year."},{"id":"d","en":"The response speed of local police in the city."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":15,"id":"q15","en":"In a \"Smart City\", technology must be understood as:","options":[{"id":"a","en":"An ultimate goal of urban development to which privacy is sacrificed."},{"id":"b","en":"A tool to optimize the co-creation of value and the well-being of citizens."},{"id":"c","en":"An incidental cost to be eliminated to balance the municipal budget."},{"id":"d","en":"A substitute for human skills in the political decision process."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":16,"id":"q16","en":"In the \"movie director\" governance model, the role of government is:","options":[{"id":"a","en":"To write the strategy and objectives and suggest actions to the actors."},{"id":"b","en":"To passively monitor markets without intervening in the strategy."},{"id":"c","en":"To encourage actors to integrate knowledge for a common ultimate purpose."},{"id":"d","en":"To manage the legal and bureaucratic aspects of the territory."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":17,"id":"q17","en":"\"Co-production\" differs from \"co-creation\" because:","options":[{"id":"a","en":"It only concerns the experiential value-in-use of the final user."},{"id":"b","en":"It implies the direct participation of the customer in the design or realization of the offering."},{"id":"c","en":"It is a process that partially excludes the public administration."},{"id":"d","en":"It applies exclusively to services in the city."}],"correct":"b","section":"Part I — Multiple Choice (1 mark each)"},{"num":18,"id":"q18","en":"The urban \"Servicescape\" concept problematizes the city as:","options":[{"id":"a","en":"A setting where the interaction among actors creates and perceives the service offering."},{"id":"b","en":"A context in which the services of the city develop."},{"id":"c","en":"A non-place devoid of identity and meaningful social relationships."},{"id":"d","en":"An administrative structure aimed at managing public services."}],"correct":"a","section":"Part I — Multiple Choice (1 mark each)"},{"num":19,"id":"q19","en":"\"Change Aversion\" can be overcome through:","options":[{"id":"a","en":"Limits generated by those who hinder development."},{"id":"b","en":"Proposing the replacement of downtown entrepreneurs not aligned with TCM."},{"id":"c","en":"The dissemination of knowledge and the involvement of stakeholders in the design process."},{"id":"d","en":"The total elimination of every existing rule in the territory."}],"correct":"c","section":"Part I — Multiple Choice (1 mark each)"}];
+    const OPEN_ITEMS = [];
+    const SNA_ITEMS = [];
+
+    const form = document.getElementById('test-form');
+    const container = document.getElementById('questions');
+    const resultsBox = document.getElementById('results');
+
+    function renderQuestions() {
+      container.innerHTML = '';
+      let currentSection = '';
+      QUESTIONS.forEach((q) => {
+        if (q.section && q.section !== currentSection) {
+          currentSection = q.section;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = q.section;
+          container.appendChild(h);
+        }
+        const card = document.createElement('div');
+        card.className = 'q';
+        card.dataset.id = q.id;
+        card.innerHTML = `
+          <div class="q-num">Question ${q.num}</div>
+          <div class="q-en">${q.en}</div>
+          <div class="opts">
+            ${q.options.map(o => `
+              <label class="opt">
+                <input type="radio" name="${q.id}" value="${o.id}" />
+                <span>
+                  <div class="opt-en"><strong>${o.id.toUpperCase()})</strong> ${o.en}</div>
+                </span>
+              </label>`).join('')}
+          </div>
+          <div class="feedback" hidden></div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function renderOpen() {
+      if (!OPEN_ITEMS.length) return;
+      let currentPart = '';
+      OPEN_ITEMS.forEach((item, idx) => {
+        const part = item.part || 'II';
+        if (part !== currentPart) {
+          currentPart = part;
+          const h = document.createElement('div');
+          h.className = 'section-title';
+          h.textContent = part === 'III'
+            ? 'Part III — Brief Answers (5 marks) / Развёрнутые ответы'
+            : 'Part II — Brief Answers (3 marks) / Краткие ответы';
+          container.appendChild(h);
+        }
+        const ansEn = item.sample_en || '';
+        const ansRu = item.sample_ru || '';
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-num">${item.label ? part + ' ' + item.label : item.title_ru}</div>
+          <div class="q-en">${item.en}</div>
+          <div class="q-ru">${item.ru}</div>
+          <div class="answer-box">
+            <div class="answer-label">Sample answer / Эталонный ответ</div>
+            ${ansEn ? `<div class="answer-en">${ansEn}</div>` : ''}
+            ${ansRu ? `<div class="answer-ru">${ansRu}</div>` : ''}
+          </div>
+          <details class="practice-note">
+            <summary>Write your own answer / Свой ответ (optional)</summary>
+            <textarea name="open_${idx}" rows="4" placeholder="Compare with the sample above / Сравните с эталоном"></textarea>
+          </details>`;
+        container.appendChild(block);
+      });
+    }
+
+    function renderSna() {
+      if (!SNA_ITEMS.length) return;
+      const h = document.createElement('div');
+      h.className = 'section-title';
+      h.textContent = 'SNA — расчёты';
+      container.appendChild(h);
+      SNA_ITEMS.forEach((item, idx) => {
+        const block = document.createElement('div');
+        block.className = 'open-block';
+        block.innerHTML = `
+          <div class="q-ru">${item.ru}</div>
+          <div class="q-en">${item.en}</div>
+          <input type="text" name="sna_${idx}" style="width:100%;padding:0.65rem;border:1px solid #ddd;border-radius:8px;margin-top:0.5rem;" placeholder="Ваш ответ..." />
+          <div class="feedback" hidden></div>`;
+        block.dataset.expected = item.expected;
+        block.dataset.accept = JSON.stringify(item.accept || []);
+        container.appendChild(block);
+      });
+    }
+
+    function normalize(val) {
+      return String(val || '').trim().toLowerCase().replace(/\\s+/g, ' ');
+    }
+
+    function checkSnaAnswer(expected, accept, user) {
+      const n = normalize(user);
+      if (!n) return null;
+      const variants = [expected, ...(accept || [])].map(normalize);
+      return variants.some(v => n === v || n.includes(v) || v.includes(n));
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let unanswered = 0;
+      let correct = 0;
+      let wrong = 0;
+      const warnEl = document.getElementById('warn-text');
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        card.classList.remove('unanswered', 'correct', 'wrong');
+        const fb = card.querySelector('.feedback');
+        fb.hidden = true;
+        fb.textContent = '';
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          lbl.classList.remove('result-opt');
+          lbl.style.background = '';
+          lbl.querySelector('input').disabled = false;
+        });
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+        }
+      });
+
+      if (unanswered > 0) {
+        resultsBox.classList.remove('visible');
+        warnEl.hidden = false;
+        warnEl.textContent = `Answer all multiple-choice questions (${unanswered} unanswered).`;
+        const first = container.querySelector('.q.unanswered');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      warnEl.hidden = true;
+
+      QUESTIONS.forEach((q) => {
+        const card = container.querySelector(`[data-id="${q.id}"]`);
+        const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+        const fb = card.querySelector('.feedback');
+        fb.hidden = false;
+        card.classList.remove('unanswered', 'correct', 'wrong');
+
+        if (!selected) {
+          unanswered++;
+          card.classList.add('unanswered');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ No answer selected. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+          return;
+        }
+
+        const ok = selected.value === q.correct;
+        if (ok) {
+          correct++;
+          card.classList.add('correct');
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
+        } else {
+          wrong++;
+          card.classList.add('wrong');
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Wrong. Your answer: <mark class="wrong-mark">' + selected.value.toUpperCase() +
+            '</mark>. Correct: <mark class="correct-mark">' + q.correct.toUpperCase() + '</mark>';
+        }
+
+        card.querySelectorAll('label.opt').forEach((lbl) => {
+          const inp = lbl.querySelector('input');
+          lbl.classList.add('result-opt');
+          if (inp.value === q.correct) lbl.style.background = '#e8f8ef';
+          if (inp.checked && inp.value !== q.correct) lbl.style.background = '#fdecea';
+          inp.disabled = true;
+        });
+      });
+
+            container.querySelectorAll('.open-block .feedback').forEach((fb, i) => {
+        const block = fb.closest('.open-block');
+        if (!block.dataset.expected) return;
+        const inp = block.querySelector('input');
+        const ok = checkSnaAnswer(block.dataset.expected, JSON.parse(block.dataset.accept || '[]'), inp.value);
+        fb.hidden = false;
+        if (ok === null) {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '⚠️ Empty answer. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        } else if (ok) {
+          fb.className = 'feedback ok';
+          fb.innerHTML = '✓ Correct' + (q.explain ? '<div class="explain">' + q.explain + '</div>' : '');
+        } else {
+          fb.className = 'feedback bad';
+          fb.innerHTML = '✗ Wrong. Expected: <mark class="correct-mark">' + block.dataset.expected + '</mark>';
+        }
+      });
+
+      const total = QUESTIONS.length;
+      let score = correct * SCORING.correct + wrong * SCORING.wrong;
+      if (SCORING.max !== null) score = Math.max(0, Math.min(SCORING.max, score));
+
+      document.getElementById('score-text').textContent =
+        `Score: ${correct} of ${total} (${Math.round(correct/total*100)}%)`;
+      document.getElementById('score-detail').textContent =
+        SCORING.correct !== 1 || SCORING.wrong !== 0
+          ? `Points: ${score.toFixed(1)} · Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`
+          : `Correct: ${correct} · Wrong: ${wrong} · Unanswered: ${unanswered}`;
+
+      resultsBox.classList.add('visible');
+      resultsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+      form.reset();
+      resultsBox.classList.remove('visible');
+      document.getElementById('warn-text').hidden = true;
+      renderQuestions();
+      renderOpen();
+      renderSna();
+      
+    });
+
+    renderQuestions();
+    renderOpen();
+    renderSna();
+    
+  </script>
 </body>
 </html>

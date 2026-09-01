@@ -1,0 +1,213 @@
+[
+  {
+    "en": "What does it mean that value in a Place has \"no sign\"?",
+    "ru": "Что значит, что ценность Place «не имеет знака»?",
+    "options": [
+      { "id": "a", "en": "That the value is zero or null if everyone contributes.", "ru": "Что ценность равна нулю, если все вносят вклад." },
+      { "id": "b", "en": "That there are no indications on how to understand value.", "ru": "Что нет указаний, как понимать ценность." },
+      { "id": "c", "en": "That its valence (positive or negative) depends on the subjective experience of the user.", "ru": "Что её валентность (+/−) зависит от субъективного опыта пользователя." },
+      { "id": "d", "en": "That the government has decided not to give clear indications on the strategy.", "ru": "Что правительство решило не давать ясных указаний по стратегии." }
+    ],
+    "correct": "c",
+    "explain": "Place value has no fixed sign — users may perceive it as positive or negative."
+  },
+  {
+    "en": "In the \"Product\" lever, the \"Place Value Proposition\" is defined as:",
+    "ru": "В рычаге Product «Place Value Proposition» — это:",
+    "options": [
+      { "id": "a", "en": "A system of physical elements representing the value of the place.", "ru": "Система физических элементов, выражающих ценность места." },
+      { "id": "b", "en": "A package of benefits and solutions that the place-system intends to offer to users.", "ru": "Пакет выгод и решений, который place-система предлагает пользователям." },
+      { "id": "c", "en": "The sum of all tangible elements of the place.", "ru": "Сумма всех tangible элементов места." },
+      { "id": "d", "en": "The intangible elements of the place.", "ru": "Intangible элементы места." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "What happens in an \"Overtourism\" situation?",
+    "ru": "Что происходит при overtourism?",
+    "options": [
+      { "id": "a", "en": "Excessive tourism degrades resources and limits the quality of life of residents.", "ru": "Избыточный туризм портит ресурсы и ухудшает качество жизни жителей." },
+      { "id": "b", "en": "The place marketing plan reaches the maximum success foreseen by the budget.", "ru": "План place marketing достигает максимума успеха по бюджету." },
+      { "id": "c", "en": "Numerous opportunities that come from a correct tourist strategy.", "ru": "Много возможностей от правильной туристической стратегии." },
+      { "id": "d", "en": "The territory receives funding to build tourist opportunities.", "ru": "Территория получает финансирование на туристические проекты." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "What is a crucial challenge for \"Onplace\" Universities in the New Normal?",
+    "ru": "Ключевой вызов для Onplace Universities в New Normal?",
+    "options": [
+      { "id": "a", "en": "Becoming e-learning centers.", "ru": "Стать центрами e-learning." },
+      { "id": "b", "en": "Using online activity to generate the need to physically experience the local university life.", "ru": "Через online создать потребность физически прожить локальную uni-жизнь." },
+      { "id": "c", "en": "Increasing the presence of new technological infrastructures.", "ru": "Увеличить новые технологические инфраструктуры." },
+      { "id": "d", "en": "Encouraging the presence of students who study online.", "ru": "Поощрять студентов, которые учатся только online." }
+    ],
+    "correct": "b",
+    "explain": "Onplace universities use online to strengthen the desire for on-campus, local experience."
+  },
+  {
+    "en": "How can a museum offer an \"onlife\" experience?",
+    "ru": "Как музей может дать onlife-опыт?",
+    "options": [
+      { "id": "a", "en": "By closing physical rooms and offering virtual tours.", "ru": "Закрыв залы и дав только virtual tours." },
+      { "id": "b", "en": "By integrating human guides with robots that repeat customized information.", "ru": "Соединив гидов с роботами, которые повторяют кастомную информацию." },
+      { "id": "c", "en": "By integrating the use of smartphones inside exhibition areas.", "ru": "Просто разрешив смартфоны в залах." },
+      { "id": "d", "en": "By integrating the physical path with digital contents that enrich the meaning of the visit.", "ru": "Соединив физический маршрут с digital-контентом, обогащающим смысл визита." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "\"Knowledge diffusion\" is the responsibility of the local government because:",
+    "ru": "Knowledge diffusion — ответственность local government, потому что:",
+    "options": [
+      { "id": "a", "en": "It is the only entity that legally possesses the rights to the historical truth of the place.", "ru": "Только оно законно владеет «исторической правдой» места." },
+      { "id": "b", "en": "It creates the pre-conditions so that actors can connect and co-create value.", "ru": "Оно создаёт условия, чтобы actors связывались и co-create value." },
+      { "id": "c", "en": "It serves to explain political choices to the population.", "ru": "Это нужно, чтобы объяснять политические решения населению." },
+      { "id": "d", "en": "It multiplies the dissemination of culture.", "ru": "Оно просто умножает распространение культуры." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "A Place in Quadrant \"d\" has a high level of democracy but suffers from:",
+    "ru": "Place в квадранте d имеет высокий уровень democracy, но страдает от:",
+    "options": [
+      { "id": "a", "en": "Difficulties in evolution and adaptation to new market challenges.", "ru": "Сложностей эволюции и адаптации к новым рыночным вызовам." },
+      { "id": "b", "en": "Lack of dialogue among citizens.", "ru": "Нехватки диалога между гражданами." },
+      { "id": "c", "en": "An excessive exploitation of resources.", "ru": "Чрезмерной эксплуатации ресурсов." },
+      { "id": "d", "en": "An internet connection that is too fast and distracts the inhabitants.", "ru": "Слишком быстрого интернета, отвлекающего жителей." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "The \"Survival\" purpose of a territorial system (VSA) depends on its:",
+    "ru": "Цель Survival территориальной системы (VSA) зависит от:",
+    "options": [
+      { "id": "a", "en": "Amount of capital useful to manage the city's activities.", "ru": "Объёма капитала для управления городом." },
+      { "id": "b", "en": "Ability to maintain the balance between internal variety and external variability.", "ru": "Способности держать баланс внутренней variety и внешней variability." },
+      { "id": "c", "en": "Ability to plan with the collaboration of administrators.", "ru": "Способности планировать вместе с администраторами." },
+      { "id": "d", "en": "Defining strategic objectives.", "ru": "Определения стратегических целей." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "Who are considered the \"primary stakeholders\" of a place?",
+    "ru": "Кто «primary stakeholders» места?",
+    "options": [
+      { "id": "a", "en": "International tourists who contribute to economic development.", "ru": "Международные туристы, дающие экономике." },
+      { "id": "b", "en": "Large multinationals looking for production sites to provide employment.", "ru": "Крупные мультинационалы, ищущие площадки и рабочие места." },
+      { "id": "c", "en": "Residents and citizens who live in the territory daily.", "ru": "Жители / граждане, которые живут на территории каждый день." },
+      { "id": "d", "en": "Rating agencies that assess the financial soundness of the local entity.", "ru": "Рейтинговые агентства, оценивающие финансы локального органа." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "The \"Placement\" (Distribution) lever defines:",
+    "ru": "Рычаг Placement (Distribution) определяет:",
+    "options": [
+      { "id": "a", "en": "The positioning of a website in global search engines.", "ru": "Позиции сайта в поисковиках." },
+      { "id": "b", "en": "The spatial context in which it is possible to enjoy the value proposition.", "ru": "Пространственный контекст, где можно «пользоваться» value proposition." },
+      { "id": "c", "en": "The way shops are organized in the city.", "ru": "Как организованы магазины в городе." },
+      { "id": "d", "en": "The urban organization of TCM.", "ru": "Городскую организацию TCM." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "Caroli's first strategy (1999) foresees:",
+    "ru": "Первая стратегия Caroli (1999) предусматривает:",
+    "options": [
+      { "id": "a", "en": "The abandonment of the current vocation to attract new industrial sectors.", "ru": "Отказ от текущей vocation ради новых промышленных секторов." },
+      { "id": "b", "en": "The optimization of existing resources by reinforcing the current territorial vocation.", "ru": "Оптимизацию существующих ресурсов и усиление текущей territorial vocation." },
+      { "id": "c", "en": "The sale of natural resources to finance local public debt.", "ru": "Продажу природных ресурсов для погашения долга." },
+      { "id": "d", "en": "Encouraging citizens to carry on their traditions.", "ru": "Поощрение граждан хранить традиции." }
+    ],
+    "correct": "b"
+  },
+  {
+    "en": "\"Friction between actors\" occurs when:",
+    "ru": "Friction between actors возникает, когда:",
+    "options": [
+      { "id": "a", "en": "Individual goals are in strong conflict with the ultimate purpose of the place-system.", "ru": "Индивидуальные цели сильно конфликтуют с ultimate purpose place-системы." },
+      { "id": "b", "en": "Two people actively participate in living labs.", "ru": "Два человека активно участвуют в living labs." },
+      { "id": "c", "en": "Living labs do not work.", "ru": "Living labs не работают." },
+      { "id": "d", "en": "Tourists and residents have the same interests.", "ru": "Туристы и жители имеют одинаковые интересы." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "According to the Viable Systems Approach (VSA), a system is \"viable\" if:",
+    "ru": "По VSA система viable, если:",
+    "options": [
+      { "id": "a", "en": "It possesses a high endowment of tangible resources.", "ru": "У неё много tangible ресурсов." },
+      { "id": "b", "en": "It is isolated from global market dynamics to preserve its identity.", "ru": "Она изолирована от мирового рынка, чтобы сохранить identity." },
+      { "id": "c", "en": "It is capable of surviving over time by adapting to changes in the context and environment.", "ru": "Она способна выживать во времени, адаптируясь к изменениям контекста и среды." },
+      { "id": "d", "en": "It possesses a high endowment of intangible resources.", "ru": "У неё много intangible ресурсов." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "What characterizes Quadrant \"b\" (Medium technology, Medium relationship)?",
+    "ru": "Что характеризует квадрант b (Medium tech, Medium relationship)?",
+    "options": [
+      { "id": "a", "en": "A smart city evolving according to value co-creation.", "ru": "Smart city, эволюционирующий через value co-creation." },
+      { "id": "b", "en": "Absence of operational territorial marketing.", "ru": "Отсутствие operational territorial marketing." },
+      { "id": "c", "en": "A Demand-driven approach focused on satisfying a specific target.", "ru": "Demand-driven подход: удовлетворение конкретного target." },
+      { "id": "d", "en": "A technological dictatorship that limits the real needs of residents.", "ru": "Технологическая диктатура, ограничивающая нужды жителей." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "What is the main risk of the presence of \"free-riders\" in a CCN project?",
+    "ru": "Главный риск free-riders в проекте CCN?",
+    "options": [
+      { "id": "a", "en": "The depletion of collective resources due to those who benefit from advantages without contributing.", "ru": "Истощение общих ресурсов теми, кто берёт выгоду, не внося вклад." },
+      { "id": "b", "en": "An excessive increase in commercial competition among shops in the same center.", "ru": "Чрезмерный рост конкуренции между магазинами центра." },
+      { "id": "c", "en": "The closure of small independent shops in favor of extra-urban shopping malls.", "ru": "Закрытие мелких магазинов в пользу загородных моллов." },
+      { "id": "d", "en": "Excessive tax pressure on residential property owners.", "ru": "Чрезмерное налоговое давление на владельцев жилья." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "Why does territorial innovation require \"Inclusion\"?",
+    "ru": "Почему территориальной инновации нужна Inclusion?",
+    "options": [
+      { "id": "a", "en": "Because it is a constraint imposed by the regulations and directives of the European Commission.", "ru": "Потому что так требуют директивы Еврокомиссии." },
+      { "id": "b", "en": "To increase the number of physical participants at technical and political tables.", "ru": "Чтобы увеличить число людей за техническими/политическими столами." },
+      { "id": "c", "en": "Because true innovation does not exist without the active and convinced participation of the system of actors.", "ru": "Потому что настоящей инновации нет без активного участия системы actors." },
+      { "id": "d", "en": "To multiply the decision-making autonomy of primary stakeholders and the government.", "ru": "Чтобы умножить автономию решений stakeholders и правительства." }
+    ],
+    "correct": "c"
+  },
+  {
+    "en": "The role of the University in a place strategy is that of:",
+    "ru": "Роль University в place-стратегии:",
+    "options": [
+      { "id": "a", "en": "Catalyst and provider of knowledge for the application of the marketing framework to marketing management.", "ru": "Катализатор знаний для применения marketing framework к marketing management." },
+      { "id": "b", "en": "Catalyst and provider of knowledge for attracting investments.", "ru": "Катализатор знаний для привлечения инвестиций." },
+      { "id": "c", "en": "Catalyst and provider of knowledge for brand development.", "ru": "Катализатор знаний для развития бренда." },
+      { "id": "d", "en": "Catalyst and provider of value through the dissemination of knowledge, projects, and human capital.", "ru": "Катализатор ценности через распространение знаний, проектов и human capital." }
+    ],
+    "correct": "d"
+  },
+  {
+    "en": "What is meant by \"Place Brand Equity\"?",
+    "ru": "Что такое Place Brand Equity?",
+    "options": [
+      { "id": "a", "en": "The systematic result of the place's image and identity in the minds of stakeholders.", "ru": "Системный результат image и identity места в головах stakeholders." },
+      { "id": "b", "en": "The total equity value expressed in euros of the city's brand.", "ru": "Полная стоимость бренда города в евро." },
+      { "id": "c", "en": "The brand of the natural shopping center born from the TCM model.", "ru": "Бренд natural shopping center из модели TCM." },
+      { "id": "d", "en": "The value of the total visitors to the city center.", "ru": "Ценность всех посетителей центра города." }
+    ],
+    "correct": "a"
+  },
+  {
+    "en": "The concept of \"Mutuality\" implies that actors:",
+    "ru": "Mutuality значит, что actors:",
+    "options": [
+      { "id": "a", "en": "Participate in the co-design of the marketing plan.", "ru": "Участвуют в co-design marketing plan." },
+      { "id": "b", "en": "Help each other to overcome the economic crisis.", "ru": "Помогают друг другу пережить экономический кризис." },
+      { "id": "c", "en": "Work for a common ultimate purpose, sharing expectations, risks, and strategic results.", "ru": "Работают на общую ultimate purpose, деля ожидания, риски и стратегические результаты." },
+      { "id": "d", "en": "All possess the same annual income level and professional qualification.", "ru": "Все имеют одинаковый доход и квалификацию." }
+    ],
+    "correct": "c"
+  }
+]
