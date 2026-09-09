@@ -19,10 +19,15 @@ function stripQuestion(q) {
     num: q.num,
     id: q.id,
     en: q.en,
-    options: q.options.map((o) => ({ id: o.id, en: o.en })),
+    options: q.options.map((o) => {
+      const opt = { id: o.id, en: o.en };
+      if (o.ru) opt.ru = o.ru;
+      return opt;
+    }),
     correct: q.correct,
     section: q.section,
   };
+  if (q.ru) out.ru = q.ru;
   if (q.explain) out.explain = q.explain;
   return out;
 }
@@ -60,10 +65,6 @@ function patchHtml(file, { title, subtitle, rules, back, questions, scoring }) {
   h = h.replace(/const SCORING = [\s\S]*?;/, `const SCORING = ${JSON.stringify(scoring)};`);
   h = h.replace(/const QUESTIONS = \[[\s\S]*?\];/, `const QUESTIONS = ${JSON.stringify(questions)};`);
   h = h.replace(/const OPEN_ITEMS = \[[\s\S]*?\];/, 'const OPEN_ITEMS = [];');
-
-  h = h.replace(/\.q-ru\s*\{[^}]*\}/g, '');
-  h = h.replace(/\.opt-ru\s*\{[^}]*\}/g, '');
-  h = h.replace(/\.answer-ru\s*\{[^}]*\}/g, '');
 
   h = h.replace(/Check answers \/ Проверить/g, 'Check answers');
   h = h.replace(/Reset \/ Сбросить/g, 'Reset');
