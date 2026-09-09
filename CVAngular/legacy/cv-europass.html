@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nurzhan Zhorabayev — CV</title>
+  <style>
+    @page { size: A4; margin: 11mm 12mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: #0a0a0a;
+      background: #fff;
+      font-size: 9.2pt;
+      line-height: 1.38;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: 8px 1fr auto;
+      gap: 0 14px;
+      margin-bottom: 12px;
+      align-items: stretch;
+    }
+    .accent {
+      background: #14b8a6;
+      border-radius: 2px;
+      width: 5px;
+    }
+    .identity { padding: 2px 0 4px; }
+    .name {
+      font-size: 24pt;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      color: #171717;
+    }
+    .headline {
+      margin-top: 5px;
+      font-size: 10pt;
+      font-weight: 600;
+      color: #0f766e;
+    }
+    .tagline {
+      margin-top: 2px;
+      font-size: 8.5pt;
+      color: #737373;
+    }
+    .contact {
+      text-align: right;
+      font-size: 8pt;
+      line-height: 1.5;
+      color: #404040;
+      padding-top: 4px;
+      min-width: 210px;
+    }
+    .contact .k {
+      color: #a3a3a3;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .rule {
+      height: 1px;
+      background: #d4d4d4;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #525252;
+      margin: 10px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #e5e5e5;
+    }
+
+    .summary {
+      color: #262626;
+      font-size: 9.2pt;
+      max-width: 98%;
+    }
+
+    .job {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 0 12px;
+      margin-bottom: 7px;
+    }
+    .dates {
+      font-size: 7.8pt;
+      font-weight: 700;
+      color: #525252;
+      padding-top: 2px;
+    }
+    .job h3 {
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: #171717;
+    }
+    .co {
+      font-size: 8.2pt;
+      margin: 1px 0 2px;
+      color: #0f766e;
+      font-weight: 600;
+    }
+    .co span { color: #737373; font-weight: 500; }
+    ul { padding-left: 15px; margin: 0; }
+    li { margin: 0.5px 0; color: #404040; }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .skill {
+      background: #f0fdfa;
+      color: #115e59;
+      border: 1px solid #99f6e4;
+      font-size: 7.8pt;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.01em;
+    }
+    .skill.soft {
+      background: #fafafa;
+      color: #525252;
+      border: 1px solid #e5e5e5;
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+    }
+    .edu-item { margin-bottom: 5px; }
+    .edu-item b { font-size: 9.5pt; font-weight: 700; }
+    .edu-item .sub { color: #737373; font-size: 8pt; margin-top: 1px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.8pt;
+      margin-top: 3px;
+    }
+    th, td {
+      border: 1px solid #e5e5e5;
+      padding: 4px 5px;
+      text-align: center;
+    }
+    th {
+      background: #f5f5f5;
+      color: #525252;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+    td:first-child, th:first-child { text-align: left; font-weight: 600; }
+    .lvl { color: #0f766e; font-weight: 700; }
+
+    .add p { margin-bottom: 4px; font-size: 8.5pt; }
+    .add b { font-weight: 800; }
+
+    .foot {
+      margin-top: 8px;
+      font-size: 7pt;
+      color: #a3a3a3;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="accent"></div>
+    <div class="identity">
+      <div class="name">Nurzhan Zhorabayev</div>
+      <div class="headline">Frontend Developer</div>
+      <div class="tagline">Angular · React · Vue · Flutter · TypeScript</div>
+    </div>
+    <div class="contact">
+      <div><span class="k">Phone</span><br>+7 747 926-27-53</div>
+      <div style="margin-top:5px"><span class="k">Email</span><br>zhorabayevn@gmail.com</div>
+      <div style="margin-top:5px"><span class="k">Location</span><br>Almaty · Remote EU</div>
+      <div style="margin-top:5px"><span class="k">Links</span><br>github.com/Zhorabayevv<br>linkedin.com/in/nurzhan-zhorabayev</div>
+    </div>
+  </div>
+  <div class="rule"></div>
+
+  <h2>Profile</h2>
+  <p class="summary">
+    Frontend developer with ~5 years shipping SPAs and client apps across Angular, React, Vue and Flutter.
+    Strong in TypeScript/JavaScript, RxJS/NgRx, REST &amp; WebSocket, performance and clean UI architecture —
+    stable delivery with product and backend teams.
+  </p>
+
+  <h2>Work experience</h2>
+
+  <div class="job">
+    <div class="dates">08/2024 – 2026</div>
+    <div>
+      <h3>Frontend Developer</h3>
+      <div class="co">Khan Group <span>· Industrial software · Kazakhstan</span></div>
+      <ul>
+        <li>Owned features &amp; maintenance of multi-module Angular enterprise SPA</li>
+        <li>15+ modules with RxJS/TypeScript; REST integrations; production bugfixes</li>
+        <li>i18n, responsive SCSS, lazy routes, refactoring, code review</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="dates">05/2024 – 08/2024</div>
+    <div>
+      <h3>Frontend Developer</h3>
+      <div class="co">Wisk Telecom Solutions <span>· Telecom · Kazakhstan</span></div>
+      <ul>
+        <li>Built Angular operations SPA from scratch — modular architecture, lazy loading</li>
+        <li>Also worked with Vue and Flutter (Dart) on product UI; REST API, SCSS, peer review</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="dates">03/2023 – 05/2024</div>
+    <div>
+      <h3>Frontend Developer</h3>
+      <div class="co">Steps AI <span>· B2B SaaS · Kazakhstan</span></div>
+      <ul>
+        <li>Angular + NgRx SPA with Material; real-time WebSocket chat &amp; notifications</li>
+        <li>Collaboration with Go/Java backend; Jasmine/Karma tests; production support</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="dates">05/2022 – 03/2023</div>
+    <div>
+      <h3>Frontend Developer</h3>
+      <div class="co">NCRM Group <span>· CRM · Kazakhstan</span></div>
+      <ul>
+        <li>Angular CRM: RxJS, Ng-Zorro, Material, Django REST, i18n, drag-and-drop UI</li>
+        <li>CI/CD participation, production support, code review</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="dates">10/2021 – 04/2022</div>
+    <div>
+      <h3>Frontend Developer · Freelance</h3>
+      <div class="co">Independent <span>· Client SPAs</span></div>
+      <ul>
+        <li>React / Redux SPAs, HTML5/CSS3, REST API integrations</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Technical skills</h2>
+  <div class="skills">
+    <span class="skill">TypeScript</span>
+    <span class="skill">JavaScript</span>
+    <span class="skill">Angular</span>
+    <span class="skill">React</span>
+    <span class="skill">Vue</span>
+    <span class="skill">Flutter</span>
+    <span class="skill">RxJS</span>
+    <span class="skill">NgRx</span>
+    <span class="skill">HTML5 / SCSS</span>
+    <span class="skill">REST</span>
+    <span class="skill">WebSocket</span>
+    <span class="skill">Angular Material</span>
+    <span class="skill">PrimeNG</span>
+    <span class="skill soft">Redux</span>
+    <span class="skill soft">Git / CI/CD</span>
+    <span class="skill soft">Jasmine / Karma</span>
+    <span class="skill soft">Scrum</span>
+  </div>
+
+  <div class="cols">
+    <div>
+      <h2>Education</h2>
+      <div class="job">
+        <div class="dates">09/2019 – 06/2023</div>
+        <div class="edu-item">
+          <b>Bachelor · Information Systems</b>
+          <div class="sub">IITU · Almaty, Kazakhstan · EQF 6</div>
+        </div>
+      </div>
+
+      <h2>Languages · CEFR</h2>
+      <table>
+        <thead>
+          <tr><th>Language</th><th>Listen</th><th>Read</th><th>Spoken</th><th>Write</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Russian / Kazakh</td>
+            <td class="lvl">C2</td><td class="lvl">C2</td><td class="lvl">C2</td><td class="lvl">C2</td>
+          </tr>
+          <tr>
+            <td>English</td>
+            <td class="lvl">B1–B2</td><td class="lvl">B2</td><td class="lvl">B1</td><td class="lvl">B2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="add">
+      <h2>Additional</h2>
+      <p><b>Nationality</b> — Kazakh</p>
+      <p><b>Availability</b> — Remote · full-time</p>
+      <p><b>Focus</b> — Enterprise Angular, UI performance, clean architecture</p>
+      <p><b>Collaboration</b> — Backend (Go/Java), product, design; code reviews</p>
+    </div>
+  </div>
+
+</body>
+</html>

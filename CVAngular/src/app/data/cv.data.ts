@@ -15,13 +15,13 @@ export const CV_PROFILE: CvProfile = {
     {
       icon: '🔗',
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/nurzhan-zhorabayev-224247259?utm_source=share&utm_campaign=share_via&utm_content=profile',
+      href: 'https://www.linkedin.com/in/nurzhan-zhorabayev/',
       external: true,
     },
   ],
   workFormat: 'Remote · Kazakhstan',
   about:
-    'Frontend Developer with 4 years 11 months of commercial frontend experience. Specialized in Angular SPAs with TypeScript, JavaScript, RxJS and NgRx. Built and maintained multi-module enterprise and CRM UIs, integrated REST APIs, wrote unit tests, and improved performance through lazy loading and refactoring. Strong in reusable components, clean code, code review and team delivery of stable product interfaces.',
+    'Frontend Developer with nearly 5 years of commercial experience across Angular, React, Vue and Flutter. Strong in TypeScript/JavaScript, RxJS and NgRx. Built and maintained multi-module enterprise and CRM UIs, integrated REST APIs and WebSockets, wrote unit tests, and improved performance through lazy loading and refactoring. Strong in reusable components, clean code, code review and team delivery of stable product interfaces.',
   experienceLabel: '4 years 11 months',
   jobs: [
     {
@@ -44,6 +44,7 @@ export const CV_PROFILE: CvProfile = {
       context: 'Telecom software · operations SPA built from scratch',
       responsibilities: [
         'Built the Angular SPA of a telecom operations product from scratch with modular architecture.',
+        'Also worked with Vue and Flutter (Dart) on product UI surfaces.',
         'Designed lazy-loaded module structure to reduce initial load time.',
         'Created custom UI components and integrated them with backend REST APIs.',
         'Improved maintainability through SCSS standards, shared patterns and peer code review.',
@@ -87,10 +88,14 @@ export const CV_PROFILE: CvProfile = {
     'JavaScript',
     'TypeScript',
     'Angular',
+    'React',
+    'Vue',
+    'Flutter',
     'Angular Material',
     'PrimeNG',
     'RxJS',
     'NgRx',
+    'Redux',
     'HTML5',
     'CSS3',
     'SCSS',
@@ -105,7 +110,6 @@ export const CV_PROFILE: CvProfile = {
     'CI/CD',
     'Code review',
     'Scrum',
-    'React (secondary)',
   ],
   education: [
     {
