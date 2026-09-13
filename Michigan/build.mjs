@@ -522,7 +522,7 @@ const html = `<!doctype html>
 </head>
 <body>
   <div class="wrap">
-    <p class="back"><a href="../index.html">← Edu materials</a></p>
+    <p class="back"></p>
     <h1>Michigan — Service Marketing</h1>
     <p class="sub">3 variants · 57 MCQ · 1 mark each (19/30)</p>
     <div class="rules"><strong>Exam variants</strong> — one variant per page (19 MCQ). Variant 01: Flower of Service. Variant 02: S-D Logic (Part 2). Variant 03: Service Management Part 1. Use <em>Previous / Next</em>; click <em>Check this page</em> to score.</div>

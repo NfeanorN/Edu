@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <title>Everyday Q&amp;A — Think in English</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Segoe UI", system-ui, sans-serif; line-height: 1.65; margin: 0; padding: 1.5rem 1rem 3rem; color: #1a1a2e; background: #f8fafc; }
+    .wrap { max-width: 880px; margin: 0 auto; }
+    .back a { color: #3498db; text-decoration: none; }
+    h1 { color: #2c3e50; border-bottom: 4px solid #e67e22; padding-bottom: 10px; font-size: 1.65rem; margin: 0.4rem 0; }
+    .lead { color: #555; font-size: 0.95rem; }
+    .lead a { color: #e67e22; }
+    .howto { background: #fff7ed; border-left: 4px solid #e67e22; border-radius: 8px; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.93rem; }
+    .howto ol { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 1rem; position: sticky; top: 0; z-index: 5; background: #f8fafc; padding: 0.55rem 0; }
+    .tab { border: 1px solid #cfd8e3; background: #fff; color: #2c3e50; padding: 8px 14px; border-radius: 999px; cursor: pointer; font-size: 0.86rem; font-family: inherit; }
+    .tab.active { background: #e67e22; border-color: #e67e22; color: #fff; font-weight: 600; }
+    .panel { display: none; } .panel.active { display: block; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 0.9rem; }
+    .btn { background: #fff; color: #e67e22; border: 1px solid #e67e22; padding: 7px 14px; border-radius: 8px; cursor: pointer; font-size: 0.86rem; font-family: inherit; font-weight: 600; }
+    .btn.solid { background: #e67e22; color: #fff; }
+    .btn:hover { background: #fff7ed; } .btn.solid:hover { background: #d35400; }
+    input[type=search], select { padding: 7px 10px; border: 1px solid #cfd8e3; border-radius: 8px; font: inherit; font-size: 0.9rem; }
+    input[type=search] { min-width: 180px; flex: 1; }
+    .count { color: #7f8c8d; font-size: 0.86rem; margin-left: auto; }
+    .pattern, .qa, .chunk, .dlg { background: #fff; border: 1px solid #e6ebf2; border-radius: 10px; padding: 0.95rem 1.1rem; margin: 0.65rem 0; }
+    .pattern h3 { margin: 0 0 0.35rem; font-size: 1.02rem; }
+    .pattern .ex { color: #555; font-size: 0.92rem; margin: 0.3rem 0; }
+    code { background: #f1f5f9; padding: 1px 6px; border-radius: 4px; font-size: 0.9em; }
+    .qa .tag { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #e67e22; background: #fff7ed; padding: 2px 8px; border-radius: 999px; margin-bottom: 0.4rem; }
+    .qa .q { font-weight: 700; color: #1a3a5c; }
+    .qa .a { margin-top: 0.4rem; padding-left: 0.7rem; border-left: 3px solid #e67e22; }
+    .qa .ru { margin-top: 0.5rem; color: #7f8c8d; font-size: 0.88rem; }
+    body.hide-ru .ru { display: none; }
+    .chunk .en { font-weight: 700; color: #1a3a5c; }
+    .chunk .ru { color: #7f8c8d; font-size: 0.9rem; margin-top: 0.2rem; }
+    .dlg h3 { margin: 0 0 0.25rem; font-size: 1.05rem; }
+    .dlg .where { color: #7f8c8d; font-size: 0.85rem; margin-bottom: 0.7rem; }
+    .line { margin: 0.45rem 0; }
+    .who { font-weight: 700; color: #e67e22; margin-right: 6px; }
+    .line.b .who { color: #8e44ad; }
+    .kkline { display: block; margin-left: 1.5rem; color: #7f8c8d; font-size: 0.86rem; }
+    .drill { background: #fff; border-radius: 12px; padding: 1.3rem 1.4rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    .prompt-q { font-size: 1.22rem; font-weight: 700; color: #1a3a5c; margin: 0.5rem 0 1rem; }
+    .hint { color: #7f8c8d; font-size: 0.9rem; }
+    .reveal-box { display: none; background: #eef8f0; border-left: 4px solid #27ae60; border-radius: 8px; padding: 0.9rem 1rem; margin-top: 0.8rem; }
+    .reveal-box.show { display: block; }
+    .reveal-box .label { font-size: 0.72rem; font-weight: 700; color: #1e8449; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.8rem; }
+    .chip { border: 1px solid #dde3ea; background: #fff; padding: 5px 10px; border-radius: 999px; font-size: 0.8rem; cursor: pointer; font-family: inherit; }
+    .chip.on { background: #2c3e50; color: #fff; border-color: #2c3e50; }
+    .stat { background: #fff; border-radius: 10px; padding: 0.8rem 1rem; margin-bottom: 1rem; border: 1px solid #e6ebf2; font-size: 0.92rem; color: #555; }
+    .stat b { color: #2c3e50; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <p class="back"><a href="index.html">← English</a></p>
+  <h1>Everyday Q&amp;A — Think in English</h1>
+  <p class="lead">
+    Повседневный английский: вопросы, ответы, куски речи и диалоги.
+    По видео
+    <a href="https://youtu.be/fz_mi6Pj8bI" target="_blank" rel="noopener">Thinking in English — Everyday Life</a>.
+  </p>
+
+  <div class="howto">
+    <strong>Как учить</strong>
+    <ol>
+      <li>Вопрос → ответь <em>вслух</em> сам.</li>
+      <li>Открой sample answer и сравни.</li>
+      <li>Скажи ответ своими словами про свою жизнь.</li>
+      <li>В «Чанки» учи короткие куски — ими люди реально говорят.</li>
+    </ol>
+  </div>
+
+  <div class="stat" id="statLine"></div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-panel="bank">Банк Q&amp;A</button>
+    <button class="tab" data-panel="drill">Практика</button>
+    <button class="tab" data-panel="chunks">Чанки</button>
+    <button class="tab" data-panel="patterns">Паттерны</button>
+    <button class="tab" data-panel="dialog">Диалог пары</button>
+  </div>
+
+  <div class="panel active" id="bank">
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Поиск: work, dinner, how long…" />
+      <button class="btn" id="toggleRu" type="button">Скрыть перевод</button>
+      <span class="count" id="bankCount"></span>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div id="bankList"></div>
+  </div>
+
+  <div class="panel" id="drill">
+    <div class="drill">
+      <div class="toolbar">
+        <button class="btn solid" id="nextQ" type="button">Следующий</button>
+        <button class="btn" id="showAns" type="button">Показать ответ</button>
+        <select id="drillTag"><option value="all">все темы</option></select>
+        <span class="count" id="drillCount"></span>
+      </div>
+      <p class="hint">Сначала ответь сам, потом открой.</p>
+      <div class="prompt-q" id="drillQ">—</div>
+      <div class="reveal-box" id="reveal">
+        <div class="label">Sample answer</div>
+        <div id="drillA"></div>
+        <div class="ru" id="drillRu" style="margin-top:0.45rem"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="chunks">
+    <p class="lead">Короткие куски — учи целиком, не по словам.</p>
+    <div id="chunkList"></div>
+  </div>
+
+  <div class="panel" id="patterns">
+    <div class="pattern">
+      <h3>1. What would you like…? → I'd like…</h3>
+      <div class="ex"><code>What would you like to eat?</code> → <code>I'd like chicken salad.</code></div>
+      <div class="ex ru">Вежливее, чем I want.</div>
+    </div>
+    <div class="pattern">
+      <h3>2. How long have you been…? → For / Since / About…</h3>
+      <div class="ex"><code>How long have you been learning English?</code> → <code>Since I was eight. / About 2 years.</code></div>
+      <div class="ex ru">Процесс начался в прошлом и всё ещё идёт.</div>
+    </div>
+    <div class="pattern">
+      <h3>3. Have you ever…? → Yes, I have… / No, I haven't…</h3>
+      <div class="ex"><code>Have you ever traveled abroad?</code> → <code>Yes, I have been to Italy.</code></div>
+    </div>
+    <div class="pattern">
+      <h3>4. Would you like to…? → That would be nice. / Sorry, I can't.</h3>
+      <div class="ex"><code>Would you like to have dinner with me?</code> → <code>That would be nice.</code></div>
+    </div>
+    <div class="pattern">
+      <h3>5. What kind / type of…?</h3>
+      <div class="ex"><code>What kind of books are you interested in?</code> → <code>I like fantasy books.</code></div>
+    </div>
+    <div class="pattern">
+      <h3>6. Do you prefer A or B?</h3>
+      <div class="ex"><code>Do you prefer tea or coffee?</code> → <code>I prefer tea.</code></div>
+    </div>
+    <div class="pattern">
+      <h3>7. How often / How many times a week…?</h3>
+      <div class="ex"><code>How often do you exercise?</code> → <code>Three times a week.</code></div>
+    </div>
+    <div class="pattern">
+      <h3>8. Отказ и смягчение</h3>
+      <div class="ex"><code>I'd love to, but I have to finish my work tonight.</code></div>
+      <div class="ex ru">Хотел бы, но… — вежливый отказ.</div>
+    </div>
+  </div>
+
+  <div class="panel" id="dialog">
+    <div class="dlg">
+      <h3>Evening at home</h3>
+      <div class="where">Пара · обычный вечер</div>
+      <div class="line"><span class="who">A:</span> Hey, I'm home. God, I'm exhausted.<span class="kkline ru">Привет, я дома. Я вымотан.</span></div>
+      <div class="line b"><span class="who">S:</span> Rough day?<span class="kkline ru">Тяжёлый день?</span></div>
+      <div class="line"><span class="who">A:</span> Yeah. Meetings back to back. What about you?<span class="kkline ru">Ага. Митинги один за другим. А ты?</span></div>
+      <div class="line b"><span class="who">S:</span> Not bad. Want some tea?<span class="kkline ru">Норм. Хочешь чай?</span></div>
+      <div class="line"><span class="who">A:</span> Please. You're a lifesaver.<span class="kkline ru">Давай. Ты меня спасаешь.</span></div>
+    </div>
+    <div class="dlg">
+      <h3>Dinner plans</h3>
+      <div class="where">Еда · лень vs готовка</div>
+      <div class="line"><span class="who">A:</span> What do you want for dinner?<span class="kkline ru">Что на ужин?</span></div>
+      <div class="line b"><span class="who">S:</span> Something easy. Pasta? Or we could get takeout.<span class="kkline ru">Что попроще. Паста? Или заказ.</span></div>
+      <div class="line"><span class="who">A:</span> We've been ordering too much lately.<span class="kkline ru">Мы слишком часто заказываем.</span></div>
+      <div class="line b"><span class="who">S:</span> Fair enough. You chop, I stir?<span class="kkline ru">Справедливо. Ты режешь, я мешаю?</span></div>
+      <div class="line"><span class="who">A:</span> Deal.<span class="kkline ru">Договорились.</span></div>
+    </div>
+    <div class="dlg">
+      <h3>Weekend plans</h3>
+      <div class="where">Друзья · soft yes</div>
+      <div class="line b"><span class="who">S:</span> Did you see Mike's message about Saturday?<span class="kkline ru">Видел сообщение Майка про субботу?</span></div>
+      <div class="line"><span class="who">A:</span> Yeah. Do we actually want to go?<span class="kkline ru">Ага. Мы реально хотим?</span></div>
+      <div class="line b"><span class="who">S:</span> Kind of. But I also just want to stay in.<span class="kkline ru">Типа да. Но ещё хочется никуда не идти.</span></div>
+      <div class="line"><span class="who">A:</span> Soft yes — if we're tired, we bail.<span class="kkline ru">Мягкое да — если устанем, слиняем.</span></div>
+      <div class="line b"><span class="who">S:</span> Perfect.<span class="kkline ru">Идеально.</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ITEMS = [{"tag":"shop","q":"Is there anything I can do to help?","a":"Everything will be okay, thanks.","ru":"Могу чем-то помочь? — Всё будет ок, спасибо."},{"tag":"daily","q":"What is she doing?","a":"She is sleeping.","ru":"Что она делает? — Она спит."},{"tag":"other","q":"What did you do yesterday?","a":"I went to pay a visit to my grandmother.","ru":"Что делал вчера? — Навестил бабушку."},{"tag":"other","q":"What will you do tomorrow?","a":"I will go to the park with my family.","ru":"Что будешь делать завтра? — Пойду в парк с семьёй."},{"tag":"food","q":"What would you like to eat?","a":"I'd like to eat chicken salad.","ru":"Что бы ты хотел поесть? — Куриный салат."},{"tag":"english","q":"How many languages do you speak?","a":"I speak three languages: French, English, and Spanish.","ru":"Сколько языков знаешь? — Три: французский, английский, испанский."},{"tag":"food","q":"What are you cooking?","a":"I'm cooking ketchup chips.","ru":"Что готовишь? — Чипсы с кетчупом (звучит странно — в видео так)."},{"tag":"shop","q":"Do you need any help?","a":"Yes, I am looking for a new book to read.","ru":"Нужна помощь? — Да, ищу книгу почитать."},{"tag":"hobbies","q":"What kind of books are you interested in?","a":"I like fantasy books. I love Harry Potter.","ru":"Какие книги тебе интересны? — Фэнтези, Гарри Поттер."},{"tag":"hobbies","q":"How many times a week do you exercise?","a":"I exercise four days each week.","ru":"Сколько раз в неделю спорт? — Четыре дня."},{"tag":"other","q":"How much do you weigh?","a":"I think about 185 lbs.","ru":"Сколько весишь? — Около 185 фунтов."},{"tag":"hobbies","q":"Do you often go to a concert?","a":"I don't go often.","ru":"Часто ходишь на концерты? — Нечасто."},{"tag":"shop","q":"When did you buy the car?","a":"This April.","ru":"Когда купил машину? — В этом апреле."},{"tag":"work","q":"How long have you been working?","a":"This will be my 20th year in the business.","ru":"Как давно работаешь? — Уже 20-й год."},{"tag":"other","q":"What are you planning to do today?","a":"I'm not sure yet.","ru":"Что планируешь сегодня? — Пока не уверен."},{"tag":"work","q":"How long have you been unemployed?","a":"It's been 2 months already.","ru":"Как давно без работы? — Уже 2 месяца."},{"tag":"other","q":"Were you busy yesterday?","a":"I was very busy at work and at home.","ru":"Вчера был занят? — Очень: и на работе, и дома."},{"tag":"shop","q":"Can you give me a discount?","a":"I can't go any cheaper than that.","ru":"Можете скидку? — Дешевле не могу."},{"tag":"english","q":"How long have you studied English?","a":"About 2 years.","ru":"Как долго учишь английский? — Около 2 лет."},{"tag":"food","q":"What kind of sauce is this?","a":"It's a tomato-based sauce.","ru":"Что за соус? — Томатный."},{"tag":"work","q":"Are you here on business or for pleasure?","a":"I'm here for pleasure.","ru":"По работе или отдыхать? — Отдыхать."},{"tag":"food","q":"Do you have any wine?","a":"Sure.","ru":"Есть вино? — Конечно."},{"tag":"hobbies","q":"Should I go to her soccer game?","a":"You can go if you want to.","ru":"Идти на её матч? — Как хочешь."},{"tag":"shop","q":"Could you sign here?","a":"Yes. Do you have a pen.","ru":"Подпишете здесь? — Да. Ручка есть?"},{"tag":"other","q":"Do you like your new shoes?","a":"I'm not in favor of it.","ru":"Нравятся новые туфли? — Не очень / не в восторге."},{"tag":"food","q":"What is your favorite dessert?","a":"I love chocolate cake.","ru":"Любимый десерт? — Шоколадный торт."},{"tag":"hobbies","q":"Do you like to go for walks?","a":"Yes, I enjoy taking walks in the evening.","ru":"Любишь гулять? — Да, вечером."},{"tag":"hobbies","q":"What type of movies do you like?","a":"I love romantic comedies.","ru":"Какие фильмы любишь? — Ромкомы."},{"tag":"hobbies","q":"Do you like to exercise?","a":"Yes, I enjoy jogging.","ru":"Любишь спорт? — Да, бег."},{"tag":"travel","q":"Have you ever traveled abroad?","a":"Yes, I have been to Italy.","ru":"Бывал за границей? — Да, в Италии."},{"tag":"english","q":"How long have you been learning English?","a":"I've been learning English since I was eight.","ru":"Как давно учишь English? — С восьми лет."},{"tag":"health","q":"Do you have any allergies?","a":"No, I don't have any allergies.","ru":"Есть аллергии? — Нет."},{"tag":"other","q":"Where do you want to go?","a":"I'd like to go to the beach.","ru":"Куда хочешь? — На пляж."},{"tag":"food","q":"Would you like to have dinner with me?","a":"Yes, of course. That would be nice.","ru":"Поужинать со мной? — Конечно, было бы здорово."},{"tag":"food","q":"Could we have lunch together one day?","a":"With pleasure.","ru":"Можем как-нибудь пообедать? — С удовольствием."},{"tag":"work","q":"What are you planning for after work?","a":"I'm going shopping with my friends.","ru":"Что после работы? — Шопинг с друзьями."},{"tag":"hobbies","q":"What do you think of the movie?","a":"It's exciting and entertaining.","ru":"Как фильм? — Захватывающий и весёлый."},{"tag":"hobbies","q":"Do you enjoy reading?","a":"Yes, I love reading novels.","ru":"Любишь читать? — Да, романы."},{"tag":"other","q":"How long will you be staying?","a":"I'm here until the end of the month.","ru":"Как долго останетесь? — До конца месяца."},{"tag":"travel","q":"What kind of room would you like?","a":"I'd like a single room, please.","ru":"Какой номер? — Одноместный, пожалуйста."},{"tag":"travel","q":"Do you have a reservation?","a":"No, I don't.","ru":"Есть бронь? — Нет."},{"tag":"daily","q":"How are you doing?","a":"Not bad. Work is okay.","ru":"Как дела? — Норм. Работа ок."},{"tag":"food","q":"How's the weather out there?","a":"Sunny, some clouds.","ru":"Какая погода? — Солнечно, местами облака."},{"tag":"daily","q":"Does that make sense?","a":"Yes, it does. Thank you.","ru":"Понятно? — Да. Спасибо."},{"tag":"daily","q":"What's your favorite season of the year?","a":"My favorite season is spring.","ru":"Любимый сезон? — Весна."},{"tag":"other","q":"Can you do magic tricks?","a":"No, I can't do magic tricks.","ru":"Умеешь фокусы? — Нет."},{"tag":"hobbies","q":"Do you enjoy playing video games?","a":"Yes, I love playing video games.","ru":"Любишь игры? — Да."},{"tag":"other","q":"Can you do a backflip?","a":"No, I can't do a backflip.","ru":"Умеешь сальто назад? — Нет."},{"tag":"work","q":"Do you want a lift to the office?","a":"That would be great.","ru":""},{"tag":"shop","q":"What do you usually shop for?","a":"Clothes for most of the time.","ru":"Что обычно покупаешь? — В основном одежду."},{"tag":"other","q":"What do you think about my new clothes?","a":"It doesn't look good.","ru":"Как тебе мой новый лук? — Не очень смотрится."},{"tag":"food","q":"Do you prefer tea or coffee?","a":"I prefer tea.","ru":"Чай или кофе? — Чай."},{"tag":"health","q":"How are you feeling today?","a":"I'm feeling a bit tired today.","ru":"Как себя чувствуешь? — Немного устал."},{"tag":"hobbies","q":"What's your favorite book?","a":"My favorite book is Harry Potter.","ru":"Любимая книга? — Гарри Поттер."},{"tag":"english","q":"Where did you learn English?","a":"I learned English at school.","ru":"Где учил английский? — В школе."},{"tag":"daily","q":"What time do you wake up?","a":"I wake up at 7:00 a.m.","ru":"Во сколько встаёшь? — В 7 утра."},{"tag":"daily","q":"Do you have any plans for the weekend?","a":"Yes, I'm going to visit my family.","ru":"Планы на выходные? — Да, к семье."},{"tag":"food","q":"Do you like to cook?","a":"Yes, I enjoy cooking very much.","ru":"Любишь готовить? — Очень."},{"tag":"hobbies","q":"What's your favorite TV show?","a":"My favorite TV show is Friends.","ru":"Любимый сериал? — Friends."},{"tag":"health","q":"Did you go see the doctor yet?","a":"Not yet. I might go tomorrow.","ru":"Уже ходил к врачу? — Ещё нет. Может, завтра."},{"tag":"health","q":"How are you feeling?","a":"I still have a cold.","ru":"Как самочувствие? — Всё ещё простуда."},{"tag":"work","q":"What do you do for work?","a":"I'm a student.","ru":"Кем работаешь? — Я студент."},{"tag":"travel","q":"Do you know if there's a restroom around here?","a":"Yes, there's one here. It's in the store.","ru":"Где туалет? — Здесь, в магазине."},{"tag":"other","q":"Is today okay?","a":"Sorry, I can't go today.","ru":"Сегодня ок? — Извини, сегодня не могу."},{"tag":"other","q":"Where are you going?","a":"I'm going to the store. I need to buy something.","ru":"Куда идёшь? — В магазин, надо купить кое-что."},{"tag":"english","q":"How do you learn English?","a":"I learn English deeply and carefully.","ru":"Как учишь English? — Глубоко и внимательно."},{"tag":"english","q":"How do you say something about my English?","a":"I think your English is improving a lot.","ru":""},{"tag":"english","q":"How do you study English?","a":"I study English slowly and steadily.","ru":"Как занимаешься? — Медленно и стабильно."},{"tag":"english","q":"How do you go to school?","a":"My sister takes me to school by car.","ru":"Как добираешься в школу? — Сестра везёт на машине."},{"tag":"english","q":"How do you do to improve your English?","a":"To improve my English, I do as my teacher says.","ru":""},{"tag":"other","q":"How do you have to stay in the class?","a":"I have to stay actively in the class.","ru":""},{"tag":"health","q":"How do you feel when you make presentation?","a":"I feel shy when I make presentation because of the boys.","ru":""},{"tag":"english","q":"How do you do to be able to speak English?","a":"I follow my teacher's suggestions.","ru":""},{"tag":"other","q":"How do you get this information?","a":"I get this information from the internet.","ru":""},{"tag":"other","q":"Do you like cycling?","a":"Yes, I enjoy cycling on trails.","ru":"Любишь велосипед? — Да, по тропам."},{"tag":"other","q":"What's your favorite flower?","a":"My favorite is the sunflower.","ru":"Любимый цветок? — Подсолнух."},{"tag":"other","q":"Is it your hat?","a":"Yes, I just bought that hat.","ru":"Это твоя шляпа? — Да, только купил."},{"tag":"work","q":"Where is your office?","a":"It's right across from the park.","ru":"Где офис? — Прямо напротив парка."},{"tag":"other","q":"Can you play drums?","a":"I prefer other musical instruments.","ru":"Умеешь на барабанах? — Предпочитаю другие инструменты."},{"tag":"other","q":"What's your favorite cheese?","a":"My favorite cheese is cheddar.","ru":"Любимый сыр? — Чеддер."},{"tag":"other","q":"Is it windy?","a":"The wind is quite strong.","ru":"Ветрено? — Ветер довольно сильный."},{"tag":"hobbies","q":"Do you like skiing?","a":"Yes, I love skiing.","ru":"Любишь лыжи? — Обожаю."},{"tag":"other","q":"What's your favorite candy?","a":"I like mint candies.","ru":"Любимые конфеты? — Мятные."},{"tag":"english","q":"What language does your family speak?","a":"We speak English at home.","ru":"На каком языке дома? — На английском."},{"tag":"other","q":"What's your motto in life?","a":"Never give up on your dreams.","ru":"Девиз? — Never give up on your dreams."},{"tag":"english","q":"Can you speak English?","a":"Yes, I can speak English very well.","ru":"Говоришь по-английски? — Да, хорошо."},{"tag":"other","q":"What do you want to do after you graduate?","a":"I aspire to be a programmer.","ru":"После учёбы? — Хочу быть программистом."},{"tag":"english","q":"What time do you go to school?","a":"I head to school at 7 a.m.","ru":"Во сколько в школу? — Выхожу в 7."},{"tag":"other","q":"What's your favorite drink?","a":"Orange juice is my favorite.","ru":"Любимый напиток? — Апельсиновый сок."},{"tag":"other","q":"How long have you been wearing these shoes?","a":"Almost 2 years.","ru":"Как долго носишь эти туфли? — Почти 2 года."},{"tag":"other","q":"How did the car change your life?","a":"Quite useful. I can travel more and it's good for my health.","ru":""},{"tag":"other","q":"Have you ever ridden a horse?","a":"Yes, I have ridden a horse.","ru":"Катался на лошади? — Да."},{"tag":"other","q":"One way or round?","a":"A one way.","ru":"В одну сторону или туда-обратно? — В одну."},{"tag":"work","q":"When do you get off work?","a":"I get off work at 6:00.","ru":"Когда конец работы? — В 6."},{"tag":"invite","q":"When would you like to meet?","a":"I'll see you at 10:00 a.m.","ru":"Когда встретимся? — В 10 утра."},{"tag":"other","q":"What time does it begin?","a":"It begins at 6:00.","ru":"Во сколько начинается? — В 6."},{"tag":"food","q":"What will the weather be like tomorrow?","a":"It will be snowy and very cold.","ru":"Какая погода завтра? — Снег и очень холодно."},{"tag":"health","q":"What are you allergic to?","a":"I'm allergic to peanuts.","ru":"На что аллергия? — На арахис."},{"tag":"travel","q":"Do you prefer traveling by train or plane?","a":"I prefer a plane.","ru":"Поезд или самолёт? — Самолёт."},{"tag":"other","q":"How long does it take?","a":"It takes an hour.","ru":"Сколько займёт? — Час."},{"tag":"hobbies","q":"Do you play any musical instruments?","a":"Yes, I play the guitar.","ru":"Играешь на чём-то? — Да, на гитаре."},{"tag":"other","q":"Do you know Alec?","a":"Of course. We often play tennis together.","ru":""},{"tag":"hobbies","q":"Would you like to go see a movie later?","a":"I'd love to, but I have to finish my work tonight.","ru":"В кино позже? — Хотел бы, но надо доделать работу."},{"tag":"other","q":"Can we go together?","a":"Yes, we can go together.","ru":"Можем вместе? — Да."},{"tag":"other","q":"Why did you choose this?","a":"I chose this because I like it.","ru":"Почему это выбрал? — Потому что нравится."},{"tag":"other","q":"Have you ever tried surfing?","a":"No, I haven't tried surfing.","ru":"Пробовал сёрфинг? — Нет."},{"tag":"other","q":"Why are you late?","a":"I had car trouble.","ru":"Почему опоздал? — Проблемы с машиной."},{"tag":"other","q":"When are you leaving?","a":"I'm leaving tomorrow.","ru":"Когда уезжаешь? — Завтра."},{"tag":"other","q":"How high is the fence?","a":"About 5 ft high.","ru":""},{"tag":"other","q":"Should I go to the store?","a":"No, I'll go.","ru":""},{"tag":"other","q":"Do you use social media?","a":"Yes, I use social media regularly.","ru":"Сидишь в соцсетях? — Да, регулярно."},{"tag":"other","q":"What's your favorite time of day?","a":"My favorite time of day is evening.","ru":"Любимое время суток? — Вечер."},{"tag":"food","q":"Do you have a favorite restaurant?","a":"Yes, my favorite restaurant serves Italian food.","ru":"Любимый ресторан? — Да, итальянский."},{"tag":"hobbies","q":"Have you ever been to a concert?","a":"Yes, I've been to a few concerts.","ru":"Был на концерте? — Да, несколько раз."},{"tag":"travel","q":"Do you prefer to travel by plane, train, or car?","a":"I prefer to travel by plane.","ru":""},{"tag":"travel","q":"What color is your bedroom?","a":"My bedroom is painted light pink.","ru":""},{"tag":"people","q":"What's your favorite thing to do with friends?","a":"I love going to the movies with my friends.","ru":""},{"tag":"other","q":"What's your favorite kind of pizza?","a":"I love pepperoni pizza.","ru":"Какая пицца? — Пепперони."},{"tag":"other","q":"Do you have any plants at home?","a":"Yes, I have a few indoor plants.","ru":""},{"tag":"shop","q":"How can I help you?","a":"You can help me by lending a hand.","ru":""},{"tag":"work","q":"How does it work?","a":"It works by using electricity.","ru":""},{"tag":"other","q":"How did you find out?","a":"I found out from a friend.","ru":""},{"tag":"health","q":"How do you feel about it?","a":"I feel good about it.","ru":""},{"tag":"other","q":"How was your day?","a":"My day was good. Thanks for asking.","ru":"Как день? — Хороший. Спасибо, что спросил."},{"tag":"other","q":"Were they at the party?","a":"No, they weren't.","ru":""},{"tag":"other","q":"Do you sell almond milk?","a":"Yes, it's in the dairy alternative section.","ru":""},{"tag":"other","q":"Where can I find the cake mix?","a":"It's in the baking supplies aisle.","ru":""},{"tag":"invite","q":"Would you like to play tennis?","a":"No, let's go for a swim.","ru":""},{"tag":"hobbies","q":"How often do you exercise?","a":"I exercise three times a week.","ru":"Как часто спорт? — Три раза в неделю."},{"tag":"english","q":"How do you get to school?","a":"I usually take the bus.","ru":"Как до школы? — Обычно на автобусе."},{"tag":"other","q":"Is there a bank near here?","a":"I'm sorry. I don't know.","ru":"Тут рядом банк? — Не знаю, извини."},{"tag":"daily","q":"How was your weekend?","a":"It was relaxing.","ru":"Как выходные? — Спокойно / расслабленно."},{"tag":"hobbies","q":"May I have your passport, please?","a":"Yes, of course. Here you are.","ru":"Паспорт, пожалуйста. — Конечно, вот."},{"tag":"english","q":"Where do you study?","a":"I'm a student at Cambridge University.","ru":"Где учишься? — В Cambridge."},{"tag":"other","q":"What is your major?","a":"I'm majoring in computer science.","ru":"Какая специальность? — Computer science."},{"tag":"other","q":"Have you ever been to a zoo?","a":"Yes, I've been to the zoo many times.","ru":""},{"tag":"people","q":"Do you have a best friend?","a":"Yes, I have a best friend named Alex.","ru":"Есть лучший друг? — Да, Alex."},{"tag":"other","q":"What's your favorite thing to do in the city?","a":"My favorite thing to do is visit museums.","ru":""},{"tag":"hobbies","q":"What's the last movie you saw?","a":"The last movie I saw was The Incredibles 2.","ru":"Какой последний фильм? — The Incredibles 2."},{"tag":"other","q":"What's something you're really good at?","a":"I'm really good at solving puzzles.","ru":""},{"tag":"other","q":"What's your favorite thing to do on a rainy day?","a":"I love to read a book or watch movies on rainy days.","ru":""},{"tag":"english","q":"Do you like to learn new things?","a":"I'm always curious and love learning.","ru":""},{"tag":"shop","q":"Did you buy anything?","a":"Yes, I bought a few things.","ru":"Что-нибудь купил? — Да, немного."},{"tag":"hobbies","q":"What kind of music do you like to listen to?","a":"All kinds, but mostly pop, rock, and classical.","ru":"Какую музыку слушаешь? — Разную: поп, рок, классика."},{"tag":"other","q":"Is your brother coming with us?","a":"No, he's still sleeping.","ru":""},{"tag":"people","q":"Where do your parents live?","a":"My father lives in Washington, DC.","ru":"Где живут родители? — Отец в Washington, DC."},{"tag":"other","q":"Do you take credit cards?","a":"Yes, we accept Visa and Mastercard.","ru":"Карты принимаете? — Visa и Mastercard."},{"tag":"daily","q":"What are you doing this weekend?","a":"Nothing special, just working.","ru":"Что на выходных? — Ничего особенного, работа."},{"tag":"other","q":"Where can I park?","a":"You can park anywhere.","ru":"Где припарковаться? — Где угодно."},{"tag":"shop","q":"How do you spend your evenings?","a":"I spend them reading books.","ru":""},{"tag":"work","q":"Why did you stop going to work?","a":"I stopped it because I established my own company.","ru":""},{"tag":"shop","q":"Is the store open?","a":"It's closed at the moment.","ru":"Магазин открыт? — Сейчас закрыт."},{"tag":"work","q":"Do you have homework?","a":"Yes, I have some homework to do.","ru":"Есть домашка? — Да."},{"tag":"other","q":"What color are your eyes?","a":"My eyes are dark brown.","ru":""},{"tag":"other","q":"Are you a nurse?","a":"I'm a retired nurse.","ru":""},{"tag":"other","q":"Do you play chess?","a":"Chess isn't really my game.","ru":"Играешь в шахматы? — Не моё."},{"tag":"other","q":"Is it your coat?","a":"Yes, it's my winter coat.","ru":""},{"tag":"other","q":"Where is your car?","a":"It's in the parking lot.","ru":""},{"tag":"hobbies","q":"Do you have a bicycle?","a":"I own a mountain bike.","ru":""},{"tag":"other","q":"Do you like yoga?","a":"No, I don't like yoga.","ru":""},{"tag":"other","q":"Do you like jogging?","a":"Yes, I jog for fitness.","ru":"Любишь бег? — Да, для формы."},{"tag":"food","q":"Are your parents still coming over for dinner tonight?","a":"Yeah, they are.","ru":""},{"tag":"other","q":"What's your favorite subject?","a":"I enjoy history the most.","ru":"Любимый предмет? — История."},{"tag":"other","q":"Where is the library?","a":"The library is near the school.","ru":"Где библиотека? — Около школы."},{"tag":"other","q":"Where is your house?","a":"My house is near the school.","ru":""},{"tag":"shop","q":"Where do you buy groceries?","a":"I shop at the local farmers market.","ru":"Где продукты? — На фермерском рынке."},{"tag":"other","q":"Did she admit her mistake?","a":"Yes, she admitted it sincerely.","ru":""},{"tag":"other","q":"Did they announce the winner?","a":"Yes, they announced it last night.","ru":""},{"tag":"other","q":"Did you implement the new system?","a":"Yes, we implemented it today.","ru":""},{"tag":"other","q":"Did he perform well on stage?","a":"Yes, he performed amazingly well.","ru":""},{"tag":"people","q":"How long did they live in England?","a":"They were there for 8 years.","ru":""},{"tag":"travel","q":"Do you like traveling?","a":"Yes, I like it very much.","ru":"Любишь путешествовать? — Очень."},{"tag":"invite","q":"Where would you like to go?","a":"To the beach, please.","ru":"Куда бы хотел? — На пляж."},{"tag":"other","q":"Where were you last week?","a":"I was in Tokyo.","ru":"Где был на прошлой неделе? — В Токио."},{"tag":"english","q":"How long have you study English?","a":"About 2 years.","ru":""},{"tag":"shop","q":"How may I help you?","a":"Hi, I'd like to order some flowers.","ru":"Чем могу помочь? — Хочу заказать цветы."},{"tag":"other","q":"What color?","a":"I think red would be nice.","ru":"Какой цвет? — Красный был бы норм."},{"tag":"daily","q":"What are you doing there?","a":"Just looking at some books on how to learn English.","ru":"Что там делаешь? — Смотрю книги по English."},{"tag":"food","q":"Do you want to get something to eat later?","a":"No, I'm still full from dinner.","ru":"Потом поесть? — Нет, ещё сыт после ужина."},{"tag":"other","q":"What do you want to do?","a":"I don't know for sure.","ru":"Что хочешь делать? — Точно не знаю."}];
+const CHUNKS = [{"en":"I'd like…","ru":"Я бы хотел… (вежливо вместо I want)"},{"en":"That would be nice.","ru":"Было бы здорово. (мягкое да)"},{"en":"With pleasure.","ru":"С удовольствием."},{"en":"I'm not sure yet.","ru":"Пока не уверен."},{"en":"Not bad.","ru":"Нормально / неплохо."},{"en":"Does that make sense?","ru":"Понятно? Логично?"},{"en":"get off work","ru":"заканчивать работу"},{"en":"pay a visit","ru":"навестить"},{"en":"on business / for pleasure","ru":"по работе / для отдыха"},{"en":"I can't go any cheaper than that.","ru":"Дешевле не могу."},{"en":"a lift","ru":"подвезти на машине"},{"en":"How long have you been…?","ru":"Как давно ты…? (процесс до сейчас)"},{"en":"Have you ever…?","ru":"Ты когда-нибудь…?"},{"en":"What kind of…?","ru":"Какой/какие…?"},{"en":"Would you like to…?","ru":"Не хочешь…? (приглашение)"},{"en":"Sorry, I can't.","ru":"Извини, не могу."},{"en":"Nothing special.","ru":"Ничего особенного."},{"en":"Fair enough.","ru":"Справедливо / ладно, ок."},{"en":"Works for me.","ru":"Мне подходит."},{"en":"You're a lifesaver.","ru":"Ты меня спас(ла)."},{"en":"Rough day?","ru":"Тяжёлый день?"},{"en":"I'm exhausted.","ru":"Я вымотан."},{"en":"Grab some…","ru":"Захвати / купи по пути…"},{"en":"bail","ru":"слинять / не пойти"},{"en":"soft yes","ru":"мягкое «да» (не 100%)"},{"en":"switch off","ru":"отключиться / отдохнуть"},{"en":"No overthinking.","ru":"Без лишних раздумий."},{"en":"Here you are.","ru":"Вот, пожалуйста."},{"en":"Thanks for asking.","ru":"Спасибо, что спросил."},{"en":"I might…","ru":"Может быть, я…"},{"en":"Not yet.","ru":"Ещё нет."},{"en":"Of course.","ru":"Конечно."},{"en":"I aspire to…","ru":"Я стремлюсь…"},{"en":"Never give up on your dreams.","ru":"Не сдавайся мечтам."},{"en":"one way / round trip","ru":"в одну сторону / туда-обратно"},{"en":"I'm still full.","ru":"Я ещё сыт."},{"en":"I'm just upset.","ru":"Я просто расстроен (не злюсь)."},{"en":"car trouble","ru":"проблемы с машиной"},{"en":"right across from…","ru":"прямо напротив…"},{"en":"How may I help you?","ru":"Чем могу помочь? (сервис)"}];
+
+document.getElementById('statLine').innerHTML =
+  '<b>' + ITEMS.length + '</b> вопросов-ответов · <b>' + CHUNKS.length +
+  '</b> чанков · паттерны · диалоги · практика. Перевод есть у части карточек — остальное тренируй сам.';
+
+const tags = ['all', ...new Set(ITEMS.map(i => i.tag))].sort((a,b) => a === 'all' ? -1 : a.localeCompare(b));
+let activeTag = 'all';
+const filters = document.getElementById('filters');
+tags.forEach(t => {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'chip' + (t === 'all' ? ' on' : '');
+  b.textContent = t;
+  b.dataset.tag = t;
+  b.onclick = () => {
+    activeTag = t;
+    filters.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c.dataset.tag === t));
+    renderBank();
+  };
+  filters.appendChild(b);
+});
+
+const drillTag = document.getElementById('drillTag');
+tags.filter(t => t !== 'all').forEach(t => {
+  const o = document.createElement('option');
+  o.value = t; o.textContent = t;
+  drillTag.appendChild(o);
+});
+
+function filtered() {
+  const q = (document.getElementById('search').value || '').trim().toLowerCase();
+  return ITEMS.filter(i => {
+    if (activeTag !== 'all' && i.tag !== activeTag) return false;
+    if (!q) return true;
+    return (i.q + ' ' + i.a + ' ' + i.ru).toLowerCase().includes(q);
+  });
+}
+
+function renderBank() {
+  const list = filtered();
+  document.getElementById('bankCount').textContent = list.length + ' / ' + ITEMS.length;
+  const box = document.getElementById('bankList');
+  box.innerHTML = '';
+  list.forEach(item => {
+    const el = document.createElement('div');
+    el.className = 'qa';
+    el.innerHTML =
+      '<div class="tag">' + item.tag + '</div>' +
+      '<div class="q">' + item.q + '</div>' +
+      '<div class="a">' + item.a + '</div>' +
+      (item.ru ? '<div class="ru">' + item.ru + '</div>' : '<div class="ru">— переведи сам / скажи своими словами</div>');
+    box.appendChild(el);
+  });
+}
+
+document.getElementById('search').addEventListener('input', renderBank);
+document.getElementById('toggleRu').onclick = () => {
+  document.body.classList.toggle('hide-ru');
+  document.getElementById('toggleRu').textContent =
+    document.body.classList.contains('hide-ru') ? 'Показать перевод' : 'Скрыть перевод';
+};
+
+const chunkList = document.getElementById('chunkList');
+CHUNKS.forEach(c => {
+  const el = document.createElement('div');
+  el.className = 'chunk';
+  el.innerHTML = '<div class="en">' + c.en + '</div><div class="ru">' + c.ru + '</div>';
+  chunkList.appendChild(el);
+});
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.onclick = () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.panel).classList.add('active');
+  };
+});
+
+let order = [];
+let idx = -1;
+function pool() {
+  const t = drillTag.value;
+  return t === 'all' ? ITEMS.slice() : ITEMS.filter(i => i.tag === t);
+}
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function showQuestion() {
+  if (!order.length || idx >= order.length - 1) {
+    order = shuffle(pool());
+    idx = 0;
+  } else idx++;
+  const item = order[idx];
+  document.getElementById('drillQ').textContent = item.q;
+  document.getElementById('drillA').textContent = item.a;
+  document.getElementById('drillRu').textContent = item.ru || '';
+  document.getElementById('reveal').classList.remove('show');
+  document.getElementById('drillCount').textContent = (idx + 1) + ' / ' + order.length;
+}
+document.getElementById('nextQ').onclick = showQuestion;
+document.getElementById('showAns').onclick = () => document.getElementById('reveal').classList.add('show');
+drillTag.onchange = () => { order = []; idx = -1; showQuestion(); };
+
+renderBank();
+showQuestion();
+</script>
+</body>
+</html>
