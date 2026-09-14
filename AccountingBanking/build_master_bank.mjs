@@ -206,6 +206,74 @@ const QUESTIONS = [
     opt('c', 'ROE', 'ROE'),
     opt('d', 'ROA', 'ROA'),
   ], 'a', 'Bank ratios'),
+
+  // New from exam photos 14/07/2026 (only items not already in other files)
+  q(33, 'Dual track operation involves', 'Dual track operation включает:', [
+    opt('a', 'Only IPO', 'Только IPO'),
+    opt('b', 'Only M&A', 'Только M&A'),
+    opt('c', 'IPO and M&A', 'IPO и M&A'),
+    opt('d', 'IFRS 9', 'IFRS 9'),
+  ], 'c', 'Corporate finance / markets'),
+  q(34, 'Venture capital is referred to', 'Venture capital относится к:', [
+    opt('a', 'Green bond', 'Зелёным облигациям'),
+    opt('b', 'Subordinated bond', 'Субординированным облигациям'),
+    opt('c', 'Private equity', 'Private equity'),
+    opt('d', 'None of the above', 'Ни один'),
+  ], 'c', 'Private equity'),
+  q(35, 'The bonds issued by the banks are', 'Облигации, выпущенные банками, отражаются:', [
+    opt('a', "In the liabilities of the banks' balance sheet", 'В обязательствах баланса банка'),
+    opt('b', "In the liabilities of the banks' income statement", 'В обязательствах отчёта о прибылях'),
+    opt('c', "In the asset of the banks' income statement", 'В активах отчёта о прибылях'),
+    opt('d', "In the asset of the banks' balance sheet", 'В активах баланса банка'),
+  ], 'a', 'Bank balance sheet'),
+  q(36, 'Which of the following is an exit strategy of Private Equity operators?', 'Что из перечисленного — exit strategy для Private Equity?', [
+    opt('a', 'IPO', 'IPO'),
+    opt('b', 'Buy-back', 'Buy-back'),
+    opt('c', 'All the answers', 'Все ответы'),
+    opt('d', 'Write-off', 'Write-off'),
+  ], 'c', 'Private equity'),
+  q(37, 'EBA', 'EBA — это:', [
+    opt('a', 'Is the local authority', 'Местный орган'),
+    opt('b', 'Is the European authority related to supervision', 'Европейский орган, связанный с supervision'),
+    opt('c', 'Is the European authority related to open market', 'Европейский орган open market'),
+    opt('d', 'None of the above', 'Ни один'),
+  ], 'b', 'EBU & regulation', 'EBA = European Banking Authority.'),
+  q(38, 'According to IFRS 13, what is the best way to evaluate a financial instrument?', 'По IFRS 13 лучший способ оценить финансовый инструмент:', [
+    opt('a', 'None of the answers', 'Ни один'),
+    opt('b', 'The value on the market', 'Рыночная стоимость'),
+    opt('c', 'The value of similar financial instruments', 'Стоимость похожих инструментов'),
+    opt('d', 'The accounting value', 'Учётная стоимость'),
+  ], 'b', 'IFRS & instruments', 'IFRS 13 fair value: market price (Level 1) is preferred.'),
+  q(39, "In the operations of a bank \"Deposits of customers\" are", 'В операциях банка «Deposits of customers» — это:', [
+    opt('a', 'Interest bearing asset', 'Процентный актив'),
+    opt('b', 'Non-expensive liabilities', 'Недорогие обязательства'),
+    opt('c', 'Real asset', 'Реальный актив'),
+    opt('d', 'Expensive liabilities', 'Дорогие обязательства'),
+  ], 'd', 'Bank balance sheet', 'Вклады клиентов — обязательства; банк платит проценты → expensive liabilities.'),
+  q(40, 'The countercyclical capital buffer is linked to', 'Контрциклический буфер капитала связан с:', [
+    opt('a', 'The third pillar of EBU', '3-м столпом EBU'),
+    opt('b', 'Basel agreements I', 'Basel I'),
+    opt('c', 'Capital asset pricing model', 'CAPM'),
+    opt('d', 'Basel agreements III', 'Basel III'),
+  ], 'd', 'EBU & regulation'),
+  q(41, 'In "Buy Now, Pay Later" (BNPL):', 'В Buy Now, Pay Later (BNPL):', [
+    opt('a', 'The customer places an order, even if the goods or services are not yet transferred', 'Клиент делает заказ, даже если товар ещё не передан'),
+    opt('b', 'The entity receives cash from the customer, regardless of performance', 'Компания получает деньги независимо от исполнения'),
+    opt('c', 'Consumers are offered the chance to defer payment in three or four installments, with the merchant paying a fee to the credit provider', 'Оплата частями (3–4 платежа); продавец платит комиссию кредитору'),
+    opt('d', 'The contract is signed, before either party performs any obligation', 'Договор подписан до исполнения обязательств'),
+  ], 'c', 'IFRS / payments'),
+  q(42, 'What is the objective of Managerial Accounting?', 'Цель управленческого учёта (Managerial Accounting):', [
+    opt('a', 'To prepare financial statements for external shareholders', 'Готовить отчётность для внешних акционеров'),
+    opt('b', 'To provide internal managers with information for planning and decision-making', 'Давать менеджерам информацию для планирования и решений'),
+    opt('c', 'To ensure compliance with tax regulations and filing requirements', 'Обеспечивать налоговый compliance'),
+    opt('d', 'To report company performance under IFRS for investors', 'Отчитываться по IFRS для инвесторов'),
+  ], 'b', 'Management accounting'),
+  q(43, 'The Supervision is related', 'Supervision относится:', [
+    opt('a', 'To the fourth pillar of European Banking Union', 'К 4-му столпу EBU'),
+    opt('b', 'To the third pillar of European Banking Union', 'К 3-му столпу EBU'),
+    opt('c', 'To the first pillar of European Banking Union', 'К 1-му столпу EBU'),
+    opt('d', 'To the second pillar of European Banking Union', 'Ко 2-му столпу EBU'),
+  ], 'c', 'EBU & regulation', '1-й столп EBU = Single Supervisory Mechanism (SSM).'),
 ];
 
 function replaceJsConst(html, name, value) {
@@ -246,7 +314,7 @@ html = html
   .replace(/<h1>.*?<\/h1>/, '<h1>Master Question Bank — missing topics</h1>')
   .replace(
     /<p class="sub">[\s\S]*?<\/p>\s*<div class="rules">[\s\S]*?<\/div>/,
-    '<p class="sub">32 MCQ from full course bank · Budget, BRRD, syndicated loans, bank ratios, credit risk</p>\n    <p class="sub"><a href="00_How_To_Solve.html">📘 How to solve tasks — step-by-step guide</a></p>\n    <div class="rules">1 point per correct answer. Topics not covered in separate exams 01–13.</div>',
+    '<p class="sub">43 MCQ from full course bank · Budget, BRRD, PE exits, BNPL, EBA, IFRS 13</p>\n    <p class="sub"><a href="00_How_To_Solve.html">📘 How to solve tasks — step-by-step guide</a></p>\n    <div class="rules">1 point per correct answer. Topics not covered in separate exams 01–13.</div>',
   );
 
 html = replaceJsConst(html, 'QUESTIONS', QUESTIONS.map(({ ru, explain_ru, options, ...rest }) => ({
