@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <title>15 Long Phrases — Sound Natural</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 1.5rem 1rem 3rem;
+      color: #1a1a2e;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back a { color: #3498db; text-decoration: none; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #8e44ad;
+      padding-bottom: 10px;
+      font-size: 1.65rem;
+      margin: 0.4rem 0;
+    }
+    .lead { color: #555; font-size: 0.95rem; }
+    .lead a { color: #8e44ad; }
+    .howto {
+      background: #f5eef8;
+      border-left: 4px solid #8e44ad;
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .howto ol { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #f8fafc;
+      padding: 0.55rem 0;
+    }
+    .tab {
+      border: 1px solid #cfd8e3;
+      background: #fff;
+      color: #2c3e50;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-family: inherit;
+    }
+    .tab.active {
+      background: #8e44ad;
+      border-color: #8e44ad;
+      color: #fff;
+      font-weight: 600;
+    }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+    .btn {
+      background: #fff;
+      color: #8e44ad;
+      border: 1px solid #8e44ad;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-family: inherit;
+      font-weight: 600;
+    }
+    .btn.solid { background: #8e44ad; color: #fff; }
+    .btn:hover { background: #f5eef8; }
+    .btn.solid:hover { background: #7d3c98; }
+    .count { color: #7f8c8d; font-size: 0.86rem; margin-left: auto; }
+    .card {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin: 0.7rem 0;
+    }
+    .card .num {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #8e44ad;
+      background: #f5eef8;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-bottom: 0.4rem;
+    }
+    .card .phrase {
+      font-weight: 800;
+      font-size: 1.08rem;
+      color: #1a3a5c;
+    }
+    .card .mean {
+      margin-top: 0.35rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    .card .ru {
+      margin-top: 0.35rem;
+      color: #7f8c8d;
+      font-size: 0.88rem;
+    }
+    .card .pattern {
+      margin-top: 0.55rem;
+      font-size: 0.88rem;
+      color: #444;
+      background: #f8fafc;
+      border-radius: 6px;
+      padding: 0.45rem 0.65rem;
+    }
+    .card .ex {
+      margin: 0.45rem 0 0;
+      padding-left: 0.75rem;
+      border-left: 3px solid #8e44ad;
+      font-size: 0.92rem;
+      color: #2c3e50;
+    }
+    .card .ex li { margin: 0.25rem 0; }
+    body.hide-ru .ru { display: none; }
+    code {
+      background: #f1f5f9;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .drill {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .prompt-q {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1a3a5c;
+      margin: 0.5rem 0 1rem;
+    }
+    .hint { color: #7f8c8d; font-size: 0.9rem; }
+    .reveal-box {
+      display: none;
+      background: #eef8f0;
+      border-left: 4px solid #27ae60;
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      margin-top: 0.8rem;
+    }
+    .reveal-box.show { display: block; }
+    .reveal-box .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #1e8449;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .tip {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 10px;
+      padding: 0.95rem 1.1rem;
+      margin: 0.65rem 0;
+    }
+    .tip h3 { margin: 0 0 0.35rem; font-size: 1.02rem; color: #2c3e50; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← English</a></p>
+    <h1>15 Long Phrases — Sound Natural</h1>
+    <p class="lead">
+      Длинные фразы целиком — без перевода слово-в-слово.
+      По видео
+      <a href="https://youtu.be/nk4e1Nql80U" target="_blank" rel="noopener"
+        >15 LONG English Phrases You MUST Memorize</a>
+      (Arnel's Everyday English).
+    </p>
+
+    <div class="howto">
+      <strong>Как учить</strong>
+      <ol>
+        <li>Учи фразу как <em>один кусок</em>, не разбирай грамматику в голове.</li>
+        <li>Прочитай примеры вслух.</li>
+        <li>Скажи свой пример про свою жизнь.</li>
+        <li>В «Практика» — увидишь смысл → вспомни фразу.</li>
+      </ol>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-panel="bank" type="button">15 фраз</button>
+      <button class="tab" data-panel="drill" type="button">Практика</button>
+      <button class="tab" data-panel="tips" type="button">Пары / tips</button>
+    </div>
+
+    <div class="panel active" id="bank">
+      <div class="toolbar">
+        <button class="btn" id="toggleRu" type="button">Скрыть перевод</button>
+        <span class="count">15 фраз</span>
+      </div>
+      <div id="list"></div>
+    </div>
+
+    <div class="panel" id="drill">
+      <div class="drill">
+        <div class="toolbar">
+          <button class="btn solid" id="nextQ" type="button">Следующая</button>
+          <button class="btn" id="showAns" type="button">Показать фразу</button>
+          <span class="count" id="drillCount"></span>
+        </div>
+        <p class="hint">Сначала скажи фразу сам, потом открой.</p>
+        <div class="prompt-q" id="drillQ">—</div>
+        <div class="reveal-box" id="reveal">
+          <div class="label">Phrase + example</div>
+          <div id="drillA" style="font-weight:700;font-size:1.05rem"></div>
+          <div id="drillEx" style="margin-top:0.45rem"></div>
+          <div class="ru" id="drillRu" style="margin-top:0.45rem"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="tips">
+      <div class="tip">
+        <h3>Would you mind…? vs Do you mind if I…?</h3>
+        <p><code>Would you mind closing the window?</code> — прошу <strong>тебя</strong> сделать.</p>
+        <p><code>Do you mind if I close the window?</code> — прошу разрешения <strong>мне</strong> сделать.</p>
+        <p class="ru">Первое = can you please… · Второе = can I please…</p>
+      </div>
+      <div class="tip">
+        <h3>Believe it or not vs Whether you like it or not</h3>
+        <p><code>Believe it or not…</code> — правда, даже если удивительно.</p>
+        <p><code>Whether you like it or not…</code> — придётся, нравится или нет.</p>
+      </div>
+      <div class="tip">
+        <h3>Структуры после фразы</h3>
+        <p><code>Have you thought about</code> + <strong>-ing</strong> / noun</p>
+        <p><code>Would you mind</code> + <strong>-ing</strong> (иногда <code>not + -ing</code>)</p>
+        <p><code>There's no point in</code> + <strong>-ing</strong></p>
+        <p><code>There's a good chance that</code> + subject + will…</p>
+        <p><code>If I were you, I'd</code> + base verb</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ITEMS = [
+      {
+        n: 1,
+        phrase: "If I were you, I'd…",
+        mean: "This is my advice for you.",
+        ru: "На твоём месте я бы… (совет)",
+        pattern: "If I were you, I'd + base verb",
+        examples: [
+          "If I were you, I'd start studying.",
+          "If I were you, I'd talk to your boss.",
+          "If I were you, I'd wear a coat today.",
+        ],
+      },
+      {
+        n: 2,
+        phrase: "Have you thought about…?",
+        mean: "Did you consider this idea / solution?",
+        ru: "А ты думал(а) о…? (мягкое предложение)",
+        pattern: "Have you thought about + -ing / noun",
+        examples: [
+          "Have you thought about changing your laundry detergent?",
+          "Have you thought about taking an online course?",
+          "Have you thought about a personal trainer?",
+        ],
+      },
+      {
+        n: 3,
+        phrase: "Would you mind + -ing…?",
+        mean: "Can you please…? Very polite request.",
+        ru: "Не могли бы вы…? (вежливая просьба к другому)",
+        pattern: "Would you mind + -ing / Would you mind not + -ing",
+        examples: [
+          "Would you mind closing the window?",
+          "Would you mind turning your music down?",
+          "Would you mind not putting a lid on the coffee?",
+        ],
+      },
+      {
+        n: 4,
+        phrase: "Do you mind if I…?",
+        mean: "Can I please…? Asking permission for yourself.",
+        ru: "Вы не против, если я…? (разрешение себе)",
+        pattern: "Do you mind if I + base verb",
+        examples: [
+          "Do you mind if I close the window?",
+          "Do you mind if I ask you a question?",
+          "Do you mind if I take a picture of your menu?",
+        ],
+      },
+      {
+        n: 5,
+        phrase: "As far as I'm concerned…",
+        mean: "This is my opinion. (polite / a bit formal)",
+        ru: "На мой взгляд… / Что касается меня…",
+        pattern: "As far as I'm concerned, + opinion",
+        examples: [
+          "As far as I'm concerned, this is the best restaurant in town.",
+          "As far as I'm concerned, phones should be banned in classrooms.",
+        ],
+      },
+      {
+        n: 6,
+        phrase: "I couldn't agree more.",
+        mean: "I 100% agree with you.",
+        ru: "Полностью согласен. (сильнее нельзя)",
+        pattern: "I couldn't agree more.",
+        examples: [
+          "All children should be active every day. — I couldn't agree more.",
+          "The city really needs to fix these holes. — I couldn't agree more.",
+        ],
+      },
+      {
+        n: 7,
+        phrase: "I can't remember the last time (that) I…",
+        mean: "I did this, but I can't remember when — long ago.",
+        ru: "Не помню, когда в последний раз…",
+        pattern: "I can't remember the last time (that) I + past",
+        examples: [
+          "I can't remember the last time I saw Bill.",
+          "I can't remember the last time that I got popcorn in a movie theater.",
+        ],
+      },
+      {
+        n: 8,
+        phrase: "I've never been one to…",
+        mean: "This is not part of my personality / I don't enjoy this.",
+        ru: "Я никогда не был(а) из тех, кто… (не в моём характере)",
+        pattern: "I've never been one to + base verb",
+        examples: [
+          "I've never been one to watch horror movies.",
+          "I've never been one to complain.",
+          "I've never been one to stay up late and party.",
+        ],
+      },
+      {
+        n: 9,
+        phrase: "Believe it or not…",
+        mean: "This will surprise you, but it's true.",
+        ru: "Веришь или нет… (но это правда)",
+        pattern: "Believe it or not, + surprising fact",
+        examples: [
+          "Believe it or not, my daughter cleaned her room without me asking.",
+          "Believe it or not, my dad has never eaten at a McDonald's.",
+          "Believe it or not, the boss said I could have Friday off.",
+        ],
+      },
+      {
+        n: 10,
+        phrase: "More often than not…",
+        mean: "Usually / normally.",
+        ru: "Чаще всего… / как правило…",
+        pattern: "More often than not, + usual situation",
+        examples: [
+          "More often than not, the bus has free seats.",
+          "More often than not, when I visit my grandparents, their Wi-Fi doesn't work.",
+        ],
+      },
+      {
+        n: 11,
+        phrase: "There's a good chance that…",
+        mean: "It's very likely. I think it will happen.",
+        ru: "Есть хороший шанс, что… / скорее всего…",
+        pattern: "There's a good chance that + subject + will…",
+        examples: [
+          "There's a good chance that it'll rain this afternoon.",
+          "If you ask Tom, there's a good chance he'll say no.",
+          "There's a good chance that we'll finish early.",
+        ],
+      },
+      {
+        n: 12,
+        phrase: "Whether you like it or not…",
+        mean: "You may not like it, but you still have to deal with it.",
+        ru: "Нравится тебе или нет… (придётся)",
+        pattern: "Whether you like it or not, + unavoidable fact",
+        examples: [
+          "Whether you like it or not, you have to pay taxes.",
+          "Whether you like it or not, change is inevitable.",
+          "We're leaving at 7 a.m., whether you like it or not.",
+        ],
+      },
+      {
+        n: 13,
+        phrase: "Every now and then…",
+        mean: "Sometimes (not often).",
+        ru: "Время от времени… / иногда…",
+        pattern: "Every now and then + habit / event",
+        examples: [
+          "Every now and then I see a fox in my neighborhood.",
+          "Every now and then I write my uncle an email.",
+          "We go hiking every now and then.",
+        ],
+      },
+      {
+        n: 14,
+        phrase: "It's too bad that…",
+        mean: "This is a mildly sad / disappointing situation. (not super serious)",
+        ru: "Жаль, что… (лёгкое разочарование)",
+        pattern: "It's too bad (that) + situation",
+        examples: [
+          "It's too bad that Jack couldn't come to visit us.",
+          "It's too bad the library is closing down.",
+          "It's too bad that you won't be able to join us for dinner.",
+        ],
+      },
+      {
+        n: 15,
+        phrase: "There's no point in…",
+        mean: "This action has no purpose / won't change anything.",
+        ru: "Нет смысла… / бесполезно…",
+        pattern: "There's no point in + -ing",
+        examples: [
+          "There's no point in worrying about things you can't control.",
+          "There's no point in putting on sunblock today.",
+          "There's no point in buying something if we're not going to use it.",
+        ],
+      },
+    ];
+
+    const list = document.getElementById('list');
+    ITEMS.forEach((item) => {
+      const el = document.createElement('div');
+      el.className = 'card';
+      el.innerHTML =
+        '<div class="num">#' + item.n + '</div>' +
+        '<div class="phrase">' + item.phrase + '</div>' +
+        '<div class="mean">' + item.mean + '</div>' +
+        '<div class="ru">' + item.ru + '</div>' +
+        '<div class="pattern"><code>' + item.pattern + '</code></div>' +
+        '<ul class="ex">' + item.examples.map((e) => '<li>' + e + '</li>').join('') + '</ul>';
+      list.appendChild(el);
+    });
+
+    document.getElementById('toggleRu').onclick = () => {
+      document.body.classList.toggle('hide-ru');
+      document.getElementById('toggleRu').textContent =
+        document.body.classList.contains('hide-ru') ? 'Показать перевод' : 'Скрыть перевод';
+    };
+
+    document.querySelectorAll('.tab').forEach((tab) => {
+      tab.onclick = () => {
+        document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.panel).classList.add('active');
+      };
+    });
+
+    let order = [];
+    let idx = -1;
+    function shuffle(a) {
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+    function showQ() {
+      if (!order.length || idx >= order.length - 1) {
+        order = shuffle(ITEMS.slice());
+        idx = 0;
+      } else idx++;
+      const item = order[idx];
+      document.getElementById('drillQ').textContent = item.mean + ' / ' + item.ru;
+      document.getElementById('drillA').textContent = item.phrase;
+      document.getElementById('drillEx').textContent = item.examples[0];
+      document.getElementById('drillRu').textContent = item.pattern;
+      document.getElementById('reveal').classList.remove('show');
+      document.getElementById('drillCount').textContent = (idx + 1) + ' / ' + order.length;
+    }
+    document.getElementById('nextQ').onclick = showQ;
+    document.getElementById('showAns').onclick = () =>
+      document.getElementById('reveal').classList.add('show');
+    showQ();
+  </script>
+</body>
+</html>
