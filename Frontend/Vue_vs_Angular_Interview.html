@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue vs Angular — Interview Prep</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 1.5rem 1rem 3rem;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #f4faf6 0%, #eef2f7 100%);
+      min-height: 100vh;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .back a { color: #42b883; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #42b883;
+      padding-bottom: 10px;
+      font-size: 1.65rem;
+      margin: 0.4rem 0;
+    }
+    .lead { color: #555; margin: 0.4rem 0 1.2rem; }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: linear-gradient(135deg, #f4faf6 0%, #eef2f7 100%);
+      padding: 0.5rem 0;
+    }
+    .tab {
+      border: 1px solid #c5ddd0;
+      background: #fff;
+      color: #2c3e50;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.86rem;
+    }
+    .tab.active {
+      background: #42b883;
+      border-color: #42b883;
+      color: #fff;
+      font-weight: 600;
+    }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    h2 {
+      color: #34495e;
+      font-size: 1.15rem;
+      margin: 1.4rem 0 0.55rem;
+      border-left: 3px solid #42b883;
+      padding-left: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      font-size: 0.92rem;
+    }
+    th, td {
+      border: 1px solid #e6ebf2;
+      padding: 0.65rem 0.75rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #e8f6ef; color: #1e5c40; }
+    .card {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      margin: 0.6rem 0;
+    }
+    .card h3 { margin: 0 0 0.35rem; font-size: 1.02rem; color: #2c3e50; }
+    .card p { margin: 0.3rem 0; }
+    .phrase {
+      background: #eef8f0;
+      border-left: 3px solid #42b883;
+      padding: 0.55rem 0.8rem;
+      margin: 0.45rem 0 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.92rem;
+    }
+    .qa {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin: 0.55rem 0;
+    }
+    .qa .q { font-weight: 700; color: #1a3a5c; }
+    .qa .a {
+      margin-top: 0.4rem;
+      padding-left: 0.7rem;
+      border-left: 3px solid #42b883;
+    }
+    .map code, code {
+      background: #f1f5f9;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .map {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 0.6rem 0;
+    }
+    .map div {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 8px;
+      padding: 0.65rem 0.8rem;
+      font-size: 0.9rem;
+    }
+    .map .from { color: #c0392b; font-weight: 600; }
+    .map .to { color: #1e8449; font-weight: 600; }
+    .pitch {
+      background: #fff;
+      border: 1px solid #c5ddd0;
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin: 0.8rem 0;
+    }
+    @media (max-width: 640px) {
+      .map { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="../index.html">← Edu</a></p>
+    <h1>Vue vs Angular — Interview Prep</h1>
+    <p class="lead">Шпаргалка под собес: отличия, особенности Vue и ответы одним абзацем. Для тех, у кого база Angular.</p>
+
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab active" data-tab="diff">Отличия</button>
+      <button type="button" class="tab" data-tab="vue">Особенности Vue</button>
+      <button type="button" class="tab" data-tab="map">Angular → Vue</button>
+      <button type="button" class="tab" data-tab="qa">Q&amp;A</button>
+      <button type="button" class="tab" data-tab="pitch">Про себя</button>
+    </div>
+
+    <section id="diff" class="panel active">
+      <h2>Главные отличия</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Angular</th>
+            <th>Vue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Философия</td>
+            <td>Полноценный <strong>фреймворк</strong> (opinionated)</td>
+            <td><strong>Библиотека + экосистема</strong> (гибче)</td>
+          </tr>
+          <tr>
+            <td>Язык</td>
+            <td>Почти всегда TypeScript</td>
+            <td>JS или TS (на выбор)</td>
+          </tr>
+          <tr>
+            <td>Структура</td>
+            <td><code>.ts</code> + <code>.html</code> + <code>.scss</code> + декораторы</td>
+            <td>SFC <code>.vue</code> = template + script + style</td>
+          </tr>
+          <tr>
+            <td>Реактивность</td>
+            <td>Zone.js / signals</td>
+            <td>Proxy: <code>ref</code> / <code>reactive</code> (Vue 3)</td>
+          </tr>
+          <tr>
+            <td>DI</td>
+            <td>Встроенный DI-контейнер</td>
+            <td>Нет классического DI → provide/inject, composables</td>
+          </tr>
+          <tr>
+            <td>Роутинг / store</td>
+            <td>Router + NgRx / Signals</td>
+            <td>vue-router + Pinia</td>
+          </tr>
+          <tr>
+            <td>Сборка</td>
+            <td>Angular CLI / esbuild</td>
+            <td>Часто Vite</td>
+          </tr>
+          <tr>
+            <td>Формы</td>
+            <td>Reactive Forms / signal forms — мощно для enterprise</td>
+            <td><code>v-model</code> проще; сложные формы — вручную / библиотеки</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="vue" class="panel">
+      <h2>Особенности Vue (что объяснить на собесе)</h2>
+
+      <div class="card">
+        <h3>1. Реактивность (Vue 3)</h3>
+        <p><code>ref</code> / <code>reactive</code> → Proxy. Меняешь данные — UI обновляется.</p>
+        <div class="phrase">«В Vue реактивность явная через ref/reactive; в Angular — change detection / signals».</div>
+      </div>
+
+      <div class="card">
+        <h3>2. Composition API vs Options API</h3>
+        <p>Options: <code>data</code>, <code>methods</code>, <code>computed</code> — проще новичкам.</p>
+        <p>Composition (<code>setup</code> / <code>&lt;script setup&gt;</code>): логика по фичам, ближе к hooks, чем к Angular-классам.</p>
+      </div>
+
+      <div class="card">
+        <h3>3. SFC</h3>
+        <p>Один файл <code>.vue</code>: template + script + scoped CSS. В Angular обычно три файла + декораторы.</p>
+      </div>
+
+      <div class="card">
+        <h3>4. Директивы</h3>
+        <p><code>v-if</code>, <code>v-for</code>, <code>v-model</code>, <code>v-show</code>, <code>v-bind</code>.</p>
+        <p>Angular: <code>*ngIf</code> / <code>@if</code>, <code>*ngFor</code> / <code>@for</code>, <code>[(ngModel)]</code>, <code>[prop]</code>, <code>(event)</code>.</p>
+      </div>
+
+      <div class="card">
+        <h3>5. Стейт и DI</h3>
+        <p>Глобальный стейт — Pinia. Локальный шаринг — <code>provide</code> / <code>inject</code> и composables <code>useXxx</code>.</p>
+        <p>В Angular — сервисы + <code>providedIn: 'root'</code>.</p>
+      </div>
+
+      <div class="card">
+        <h3>6. Экосистема</h3>
+        <p>Vue легче войти, но стек выбираешь сам (Pinia, Router, тесты, UI-kit). Angular даёт структуру «из коробки» — плюс для enterprise.</p>
+      </div>
+    </section>
+
+    <section id="map" class="panel">
+      <h2>Шпаргалка Angular → Vue</h2>
+      <div class="map">
+        <div><span class="from">@Input()</span> → <span class="to">defineProps</span></div>
+        <div><span class="from">@Output()</span> → <span class="to">defineEmits</span></div>
+        <div><span class="from">ngOnInit</span> → <span class="to">onMounted</span></div>
+        <div><span class="from">ngOnDestroy</span> → <span class="to">onUnmounted</span></div>
+        <div><span class="from">service + DI</span> → <span class="to">composable / Pinia</span></div>
+        <div><span class="from">async pipe + Observable</span> → <span class="to">ref + async/await</span></div>
+        <div><span class="from">*ngFor trackBy</span> → <span class="to">:key в v-for</span></div>
+        <div><span class="from">lazy routes</span> → <span class="to">async components + vue-router</span></div>
+      </div>
+    </section>
+
+    <section id="qa" class="panel">
+      <h2>Топ Q&amp;A (ответ в 1–2 предложения)</h2>
+
+      <div class="qa">
+        <div class="q">ref vs reactive?</div>
+        <div class="a"><code>ref</code> — для примитивов и любого значения (доступ через <code>.value</code>). <code>reactive</code> — для объектов; удобнее деструктуризации через <code>toRefs</code>.</div>
+      </div>
+      <div class="qa">
+        <div class="q">computed vs watch / watchEffect?</div>
+        <div class="a"><code>computed</code> — производное значение с кэшем. <code>watch</code> — реакция на конкретный источник. <code>watchEffect</code> — сам трекает зависимости и сразу запускается.</div>
+      </div>
+      <div class="qa">
+        <div class="q">v-if vs v-show?</div>
+        <div class="a"><code>v-if</code> монтирует/удаляет из DOM. <code>v-show</code> только CSS <code>display</code> — лучше при частых переключениях.</div>
+      </div>
+      <div class="qa">
+        <div class="q">Lifecycle: аналог ngOnInit / ngOnDestroy?</div>
+        <div class="a"><code>onMounted</code> и <code>onUnmounted</code> (в Composition API). Также есть <code>onBeforeMount</code>, <code>onUpdated</code> и др.</div>
+      </div>
+      <div class="qa">
+        <div class="q">Props / emits / v-model на компоненте?</div>
+        <div class="a">Вход — <code>defineProps</code>, события — <code>defineEmits</code>. <code>v-model</code> на ребёнке = prop <code>modelValue</code> + emit <code>update:modelValue</code> (или именованный v-model).</div>
+      </div>
+      <div class="qa">
+        <div class="q">Pinia?</div>
+        <div class="a">Store: state, getters, actions. Проще и легче NgRx; нет лишней boilerplate-магии для типичных SPA.</div>
+      </div>
+      <div class="qa">
+        <div class="q">Почему Vue 3 быстрее Vue 2?</div>
+        <div class="a">Proxy вместо <code>Object.defineProperty</code>, лучше tree-shaking, Fragments, Teleport, более эффективный runtime compiler.</div>
+      </div>
+      <div class="qa">
+        <div class="q">Как не дёргать UI лишний раз?</div>
+        <div class="a">Правильные ключи в списках, <code>computed</code> вместо тяжёлой логики в template, при больших объектах — <code>shallowRef</code> / <code>markRaw</code> где нужно.</div>
+      </div>
+      <div class="qa">
+        <div class="q">Scoped styles?</div>
+        <div class="a"><code>&lt;style scoped&gt;</code> добавляет уникальные атрибуты — стили не текут наружу. Альтернатива — CSS modules.</div>
+      </div>
+      <div class="qa">
+        <div class="q">SSR / Nuxt?</div>
+        <div class="a">SSR рендерит HTML на сервере (SEO, первый paint). Nuxt — meta-фреймворк вокруг Vue: роутинг, SSR/SSG, conventions.</div>
+      </div>
+    </section>
+
+    <section id="pitch" class="panel">
+      <h2>Как сказать про себя</h2>
+      <div class="pitch">
+        Основной стек — Angular (~5 лет): DI, routing, change detection, RxJS.
+        На Vue делал интерфейсы в телеком-проекте.
+        Понимаю Composition API, реактивность Vue 3, SFC; готов быстро добрать Pinia/Router до прод-уровня —
+        база TypeScript и SPA у меня уже есть.
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.panel');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const id = tab.dataset.tab;
+        tabs.forEach((t) => t.classList.toggle('active', t === tab));
+        panels.forEach((p) => p.classList.toggle('active', p.id === id));
+      });
+    });
+  </script>
+</body>
+</html>
