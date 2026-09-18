@@ -136,6 +136,43 @@
       padding: 1rem 1.15rem;
       margin: 0.8rem 0;
     }
+    .card ul { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+    .card li { margin: 0.2rem 0; }
+    .note {
+      background: #fff8e6;
+      border-left: 4px solid #e67e22;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      margin: 0.6rem 0 1rem;
+      font-size: 0.92rem;
+    }
+    .skip-banner {
+      background: #fdecea;
+      border: 1px solid #f5c6cb;
+      border-left: 4px solid #c0392b;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin: 0 0 1rem;
+      color: #7b241c;
+    }
+    .tab.skip {
+      border-color: #e0b4b4;
+      color: #922b21;
+    }
+    .tab.skip.active {
+      background: #c0392b;
+      border-color: #c0392b;
+      color: #fff;
+    }
+    .old-card {
+      background: #fdf2f2;
+      border: 1px solid #f5c6cb;
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      margin: 0.55rem 0;
+    }
+    .old-card h3 { margin: 0 0 0.3rem; font-size: 1rem; color: #922b21; }
+    .old-card .now { margin-top: 0.4rem; font-size: 0.9rem; color: #1e5c40; }
     @media (max-width: 640px) {
       .map { grid-template-columns: 1fr; }
     }
@@ -145,14 +182,15 @@
   <div class="wrap">
     <p class="back"><a href="../index.html">← Edu</a></p>
     <h1>Vue vs Angular — Interview Prep</h1>
-    <p class="lead">Шпаргалка под собес: отличия, особенности Vue и ответы одним абзацем. Для тех, у кого база Angular.</p>
+    <p class="lead">Шпаргалка под собес: отличия, подробные особенности Vue 3 и ответы. Для тех, у кого база Angular.</p>
 
     <div class="tabs" role="tablist">
       <button type="button" class="tab active" data-tab="diff">Отличия</button>
-      <button type="button" class="tab" data-tab="vue">Особенности Vue</button>
+      <button type="button" class="tab" data-tab="vue">Особенности Vue 3</button>
       <button type="button" class="tab" data-tab="map">Angular → Vue</button>
       <button type="button" class="tab" data-tab="qa">Q&amp;A</button>
       <button type="button" class="tab" data-tab="pitch">Про себя</button>
+      <button type="button" class="tab skip" data-tab="old">Старое (можно skip)</button>
     </div>
 
     <section id="diff" class="panel active">
@@ -211,40 +249,205 @@
     </section>
 
     <section id="vue" class="panel">
-      <h2>Особенности Vue (что объяснить на собесе)</h2>
+      <h2>Особенности Vue 3 (подробно)</h2>
+      <p class="note">Учи это в первую очередь. Всё про Vue 2 / Vuex / filters — на вкладке <strong>Старое</strong>.</p>
 
       <div class="card">
-        <h3>1. Реактивность (Vue 3)</h3>
-        <p><code>ref</code> / <code>reactive</code> → Proxy. Меняешь данные — UI обновляется.</p>
-        <div class="phrase">«В Vue реактивность явная через ref/reactive; в Angular — change detection / signals».</div>
+        <h3>1. Реактивность на Proxy</h3>
+        <p>Vue 3 оборачивает данные в <code>Proxy</code>. Когда ты читаешь свойство в template / computed / watch — Vue запоминает зависимость. Когда меняешь — планирует обновление DOM.</p>
+        <ul>
+          <li><code>ref(x)</code> — обёртка для любого значения. В script: <code>count.value</code>, в template: просто <code>count</code> (авто-unwrap).</li>
+          <li><code>reactive(obj)</code> — глубокая реактивность объекта. Удобно для форм/стейта, но при деструктуризации теряется реактивность → <code>toRefs</code>.</li>
+          <li><code>shallowRef</code> / <code>shallowReactive</code> — реактивность только на верхнем уровне (большие объекты, сторонние либы).</li>
+          <li><code>markRaw</code> — «не делай реактивным» (классы, chart instances).</li>
+          <li><code>readonly</code> — read-only обёртка (пропсы наружу без мутаций).</li>
+        </ul>
+        <div class="phrase">Angular: Zone.js / signals патчат «когда проверить». Vue: ты явно помечаешь реактивные данные, трекинг точечный.</div>
       </div>
 
       <div class="card">
-        <h3>2. Composition API vs Options API</h3>
-        <p>Options: <code>data</code>, <code>methods</code>, <code>computed</code> — проще новичкам.</p>
-        <p>Composition (<code>setup</code> / <code>&lt;script setup&gt;</code>): логика по фичам, ближе к hooks, чем к Angular-классам.</p>
+        <h3>2. Composition API и &lt;script setup&gt;</h3>
+        <p>Логику группируют по фичам, а не по options-секциям. Composable = функция <code>useXxx()</code>, которая возвращает state + methods (аналог «сервис + хуки»).</p>
+        <ul>
+          <li><code>&lt;script setup&gt;</code> — сахар: top-level bindings автоматически доступны в template.</li>
+          <li><code>defineProps</code> / <code>defineEmits</code> / <code>defineModel</code> (Vue 3.4+) — без export default.</li>
+          <li>Легко шарить логику между компонентами без mixins.</li>
+          <li>Лучше tree-shaking и TypeScript, чем Options API.</li>
+        </ul>
+        <div class="phrase">Если знаешь Angular-сервисы и React hooks — Composition API ляжет быстро.</div>
       </div>
 
       <div class="card">
-        <h3>3. SFC</h3>
-        <p>Один файл <code>.vue</code>: template + script + scoped CSS. В Angular обычно три файла + декораторы.</p>
+        <h3>3. SFC (.vue) и стили</h3>
+        <ul>
+          <li>Один файл: template + script + style.</li>
+          <li><code>&lt;style scoped&gt;</code> — стили только этого компонента (data-атрибут).</li>
+          <li>CSS modules: <code>&lt;style module&gt;</code>.</li>
+          <li>Можно SCSS: <code>lang="scss"</code>.</li>
+          <li>Slots: <code>&lt;slot&gt;</code>, named slots, scoped slots — как ng-content / content projection, но гибче.</li>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>4. Директивы</h3>
-        <p><code>v-if</code>, <code>v-for</code>, <code>v-model</code>, <code>v-show</code>, <code>v-bind</code>.</p>
-        <p>Angular: <code>*ngIf</code> / <code>@if</code>, <code>*ngFor</code> / <code>@for</code>, <code>[(ngModel)]</code>, <code>[prop]</code>, <code>(event)</code>.</p>
+        <h3>4. Template и директивы</h3>
+        <ul>
+          <li><code>v-bind:attr</code> / <code>:attr</code> — привязка атрибута.</li>
+          <li><code>v-on:click</code> / <code>@click</code> — события.</li>
+          <li><code>v-model</code> — двусторонний биндинг (input, select, custom components).</li>
+          <li><code>v-if</code> / <code>v-else-if</code> / <code>v-else</code> — условный рендер (убирает из DOM).</li>
+          <li><code>v-show</code> — только CSS display.</li>
+          <li><code>v-for</code> — всегда с <code>:key</code>.</li>
+          <li><code>v-html</code> — сырой HTML (осторожно с XSS).</li>
+          <li><code>v-once</code>, <code>v-memo</code> — оптимизации рендера.</li>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>5. Стейт и DI</h3>
-        <p>Глобальный стейт — Pinia. Локальный шаринг — <code>provide</code> / <code>inject</code> и composables <code>useXxx</code>.</p>
-        <p>В Angular — сервисы + <code>providedIn: 'root'</code>.</p>
+        <h3>5. computed / watch / watchEffect</h3>
+        <ul>
+          <li><code>computed</code> — кэшируемое производное значение. Пересчёт только если изменились зависимости.</li>
+          <li><code>watch(source, cb)</code> — явный источник; можно <code>deep</code>, <code>immediate</code>, <code>flush</code>.</li>
+          <li><code>watchEffect(fn)</code> — сам собирает зависимости при первом запуске; сразу выполняется.</li>
+        </ul>
+        <div class="phrase">Правило: данные для UI → computed. Side effects (API, localStorage) → watch / watchEffect.</div>
       </div>
 
       <div class="card">
-        <h3>6. Экосистема</h3>
-        <p>Vue легче войти, но стек выбираешь сам (Pinia, Router, тесты, UI-kit). Angular даёт структуру «из коробки» — плюс для enterprise.</p>
+        <h3>6. Lifecycle (Composition)</h3>
+        <ul>
+          <li><code>onBeforeMount</code> / <code>onMounted</code> — до/после монтирования в DOM</li>
+          <li><code>onBeforeUpdate</code> / <code>onUpdated</code></li>
+          <li><code>onBeforeUnmount</code> / <code>onUnmounted</code> — чистка таймеров, подписок</li>
+          <li><code>onErrorCaptured</code> — ошибки в дочерних</li>
+        </ul>
+        <p>Аналог: <code>ngOnInit</code> ≈ часто <code>onMounted</code> (или сразу в setup для sync-логики). <code>ngOnDestroy</code> ≈ <code>onUnmounted</code>.</p>
+      </div>
+
+      <div class="card">
+        <h3>7. Компонентная коммуникация</h3>
+        <ul>
+          <li>Parent → child: props (<code>defineProps</code>)</li>
+          <li>Child → parent: emits (<code>defineEmits</code>)</li>
+          <li><code>v-model</code> на компоненте = prop + emit update</li>
+          <li>Дальние уровни: <code>provide</code> / <code>inject</code> (как DI «по дереву»)</li>
+          <li>Глобально: Pinia</li>
+          <li>Событийная шина в Vue 3 официально не рекомендуется (раньше был EventBus на Vue instance)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>8. Pinia (стейт)</h3>
+        <ul>
+          <li>Stores: <code>state</code>, <code>getters</code>, <code>actions</code></li>
+          <li>Можно Options-style или Setup-style store</li>
+          <li>Devtools, SSR-friendly, отличный TS</li>
+          <li>Проще NgRx: нет обязательных actions/reducers/effects для каждого чиха</li>
+        </ul>
+        <div class="phrase">NgRx → когда сложный поток событий. Pinia → когда нужен понятный shared state.</div>
+      </div>
+
+      <div class="card">
+        <h3>9. vue-router</h3>
+        <ul>
+          <li>History / hash mode</li>
+          <li>Nested routes, named views</li>
+          <li>Navigation guards: <code>beforeEach</code>, per-route <code>beforeEnter</code>, in-component guards</li>
+          <li>Lazy routes: <code>() =&gt; import('./Page.vue')</code></li>
+          <li>Composition: <code>useRouter()</code>, <code>useRoute()</code></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>10. Производительность и «фишки» Vue 3</h3>
+        <ul>
+          <li>Fragments — несколько корневых элементов в template</li>
+          <li>Teleport — рендер модалки в <code>body</code></li>
+          <li>Suspense — async setup / async components (с оговорками)</li>
+          <li>Async components: <code>defineAsyncComponent</code></li>
+          <li>Tree-shaking ядра — бандл меньше, чем «весь Vue 2»</li>
+          <li>KeepAlive — кэш динамических компонентов</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>11. Экосистема «сейчас»</h3>
+        <ul>
+          <li>Сборка: <strong>Vite</strong></li>
+          <li>Meta: <strong>Nuxt 3</strong> (SSR/SSG, file routing)</li>
+          <li>Тесты: Vitest + Vue Test Utils</li>
+          <li>UI: Vuetify, PrimeVue, Element Plus, Naive UI</li>
+          <li>Формы: VeeValidate / FormKit (часто)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="old" class="panel">
+      <div class="skip-banner">
+        <strong>Можно не учить в первую очередь.</strong>
+        Это старое / legacy. На современном Vue 3 собесе достаточно знать «что было → чем заменили».
+        Открывай только если в вакансии явно Vue 2 / Vuex / Options API.
+      </div>
+
+      <h2>Старые технологии (skip / только название)</h2>
+
+      <div class="old-card">
+        <h3>Vue 2</h3>
+        <p>Реактивность через <code>Object.defineProperty</code> — не ловила новые свойства без <code>Vue.set</code>, плохо с массивами/Map/Set. Один корневой элемент в template. Официально в EOL.</p>
+        <p class="now">Сейчас: Vue 3 + Proxy, Fragments, Composition API.</p>
+      </div>
+
+      <div class="old-card">
+        <h3>Options API как «единственный стиль»</h3>
+        <p><code>data()</code>, <code>methods</code>, <code>computed</code>, <code>watch</code>, mixins. Всё ещё работает в Vue 3, но новый код пишут на Composition / <code>script setup</code>.</p>
+        <p class="now">Сейчас: Composition API. Options — знать на чтение legacy.</p>
+      </div>
+
+      <div class="old-card">
+        <h3>Vuex</h3>
+        <p>Старый официальный store: mutations (sync), actions (async), modules, namespaced. Много boilerplate.</p>
+        <p class="now">Сейчас: <strong>Pinia</strong> (официальная замена).</p>
+      </div>
+
+      <div class="old-card">
+        <h3>Filters (| currency в template)</h3>
+        <p>В Vue 2: <code>&#123;&#123; price | currency &#125;&#125;</code>. В Vue 3 filters удалены.</p>
+        <p class="now">Сейчас: methods / computed / обычные функции.</p>
+      </div>
+
+      <div class="old-card">
+        <h3>Mixins</h3>
+        <p>Шарили логику, но ломали прозрачность: откуда взялось поле? Конфликты имён.</p>
+        <p class="now">Сейчас: composables <code>useXxx()</code>.</p>
+      </div>
+
+      <div class="old-card">
+        <h3>EventBus (new Vue() как шина)</h3>
+        <p>Глобальные <code>$on</code> / <code>$emit</code> между кем угодно. Сложно отлаживать, утечки слушателей.</p>
+        <p class="now">Сейчас: props/emits, provide/inject, Pinia. Или mitt — только если очень надо.</p>
+      </div>
+
+      <div class="old-card">
+        <h3>Vue CLI (webpack)</h3>
+        <p>Старый стандартный scaffold на webpack.</p>
+        <p class="now">Сейчас: <strong>Vite</strong> (+ <code>create-vue</code> / Nuxt).</p>
+      </div>
+
+      <div class="old-card">
+        <h3>Nuxt 2</h3>
+        <p>На Vue 2, свой конфиг и модули эпохи webpack.</p>
+        <p class="now">Сейчас: <strong>Nuxt 3</strong> (Vue 3, Vite/Nitro).</p>
+      </div>
+
+      <div class="old-card">
+        <h3>$listeners, $scopedSlots, functional components (Vue 2 style)</h3>
+        <p>API, которые сильно изменились или упростились в Vue 3.</p>
+        <p class="now">Сейчас: slots / v-slot, обычные компоненты; смотри миграционный гайд только если трогаешь legacy.</p>
+      </div>
+
+      <div class="old-card">
+        <h3>AngularJS (Angular 1.x) — не путать</h3>
+        <p>Это вообще другой фреймворк (<code>ng-app</code>, digest cycle). К Vue не относится, но иногда путают название «Angular».</p>
+        <p class="now">Твой стек — Angular 2+ (TypeScript). AngularJS учить не нужно.</p>
       </div>
     </section>
 
