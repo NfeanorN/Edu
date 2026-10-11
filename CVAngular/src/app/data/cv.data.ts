@@ -25,8 +25,8 @@ export const CV_PROFILE: CvProfile = {
   ],
   workFormat: 'Hybrid or remote by agreement · Kazakhstan / Europe',
   about:
-    'Frontend Developer with nearly 5 years of commercial experience across Angular, React, Vue and Flutter. Strong in TypeScript/JavaScript, RxJS and NgRx. Built and maintained multi-module enterprise and CRM UIs, integrated REST APIs and WebSockets, wrote unit tests, and improved performance through lazy loading and refactoring. Strong in reusable components, clean code, code review and team delivery of stable product interfaces.',
-  experienceLabel: '4 years 11 months',
+    'Frontend Developer with 5 years of commercial experience across Angular, React, Vue and Flutter. Strong in TypeScript/JavaScript, RxJS and NgRx. Built and maintained multi-module enterprise and CRM UIs, integrated REST APIs and WebSockets, wrote unit tests, and improved performance through lazy loading and refactoring. Strong in reusable components, clean code, code review and team delivery of stable product interfaces.',
+  experienceLabel: '5 years',
   jobs: [
     {
       company: 'Khan Group',

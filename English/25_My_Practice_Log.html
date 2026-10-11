@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <title>My Practice Log</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 1.5rem 1rem 3rem;
+      color: #1a1a2e;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back a { color: #3498db; text-decoration: none; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #e67e22;
+      padding-bottom: 10px;
+      font-size: 1.65rem;
+      margin: 0.4rem 0;
+    }
+    h3 { color: #1a3a5c; font-size: 1.02rem; margin: 0 0 0.3rem; }
+    h4 { margin: 0.9rem 0 0.3rem; font-size: 0.92rem; color: #2c3e50; }
+    .lead { color: #555; font-size: 0.95rem; }
+    .lead a { color: #e67e22; }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #f8fafc;
+      padding: 0.55rem 0;
+    }
+    .tab {
+      border: 1px solid #cfd8e3;
+      background: #fff;
+      color: #2c3e50;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-family: inherit;
+    }
+    .tab.active { background: #e67e22; border-color: #e67e22; color: #fff; font-weight: 600; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .card {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin: 0.7rem 0;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #d35400;
+      background: #fdf2e9;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin: 0 6px 0.4rem 0;
+    }
+    .q { font-weight: 700; color: #1a3a5c; }
+    .said, .fixed {
+      border-radius: 6px;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.94rem;
+      margin: 0.3rem 0;
+    }
+    .said { background: #fdedec; color: #555; }
+    .fixed { background: #e8f8f5; color: #1a3a5c; }
+    .fixed b { color: #16a085; }
+    .note { color: #555; font-size: 0.9rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 0.3rem; }
+    th, td { border: 1px solid #e6ebf2; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #f1f5f9; }
+    .bad { color: #c0392b; text-decoration: line-through; }
+    .good { color: #16a085; font-weight: 700; }
+    .why { color: #7f8c8d; font-size: 0.86rem; }
+    .count {
+      display: inline-block;
+      min-width: 22px;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #fff;
+      background: #e67e22;
+      border-radius: 999px;
+      padding: 0 6px;
+    }
+    .btn {
+      background: #fff;
+      color: #e67e22;
+      border: 1px solid #e67e22;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-family: inherit;
+      font-weight: 600;
+    }
+    .btn.solid { background: #e67e22; color: #fff; }
+    .btn:hover { background: #fdf2e9; }
+    .btn.solid:hover { background: #d35400; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0.6rem 0; }
+    .muted { color: #7f8c8d; font-size: 0.86rem; }
+    .drill-wrong { font-size: 1.15rem; font-weight: 700; color: #c0392b; margin: 0.4rem 0; }
+    .reveal { display: none; margin-top: 0.6rem; }
+    .reveal.show { display: block; }
+    .drill-right { font-size: 1.15rem; font-weight: 700; color: #16a085; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← English</a></p>
+    <h1>My Practice Log — мои ошибки и исправления</h1>
+    <p class="lead">
+      Журнал наших speaking-сессий: что я сказал, как правильно и какие ошибки повторяются.
+      Перед каждой новой сессией прогоняй тренажёр «Исправь ошибку». План лежит здесь: <a href="24_Speaking_Plan.html">Speaking Plan</a>.
+    </p>
+
+    <div class="tabs">
+      <button class="tab active" data-panel="p-rules">Мои правила</button>
+      <button class="tab" data-panel="p-sessions">Сессии</button>
+      <button class="tab" data-panel="p-drill">Исправь ошибку</button>
+    </div>
+
+    <section class="panel active" id="p-rules">
+      <p class="muted">Ошибки сгруппированы по правилам. Число показывает, сколько раз я её делал. Самые частые стоят сверху.</p>
+      <div id="rules"></div>
+    </section>
+
+    <section class="panel" id="p-sessions">
+      <div id="sessions"></div>
+    </section>
+
+    <section class="panel" id="p-drill">
+      <div class="card">
+        <h3>Скажи вслух правильно, потом проверь</h3>
+        <div class="muted" id="drillMeta"></div>
+        <div class="drill-wrong" id="drillWrong"></div>
+        <div class="toolbar">
+          <button class="btn solid" id="showAns">Показать ответ</button>
+          <button class="btn" id="nextQ">Следующая →</button>
+        </div>
+        <div class="reveal" id="reveal">
+          <div class="drill-right" id="drillRight"></div>
+          <div class="why" id="drillWhy"></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="back"><a href="index.html">← English</a></p>
+  </div>
+
+  <script>
+    // Правила: id → название и объяснение.
+    const RULES = {
+      past: {
+        title: 'Past Simple: закончилось → V2, без was',
+        why: 'Если действие в прошлом закончилось: studied, worked, switched, built. «Was + глагол» — калька с русского.',
+      },
+      as: {
+        title: 'Кем работаю → as, а не like',
+        why: 'as = в роли / должности (work as a developer). like = похоже на (work like a machine).',
+      },
+      ordinal: {
+        title: 'Порядковые числительные',
+        why: 'first (1st), second (2nd), third (3rd), fourth (4th), fifth (5th)…',
+      },
+      prep: {
+        title: 'Предлоги: study at, degree in, switch to',
+        why: 'study at a university · a degree in a subject · switch to something new.',
+      },
+      article: {
+        title: 'Артикли a / an перед профессией и исчисляемым',
+        why: 'I work as a developer · a bachelor\'s degree. Одна штука из многих → a/an.',
+      },
+      possessive: {
+        title: "bachelor's / master's degree",
+        why: "Степень всегда с 's: a bachelor's degree, a master's degree.",
+      },
+    };
+
+    // Ошибки: rule — id правила, session — номер сессии.
+    const MISTAKES = [
+      { rule: 'past', session: 1, wrong: 'I was study in IITU.', right: 'I studied at IITU.' },
+      { rule: 'past', session: 1, wrong: 'I started with React and then switch Angular.', right: 'I started with React and then switched to Angular.' },
+      { rule: 'past', session: 1, wrong: 'In all other companies I work like Angular developer.', right: 'At all my other companies, I worked as an Angular developer.' },
+      { rule: 'as', session: 1, wrong: 'I started work like frontend developer.', right: 'I started working as a frontend developer.' },
+      { rule: 'ordinal', session: 1, wrong: 'in 3th year of bachelor', right: 'in my third year of university' },
+      { rule: 'prep', session: 1, wrong: 'I was study in IITU in information system.', right: 'I studied Information Systems at IITU.' },
+      { rule: 'article', session: 1, wrong: 'I started work like frontend developer.', right: 'I started working as a frontend developer.' },
+      { rule: 'possessive', session: 1, wrong: 'I have a bachelor degree.', right: "I have a bachelor's degree." },
+    ];
+
+    const SESSIONS = [
+      {
+        n: 1,
+        date: '2026-10-11',
+        week: 'Неделя 1 · Foundation',
+        question: 'Could you tell me a little bit about yourself?',
+        said:
+          "Hi I'm from Kazakhstan, I have a bachelor degree, I was study in IITU in Almaty in informaton system. I started work like frontend developer 3th year in bachelor, started with react and then switch angular, and all other company I work like angular developer or build mobile apps in flutter, and also work in vue",
+        fixed:
+          "Hi, I'm Nurzhan, and I'm from Kazakhstan. I have a <b>bachelor's degree</b> in Information Systems. I <b>studied at</b> IITU in Almaty. I <b>started working as</b> a frontend developer <b>in my third year</b> of university. I started with React and then <b>switched to</b> Angular. At all my other companies, I <b>worked as</b> an Angular developer. I also <b>built</b> mobile apps in Flutter and <b>worked with</b> Vue. <b>In total, I have about five years of experience in frontend development. Now I want to grow in an international team.</b>",
+        good: 'Рассказ по порядку и понятный.',
+        next: 'Не хватило имени в начале, опыта в цифрах и цели в конце.',
+      },
+    ];
+
+    // ---- Tabs ----
+    document.querySelectorAll('.tab').forEach((tab) => {
+      tab.onclick = () => {
+        document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.panel).classList.add('active');
+      };
+    });
+
+    const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+
+    // ---- Rules ----
+    const byRule = {};
+    MISTAKES.forEach((m) => (byRule[m.rule] = byRule[m.rule] || []).push(m));
+    document.getElementById('rules').innerHTML = Object.keys(byRule)
+      .sort((a, b) => byRule[b].length - byRule[a].length)
+      .map((id) => {
+        const r = RULES[id];
+        const rows = byRule[id]
+          .map((m) => `<tr><td class="bad">${esc(m.wrong)}</td><td class="good">${esc(m.right)}</td><td class="muted">#${m.session}</td></tr>`)
+          .join('');
+        return `<div class="card">
+          <h3><span class="count">${byRule[id].length}</span> ${esc(r.title)}</h3>
+          <div class="why">${esc(r.why)}</div>
+          <table><tr><th>Сказал</th><th>Правильно</th><th>Сессия</th></tr>${rows}</table>
+        </div>`;
+      })
+      .join('');
+
+    // ---- Sessions (новые сверху) ----
+    document.getElementById('sessions').innerHTML = SESSIONS.slice()
+      .reverse()
+      .map((s) => `<div class="card">
+        <span class="tag">Session ${s.n}</span><span class="tag">${s.date}</span><span class="tag">${esc(s.week)}</span>
+        <div class="q">Q: ${esc(s.question)}</div>
+        <h4>Что я сказал</h4>
+        <div class="said">${esc(s.said)}</div>
+        <h4>Правильно</h4>
+        <div class="fixed">${s.fixed}</div>
+        <p class="note">👍 ${esc(s.good)}<br />🎯 ${esc(s.next)}</p>
+      </div>`)
+      .join('');
+
+    // ---- Drill ----
+    let order = [];
+    let idx = -1;
+    function shuffle(a) {
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+    function showQ() {
+      if (!order.length || idx >= order.length - 1) {
+        order = shuffle(MISTAKES.slice());
+        idx = 0;
+      } else idx++;
+      const m = order[idx];
+      document.getElementById('drillMeta').textContent = (idx + 1) + ' / ' + order.length;
+      document.getElementById('drillWrong').textContent = m.wrong;
+      document.getElementById('drillRight').textContent = m.right;
+      document.getElementById('drillWhy').textContent = RULES[m.rule].why;
+      document.getElementById('reveal').classList.remove('show');
+    }
+    document.getElementById('nextQ').onclick = showQ;
+    document.getElementById('showAns').onclick = () => document.getElementById('reveal').classList.add('show');
+    showQ();
+  </script>
+</body>
+</html>

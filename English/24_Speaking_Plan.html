@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <title>Speaking Plan — Clear &amp; Confident</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 1.5rem 1rem 3rem;
+      color: #1a1a2e;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back a { color: #3498db; text-decoration: none; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #16a085;
+      padding-bottom: 10px;
+      font-size: 1.65rem;
+      margin: 0.4rem 0;
+    }
+    h2 { color: #2c3e50; font-size: 1.2rem; margin: 1.4rem 0 0.4rem; }
+    h3 { color: #1a3a5c; font-size: 1.02rem; margin: 0 0 0.3rem; }
+    .lead { color: #555; font-size: 0.95rem; }
+    .howto {
+      background: #e8f8f5;
+      border-left: 4px solid #16a085;
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .howto ul, .howto ol { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #f8fafc;
+      padding: 0.55rem 0;
+    }
+    .tab {
+      border: 1px solid #cfd8e3;
+      background: #fff;
+      color: #2c3e50;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-family: inherit;
+    }
+    .tab.active {
+      background: #16a085;
+      border-color: #16a085;
+      color: #fff;
+      font-weight: 600;
+    }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .card {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin: 0.7rem 0;
+    }
+    .card ul, .card ol { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+    .card li { margin: 0.2rem 0; }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #16a085;
+      background: #e8f8f5;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-bottom: 0.4rem;
+    }
+    .goal {
+      margin-top: 0.55rem;
+      font-size: 0.9rem;
+      background: #fef9e7;
+      border-radius: 6px;
+      padding: 0.45rem 0.65rem;
+    }
+    .muted { color: #7f8c8d; font-size: 0.88rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { border: 1px solid #e6ebf2; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #f1f5f9; }
+    .en { font-weight: 700; color: #1a3a5c; }
+    .ru { color: #7f8c8d; font-size: 0.88rem; }
+    .bad { color: #c0392b; text-decoration: line-through; }
+    .good { color: #16a085; font-weight: 700; }
+    .btn {
+      background: #fff;
+      color: #16a085;
+      border: 1px solid #16a085;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-family: inherit;
+      font-weight: 600;
+    }
+    .btn.solid { background: #16a085; color: #fff; }
+    .btn:hover { background: #e8f8f5; }
+    .btn.solid:hover { background: #138d75; }
+    .btn:disabled { opacity: 0.45; cursor: default; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0.6rem 0; }
+    .check { display: flex; gap: 10px; align-items: flex-start; padding: 0.4rem 0; border-bottom: 1px dashed #e6ebf2; }
+    .check:last-child { border-bottom: 0; }
+    .check input { margin-top: 0.35rem; width: 18px; height: 18px; accent-color: #16a085; }
+    .check b { color: #1a3a5c; }
+    .stat { font-size: 0.95rem; margin: 0.4rem 0; }
+    .stat b { color: #16a085; font-size: 1.15rem; }
+    .prompt {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1a3a5c;
+      margin: 0.5rem 0;
+    }
+    .timer { font-size: 2rem; font-weight: 800; color: #16a085; font-variant-numeric: tabular-nums; }
+    .timer.over { color: #c0392b; }
+    select { font-family: inherit; font-size: 0.86rem; padding: 6px 8px; border-radius: 8px; border: 1px solid #cfd8e3; }
+    audio { width: 100%; margin-top: 0.5rem; }
+    .script {
+      background: #f8fafc;
+      border-left: 3px solid #16a085;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      margin: 0.4rem 0;
+    }
+    details summary { cursor: pointer; font-weight: 600; color: #16a085; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← English</a></p>
+    <h1>Speaking Plan — говорить чётко и уверенно</h1>
+    <p class="lead">
+      12 недель, ~60 минут в день. Цель: свободно рассказывать о себе и своей работе,
+      ясно объяснять технические вещи и пройти собеседование на английском (Andersen и международные команды).
+    </p>
+
+    <div class="howto">
+      <b>Главные правила</b>
+      <ul>
+        <li><b>Говорить каждый день вслух</b>, даже 10 минут. Читать и смотреть недостаточно: речь тренируется только речью.</li>
+        <li><b>Записывать себя.</b> Раз в неделю слушать запись и выписывать 3 ошибки или паузы.</li>
+        <li><b>Учить фразами (chunks), а не словами:</b> не «decision», а «make a decision».</li>
+        <li><b>Простое и ясное лучше сложного:</b> короткие предложения, мысль → причина → пример.</li>
+        <li><b>Минимум 1 живой разговор в неделю:</b> репетитор, speaking club или language exchange.</li>
+      </ul>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-panel="p-plan">12 недель</button>
+      <button class="tab" data-panel="p-day">Каждый день</button>
+      <button class="tab" data-panel="p-think">Структура мысли</button>
+      <button class="tab" data-panel="p-it">Interview &amp; IT</button>
+      <button class="tab" data-panel="p-mist">Типичные ошибки</button>
+      <button class="tab" data-panel="p-drill">Тренажёр</button>
+    </div>
+
+    <!-- 12 WEEKS -->
+    <section class="panel active" id="p-plan">
+      <p class="muted">Каждая фаза длится 4 недели. Не переходи дальше, пока не выполнена цель фазы.</p>
+
+      <div class="card">
+        <span class="tag">Недели 1–4 · Foundation</span>
+        <h3>Убрать страх и паузы, говорить о себе</h3>
+        <ul>
+          <li>Неделя 1: self-introduction на 60 секунд (вкладка Interview &amp; IT): выучить и рассказывать без бумажки.</li>
+          <li>Неделя 2: Present Simple / Past Simple / Present Perfect в речи: «I work… / I worked… / I've worked…».</li>
+          <li>Неделя 3: рассказ о своём опыте: каждая компания, 3–4 предложения.</li>
+          <li>Неделя 4: фразы, чтобы выиграть время и переспросить (вкладка «Структура мысли»).</li>
+        </ul>
+        <div class="goal">🎯 <b>Цель:</b> 2 минуты рассказа о себе и опыте без длинных пауз и без перехода на русский.</div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Недели 5–8 · Structure</span>
+        <h3>Выражать мысль ясно и по структуре</h3>
+        <ul>
+          <li>Неделя 5: схема PREP: мнение → причина → пример → вывод. По одной теме в день.</li>
+          <li>Неделя 6: связки и переходы: first of all, on the other hand, that's why, for example.</li>
+          <li>Неделя 7: объяснять JS-концепции по-английски: closures, prototypes, event loop, AJAX.</li>
+          <li>Неделя 8: STAR-истории: 4 истории из своей работы (баг, дедлайн, конфликт, достижение).</li>
+        </ul>
+        <div class="goal">🎯 <b>Цель:</b> ответить на любой вопрос из тренажёра за 90 секунд по структуре PREP или STAR.</div>
+      </div>
+
+      <div class="card">
+        <span class="tag">Недели 9–12 · Real conversations</span>
+        <h3>Живое общение и собеседования</h3>
+        <ul>
+          <li>Неделя 9: 2 разговора в неделю с живым человеком (репетитор, speaking club, language exchange).</li>
+          <li>Неделя 10: mock interview: HR-часть (о себе, мотивация, сильные и слабые стороны).</li>
+          <li>Неделя 11: mock interview: техническая часть на английском (объяснить код, рассказать о проекте).</li>
+          <li>Неделя 12: свободные дискуссии: соглашаться и не соглашаться вежливо, задавать уточняющие вопросы.</li>
+        </ul>
+        <div class="goal">🎯 <b>Цель:</b> 30-минутный mock interview на английском без перехода на русский.</div>
+      </div>
+
+      <div class="card">
+        <h3>Как измерять прогресс</h3>
+        <ul>
+          <li><b>Неделя 0:</b> запиши 2 минуты на тему «Tell me about yourself». Сохрани запись.</li>
+          <li><b>Недели 4, 8, 12:</b> запиши ту же тему заново и сравни: паузы, «эээ», переходы на русский, длина предложений.</li>
+          <li>Веди счёт дней в трекере (вкладка «Каждый день»).</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Где говорить с живыми людьми</h3>
+        <ul>
+          <li><b>Репетитор 1–2 раза в неделю</b> (italki, Preply и т.п.). Сразу проси: «Please correct my mistakes and push me to speak more».</li>
+          <li><b>Speaking clubs в Алматы</b> и онлайн-клубы. Также IT-митапы, где говорят по-английски.</li>
+          <li><b>Language exchange</b> (Tandem, HelloTalk): ты помогаешь с русским, тебе с английским.</li>
+          <li><b>ИИ-собеседник голосом</b> для ежедневной практики: проси его исправлять ошибки после каждого ответа.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DAILY -->
+    <section class="panel" id="p-day">
+      <div class="card">
+        <h3>Ежедневная рутина · ~60 минут</h3>
+        <table>
+          <tr><th>Блок</th><th>Время</th><th>Что делать</th></tr>
+          <tr><td><b>1. Shadowing</b></td><td>15 мин</td><td>Короткое видео (IT-доклад, подкаст, сериал) с субтитрами. Повторяй фразу за диктором сразу же, копируя ритм и интонацию.</td></tr>
+          <tr><td><b>2. Chunks</b></td><td>10 мин</td><td>5 новых фраз. Каждую фразу скажи вслух в 2 своих предложениях.</td></tr>
+          <tr><td><b>3. Speaking topic</b></td><td>15 мин</td><td>1–2 темы из тренажёра. Говори 90 секунд по таймеру с записью и сразу прослушай.</td></tr>
+          <tr><td><b>4. Self-talk</b></td><td>10 мин</td><td>Комментируй вслух, что делаешь: «Now I'm opening the project… I need to fix this bug because…».</td></tr>
+          <tr><td><b>5. Review</b></td><td>10 мин</td><td>Выпиши 2–3 фразы, которые не смог сказать. Найди, как это говорят носители, и добавь в chunks на завтра.</td></tr>
+        </table>
+        <p class="muted">Нет часа? Минимум на день: 10 минут блока 3. Главное не прерывать серию.</p>
+      </div>
+
+      <div class="card">
+        <h3>Трекер на сегодня · <span id="today"></span></h3>
+        <div id="checks"></div>
+        <p class="stat">Серия: <b id="streak">0</b> дн. подряд · всего активных дней: <b id="total">0</b></p>
+        <p class="muted">День засчитывается, если выполнен хотя бы блок 3. Отметки хранятся только в этом браузере.</p>
+      </div>
+    </section>
+
+    <!-- THINK -->
+    <section class="panel" id="p-think">
+      <div class="card">
+        <h3>PREP: ответ на любой вопрос</h3>
+        <table>
+          <tr><th>Шаг</th><th>Фразы</th></tr>
+          <tr><td><b>P</b>oint (мысль)</td><td class="en">I think… / In my opinion… / I'd say that…</td></tr>
+          <tr><td><b>R</b>eason (почему)</td><td class="en">The main reason is… / That's because…</td></tr>
+          <tr><td><b>E</b>xample (пример)</td><td class="en">For example, in my last project… / Let me give you an example.</td></tr>
+          <tr><td><b>P</b>oint (вывод)</td><td class="en">So, that's why I believe… / To sum up…</td></tr>
+        </table>
+        <div class="script">
+          <i>Q: Do you prefer working in an office or remotely?</i><br />
+          I'd say I prefer a hybrid format. The main reason is that I focus better at home, but I learn faster next to my team.
+          For example, when I joined a new project, I solved problems much quicker by asking colleagues in person.
+          So, that's why I think a mix of both works best for me.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Выиграть время (вместо «эээ»)</h3>
+        <ul>
+          <li><span class="en">That's a good question. Let me think for a second.</span> <span class="ru">Хороший вопрос, секунду подумаю.</span></li>
+          <li><span class="en">How can I put it…</span> <span class="ru">Как бы это сказать…</span></li>
+          <li><span class="en">Well, it depends on…</span> <span class="ru">Ну, это зависит от…</span></li>
+          <li><span class="en">I've never really thought about it, but…</span> <span class="ru">Не задумывался, но…</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Не знаешь слово: объясни другими словами</h3>
+        <ul>
+          <li><span class="en">I don't remember the exact word, but it's something like…</span></li>
+          <li><span class="en">It's a kind of… / It's the thing you use to…</span></li>
+          <li><span class="en">What's the word for…?</span> <span class="ru">Как называется…?</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Переспросить и уточнить</h3>
+        <ul>
+          <li><span class="en">Sorry, could you repeat that, please?</span></li>
+          <li><span class="en">Do you mean… ?</span> <span class="ru">Вы имеете в виду…?</span></li>
+          <li><span class="en">Just to make sure I understood correctly: you want…</span></li>
+          <li><span class="en">Could you speak a bit more slowly, please?</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Связки: сделать речь логичной</h3>
+        <table>
+          <tr><th>Задача</th><th>Фразы</th></tr>
+          <tr><td>Начать</td><td class="en">First of all… / To begin with…</td></tr>
+          <tr><td>Добавить</td><td class="en">Also… / On top of that… / What's more…</td></tr>
+          <tr><td>Противопоставить</td><td class="en">However… / On the other hand… / Although…</td></tr>
+          <tr><td>Причина / следствие</td><td class="en">Because… / That's why… / As a result…</td></tr>
+          <tr><td>Завершить</td><td class="en">To sum up… / Overall… / In the end…</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Согласиться и не согласиться вежливо</h3>
+        <ul>
+          <li><span class="en">I totally agree. / That's a good point.</span></li>
+          <li><span class="en">I see what you mean, but… / I'm not sure about that, because…</span></li>
+          <li><span class="en">That's true, but have you considered…?</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- INTERVIEW & IT -->
+    <section class="panel" id="p-it">
+      <div class="card">
+        <h3>Tell me about yourself · 60 секунд</h3>
+        <div class="script">
+          Hi, my name is Nurzhan, and I'm a frontend developer from Almaty.
+          I've been working with JavaScript and TypeScript for about five years, mostly with Angular, but also React and Vue.
+          I've built enterprise SPAs, a CRM and a B2B SaaS product, and I've worked closely with backend teams on REST APIs and WebSockets.
+          Right now my goal is to grow in an international team: I want to work in English every day
+          and build software for banking and fintech, where quality really matters.
+          That's why I'm very interested in your program.
+        </div>
+        <p class="muted">Выучи текст, а потом рассказывай своими словами. Не нужно заучивать дословно: важно передать структуру (кто я → опыт → цель → почему вы).</p>
+      </div>
+
+      <div class="card">
+        <h3>Частые HR-вопросы</h3>
+        <details><summary>Why do you want a traineeship with your experience?</summary>
+          <div class="script">I learned a lot by working in small local teams, but mostly on my own. Now I want structured mentoring, strong engineering standards and experience in an international team. I see it as an investment in my long-term growth.</div>
+        </details>
+        <details><summary>Why did you leave your last job?</summary>
+          <div class="script">I decided to change direction. I want to work in an international environment and in the fintech domain, and that wasn't possible in my previous company.</div>
+        </details>
+        <details><summary>What are your strengths?</summary>
+          <div class="script">I'm good at understanding existing code quickly and building reusable components. I also care about code quality: I like code reviews and refactoring.</div>
+        </details>
+        <details><summary>What is your weakness?</summary>
+          <div class="script">My spoken English is not as strong as my written English yet. That's why I practice every day: I record myself, take speaking classes, and I'm improving quickly.</div>
+        </details>
+        <details><summary>Where do you see yourself in 3 years?</summary>
+          <div class="script">I'd like to be a strong middle or senior developer in an international team, with experience in both frontend and Node.js, and to help newer developers grow.</div>
+        </details>
+      </div>
+
+      <div class="card">
+        <h3>Объяснять JS по-английски · шаблоны</h3>
+        <details><summary>Closure</summary>
+          <div class="script">A closure is a function that remembers variables from the scope where it was created, even after that outer function has finished. For example, a counter function can keep its count private.</div>
+        </details>
+        <details><summary>Prototype</summary>
+          <div class="script">Every object in JavaScript has a hidden link to another object called its prototype. When you access a property that doesn't exist on the object, JavaScript looks for it up the prototype chain. That's how inheritance works in JS.</div>
+        </details>
+        <details><summary>Event loop</summary>
+          <div class="script">JavaScript is single-threaded. The event loop takes tasks from the queues when the call stack is empty. Microtasks, like promise callbacks, run before macrotasks, like setTimeout.</div>
+        </details>
+        <details><summary>AJAX</summary>
+          <div class="script">AJAX means sending HTTP requests from the browser without reloading the page. Today we usually use fetch or Angular's HttpClient, and we get the data asynchronously, often as JSON.</div>
+        </details>
+        <details><summary>== vs ===</summary>
+          <div class="script">Double equals compares values after type coercion, so "5" == 5 is true. Triple equals compares both value and type without coercion, so it's safer and I use it by default.</div>
+        </details>
+      </div>
+
+      <div class="card">
+        <h3>Рабочая речь в команде</h3>
+        <ul>
+          <li><span class="en">Yesterday I worked on…, today I'm going to…, and I'm blocked by…</span> <span class="ru">daily stand-up</span></li>
+          <li><span class="en">I'm not sure I understood the requirements. Could you clarify…?</span></li>
+          <li><span class="en">I think we could simplify this by…</span> <span class="ru">предложение в code review</span></li>
+          <li><span class="en">I'll look into it and get back to you.</span> <span class="ru">разберусь и отпишусь</span></li>
+          <li><span class="en">It'll take about two days, because…</span> <span class="ru">оценка задачи</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MISTAKES -->
+    <section class="panel" id="p-mist">
+      <div class="card">
+        <h3>Типичные ошибки русскоговорящих</h3>
+        <table>
+          <tr><th>Неправильно</th><th>Правильно</th></tr>
+          <tr><td class="bad">I very like it</td><td class="good">I really like it / I like it a lot</td></tr>
+          <tr><td class="bad">Explain me, please</td><td class="good">Could you explain it to me?</td></tr>
+          <tr><td class="bad">We discussed about the task</td><td class="good">We discussed the task</td></tr>
+          <tr><td class="bad">It depends from…</td><td class="good">It depends on…</td></tr>
+          <tr><td class="bad">I work here since 2022</td><td class="good">I've worked here since 2022</td></tr>
+          <tr><td class="bad">I have 5 years experience</td><td class="good">I have 5 years of experience</td></tr>
+          <tr><td class="bad">Do a decision</td><td class="good">Make a decision</td></tr>
+          <tr><td class="bad">How it works?</td><td class="good">How does it work?</td></tr>
+          <tr><td class="bad">I am agree</td><td class="good">I agree</td></tr>
+          <tr><td class="bad">I'm developer</td><td class="good">I'm a developer</td></tr>
+          <tr><td class="bad">Informations / advices</td><td class="good">information / advice (без -s)</td></tr>
+          <tr><td class="bad">I will call you when I will finish</td><td class="good">I'll call you when I finish</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Произношение · самое важное</h3>
+        <ul>
+          <li><b>th</b>: <span class="en">think, this, the</span>. Язык между зубами, не «с» и не «з».</li>
+          <li><b>w ≠ v</b>: <span class="en">work, we, very, video</span>.</li>
+          <li><b>Долгие и краткие гласные</b>: <span class="en">ship / sheep, live / leave, full / fool</span>.</li>
+          <li><b>Ударение в IT-словах</b>: <span class="en">deVELopment, arCHItecture, comPOnent, ANalytics</span>.</li>
+          <li><b>Интонация</b>: в конце утверждения голос идёт вниз. Иначе звучит неуверенно, как вопрос.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DRILL -->
+    <section class="panel" id="p-drill">
+      <div class="card">
+        <h3>Тренажёр: говори по таймеру</h3>
+        <div class="toolbar">
+          <select id="cat">
+            <option value="all">Все темы</option>
+            <option value="me">О себе</option>
+            <option value="it">IT и работа</option>
+            <option value="hr">Interview</option>
+            <option value="opinion">Мнение (PREP)</option>
+          </select>
+          <select id="dur">
+            <option value="60">60 сек</option>
+            <option value="90" selected>90 сек</option>
+            <option value="120">120 сек</option>
+          </select>
+          <button class="btn" id="nextP">Новая тема</button>
+        </div>
+        <div class="prompt" id="promptText"></div>
+        <div class="timer" id="timer">1:30</div>
+        <div class="toolbar">
+          <button class="btn solid" id="startBtn">▶ Старт</button>
+          <button class="btn" id="recBtn">🎙 Старт + запись</button>
+          <button class="btn" id="stopBtn" disabled>■ Стоп</button>
+        </div>
+        <audio id="player" controls hidden></audio>
+        <p class="muted" id="recNote">Запись остаётся только в браузере и пропадает после перезагрузки страницы. Прослушай и найди: паузы, «эээ», русские слова, ошибки во временах.</p>
+      </div>
+    </section>
+
+    <p class="back"><a href="index.html">← English</a></p>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab').forEach((tab) => {
+      tab.onclick = () => {
+        document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.panel).classList.add('active');
+      };
+    });
+
+    // ---- Daily tracker ----
+    const TASKS = [
+      ['shadow', 'Shadowing', '15 мин'],
+      ['chunks', 'Chunks', '5 новых фраз'],
+      ['topic', 'Speaking topic', 'запись 90 сек'],
+      ['self', 'Self-talk', '10 мин'],
+      ['review', 'Review', '2–3 фразы'],
+    ];
+    const KEY = 'speakingPlanLog';
+    const dayKey = (d) =>
+      d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    function load() {
+      try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+    }
+    function save(log) {
+      try { localStorage.setItem(KEY, JSON.stringify(log)); } catch (e) {}
+    }
+    const log = load();
+    const today = dayKey(new Date());
+    document.getElementById('today').textContent = today;
+
+    function renderStats() {
+      const done = (k) => log[k] && log[k].topic;
+      let streak = 0;
+      const d = new Date();
+      if (!done(dayKey(d))) d.setDate(d.getDate() - 1);
+      while (done(dayKey(d))) { streak++; d.setDate(d.getDate() - 1); }
+      document.getElementById('streak').textContent = streak;
+      document.getElementById('total').textContent = Object.keys(log).filter(done).length;
+    }
+
+    const checks = document.getElementById('checks');
+    TASKS.forEach(([id, name, hint]) => {
+      const row = document.createElement('label');
+      row.className = 'check';
+      const box = document.createElement('input');
+      box.type = 'checkbox';
+      box.checked = !!(log[today] && log[today][id]);
+      box.onchange = () => {
+        log[today] = log[today] || {};
+        log[today][id] = box.checked;
+        save(log);
+        renderStats();
+      };
+      const text = document.createElement('span');
+      text.innerHTML = '<b>' + name + '</b> · <span class="muted">' + hint + '</span>';
+      row.append(box, text);
+      checks.append(row);
+    });
+    renderStats();
+
+    // ---- Speaking drill ----
+    const PROMPTS = {
+      me: [
+        'Tell me about yourself.',
+        'Describe your typical day.',
+        'What do you do in your free time?',
+        'Tell me about your hometown, Almaty.',
+        'What was the best decision you have made in your life?',
+        'Describe a skill you learned recently and how you learned it.',
+        'What are your goals for the next year?',
+      ],
+      it: [
+        'Explain what a closure is in JavaScript.',
+        'Explain how prototypes work in JavaScript.',
+        'Explain the event loop to a junior developer.',
+        'What is the difference between let, const and var?',
+        'Describe the most interesting project you have worked on.',
+        'Tell me about a difficult bug you fixed. How did you find it?',
+        'Why do you like Angular? What would you change in it?',
+        'Explain what AJAX is and how you use it.',
+        'What makes code "clean" in your opinion?',
+        'How do you do a code review?',
+      ],
+      hr: [
+        'Why do you want to join our traineeship?',
+        'Why do you want to work in an international team?',
+        'What are your strengths and weaknesses?',
+        'Tell me about a conflict in a team and how you solved it.',
+        'Tell me about a time you missed a deadline.',
+        'Where do you see yourself in three years?',
+        'Why are you interested in banking and fintech?',
+      ],
+      opinion: [
+        'Is it better to work remotely or in an office?',
+        'Should developers learn more than one framework?',
+        'Will AI replace frontend developers?',
+        'Is university education necessary for programmers?',
+        'Is it better to work in a startup or a big company?',
+        'What is more important: speed or quality?',
+      ],
+    };
+
+    const promptEl = document.getElementById('promptText');
+    const timerEl = document.getElementById('timer');
+    const startBtn = document.getElementById('startBtn');
+    const recBtn = document.getElementById('recBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const player = document.getElementById('player');
+    let tick = null;
+    let recorder = null;
+    let lastPrompt = '';
+
+    const fmt = (s) => (s < 0 ? '-' : '') + Math.floor(Math.abs(s) / 60) + ':' + String(Math.abs(s) % 60).padStart(2, '0');
+    const duration = () => +document.getElementById('dur').value;
+
+    function nextPrompt() {
+      const cat = document.getElementById('cat').value;
+      const pool = cat === 'all' ? Object.values(PROMPTS).flat() : PROMPTS[cat];
+      let p;
+      do { p = pool[Math.floor(Math.random() * pool.length)]; } while (pool.length > 1 && p === lastPrompt);
+      lastPrompt = p;
+      promptEl.textContent = p;
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(tick);
+      tick = null;
+      timerEl.textContent = fmt(duration());
+      timerEl.classList.remove('over');
+    }
+
+    function startTimer() {
+      resetTimer();
+      let left = duration();
+      tick = setInterval(() => {
+        left--;
+        timerEl.textContent = fmt(left);
+        timerEl.classList.toggle('over', left < 0);
+        if (left === 0 && recorder && recorder.state === 'recording') stop();
+      }, 1000);
+      startBtn.disabled = recBtn.disabled = true;
+      stopBtn.disabled = false;
+    }
+
+    function stop() {
+      clearInterval(tick);
+      tick = null;
+      if (recorder && recorder.state === 'recording') recorder.stop();
+      startBtn.disabled = recBtn.disabled = false;
+      stopBtn.disabled = true;
+    }
+
+    async function startWithRecording() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const chunks = [];
+        recorder = new MediaRecorder(stream);
+        recorder.ondataavailable = (e) => chunks.push(e.data);
+        recorder.onstop = () => {
+          stream.getTracks().forEach((t) => t.stop());
+          player.src = URL.createObjectURL(new Blob(chunks, { type: recorder.mimeType }));
+          player.hidden = false;
+        };
+        recorder.start();
+        startTimer();
+      } catch (e) {
+        document.getElementById('recNote').textContent =
+          'Нет доступа к микрофону. Разреши его в браузере или записывай на телефон.';
+      }
+    }
+
+    document.getElementById('nextP').onclick = nextPrompt;
+    document.getElementById('cat').onchange = nextPrompt;
+    document.getElementById('dur').onchange = resetTimer;
+    startBtn.onclick = startTimer;
+    recBtn.onclick = startWithRecording;
+    stopBtn.onclick = stop;
+    nextPrompt();
+  </script>
+</body>
+</html>

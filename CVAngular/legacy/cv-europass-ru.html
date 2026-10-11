@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Нуржан Жорабаев — CV</title>
+  <style>
+    @page { size: A4; margin: 11mm 12mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: #0a0a0a;
+      background: #fff;
+      font-size: 9.2pt;
+      line-height: 1.38;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: 8px 1fr auto;
+      gap: 0 14px;
+      margin-bottom: 12px;
+      align-items: stretch;
+    }
+    .accent {
+      background: #14b8a6;
+      border-radius: 2px;
+      width: 5px;
+    }
+    .identity { padding: 2px 0 4px; }
+    .name {
+      font-size: 24pt;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1;
+      color: #171717;
+    }
+    .headline {
+      margin-top: 5px;
+      font-size: 10pt;
+      font-weight: 600;
+      color: #0f766e;
+    }
+    .tagline {
+      margin-top: 2px;
+      font-size: 8.5pt;
+      color: #737373;
+    }
+    .contact {
+      text-align: right;
+      font-size: 8pt;
+      line-height: 1.5;
+      color: #404040;
+      padding-top: 4px;
+      min-width: 210px;
+    }
+    .contact .k {
+      color: #a3a3a3;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .rule {
+      height: 1px;
+      background: #d4d4d4;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #525252;
+      margin: 10px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #e5e5e5;
+    }
+
+    .summary {
+      color: #262626;
+      font-size: 9.2pt;
+      max-width: 98%;
+    }
+
+    .job {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 0 12px;
+      margin-bottom: 7px;
+    }
+    .dates {
+      font-size: 7.8pt;
+      font-weight: 700;
+      color: #525252;
+      padding-top: 2px;
+    }
+    .job h3 {
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: #171717;
+    }
+    .co {
+      font-size: 8.2pt;
+      margin: 1px 0 2px;
+      color: #0f766e;
+      font-weight: 600;
+    }
+    .co span { color: #737373; font-weight: 500; }
+    ul { padding-left: 15px; margin: 0; }
+    li { margin: 0.5px 0; color: #404040; }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .skill {
+      background: #f0fdfa;
+      color: #115e59;
+      border: 1px solid #99f6e4;
+      font-size: 7.8pt;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.01em;
+    }
+    .skill.soft {
+      background: #fafafa;
+      color: #525252;
+      border: 1px solid #e5e5e5;
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+    }
+    .edu-item { margin-bottom: 5px; }
+    .edu-item b { font-size: 9.5pt; font-weight: 700; }
+    .edu-item .sub { color: #737373; font-size: 8pt; margin-top: 1px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.8pt;
+      margin-top: 3px;
+    }
+    th, td {
+      border: 1px solid #e5e5e5;
+      padding: 4px 5px;
+      text-align: center;
+    }
+    th {
+      background: #f5f5f5;
+      color: #525252;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+    td:first-child, th:first-child { text-align: left; font-weight: 600; }
+    .lvl { color: #0f766e; font-weight: 700; }
+
+    .add p { margin-bottom: 4px; font-size: 8.5pt; }
+    .add b { font-weight: 800; }
+
+    .foot {
+      margin-top: 8px;
+      font-size: 7pt;
+      color: #a3a3a3;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="accent"></div>
+    <div class="identity">
+      <div class="name">Нуржан Жорабаев</div>
+      <div class="headline">Frontend-разработчик</div>
+      <div class="tagline">Angular · React · Vue · Flutter · TypeScript</div>
+    </div>
+    <div class="contact">
+      <div><span class="k">Телефон</span><br>+7 747 926-27-53</div>
+      <div style="margin-top:5px"><span class="k">Почта</span><br>zhorabayevn@gmail.com</div>
+      <div style="margin-top:5px"><span class="k">Локация</span><br>Алматы · удалённо (ЕС)</div>
+      <div style="margin-top:5px"><span class="k">Ссылки</span><br>github.com/Zhorabayevv<br>linkedin.com/in/nurzhan-zhorabayev</div>
+    </div>
+  </div>
+  <div class="rule"></div>
+
+  <h2>Профиль</h2>
+  <p class="summary">
+    Frontend-разработчик с ~5 годами опыта: SPA и клиентские приложения на Angular, React, Vue и Flutter.
+    Сильные стороны — TypeScript/JavaScript, RxJS/NgRx, REST и WebSocket, производительность и чистая UI-архитектура;
+    стабильная работа в связке с продуктом и бэкенд-командами.
+  </p>
+
+  <h2>Опыт работы</h2>
+
+  <div class="job">
+    <div class="dates">08/2024 – 2026</div>
+    <div>
+      <h3>Frontend-разработчик</h3>
+      <div class="co">Khan Group <span>· Промышленное ПО · Казахстан</span></div>
+      <ul>
+        <li>Разработка функционала и поддержка многомодульного enterprise SPA на Angular</li>
+        <li>15+ модулей на RxJS/TypeScript; интеграции с REST API; исправление багов в продакшене</li>
+        <li>i18n, адаптивная вёрстка на SCSS, lazy-роуты, рефакторинг, code review</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="dates">05/2024 – 08/2024</div>
+    <div>
+      <h3>Frontend-разработчик</h3>
+      <div class="co">Wisk Telecom Solutions <span>· Телеком · Казахстан</span></div>
+      <ul>
+        <li>Разработка операционного SPA на Angular с нуля — модульная архитектура, lazy loading</li>
+        <li>Также Vue и Flutter (Dart) для продуктового UI; REST API, SCSS, взаимное code review</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="dates">03/2023 – 05/2024</div>
+    <div>
+      <h3>Frontend-разработчик</h3>
+      <div class="co">Steps AI <span>· B2B SaaS · Казахстан</span></div>
+      <ul>
+        <li>SPA на Angular + NgRx с Material; чат и уведомления в реальном времени через WebSocket</li>
+        <li>Взаимодействие с бэкендом на Go/Java; тесты на Jasmine/Karma; поддержка продакшена</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="dates">05/2022 – 03/2023</div>
+    <div>
+      <h3>Frontend-разработчик</h3>
+      <div class="co">NCRM Group <span>· CRM · Казахстан</span></div>
+      <ul>
+        <li>CRM на Angular: RxJS, Ng-Zorro, Material, Django REST, i18n, drag-and-drop интерфейсы</li>
+        <li>Участие в CI/CD, поддержка продакшена, code review</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="dates">10/2021 – 04/2022</div>
+    <div>
+      <h3>Frontend-разработчик · Фриланс</h3>
+      <div class="co">Самозанятость <span>· Клиентские SPA</span></div>
+      <ul>
+        <li>SPA на React / Redux, HTML5/CSS3, интеграции с REST API</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Технические навыки</h2>
+  <div class="skills">
+    <span class="skill">TypeScript</span>
+    <span class="skill">JavaScript</span>
+    <span class="skill">Angular</span>
+    <span class="skill">React</span>
+    <span class="skill">Vue</span>
+    <span class="skill">Flutter</span>
+    <span class="skill">RxJS</span>
+    <span class="skill">NgRx</span>
+    <span class="skill">HTML5 / SCSS</span>
+    <span class="skill">REST</span>
+    <span class="skill">WebSocket</span>
+    <span class="skill">Angular Material</span>
+    <span class="skill">PrimeNG</span>
+    <span class="skill soft">Redux</span>
+    <span class="skill soft">Git / CI/CD</span>
+    <span class="skill soft">Jasmine / Karma</span>
+    <span class="skill soft">Scrum</span>
+  </div>
+
+  <div class="cols">
+    <div>
+      <h2>Образование</h2>
+      <div class="job">
+        <div class="dates">09/2019 – 06/2023</div>
+        <div class="edu-item">
+          <b>Бакалавр · Информационные системы</b>
+          <div class="sub">МУИТ (IITU) · Алматы, Казахстан · EQF 6</div>
+        </div>
+      </div>
+
+      <h2>Языки · CEFR</h2>
+      <table>
+        <thead>
+          <tr><th>Язык</th><th>Аудир.</th><th>Чтение</th><th>Речь</th><th>Письмо</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Русский / Казахский</td>
+            <td class="lvl">C2</td><td class="lvl">C2</td><td class="lvl">C2</td><td class="lvl">C2</td>
+          </tr>
+          <tr>
+            <td>Английский</td>
+            <td class="lvl">B1–B2</td><td class="lvl">B2</td><td class="lvl">B1</td><td class="lvl">B2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="add">
+      <h2>Дополнительно</h2>
+      <p><b>Гражданство</b> — Казахстан</p>
+      <p><b>Формат</b> — удалённо · полная занятость</p>
+      <p><b>Фокус</b> — enterprise Angular, производительность UI, чистая архитектура</p>
+      <p><b>Взаимодействие</b> — бэкенд (Go/Java), продукт, дизайн; code review</p>
+    </div>
+  </div>
+
+</body>
+</html>
