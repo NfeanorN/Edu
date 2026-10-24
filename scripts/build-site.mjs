@@ -125,6 +125,17 @@ for (const app of ANGULAR_APPS) {
   console.log("Copied:", app.name);
 }
 
+// CV PDFs — shareable links like /<repo>/CV/files/<name>.pdf
+const cvSrc = path.join(root, "CV");
+if (fs.existsSync(cvSrc)) {
+  for (const name of fs.readdirSync(cvSrc)) {
+    if (name.toLowerCase().endsWith(".pdf")) {
+      copyFile(path.join(cvSrc, name), path.join(siteDir, "CV", "files", name));
+    }
+  }
+  console.log("Copied: CV PDFs");
+}
+
 writeRoot404();
 console.log("Site ready:", siteDir);
 console.log("GitHub Pages URL: https://<user>.github.io/" + repoName + "/");
