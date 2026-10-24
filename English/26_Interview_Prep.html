@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <title>Interview Prep — English</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.65;
+      margin: 0;
+      padding: 1.5rem 1rem 3rem;
+      color: #1a1a2e;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    .back a { color: #3498db; text-decoration: none; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #2980b9;
+      padding-bottom: 10px;
+      font-size: 1.65rem;
+      margin: 0.4rem 0;
+    }
+    h2 { color: #2c3e50; font-size: 1.25rem; margin: 0.4rem 0 0.2rem; }
+    h3 { color: #1a3a5c; font-size: 1.02rem; margin: 0 0 0.4rem; }
+    .lead { color: #555; font-size: 0.95rem; }
+    .lead a { color: #2980b9; }
+    .howto {
+      background: #ebf5fb;
+      border-left: 4px solid #2980b9;
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      margin: 1rem 0;
+      font-size: 0.93rem;
+    }
+    .howto ol { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+    .lessons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #f8fafc;
+      padding: 0.55rem 0;
+    }
+    .lesson-btn {
+      border: 1px solid #cfd8e3;
+      background: #fff;
+      color: #2c3e50;
+      padding: 7px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.84rem;
+      font-family: inherit;
+    }
+    .lesson-btn.active { background: #2980b9; border-color: #2980b9; color: #fff; font-weight: 600; }
+    .lesson-btn.soon { color: #aab4c0; border-style: dashed; cursor: default; }
+    .lesson { display: none; }
+    .lesson.active { display: block; }
+    .card {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin: 0.7rem 0;
+    }
+    .goal {
+      background: #fef9e7;
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.92rem;
+      margin: 0.5rem 0;
+    }
+    .phrase {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed #e6ebf2;
+    }
+    .phrase:last-child { border-bottom: 0; }
+    .phrase .en { font-weight: 700; color: #1a3a5c; }
+    .phrase .ru { color: #7f8c8d; font-size: 0.88rem; }
+    .phrase .tip { color: #2980b9; font-size: 0.84rem; }
+    .say {
+      flex: none;
+      border: 1px solid #cfd8e3;
+      background: #fff;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      line-height: 1;
+    }
+    .say:hover { border-color: #2980b9; background: #ebf5fb; }
+    .dialog .line { display: flex; gap: 10px; margin: 0.4rem 0; align-items: flex-start; }
+    .dialog .who {
+      flex: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .dialog .hr .who { background: #8e44ad; }
+    .dialog .me .who { background: #2980b9; }
+    .dialog .bubble { background: #f8fafc; border-radius: 8px; padding: 0.4rem 0.7rem; flex: 1; }
+    .dialog .me .bubble { background: #ebf5fb; }
+    .dialog .ru { display: block; color: #7f8c8d; font-size: 0.85rem; }
+    body.hide-ru .ru { display: none !important; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { border: 1px solid #e6ebf2; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #f1f5f9; }
+    .bad { color: #c0392b; }
+    .good { color: #16a085; font-weight: 700; }
+    .btn {
+      background: #fff;
+      color: #2980b9;
+      border: 1px solid #2980b9;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-family: inherit;
+      font-weight: 600;
+    }
+    .btn.solid { background: #2980b9; color: #fff; }
+    .btn:hover { background: #ebf5fb; }
+    .btn.solid:hover { background: #2471a3; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0.6rem 0; }
+    .muted { color: #7f8c8d; font-size: 0.86rem; }
+    .drill-q { font-size: 1.12rem; font-weight: 700; color: #8e44ad; margin: 0.4rem 0; }
+    .drill-a { display: none; margin-top: 0.5rem; }
+    .drill-a.show { display: block; }
+    .drill-a .en { font-weight: 700; color: #16a085; display: block; margin: 0.2rem 0; }
+    .roadmap li { margin: 0.25rem 0; }
+    .roadmap .done { color: #16a085; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="index.html">← English</a></p>
+    <h1>Interview Prep — собеседование на английском</h1>
+    <p class="lead">
+      Курс в том порядке, в каком идёт настоящее интервью: от «Hi, can you hear me?» до «Thank you for your time».
+      Ошибки из практики записываются в <a href="25_My_Practice_Log.html">My Practice Log</a>.
+    </p>
+
+    <div class="howto">
+      <b>Как проходить урок</b>
+      <ol>
+        <li>Прочитай фразы и нажми 🔊, чтобы послушать произношение. Повтори каждую вслух 3 раза.</li>
+        <li>Прочитай диалог вслух за обе роли.</li>
+        <li>Пройди тренажёр: прочитай реплику HR, ответь вслух, потом сверься с ответом.</li>
+        <li>Практика с Claude: я играю интервьюера, ты отвечаешь.</li>
+      </ol>
+      <div class="toolbar">
+        <button class="btn" id="toggleRu">Скрыть перевод</button>
+        <span class="muted">Без перевода сложнее, зато полезнее.</span>
+      </div>
+    </div>
+
+    <div class="lessons" id="lessonNav"></div>
+
+    <!-- ROADMAP -->
+    <section class="lesson" id="l0">
+      <div class="card">
+        <h2>Карта курса</h2>
+        <ol class="roadmap" id="roadmap"></ol>
+      </div>
+    </section>
+
+    <!-- LESSON 1 -->
+    <section class="lesson" id="l1">
+      <div class="card">
+        <h2>Урок 1 · The first 2 minutes</h2>
+        <p>Первые 2 минуты звонка: подключиться, поздороваться, поддержать small talk и перейти к делу.
+          Именно в это время у интервьюера складывается впечатление: <b>уверенный человек или нервничает</b>.
+          Здесь не нужен сложный английский: нужны 10–15 готовых фраз, сказанных спокойно и с улыбкой.</p>
+        <div class="goal">🎯 <b>Цель урока:</b> спокойно пройти начало звонка без пауз и без «эээ», используя готовые фразы.</div>
+      </div>
+
+      <div class="card">
+        <h3>1. Подключение и проверка связи</h3>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Hi! Can you hear me okay?</div><div class="ru">Привет! Вам меня хорошо слышно?</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Yes, I can hear you perfectly.</div><div class="ru">Да, я вас отлично слышу.</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Sorry, you're breaking up a little. Could you repeat that?</div><div class="ru">Простите, вас немного прерывает. Повторите, пожалуйста?</div><div class="tip">breaking up = связь прерывается</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Give me one second, I'll turn on my camera.</div><div class="ru">Секунду, включу камеру.</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">I think the connection dropped. Can you hear me now?</div><div class="ru">Кажется, связь оборвалась. Сейчас слышно?</div></div></div>
+      </div>
+
+      <div class="card">
+        <h3>2. Приветствие и знакомство</h3>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Nice to meet you, Elisa. Thank you for inviting me.</div><div class="ru">Приятно познакомиться. Спасибо за приглашение.</div><div class="tip">Называй человека по имени: это звучит тепло и уверенно.</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Thanks for taking the time to talk with me.</div><div class="ru">Спасибо, что нашли время поговорить.</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">You can call me Nurzhan. It's spelled N-U-R-Z-H-A-N.</div><div class="ru">Можете звать меня Нуржан. Пишется так: …</div><div class="tip">Если имя произносят неправильно, мягко поправь один раз.</div></div></div>
+      </div>
+
+      <div class="card">
+        <h3>3. Small talk</h3>
+        <p class="muted">Интервьюер почти всегда начинает с «How are you?». Это не настоящий вопрос: отвечай коротко, позитивно и <b>задай вопрос в ответ</b>.</p>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">I'm good, thanks! How about you?</div><div class="ru">Хорошо, спасибо! А у вас как?</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Pretty good, thank you. I've been looking forward to this call.</div><div class="ru">Неплохо, спасибо. Я ждал этого звонка.</div><div class="tip">look forward to + -ing / существительное</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">I'm based in Almaty, Kazakhstan. It's already evening here.</div><div class="ru">Я в Алматы, в Казахстане. Тут уже вечер.</div><div class="tip">Ответ на «Where are you based?» (Где вы находитесь?)</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">The weather is getting colder, but I like autumn.</div><div class="ru">Становится холоднее, но я люблю осень.</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">A little nervous, to be honest, but mostly excited.</div><div class="ru">Честно говоря, немного волнуюсь, но больше рад.</div><div class="tip">Нормально признаться в волнении: это звучит по-человечески.</div></div></div>
+      </div>
+
+      <div class="card">
+        <h3>4. Переход к делу</h3>
+        <p class="muted">Интервьюер рассказывает план звонка. Покажи, что ты согласен и слушаешь.</p>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Sounds good to me.</div><div class="ru">Меня устраивает.</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Sure, that works for me.</div><div class="ru">Конечно, подходит.</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">Great, I'd love to hear more about the team and the product.</div><div class="ru">Отлично, с удовольствием послушаю о команде и продукте.</div></div></div>
+        <div class="phrase"><button class="say">🔊</button><div><div class="en">I see. / That makes sense. / That sounds interesting.</div><div class="ru">Понятно. / Логично. / Звучит интересно.</div><div class="tip">Короткие реакции, пока HR рассказывает о компании, чтобы не молчать.</div></div></div>
+      </div>
+
+      <div class="card dialog">
+        <h3>Диалог: начало звонка</h3>
+        <div class="line hr"><span class="who">HR</span><div class="bubble">Hi Nurzhan! Can you hear me?<span class="ru">Привет! Слышите меня?</span></div></div>
+        <div class="line me"><span class="who">ME</span><div class="bubble">Hi Elisa! Yes, I can hear you perfectly. Can you hear me okay?<span class="ru">Да, отлично слышу. А вам меня хорошо слышно?</span></div></div>
+        <div class="line hr"><span class="who">HR</span><div class="bubble">Yes, all good. How are you today?<span class="ru">Да, всё хорошо. Как вы сегодня?</span></div></div>
+        <div class="line me"><span class="who">ME</span><div class="bubble">I'm good, thanks! How about you?<span class="ru">Хорошо, спасибо! А вы?</span></div></div>
+        <div class="line hr"><span class="who">HR</span><div class="bubble">I'm great, thank you. Where are you based?<span class="ru">Отлично, спасибо. Где вы находитесь?</span></div></div>
+        <div class="line me"><span class="who">ME</span><div class="bubble">I'm in Almaty, Kazakhstan. It's already afternoon here.<span class="ru">В Алматы, в Казахстане. Тут уже день.</span></div></div>
+        <div class="line hr"><span class="who">HR</span><div class="bubble">Nice! So, the plan for today: first I'll tell you a bit about the company and the role, then I'd like to hear about your experience, and at the end you can ask your questions. Does that sound okay?<span class="ru">Итак, план: сначала я расскажу о компании и роли, потом послушаю о вашем опыте, а в конце вы зададите вопросы. Подходит?</span></div></div>
+        <div class="line me"><span class="who">ME</span><div class="bubble">Sounds good to me. I'd love to hear more about the team and the product.<span class="ru">Меня устраивает. С удовольствием послушаю о команде и продукте.</span></div></div>
+      </div>
+
+      <div class="card">
+        <h3>Типичные ошибки в начале звонка</h3>
+        <table>
+          <tr><th>Так не надо</th><th>Лучше</th><th>Почему</th></tr>
+          <tr><td class="bad">Fine.</td><td class="good">I'm good, thanks! How about you?</td><td>Одно слово звучит холодно. Верни вопрос.</td></tr>
+          <tr><td class="bad">Do you hear me?</td><td class="good">Can you hear me?</td><td>Про связь говорят <i>can</i>.</td></tr>
+          <tr><td class="bad">I am from Almaty city.</td><td class="good">I'm from Almaty. / I'm based in Almaty.</td><td>«city» лишнее.</td></tr>
+          <tr><td class="bad">Okay. (на весь план HR)</td><td class="good">Sounds good to me.</td><td>Покажи интерес, а не просто согласие.</td></tr>
+          <tr><td class="bad">Sorry for my bad English.</td><td class="good">(не извиняйся вообще)</td><td>Ты сам настраиваешь собеседника на слабость. B1–B2 им достаточно.</td></tr>
+          <tr><td class="bad">I am waiting this call.</td><td class="good">I've been looking forward to this call.</td><td>wait <b>for</b>; а «ждал с нетерпением» — look forward to.</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Тренажёр: HR говорит → ты отвечаешь вслух</h3>
+        <div class="muted" id="d1meta"></div>
+        <div class="drill-q" id="d1q"></div>
+        <div class="toolbar">
+          <button class="btn" id="d1say">🔊 Послушать</button>
+          <button class="btn solid" id="d1show">Показать ответ</button>
+          <button class="btn" id="d1next">Следующая →</button>
+        </div>
+        <div class="drill-a" id="d1a"></div>
+      </div>
+    </section>
+
+    <p class="back"><a href="index.html">← English</a></p>
+  </div>
+
+  <script>
+    // Уроки по порядку реального интервью. ready: true → урок наполнен.
+    const LESSONS = [
+      { id: 'l1', title: 'The first 2 minutes', desc: 'связь, приветствие, small talk, переход к делу', ready: true },
+      { id: 'l2', title: 'Tell me about yourself', desc: 'рассказ о себе за 60–90 секунд' },
+      { id: 'l3', title: 'Walk me through your experience', desc: 'каждая компания: проект, роль, результат' },
+      { id: 'l4', title: 'Why are you looking? Why us?', desc: 'мотивация, уход с прошлой работы' },
+      { id: 'l5', title: 'Angular deep dive', desc: 'версии, signals, standalone, change detection, DI' },
+      { id: 'l6', title: 'RxJS & TypeScript', desc: 'операторы, отмена, race conditions, ошибки, строгая типизация' },
+      { id: 'l7', title: 'State & architecture', desc: 'NgRx, большие приложения, Nx, границы модулей' },
+      { id: 'l8', title: 'Testing & code quality', desc: 'unit-тесты, code review, рефакторинг' },
+      { id: 'l9', title: 'Behavioral (STAR)', desc: 'конфликт, дедлайн, ошибка, достижение' },
+      { id: 'l10', title: 'Live coding: think aloud', desc: 'как рассуждать вслух при решении задачи' },
+      { id: 'l11', title: 'Salary & conditions', desc: 'зарплата, B2B, формат, сроки' },
+      { id: 'l12', title: 'Your questions & closing', desc: 'вопросы интервьюеру, завершение звонка' },
+    ];
+
+    const nav = document.getElementById('lessonNav');
+    function open(id) {
+      document.querySelectorAll('.lesson').forEach((l) => l.classList.toggle('active', l.id === id));
+      nav.querySelectorAll('.lesson-btn').forEach((b) => b.classList.toggle('active', b.dataset.id === id));
+      try { localStorage.setItem('interviewPrepLesson', id); } catch (e) {}
+    }
+    const mapBtn = document.createElement('button');
+    mapBtn.className = 'lesson-btn';
+    mapBtn.dataset.id = 'l0';
+    mapBtn.textContent = 'Карта курса';
+    mapBtn.onclick = () => open('l0');
+    nav.append(mapBtn);
+    LESSONS.forEach((l, i) => {
+      const b = document.createElement('button');
+      b.className = 'lesson-btn' + (l.ready ? '' : ' soon');
+      b.dataset.id = l.id;
+      b.textContent = (i + 1) + '. ' + l.title;
+      if (l.ready) b.onclick = () => open(l.id);
+      else b.title = 'Скоро';
+      nav.append(b);
+    });
+    document.getElementById('roadmap').innerHTML = LESSONS.map(
+      (l) => `<li><span class="${l.ready ? 'done' : ''}">${l.title}</span> <span class="muted">— ${l.desc}${l.ready ? '' : ' (скоро)'}</span></li>`
+    ).join('');
+
+    let saved = null;
+    try { saved = localStorage.getItem('interviewPrepLesson'); } catch (e) {}
+    open(saved && document.getElementById(saved) ? saved : 'l1');
+
+    // ---- Произношение ----
+    function speak(text) {
+      if (!('speechSynthesis' in window)) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = 0.9;
+      speechSynthesis.speak(u);
+    }
+    document.querySelectorAll('.phrase .say').forEach((btn) => {
+      btn.onclick = () => speak(btn.parentElement.querySelector('.en').textContent);
+    });
+
+    // ---- Перевод ----
+    const toggle = document.getElementById('toggleRu');
+    toggle.onclick = () => {
+      const hidden = document.body.classList.toggle('hide-ru');
+      toggle.textContent = hidden ? 'Показать перевод' : 'Скрыть перевод';
+    };
+
+    // ---- Тренажёр урока 1 ----
+    const DRILL1 = [
+      { q: 'Hi! Can you hear me?', a: ['Hi! Yes, I can hear you perfectly. Can you hear me okay?'], ru: 'Ответь и задай встречный вопрос.' },
+      { q: 'How are you today?', a: ["I'm good, thanks! How about you?", "Pretty good, thank you. I've been looking forward to this call."], ru: 'Коротко, позитивно, вопрос в ответ.' },
+      { q: 'Where are you based?', a: ["I'm based in Almaty, Kazakhstan."], ru: 'Где ты находишься.' },
+      { q: 'Is it Nurzhan or Nurjan? Sorry, how do I pronounce your name?', a: ["It's Nurzhan, but don't worry, it's a tricky one!"], ru: 'Мягко подскажи, как произносить.' },
+      { q: 'Sorry, I think I lost you for a second.', a: ['No problem. Can you hear me now?', 'I think the connection dropped. Can you hear me now?'], ru: 'Связь оборвалась.' },
+      { q: 'Are you nervous?', a: ['A little nervous, to be honest, but mostly excited.'], ru: 'Честно и позитивно.' },
+      { q: "So, first I'll tell you about the company, then we'll talk about your experience. Sounds okay?", a: ["Sounds good to me. I'd love to hear more about the team and the product."], ru: 'Согласись и покажи интерес.' },
+      { q: 'Thanks for joining today.', a: ['Thank you for inviting me. Nice to meet you!', 'Thanks for taking the time to talk with me.'], ru: 'Поблагодари в ответ.' },
+      { q: 'What time is it there now?', a: ["It's about three in the afternoon here."], ru: 'Сколько у тебя времени.' },
+    ];
+    let order = [];
+    let idx = -1;
+    function shuffle(a) {
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+    function nextDrill() {
+      if (!order.length || idx >= order.length - 1) { order = shuffle(DRILL1.slice()); idx = 0; } else idx++;
+      const d = order[idx];
+      document.getElementById('d1meta').textContent = (idx + 1) + ' / ' + order.length + ' · ' + d.ru;
+      document.getElementById('d1q').textContent = 'HR: ' + d.q;
+      const a = document.getElementById('d1a');
+      a.innerHTML = d.a.map((t) => `<span class="en">✓ ${t}</span>`).join('');
+      a.classList.remove('show');
+    }
+    document.getElementById('d1next').onclick = nextDrill;
+    document.getElementById('d1show').onclick = () => document.getElementById('d1a').classList.add('show');
+    document.getElementById('d1say').onclick = () => speak(order[idx].q);
+    nextDrill();
+  </script>
+</body>
+</html>

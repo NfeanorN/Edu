@@ -190,6 +190,14 @@
         title: "bachelor's / master's degree",
         why: "Степень всегда с 's: a bachelor's degree, a master's degree.",
       },
+      calque: {
+        title: 'Кальки с русского: фраза значит не то',
+        why: '«А меня?» ≠ What about me? (= «А как же я?»). Про связь: Can you hear me? Учи готовые фразы целиком.',
+      },
+      register: {
+        title: 'Тон на собеседовании: без сленга',
+        why: 'yep / yeah / nope звучат слишком небрежно в начале интервью. Лучше Yes / Yes, I can.',
+      },
     };
 
     // Ошибки: rule — id правила, session — номер сессии.
@@ -202,6 +210,8 @@
       { rule: 'prep', session: 1, wrong: 'I was study in IITU in information system.', right: 'I studied Information Systems at IITU.' },
       { rule: 'article', session: 1, wrong: 'I started work like frontend developer.', right: 'I started working as a frontend developer.' },
       { rule: 'possessive', session: 1, wrong: 'I have a bachelor degree.', right: "I have a bachelor's degree." },
+      { rule: 'calque', session: 2, wrong: '(Can you hear me?) — Yep, what about me?', right: 'Yes, I can hear you perfectly. Can you hear me okay?' },
+      { rule: 'register', session: 2, wrong: 'Yep.', right: 'Yes, I can.' },
     ];
 
     const SESSIONS = [
@@ -216,6 +226,16 @@
           "Hi, I'm Nurzhan, and I'm from Kazakhstan. I have a <b>bachelor's degree</b> in Information Systems. I <b>studied at</b> IITU in Almaty. I <b>started working as</b> a frontend developer <b>in my third year</b> of university. I started with React and then <b>switched to</b> Angular. At all my other companies, I <b>worked as</b> an Angular developer. I also <b>built</b> mobile apps in Flutter and <b>worked with</b> Vue. <b>In total, I have about five years of experience in frontend development. Now I want to grow in an international team.</b>",
         good: 'Рассказ по порядку и понятный.',
         next: 'Не хватило имени в начале, опыта в цифрах и цели в конце.',
+      },
+      {
+        n: 2,
+        date: '2026-10-21',
+        week: 'Interview Prep · Урок 1',
+        question: 'Hi Nurzhan! Can you hear me okay?',
+        said: 'Hi, yep, what about me',
+        fixed: 'Hi Elisa! <b>Yes, I can hear you perfectly. Can you hear me okay?</b>',
+        good: 'Вернул вопрос собеседнику: это правильный рефлекс.',
+        next: 'Учить фразы целиком: «Can you hear me?» вместо дословного перевода «а меня?». Называть собеседника по имени.',
       },
     ];
 
