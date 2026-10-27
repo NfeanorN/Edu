@@ -13,7 +13,7 @@ export const CV_PROFILE: CvProfile = {
     {
       icon: '🔗',
       label: 'GitHub',
-      href: 'https://github.com/Zhorabayevv',
+      href: 'https://github.com/NfeanorN',
       external: true,
     },
     {
@@ -29,10 +29,10 @@ export const CV_PROFILE: CvProfile = {
   experienceLabel: '5 years',
   jobs: [
     {
-      company: 'Khan Group',
-      dates: 'Aug 2024 — present',
+      company: 'Umag',
+      dates: 'Aug 2024 — Jun 2026',
       role: 'Frontend Developer',
-      context: 'Industrial & business software · multi-module enterprise SPA',
+      context: 'Product company · multi-module enterprise SPA',
       responsibilities: [
         'Delivered new features and maintained the Angular enterprise SPA used across internal business operations.',
         'Developed and supported 15+ Angular modules with RxJS, TypeScript and reusable UI components.',
@@ -42,13 +42,13 @@ export const CV_PROFILE: CvProfile = {
       ],
     },
     {
-      company: 'Wisk Telecom Solutions',
+      company: 'Adata.kz',
       dates: 'May 2024 — Aug 2024',
-      role: 'Frontend & Flutter Developer',
+      role: 'Frontend/Mobile Developer',
       context:
-        'Telecom software · Angular SPA and Flutter mobile app from scratch',
+        'Product company · Angular SPA and Flutter mobile app from scratch',
       responsibilities: [
-        'Built the Angular SPA of a telecom operations product from scratch with modular architecture.',
+        'Built the Angular SPA of an operations product from scratch with modular architecture.',
         'Designed lazy-loaded module structure to reduce initial load time.',
         'Created custom UI components and integrated them with backend REST APIs.',
         'Improved maintainability through SCSS standards, shared patterns and peer code review.',
@@ -120,7 +120,7 @@ export const CV_PROFILE: CvProfile = {
     {
       institution:
         'Università degli Studi di Cassino e del Lazio Meridionale (Unicas), Italy',
-      degree: 'Economics and Entrepreneurship · Master · enrolled 2023',
+      degree: 'Economics and Entrepreneurship · Master · 2025 — 2027 (in progress)',
       focus: 'Economics, business administration, entrepreneurship.',
     },
     {

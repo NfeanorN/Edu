@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EU Job Plan — 30 дней</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 1.5rem 1rem 3rem;
+      color: #1a1a2e;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .back a { color: #3498db; text-decoration: none; }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 4px solid #4f46e5;
+      padding-bottom: 10px;
+      font-size: 1.65rem;
+      margin: 0.4rem 0;
+    }
+    h2 { color: #2c3e50; font-size: 1.2rem; margin: 1.2rem 0 0.4rem; }
+    h3 { color: #1e1b4b; font-size: 1.02rem; margin: 0 0 0.35rem; }
+    .lead { color: #555; font-size: 0.95rem; }
+    .lead a, .card a { color: #4f46e5; }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #f8fafc;
+      padding: 0.55rem 0;
+    }
+    .tab {
+      border: 1px solid #cfd8e3;
+      background: #fff;
+      color: #2c3e50;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-family: inherit;
+    }
+    .tab.active { background: #4f46e5; border-color: #4f46e5; color: #fff; font-weight: 600; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .card {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin: 0.7rem 0;
+    }
+    .card ul, .card ol { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+    .card li { margin: 0.2rem 0; }
+    .note {
+      background: #eef2ff;
+      border-left: 4px solid #4f46e5;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin: 0.8rem 0;
+      font-size: 0.93rem;
+    }
+    .warn {
+      background: #fef9e7;
+      border-left: 4px solid #f39c12;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin: 0.8rem 0;
+      font-size: 0.93rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #4338ca;
+      background: #eef2ff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin: 0 4px 0.3rem 0;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { border: 1px solid #e6ebf2; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #f1f5f9; }
+    .muted { color: #7f8c8d; font-size: 0.86rem; }
+    .progress { height: 10px; background: #e6ebf2; border-radius: 999px; overflow: hidden; margin: 0.4rem 0; }
+    .progress > div { height: 100%; background: #4f46e5; width: 0; transition: width 0.3s; }
+    .week-title { margin: 1.3rem 0 0.3rem; color: #4338ca; font-weight: 800; font-size: 1rem; }
+    .day { border-left: 4px solid #e6ebf2; }
+    .day.today { border-left-color: #4f46e5; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.12); }
+    .day.done { opacity: 0.6; }
+    .day h3 { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+    .day .num { color: #4f46e5; }
+    .task { display: flex; gap: 9px; align-items: flex-start; padding: 0.22rem 0; }
+    .task input { margin-top: 0.3rem; width: 17px; height: 17px; accent-color: #4f46e5; flex: none; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0.6rem 0; }
+    .btn {
+      background: #fff;
+      color: #4f46e5;
+      border: 1px solid #4f46e5;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.86rem;
+      font-family: inherit;
+      font-weight: 600;
+    }
+    .btn.solid { background: #4f46e5; color: #fff; }
+    .btn:hover { background: #eef2ff; }
+    .btn.solid:hover { background: #4338ca; }
+    input[type="date"], input[type="text"], input[type="url"], select {
+      font-family: inherit;
+      font-size: 0.88rem;
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid #cfd8e3;
+      background: #fff;
+    }
+    .form { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; }
+    .kpi { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin: 0.5rem 0; }
+    .kpi div { background: #fff; border: 1px solid #e6ebf2; border-radius: 10px; padding: 0.6rem 0.8rem; }
+    .kpi b { display: block; font-size: 1.35rem; color: #4f46e5; }
+    .kpi span { font-size: 0.8rem; color: #7f8c8d; }
+    .del { border: 0; background: none; color: #c0392b; cursor: pointer; font-size: 1rem; }
+    .pipe-wrap { overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="back"><a href="../index.html">← Edu</a></p>
+    <h1>EU Job Plan — работа во Frontend в Европе за 30 дней</h1>
+    <p class="lead">
+      Цель: за 30 дней выстроить поток откликов и дойти до финальных этапов, а в идеале и до оффера, на позицию
+      Angular или React Frontend Developer в европейской компании (удалённо по B2B или с релокацией).
+      Английский прокачиваем параллельно: <a href="../English/26_Interview_Prep.html">Interview Prep</a> ·
+      <a href="../English/25_My_Practice_Log.html">Practice Log</a>.
+    </p>
+
+    <div class="tabs">
+      <button class="tab active" data-panel="p-strategy">Стратегия</button>
+      <button class="tab" data-panel="p-days">30 дней</button>
+      <button class="tab" data-panel="p-daily">Каждый день</button>
+      <button class="tab" data-panel="p-where">Где искать</button>
+      <button class="tab" data-panel="p-pipe">Мои отклики</button>
+    </div>
+
+    <!-- STRATEGY -->
+    <section class="panel active" id="p-strategy">
+      <div class="note">
+        <b>Главная ставка: Angular.</b> У тебя 4+ года коммерческого Angular (v9 → последние версии, signals, NgRx, Nx).
+        На нём ты конкурируешь как Middle+/Senior. Angular в Европе — это банки, финтех, страхование и enterprise
+        (Германия, Нидерланды, Польша, Италия, Бельгия, Швейцария). <b>React — второй трек</b>: вакансий больше, но и конкурентов тоже,
+        а опыт у тебя меньше. Откликайся на React там, где стек смешанный или где нужен «Angular/React».
+      </div>
+
+      <div class="card">
+        <h3>3 пути в Европу: идём по всем одновременно</h3>
+        <table>
+          <tr><th>Путь</th><th>Что это</th><th>Скорость</th><th>Кто нанимает</th></tr>
+          <tr><td><b>A. Remote B2B</b></td><td>Работаешь из Алматы на EU-компанию по договору как ИП</td><td>🟢 самый быстрый, 2–5 недель</td><td>Стартапы, продуктовые компании, аутсорс. Ищи «Remote (EU timezone)», «B2B», «CET overlap».</td></tr>
+          <tr><td><b>B. Relocation</b></td><td>Компания делает визу (EU Blue Card) и помогает с переездом</td><td>🟡 1–3 месяца с учётом визы</td><td>Германия, Нидерланды, Польша, Португалия, Литва, Кипр. Фильтр «visa sponsorship», «relocation».</td></tr>
+          <tr><td><b>C. Аутсорс-мост</b></td><td>EPAM, Andersen, DataArt и др.: найм в Казахстане → EU-клиенты → потом перевод в EU-офис</td><td>🟢 быстро, есть офисы в KZ</td><td>Банковские и enterprise-проекты, часто на Angular.</td></tr>
+        </table>
+      </div>
+
+      <div class="warn">
+        <b>Мой статус: Италия, permesso per studio в процессе</b> (отпечатки 6 ноября 2026, дальше ждём карту).
+        Не ждём permesso, ищем уже сейчас. Ricevuta (квитанция с почты) подтверждает легальное пребывание, пока карта делается.
+        <ul>
+          <li><b>LinkedIn и CV:</b> локация <b>Italy</b>. На вопрос о статусе отвечай: «I'm based in Italy on a study residence permit. Full-time employment is possible through the EU Blue Card.» Не пиши «work permit», это другой документ.</li>
+          <li><b>Частичная занятость сейчас:</b> учебный permesso обычно разрешает работать до 20 часов в неделю. Подходят part-time-роли и <b>tirocini</b> через career service Unicas.</li>
+          <li><b>Full-time в итальянской или EU-компании:</b> через <b>EU Blue Card</b> (Carta Blu UE). В Италии это реальный путь для разработчика с дипломом. Порог зарплаты и порядок уточни, он меняется.</li>
+          <li><b>Remote B2B через ИП в Казахстане, находясь в Италии:</b> если живёшь в Италии больше 183 дней в году, можешь стать налоговым резидентом Италии. Перед подписанием договора проконсультируйся с commercialista или CAF.</li>
+          <li><b>Поездки:</b> пока на руках только ricevuta на первичный permesso, свободно ездить по Шенгену нельзя. Офлайн-интервью в других странах проси перенести в онлайн.</li>
+        </ul>
+        Точные правила по своему случаю уточни в международном офисе Unicas, Patronato/CAF или Questura. Ничего не утверждай, пока не проверишь.
+      </div>
+
+      <div class="card">
+        <h3>Стажировка: брать или нет?</h3>
+        <ul>
+          <li><b>Andersen JS Traineeship (Алматы)</b> — это запасной вариант, а не цель. Она бесплатная, 5 месяцев full-time плюс договор на 1,5 года. При этом она даёт международную команду и EU-клиентов.</li>
+          <li>Если через 3–4 недели нет ни одного технического интервью на Middle-позиции, стоит всерьёз рассмотреть стажировку как мост.</li>
+          <li>В Европе стажировки рассчитаны на студентов и выпускников без опыта. Тебе выгоднее Middle- и Middle+-вакансии: ты уже проходишь их по опыту.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Цели на 30 дней (воронка)</h3>
+        <div class="kpi">
+          <div><b>150+</b><span>откликов (5–10 в день)</span></div>
+          <div><b>40</b><span>сообщений рекрутерам и нанимающим менеджерам</span></div>
+          <div><b>8–12</b><span>первых звонков с HR</span></div>
+          <div><b>4–6</b><span>технических интервью</span></div>
+          <div><b>1–2</b><span>оффера или финальных этапа</span></div>
+        </div>
+        <p class="muted">Это реалистичная конверсия для кандидата не из EU: 5–8% откликов дают звонок. Если через 10 дней ответов меньше 3%, проблема в резюме или в выборе вакансий, а не в тебе. Тогда меняем CV.</p>
+      </div>
+
+      <div class="card">
+        <h3>Слабые места, которые закрываем за 30 дней</h3>
+        <table>
+          <tr><th>Пробел</th><th>Где спросят</th><th>День</th></tr>
+          <tr><td>Разговорный английский (B1 → уверенный B2)</td><td>Везде</td><td>каждый день</td></tr>
+          <tr><td>Vitest / Jest (у тебя Jasmine/Karma)</td><td>MEDvidi, продуктовые компании</td><td>10</td></tr>
+          <tr><td>React: hooks, RTK Query, Next.js</td><td>React-трек</td><td>15–16</td></tr>
+          <tr><td>Node.js и SQL (базовый уровень)</td><td>Tiqum, MEDvidi, full-stack-ish роли</td><td>20</td></tr>
+          <tr><td>Frontend system design</td><td>Senior-интервью</td><td>19</td></tr>
+          <tr><td>Live coding вслух на английском</td><td>Технические этапы</td><td>18</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Ориентиры по деньгам (2026, Middle+/Senior Angular)</h3>
+        <table>
+          <tr><th>Формат</th><th>Ориентир</th></tr>
+          <tr><td>Remote B2B из Казахстана, EU-компания</td><td>€3 000 – 5 000 / мес</td></tr>
+          <tr><td>Германия / Нидерланды, релокация</td><td>€55 000 – 75 000 / год gross</td></tr>
+          <tr><td>Польша, B2B</td><td>18 000 – 25 000 PLN / мес нетто по счёту</td></tr>
+          <tr><td>Италия, контракт</td><td>€35 000 – 50 000 / год gross</td></tr>
+          <tr><td>Российские компании (как Tiqum)</td><td>250 000 – 330 000 ₽ на руки</td></tr>
+        </table>
+        <p class="muted">Это ориентиры, а не точные данные. Сверяйся с вилками в самих вакансиях: многие EU-страны обязывают компании указывать зарплату.</p>
+      </div>
+    </section>
+
+    <!-- 30 DAYS -->
+    <section class="panel" id="p-days">
+      <div class="card">
+        <div class="toolbar">
+          <label>Дата старта: <input type="date" id="startDate" /></label>
+          <button class="btn" id="goToday">К сегодняшнему дню</button>
+          <span class="muted" id="dayInfo"></span>
+        </div>
+        <div class="progress"><div id="bar"></div></div>
+        <div class="muted" id="progressText"></div>
+      </div>
+      <div id="days"></div>
+    </section>
+
+    <!-- DAILY -->
+    <section class="panel" id="p-daily">
+      <div class="card">
+        <h3>Ежедневная рутина · ~6 часов (это твоя работа на 30 дней)</h3>
+        <table>
+          <tr><th>Время</th><th>Блок</th><th>Что делать</th></tr>
+          <tr><td>09:00–10:00</td><td><b>English</b></td><td>Урок из Interview Prep и speaking-практика с Claude. Ошибки записываем в Practice Log.</td></tr>
+          <tr><td>10:00–12:00</td><td><b>Отклики</b></td><td>5–10 откликов. Каждый адаптируй: первые 2 строки письма под вакансию, нужное CV (Angular или React).</td></tr>
+          <tr><td>12:00–12:30</td><td><b>Networking</b></td><td>2 сообщения рекрутерам или нанимающим менеджерам в LinkedIn, 1 комментарий под постом о найме.</td></tr>
+          <tr><td>14:00–16:00</td><td><b>Tech prep</b></td><td>Тема дня из плана: теория → вопросы → ответ вслух на английском.</td></tr>
+          <tr><td>16:00–17:00</td><td><b>Проект / код</b></td><td>Showcase-проект или задачи на live coding.</td></tr>
+          <tr><td>Вечер, 10 мин</td><td><b>Трекер</b></td><td>Обнови вкладку «Мои отклики»: статусы, follow-up.</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Правила откликов</h3>
+        <ul>
+          <li><b>Откликайся в первые 48 часов</b> после публикации: тогда шансы в разы выше.</li>
+          <li><b>Совпадение 60%+ требований — откликайся.</b> Не жди 100%.</li>
+          <li><b>После отклика найди рекрутера</b> или тимлида этой компании в LinkedIn и напиши 2–3 строки.</li>
+          <li><b>Follow-up через 5–7 дней</b>, если нет ответа: одно короткое вежливое сообщение.</li>
+          <li><b>После каждого интервью</b> запиши все вопросы, которые тебе задали, и разбери их с Claude в тот же день.</li>
+          <li><b>Не спрашивай о визе в первом сообщении.</b> Сначала покажи ценность, условия обсуждаются на звонке.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Шаблон сообщения рекрутеру (LinkedIn)</h3>
+        <p class="muted">Подставь компанию и роль, первую фразу адаптируй под вакансию.</p>
+        <div class="note">
+          Hi [Name], I just applied for the [Role] position at [Company]. I'm an Angular developer with 4+ years of commercial experience (Angular v9 → latest, signals, RxJS, NgRx) on large enterprise and B2B SaaS apps. I'd be glad to share more about my experience. Would you be open to a short call?
+        </div>
+      </div>
+    </section>
+
+    <!-- WHERE -->
+    <section class="panel" id="p-where">
+      <div class="card">
+        <h3>Площадки</h3>
+        <table>
+          <tr><th>Площадка</th><th>Для чего</th></tr>
+          <tr><td><b>LinkedIn Jobs</b></td><td>Основная. Фильтры: Angular / React, Remote, European Union, Past week. Сохрани 4 поиска с уведомлениями.</td></tr>
+          <tr><td><b>Djinni</b></td><td>Много remote-вакансий для кандидатов из СНГ, часто B2B на EU-компании.</td></tr>
+          <tr><td><b>Relocate.me</b></td><td>Только вакансии с релокацией и визой.</td></tr>
+          <tr><td><b>Arbeitnow</b></td><td>Германия, есть фильтр visa sponsorship.</td></tr>
+          <tr><td><b>Landing.jobs</b></td><td>Португалия и Европа, часто с релокацией.</td></tr>
+          <tr><td><b>Wellfound</b></td><td>Стартапы, много remote.</td></tr>
+          <tr><td><b>Himalayas / WeWorkRemotely / RemoteOK</b></td><td>Remote-only, фильтруй «Europe» или «Worldwide».</td></tr>
+          <tr><td><b>EuroTechJobs / StepStone / Indeed</b></td><td>Локальные EU-вакансии, больше для релокации.</td></tr>
+          <tr><td><b>hh.kz / hh.ru</b></td><td>Казахстанские и российские компании, аутсорс с EU-клиентами.</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Аутсорс и консалтинг с EU-клиентами (путь C)</h3>
+        <p>EPAM, Andersen, DataArt, Luxoft, SoftServe, Ciklum, Intellias, Innowise, Itransition, Exadel, Accenture, Capgemini.</p>
+        <p class="muted">Многие нанимают в Казахстане или удалённо и работают на банки и enterprise в Европе. Открой их карьерные страницы и подпишись на Angular-вакансии.</p>
+      </div>
+      <div class="card">
+        <h3>Поисковые запросы для LinkedIn</h3>
+        <ul>
+          <li><code>"Angular" AND ("remote" OR "B2B") AND ("Europe" OR "EU" OR "CET")</code></li>
+          <li><code>"Angular developer" "visa sponsorship"</code></li>
+          <li><code>"Frontend" "Angular" "relocation"</code></li>
+          <li><code>"React" "TypeScript" "remote" "Europe"</code></li>
+          <li>В ленте постов: <code>hiring Angular</code>, <code>#hiring frontend remote</code>. Посты рекрутеров часто появляются раньше вакансий.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Мои материалы</h3>
+        <ul>
+          <li>CV Angular (EN): <a href="../CV/files/Nurzhan_Zhorabayev_CV_Angular.pdf">Nurzhan_Zhorabayev_CV_Angular.pdf</a></li>
+          <li>CV Angular (RU): <a href="../CV/files/Nurzhan_Zhorabayev_CV_RU_Angular.pdf">Nurzhan_Zhorabayev_CV_RU_Angular.pdf</a></li>
+          <li>CV React (RU, Europass): <a href="../CV/files/Nurzhan_Zhorabayev_CV_Europass_RU.pdf">Nurzhan_Zhorabayev_CV_Europass_RU.pdf</a></li>
+          <li>Подготовка: <a href="../English/26_Interview_Prep.html">Interview Prep</a> · <a href="Vue_vs_Angular_Interview.html">Vue vs Angular</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PIPELINE -->
+    <section class="panel" id="p-pipe">
+      <div class="kpi" id="pipeKpi"></div>
+      <div class="card">
+        <h3>Добавить отклик</h3>
+        <div class="form">
+          <input type="text" id="fCompany" placeholder="Компания" />
+          <input type="text" id="fRole" placeholder="Роль (Angular / React…)" />
+          <input type="url" id="fLink" placeholder="Ссылка на вакансию" />
+          <select id="fStage"></select>
+          <button class="btn solid" id="fAdd">Добавить</button>
+        </div>
+        <p class="muted">Данные хранятся только в этом браузере. Кнопка «Экспорт» сохраняет копию в файл.</p>
+        <div class="toolbar">
+          <button class="btn" id="exportBtn">Экспорт (JSON)</button>
+          <label class="btn">Импорт<input type="file" id="importFile" accept="application/json" hidden /></label>
+        </div>
+      </div>
+      <div class="card pipe-wrap">
+        <table id="pipeTable"></table>
+      </div>
+    </section>
+
+    <p class="back"><a href="../index.html">← Edu</a></p>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab').forEach((tab) => {
+      tab.onclick = () => {
+        document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.panel).classList.add('active');
+      };
+    });
+
+    const store = {
+      get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+      set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+    };
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+
+    // ---- 30 дней ----
+    const WEEKS = ['Неделя 1 · Фундамент: профиль, CV, портфолио, первые отклики', 'Неделя 2 · Объём откликов + глубокий Angular/RxJS', 'Неделя 3 · Интервью, React, live coding, system design', 'Неделя 4 · Интервью, переговоры, оффер'];
+    const DAYS = [
+      { t: 'Старт и стратегия', tasks: ['Прочитать вкладку «Стратегия», выбрать страны и формат (remote B2B / релокация)', 'Составить список из 40 целевых компаний: EU-банки, финтех, аутсорс с EU-клиентами', 'Записать видео «Tell me about yourself» на 2 минуты, это стартовая точка английского', 'Interview Prep: урок 1 (повторить)'] },
+      { t: 'LinkedIn', tasks: ['Headline: Frontend Developer | Angular · TypeScript · RxJS · React | Open to Remote & Relocation (EU)', 'About на английском (5–6 строк из профиля CV) и опыт по каждой компании', 'Skills: Angular, TypeScript, RxJS, NgRx, React, JavaScript. Попросить 3–5 подтверждений у бывших коллег', 'Open to Work (только для рекрутеров): Remote + страны релокации', 'Interview Prep: урок 2 «Tell me about yourself»'] },
+      { t: 'CV и письма', tasks: ['Проверить CV Angular (EN): ссылка на GitHub, даты, без опечаток', 'Сделать CV React (EN): React первым, тот же опыт', 'Шаблон cover letter на английском (3 коротких абзаца) + шаблон сообщения рекрутеру', 'Попросить 1–2 бывших коллег быть рекомендателями (references)'] },
+      { t: 'GitHub и showcase-проект', tasks: ['Profile README: кто ты, стек, ссылки на CV и проекты', 'Закрепить (pin) 4 лучших репозитория, добавить README и демо-ссылки', 'Начать showcase: Angular 18+ «Banking Dashboard» (standalone, signals, SignalStore/NgRx, lazy routes)', 'Interview Prep: урок 3 «Walk me through your experience»'] },
+      { t: 'Площадки и первые отклики', tasks: ['Зарегистрироваться: Djinni, Relocate.me, Arbeitnow, Landing.jobs, Wellfound', 'Сохранить 4 поиска в LinkedIn с ежедневными уведомлениями', 'Первые 10 откликов (записать во вкладку «Мои отклики»)', '2 сообщения рекрутерам'] },
+      { t: 'Angular deep dive', tasks: ['Версии v9 → latest: Ivy, standalone, signals, control flow, @defer, zoneless', 'Change detection: Default vs OnPush, signals vs zone.js', 'DI: providers, inject(), hierarchical injectors', '10 откликов + 2 сообщения'] },
+      { t: 'Ревью недели 1', tasks: ['Посчитать: отклики, ответы, звонки', 'Interview Prep: урок 4 «Why are you looking? Why us?»', 'Showcase: базовый каркас задеплоен на GitHub Pages', 'Полдня отдыха, это важно'] },
+      { t: 'RxJS', tasks: ['switchMap / mergeMap / concatMap / exhaustMap: когда какой, с примерами', 'Отмена, race conditions, takeUntilDestroyed, обработка ошибок (catchError, retry)', 'Subjects: Subject / BehaviorSubject / ReplaySubject; hot vs cold', '10 откликов + 2 сообщения'] },
+      { t: 'TypeScript', tasks: ['Generics, utility types (Partial, Pick, Record, ReturnType)', 'Narrowing, discriminated unions, strict mode, unknown vs any', 'Ответить вслух на английском на 5 вопросов по TS', '10 откликов + 2 сообщения'] },
+      { t: 'Тесты: Vitest / Jest', tasks: ['Подключить Vitest (или Jest) в showcase-проект', 'Написать тесты: сервис, компонент, pipe, store', 'Подготовить ответ «How do you test Angular apps?»', '10 откликов'] },
+      { t: 'Архитектура больших приложений', tasks: ['NgRx vs SignalStore vs сервисы с signals: когда что', 'Nx monorepo, границы модулей, shared/feature/data-access', '2 истории про архитектурные решения из твоего опыта (Khan Group, Wisk с нуля)', '10 откликов + 2 сообщения'] },
+      { t: 'JavaScript-основы', tasks: ['Event loop, микро- и макрозадачи, closures, this, prototypes', 'Promises, async/await, Promise.all / allSettled / race', 'Типичные задачи: debounce, throttle, deepClone, flatten', '10 откликов'] },
+      { t: 'Showcase готов', tasks: ['Довести showcase: 3–4 экрана, тесты, адаптив', 'README на английском: цель, стек, архитектура, скриншоты, демо-ссылка', 'Добавить ссылку на проект в CV и LinkedIn (Featured)', '5 откликов'] },
+      { t: 'Ревью недели 2', tasks: ['Конверсия: если ответов < 3% — разобрать с Claude CV и выбор вакансий', 'Mock HR-интервью на английском с Claude (уроки 2–4)', 'Follow-up всем, кто молчит 5–7 дней', 'Отдых'] },
+      { t: 'React: основы', tasks: ['Hooks: useState, useEffect (зависимости, cleanup), useMemo, useCallback, useRef', 'Рендеринг и ре-рендеры, keys, React.memo', 'Redux Toolkit + RTK Query или React Query', '10 откликов на React-трек'] },
+      { t: 'React: практика', tasks: ['Перенести одну фичу showcase на React + TypeScript (или мини-проект на Next.js)', 'Подготовить ответ «Angular vs React: differences, when to choose which»', 'Задеплоить, добавить в GitHub', '10 откликов'] },
+      { t: 'Behavioral (STAR)', tasks: ['5 историй по STAR на английском: сложный баг, дедлайн, конфликт, ownership, ошибка', 'Interview Prep: урок 9', 'Записать каждую историю на 90 секунд, прослушать', '10 откликов'] },
+      { t: 'Live coding', tasks: ['3 задачи easy/medium на JS (массивы, строки, объекты), решать вслух на английском', '2 фронтенд-задачи: компонент со списком, поиском и debounce', 'Interview Prep: урок 10 «Think aloud»', '10 откликов'] },
+      { t: 'Frontend system design', tasks: ['Схема ответа: требования → компоненты → данные и state → API → производительность → тесты', 'Разобрать: dashboard с большой таблицей, autocomplete, real-time чат', 'Производительность: lazy loading, OnPush, virtual scroll, Web Vitals', '10 откликов'] },
+      { t: 'Node.js и SQL: база', tasks: ['Node.js: маленький REST API на Express (GET, POST, валидация)', 'SQL: SELECT, WHERE, JOIN, GROUP BY, индексы (что это)', 'Подготовить честный ответ про уровень backend', '10 откликов'] },
+      { t: 'Ревью недели 3', tasks: ['Mock-техническое интервью на английском с Claude: Angular + RxJS', 'Разобрать все вопросы с реальных интервью', 'Обновить CV по фидбеку', 'Отдых'] },
+      { t: 'Интервью-неделя', tasks: ['Интервью и созвоны по графику', 'После каждого интервью: записать вопросы, в тот же день разобрать с Claude', '5 откликов, чтобы воронка не пустела', 'Thank-you письмо после каждого интервью'] },
+      { t: 'Слабые места по фидбеку', tasks: ['Взять 3 вопроса, где ответ был слабым, и выучить сильный ответ', 'Повторить RxJS + change detection', '5 откликов + follow-up'] },
+      { t: 'Второй круг Angular', tasks: ['Advanced: content projection, dynamic components, custom directives, forms (typed, reactive)', 'Router: guards, resolvers, lazy loading', '5 откликов'] },
+      { t: 'Networking-день', tasks: ['10 сообщений: тимлиды и инженеры в целевых компаниях («Could you refer me?» после короткого знакомства)', 'Комментарии под 5 постами о найме', '5 откликов'] },
+      { t: 'Mock interview #2', tasks: ['Полное интервью на 45 минут с Claude: HR + Tech + вопросы', 'Разбор ошибок в Practice Log', '5 откликов'] },
+      { t: 'Зарплата и условия', tasks: ['Interview Prep: урок 11. Назвать цифру, B2B vs employment, relocation package', 'Посчитать свой минимум и желаемую сумму для каждого формата', 'Подготовить фразы для торга на английском'] },
+      { t: 'Вопросы интервьюеру и закрытие', tasks: ['Interview Prep: урок 12', '5 сильных вопросов: команда, процессы, онбординг, что значит успех через 3 месяца', 'Follow-up по всем активным процессам'] },
+      { t: 'Офферы и вторая волна', tasks: ['Сравнить офферы: деньги, стек, рост, стабильность, английский в команде', 'Если офферов нет: 20 новых откликов, обновить список компаний', 'Решение по стажировке Andersen (если нет технических интервью)'] },
+      { t: 'Ретро 30 дней', tasks: ['Записать заново видео «Tell me about yourself» и сравнить с днём 1', 'Итог воронки: отклики → звонки → интервью → офферы', 'План на следующие 30 дней с Claude'] },
+    ];
+
+    const DONE_KEY = 'euPlanDone';
+    const START_KEY = 'euPlanStart';
+    const done = store.get(DONE_KEY, {});
+    const startInput = document.getElementById('startDate');
+    const fmtDate = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    startInput.value = store.get(START_KEY, fmtDate(new Date()));
+
+    function currentDay() {
+      const [y, m, d] = startInput.value.split('-').map(Number);
+      if (!y) return 1;
+      const start = new Date(y, m - 1, d);
+      const now = new Date();
+      const diff = Math.floor((new Date(now.getFullYear(), now.getMonth(), now.getDate()) - start) / 86400000);
+      return Math.min(Math.max(diff + 1, 1), 30);
+    }
+
+    function renderDays() {
+      const today = currentDay();
+      let html = '';
+      DAYS.forEach((day, i) => {
+        const n = i + 1;
+        if ((n - 1) % 7 === 0 && n <= 22) html += `<div class="week-title">${WEEKS[Math.floor((n - 1) / 7)]}</div>`;
+        const all = day.tasks.every((_, j) => done[n + '-' + j]);
+        html += `<div class="card day ${n === today ? 'today' : ''} ${all ? 'done' : ''}" id="day-${n}">
+          <h3><span class="num">День ${n}</span> ${esc(day.t)} ${n === today ? '<span class="tag">сегодня</span>' : ''}</h3>
+          ${day.tasks.map((t, j) => `<label class="task"><input type="checkbox" data-k="${n}-${j}" ${done[n + '-' + j] ? 'checked' : ''}/> <span>${esc(t)}</span></label>`).join('')}
+        </div>`;
+      });
+      document.getElementById('days').innerHTML = html;
+      document.querySelectorAll('#days input[type=checkbox]').forEach((box) => {
+        box.onchange = () => {
+          if (box.checked) done[box.dataset.k] = true; else delete done[box.dataset.k];
+          store.set(DONE_KEY, done);
+          renderDays();
+        };
+      });
+      const total = DAYS.reduce((s, d) => s + d.tasks.length, 0);
+      const cnt = Object.keys(done).length;
+      document.getElementById('bar').style.width = Math.round((cnt / total) * 100) + '%';
+      document.getElementById('progressText').textContent = `Выполнено задач: ${cnt} из ${total}`;
+      document.getElementById('dayInfo').textContent = `Сегодня — день ${today} из 30`;
+    }
+    startInput.onchange = () => { store.set(START_KEY, startInput.value); renderDays(); };
+    document.getElementById('goToday').onclick = () => {
+      document.querySelector('.tab[data-panel="p-days"]').click();
+      const el = document.getElementById('day-' + currentDay());
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+    renderDays();
+
+    // ---- Отклики ----
+    const STAGES = ['Отклик', 'Написал рекрутеру', 'HR-звонок', 'Тех. интервью', 'Финал', 'Оффер', 'Отказ', 'Нет ответа'];
+    const PIPE_KEY = 'euPlanPipeline';
+    let pipe = store.get(PIPE_KEY, []);
+    const stageSel = document.getElementById('fStage');
+    stageSel.innerHTML = STAGES.map((s) => `<option>${s}</option>`).join('');
+
+    function renderPipe() {
+      const count = (s) => pipe.filter((p) => p.stage === s).length;
+      const atLeast = (s) => pipe.filter((p) => STAGES.indexOf(p.stage) >= STAGES.indexOf(s) && STAGES.indexOf(p.stage) <= STAGES.indexOf('Оффер')).length;
+      document.getElementById('pipeKpi').innerHTML = [
+        ['Всего откликов', pipe.length],
+        ['HR-звонки+', atLeast('HR-звонок')],
+        ['Тех. интервью+', atLeast('Тех. интервью')],
+        ['Офферы', count('Оффер')],
+        ['Отказы', count('Отказ')],
+      ].map(([l, v]) => `<div><b>${v}</b><span>${l}</span></div>`).join('');
+      const rows = pipe.map((p, i) => `<tr>
+        <td>${esc(p.date)}</td>
+        <td><b>${esc(p.company)}</b></td>
+        <td>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.role || 'ссылка')}</a>` : esc(p.role)}</td>
+        <td><select data-i="${i}">${STAGES.map((s) => `<option ${s === p.stage ? 'selected' : ''}>${s}</option>`).join('')}</select></td>
+        <td><button class="del" data-del="${i}" title="Удалить">✕</button></td>
+      </tr>`).join('');
+      document.getElementById('pipeTable').innerHTML =
+        '<tr><th>Дата</th><th>Компания</th><th>Роль</th><th>Статус</th><th></th></tr>' +
+        (rows || '<tr><td colspan="5" class="muted">Пока пусто. Добавь первый отклик выше.</td></tr>');
+      document.querySelectorAll('#pipeTable select').forEach((sel) => {
+        sel.onchange = () => { pipe[sel.dataset.i].stage = sel.value; store.set(PIPE_KEY, pipe); renderPipe(); };
+      });
+      document.querySelectorAll('#pipeTable [data-del]').forEach((b) => {
+        b.onclick = () => { if (confirm('Удалить запись?')) { pipe.splice(+b.dataset.del, 1); store.set(PIPE_KEY, pipe); renderPipe(); } };
+      });
+    }
+    document.getElementById('fAdd').onclick = () => {
+      const company = document.getElementById('fCompany').value.trim();
+      if (!company) return;
+      pipe.unshift({
+        date: fmtDate(new Date()),
+        company,
+        role: document.getElementById('fRole').value.trim(),
+        link: document.getElementById('fLink').value.trim(),
+        stage: stageSel.value,
+      });
+      store.set(PIPE_KEY, pipe);
+      ['fCompany', 'fRole', 'fLink'].forEach((id) => (document.getElementById(id).value = ''));
+      renderPipe();
+    };
+    document.getElementById('exportBtn').onclick = () => {
+      const blob = new Blob([JSON.stringify({ pipe, done, start: startInput.value }, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'eu-job-plan-' + fmtDate(new Date()) + '.json';
+      a.click();
+    };
+    document.getElementById('importFile').onchange = async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        const data = JSON.parse(await file.text());
+        if (Array.isArray(data.pipe)) { pipe = data.pipe; store.set(PIPE_KEY, pipe); }
+        if (data.done) { Object.assign(done, data.done); store.set(DONE_KEY, done); }
+        if (data.start) { startInput.value = data.start; store.set(START_KEY, data.start); }
+        renderPipe();
+        renderDays();
+      } catch (err) {
+        alert('Не удалось прочитать файл');
+      }
+    };
+    renderPipe();
+  </script>
+</body>
+</html>
