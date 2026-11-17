@@ -29,6 +29,17 @@ export const CV_PROFILE: CvProfile = {
   experienceLabel: '5 years',
   jobs: [
     {
+      company: 'NCRM Group',
+      dates: 'Jun 2026 — present',
+      role: 'Frontend Team Lead (Part-time)',
+      context: 'CRM platform · multi-language business users',
+      responsibilities: [
+        'Leading the frontend team of the multi-language Angular CRM platform; owning UI architecture, technical decisions and code reviews.',
+        'Planning sprints, decomposing tasks, mentoring developers and coordinating API contracts with the backend team.',
+        'Driving migration to modern Angular patterns (standalone, signals), performance optimization and release stability.',
+      ],
+    },
+    {
       company: 'Umag',
       dates: 'Aug 2024 — Jun 2026',
       role: 'Frontend Developer',
